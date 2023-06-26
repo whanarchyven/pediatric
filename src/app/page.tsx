@@ -1,113 +1,112 @@
 import Image from 'next/image'
+import MainBlock from "@/blocks/MainBlock";
+import React from "react";
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    return (
+        <main>
+            {/*ПЕРВЫЙ БЛОК*/}
+            <div className="min-h-screen bg-cover relative bg-[url('/main_bg.png')]">
+                <div className={'w-full min-h-screen px-[70px] grid grid-cols-12'}>
+                    <div>
+                    </div>
+                    <div className={'col-span-5 flex flex-col h-full justify-center'}>
+                        <div className={'grid grid-cols-5'}>
+                            <img className={'col-span-3'} src={'/azbuka_logo.svg'}/>
+                        </div>
+                        <div className={'mt-10 grid grid-cols-5'}>
+                            <p className={'text-white font-inter col-span-5'}>Для тех кто столкнулся с атопическим
+                                дерматитом — малышей и их родителей, а также их лечащих докторов
+                                от Pierre Fabre Dermo-Cosmétique</p>
+                        </div>
+                        <div className={'mt-5 grid grid-cols-5'}>
+                            <button className={'col-span-2 bg-white rounded-lg h-12'}>
+                                Подробнее
+                            </button>
+                        </div>
+                    </div>
+                    <div className={'col-span-6 flex flex-col h-full justify-end'}>
+                        <img className={'aspect-square w-full'} src={'/mommy.png'}/>
+                    </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+                </div>
+                <div className={'absolute w-full'} style={{bottom: '-2px'}}>
+                    <img src={'/main_asset_bottom.svg'} alt={'asset_bottom'}></img>
+                </div>
+            </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+            {/*ВТОРОЙ БЛОК*/}
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
+            <div className={'bg-white overflow-y-visible h-[558px] grid grid-cols-12'}>
+                <div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+                </div>
+                <div className={'col-span-4 relative flex flex-col items-center justify-center'}>
+                    <img className={'absolute z-30'} src={'/child.png'}/>
+                </div>
+                <div></div>
+                <div className={'col-span-5 flex items-start justify-center h-full flex-col'}>
+                    <p className={'font-bold my-6 text-4xl text-black uppercase'}>
+                        О проекте
+                    </p>
+                    <p className={'text-xl my-6'}>
+                        В этом проекте, созданном специально для родителей детей–атопиков, мы объединили знания двух
+                        французских брендов — экспертов в атопическом дерматите, которые долгие годы в Европе и в России
+                        сотрудничают с ведущими специалистами — дерматологами, аллергологами и педиатрами, с фондами и
+                        организациями пациентов.
+                    </p>
+                    <a className={'font-bold my-6 text-red text-xl cursor-pointer'}>
+                        Подробнее...
+                    </a>
+                </div>
+            </div>
+
+
+            {/*ТРЕТИЙ БЛОК*/}
+
+            <div className={'h-[779px] green-bg px-[70px] relative grid grid-cols-12'}>
+                <img className={'absolute w-full top-0'} src={'/about_us_offset_top.svg'}/>
+                <div>
+                </div>
+                <div className={'col-span-5 flex flex-col items-center h-full justify-center'}>
+                    <p className={'text-white font-bold text-4xl w-4/5'}>ДОРОГИЕ ПАЦИЕНТЫ <br/> И РОДИТЕЛИ!</p>
+                    <div className={'flex mt-4 w-full'}>
+                        <img className={'mr-3 self-start'} src={'/quotes.svg'}/>
+                        <p className={'text-xl text-white w-4/5'}>Мы создали «Азбуку атопического дерматита» специально для мам детей-атопиков, которые каждый
+                            день мечтают о здоровой коже своего ребенка.
+                            <br/><br/>
+                            Мы постараемся дать вам простые и полезные знания об атопическом дерматите, о том, как
+                            правильно ухаживать за хрупкой кожей и добиться стойкой ремиссии, чистой кожи и качественно
+                            новой жизни для вашего ребенка.</p>
+                        <img className={'ml-0 self-end rotate-180'} src={'/quotes.svg'}/>
+                    </div>
+
+                </div>
+                <div className={'col-span-6 flex flex-col relative justify-center items-center'}>
+                    <img className={'absolute bottom-0 w-full'} src={'/about_us_footage.svg'}/>
+                    <div className={'shadow-lg bg-white absolute left-20 bottom-64 w-56 rounded-lg p-3'}>
+                        Иммунолог-аллерголог, доктор медицинских наук, профессор.
+                    </div>
+                    <img className={'absolute bottom-0 w-4/5'} src={'/doctor.png'}/>
+                    <div className={'shadow-lg bg-white absolute left-48 top-64 flex items-center justify-center w-20 h-20 rounded-full p-3'}>
+                        <img className={''} src={'/help.svg'}/>
+                    </div>
+                    <div className={'shadow-lg rounded-xl bg-white absolute right-0 bottom-72 flex items-center justify-center p-3'}>
+                        <div className={'w-14 h-14 relative flex items-center justify-center bg-red rounded-full'}>
+                            <img className={''} src={'/stetoscope.svg'}/>
+                        </div>
+                        <p className={'font-bold ml-3 leading-[110%]'}>Андрей <br/>
+                            Петрович <br/>
+                            Продеус</p>
+                    </div>
+                    <div className={'shadow-lg bg-white absolute right-20 bottom-32 flex items-center justify-center w-20 h-20 rounded-full p-3'}>
+                        <img className={''} src={'/heart.svg'}/>
+                    </div>
+                </div>
+                <img className={'absolute w-full bottom-0'} src={'/about_us_offset_bot.svg'}/>
+            </div>
+
+        </main>
+    )
 }
