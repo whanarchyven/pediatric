@@ -42,7 +42,7 @@ const Navbar = () => {
     })
 
     return (
-        <div className={classList('px-[70px] fixed z-50  top-0 left-0 py-[35px] w-full grid grid-cols-12 transition-all duration-300',scrolled>120?'bg-green':'bg-transparent')}>
+        <div className={classList('px-[70px] fixed z-50  top-0 left-0 py-[35px] w-full grid grid-cols-12 transition-all duration-300',scrolled>120?'bg-green bg-opacity-80 backdrop-blur-sm':'bg-transparent')}>
             <div className={'col-span-2 relative h-12'}>
                 <Image src={'/logo.svg'} alt={'logo'} layout={'fill'}></Image>
             </div>
@@ -53,14 +53,14 @@ const Navbar = () => {
             </div>
             <div className={'col-span-2 flex items-center justify-end'}>
                 <div className={'flex items-center'}>
-                    <div className={'w-5 mx-2 rounded-full bg-white aspect-square relative'}>
+                    <img src={'/telegram.svg'} className={'w-5 mx-2 rounded-full aspect-square relative'}>
 
-                    </div>
+                    </img>
                 </div>
                 <div className={'flex items-center'}>
-                    <div className={'w-5 mx-2 rounded-full bg-white aspect-square relative'}>
+                    <img src={'/vk.svg'} className={'w-5 mx-2 rounded-full aspect-square relative'}>
 
-                    </div>
+                    </img>
                 </div>
                 <div className={'flex items-center'}>
                     <div className={'w-5 mx-2 aspect-square relative'}>

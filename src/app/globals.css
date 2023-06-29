@@ -9,4 +9,7 @@ body{
     .green-bg{
     background: linear-gradient(124deg, #00524D 0%, rgba(106, 188, 165, 0.85) 46%, rgba(106, 188, 165, 0) 100%);
     }
+    .resources-bg{
+        background: linear-gradient(130deg, #00524D 8.47%, #6ABCA5 56.78%, #6ABCA5 100%);
+    }
 }
