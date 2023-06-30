@@ -6,6 +6,7 @@ import Slider from "@/components/Slider";
 import VideoPlayer from "@/components/VideoPlayer";
 import Reviews from "@/components/Reviews";
 import {motion} from "framer-motion";
+import {useRouter} from "next/navigation";
 
 export default function Home() {
 
@@ -65,6 +66,8 @@ export default function Home() {
             setPosY(event.clientY/30*-1)
         }))
     })
+
+    const router=useRouter()
 
     return (
         <main>
@@ -198,7 +201,7 @@ export default function Home() {
                 </div>
                 <div className={'col-span-6 flex flex-col relative justify-center items-center'}>
                     <img className={'absolute bottom-0 w-full'} src={'/about_us_footage.svg'}/>
-                    <motion.div className={'shadow-lg bg-white absolute left-20 bottom-64 w-56 rounded-lg p-3'}
+                    <motion.div className={'shadow-lg bg-white absolute left-0 bottom-64 w-56 rounded-lg p-3'}
                                 animate={{x:posX,y:posY}}
                                 transition={{ type: 'spring' , delay:0, duration:0.3, stiffness:10, ease:'linear', damping:10}}>
                         Иммунолог-аллерголог, доктор медицинских наук, профессор.
@@ -211,7 +214,7 @@ export default function Home() {
                     <motion.div
                         animate={{x:-posX,y:-posY}}
                         transition={{ type: 'spring' , delay:0, duration:0.3, stiffness:80, ease:'linear', damping:70}}
-                        className={'shadow-lg bg-white absolute left-48 top-64 flex items-center justify-center w-20 h-20 rounded-full p-3'}>
+                        className={'shadow-lg bg-white absolute left-20 top-64 flex items-center justify-center w-20 h-20 rounded-full p-3'}>
                         <img className={''} src={'/help.svg'}/>
                     </motion.div>
                     <motion.div
@@ -374,9 +377,9 @@ export default function Home() {
                             className={'shadow-lg bg-white absolute right-10 bottom-60 flex items-center justify-center w-20 h-20 rounded-full p-3'}>
                             <img className={''} src={'/products/red/heart.svg'}/>
                         </motion.div>
-                        <div className={'flex items-center justify-center rounded-xl text-white font-normal px-10 text-xl p-3 absolute -bottom-14 bg-red'}>
+                        <a href={'/catalog'} className={'cursor-pointer absolute z-[29] flex items-center justify-center rounded-xl text-white font-normal px-10 text-xl p-3 absolute -bottom-14 bg-red'}>
                             Подробнее
-                        </div>
+                        </a>
                     </div>
                     <div className={'flex flex-col items-center justify-center relative'}>
                         <motion.img className={''} src={'/products/green/offset.svg'}
@@ -411,16 +414,16 @@ export default function Home() {
                             className={'shadow-lg bg-white absolute right-10 bottom-60 flex items-center justify-center w-20 h-20 rounded-full p-3'}>
                             <img className={''} src={'/products/green/help.svg'}/>
                         </motion.div>
-                        <div className={'flex items-center justify-center rounded-xl text-white font-normal px-10 text-xl p-3 absolute -bottom-20 bg-green'}>
+                        <a href={'/catalog'} className={'cursor-pointer absolute z-[29] flex items-center justify-center rounded-xl text-white font-normal px-10 text-xl p-3 absolute -bottom-20 bg-green'}>
                             Подробнее
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
 
             {/*ДЕВЯТЫЙ БЛОК*/}
 
-            <div className={'w-full relative px-[140px] resources-bg grid items-center gap-10 grid-cols-5 h-[750px]'}>
+            <div className={'w-full relative px-[140px] resources-bg grid items-center gap-10 grid-cols-5 py-20 overflow-visible'}>
                 <img className={'absolute w-full left-0 top-0'} src={'/resources_offset.svg'}/>
                 <div className={'col-span-3 flex flex-col items-start justify-center'}>
                     <motion.p className={'text-4xl uppercase font-bold text-white'}
@@ -454,31 +457,10 @@ export default function Home() {
                             whileInView={{scale:1,opacity:1}}
                             viewport={{once:true}}
                             transition={{ease:'easeInOut',duration:0.7,delay:0.8}}>
-                    <img className={'w-5/6'} src={'/qr.png'}/>
+                    <img className={'absolute z-50 h-full'} src={'/doctor2.png'}/>
                 </motion.div>
             </div>
-            {/*ФУТЕР*/}
-            <div className={'bg-[#333333] grid gap-12 grid-cols-12 py-20 px-[70px] items-center'}>
-                <div className={'col-span-3 relative h-12'}>
-                    <Image src={'/logo.svg'} alt={'logo'} layout={'fill'}></Image>
-                </div>
-                <div className={'col-span-2 text-white font-extralight flex items-start'}>
-                    Политика в отношении
-                    обработки персональных
-                    данных
-                </div>
-                <div className={'col-span-2 text-white font-extralight flex flex-col h-full justify-between'}>
-                    <p className={'font-extralight'}>Мамы советуют</p>
-                    <p className={'font-extralight'}>Полезные ресурсы</p>
-                </div>
-                <div className={'col-span-2 text-white font-extralight flex flex-col h-full justify-between'}>
-                    <p className={'font-extralight'}>О проекте</p>
-                    <p className={'font-extralight'}>Видео уроки</p>
-                </div>
-                <div  className={'col-span-3 text-white rounded-full cursor-pointer p-4 h-full flex items-center justify-center bg-red'}>
-                    Программы ухода за кожей
-                </div>
-            </div>
+
         </main>
     )
 }

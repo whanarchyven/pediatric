@@ -12,4 +12,16 @@ body{
     .resources-bg{
         background: linear-gradient(130deg, #00524D 8.47%, #6ABCA5 56.78%, #6ABCA5 100%);
     }
+
+    .red-bg{
+        background: linear-gradient(180deg, #FFD2C9 0%, #F0927F 100%);
+    }
+
+    .blue-bg{
+        background: linear-gradient(180deg, #CBDAFF 0%, #6A83C1 100%);
+    }
+
+    .gren-bg{
+        background: linear-gradient(180deg, #BAFFEC 0%, #6ABCA5 100%);
+    }
 }

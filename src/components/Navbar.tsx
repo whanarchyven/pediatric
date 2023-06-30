@@ -3,33 +3,39 @@
 import React, {useEffect, useState} from 'react';
 import Image from "next/image";
 import {classList} from "@/helpers/classList";
+import {useRouter} from "next/navigation";
 
-const Navbar = () => {
+interface navbarInterface {
+    isInteractive:boolean
+}
 
+const Navbar = ({isInteravtive}:navbarInterface) => {
+
+    const router=useRouter()
     const links=[
         {
             title:'Об обществе',
-            link:'',
+            link:'/',
         },
         {
             title:'Публикации',
-            link:'',
+            link:'/',
         },
         {
             title:'Мероприятия',
-            link:'',
+            link:'/',
         },
         {
             title:'Новости',
-            link:'',
+            link:'/',
         },
         {
             title:'Контакты',
-            link:'',
+            link:'/',
         },
         {
             title:'Азбука атопии',
-            link:'',
+            link:'/',
         },
     ]
 
@@ -42,10 +48,10 @@ const Navbar = () => {
     })
 
     return (
-        <div className={classList('px-[70px] fixed z-50  top-0 left-0 py-[35px] w-full grid grid-cols-12 transition-all duration-300',scrolled>120?'bg-green bg-opacity-80 backdrop-blur-sm':'bg-transparent')}>
-            <div className={'col-span-2 relative h-12'}>
+        <div className={classList('px-[70px] fixed z-[999]  top-0 left-0 py-[35px] w-full grid grid-cols-12 transition-all duration-300',scrolled>120||!isInteravtive?'bg-green bg-opacity-80 backdrop-blur-sm':'bg-transparent')}>
+            <a href={'/'} className={'col-span-2 relative h-12'}>
                 <Image src={'/logo.svg'} alt={'logo'} layout={'fill'}></Image>
-            </div>
+            </a>
             <div className={'col-span-8 flex items-center justify-around'}>
                 {links.map((link)=>{
                     return (<a key={link.title} className={'font-inter font-normal text-white'} href={link.link}>{link.title}</a>)
