@@ -344,7 +344,7 @@ export default function Home() {
             <div className={'fixed flex w-4 justify-center flex-col items-center left-5 top-40 z-20 gap-4'}>
                 {tovars.map((item,counter)=>{
                     return (
-                        <a className={classList(currentDot==counter?'w-4 opacity-100':'opacity-50 w-3 cursor-pointer','duration-300 transition-all aspect-square rounded-full',item.theme=='red'?'bg-red':'',item.theme=='blue'?'bg-blue':'',item.theme=='green'?'bg-green':'',)} onClick={()=>{window.scrollTo(0,dots[counter].offset-window.innerHeight/5);setCurrentDot(counter==0?0:counter-1)}}>
+                        <a key={counter} className={classList(currentDot==counter?'w-4 opacity-100':'opacity-50 w-3 cursor-pointer','duration-300 transition-all aspect-square rounded-full',item.theme=='red'?'bg-red':'',item.theme=='blue'?'bg-blue':'',item.theme=='green'?'bg-green':'',)} onClick={()=>{window.scrollTo(0,dots[counter].offset-window.innerHeight/5);setCurrentDot(counter==0?0:counter-1)}}>
 
                         </a>
                     )
@@ -352,7 +352,11 @@ export default function Home() {
             </div>
             {tovars.map((tovar,counter)=>{
                 return(
-                    <motion.div id={`tovar${counter}`} className="flex justify-center w-full items-center  overflow-hidden relative bg-white">
+                    <motion.div key={`tovar${counter}`} id={`tovar${counter}`} className="flex justify-center w-full items-center  overflow-hidden relative bg-white"
+                                initial={{y:-20,opacity:0}}
+                                whileInView={{y:0,opacity:1}}
+                                viewport={{once:true}}
+                                transition={{ease:'easeInOut',duration:0.7}}>
                         <CatalogItem callback={getDotsCoord} tovar={tovar}></CatalogItem>
                     </motion.div>
                 )
