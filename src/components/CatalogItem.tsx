@@ -12,11 +12,11 @@ interface catalogItem {
         subdescription:string,
         updescription:string,
         link:string,
-        theme:'reg'|'green'|'blue'
-    }
+        theme:'red'|'green'|'blue'
+    },callback:()=>any
 }
 
-const CatalogItem = ({tovar}:catalogItem) => {
+const CatalogItem = ({tovar, callback}:catalogItem) => {
 
     const [showInfo,setShowInfo]=useState(false)
 
@@ -64,7 +64,7 @@ const CatalogItem = ({tovar}:catalogItem) => {
                     </div>
                     :null}
 
-                <p className={'cursor-pointer text-red font-bold'} onClick={()=>{setShowInfo(!showInfo)}}>{showInfo?'Скрыть':'Подробнее ...'}</p>
+                <p className={'cursor-pointer text-red font-bold'} onClick={()=>{setShowInfo(!showInfo);setTimeout(()=>{callback()},100)}}>{showInfo?'Скрыть':'Подробнее ...'}</p>
                 <a target={'_blank'} href={`${tovar.link}?utm_source=pediatric`} className={'flex w-48 text-white items-center justify-center bg-red rounded-xl p-3'}>
                     Купить
                 </a>

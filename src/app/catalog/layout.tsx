@@ -1,31 +1,11 @@
-import './../globals.css'
-import {Inter} from 'next/font/google'
-import Image from "next/image";
-import Navbar from "@/components/Navbar";
-import React from "react";
 
-const inter = Inter({subsets: ['latin']})
+import React from 'react'
 
-export const metadata = {
-    title: 'Азбука атропического дерматита',
-    description: 'наметки лендоса',
-}
+import '@/app/globals.css'
 
-export default function RootLayout({
-                                       children,
-                                   }: {
-    children: React.ReactNode
-}) {
-
+export default function Layout({ children }) {
     return (
-        <html lang="en">
-        <body className={inter.className}>
-        <Navbar isInteractive={false}></Navbar>
         <div>
             {children}
-        </div>
-        {/*ФУТЕР*/}
-        </body>
-        </html>
-    )
+        </div>)
 }

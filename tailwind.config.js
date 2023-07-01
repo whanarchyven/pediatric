@@ -17,7 +17,8 @@ module.exports = {
       },
       colors:{
         'red':'#F98577',
-        'green':'#6ABCA5'
+        'green':'#6ABCA5',
+        'blue':'#6A83C1'
       }
     },
   },
