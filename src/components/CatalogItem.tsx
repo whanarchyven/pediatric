@@ -32,7 +32,7 @@ const CatalogItem = ({tovar, callback}:catalogItem) => {
                 <div className={'flex justify-between'}>
                     <div>
                         <p className={'font-extrabold text-xl sm:text-3xl'}>{tovar.title}</p>
-                        <p className={'font-extrabold sm:text-xl text-xs text-red'}>{tovar.subtitle}</p>
+                        <p className={'font-extrabold sm:text-xl w-2/3 sm:w-auto text-xs text-red'}>{tovar.subtitle}</p>
                     </div>
                     <div className={'sm:w-32 sm:h-12 w-16 h-8 rounded-full text-xs bg-red text-white flex items-center justify-center'}>
                         {tovar.volume} мл
