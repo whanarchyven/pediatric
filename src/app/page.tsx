@@ -152,7 +152,7 @@ export default function Home() {
                                     whileInView={{y:0,opacity:1}}
                                     viewport={{once:true}}
                                     transition={{ease:'easeInOut',duration:0.7,delay:0.6}}>
-                            <button className={'sm:col-span-2 sm:w-full w-32 bg-white rounded-lg h-12'}>
+                            <button className={'sm:col-span-2 w-full sm:w-32 bg-white rounded-lg h-12'}>
                                 Подробнее
                             </button>
                         </motion.div>
