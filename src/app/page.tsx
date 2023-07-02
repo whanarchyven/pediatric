@@ -251,7 +251,7 @@ export default function Home() {
                 </div>
                 <div className={'col-span-6 flex flex-col relative justify-center items-center'}>
                     <img className={'absolute bottom-0 w-full'} src={'/about_us_footage.svg'}/>
-                    <motion.div className={'shadow-lg bg-white absolute sm:text-lg text-xs -top-12 sm:text-left text-center sm:left-0 sm:top-auto sm:bottom-64 sm:w-56 rounded-lg p-3'}
+                    <motion.div className={'shadow-lg bg-white absolute sm:text-lg text-xs bottom-5 z-[20] sm:text-left text-center sm:left-0 sm:top-auto sm:bottom-64 sm:w-56 rounded-lg p-3'}
                                 animate={{x:posX,y:posY}}
                                 transition={{ type: 'spring' , delay:0, duration:0.3, stiffness:10, ease:'linear', damping:10}}>
                         Иммунолог-аллерголог, доктор медицинских наук, профессор.
@@ -270,13 +270,11 @@ export default function Home() {
                     <motion.div
                         animate={{x:posX,y:posY}}
                         transition={{ type: 'spring' , delay:0, duration:0.3, stiffness:10, ease:'linear', damping:10,restDelta: 0.001}}
-                        className={'shadow-lg rounded-xl bg-white absolute sm:right-0 right-0 top-16 sm:top-auto sm:bottom-72 flex items-center justify-center p-1 sm:p-3'}>
+                        className={'shadow-lg rounded-xl bg-white absolute sm:-right-0 -right-2 top-16 sm:top-auto sm:bottom-72 flex items-center justify-center p-1 sm:p-3'}>
                         <div className={'sm:w-14 w-8 h-8 sm:h-14 relative flex items-center justify-center p-2 bg-red rounded-full'}>
                             <img className={''} src={'/stetoscope.svg'}/>
                         </div>
-                        <p className={'font-bold ml-3 sm:text-sm text-xs leading-[110%]'}>Андрей <br/>
-                            Петрович <br/>
-                            Продеус</p>
+                        <p className={'font-bold ml-3 sm:text-sm text-xs leading-[110%]'}>Мурашкин<br/>Николай<br/>Николаевич</p>
                     </motion.div>
                     <motion.div
                         animate={{x:-posX*1.5,y:-posY*1.5}}
@@ -374,6 +372,9 @@ export default function Home() {
                             transition={{ease:'easeInOut',duration:1}}>
                     <Reviews/>
                 </motion.div>
+                <div className={'bg-red duration-300 transition-all cursor-pointer mt-2 w-full sm:w-1/5 border-red border-2 sm:p-4 p-1 sm:text-xs text-sm text-white flex items-center rounded-lg font-bold justify-center'}>
+                    Оставить отзыв
+                </div>
                 <img className={'absolute w-full left-0 bottom-0'} src={'/reviews_offset_bottom.svg'}/>
             </div>
 

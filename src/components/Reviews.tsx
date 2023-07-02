@@ -89,6 +89,7 @@ export default function Reviews() {
                 onClick={handleNext}>
                 <img className={'w-full aspect-square'} src={'/arrow_next.svg'}/>
             </div>
+
         </div>
     );
 }
