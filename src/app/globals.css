@@ -25,3 +25,12 @@ body{
         background: linear-gradient(180deg, #BAFFEC 0%, #6ABCA5 100%);
     }
 }
+
+.swiper-pagination-bullet-active {
+    background-color: #6ABCA5 !important;
+}
+/*--swiper-pagination-top:50px;*/
+
+.videoSwiper{
+    padding-bottom: 3rem !important;
+}

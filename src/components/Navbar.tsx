@@ -47,17 +47,19 @@ const Navbar = ({isInteravtive}:navbarInterface) => {
         });
     })
 
+    const [burgerOpen,setBurgerOpen]=useState(false)
+
     return (
-        <div className={classList('px-[70px] fixed z-[999]  top-0 left-0 py-[35px] w-full grid grid-cols-12 transition-all duration-300',scrolled>120||!isInteravtive?'bg-green bg-opacity-80 backdrop-blur-sm':'bg-transparent')}>
+        <div className={classList('sm:px-[70px] px-[20px] fixed z-[999]  top-0 left-0 py-1 sm:py-[35px] w-full grid sm:grid-cols-12 grid-cols-6 items-center transition-all duration-300',scrolled>120||window.location.pathname=='/catalog/'?'bg-green bg-opacity-80 backdrop-blur-sm':'bg-green sm:bg-transparent')}>
             <a href={'/'} className={'col-span-2 relative h-12'}>
                 <Image src={'/logo.svg'} alt={'logo'} layout={'fill'}></Image>
             </a>
-            <div className={'col-span-8 flex items-center justify-around'}>
+            <div className={'col-span-8 hidden sm:flex items-center justify-around'}>
                 {links.map((link)=>{
                     return (<a key={link.title} className={'font-inter font-normal text-white'} href={link.link}>{link.title}</a>)
                 })}
             </div>
-            <div className={'col-span-2 flex items-center justify-end'}>
+            <div className={'col-span-2 hidden sm:flex items-center justify-end'}>
                 <div className={'flex items-center'}>
                     <img src={'/telegram.svg'} className={'w-5 mx-2 rounded-full aspect-square relative'}>
 
@@ -75,6 +77,14 @@ const Navbar = ({isInteravtive}:navbarInterface) => {
                     <p className={'text-white font-inter font-normal'}>Профиль</p>
                 </div>
             </div>
+            <div className={'sm:hidden col-span-1 flex justify-end items-center col-end-7'}>
+                <img className={'aspect-square w-5'} src={burgerOpen?'/close.svg':'/burger.svg'} onClick={()=>{setBurgerOpen(!burgerOpen)}}/>
+            </div>
+            {burgerOpen?<div className={'h-screen pt-10 flex flex-col col-span-6 gap-6'}>
+                {links.map((link)=>{
+                    return (<a key={link.title} className={'font-inter font-normal text-white'} href={link.link}>{link.title}</a>)
+                })}
+            </div>:null}
         </div>
     );
 };

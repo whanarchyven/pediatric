@@ -339,12 +339,12 @@ export default function Home() {
     },)
 
     return (
-        <main className={'py-48 flex flex-col gap-24'}>
+        <main className={'py-20 sm:py-48 flex flex-col gap-24'}>
             {/*ПЕРВЫЙ БЛОК*/}
-            <div className={'fixed flex w-4 justify-center flex-col items-center left-5 top-40 z-20 gap-4'}>
+            <div className={'fixed flex w-4 justify-center flex-col items-center left-0 sm:left-5 top-40 z-20 gap-4'}>
                 {tovars.map((item,counter)=>{
                     return (
-                        <a key={counter} className={classList(currentDot==counter?'w-4 opacity-100':'opacity-50 w-3 cursor-pointer','duration-300 transition-all aspect-square rounded-full',item.theme=='red'?'bg-red':'',item.theme=='blue'?'bg-blue':'',item.theme=='green'?'bg-green':'',)} onClick={()=>{window.scrollTo(0,dots[counter].offset-window.innerHeight/5);setCurrentDot(counter==0?0:counter-1)}}>
+                        <a key={counter} className={classList(currentDot==counter?'w-2 sm:w-4 opacity-100':'opacity-50 w-1 sm:w-3 cursor-pointer','duration-300 transition-all aspect-square rounded-full',item.theme=='red'?'bg-red':'',item.theme=='blue'?'bg-blue':'',item.theme=='green'?'bg-green':'',)} onClick={()=>{window.scrollTo(0,dots[counter].offset-window.innerHeight/5);setCurrentDot(counter==0?0:counter-1)}}>
 
                         </a>
                     )

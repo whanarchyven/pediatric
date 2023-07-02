@@ -26,12 +26,29 @@ export default function Slider() {
     }, []);
     return (
         <div className={'flex items-center'}>
-            <div className={'cursor-pointer mr-2 flex items-center p-3 justify-center w-20 aspect-square rounded-full bg-[#E4F0EE] hover:bg-[#BCDBD5] transition-all duration-300'} onClick={handlePrev}>
+            <div
+                className={'cursor-pointer mr-2 hidden sm:flex items-center p-3 justify-center w-20 aspect-square rounded-full bg-[#E4F0EE] hover:bg-[#BCDBD5] transition-all duration-300'}
+                onClick={handlePrev}>
                 <img className={'w-full aspect-square'} src={'/arrow_prev.svg'}/>
             </div>
             <Swiper ref={sliderRef}
-                slidesPerView={3}
-                spaceBetween={70}
+
+                    loop={true}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    navigation={true}
+                    modules={[Pagination, Navigation]}
+                    breakpoints={{
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 10
+                        },
+                        640:{
+                            slidesPerView:3,
+                            spaceBetween:70
+                        }
+                    }}
                 // navigation={{
                 //     prevEl: navigationPrevRef.current,
                 //     nextEl: navigationNextRef.current,
@@ -40,9 +57,7 @@ export default function Slider() {
                 //     swiper.params.navigation.prevEl = navigationPrevRef.current;
                 //     swiper.params.navigation.nextEl = navigationNextRef.current;
                 // }}
-
-                modules={[ Navigation]}
-                className="mySwiper"
+                    className="videoSwiper"
             >
                 <SwiperSlide><Post title={'Роль эмолентов в лечении атопического дерматита'} image={'1'}
                                    caption={'Что такое эмоленты и их применение в базовом уходе за кожей малыша с атопическим дерматитом...'}/></SwiperSlide>
@@ -57,7 +72,9 @@ export default function Slider() {
                 <SwiperSlide><Post title={'Азбука атопика'} image={'3'}
                                    caption={'Атопический дерматит — хроническое воспалительное поражение кожи, протекающее с периодами обострений и ремиссий. Впервые чаще всего...'}/></SwiperSlide>
             </Swiper>
-            <div className={'cursor-pointer ml-2 flex items-center p-3 justify-center w-20 aspect-square rounded-full bg-[#E4F0EE] hover:bg-[#BCDBD5] transition-all duration-300'} onClick={handleNext}>
+            <div
+                className={'cursor-pointer ml-2 hidden sm:flex items-center p-3 justify-center w-20 aspect-square rounded-full bg-[#E4F0EE] hover:bg-[#BCDBD5] transition-all duration-300'}
+                onClick={handleNext}>
                 <img className={'w-full aspect-square'} src={'/arrow_next.svg'}/>
             </div>
         </div>
