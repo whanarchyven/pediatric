@@ -97,13 +97,14 @@ export default function Slider() {
                 // }}
                     className="videoSwiper"
             >
-                {posts.map((item)=>{
+                {posts.map((item,counter)=>{
                     return (
-                        <SwiperSlide><Post title={item.title} image={item.image}
-                                           caption={item.caption} callback={()=>{
-                                               setCurrentPost(item);
-                                               setIsPopVisible(true)
-                        }}/></SwiperSlide>
+                        <div key={counter}>
+                            <SwiperSlide><Post title={item.title} image={item.image}
+                                               caption={item.caption} callback={()=>{
+                                setCurrentPost(item);
+                                setIsPopVisible(true)
+                            }}/></SwiperSlide></div>
                     )
                 })}
             </Swiper>
