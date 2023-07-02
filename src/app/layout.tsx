@@ -7,7 +7,7 @@ import React from "react";
 const inter = Inter({subsets: ['latin']})
 
 export const metadata = {
-    title: 'Азбука атропического дерматита',
+    title: 'Азбука атопического дерматита',
     description: 'наметки лендоса',
 }
 
