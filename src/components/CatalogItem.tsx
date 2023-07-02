@@ -21,7 +21,7 @@ const CatalogItem = ({tovar, callback}:catalogItem) => {
     const [showInfo,setShowInfo]=useState(false)
 
     return (
-        <div className={'sm:grid flex flex-col items-center sm:grid-cols-6 gap-x-16 w-full px-[20px] sm:px-[70px] items-start'}>
+        <div className={'sm:grid flex flex-col items-center sm:grid-cols-6 gap-x-16 w-full px-[20px] sm:px-[70px] sm:items-start'}>
             <div className={'sm:col-span-2 flex w-3/4 items-center justify-center aspect-square relative'}>
                 <img className={'w-full aspect-square absolute z-10 scale-150'} src={tovar.image}/>
                 <div className={classList('w-3/4 aspect-square rounded-full absolute',tovar.theme=='red'?'red-bg':'',tovar.theme=='blue'?'blue-bg':'',tovar.theme=='green'?'gren-bg':'')}>
