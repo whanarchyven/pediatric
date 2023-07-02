@@ -174,7 +174,8 @@ export default function Home() {
 
             {/*ВТОРОЙ БЛОК*/}
 
-            <div className={'bg-white overflow-y-visible px-[20px] sm:h-[558px] grid grid-cols-1 sm:grid-cols-12'}>
+            <div className={'bg-white overflow-y-visible px-[20px] sm:h-[558px] grid grid-cols-1 sm:grid-cols-12 relative'}>
+                <a id={'about'} className={'-top-32 absolute'}></a>
                 <div className={'sm:col-span-4 sm:col-start-2 sm:row-start-1 row-start-2 relative flex flex-col items-center justify-center'}>
                     <motion.img className={'sm:absolute z-30'} src={'/child.png'}
                                 initial={{scale:0.7,opacity:0}}
@@ -290,7 +291,8 @@ export default function Home() {
 
 
             {/*ЧЕТВЁРТЫЙ БЛОК*/}
-            <div className={'bg-white flex flex-col py-20 px-[20px] sm:px-[70px] items-center justify-center'}>
+            <div className={'bg-white flex flex-col py-20 px-[20px] sm:px-[70px] relative items-center justify-center'}>
+                <a id={'posts'} className={'-top-32 absolute'}></a>
                 <motion.p className={'font-bold sm:text-left text-center text-xl sm:text-4xl text-black uppercase'}
                           initial={{y:-40,opacity:0}}
                           whileInView={{y:0,opacity:1}}
@@ -306,7 +308,8 @@ export default function Home() {
 
             {/*ПЯТЫЙ БЛОК*/}
 
-            <div className={'bg-white flex flex-col py-3 sm:py-20 px-[20px] sm:px-[70px] items-center justify-center'}>
+            <div className={'bg-white flex flex-col py-3 sm:py-1 px-[20px] sm:px-[70px] relative items-center justify-center'}>
+                <a id={'videolessons'} className={'-top-32 absolute'}></a>
                 <div className={'w-full flex sm:px-[4.5rem] items-center justify-between'}>
                     <motion.p className={'font-bold sm:block hidden text-xs sm:text-4xl sm:mb-2 sm:mb-6 text-black uppercase'}
                               initial={{x:-40,opacity:0}}
@@ -333,7 +336,7 @@ export default function Home() {
 
             {/*ШЕСТОЙ БЛОК*/}
 
-            <div className={'bg-white flex flex-col px-[20px] sm:py-20 sm:px-[70px] items-center justify-center'}>
+            <div className={'bg-white flex flex-col px-[20px] sm:py-1 sm:px-[70px] items-center justify-center'}>
                 <div className={'w-full flex sm:px-[4.5rem] items-center justify-between'}>
                     <motion.div className={'bg-red sm:w-auto w-full rounded-xl p-4 flex items-center justify-center'}
                                 initial={{x:-40,opacity:0}}
@@ -356,7 +359,8 @@ export default function Home() {
             {/*СЕДБМОЙ БЛОК*/}
 
             <div
-                className={'w-full relative px-[20px] sm:px-[70px] bg-[url("/bg_reviews.jpg")] flex items-center justify-center flex-col h-[867px]'}>
+                className={'w-full relative px-[20px] sm:px-[70px] bg-[url("/bg_reviews.jpg")] flex items-center justify-center flex-col h-[867px] relative'}>
+                <a id={'reviews'} className={'-top-32 absolute'}></a>
                 <img className={'absolute w-full left-0 top-0'} src={'/reviews_offset.svg'}/>
                 <motion.p className={'text-white text-3xl sm:text-5xl font-bold uppercase'}
                           initial={{scale:0.7,opacity:0}}
@@ -427,7 +431,7 @@ export default function Home() {
                             <img className={''} src={'/products/red/heart.svg'}/>
                         </motion.div>
                         <a href={'/catalog'} className={'cursor-pointer absolute z-[29] flex items-center justify-center rounded-xl text-white font-normal px-10 text-xl p-3 absolute -bottom-14 bg-red'}>
-                            Подробнее
+                            Магазин
                         </a>
                     </div>
                     <div className={'flex flex-col items-center justify-center relative'}>
@@ -464,7 +468,7 @@ export default function Home() {
                             <img className={''} src={'/products/green/help.svg'}/>
                         </motion.div>
                         <a href={'/catalog'} className={'cursor-pointer absolute z-[29] flex items-center justify-center rounded-xl text-white font-normal px-10 text-xl p-3 absolute -bottom-20 bg-green'}>
-                            Подробнее
+                            Магазин
                         </a>
                     </div>
                 </div>
@@ -473,6 +477,7 @@ export default function Home() {
             {/*ДЕВЯТЫЙ БЛОК*/}
 
             <div className={'w-full relative px-[20px] sm:px-[140px] resources-bg sm:grid items-center gap-10 sm:grid-cols-5 pt-20 sm:py-20 overflow-visible'}>
+                <a id={'resources'} className={'-top-32 absolute'}></a>
                 <img className={'absolute w-full left-0 top-0'} src={'/resources_offset.svg'}/>
                 <div className={'col-span-3 flex flex-col items-center sm:items-start justify-center'}>
                     <motion.p className={'text-xl text-center sm:text-4xl uppercase font-bold text-white'}

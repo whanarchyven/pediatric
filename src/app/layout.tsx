@@ -34,12 +34,12 @@ export default function RootLayout({
                 данных
             </div>
             <div className={'sm:col-span-2 text-white font-extralight flex flex-col h-full justify-between'}>
-                <p className={'font-extralight sm:text-left text-center'}>Мамы советуют</p>
-                <p className={'font-extralight sm:text-left text-center'}>Полезные ресурсы</p>
+                <a href={'/#reviews'} className={'font-extralight sm:text-left text-center'}>Отзывы</a>
+                <a href={'/#resources'} className={'font-extralight sm:text-left text-center'}>Полезные ресурсы</a>
             </div>
             <div className={'sm:col-span-2 text-white font-extralight flex flex-col h-full justify-between'}>
-                <p className={'font-extralight sm:text-left text-center'}>О проекте</p>
-                <p className={'font-extralight sm:text-left text-center'}>Видео уроки</p>
+                <a href={'/#about'} className={'font-extralight sm:text-left text-center'}>О проекте</a>
+                <a href={'/#videolessons'} className={'font-extralight sm:text-left text-center'}>Видео уроки</a>
             </div>
             {/*<div*/}
             {/*    className={'col-span-3 text-white rounded-full cursor-pointer p-4 h-full flex items-center justify-center bg-red'}>*/}

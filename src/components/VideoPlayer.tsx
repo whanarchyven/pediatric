@@ -69,13 +69,13 @@ export default function VideoPlayer({theme, lessons}: videoPlayerInterface) {
                         return (
                             <SwiperSlide key={counter}>
                                 <div
-                                    className={classList(theme == 'red' ? 'bg-red' : 'bg-green', 'text-white transition-all duration-300 sm:h-60 rounded-xl p-2 sm:px-4 sm:py-10', counter == currentVideo ? 'bg-opacity-100' : 'bg-opacity-50 cursor-pointer')}
+                                    className={classList(theme == 'red' ? 'bg-red' : 'bg-green', 'text-white transition-all duration-300 h-32 sm:h-60 rounded-xl p-2 sm:px-4 sm:py-10', counter == currentVideo ? 'bg-opacity-100' : 'bg-opacity-50 cursor-pointer')}
                                     onClick={() => {
                                         setCurrentVideo(counter)
                                     }}>
                                     <img className={'my-2 w-4 sm:w-12 aspect-square'} src={item.icon}/>
                                     <p className={'my-2 font-bold text-sm sm:text-2xl text-white'}>Урок {counter + 1}</p>
-                                    <p className={'my-2 text-xs'}>{item.lessonName}</p>
+                                    <p className={'my-2 text-[0.5rem] sm:text-xs'}>{item.lessonName}</p>
                                 </div>
                             </SwiperSlide>
                         )
