@@ -50,7 +50,7 @@ const Navbar = ({isInteravtive}:navbarInterface) => {
     const [burgerOpen,setBurgerOpen]=useState(false)
 
     return (
-        <div className={classList('sm:px-[70px] px-[20px] fixed z-[999]  top-0 left-0 py-1 sm:py-[35px] w-full grid sm:grid-cols-12 grid-cols-6 items-center transition-all duration-300',scrolled>120||window.location.pathname=='/catalog/'?'bg-green bg-opacity-80 backdrop-blur-sm':'bg-green sm:bg-transparent')}>
+        <div className={classList('sm:px-[70px] px-[20px] fixed z-[999]  top-0 left-0 py-1 sm:py-[35px] w-full grid sm:grid-cols-12 grid-cols-6 items-center transition-all duration-300',scrolled>120||3==3?'bg-green bg-opacity-80 backdrop-blur-sm':'bg-green sm:bg-transparent')}>
             <a href={'/'} className={'col-span-2 relative h-12'}>
                 <Image src={'/logo.svg'} alt={'logo'} layout={'fill'}></Image>
             </a>
