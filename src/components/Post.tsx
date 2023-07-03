@@ -5,12 +5,13 @@ interface postInterface {
     caption:string,
     image:string,
     callback:()=>any,
+    text:string
 }
 
-const Post = ({title,caption,image, callback}:postInterface) => {
+const Post = ({title,caption,image, callback, text}:postInterface) => {
     return (
-        <div className={'w-full p-4 flex flex-col items-center justify-center '}>
-            <img className={'my-2 w-full rounded-lg'} src={`/posts/${image}.jpg`}/>
+        <div className={'w-full p-4 flex flex-col items-center justify-center '} >
+            <img className={'my-2 cursor-pointer w-full rounded-lg'} src={`/posts/${image}.jpg`} onClick={()=>{callback()}}/>
             <p className={'my-2 text-black text-sm sm:text-xl text-center font-bold'}>
                 {title}
             </p>

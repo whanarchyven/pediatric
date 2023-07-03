@@ -34,3 +34,19 @@ body{
 .videoSwiper{
     padding-bottom: 3rem !important;
 }
+
+.postText>h2{
+    font-size: 20px;
+    font-weight: bold;
+}
+.postText>section>h2{
+    font-size: 20px;
+    font-weight: bold;
+}
+ul>li{
+    list-style: disc;
+}
+.postText>p{
+    font-size: 15px;
+    font-weight: normal;
+}
