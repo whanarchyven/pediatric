@@ -442,7 +442,7 @@ export default function Slider() {
                 ' Уходовые средства для атопиков должны иметь щадящий состав, быть гипоаллергенными.<br>' +
                 '</p>' +
                 '</div>'
-        },S
+        },
     ]
 
     const [currentPost,setCurrentPost]=useState(posts[0]);
