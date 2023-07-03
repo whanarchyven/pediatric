@@ -1,4 +1,4 @@
-import React, {useCallback, useRef, useState} from "react";
+import React, {useCallback, useEffect, useRef, useState} from "react";
 // Import Swiper React components
 import {Swiper, SwiperSlide} from "swiper/react";
 
@@ -37,6 +37,13 @@ export default function VideoPlayer({theme, lessons}: videoPlayerInterface) {
 
     const [currentVideo, setCurrentVideo] = useState(0)
 
+    const [savedVideos,setSavedVideos]=useState<Array<{
+        lessonName: string,
+        videoHref: string,
+        icon: string,
+    }>>([])
+
+
     return (
         <div className={'overflow-visible'}>
             <iframe className={'w-full aspect-video sm:aspect-auto sm:h-[480px] mb-2 sm:mb-10 sm:rounded-xl sm:px-16'} style={{borderRadius: '20px'}}
@@ -68,14 +75,26 @@ export default function VideoPlayer({theme, lessons}: videoPlayerInterface) {
                     {lessons.map((item, counter) => {
                         return (
                             <SwiperSlide key={counter}>
-                                <div
-                                    className={classList(theme == 'red' ? 'bg-red' : 'bg-green', 'text-white transition-all duration-300 h-32 sm:h-60 rounded-xl p-2 sm:px-4 sm:py-10', counter == currentVideo ? 'bg-opacity-100' : 'bg-opacity-50 cursor-pointer')}
-                                    onClick={() => {
-                                        setCurrentVideo(counter)
-                                    }}>
-                                    <img className={'my-2 w-4 sm:w-12 aspect-square'} src={item.icon}/>
-                                    <p className={'my-2 font-bold text-sm sm:text-2xl text-white'}>Урок {counter + 1}</p>
-                                    <p className={'my-2 text-[0.5rem] sm:text-xs'}>{item.lessonName}</p>
+                                <div className={'h-32 sm:h-60 relative'}>
+                                    {savedVideos.find(saved=>saved.lessonName==item.lessonName)?<img className={'w-4 z-20 cursor-pointer sm:w-8 aspect-square absolute right-3 top-3'} src={'/save_filled.svg'} onClick={()=>{
+                                        let need_index=savedVideos.findIndex(saved=>saved.lessonName==item.lessonName)
+                                        let temp=[...savedVideos];
+                                        temp.splice(need_index,1);
+                                        setSavedVideos(temp)
+                                    }}/>:<img className={'w-4 z-20 cursor-pointer sm:w-8 aspect-square absolute right-3 top-3'} src={'/save.svg'} onClick={()=>{
+                                        let temp=[...savedVideos]
+                                        temp.push(item)
+                                        setSavedVideos(temp)
+                                    }}/>}
+
+                                    <div
+                                        className={classList(theme == 'red' ? 'bg-red' : 'bg-green', 'text-white sm:px-4 sm:py-10 transition-all w-full h-full duration-300 relative rounded-xl p-2', counter == currentVideo ? 'bg-opacity-100' : 'bg-opacity-50 cursor-pointer')}
+                                        onClick={() => {
+                                            setCurrentVideo(counter)
+                                        }}><img className={'my-2 w-4 sm:w-12 aspect-square'} src={item.icon}/>
+                                        <p className={'my-2 font-bold text-sm sm:text-2xl text-white'}>Урок {counter + 1}</p>
+                                        <p className={'my-2 text-[0.5rem] sm:text-xs'}>{item.lessonName}</p>
+                                    </div>
                                 </div>
                             </SwiperSlide>
                         )

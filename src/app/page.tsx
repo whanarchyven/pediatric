@@ -5,6 +5,7 @@ import VideoPlayer from "@/components/VideoPlayer";
 import Reviews from "@/components/Reviews";
 import {motion} from "framer-motion";
 import {useRouter} from "next/navigation";
+import ReviewPop from "@/components/ReviewPop";
 
 export default function Home() {
 
@@ -112,6 +113,8 @@ export default function Home() {
     const [posX, setPosX] = useState(0)
     const [posY, setPosY] = useState(0)
 
+    const [showMore, setShowMore] = useState(false)
+
     // useEffect(()=>{
     //     document.addEventListener('mousemove',((event)=>{
     //         // console.log(event.clientX,event.clientY)
@@ -121,6 +124,10 @@ export default function Home() {
     // })
 
     const router = useRouter()
+
+
+    const [showReviewPop,setShowReviewPop]=useState(false)
+
 
     return (
         <main className={'overflow-x-hidden'}>
@@ -155,9 +162,9 @@ export default function Home() {
                                     whileInView={{y: 0, opacity: 1}}
                                     viewport={{once: true}}
                                     transition={{ease: 'easeInOut', duration: 0.7, delay: 0.6}}>
-                            <button className={'sm:col-span-2 w-full sm:w-32 bg-white rounded-lg h-12'}>
+                            <a href={'#about'} className={'sm:col-span-2 flex items-center justify-center w-full sm:w-32 bg-white rounded-lg h-12'}>
                                 Подробнее
-                            </button>
+                            </a>
                         </motion.div>
                     </motion.div>
                     <div className={'col-span-6 flex flex-col h-full justify-end'}>
@@ -178,7 +185,7 @@ export default function Home() {
             {/*ВТОРОЙ БЛОК*/}
 
             <div
-                className={'bg-white overflow-y-visible px-[20px] sm:h-[558px] grid grid-cols-1 sm:grid-cols-12 relative'}>
+                className={'bg-white overflow-y-visible px-[20px] sm:min-h-[558px] grid grid-cols-1 sm:grid-cols-12 relative'}>
                 <a id={'about'} className={'-top-32 absolute'}></a>
                 <div
                     className={'sm:col-span-4 sm:col-start-2 sm:row-start-1 row-start-2 relative flex flex-col items-center justify-center'}>
@@ -188,7 +195,7 @@ export default function Home() {
                                 viewport={{once: true}}
                                 transition={{ease: 'easeInOut', duration: 1}}/>
                 </div>
-                <div className={'col-span-5 col-end-12 flex items-start justify-center h-full flex-col'}>
+                <div className={'col-span-5 col-end-12 flex self-start items-start justify-center h-full flex-col'}>
                     <motion.p className={'font-bold my-2 sm:my-6 text-2xl sm:text-4xl text-black uppercase'}
                               initial={{x: -50, opacity: 0}}
                               whileInView={{x: 0, opacity: 1}}
@@ -206,13 +213,20 @@ export default function Home() {
                         сотрудничают с ведущими специалистами — дерматологами, аллергологами и педиатрами, с фондами и
                         организациями пациентов.
                     </motion.p>
-                    <motion.a className={'font-bold sm:my-6 my-2 text-red text-sm sm:text-xl cursor-pointer'}
-                              initial={{y: -20, opacity: 0}}
-                              whileInView={{y: 0, opacity: 1}}
-                              viewport={{once: true}}
-                              transition={{ease: 'easeInOut', duration: 0.7, delay: 0.6}}>
-                        Подробнее...
-                    </motion.a>
+                    {showMore?null:<motion.a className={'font-bold sm:my-6 my-2 text-red text-sm sm:text-xl cursor-pointer'}
+                                             initial={{y: -20, opacity: 0}}
+                                             whileInView={{y: 0, opacity: 1}}
+                                             viewport={{once: true}}
+                                             onClick={()=>{setShowMore(!showMore)}}
+                                             transition={{ease: 'easeInOut', duration: 0.7, delay: 0.6}}>
+                        {showMore?'':'Подробнее'}
+                    </motion.a>}
+                    {showMore ? <p className={'text-sm sm:text-xl my-2 sm:my-6'}>На протяжении многих лет наши бренды предлагают рынку высокоэффективные и безопасные
+                        средства, предназначенные специально для кожи, склонной к атопическому дерматиту.
+                        <br/><br/>
+                        Главный эксперт «Азбуки атопического дерматита» — профессор Мурашкин Николай Николаевич — поможет
+                        разобраться в основах заболевания и поделится ценными знаниями и простыми правилами поддержания
+                        здоровья кожи.</p> : null}
                 </div>
             </div>
 
@@ -418,10 +432,11 @@ export default function Home() {
                     <Reviews/>
                 </motion.div>
                 <div
-                    className={'bg-red duration-300 transition-all cursor-pointer mt-2 w-full sm:w-1/5 border-red border-2 sm:p-4 p-1 sm:text-xs text-sm text-white flex items-center rounded-lg font-bold justify-center'}>
+                    className={'bg-red duration-300 transition-all cursor-pointer mt-2 w-full sm:w-1/5 border-red border-2 sm:p-4 p-1 sm:text-xs text-sm text-white flex items-center rounded-lg font-bold justify-center'} onClick={()=>{setShowReviewPop(true)}}>
                     Оставить отзыв
                 </div>
                 <img className={'absolute w-full left-0 bottom-0'} src={'/reviews_offset_bottom.svg'}/>
+                {showReviewPop?<ReviewPop callback={()=>{setShowReviewPop(false)}}></ReviewPop>:null}
             </div>
 
             {/*ВОСЬМОЙ БЛОК*/}
