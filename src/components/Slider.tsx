@@ -448,6 +448,13 @@ export default function Slider() {
     const [currentPost,setCurrentPost]=useState(posts[0]);
     const [isPopVisible,setIsPopVisible]=useState(false)
 
+    const [savedPosts,setSavedPosts]=useState<Array<{
+        title: string,
+        caption: string,
+        image: string,
+        text:string
+    }>>([])
+
     return (
         <div className={'flex items-center'}>
             <div
@@ -485,7 +492,21 @@ export default function Slider() {
             >
                 {posts.map((item,counter)=>{
                     return (
-                            <SwiperSlide key={counter+item.title}><Post title={item.title} image={item.image}
+                            <SwiperSlide className={'relative'} key={counter+item.title}>
+                                {savedPosts.find(saved=>saved.title==item.title)?<div onClick={()=>{
+                                    let need_index=savedPosts.findIndex(saved=>saved.title==item.title)
+                                    let temp=[...savedPosts];
+                                    temp.splice(need_index,1);
+                                    setSavedPosts(temp)
+                                }} className={'w-5 z-20 bg-red rounded-full p-1 flex items-center justify-center cursor-pointer sm:w-8 aspect-square absolute right-7 top-7'}>
+                                    <img src={'/save_filled.svg'}/></div>:<div onClick={()=>{
+                                    let temp=[...savedPosts]
+                                    temp.push(item)
+                                    setSavedPosts(temp)
+                                }} className={'w-5 z-20 bg-red rounded-full p-1 flex items-center justify-center cursor-pointer sm:w-8 aspect-square absolute right-7 top-7'}>
+                                    <img src={'/save.svg'}/>
+                                </div>}
+                                <Post title={item.title} image={item.image}
                                                caption={item.caption} text={item.text} callback={()=>{
                                 setCurrentPost(item);
                                 setIsPopVisible(true)
