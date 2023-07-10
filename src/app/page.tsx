@@ -473,31 +473,21 @@ export default function Home() {
                 <p className={'font-bold text-lg sm:text-4xl text-black uppercase'}>ПОДБЕРИ СВОЮ ПРОГРАММУ УХОДА <br
                     className={'sm:block hidden'}/>
                     <span className={'text-green font-bold'}>ЗА АТОПИЧНОЙ КОЖЕЙ</span></p>
-                <div className={'w-full mt-20 relative grid grid-cols-1 sm:grid-cols-2'}>
-                    <div className={'sm:flex hidden items-center justify-center relative'}>
-                        <motion.img className={''} src={'/products/red/offset.svg'}
-                                    initial={{scale: 0.7, opacity: 0}}
-                                    whileInView={{scale: 1, opacity: 1}}
-                                    viewport={{once: true}}
-                                    transition={{ease: 'easeInOut', duration: 0.7}}/>
-                        <motion.img className={'absolute z-10'} src={'/products/red/crema.png'}
-                                    initial={{scale: 0.7, opacity: 0}}
-                                    whileInView={{scale: 1, opacity: 1}}
-                                    viewport={{once: true}}
-                                    transition={{ease: 'easeInOut', duration: 0.7, delay: 0.6}}/>
-                        <motion.div
-                            animate={{x: -posX, y: -posY}}
-                            transition={{
-                                type: 'spring',
-                                delay: 0,
-                                duration: 0.3,
-                                stiffness: 80,
-                                ease: 'linear',
-                                damping: 70
-                            }}
-                            className={'shadow-lg bg-white absolute -left-0 top-24 flex items-center justify-center w-20 h-20 rounded-full p-3'}>
-                            <img className={''} src={'/products/red/tablets.svg'}/>
-                        </motion.div>
+                <div className={'w-full mt-20 relative grid grid-cols-1 sm:grid-cols-1'}>
+                    <div className={'sm:flex items-center justify-center relative'}>
+                        <div className={'flex flex-col items-center justify-center'}>
+                            <motion.img className={''} src={'/products/red/offset.svg'}
+                                        initial={{scale: 0.7, opacity: 0}}
+                                        whileInView={{scale: 1, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 0.7}}/>
+                            <motion.img className={'absolute w-48 sm:w-96 z-10'} src={'/products3.png'}
+                                        initial={{scale: 0.7, opacity: 0}}
+                                        whileInView={{scale: 1, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 0.7, delay: 0.6}}/>
+                        </div>
+
                         <motion.div
                             animate={{x: posX, y: posY}}
                             transition={{
@@ -509,7 +499,7 @@ export default function Home() {
                                 damping: 10,
                                 restDelta: 0.001
                             }}
-                            className={'shadow-lg rounded-xl bg-white z-20 absolute -left-12 bottom-72 flex items-center justify-center p-3'}>
+                            className={'shadow-lg rounded-xl bg-white z-20 sm:absolute -left-12 bottom-72 flex items-center justify-start my-5 sm:my-0 p-3'}>
                             <div className={'w-14 h-14 relative flex items-center justify-center bg-red rounded-full'}>
                                 <img className={''} src={'/stetoscope.svg'}/>
                             </div>
@@ -517,46 +507,22 @@ export default function Home() {
                                 уход за кожей</p>
                         </motion.div>
                         <motion.div
-                            animate={{x: -posX * 1.5, y: -posY * 1.5}}
+                            animate={{x: posX, y: posY}}
                             transition={{
                                 type: 'spring',
                                 delay: 0,
                                 duration: 0.3,
-                                stiffness: 40,
+                                stiffness: 10,
                                 ease: 'linear',
-                                damping: 30
+                                damping: 10,
+                                restDelta: 0.001
                             }}
-                            className={'shadow-lg bg-white absolute right-10 bottom-60 flex items-center justify-center w-20 h-20 rounded-full p-3'}>
-                            <img className={''} src={'/products/red/heart.svg'}/>
-                        </motion.div>
-                        <a href={'/catalog'}
-                           className={'cursor-pointer absolute z-[29] flex items-center justify-center rounded-xl text-white font-normal px-10 text-xl p-3 absolute -bottom-14 bg-red'}>
-                            Магазин
-                        </a>
-                    </div>
-                    <div className={'flex flex-col items-center justify-center relative'}>
-                        <motion.img className={''} src={'/products/green/offset.svg'}
-                                    initial={{scale: 0.7, opacity: 0}}
-                                    whileInView={{scale: 1, opacity: 1}}
-                                    viewport={{once: true}}
-                                    transition={{ease: 'easeInOut', duration: 0.7}}/>
-                        <motion.img className={'absolute z-10'} src={'/products/green/crema.png'}
-                                    initial={{scale: 0.7, opacity: 0}}
-                                    whileInView={{scale: 1, opacity: 1}}
-                                    viewport={{once: true}}
-                                    transition={{ease: 'easeInOut', duration: 0.7, delay: 0.6}}/>
-                        <motion.div
-                            animate={{x: -posX, y: -posY}}
-                            transition={{
-                                type: 'spring',
-                                delay: 0,
-                                duration: 0.3,
-                                stiffness: 80,
-                                ease: 'linear',
-                                damping: 70
-                            }}
-                            className={'shadow-lg bg-white hidden sm:absolute sm:-left-0 left-0 top-7 sm:top-20 sm:flex items-center justify-center w-8 h-8 sm:w-20 sm:h-20 rounded-full p-1.5'}>
-                            <img className={''} src={'/products/green/people.svg'}/>
+                            className={'shadow-lg rounded-xl bg-white z-20 sm:absolute -left-12 top-5 flex items-center justify-start my-5 sm:my-0 p-3'}>
+                            <div className={'w-14 h-14 relative flex items-center justify-center rounded-full'}>
+                                <img className={''} src={'/products/red/tablets.svg'}/>
+                            </div>
+                            <p className={'font-bold ml-3 leading-[110%]'}>Проверенные <br/>
+                                безопасные формулы</p>
                         </motion.div>
                         <motion.div
                             animate={{x: posX, y: posY}}
@@ -569,32 +535,18 @@ export default function Home() {
                                 damping: 10,
                                 restDelta: 0.001
                             }}
-                            className={'shadow-lg rounded-xl bg-white hidden sm:absolute -left-0 top-52 z-20 sm:flex items-center justify-center p-3'}>
-                            <div
-                                className={'w-14 h-14 relative flex items-center justify-center bg-green rounded-full'}>
-                                <img className={''} src={'/products/green/done.svg'}/>
+                            className={'shadow-lg rounded-xl bg-white z-20 sm:absolute -left-12 bottom-32 flex items-center justify-start p-3'}>
+                            <div className={'w-14 h-14 relative flex items-center justify-center bg-white rounded-full'}>
+                                <img className={''} src={'/heart.svg'}/>
                             </div>
-                            <p className={'font-bold ml-3 leading-[110%]'}>Доказанная<br/>
-                                эффективность</p>
+                            <p className={'font-bold ml-3 leading-[110%]'}>Доказанная <br/> эффективность</p>
                         </motion.div>
-                        <motion.div
-                            animate={{x: -posX * 1.5, y: -posY * 1.5}}
-                            transition={{
-                                type: 'spring',
-                                delay: 0,
-                                duration: 0.3,
-                                stiffness: 40,
-                                ease: 'linear',
-                                damping: 30
-                            }}
-                            className={'shadow-lg bg-white hidden sm:absolute right-10 bottom-60 sm:flex items-center justify-center w-20 h-20 rounded-full p-3'}>
-                            <img className={''} src={'/products/green/help.svg'}/>
-                        </motion.div>
-                        <a href={'/catalog'}
-                           className={'cursor-pointer absolute z-[29] flex items-center justify-center rounded-xl text-white font-normal px-10 text-xl p-3 absolute -bottom-20 bg-green'}>
-                            Магазин
+                        <a
+                           className={'cursor-pointer font-bold w-full sm:w-auto mt-5 rounded-xl sm:absolute z-[29] flex items-center justify-center text-white font-normal sm:aspect-square sm:rounded-full px-10 text-xl p-3 absolute right-0 bg-red'}>
+                            <strong>Магазин</strong>
                         </a>
                     </div>
+
                 </div>
             </div>
 
