@@ -126,7 +126,7 @@ export default function Home() {
     const router = useRouter()
 
 
-    const [showReviewPop,setShowReviewPop]=useState(false)
+    const [showReviewPop, setShowReviewPop] = useState(false)
 
 
     return (
@@ -152,17 +152,17 @@ export default function Home() {
                                     whileInView={{y: 0, opacity: 1}}
                                     viewport={{once: true}}
                                     transition={{ease: 'easeInOut', duration: 0.7, delay: 0.3}}>
-                            <p className={'text-white sm:text-left sm:text-sm text-center text-xs font-inter col-span-5'}>Для
-                                тех кто столкнулся с атопическим
-                                дерматитом — малышей и их родителей, а также их лечащих докторов
-                                от Pierre Fabre Dermo-Cosmétique</p>
+                            <p className={'text-white sm:text-left sm:text-2xl text-center text-xs font-inter col-span-5'}>Социально-образовательный
+                                проект для тех, кто столкнулся с атопическим дерматитом
+                                - малышей и их родителей, а также их лечащих докторов</p>
                         </motion.div>
                         <motion.div className={'mt-5 sm:grid sm:grid-cols-5'}
                                     initial={{y: -20, opacity: 0}}
                                     whileInView={{y: 0, opacity: 1}}
                                     viewport={{once: true}}
                                     transition={{ease: 'easeInOut', duration: 0.7, delay: 0.6}}>
-                            <a href={'#about'} className={'sm:col-span-2 flex items-center justify-center w-full sm:w-32 bg-white rounded-lg h-12'}>
+                            <a href={'#about'}
+                               className={'sm:col-span-2 flex items-center justify-center text-2xl w-full p-4 bg-white rounded-lg'}>
                                 Подробнее
                             </a>
                         </motion.div>
@@ -208,25 +208,33 @@ export default function Home() {
                               whileInView={{y: 0, opacity: 1}}
                               viewport={{once: true}}
                               transition={{ease: 'easeInOut', duration: 0.7, delay: 0.3}}>
-                        В этом проекте, созданном специально для родителей детей–атопиков, мы объединили знания двух
-                        французских брендов — экспертов в атопическом дерматите, которые долгие годы в Европе и в России
-                        сотрудничают с ведущими специалистами — дерматологами, аллергологами и педиатрами, с фондами и
-                        организациями пациентов.
+                        В этом проекте, созданном специально для родителей детей–атопиков, мы объединили знания Общества
+                        Детских Дерматологов и французской дерматологическиой лаборатории Eau Thermale Avène – экспертов
+                        в области ухода за кожей с атопическим дерматитом, которые на ежедневной основе изучают,
+                        работают с ведущими научными Обществами, дерматологами, аллергологами, педиатрами, с Фондами и
+                        организациями пациентов
                     </motion.p>
-                    {showMore?null:<motion.a className={'font-bold sm:my-6 my-2 text-red text-sm sm:text-xl cursor-pointer'}
-                                             initial={{y: -20, opacity: 0}}
-                                             whileInView={{y: 0, opacity: 1}}
-                                             viewport={{once: true}}
-                                             onClick={()=>{setShowMore(!showMore)}}
-                                             transition={{ease: 'easeInOut', duration: 0.7, delay: 0.6}}>
-                        {showMore?'':'Подробнее'}
-                    </motion.a>}
-                    {showMore ? <p className={'text-sm sm:text-xl my-2 sm:my-6'}>На протяжении многих лет наши бренды предлагают рынку высокоэффективные и безопасные
-                        средства, предназначенные специально для кожи, склонной к атопическому дерматиту.
-                        <br/><br/>
-                        Главный эксперт «Азбуки атопического дерматита» — профессор Мурашкин Николай Николаевич — поможет
-                        разобраться в основах заболевания и поделится ценными знаниями и простыми правилами поддержания
-                        здоровья кожи.</p> : null}
+                    {showMore ? null :
+                        <motion.a className={'font-bold sm:my-6 my-2 text-red text-sm sm:text-xl cursor-pointer'}
+                                  initial={{y: -20, opacity: 0}}
+                                  whileInView={{y: 0, opacity: 1}}
+                                  viewport={{once: true}}
+                                  onClick={() => {
+                                      setShowMore(!showMore)
+                                  }}
+                                  transition={{ease: 'easeInOut', duration: 0.7, delay: 0.6}}>
+                            {showMore ? '' : 'Подробнее'}
+                        </motion.a>}
+                    {showMore ?
+                        <p className={'text-sm sm:text-xl my-2 sm:my-6'}>На протяжении многих лет наши бренды предлагают
+                            рынку высокоэффективные и безопасные
+                            средства, предназначенные специально для кожи, склонной к атопическому дерматиту.
+                            <br/><br/>
+                            Главный эксперт «Азбуки атопического дерматита» — профессор Мурашкин Николай Николаевич —
+                            поможет
+                            разобраться в основах заболевания и поделится ценными знаниями и простыми правилами
+                            поддержания
+                            здоровья кожи.</p> : null}
                 </div>
             </div>
 
@@ -290,19 +298,19 @@ export default function Home() {
                                 whileInView={{y: 0, opacity: 1}}
                                 viewport={{once: true}}
                                 transition={{ease: 'easeInOut', duration: 0.7}}/>
-                    <motion.div
-                        animate={{x: -posX, y: -posY}}
-                        transition={{
-                            type: 'spring',
-                            delay: 0,
-                            duration: 0.3,
-                            stiffness: 80,
-                            ease: 'linear',
-                            damping: 70
-                        }}
-                        className={'shadow-lg bg-white absolute left-12 top-12 sm:left-20 sm:top-64 flex items-center justify-center w-8 h-8 sm:w-20 sm:h-20 rounded-full p-1 sm:p-3'}>
-                        <img className={'w-full h-full'} src={'/help.svg'}/>
-                    </motion.div>
+                    {/*<motion.div*/}
+                    {/*    animate={{x: -posX, y: -posY}}*/}
+                    {/*    transition={{*/}
+                    {/*        type: 'spring',*/}
+                    {/*        delay: 0,*/}
+                    {/*        duration: 0.3,*/}
+                    {/*        stiffness: 80,*/}
+                    {/*        ease: 'linear',*/}
+                    {/*        damping: 70*/}
+                    {/*    }}*/}
+                    {/*    className={'shadow-lg bg-white absolute left-12 top-12 sm:left-20 sm:top-64 flex items-center justify-center w-8 h-8 sm:w-20 sm:h-20 rounded-full p-1 sm:p-3'}>*/}
+                    {/*    <img className={'w-full h-full'} src={'/help.svg'}/>*/}
+                    {/*</motion.div>*/}
                     <motion.div
                         animate={{x: posX, y: posY}}
                         transition={{
@@ -322,19 +330,19 @@ export default function Home() {
                         <p className={'font-bold ml-3 sm:text-sm text-xs leading-[110%]'}>Мурашкин<br/>Николай<br/>Николаевич
                         </p>
                     </motion.div>
-                    <motion.div
-                        animate={{x: -posX * 1.5, y: -posY * 1.5}}
-                        transition={{
-                            type: 'spring',
-                            delay: 0,
-                            duration: 0.3,
-                            stiffness: 40,
-                            ease: 'linear',
-                            damping: 30
-                        }}
-                        className={'shadow-lg bg-white absolute left-4 sm:right-20 sm:bottom-32 flex items-center justify-center w-8 h-8 p-1.5 sm:w-20 sm:h-20 rounded-full sm:p-3'}>
-                        <img className={''} src={'/heart.svg'}/>
-                    </motion.div>
+                    {/*<motion.div*/}
+                    {/*    animate={{x: -posX * 1.5, y: -posY * 1.5}}*/}
+                    {/*    transition={{*/}
+                    {/*        type: 'spring',*/}
+                    {/*        delay: 0,*/}
+                    {/*        duration: 0.3,*/}
+                    {/*        stiffness: 40,*/}
+                    {/*        ease: 'linear',*/}
+                    {/*        damping: 30*/}
+                    {/*    }}*/}
+                    {/*    className={'shadow-lg bg-white absolute left-4 sm:right-20 sm:bottom-32 flex items-center justify-center w-8 h-8 p-1.5 sm:w-20 sm:h-20 rounded-full sm:p-3'}>*/}
+                    {/*    <img className={''} src={'/heart.svg'}/>*/}
+                    {/*</motion.div>*/}
                 </div>
 
                 <img className={'absolute w-full -bottom-[1px]'} src={'/about_us_offset_bot.svg'}/>
@@ -432,29 +440,34 @@ export default function Home() {
                     <Reviews/>
                 </motion.div>
                 <div
-                    className={'bg-red duration-300 transition-all cursor-pointer mt-2 w-full sm:w-1/5 border-red border-2 sm:p-4 p-1 sm:text-xs text-sm text-white flex items-center rounded-lg font-bold justify-center'} onClick={()=>{setShowReviewPop(true)}}>
+                    className={'bg-red duration-300 transition-all cursor-pointer mt-2 w-full sm:w-1/5 border-red border-2 sm:p-4 p-1 sm:text-xs text-sm text-white flex items-center rounded-lg font-bold justify-center'}
+                    onClick={() => {
+                        setShowReviewPop(true)
+                    }}>
                     Оставить отзыв
                 </div>
                 <img className={'absolute w-full left-0 bottom-0'} src={'/reviews_offset_bottom.svg'}/>
-                {showReviewPop?<ReviewPop callback={()=>{setShowReviewPop(false)}}></ReviewPop>:null}
+                {showReviewPop ? <ReviewPop callback={() => {
+                    setShowReviewPop(false)
+                }}></ReviewPop> : null}
             </div>
 
             {/*ВОСЬМОЙ БЛОК*/}
 
-            <div className={'bg-white flex flex-col px-[20px] sm:py-20 sm:px-[70px] items-center justify-center'}>
-                <motion.p className={'font-bold text-4xl text-black uppercase'}
-                          initial={{y: -40, opacity: 0}}
-                          whileInView={{y: 0, opacity: 1}}
-                          viewport={{once: true}}
-                          transition={{ease: 'easeInOut', duration: 0.7}}>НОВОСТИ
-                </motion.p>
-                <motion.div className={'w-full p-2'} initial={{y: -40, opacity: 0}}
-                            whileInView={{y: 0, opacity: 1}}
-                            viewport={{once: true}}
-                            transition={{ease: 'easeInOut', duration: 0.7}}>
-                    <Slider></Slider>
-                </motion.div>
-            </div>
+            {/*<div className={'bg-white flex flex-col px-[20px] sm:py-20 sm:px-[70px] items-center justify-center'}>*/}
+            {/*    <motion.p className={'font-bold text-4xl text-black uppercase'}*/}
+            {/*              initial={{y: -40, opacity: 0}}*/}
+            {/*              whileInView={{y: 0, opacity: 1}}*/}
+            {/*              viewport={{once: true}}*/}
+            {/*              transition={{ease: 'easeInOut', duration: 0.7}}>НОВОСТИ*/}
+            {/*    </motion.p>*/}
+            {/*    <motion.div className={'w-full p-2'} initial={{y: -40, opacity: 0}}*/}
+            {/*                whileInView={{y: 0, opacity: 1}}*/}
+            {/*                viewport={{once: true}}*/}
+            {/*                transition={{ease: 'easeInOut', duration: 0.7}}>*/}
+            {/*        <Slider></Slider>*/}
+            {/*    </motion.div>*/}
+            {/*</div>*/}
 
             <div className={'bg-white flex flex-col sm:py-20 px-[20px] pb-32 sm:px-[140px] items-start justify-center'}>
                 <p className={'font-bold text-lg sm:text-4xl text-black uppercase'}>ПОДБЕРИ СВОЮ ПРОГРАММУ УХОДА <br
@@ -592,19 +605,13 @@ export default function Home() {
                 <a id={'resources'} className={'-top-32 absolute'}></a>
                 <img className={'absolute w-full left-0 top-0'} src={'/resources_offset.svg'}/>
                 <div className={'col-span-3 flex flex-col items-center sm:items-start justify-center'}>
-                    <motion.p className={'text-xl text-center sm:text-4xl uppercase font-bold text-white'}
-                              initial={{x: -40, opacity: 0}}
-                              whileInView={{x: 0, opacity: 1}}
-                              viewport={{once: true}}
-                              transition={{ease: 'easeInOut', duration: 0.7}}>Полезные ресурсы
-                    </motion.p>
-                    <motion.div className={'flex p-2 sm:p-4 mt-6 items-center bg-white rounded-full'}
+                    <motion.div className={'flex p-2 sm:p-4 mt-6 cursor-pointer items-center bg-white rounded-full'}
                                 initial={{x: -40, opacity: 0}}
                                 whileInView={{x: 0, opacity: 1}}
                                 viewport={{once: true}}
                                 transition={{ease: 'easeInOut', duration: 0.7, delay: 0.2}}>
-                        <img className={'w-6 sm:w-12 aspect-square'} src={'/need_help.svg'}/>
-                        <p className={'font-bold text-sm sm:text-2xl ml-3 text-[#00A19A]'}>Нужна поддержка?</p>
+                        <img className={'w-6 sm:w-20 aspect-square'} src={'/need_help.svg'}/>
+                        <p className={'font-bold text-sm sm:text-4xl ml-3 text-[#00A19A]'}>Задать вопрос доктору</p>
                     </motion.div>
                     <motion.p className={'text-white text-xs text-center sm:text-left sm:text-lg w-4/5 my-7'}
                               initial={{x: -40, opacity: 0}}
@@ -615,13 +622,6 @@ export default function Home() {
                         детских дерматологов» на базе Национального медицинского исследовательского Центра Здоровья
                         Детей
                     </motion.p>
-                    <motion.button
-                        className={'bg-red w-4/5 sm:w-2/5 rounded-lg font-light py-3 text-white text-sm sm:text-xl px-6'}
-                        initial={{x: -40, opacity: 0}}
-                        whileInView={{x: 0, opacity: 1}}
-                        viewport={{once: true}}
-                        transition={{ease: 'easeInOut', duration: 0.7, delay: 0.6}}>Перейти на сайт
-                    </motion.button>
                 </div>
                 <motion.div className={'w-full col-span-2 flex items-center justify-center'}
                             initial={{scale: 0.5, opacity: 0}}

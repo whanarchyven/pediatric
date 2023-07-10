@@ -56,7 +56,7 @@ const Navbar = ({isInteravtive}:navbarInterface) => {
             </a>
             <div className={'col-span-8 hidden sm:flex items-center justify-around'}>
                 {links.map((link)=>{
-                    return (<a key={link.title} className={'font-inter font-normal text-white'} href={link.link}>{link.title}</a>)
+                    return (<a key={link.title} className={'font-inter text-xs xl:text-xl font-normal text-white'} href={link.link}>{link.title}</a>)
                 })}
             </div>
             <div className={'col-span-2 hidden sm:flex items-center justify-end'}>
@@ -82,7 +82,7 @@ const Navbar = ({isInteravtive}:navbarInterface) => {
             </div>
             {burgerOpen?<div className={'h-screen pt-10 flex flex-col col-span-6 gap-6'}>
                 {links.map((link)=>{
-                    return (<a key={link.title} className={'font-inter font-normal text-white'} href={link.link}>{link.title}</a>)
+                    return (<a key={link.title} className={'font-inter text-sm font-normal text-white'} href={link.link}>{link.title}</a>)
                 })}
             </div>:null}
         </div>
