@@ -541,10 +541,15 @@ export default function Home() {
                             </div>
                             <p className={'font-bold ml-3 leading-[110%]'}>Доказанная <br/> эффективность</p>
                         </motion.div>
-                        <a
-                           className={'cursor-pointer font-bold w-full sm:w-auto mt-5 rounded-xl sm:absolute z-[29] flex items-center justify-center text-white font-normal sm:aspect-square sm:rounded-full px-10 text-xl p-3 absolute right-0 bg-red'}>
-                            <strong>Магазин</strong>
-                        </a>
+                        <div
+                           className={'cursor-pointer font-bold w-full sm:w-32 mt-5 rounded-xl sm:absolute relative z-[29] flex items-center justify-center text-white font-normal sm:aspect-square text-xl absolute right-0'}>
+                            <div className={'px-10 p-3 w-full h-12 sm:h-full rounded-full bg-red sm:animate-ping absolute top-0 left-0'}>
+
+                            </div>
+                            <div className={'px-10 p-3 w-full h-12 sm:h-full rounded-full bg-red absolute top-0 left-0 flex items-center justify-center'}>
+                                <strong>Магазин</strong>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
