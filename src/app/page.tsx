@@ -546,9 +546,9 @@ export default function Home() {
                             <div className={'px-10 p-3 w-full h-12 sm:h-full rounded-full bg-red sm:animate-ping absolute top-0 left-0'}>
 
                             </div>
-                            <div className={'px-10 p-3 w-full h-12 sm:h-full rounded-full bg-red absolute top-0 left-0 flex items-center justify-center'}>
+                            <a href={'/catalog'} className={'px-10 p-3 w-full h-12 sm:h-full rounded-full bg-red absolute top-0 left-0 flex items-center justify-center'}>
                                 <strong>Магазин</strong>
-                            </div>
+                            </a>
                         </div>
                     </div>
 
