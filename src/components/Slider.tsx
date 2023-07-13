@@ -321,7 +321,7 @@ export default function Slider() {
                 ' У каждого эмолента уникальный состав. Эмолент в каждом конкретном случае нужно подбирать, в зависимости от клинической картины и индивидуальных особенностей ребенка.' +
                 '</p>' +
                 '<p>' +
-                ' <img width="778" alt="EAU-THERMALE-AVÈNE-e-retail-xeracalm-full-range-social-post-ld.jpg" src="https://atopy.ru/upload/medialibrary/f54/EAU-THERMALE-AVÈNE-e-retail-xeracalm-full-range-social-post-ld.jpg" height="778"><br>' +
+                ' <img width="778" alt="EAU-THERMALE-AVÈNE-e-retail-xeracalm-full-range-social-post-ld.jpg" src="/maslo.jpg" height="778"><br>' +
                 '</p>' +
                 '</div>' +
                 ' </section> <section id="sec-2" class="atopy-static container atopy-container-sm">' +
