@@ -26,7 +26,7 @@ export default function Home() {
             title: 'AVENE XeraCalm A.D.',
             subtitle: 'Очищающее масло для лица и тела',
             volume: 400,
-            description: 'Очищающее масло XeraCalm A.D для очень сухой и атопичной кожи, склонной к зуду*.\nДля младенцев, детей и взрослых.\n' +
+            description: 'Очищающее масло XeraCalm A.D для очень сухой и атопичной кожи, склонной к зуду*. Для младенцев, детей и взрослых.\n' +
                 'Мягкая очищающая основа без мыла очищает и защищает кожу от подсушивающего действия воды. Кожа более увлажненная (+17%) уже через месяц применения масла**. Для лица и тела.',
             recomendations: 'Для душа: вспенить смоченными водой ладонями, затем нанести на кожу.\n' +
                 'Для ванной: при заполнении ванны водой влить в нее объем масла, соответствующий 5-ти нажатиям на помпу флакона.\n' +
@@ -40,7 +40,7 @@ export default function Home() {
                 'Без отдушек.\n' +
                 '*вызванного сухостью кожи\n' +
                 '**Измерение индекса увлажненности кожи при помощи корнеометрии у 17 взрослых пациентов с кожей, склонной к атопии в возрасте от 20 до 50 лет.',
-            updescription: 'Формула с использованием минимума ингредиентов для максимальной безопасности и переносимости:',
+            updescription: 'Формула с использованием минимума ингредиентов для максимальной безопасности и переносимости',
             link: 'https://www.ozon.ru/product/avene-xeracalm-a-d-ochishchayushchee-maslo-dlya-litsa-i-tela-400-ml-kserakalm-ad-721386831/',
             theme: 'green'
         },
@@ -240,13 +240,20 @@ export default function Home() {
             updescription: 'Эффективность средств подтверждена международными клиническими исследованияи.'
         },
         {
-            title: 'AVENE CICALFATE',
+            title: 'AVENE Детский солнцезащитный спрей SPF 50+',
             volume: 200,
             theme: 'blue',
-            link: 'https://www.ozon.ru/product/avene-cicalfate-vosstanavlivayushchiy-barernyy-krem-dlya-ruk-100-ml-sikalfat-krem-dlya-ruk-223382340/',
-            subtitle: 'Детский SPF для рук',
-            description: 'Детский SPF Cicalfate для очень сухой, потрескавшейся кожи рук. Крем восстанавливает и возвращает комфорт коже, раздраженной под воздействием агрессивных факторов внешней среды (климатических, профессиональных). Образует прозрачный защитный барьер, обеспечивая эффект «перчатки».',
-            recomendations: 'Наносить как минимум дважды в день, особое внимание уделяя наиболее раздраженным участкам кожи.',
+            link: 'https://www.ozon.ru/product/avene-detskiy-solntsezashchitnyy-sprey-spf-50-dlya-chuvstvitelnoy-kozhi-200-ml-264612156/?oos_search=false&sh=iZpvwQ8XKA',
+            subtitle: 'для чувствительной кожи',
+            description: 'Спрей обеспечивает  очень высокую степень защиты от солнечного излучения для чувствительной кожи детей: \n' +
+                '1. Очень широкий спектр защиты от UVA и UVB лучей\n' +
+                '2. Подходит для гиперчувствительной кожи и кожи, склонной к солнечным ожогам \n' +
+                '3. Не содержит парабенов\n' +
+                '4. Очень высокая водоустойчивость \n' +
+                '5.100% фотостабилен.',
+            recomendations: 'Перед выходом на солнце наносить спрей на кожу в достаточном количестве (в среднем 3-4 нажатия на помпу на предплечье ребенка и 6 на предплечье взрослого человека) *. Повторяйте процедуру как можно чаще.\n' +
+                '\n' +
+                '*Снижая количество наносимого средства, вы снижаете уровень защиты.',
             image: '/tovars/spf.jpg',
             subdescription: 'В составе крема:\n' +
                 'Микронизированный сукральфат для быстрого восстановления кожи.\n' +
@@ -259,7 +266,7 @@ export default function Home() {
             title: 'AVENE CICALFATE+',
             volume: 200,
             theme: 'blue',
-            link: 'https://www.ozon.ru/search/?deny_category_prediction=true&from_global=true&text=Гель+для+умывания&product_id=852237576',
+            link: 'https://www.ozon.ru/product/avene-cicalfate-ochishchayushchiy-gel-dlya-chuvstvitelnoy-i-razdrazhennoy-kozhi-200-ml-852237576/?sh=iZpvwaz3mw',
             subtitle: 'Очищающий гель для чувствительной и раздраженной кожи',
             description: 'Дезинфицирует и очищает раздраженные участки, не высушивая кожу. Комплекс сульфата меди и сульфата цинка снижают риск бактериального распространения.\n' +
                 'Мгновенно снимает ощущение дискомфорта\n' +
@@ -280,62 +287,58 @@ export default function Home() {
             title: 'AVENE Intence Protect Ультра',
             volume: 150,
             theme: 'blue',
-            link: 'https://www.ozon.ru/search/?deny_category_prediction=true&from_global=true&text=Солнцезащитное+средство&product_id=502641383',
+            link: 'https://ozon.ru/t/5BApEBB',
             subtitle: 'водостойкий солнцезащитный флюид',
             description: 'Очень высокий уровень защиты для самой чувствительной кожи младенцев, детей и взрослых*.\n' +
                 'Первое солнцезащитное средство с УЛЬТРАшироким спектром защиты: принципиально новый уровень фотопротекции благодаря  инновационному комплексу  TriASorb ТМ - гарантирующий защиту от самого широкого спектра излучения: UVA-UVB+ HEV (синий свет)\n',
-            recomendations: 'Наносите один или 2 раза в день на влажную кожу. Вспеньте и смойте водой. Высушите, нежно промокнув кожу полотенцем не растирая ее. ',
+            recomendations: 'Перед выходом на солнце нанесите достаточное количество средства (например, для лица и шеи достаточно количество средства, которое поместится на одном пальце**). Регулярно наносите средство для поддержания уровня защиты, особенно после купания, обильного потоотделения и вытирания полотенцем. После нанесения подождать до полного впитывания средства.\n' +
+                '**Уровень защиты значительно снижается при уменьшении количества используемого средства.',
             image: '/tovars/fluid.jpg',
-            subdescription: 'Без отдушек, нейтральный pH, не вызывает жжения при попадании в глаза.;Наша забота о чувствительной коже:\n' +
-                'Дезинфицирует и очищает раздраженные участки, не высушивая кожу. Комплекс сульфата меди и сульфата цинка снижают риск бактериального распространения.\n' +
-                'Мгновенно снимает ощущение дискомфорта\n' +
-                'Помогает снизить поверхностное раздражение, оставляя защитную пленку на коже\n' +
-                'Без отдушек, нейтральный pH, не вызывает жжения при попадании в глаза.\n' +
-                'Эффективность: С+- restore эффективный постбиотический восстанавливающий ингредиент, полученный из термальной воды Авен.\n' +
-                'Переносимость: пройден дерматологический, педиатрический, гинекологический и офтальмологический контроль.\n' +
-                'Забота об окружающей среде: пластиковый флакон сделанный на 100% из переработанного материала, подходящий для дальнейшей переработки.',
-            updescription: 'Эффективность средств подтверждена международными клиническими исследованияи.'
+            subdescription: 'Первое солнцезащитное средство с УЛЬТРАшироким спектром защиты: принципиально новый уровень фотопротекции благодаря  инновационному комплексу  TriASorb ТМ - гарантирующий защиту от самого широкого спектра излучения: UVA-UVB+ HEV (синий свет)\n' +
+                'Флюид для интенсивной защиты разработан специально для условий чрезмерной инсоляции – например: высокогорье, тропический климат, высокая влажность и т.д.\n' +
+                '•\tДля лица и тела\n' +
+                '•\tБез отдушек\n' +
+                '•\tБез жжения при попадании в глаза\n',
+            updescription: 'Очень высокая переносимость подтверждена под контролем дерматологов и педиатров'
         }
-
 
 
     ]
 
     const some = tovars[0]
 
-    const [currentDot,setCurrentDot]=useState(0)
-    const [dots,setDots]=useState<Array<{ id:number,offset:number }>>([])
+    const [currentDot, setCurrentDot] = useState(0)
+    const [dots, setDots] = useState<Array<{ id: number, offset: number }>>([])
 
-    const getDotsCoord=()=>{
-        let offsets=[]
-        for(let i=0;i<tovars.length;i++){
-            offsets.push({id:i,offset:document.getElementById(`tovar${i}`).offsetTop})
+    const getDotsCoord = () => {
+        let offsets = []
+        for (let i = 0; i < tovars.length; i++) {
+            offsets.push({id: i, offset: document.getElementById(`tovar${i}`).offsetTop})
         }
         console.log(offsets)
         setDots(offsets)
     }
 
-    useEffect(getDotsCoord,[])
+    useEffect(getDotsCoord, [])
 
-    const scrollList=()=>{
-        const windowOffset=window.pageYOffset+(window.innerHeight/5)
-        if(dots[currentDot]&&windowOffset>dots[currentDot].offset){
+    const scrollList = () => {
+        const windowOffset = window.pageYOffset + (window.innerHeight / 5)
+        if (dots[currentDot] && windowOffset > dots[currentDot].offset) {
             console.log(dots[currentDot])
-            if(currentDot<dots.length-1){
-                setCurrentDot(currentDot+1)
-                window.removeEventListener('scroll',scrollList)
+            if (currentDot < dots.length - 1) {
+                setCurrentDot(currentDot + 1)
+                window.removeEventListener('scroll', scrollList)
             }
 
-        }
-        else if(currentDot>0&&windowOffset<dots[currentDot-1].offset){
+        } else if (currentDot > 0 && windowOffset < dots[currentDot - 1].offset) {
             console.log(dots[currentDot])
-            setCurrentDot(currentDot-1)
-            window.removeEventListener('scroll',scrollList)
+            setCurrentDot(currentDot - 1)
+            window.removeEventListener('scroll', scrollList)
         }
     }
 
-    useEffect(()=>{
-        window.addEventListener('scroll',scrollList)
+    useEffect(() => {
+        window.addEventListener('scroll', scrollList)
     },)
 
     return (
@@ -350,13 +353,14 @@ export default function Home() {
             {/*        )*/}
             {/*    })}*/}
             {/*</div>*/}
-            {tovars.map((tovar,counter)=>{
-                return(
-                    <motion.div key={`tovar${counter}`} id={`tovar${counter}`} className="flex justify-center w-full items-center  overflow-hidden relative bg-white"
-                                initial={{y:-20,opacity:0}}
-                                whileInView={{y:0,opacity:1}}
-                                viewport={{once:true}}
-                                transition={{ease:'easeInOut',duration:0.7}}>
+            {tovars.map((tovar, counter) => {
+                return (
+                    <motion.div key={`tovar${counter}`} id={`tovar${counter}`}
+                                className="flex justify-center w-full items-center  overflow-hidden relative bg-white"
+                                initial={{y: -20, opacity: 0}}
+                                whileInView={{y: 0, opacity: 1}}
+                                viewport={{once: true}}
+                                transition={{ease: 'easeInOut', duration: 0.7}}>
                         <CatalogItem callback={getDotsCoord} tovar={tovar}></CatalogItem>
                     </motion.div>
                 )

@@ -6,6 +6,7 @@ import Reviews from "@/components/Reviews";
 import {motion} from "framer-motion";
 import {useRouter} from "next/navigation";
 import ReviewPop from "@/components/ReviewPop";
+import HelpPop from "@/components/HelpPop";
 
 export default function Home() {
 
@@ -127,6 +128,8 @@ export default function Home() {
 
 
     const [showReviewPop, setShowReviewPop] = useState(false)
+
+    const [showHelpPop,setShowHelpPop]=useState(false)
 
 
     return (
@@ -566,7 +569,7 @@ export default function Home() {
                                 initial={{x: -40, opacity: 0}}
                                 whileInView={{x: 0, opacity: 1}}
                                 viewport={{once: true}}
-                                transition={{ease: 'easeInOut', duration: 0.7, delay: 0.2}}>
+                                transition={{ease: 'easeInOut', duration: 0.7, delay: 0.2}} onClick={()=>{setShowHelpPop(true)}}>
                         <img className={'w-6 sm:w-20 aspect-square'} src={'/need_help.svg'}/>
                         <p className={'font-bold text-sm sm:text-4xl ml-3 text-[#00A19A]'}>Задать вопрос доктору</p>
                     </motion.div>
@@ -587,6 +590,9 @@ export default function Home() {
                             transition={{ease: 'easeInOut', duration: 0.7, delay: 0.8}}>
                     <img className={'sm:absolute z-50 h-full'} src={'/doctor2.png'}/>
                 </motion.div>
+                {showHelpPop ? <HelpPop callback={() => {
+                    setShowHelpPop(false)
+                }}></HelpPop> : null}
             </div>
 
         </main>
