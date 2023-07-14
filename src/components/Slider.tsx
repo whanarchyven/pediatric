@@ -1082,7 +1082,7 @@ export default function Slider() {
                     <text className={'postText flex flex-col gap-5'} dangerouslySetInnerHTML={{__html:currentPost.text}}>
 
                     </text>
-                    <p onClick={()=>{setIsPopVisible(false)}} className={'cursor-pointer text-2xl text-red font-bold'}>🠐 Назад</p>
+                    <div onClick={()=>{setIsPopVisible(false)}} className={'cursor-pointer flex items-center gap-3 text-2xl text-red font-bold'}><img src={'/arrow_back.svg'}/> Назад</div>
                 </div>
             </div>:null}
         </div>
