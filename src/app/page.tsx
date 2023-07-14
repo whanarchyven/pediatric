@@ -179,8 +179,8 @@ export default function Home() {
                     </div>
 
                 </motion.div>
-                <div className={'absolute bottom-[-2px] w-full'}>
-                    <img src={'/main_asset_bottom.svg'} alt={'asset_bottom'}></img>
+                <div className={'absolute bottom-[-4px] asset w-full'}>
+                    <img src={'/main_asset_bottom.png'} alt={'asset_bottom'}></img>
                 </div>
             </motion.div>
 
@@ -246,7 +246,7 @@ export default function Home() {
 
             <div
                 className={'h-[779px] overflow-hidden green-bg px-[20px] sm:py-0 pt-6 sm:px-[70px] relative grid grid-cols-1 sm:grid-cols-12'}>
-                <img className={'absolute w-full top-0'} src={'/about_us_offset_top.svg'}/>
+                <img className={'absolute asset w-full top-0'} src={'/about_us_offset_top.png'}/>
                 <div className={'hidden sm:block'}>
                 </div>
                 <div className={'col-span-5 flex flex-col items-center h-full justify-center'}>
@@ -348,7 +348,7 @@ export default function Home() {
                     {/*</motion.div>*/}
                 </div>
 
-                <img className={'absolute w-full -bottom-[1px]'} src={'/about_us_offset_bot.svg'}/>
+                <img className={'absolute w-full asset -bottom-[1px]'} src={'/about_us_offset_bot.png'}/>
             </div>
 
 
@@ -428,7 +428,7 @@ export default function Home() {
             <div
                 className={'w-full relative px-[20px] sm:px-[70px] bg-[url("/bg_reviews.jpg")] flex items-center justify-center flex-col h-[867px] relative'}>
                 <a id={'reviews'} className={'-top-32 absolute'}></a>
-                <img className={'absolute w-full left-0 top-0'} src={'/reviews_offset.svg'}/>
+                <img className={'absolute asset w-full left-0 top-0'} src={'/reviews_offset.png'}/>
                 <motion.p className={'text-white text-3xl sm:text-5xl font-bold uppercase'}
                           initial={{scale: 0.7, opacity: 0}}
                           whileInView={{scale: 1, opacity: 1}}
@@ -449,7 +449,7 @@ export default function Home() {
                     }}>
                     Оставить отзыв
                 </div>
-                <img className={'absolute w-full left-0 bottom-0'} src={'/reviews_offset_bottom.svg'}/>
+                <img className={'absolute w-full left-0 asset bottom-0'} src={'/reviews_offset_bottom.png'}/>
                 {showReviewPop ? <ReviewPop callback={() => {
                     setShowReviewPop(false)
                 }}></ReviewPop> : null}
@@ -563,7 +563,7 @@ export default function Home() {
             <div
                 className={'w-full relative px-[20px] sm:px-[140px] resources-bg sm:grid items-center gap-10 sm:grid-cols-5 pt-20 sm:py-20 overflow-visible'}>
                 <a id={'resources'} className={'-top-32 absolute'}></a>
-                <img className={'absolute w-full left-0 top-0'} src={'/resources_offset.svg'}/>
+                <img className={'absolute w-full asset left-0 top-0'} src={'/resources_offset.png'}/>
                 <div className={'col-span-3 flex flex-col items-center sm:items-start justify-center'}>
                     <motion.div className={'flex p-2 sm:p-4 mt-6 cursor-pointer items-center bg-white rounded-full'}
                                 initial={{x: -40, opacity: 0}}
