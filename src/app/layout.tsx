@@ -24,22 +24,56 @@ export default function RootLayout({
             {children}
         </div>
         {/*ФУТЕР*/}
-        <div className={'bg-[#333333] grid gap-12 grid-cols-1 items-center justify-center sm:grid-cols-12 py-20 px-[20px] sm:px-[70px] items-center'}>
-            <div className={'sm:col-span-3 relative h-12'}>
-                <Image src={'/logo.svg'} alt={'logo'} layout={'fill'}></Image>
+        <div className={'bg-black grid gap-12 grid-cols-1 items-start justify-center sm:grid-cols-12 py-20 px-[20px] sm:px-[70px] items-start'}>
+            <div className={'sm:col-span-3 gap-8 flex flex-col relative justify-between'}>
+                <img className={'w-48'} src={'/logo.svg'}/>
+                <div className={'flex items-center gap-3'}>
+                    <div className={'rounded-full bg-white w-9 aspect-square'}>
+
+                    </div>
+                    <p className={'text-white font-extralight'}>Telegram</p>
+                </div>
+                <div className={'flex items-center gap-3'}>
+                    <div className={'rounded-full bg-white w-9 aspect-square'}>
+
+                    </div>
+                    <p className={'text-white font-extralight'}>ВКонтакте</p>
+                </div>
+                <p className={'text-white opacity-20 font-extralight'}>
+                    © Межрегиональная общественная организация «Общество детских дерматологов», 2023
+                </p>
             </div>
-            <div className={'sm:col-span-2 sm:text-left text-center text-white font-extralight flex items-start'}>
-                Политика в отношении
-                обработки персональных
-                данных
+            <div className={'sm:col-span-3 gap-8 flex flex-col sm:text-left text-center text-white font-extralight flex items-start'}>
+                <div className={'flex flex-col text-white gap-3'}>
+                    <p className={'font-bold text-xl'}>Контакты:</p>
+                    <p className={'font-extralight'}>+7 (952) 256 34 20</p>
+                    <p className={'font-extralight'}>pediatric-dermatology@mail.ru</p>
+                    <p className={'font-extralight'}>Ломоносовский проспект, 2, строение 1Москва, 119034</p>
+                </div>
+                <div className={'flex flex-col text-white gap-3'}>
+                    <p className={'font-bold text-xl'}>По вопросам рекламы
+                        и сотрудничества:</p>
+                    <p className={'font-extralight'}>+7 (926) 249 86 58</p>
+                    <p className={'font-extralight'}>savelova.derma@gmail.com</p>
+                </div>
             </div>
-            <div className={'sm:col-span-2 text-white font-extralight flex flex-col h-full justify-between'}>
-                <a href={'/#reviews'} className={'font-extralight sm:text-left text-center'}>Отзывы</a>
-                <a href={'/#resources'} className={'font-extralight sm:text-left text-center'}>Полезные ресурсы</a>
+            <div className={'sm:col-span-3 gap-5 flex flex-col text-white font-extralight flex flex-col h-full justify-between'}>
+                <a className={'font-extralight sm:text-left text-center'}>Об обществе</a>
+                <a className={'font-extralight sm:text-left text-center'}>Публикации</a>
+                <a className={'font-extralight sm:text-left text-center'}>Новости</a>
+                <a className={'font-extralight sm:text-left text-center'}>Мероприятия</a>
+                <a className={'font-extralight sm:text-left text-center'}>Контакты</a>
+                <a className={'font-extralight sm:text-left text-center'}>Политика конфиденциальности</a>
+                <a className={'font-extralight sm:text-left text-center'}>Договор-оферта</a>
             </div>
-            <div className={'sm:col-span-2 text-white font-extralight flex flex-col h-full justify-between'}>
-                <a href={'/#about'} className={'font-extralight sm:text-left text-center'}>О проекте</a>
-                <a href={'/#videolessons'} className={'font-extralight sm:text-left text-center'}>Видео уроки</a>
+            <div className={'sm:col-span-3 gap-8 flex flex-col text-white font-extralight '}>
+                <p className={'font-bold text-xl'}>Стань членом сообщества:</p>
+                <p className={'font-extralight'}>Взаимодействуйте с обществом совершенно по-новому.<br/> <br/>
+                    Члены общества получают эксклюзивный доступ к мероприятиям, вдохновляющим беседам и многому другому.</p>
+                <div
+                    className={'bg-transparent border-2 border-white font-normal rounded-lg text-xl text-white flex items-center justify-center w-60 py-5'}>
+                    Подать заявку
+                </div>
             </div>
             {/*<div*/}
             {/*    className={'col-span-3 text-white rounded-full cursor-pointer p-4 h-full flex items-center justify-center bg-red'}>*/}

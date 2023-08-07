@@ -27,7 +27,8 @@ body{
 }
 
 .swiper-pagination-bullet-active {
-    background-color: #6ABCA5 !important;
+    /*background-color: #6ABCA5 !important;*/
+    --swiper-pagination-color:#6ABCA5;
 }
 /*--swiper-pagination-top:50px;*/
 
@@ -104,3 +105,21 @@ html{
     left: 0px;
 }
 
+.myswiper>.swiper-pagination {
+    --swiper-pagination-right: auto;
+    --swiper-pagination-left: 0px;
+}
+
+.myswiper>.swiper-pagination>.swiper-pagination-bullet-active {
+    --swiper-pagination-bullet-opacity:1;
+    --swiper-pagination-color:#FEFEFE;
+}
+.myswiper>.swiper-pagination>.swiper-pagination-bullet {
+    --swiper-pagination-bullet-inactive-opacity:0.5;
+    --swiper-pagination-bullet-inactive-color:#FEFEFE;
+    --swiper-pagination-bullet-vertical-gap:20px;
+}
+
+.green-gradient{
+    background:linear-gradient(105deg, #085751 4%, #68C3BD 100%);
+}
