@@ -34,6 +34,7 @@ import Link from "next/link";
 import concatStr from "@/helpers/concatStr";
 import Calendar from "@/components/Calendar";
 import News from "@/components/News";
+import CountUp from "react-countup";
 
 
 export default function Home() {
@@ -220,15 +221,25 @@ export default function Home() {
             <div className={'bg-white h-[854px] flex items-center px-[140px]'}>
                 <div className={'gap-20 grid grid-cols-2'}>
                     <div className={'flex flex-col gap-6 items-start'}>
-                        <p className={'uppercase font-extralight text-5xl text-black'}>О НАШЕЙ
-                            <br/><span className={'font-bold'}>ОРГАНИЗАЦИИ</span></p>
-                        <div className={'flex items-center gap-3'}>
+                        <motion.p initial={{x: -40, opacity: 0}}
+                                  whileInView={{x: 0, opacity: 1}}
+                                  viewport={{once: true}}
+                                  transition={{ease: 'easeInOut', duration: 0.7}} className={'uppercase font-extralight text-5xl text-black'}>О НАШЕЙ
+                            <br/><span className={'font-bold'}>ОРГАНИЗАЦИИ</span></motion.p>
+                        <motion.div
+                            initial={{y: -40, opacity: 0}}
+                            whileInView={{y: 0, opacity: 1}}
+                            viewport={{once: true}}
+                            transition={{ease: 'easeInOut', duration: 0.7, delay: 0.4}} className={'flex items-center gap-3'}>
                             <img className={'w-12'} src={`${images}/comment.svg`}/>
                             <p className={'font-bold text-green text-xl'}>
                                 Проблема заболеваний кожи детского возраста остается одной из наиболее значимых.
                             </p>
-                        </div>
-                        <p className={'font-normal text-black'}>
+                        </motion.div>
+                        <motion.p initial={{y: -40, opacity: 0}}
+                                  whileInView={{y: 0, opacity: 1}}
+                                  viewport={{once: true}}
+                                  transition={{ease: 'easeInOut', duration: 0.7, delay: 0.7}} className={'font-normal text-black'}>
                             Сегодня детская дерматология все более четко отстраивается от дерматологии взрослой. Детская
                             кожа реагирует на внутренние и внешние негативные факторы острее, чем взрослая, при этом
                             особенности детского организма требуют тщательного подбора лечебных препаратов.
@@ -238,28 +249,43 @@ export default function Home() {
                             патологий требует комплексного лечения. Для этого мы объединяем усилия специалистов, чтобы
                             развивать детскую дерматологию и распространять современные медицинские знания. И в конечном
                             итоге — чтобы каждый врач мог эффективно помочь своим пациентам в любом городе и регионе.
-                        </p>
-                        <div
+                        </motion.p>
+                        <motion.div initial={{y: -40, opacity: 0}}
+                                    whileInView={{y: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7, delay: 1.2}}
                             className={'p-2 text-white w-52 font-normal h-12 px-4 bg-green flex items-center justify-center rounded-lg'}>
                             Подробнее
-                        </div>
+                        </motion.div>
                     </div>
                     <div className={'grid grid-cols-2 gap-4'}>
                         <div className={'flex justify-start flex-col items-end gap-4'}>
-                            <div className={'overflow-hidden rounded-lg'}><img
-                                className={'h-64 hover:scale-125 transition-all duration-300'}
-                                src={`${images}/employers/kid1.png`}/></div>
-                            <div className={'overflow-hidden rounded-lg'}><img
-                                className={'h-64 hover:scale-125 transition-all duration-300'}
-                                src={`${images}/employers/kid3.png`}/></div>
+                            <motion.div initial={{scale: 0.7, opacity: 0}}
+                                        whileInView={{scale:1, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 1, delay: 0}} className={'overflow-hidden rounded-lg'}><img
+                                className={'h-64 cursor-pointer hover:scale-125 transition-all duration-300'}
+                                src={`${images}/employers/kid1.png`}/></motion.div>
+                            <motion.div initial={{scale: 0.7, opacity: 0}}
+                                        whileInView={{scale:1, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 1, delay: 0.6}} className={'overflow-hidden rounded-lg'}><img
+                                className={'h-64 cursor-pointer hover:scale-125 transition-all duration-300'}
+                                src={`${images}/employers/kid3.png`}/></motion.div>
                         </div>
                         <div className={'flex justify-end flex-col items-start gap-4'}>
-                            <div className={'overflow-hidden rounded-lg'}><img
-                                className={'h-64 hover:scale-125 transition-all duration-300'}
-                                src={`${images}/employers/kid2.png`}/></div>
-                            <div className={'overflow-hidden rounded-lg'}><img
-                                className={'h-64 hover:scale-125 transition-all duration-300'}
-                                src={`${images}/employers/kid4.png`}/></div>
+                            <motion.div initial={{scale: 0.7, opacity: 0}}
+                                        whileInView={{scale:1, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 1, delay: 0.3}} className={'overflow-hidden rounded-lg'}><img
+                                className={'h-64 cursor-pointer hover:scale-125 transition-all duration-300'}
+                                src={`${images}/employers/kid2.png`}/></motion.div>
+                            <motion.div initial={{scale: 0.7, opacity: 0}}
+                                        whileInView={{scale:1, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 1, delay: 0.9}} className={'overflow-hidden rounded-lg'}><img
+                                className={'h-64 cursor-pointer hover:scale-125 transition-all duration-300'}
+                                src={`${images}/employers/kid4.png`}/></motion.div>
                         </div>
                     </div>
                 </div>
@@ -273,44 +299,66 @@ export default function Home() {
                      alt={'asset_bottom'}></img>
                 <div>
                     <div className={'flex items-center justify-between'}>
-                        <p className={'uppercase font-extralight text-black text-4xl'}>Основные <br/><strong
-                            className={'font-extrabold'}>направления:</strong></p>
-                        <div className={'flex items-center gap-4'}>
+                        <motion.p initial={{x: -40, opacity: 0}}
+                                  whileInView={{x: 0, opacity: 1}}
+                                  viewport={{once: true}}
+                                  transition={{ease: 'easeInOut', duration: 0.7}} className={'uppercase font-extralight text-black text-4xl'}>Основные <br/><strong
+                            className={'font-extrabold'}>направления:</strong></motion.p>
+                        <motion.div className={'flex items-center gap-4'} initial={{y: 40, opacity: 0}}
+                                    whileInView={{y: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7,delay:1.2}}>
                             <img className={'w-10'} src={`${images}/help.svg`}/>
                             <p className={'lowercase'}>ЦЕЛЬ ОРГАНИЗАЦИИ - СОДЕЙСТВИЕ РАЗВИТИЮ <br/>
                                 ДЕТСКОЙ ДЕРМАТОЛОГИИ </p>
-                        </div>
+                        </motion.div>
                     </div>
                     <div className={'grid mt-10 grid-cols-4 gap-16 '}>
-                        <div
+                        <motion.div initial={{scale: 0.7, opacity: 0}}
+                                        whileInView={{scale:1, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 1, delay: 0}}
                             className={'shadow-xl h-80 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'w-20 mt-9 aspect-square'} src={`${images}/science.svg`}/>
                             <p className={'text-white font-normal text-center'}>Проведение образовательных
                                 научно-практических конференций в различных форматах
                                 на территории РФ</p>
-                        </div>
-                        <div
+                        </motion.div>
+                        <motion.div initial={{scale: 0.7, opacity: 0}}
+                                        whileInView={{scale:1, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 1, delay: 0.3}}
                             className={'shadow-xl h-80 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'w-20 mt-9 aspect-square'} src={`${images}/socium.svg`}/>
                             <p className={'text-white font-normal text-center'}>Обсуждение сложных клинических случаев,
                                 проведение консилиумов в рамках программы телемедицины</p>
-                        </div>
-                        <div
+                        </motion.div>
+                        <motion.div initial={{scale: 0.7, opacity: 0}}
+                                        whileInView={{scale:1, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 1, delay: 0.6}}
                             className={'shadow-xl h-80 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'w-20 mt-9 aspect-square'} src={`${images}/confirm.svg`}/>
                             <p className={'text-white font-normal text-center'}>Цифровая трансформация в дерматологии на
                                 территории РФ</p>
-                        </div>
-                        <div
+                        </motion.div>
+                        <motion.div initial={{scale: 0.7, opacity: 0}}
+                                        whileInView={{scale:1, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 1, delay: 0.9}}
                             className={'shadow-xl h-80 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'w-20 mt-9 aspect-square'} src={`${images}/love.svg`}/>
                             <p className={'text-white font-normal text-center'}>Организация помощи детям с тяжелым
                                 течением кожных заболеваний</p>
-                        </div>
+                        </motion.div>
                     </div>
-                    <p className={'lowercase mt-12 font-inter font-normal text-green-two'}>Межрегиональная общественная
+                    <motion.p className={'lowercase mt-12 font-inter font-normal text-green-two'}
+                              initial={{y: -40, opacity: 0}}
+                              whileInView={{y: 0, opacity: 1}}
+                              viewport={{once: true}}
+                              transition={{ease: 'easeInOut', duration: 0.7,delay:0}}>Межрегиональная общественная
                         организация «Общество детских дерматологов» <br/>
-                        Interregional Public Organization «Society of Pediatric Dermatologists»</p>
+                        Interregional Public Organization «Society of Pediatric Dermatologists»</motion.p>
                 </div>
                 <img className={'absolute left-0 bottom-0'} src={`${images}/about_us_offset_bottom.png`}
                      alt={'asset_bottom'}></img>
@@ -320,23 +368,38 @@ export default function Home() {
 
             <div className={'bg-white h-[1000px] flex flex-col justify-center px-[140px]'}>
                 <div className={'flex mt-7 items-center justify-between'}>
-                    <p className={'uppercase font-extralight text-black text-4xl'}>Календарь <br/><strong
-                        className={'font-extrabold'}>СОБЫТИЙ 2023</strong></p>
+                    <motion.p initial={{x: -40, opacity: 0}}
+                              whileInView={{x: 0, opacity: 1}}
+                              viewport={{once: true}}
+                              transition={{ease: 'easeInOut', duration: 0.7}} className={'uppercase font-extralight text-black text-4xl'}>Календарь <br/><strong
+                        className={'font-extrabold'}>СОБЫТИЙ 2023</strong></motion.p>
                 </div>
-                <div className={'mt-10'}>
+                <motion.div initial={{y: -40, opacity: 0}}
+                            whileInView={{y: 0, opacity: 1}}
+                            viewport={{once: true}}
+                            transition={{ease: 'easeInOut', duration: 0.7}} className={'mt-10'}>
                     <Calendar></Calendar>
-                </div>
+                </motion.div>
             </div>
 
             {/*НОВОСТИ*/}
 
             <div className={'bg-white h-[600px]'}>
                 <div className={'flex mt-7 items-center px-[140px] justify-between'}>
-                    <p className={'uppercase font-extrabold text-black text-4xl'}>Новости</p>
+                    <motion.p className={'uppercase font-extrabold text-black text-4xl'}
+                              initial={{x: -40, opacity: 0}}
+                              whileInView={{x: 0, opacity: 1}}
+                              viewport={{once: true}}
+                              transition={{ease: 'easeInOut', duration: 0.7}}
+                    >Новости</motion.p>
                 </div>
-                <div className={'mt-12 w-full flex px-[40px]'}>
+                <motion.div className={'mt-12 w-full flex px-[40px]'}
+                            initial={{y: -40, opacity: 0}}
+                            whileInView={{y: 0, opacity: 1}}
+                            viewport={{once: true}}
+                            transition={{ease: 'easeInOut', duration: 0.7}}>
                     <News></News>
-                </div>
+                </motion.div>
             </div>
 
             {/*РЕЗУЛЬТАТЫ*/}
@@ -347,57 +410,85 @@ export default function Home() {
 
                 <div className={'grid grid-cols-7 items-center h-full gap-2'}>
                     <div className={'col-span-4 flex flex-col gap-10'}>
-                        <p className={'text-4xl font-extralight text-white'}>ПРИСОЕДИНЯЙСЯ К НАШЕМУ<br/><span
-                            className={'font-extrabold'}>ПРОФЕССИОНАЛЬНОМУ СООБЩЕСТВУ</span></p>
-                        <div className={'flex h-28 items-center gap-5'}>
+                        <motion.p initial={{x: -40, opacity: 0}}
+                                  whileInView={{x: 0, opacity: 1}}
+                                  viewport={{once: true}}
+                                  transition={{ease: 'easeInOut', duration: 0.7}} className={'text-4xl font-extralight text-white'}>ПРИСОЕДИНЯЙСЯ К НАШЕМУ<br/><span
+                            className={'font-extrabold'}>ПРОФЕССИОНАЛЬНОМУ СООБЩЕСТВУ</span></motion.p>
+                        <motion.div className={'flex h-28 items-center gap-5'}
+                                    initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}}>
                             <div className={'h-20 bg-white w-[2px]'}>
 
                             </div>
                             <div className={'flex flex-col text-white gap-3'}>
-                                <p className={'text-8xl leading-[70%] font-extrabold'}>20 000+</p>
+                                <CountUp enableScrollSpy={true} className={'text-8xl leading-[70%] font-extrabold font-inter'} useEasing={true} suffix={'+'} end={20000} decimal={' '} separator={' '}>
+                                </CountUp>
+                                {/*<p className={'text-8xl leading-[70%] font-extrabold'}>20 000+</p>*/}
                                 <p className={'text-lg leading-[70%] font-extralight'}>Вылеченых детей</p>
                             </div>
-                        </div>
+                        </motion.div>
                         <div className={'flex items-start gap-14'}>
-                            <div className={'flex h-full items-center gap-5'}>
+                            <motion.div className={'flex h-full items-center gap-5'} initial={{x: -40, opacity: 0}}
+                                        whileInView={{x: 0, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 0.7,delay:0.3}}>
                                 <div className={'h-20 bg-white w-[2px]'}>
 
                                 </div>
                                 <div className={'flex flex-col text-white gap-3'}>
-                                    <p className={'text-5xl leading-[70%] font-extrabold'}>10+</p>
+                                    <CountUp enableScrollSpy={true} className={'text-5xl leading-[70%] font-extrabold'} useEasing={true} suffix={'+'} end={10} decimal={' '} separator={' '}>
+                                    </CountUp>
                                     <p className={'text-md leading-[100%] font-extralight'}>Лет помогаем<br/>
                                         детям</p>
                                 </div>
-                            </div>
-                            <div className={'flex h-full items-center gap-5'}>
+                            </motion.div>
+                            <motion.div initial={{x: -40, opacity: 0}}
+                                        whileInView={{x: 0, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 0.7,delay:0.6}} className={'flex h-full items-center gap-5'}>
                                 <div className={'h-20 bg-white w-[2px]'}>
 
                                 </div>
                                 <div className={'flex flex-col text-white gap-3'}>
-                                    <p className={'text-5xl leading-[70%] font-extrabold'}>150+</p>
+                                    <CountUp enableScrollSpy={true} className={'text-5xl leading-[70%] font-extrabold'} useEasing={true} suffix={'+'} end={150} decimal={' '} separator={' '}>
+                                    </CountUp>
                                     <p className={'text-md leading-[100%] font-extralight'}>Проведено<br/>
                                         мероприятий</p>
                                 </div>
-                            </div>
-                            <div className={'flex h-full items-center gap-5'}>
+                            </motion.div>
+                            <motion.div initial={{x: -40, opacity: 0}}
+                                        whileInView={{x: 0, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 0.7,delay:0.9}} className={'flex h-full items-center gap-5'}>
                                 <div className={'h-20 bg-white w-[2px]'}>
 
                                 </div>
                                 <div className={'flex flex-col text-white gap-3'}>
-                                    <p className={'text-5xl leading-[70%] font-extrabold'}>19 146+</p>
+                                    <CountUp enableScrollSpy={true} className={'text-5xl leading-[70%] font-extrabold'} useEasing={true} suffix={'+'} end={19146} decimal={' '} separator={' '}>
+                                    </CountUp>
                                     <p className={'text-md leading-[100%] font-extralight'}>Членов<br/>
                                         сообщества</p>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
-                        <div
+                        <motion.div
+                            initial={{y: -40, opacity: 0}}
+                            whileInView={{y: 0, opacity: 1}}
+                            viewport={{once: true}}
+                            transition={{ease: 'easeInOut', duration: 0.7}}
                             className={'bg-white font-normal rounded-lg text-xl text-[#277B76] flex items-center justify-center w-72  py-5'}>
                             Подать заявку
-                        </div>
+                        </motion.div>
                     </div>
                     <div className={'col-span-3 h-full relative flex items-center justify-center'}>
                         <img className={'absolute bottom-0'} src={`${images}/results_doctor_sprite.svg`}/>
-                        <img className={'absolute bottom-0'} src={`${images}/results_doctor.png`}/>
+                        <motion.img initial={{y: 40, opacity: 0}}
+                                    whileInView={{y: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'absolute bottom-0'} src={`${images}/results_doctor.png`}/>
                     </div>
                 </div>
 
@@ -409,57 +500,87 @@ export default function Home() {
             <div className={'px-[140px] bg-white py-14'}>
                 <div className={'grid grid-cols-12 gap-10'}>
                     <div className={'col-span-6 flex flex-col gap-10'}>
-                        <p className={'text-4xl font-extralight text-black'}>ДОСТУПНОСТЬ<br/><span
-                            className={'font-extrabold'}>ИНФОРМАЦИИ</span></p>
-                        <div className={'flex items-start gap-6'}>
+                        <motion.p initial={{y: -40, opacity: 0}}
+                                  whileInView={{y: 0, opacity: 1}}
+                                  viewport={{once: true}}
+                                  transition={{ease: 'easeInOut', duration: 0.7}} className={'text-4xl font-extralight text-black'}>ДОСТУПНОСТЬ<br/><span
+                            className={'font-extrabold'}>ИНФОРМАЦИИ</span></motion.p>
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'flex items-start gap-6'}>
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
                             <p className={'text-xl leading-[100%]'}>Быть в курсе актуальных новостей в области детской
                                 дерматологии.</p>
-                        </div>
-                        <div className={'flex items-start gap-6'}>
+                        </motion.div>
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'flex items-start gap-6'}>
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
                             <p className={'text-xl leading-[100%]'}>
                                 Следить за последними результатами клинических исследований новых лекарственных средств,
                                 применяемых в детской дерматологии.</p>
-                        </div>
-                        <div className={'flex items-start gap-6'}>
+                        </motion.div>
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'flex items-start gap-6'}>
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
                             <p className={'text-xl leading-[100%]'}>Иметь доступ к прослушиванию регулярных вебинаров на
                                 актуальные темы о заболеваниях кожи, волос, и ногтей в детском возрасте от ведущих
                                 специалистов нашей страны и европейского общества детских дерматологов.</p>
-                        </div>
-                        <div className={'flex items-start gap-6'}>
+                        </motion.div>
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'flex items-start gap-6'}>
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
                             <p className={'text-xl leading-[100%]'}>Иметь доступ к образовательным материалам российских
                                 и зарубежных специалистов.</p>
-                        </div>
-                        <div
+                        </motion.div>
+                        <motion.div initial={{y: -40, opacity: 0}}
+                                    whileInView={{y: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}}
                             className={'bg-[#58BBB4] font-normal rounded-lg text-xl text-white flex items-center justify-center w-72  py-5'}>
                             Подать заявку
-                        </div>
+                        </motion.div>
                     </div>
                     <div className={'col-span-5 flex justify-end col-end-13'}>
-                        <img className={'rounded-lg'} src={`${images}/feautures/1.png`}/>
+                        <motion.img initial={{scale: 0.8, opacity: 0}}
+                                    whileInView={{scale: 1, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'rounded-lg'} src={`${images}/feautures/1.png`}/>
                     </div>
                 </div>
             </div>
             <div className={'px-[140px] bg-white py-14'}>
                 <div className={'grid grid-cols-12 gap-10'}>
                     <div className={'col-span-6 flex justify-start'}>
-                        <img className={'rounded-lg'} src={`${images}/feautures/2.png`}/>
+                        <motion.img initial={{scale: 0.8, opacity: 0}}
+                                    whileInView={{scale: 1, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'rounded-lg'} src={`${images}/feautures/2.png`}/>
                     </div>
                     <div className={'col-span-5 col-end-13 flex flex-col gap-10'}>
-                        <p className={'text-4xl font-extralight text-black'}>ОНЛАЙН<br/><span
-                            className={'font-extrabold'}>ОБУЧЕНИЕ</span></p>
-                        <div className={'flex items-start gap-6'}>
+                        <motion.p initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'text-4xl font-extralight text-black'}>ОНЛАЙН<br/><span
+                            className={'font-extrabold'}>ОБУЧЕНИЕ</span></motion.p>
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'flex items-start gap-6'}>
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
@@ -467,25 +588,34 @@ export default function Home() {
                                 клинических случаев, вебинаров, семинаров, а также возможностью участвовать в
                                 фокус-сессиях и
                                 дискуссиях в области детской дерматологии.</p>
-                        </div>
-                        <div className={'flex items-center gap-6'}>
+                        </motion.div>
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'flex items-center gap-6'}>
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
                             <p className={'text-xl leading-[100%]'}>Возможность получать баллы НМО.</p>
-                        </div>
-                        <div className={'flex items-start gap-6'}>
+                        </motion.div>
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'flex items-start gap-6'}>
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
                             <p className={'text-xl leading-[100%]'}>Возможность стать спикеров научно-практических
                                 конференций Общества детских дерматологов</p>
-                        </div>
+                        </motion.div>
 
-                        <div
+                        <motion.div initial={{y: -40, opacity: 0}}
+                                    whileInView={{y: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}}
                             className={'bg-[#58BBB4] font-normal rounded-lg text-xl text-white flex items-center justify-center w-72  py-5'}>
                             Подать заявку
-                        </div>
+                        </motion.div>
                     </div>
 
                 </div>
@@ -493,37 +623,55 @@ export default function Home() {
             <div className={'px-[140px] bg-white py-14'}>
                 <div className={'grid grid-cols-12 items-center gap-10'}>
                     <div className={'col-span-6 flex flex-col gap-10'}>
-                        <p className={'text-4xl font-extralight text-black'}>СТАНЬ ЧАСТЬЮ<br/><span
-                            className={'font-extrabold'}>БОЛЬШОЙ КОМАНДЫ</span></p>
-                        <div className={'flex items-start gap-6'}>
+                        <motion.p initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'text-4xl font-extralight text-black'}>СТАНЬ ЧАСТЬЮ<br/><span
+                            className={'font-extrabold'}>БОЛЬШОЙ КОМАНДЫ</span></motion.p>
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'flex items-start gap-6'}>
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
                             <p className={'text-xl leading-[100%]'}>Множество возможностей для общения с детскими
                                 дерматологами со всего мира.</p>
-                        </div>
-                        <div className={'flex items-start gap-6'}>
+                        </motion.div>
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'flex items-start gap-6'}>
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
                             <p className={'text-xl leading-[100%]'}>Право на получение сертификата члена Общества
                                 детских дерматологов с индивидуальным номером.</p>
-                        </div>
-                        <div className={'flex items-start gap-6'}>
+                        </motion.div>
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'flex items-start gap-6'}>
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
                             <p className={'text-xl leading-[100%]'}>Бонусы при участии в крупных конференциях
                                 международного формата.</p>
-                        </div>
+                        </motion.div>
 
-                        <div
+                        <motion.div initial={{y: -40, opacity: 0}}
+                                    whileInView={{y: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}}
                             className={'bg-[#58BBB4] font-normal rounded-lg text-xl text-white flex items-center justify-center w-72  py-5'}>
                             Подать заявку
-                        </div>
+                        </motion.div>
                     </div>
                     <div className={'col-span-5 flex justify-end col-end-13'}>
-                        <img className={'rounded-lg'} src={`${images}/feautures/3.png`}/>
+                        <motion.img initial={{scale: 0.8, opacity: 0}}
+                                    whileInView={{scale: 1, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'rounded-lg'} src={`${images}/feautures/3.png`}/>
                     </div>
                 </div>
             </div>
@@ -536,9 +684,14 @@ export default function Home() {
                 className={"h-[600px] flex flex-col justify-center  overflow-hidden bg-cover relative bg-[url('/pages/main/faq_bg.png')]"}>
                 <img className={'absolute left-0 top-0 w-full'} src={`${images}/faq_top_offset.png`}
                      alt={'asset_bottom'}/>
-                <p className={'text-4xl top-10 absolute text-white px-[140px] font-extralight text-black'}>ЧАСТО
+                <motion.p className={'text-4xl top-10 absolute text-white px-[140px] font-extralight text-black'}
+                          initial={{x: -40, opacity: 0}}
+                          whileInView={{x: 0, opacity: 1}}
+                          viewport={{once: true}}
+                          transition={{ease: 'easeInOut', duration: 0.7}}
+                >ЧАСТО
                     ЗАДАВАЕМЫЕ<br/><span
-                        className={'font-extrabold'}>ВОПРОСЫ</span></p>
+                        className={'font-extrabold'}>ВОПРОСЫ</span></motion.p>
                 <motion.div
                     className={'w-full h-[600px] h-auto px-[20px] sm:px-[70px] grid grid-cols-1 sm:grid-cols-12'}>
                     <motion.div
@@ -568,8 +721,8 @@ export default function Home() {
                                                 <div className={'text-left text-2xl text-white '}>
                                                     {item.question}
                                                 </div>
-                                                <p className={'text-white font-normal'}
-                                                   dangerouslySetInnerHTML={{__html: item.answer}}></p>
+                                                <div className={'text-white font-normal'}
+                                                   dangerouslySetInnerHTML={{__html: item.answer}}></div>
                                             </div>
                                         </SwiperSlide>
                                     )
@@ -586,14 +739,32 @@ export default function Home() {
             {/*PARTNERS*/}
 
             <div className={'h-[550px] bg-white flex flex-col items-center justify-center gap-2'}>
-                <p className={'uppercase text-center font-extralight text-black text-4xl'}>ОБЪЕДИНЯЕМ УСИЛИЯ <br/><strong
-                    className={'font-extrabold'}>С ПАРТНЕРАМИ</strong></p>
+                <motion.p initial={{scale: 0.8, opacity: 0}}
+                          whileInView={{scale: 1, opacity: 1}}
+                          viewport={{once: true}}
+                          transition={{ease: 'easeInOut', duration: 0.7}} className={'uppercase text-center font-extralight text-black text-4xl'}>ОБЪЕДИНЯЕМ УСИЛИЯ <br/><strong
+                    className={'font-extrabold'}>С ПАРТНЕРАМИ</strong></motion.p>
                 <div className={'flex items-center gap-4'}>
-                    <img src={`${images}/partners/image 15.png`}/>
-                    <img src={`${images}/partners/image 16.png`}/>
-                    <img src={`${images}/partners/image 17.png`}/>
-                    <img src={`${images}/partners/image 18.png`}/>
-                    <img src={`${images}/partners/image 19.png`}/>
+                    <motion.img initial={{scale: 0.8, opacity: 0}}
+                                    whileInView={{scale: 1, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7,delay:0.2}} src={`${images}/partners/image 15.png`}/>
+                    <motion.img initial={{scale: 0.8, opacity: 0}}
+                                    whileInView={{scale: 1, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7,delay:0.4}} src={`${images}/partners/image 16.png`}/>
+                    <motion.img initial={{scale: 0.8, opacity: 0}}
+                                    whileInView={{scale: 1, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7,delay:0.6}} src={`${images}/partners/image 17.png`}/>
+                    <motion.img initial={{scale: 0.8, opacity: 0}}
+                                    whileInView={{scale: 1, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7,delay:0.8}} src={`${images}/partners/image 18.png`}/>
+                    <motion.img initial={{scale: 0.8, opacity: 0}}
+                                    whileInView={{scale: 1, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7,delay:1}} src={`${images}/partners/image 19.png`}/>
                 </div>
             </div>
         </main>
