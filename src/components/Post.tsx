@@ -11,7 +11,7 @@ interface postInterface {
 const Post = ({title,caption,image, callback, text}:postInterface) => {
     return (
         <div className={'w-full p-4 flex gap-4 flex-col h-full items-center justify-center '} >
-            <img className={'cursor-pointer w-full rounded-lg'} src={`/posts/${image}.jpg`} onClick={()=>{callback()}}/>
+            <img className={'cursor-pointer w-full h-96 object-cover rounded-lg'} src={`/posts/${image}.jpg`} onClick={()=>{callback()}}/>
             <p className={'text-black w-full truncate text-sm sm:text-xl text-center font-bold'}>
                 {title}
             </p>

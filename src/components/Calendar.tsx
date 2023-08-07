@@ -1,0 +1,290 @@
+"use client"
+import React, {useEffect, useState} from 'react';
+import {classList} from "@/helpers/classList";
+import {images} from "next/dist/build/webpack/config/blocks/images";
+
+const Calendar = () => {
+
+    function getDaysArray(year: number, month: number) {
+        let numDaysInMonth, daysInWeek, daysIndex, index, i, l, daysArray;
+
+        numDaysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        daysInWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        daysIndex = {'Sun': 7, 'Mon': 1, 'Tue': 2, 'Wed': 3, 'Thu': 4, 'Fri': 5, 'Sat': 6};
+        index = daysIndex[(new Date(year, month - 1, 1)).toString().split(' ')[0]];
+        daysArray = [];
+
+        for (i = 0, l = numDaysInMonth[month - 1]; i < l; i++) {
+            daysArray.push({
+                day: (i + 1), weekDay: index++
+            });
+            if (index == 7) index = 0;
+        }
+
+        return daysArray;
+    }
+
+    const months = [
+        {
+            id: 1,
+            name: 'янв',
+            eng: 'jan'
+        },
+        {
+            id: 2,
+            name: 'фев',
+            eng: 'feb'
+        },
+        {
+            id: 3,
+            name: 'мар',
+            eng: 'mar'
+        },
+        {
+            id: 4,
+            name: 'апр',
+            eng: 'apr'
+        },
+        {
+            id: 5,
+            name: 'май',
+            eng: 'may'
+        },
+        {
+            id: 6,
+            name: 'июн',
+            eng: 'jun'
+        }, {
+            id: 7,
+            name: 'июл',
+            eng: 'jul'
+        }
+        , {
+            id: 8,
+            name: 'авг',
+            eng: 'aug'
+        },
+        {
+            id: 9,
+            name: 'сен',
+            eng: 'sep'
+        },
+        {
+            id: 10,
+            name: 'окт',
+            eng: 'oct'
+        },
+        {
+            id: 11,
+            name: 'ноя',
+            eng: 'nov'
+        },
+        {
+            id: 12,
+            name: 'дек',
+            eng: 'dec'
+        }
+    ]
+
+    const getVoidCalendarBlocks = (id: number, isInvert?: boolean) => {
+        if (isInvert) {
+            if (id == 0) {
+                return [];
+            }
+            console.log(id)
+            let temp = [];
+            for (let i = 7; i > id; i--) {
+                temp.push(i)
+            }
+            console.log(temp)
+            return temp
+        } else {
+            console.log(id)
+            let temp = [];
+            for (let i = 1; i < id; i++) {
+                temp.push(i)
+            }
+            console.log(temp)
+            return temp
+        }
+    }
+
+    const [currentMonth, setCurrentMonth] = useState(months[7])
+
+    const [days, setDays] = useState(getDaysArray(2023, currentMonth.id))
+
+    useEffect(() => {
+        setDays(getDaysArray(2023, currentMonth.id))
+    }, [currentMonth])
+
+    const [currentEvent, setCurrentEvent] = useState()
+
+    const [events, setEvents] = useState({
+        jan: [{}],
+        feb: [{}],
+        mar: [{}],
+        apr: [{}],
+        may: [{}],
+        jun: [{}],
+        jul: [{}],
+        aug: [{
+            day: 3,
+            type: 'Конференция',
+            title: 'Путь детской дерматологии',
+            subtitle: 'от истоков к перспективам. Часть 1.',
+            timePeriod: '10:00 - 13:00',
+            image: '/pages/main/events/main_event.png',
+            link: '/'
+        },
+            {
+                day: 18,
+                type: 'Марафон',
+                title: 'Путь детской дерматологии',
+                subtitle: 'от истоков к перспективам. Часть 2.',
+                timePeriod: '10:00 - 13:00',
+                image: '/pages/main/events/main_event.png',
+                link: '/'
+            },
+            {
+                day: 19,
+                type: 'Марафон',
+                title: 'Путь детской дерматологии',
+                subtitle: 'от истоков к перспективам. Часть 3.',
+                timePeriod: '10:00 - 13:00',
+                image: '/pages/main/events/main_event.png',
+                link: '/'
+            },
+            {
+                day: 20,
+                type: 'Марафон',
+                title: 'Путь детской дерматологии',
+                subtitle: 'от истоков к перспективам. Часть 4.',
+                timePeriod: '10:00 - 13:00',
+                image: '/pages/main/events/main_event.png',
+                link: '/'
+            }],
+        sep: [{
+            day: 3,
+            type: 'Лекция',
+            title: 'Чем лечить ребёнка?',
+            subtitle: 'советы практикующих дерматологов',
+            timePeriod: '12:00 - 16:00',
+            image: '/pages/main/events/main_event.png',
+            link: '/'
+        }],
+        oct: [{}],
+        nov: [{}],
+        dec: [{}],
+    })
+
+    return (
+        <div className={'w-full'}>
+            <div className={'w-full p-2 bg-green-two grid grid-cols-12 gap-10 rounded-full'}>
+                {months.map((month,counter) => {
+                    return (
+                        <div key={counter} className={'flex items-center justify-center'}>
+                            <div
+                                className={classList('p-3 transition-all duration-300 aspect-square flex rounded-full items-center justify-center', month.id == currentMonth.id ? 'bg-white text-green-two' : 'text-white cursor-pointer')}
+                                onClick={() => {
+                                    setCurrentMonth(month)
+                                }}>
+                                {month.name}
+                            </div>
+                        </div>
+                    )
+                })}
+            </div>
+            <div className={'w-full mt-4 grid grid-cols-11 gap-5'}>
+                <div className={'border-green-two overflow-hidden rounded-lg col-span-6 border-4'}>
+                    <div className={'grid grid-cols-7'}>
+                        <div className={'flex p-2 text-white items-center justify-center bg-green-two'}>
+                            пн
+                        </div>
+                        <div className={'flex p-2 text-white items-center justify-center bg-green-two'}>
+                            вт
+                        </div>
+                        <div className={'flex p-2 text-white items-center justify-center bg-green-two'}>
+                            ср
+                        </div>
+                        <div className={'flex p-2 text-white items-center justify-center bg-green-two'}>
+                            чт
+                        </div>
+                        <div className={'flex p-2 text-white items-center justify-center bg-green-two'}>
+                            пт
+                        </div>
+                        <div className={'flex p-2 text-white items-center justify-center bg-green-two'}>
+                            сб
+                        </div>
+                        <div className={'flex p-2 text-white items-center justify-center bg-green-two'}>
+                            вс
+                        </div>
+                    </div>
+                    <div className={'grid grid-cols-7'}>
+                        {getVoidCalendarBlocks(days[0].weekDay).map((item, counter) => {
+                            return (
+                                <div key={counter} className={classList('border-r-[1px] border-b-[1px] box-border aspect-square')}>
+
+                                </div>
+                            )
+                        })}
+                        {days.map((day, counter) => {
+                            const evnt = events[currentMonth.eng].find(evnt => evnt.day == day.day)
+                            return (
+                                <div key={counter}
+                                    className={classList('transition-all duration-300 border-r-[1px] p-1 flex flex-col justify-between border-b-[1px] box-border aspect-square', evnt ? 'text-white cursor-pointer bg-green-two' : 'text-green-two', (!evnt || evnt == currentEvent) ? 'opacity-100' : 'opacity-50')}
+                                    onClick={() => {
+                                        if (evnt) {
+                                            setCurrentEvent(evnt)
+                                        }
+                                    }}>
+                                    <p className={'text-right w-full  font-extralight text-2xl'}>{day.day}</p>
+                                    {evnt ? <p className={'text-xs'}>{evnt.type}</p> : null}
+                                </div>
+                            )
+                        })}
+                        {getVoidCalendarBlocks(days[days.length - 1].weekDay, true).map((item, counter) => {
+                            return (
+                                <div key={counter} className={classList('border-r-[1px] border-b-[1px] box-border aspect-square')}>
+
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+                <div className={'border-green-two border-4 h-full overflow-hidden col-span-5 rounded-lg'}>
+                    {currentEvent ?
+                        <div className={'flex flex-col justify-between'}>
+                            <img className={'w-full'} src={currentEvent.image}/>
+                            <div className={'p-4 flex gap-4 flex-col'}>
+                                <div className={'flex flex-col'}>
+                                    <p className={'text-xl font-bold text-black'}>{currentEvent.title}</p>
+                                    <p className={'text-xl font-normal text-black'}>{currentEvent.subtitle}</p>
+                                </div>
+                                <div className={'flex items-center justify-between'}>
+                                    <div
+                                        className={'w-[48%] p-4 text-green-two text-xl border-green-two border-2 rounded-lg flex items-center justify-center'}>
+                                        {currentEvent.timePeriod}
+                                    </div>
+                                    <div
+                                        className={'w-[48%] p-4 text-white text-xl bg-green-two border-green-two border-2 rounded-lg flex items-center justify-center'}>
+                                        Подробнее
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        :
+                        <div
+                            className={'flex items-center gap-4 font-extralight text-3xl flex-col text-center justify-center w-full h-full text-green-two'}>
+                            <img className={'w-20 aspect-square'} src={`/pages/main/calendar.svg`}/>
+                            <p className={''}>
+                                Выберите дату в календаре, чтобы посмотреть мероприятие
+                            </p>
+
+                        </div>}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Calendar;

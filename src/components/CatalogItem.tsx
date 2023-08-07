@@ -27,7 +27,7 @@ const CatalogItem = ({tovar, callback}: catalogItem) => {
     },
         {
             volume: 150,
-            link: 'https://www.ozon.ru/search/?deny_category_prediction=true&from_global=true&text=Термальная+вода&product_id=221510686'
+            link: 'https://www.ozon.ru/product/avene-termalnaya-voda-150-ml-221510686/'
         },
         {
             volume: 300,
