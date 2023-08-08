@@ -37,7 +37,7 @@ import SpeakersSlider from "@/components/SpeakersSlider";
 import News from "@/components/News";
 
 
-export default function Home() {
+export default function Page() {
 
     const router = useRouter()
     const images = '/pages/events'
