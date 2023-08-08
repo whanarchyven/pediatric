@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 import {Pagination, Navigation} from "swiper";
 import Post from "@/components/Post";
 import it from "node:test";
+import Link from "next/link";
 
 const News = () => {
 
@@ -29,49 +30,49 @@ const News = () => {
 
     const news=[
         {
-            id:1,
+            id:0,
             type:'Мероприятие',
             name:'Путь детской дерматологии: от истоков к перспективам. Часть 1',
             date:'23.06',
             image:'/pages/main/news/1.png'
         },
         {
-            id:2,
+            id:1,
             type:'Мероприятие',
             name:'Путь детской дерматологии: от истоков к перспективам. Часть 2',
             date:'23.06',
             image:'/pages/main/news/2.png'
         },
         {
-            id:3,
+            id:2,
             type:'Мероприятие',
             name:'Путь детской дерматологии: от истоков к перспективам. Часть 3',
             date:'23.06',
             image:'/pages/main/news/3.png'
         },
         {
-            id:4,
+            id:3,
             type:'Мероприятие',
             name:'Путь детской дерматологии: от истоков к перспективам. Часть 4',
             date:'23.06',
             image:'/pages/main/events/main_event.png'
         },
         {
-            id:5,
+            id:4,
             type:'Мероприятие',
             name:'Путь детской дерматологии: от истоков к перспективам. Часть 5',
             date:'23.06',
             image:'/pages/main/news/2.png'
         },
         {
-            id:6,
+            id:5,
             type:'Мероприятие',
             name:'Путь детской дерматологии: от истоков к перспективам. Часть 6',
             date:'23.06',
             image:'/pages/main/news/3.png'
         },
         {
-            id:7,
+            id:6,
             type:'Мероприятие',
             name:'Путь детской дерматологии: от истоков к перспективам. Часть 7',
             date:'23.06',
@@ -105,20 +106,22 @@ const News = () => {
                 {news.map((item,counter)=>{
                     return (
                         <SwiperSlide className={'relative group'} key={counter}>
-                            <div className={'gap-4 flex cursor-pointer flex-col'}>
-                                <div className={'rounded-lg overflow-hidden'}>
-                                    <img className={'transition-all duration-300 h-60 object-cover w-full group-hover:scale-125'} src={item.image}/>
-                                </div>
-                                <div className={'w-full flex items-center justify-between'}>
-                                    <div className={'flex rounded-lg text-white p-2 w-[65%] items-center justify-center border-2 border-green-two bg-green-two'}>
-                                        {item.type}
+                            <Link href={{pathname:'/events/event', query:{id:item.id}} }>
+                                <div className={'gap-4 flex cursor-pointer flex-col'}>
+                                    <div className={'rounded-lg overflow-hidden'}>
+                                        <img className={'transition-all duration-300 h-60 object-cover w-full group-hover:scale-125'} src={item.image}/>
                                     </div>
-                                    <div className={'flex rounded-lg text-green-two p-2 w-[30%] items-center justify-center border-2 border-green-two'}>
-                                        {item.date}
+                                    <div className={'w-full flex items-center justify-between'}>
+                                        <div className={'flex rounded-lg text-white p-2 w-[65%] items-center justify-center border-2 border-green-two bg-green-two'}>
+                                            {item.type}
+                                        </div>
+                                        <div className={'flex rounded-lg text-green-two p-2 w-[30%] items-center justify-center border-2 border-green-two'}>
+                                            {item.date}
+                                        </div>
                                     </div>
+                                    <p className={'text-center font-normal text-black'}>{item.name}</p>
                                 </div>
-                                <p className={'text-center font-normal text-black'}>{item.name}</p>
-                            </div>
+                            </Link>
                         </SwiperSlide>
                     )
                 })}
