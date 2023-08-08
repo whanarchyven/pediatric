@@ -154,12 +154,15 @@ export default function Home() {
         <main className={'overflow-x-hidden'}>
             {/*ПЕРВЫЙ БЛОК*/}
             <motion.div
-                className={"min-h-screen overflow-hidden bg-cover relative bg-[url('/pages/main/main_bg.png')]"}>
+                className={"min-h-screen sm:bg-top bg-[left_50rem_top_1rem] overflow-hidden bg-cover relative bg-[url('/pages/main/main_bg.png')]"}>
+                <div className={'absolute flex sm:hidden w-full h-full bg-green-two opacity-50 left-0 top-0'}>
+
+                </div>
                 <motion.div
                     className={'w-full min-h-screen h-auto px-[20px] sm:px-[70px] grid grid-cols-1 sm:grid-cols-12'}>
                     <motion.div
-                        className={'col-span-6 sm:mt-0 mt-20 flex flex-col sm:items-start  justify-center'}>
-                        <div className={'w-full'}>
+                        className={'sm:col-span-6 sm:mt-0 mt-20 flex flex-col sm:items-start  justify-center'}>
+                        <div className={'sm:flex hidden w-full'}>
                             <Swiper
                                 speed={1000}
                                 autoplay={{delay: 4000}}
@@ -180,11 +183,11 @@ export default function Home() {
                                     clickable: true,
                                 }}
                                 modules={[Mousewheel, EffectCoverflow, Pagination, Autoplay]}
-                                className={'myswiper h-96 w-full'}
+                                className={'myswiper sm:h-96 h-screen w-full'}
                             >
                                 {posts.map((item, counter) => {
                                     return (
-                                        <SwiperSlide key={counter} className={'pl-[70px]'}>
+                                        <SwiperSlide key={counter} className={'sm:pl-[70px]'}>
                                             <div className={'flex flex-col gap-5'}>
                                                 <div
                                                     className={'flex items-center rounded-full p-2 px-4 uppercase text-white font-light opacity-50 border-white w-fit border-2 justify-center'}>
@@ -207,9 +210,57 @@ export default function Home() {
 
                             </Swiper>
                         </div>
+
+                        <div className={'sm:hidden flex w-full'}>
+                            <Swiper
+                                speed={1000}
+                                autoplay={{delay: 4000}}
+                                effect={"coverflow"}
+                                direction={"horizontal"}
+                                centeredSlides={true}
+                                slidesPerView={1}
+                                coverflowEffect={{
+                                    rotate: 0,
+                                    stretch: -100,
+                                    depth: 300,
+                                    modifier: 1,
+                                    slideShadows: false,
+                                }}
+                                loop={true}
+                                pagination={{
+                                    clickable: true,
+                                }}
+                                modules={[Mousewheel, EffectCoverflow, Pagination, Autoplay]}
+                                className={'sm:h-96 myswiper h-96 w-full'}
+                            >
+                                {posts.map((item, counter) => {
+                                    return (
+                                        <SwiperSlide key={counter} className={'sm:pl-[70px]'}>
+                                            <div className={'flex flex-col gap-5'}>
+                                                <div
+                                                    className={'flex items-center rounded-full p-2 px-4 uppercase text-white font-light opacity-50 border-white w-fit border-2 justify-center'}>
+                                                    {item.date}
+                                                </div>
+                                                <div className={'text-left text-2xl text-white '}
+                                                     dangerouslySetInnerHTML={{__html: item.title}}>
+
+                                                </div>
+                                                <p className={'text-white text-sm font-normal'}>{item.description}</p>
+                                                <Link
+                                                    className={'text-black p-4 rounded-md bg-white flex items-center justify-center w-48'}
+                                                    href={item.link}>
+                                                    Подробнее
+                                                </Link>
+                                            </div>
+                                        </SwiperSlide>
+                                    )
+                                })}
+
+                            </Swiper>
+                        </div>
                     </motion.div>
                 </motion.div>
-                <div className={'absolute bottom-[-4px] asset w-full'}>
+                <div className={'absolute bottom-[-1px] asset w-full'}>
                     <img src={'/main_asset_bottom.png'} alt={'asset_bottom'}></img>
                 </div>
             </motion.div>
@@ -218,28 +269,28 @@ export default function Home() {
             {/*О НАС*/}
 
 
-            <div className={'bg-white h-[854px] flex items-center px-[140px]'}>
-                <div className={'gap-20 grid grid-cols-2'}>
+            <div className={'bg-white sm:h-[854px] flex items-center sm:py-0 py-12 px-[20px] sm:px-[140px]'}>
+                <div className={'gap-20 grid grid-cols-1 sm:grid-cols-2'}>
                     <div className={'flex flex-col gap-6 items-start'}>
                         <motion.p initial={{x: -40, opacity: 0}}
                                   whileInView={{x: 0, opacity: 1}}
                                   viewport={{once: true}}
-                                  transition={{ease: 'easeInOut', duration: 0.7}} className={'uppercase font-extralight text-5xl text-black'}>О НАШЕЙ
+                                  transition={{ease: 'easeInOut', duration: 0.7}} className={'uppercase font-extralight text-2xl sm:text-5xl text-black'}>О НАШЕЙ
                             <br/><span className={'font-bold'}>ОРГАНИЗАЦИИ</span></motion.p>
                         <motion.div
                             initial={{y: -40, opacity: 0}}
                             whileInView={{y: 0, opacity: 1}}
                             viewport={{once: true}}
                             transition={{ease: 'easeInOut', duration: 0.7, delay: 0.4}} className={'flex items-center gap-3'}>
-                            <img className={'w-12'} src={`${images}/comment.svg`}/>
-                            <p className={'font-bold text-green text-xl'}>
+                            <img className={'w-8 sm:w-12'} src={`${images}/comment.svg`}/>
+                            <p className={'font-bold text-green text-sm sm:text-xl'}>
                                 Проблема заболеваний кожи детского возраста остается одной из наиболее значимых.
                             </p>
                         </motion.div>
                         <motion.p initial={{y: -40, opacity: 0}}
                                   whileInView={{y: 0, opacity: 1}}
                                   viewport={{once: true}}
-                                  transition={{ease: 'easeInOut', duration: 0.7, delay: 0.7}} className={'font-normal text-black'}>
+                                  transition={{ease: 'easeInOut', duration: 0.7, delay: 0.7}} className={'font-normal text-sm sm:text-lg text-black'}>
                             Сегодня детская дерматология все более четко отстраивается от дерматологии взрослой. Детская
                             кожа реагирует на внутренние и внешние негативные факторы острее, чем взрослая, при этом
                             особенности детского организма требуют тщательного подбора лечебных препаратов.
@@ -264,13 +315,13 @@ export default function Home() {
                                         whileInView={{scale:1, opacity: 1}}
                                         viewport={{once: true}}
                                         transition={{ease: 'easeInOut', duration: 1, delay: 0}} className={'overflow-hidden rounded-lg'}><img
-                                className={'h-64 cursor-pointer hover:scale-125 transition-all duration-300'}
+                                className={'sm:h-64 cursor-pointer hover:scale-125 transition-all duration-300'}
                                 src={`${images}/employers/kid1.png`}/></motion.div>
                             <motion.div initial={{scale: 0.7, opacity: 0}}
                                         whileInView={{scale:1, opacity: 1}}
                                         viewport={{once: true}}
                                         transition={{ease: 'easeInOut', duration: 1, delay: 0.6}} className={'overflow-hidden rounded-lg'}><img
-                                className={'h-64 cursor-pointer hover:scale-125 transition-all duration-300'}
+                                className={'sm:h-64 cursor-pointer hover:scale-125 transition-all duration-300'}
                                 src={`${images}/employers/kid3.png`}/></motion.div>
                         </div>
                         <div className={'flex justify-end flex-col items-start gap-4'}>
@@ -278,13 +329,13 @@ export default function Home() {
                                         whileInView={{scale:1, opacity: 1}}
                                         viewport={{once: true}}
                                         transition={{ease: 'easeInOut', duration: 1, delay: 0.3}} className={'overflow-hidden rounded-lg'}><img
-                                className={'h-64 cursor-pointer hover:scale-125 transition-all duration-300'}
+                                className={'sm:h-64 cursor-pointer hover:scale-125 transition-all duration-300'}
                                 src={`${images}/employers/kid2.png`}/></motion.div>
                             <motion.div initial={{scale: 0.7, opacity: 0}}
                                         whileInView={{scale:1, opacity: 1}}
                                         viewport={{once: true}}
                                         transition={{ease: 'easeInOut', duration: 1, delay: 0.9}} className={'overflow-hidden rounded-lg'}><img
-                                className={'h-64 cursor-pointer hover:scale-125 transition-all duration-300'}
+                                className={'sm:h-64 cursor-pointer hover:scale-125 transition-all duration-300'}
                                 src={`${images}/employers/kid4.png`}/></motion.div>
                         </div>
                     </div>
@@ -294,33 +345,33 @@ export default function Home() {
 
             {/*О НАС*/}
 
-            <div className={'bg-[#F2F9F8] relative h-[900px] flex items-center sm:px-[140px]'}>
+            <div className={'bg-[#F2F9F8] relative sm:py-0 py-12 sm:h-[900px] flex items-center px-[20px] sm:px-[140px]'}>
                 <img className={'absolute left-0 -top-1'} src={`${images}/about_us_offset.png`}
                      alt={'asset_bottom'}></img>
                 <div>
-                    <div className={'flex items-center justify-between'}>
+                    <div className={'flex sm:flex-row flex-col gap-4 items-center justify-center sm:items-center sm:justify-between'}>
                         <motion.p initial={{x: -40, opacity: 0}}
                                   whileInView={{x: 0, opacity: 1}}
                                   viewport={{once: true}}
-                                  transition={{ease: 'easeInOut', duration: 0.7}} className={'uppercase font-extralight text-black text-4xl'}>Основные <br/><strong
+                                  transition={{ease: 'easeInOut', duration: 0.7}} className={'uppercase font-extralight text-black sm:text-left text-center text-2xl sm:text-4xl'}>Основные <br/><strong
                             className={'font-extrabold'}>направления:</strong></motion.p>
-                        <motion.div className={'flex items-center gap-4'} initial={{y: 40, opacity: 0}}
+                        <motion.div className={'flex sm:justify-start justify-center items-center gap-4'} initial={{y: 40, opacity: 0}}
                                     whileInView={{y: 0, opacity: 1}}
                                     viewport={{once: true}}
                                     transition={{ease: 'easeInOut', duration: 0.7,delay:1.2}}>
-                            <img className={'w-10'} src={`${images}/help.svg`}/>
-                            <p className={'lowercase'}>ЦЕЛЬ ОРГАНИЗАЦИИ - СОДЕЙСТВИЕ РАЗВИТИЮ <br/>
+                            <img className={'sm:w-10 w-12'} src={`${images}/help.svg`}/>
+                            <p className={'lowercase sm:text-lg sm:w-auto w-3/5 whitespace-pre-wrap text-sm'}>ЦЕЛЬ ОРГАНИЗАЦИИ - СОДЕЙСТВИЕ РАЗВИТИЮ <br/>
                                 ДЕТСКОЙ ДЕРМАТОЛОГИИ </p>
                         </motion.div>
                     </div>
-                    <div className={'grid mt-10 grid-cols-4 gap-16 '}>
+                    <div className={'grid mt-10 grid-cols-1 sm:grid-cols-4 gap-4 sm:gap-16 '}>
                         <motion.div initial={{scale: 0.7, opacity: 0}}
                                         whileInView={{scale:1, opacity: 1}}
                                         viewport={{once: true}}
                                         transition={{ease: 'easeInOut', duration: 1, delay: 0}}
-                            className={'shadow-xl h-80 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
-                            <img className={'w-20 mt-9 aspect-square'} src={`${images}/science.svg`}/>
-                            <p className={'text-white font-normal text-center'}>Проведение образовательных
+                            className={'shadow-xl sm:h-80 h-64 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                            <img className={'sm:w-20 w-12 mt-9 aspect-square'} src={`${images}/science.svg`}/>
+                            <p className={'text-white sm:text-lg text-sm font-normal text-center'}>Проведение образовательных
                                 научно-практических конференций в различных форматах
                                 на территории РФ</p>
                         </motion.div>
@@ -328,31 +379,31 @@ export default function Home() {
                                         whileInView={{scale:1, opacity: 1}}
                                         viewport={{once: true}}
                                         transition={{ease: 'easeInOut', duration: 1, delay: 0.3}}
-                            className={'shadow-xl h-80 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
-                            <img className={'w-20 mt-9 aspect-square'} src={`${images}/socium.svg`}/>
-                            <p className={'text-white font-normal text-center'}>Обсуждение сложных клинических случаев,
+                            className={'shadow-xl sm:h-80 h-64 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                            <img className={'sm:w-20 w-12 mt-9 aspect-square'} src={`${images}/socium.svg`}/>
+                            <p className={'text-white sm:text-lg text-sm font-normal text-center'}>Обсуждение сложных клинических случаев,
                                 проведение консилиумов в рамках программы телемедицины</p>
                         </motion.div>
                         <motion.div initial={{scale: 0.7, opacity: 0}}
                                         whileInView={{scale:1, opacity: 1}}
                                         viewport={{once: true}}
                                         transition={{ease: 'easeInOut', duration: 1, delay: 0.6}}
-                            className={'shadow-xl h-80 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
-                            <img className={'w-20 mt-9 aspect-square'} src={`${images}/confirm.svg`}/>
-                            <p className={'text-white font-normal text-center'}>Цифровая трансформация в дерматологии на
+                            className={'shadow-xl sm:h-80 h-64 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                            <img className={'sm:w-20 w-12 mt-9 aspect-square'} src={`${images}/confirm.svg`}/>
+                            <p className={'text-white sm:text-lg text-sm font-normal text-center'}>Цифровая трансформация в дерматологии на
                                 территории РФ</p>
                         </motion.div>
                         <motion.div initial={{scale: 0.7, opacity: 0}}
                                         whileInView={{scale:1, opacity: 1}}
                                         viewport={{once: true}}
                                         transition={{ease: 'easeInOut', duration: 1, delay: 0.9}}
-                            className={'shadow-xl h-80 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
-                            <img className={'w-20 mt-9 aspect-square'} src={`${images}/love.svg`}/>
-                            <p className={'text-white font-normal text-center'}>Организация помощи детям с тяжелым
+                            className={'shadow-xl sm:h-80 h-64 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                            <img className={'sm:w-20 w-12 mt-9 aspect-square'} src={`${images}/love.svg`}/>
+                            <p className={'text-white sm:text-lg text-sm font-normal text-center'}>Организация помощи детям с тяжелым
                                 течением кожных заболеваний</p>
                         </motion.div>
                     </div>
-                    <motion.p className={'lowercase mt-12 font-inter font-normal text-green-two'}
+                    <motion.p className={'lowercase mt-12 sm:text-lg text-sm font-inter font-normal text-green-two'}
                               initial={{y: -40, opacity: 0}}
                               whileInView={{y: 0, opacity: 1}}
                               viewport={{once: true}}
@@ -366,12 +417,12 @@ export default function Home() {
 
             {/*КАЛЕНДАРЬ*/}
 
-            <div className={'bg-white h-[1000px] flex flex-col justify-center px-[140px]'}>
-                <div className={'flex mt-7 items-center justify-between'}>
+            <div className={'bg-white sm:h-[1000px] sm:py-0 py-12 flex flex-col justify-center px-[20px] sm:px-[140px]'}>
+                <div className={'flex mt-7 items-center justify-center sm:justify-between'}>
                     <motion.p initial={{x: -40, opacity: 0}}
                               whileInView={{x: 0, opacity: 1}}
                               viewport={{once: true}}
-                              transition={{ease: 'easeInOut', duration: 0.7}} className={'uppercase font-extralight text-black text-4xl'}>Календарь <br/><strong
+                              transition={{ease: 'easeInOut', duration: 0.7}} className={'uppercase font-extralight text-center sm:text-left text-black text-2xl sm:text-4xl'}>Календарь <br/><strong
                         className={'font-extrabold'}>СОБЫТИЙ 2023</strong></motion.p>
                 </div>
                 <motion.div initial={{y: -40, opacity: 0}}
@@ -384,8 +435,8 @@ export default function Home() {
 
             {/*НОВОСТИ*/}
 
-            <div className={'bg-white h-[600px]'}>
-                <div className={'flex mt-7 items-center px-[140px] justify-between'}>
+            <div className={'bg-white sm:py-0 py-12 sm:h-[600px]'}>
+                <div className={'flex sm:mt-7 items-center px-[20px] sm:px-[140px] justify-center sm:justify-between'}>
                     <motion.p className={'uppercase font-extrabold text-black text-4xl'}
                               initial={{x: -40, opacity: 0}}
                               whileInView={{x: 0, opacity: 1}}
@@ -405,15 +456,15 @@ export default function Home() {
             {/*РЕЗУЛЬТАТЫ*/}
 
             <div
-                className={"h-[700px] pl-[140px] pr-[70px] flex flex-col justify-center overflow-hidden bg-cover relative bg-[url('/pages/main/results_bg.png')]"}>
+                className={"sm:h-[700px] sm:pt-0 pt-12 px-[20px] sm:pl-[140px] sm:pr-[70px] flex flex-col justify-center overflow-hidden bg-cover relative bg-[url('/pages/main/results_bg.png')]"}>
                 <img className={'absolute left-0 top-0'} src={`${images}/results_top_offset.png`} alt={''}></img>
 
-                <div className={'grid grid-cols-7 items-center h-full gap-2'}>
-                    <div className={'col-span-4 flex flex-col gap-10'}>
+                <div className={'grid sm:grid-cols-7 grid-cols-1 items-center h-full gap-2'}>
+                    <div className={'sm:col-span-4 flex flex-col gap-10'}>
                         <motion.p initial={{x: -40, opacity: 0}}
                                   whileInView={{x: 0, opacity: 1}}
                                   viewport={{once: true}}
-                                  transition={{ease: 'easeInOut', duration: 0.7}} className={'text-4xl font-extralight text-white'}>ПРИСОЕДИНЯЙСЯ К НАШЕМУ<br/><span
+                                  transition={{ease: 'easeInOut', duration: 0.7}} className={'sm:text-4xl text-2xl font-extralight text-white'}>ПРИСОЕДИНЯЙСЯ К НАШЕМУ<br/><span
                             className={'font-extrabold'}>ПРОФЕССИОНАЛЬНОМУ СООБЩЕСТВУ</span></motion.p>
                         <motion.div className={'flex h-28 items-center gap-5'}
                                     initial={{x: -40, opacity: 0}}
@@ -424,13 +475,13 @@ export default function Home() {
 
                             </div>
                             <div className={'flex flex-col text-white gap-3'}>
-                                <CountUp enableScrollSpy={true} className={'text-8xl leading-[70%] font-extrabold font-inter'} useEasing={true} suffix={'+'} end={20000} decimal={' '} separator={' '}>
+                                <CountUp enableScrollSpy={true} className={'text-5xl sm:text-8xl leading-[70%] font-extrabold font-inter'} useEasing={true} suffix={'+'} end={20000} decimal={' '} separator={' '}>
                                 </CountUp>
                                 {/*<p className={'text-8xl leading-[70%] font-extrabold'}>20 000+</p>*/}
                                 <p className={'text-lg leading-[70%] font-extralight'}>Вылеченых детей</p>
                             </div>
                         </motion.div>
-                        <div className={'flex items-start gap-14'}>
+                        <div className={'flex sm:flex-row flex-col items-start gap-14'}>
                             <motion.div className={'flex h-full items-center gap-5'} initial={{x: -40, opacity: 0}}
                                         whileInView={{x: 0, opacity: 1}}
                                         viewport={{once: true}}
@@ -479,12 +530,12 @@ export default function Home() {
                             whileInView={{y: 0, opacity: 1}}
                             viewport={{once: true}}
                             transition={{ease: 'easeInOut', duration: 0.7}}
-                            className={'bg-white font-normal rounded-lg text-xl text-[#277B76] flex items-center justify-center w-72  py-5'}>
+                            className={'bg-white font-normal sm:self-auto self-center rounded-lg text-xl text-[#277B76] flex items-center justify-center w-72  py-5'}>
                             Подать заявку
                         </motion.div>
                     </div>
-                    <div className={'col-span-3 h-full relative flex items-center justify-center'}>
-                        <img className={'absolute bottom-0'} src={`${images}/results_doctor_sprite.svg`}/>
+                    <div className={'sm:col-span-3 sm:mt-0 mt-10 h-full relative flex items-center justify-center'}>
+                        <img className={'sm:absolute bottom-0'} src={`${images}/results_doctor_sprite.svg`}/>
                         <motion.img initial={{y: 40, opacity: 0}}
                                     whileInView={{y: 0, opacity: 1}}
                                     viewport={{once: true}}
@@ -497,13 +548,16 @@ export default function Home() {
 
             </div>
 
-            <div className={'px-[140px] bg-white py-14'}>
-                <div className={'grid grid-cols-12 gap-10'}>
-                    <div className={'col-span-6 flex flex-col gap-10'}>
+
+            {/*FEATURES*/}
+
+            <div className={'sm:px-[140px] px-[20px] bg-white py-12 sm:py-14'}>
+                <div className={'grid grid-cols-1 sm:grid-cols-12 gap-10'}>
+                    <div className={'sm:col-span-6 flex flex-col items-start sm:items-start gap-10'}>
                         <motion.p initial={{y: -40, opacity: 0}}
                                   whileInView={{y: 0, opacity: 1}}
                                   viewport={{once: true}}
-                                  transition={{ease: 'easeInOut', duration: 0.7}} className={'text-4xl font-extralight text-black'}>ДОСТУПНОСТЬ<br/><span
+                                  transition={{ease: 'easeInOut', duration: 0.7}} className={'text-4xl font-extralight text-left text-black'}>ДОСТУПНОСТЬ<br/><span
                             className={'font-extrabold'}>ИНФОРМАЦИИ</span></motion.p>
                         <motion.div initial={{x: -40, opacity: 0}}
                                     whileInView={{x: 0, opacity: 1}}
@@ -551,11 +605,11 @@ export default function Home() {
                                     whileInView={{y: 0, opacity: 1}}
                                     viewport={{once: true}}
                                     transition={{ease: 'easeInOut', duration: 0.7}}
-                            className={'bg-[#58BBB4] font-normal rounded-lg text-xl text-white flex items-center justify-center w-72  py-5'}>
+                            className={'bg-[#58BBB4] font-normal rounded-lg text-xl text-white flex items-center justify-center sm:w-72 w-full  py-5'}>
                             Подать заявку
                         </motion.div>
                     </div>
-                    <div className={'col-span-5 flex justify-end col-end-13'}>
+                    <div className={'sm:col-span-5 flex justify-end sm:col-end-13'}>
                         <motion.img initial={{scale: 0.8, opacity: 0}}
                                     whileInView={{scale: 1, opacity: 1}}
                                     viewport={{once: true}}
@@ -563,15 +617,15 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div className={'px-[140px] bg-white py-14'}>
-                <div className={'grid grid-cols-12 gap-10'}>
-                    <div className={'col-span-6 flex justify-start'}>
+            <div className={'sm:px-[140px] px-[20px] bg-white py-12 sm:py-14'}>
+                <div className={'grid sm:grid-cols-12 grid-cols-1 gap-10'}>
+                    <div className={'sm:col-span-6 sm:row-start-1 row-start-2 flex justify-start'}>
                         <motion.img initial={{scale: 0.8, opacity: 0}}
                                     whileInView={{scale: 1, opacity: 1}}
                                     viewport={{once: true}}
                                     transition={{ease: 'easeInOut', duration: 0.7}} className={'rounded-lg'} src={`${images}/feautures/2.png`}/>
                     </div>
-                    <div className={'col-span-5 col-end-13 flex flex-col gap-10'}>
+                    <div className={'sm:col-span-5 sm:col-end-13 flex flex-col gap-10'}>
                         <motion.p initial={{x: -40, opacity: 0}}
                                     whileInView={{x: 0, opacity: 1}}
                                     viewport={{once: true}}
@@ -613,16 +667,16 @@ export default function Home() {
                                     whileInView={{y: 0, opacity: 1}}
                                     viewport={{once: true}}
                                     transition={{ease: 'easeInOut', duration: 0.7}}
-                            className={'bg-[#58BBB4] font-normal rounded-lg text-xl text-white flex items-center justify-center w-72  py-5'}>
+                            className={'bg-[#58BBB4] font-normal rounded-lg text-xl text-white flex items-center justify-center w-full sm:w-72  py-5'}>
                             Подать заявку
                         </motion.div>
                     </div>
 
                 </div>
             </div>
-            <div className={'px-[140px] bg-white py-14'}>
-                <div className={'grid grid-cols-12 items-center gap-10'}>
-                    <div className={'col-span-6 flex flex-col gap-10'}>
+            <div className={'sm:px-[140px] bg-white py-12 px-[20px] sm:py-14'}>
+                <div className={'grid grid-cols-1 sm:grid-cols-12 items-center gap-10'}>
+                    <div className={'sm:col-span-6 flex flex-col gap-10'}>
                         <motion.p initial={{x: -40, opacity: 0}}
                                     whileInView={{x: 0, opacity: 1}}
                                     viewport={{once: true}}
@@ -663,11 +717,11 @@ export default function Home() {
                                     whileInView={{y: 0, opacity: 1}}
                                     viewport={{once: true}}
                                     transition={{ease: 'easeInOut', duration: 0.7}}
-                            className={'bg-[#58BBB4] font-normal rounded-lg text-xl text-white flex items-center justify-center w-72  py-5'}>
+                            className={'bg-[#58BBB4] font-normal rounded-lg text-xl text-white flex items-center justify-center w-full sm:w-72  py-5'}>
                             Подать заявку
                         </motion.div>
                     </div>
-                    <div className={'col-span-5 flex justify-end col-end-13'}>
+                    <div className={'sm:col-span-5 flex justify-end sm:col-end-13'}>
                         <motion.img initial={{scale: 0.8, opacity: 0}}
                                     whileInView={{scale: 1, opacity: 1}}
                                     viewport={{once: true}}
@@ -681,10 +735,10 @@ export default function Home() {
 
 
             <motion.div
-                className={"h-[600px] flex flex-col justify-center  overflow-hidden bg-cover relative bg-[url('/pages/main/faq_bg.png')]"}>
+                className={"sm:h-[600px] sm:py-0 py-12 flex flex-col justify-center  overflow-hidden bg-cover relative bg-[url('/pages/main/faq_bg.png')]"}>
                 <img className={'absolute left-0 top-0 w-full'} src={`${images}/faq_top_offset.png`}
                      alt={'asset_bottom'}/>
-                <motion.p className={'text-4xl top-10 absolute text-white px-[140px] font-extralight text-black'}
+                <motion.p className={'text-2xl sm:text-4xl top-10 absolute text-white px-[20px] sm:px-[140px] font-extralight text-black'}
                           initial={{x: -40, opacity: 0}}
                           whileInView={{x: 0, opacity: 1}}
                           viewport={{once: true}}
@@ -696,7 +750,7 @@ export default function Home() {
                     className={'w-full h-[600px] h-auto px-[20px] sm:px-[70px] grid grid-cols-1 sm:grid-cols-12'}>
                     <motion.div
                         className={'col-span-6 sm:mt-0 mt-20 flex flex-col sm:items-start  justify-center'}>
-                        <div className={'w-full'}>
+                        <div className={'w-full sm:flex hidden'}>
                             <Swiper
                                 speed={1000}
                                 autoplay={{delay: 4000}}
@@ -730,6 +784,39 @@ export default function Home() {
 
                             </Swiper>
                         </div>
+                        <div className={'w-full sm:hidden flex'}>
+                            <Swiper
+                                speed={1000}
+                                autoplay={{delay: 4000}}
+                                effect={"coverflow"}
+                                direction={"horizontal"}
+                                centeredSlides={true}
+                                slidesPerView={1}
+                                loop={true}
+                                pagination={{
+                                    clickable: true,
+                                }}
+                                fadeEffect={{crossFade: true}}
+                                modules={[Mousewheel, EffectCoverflow, Pagination, Autoplay]}
+                                className={'myswiper h-[500px] w-full'}
+                            >
+                                {faq.map((item, counter) => {
+                                    return (
+                                        <SwiperSlide key={counter} className={' h-full'}>
+                                            <div className={'flex flex-col h-full justify-center gap-5'}>
+
+                                                <div className={'text-left text-2xl text-white '}>
+                                                    {item.question}
+                                                </div>
+                                                <div className={'text-white font-normal'}
+                                                     dangerouslySetInnerHTML={{__html: item.answer}}></div>
+                                            </div>
+                                        </SwiperSlide>
+                                    )
+                                })}
+
+                            </Swiper>
+                        </div>
                     </motion.div>
                 </motion.div>
                 <img className={'absolute bottom-0 w-full'} src={`${images}/faq_top_bottom.png`} alt={'asset_bottom'}/>
@@ -738,13 +825,13 @@ export default function Home() {
 
             {/*PARTNERS*/}
 
-            <div className={'h-[550px] bg-white flex flex-col items-center justify-center gap-2'}>
+            <div className={'sm:h-[550px] sm:py-0 py-12 bg-white flex flex-col items-center justify-center gap-2'}>
                 <motion.p initial={{scale: 0.8, opacity: 0}}
                           whileInView={{scale: 1, opacity: 1}}
                           viewport={{once: true}}
                           transition={{ease: 'easeInOut', duration: 0.7}} className={'uppercase text-center font-extralight text-black text-4xl'}>ОБЪЕДИНЯЕМ УСИЛИЯ <br/><strong
                     className={'font-extrabold'}>С ПАРТНЕРАМИ</strong></motion.p>
-                <div className={'flex items-center gap-4'}>
+                <div className={'flex sm:flex-row flex-col items-center gap-4'}>
                     <motion.img initial={{scale: 0.8, opacity: 0}}
                                     whileInView={{scale: 1, opacity: 1}}
                                     viewport={{once: true}}

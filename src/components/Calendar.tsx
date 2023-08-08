@@ -178,13 +178,13 @@ const Calendar = () => {
     })
 
     return (
-        <div className={'w-full'}>
-            <div className={'w-full p-2 bg-green-two grid grid-cols-12 gap-10 rounded-full'}>
+        <div className={'w-full gap-2 sm:flex-col flex-row flex'}>
+            <div className={'sm:w-full w-12 p-2 bg-green-two flex flex-col sm:grid sm:grid-cols-12 sm:gap-10 gap-3 rounded-full'}>
                 {months.map((month,counter) => {
                     return (
                         <div key={counter} className={'flex items-center justify-center'}>
                             <div
-                                className={classList('p-3 transition-all duration-300 aspect-square flex rounded-full items-center justify-center', month.id == currentMonth.id ? 'bg-white text-green-two' : 'text-white cursor-pointer')}
+                                className={classList('sm:p-3 p-1 text-xs sm:text-lg transition-all duration-300 aspect-square flex rounded-full items-center justify-center', month.id == currentMonth.id ? 'bg-white text-green-two' : 'text-white cursor-pointer')}
                                 onClick={() => {
                                     setCurrentMonth(month)
                                 }}>
@@ -194,7 +194,7 @@ const Calendar = () => {
                     )
                 })}
             </div>
-            <div className={'w-full mt-4 grid grid-cols-11 gap-5'}>
+            <div className={'w-full sm:mt-4 sm:grid flex flex-col sm:grid-cols-11 gap-5'}>
                 <div className={'border-green-two overflow-hidden rounded-lg col-span-6 border-4'}>
                     <div className={'grid grid-cols-7'}>
                         <div className={'flex p-2 text-white items-center justify-center bg-green-two'}>
@@ -237,8 +237,8 @@ const Calendar = () => {
                                             setCurrentEvent(evnt)
                                         }
                                     }}>
-                                    <p className={'text-right w-full  font-extralight text-2xl'}>{day.day}</p>
-                                    {evnt ? <p className={'text-xs'}>{evnt.type}</p> : null}
+                                    <p className={'text-right w-full font-extralight sm:text-2xl'}>{day.day}</p>
+                                    {evnt ? <p className={'sm:text-xs truncate text-[7px]'}>{evnt.type}</p> : null}
                                 </div>
                             )
                         })}
@@ -251,22 +251,22 @@ const Calendar = () => {
                         })}
                     </div>
                 </div>
-                <div className={'border-green-two border-4 h-full overflow-hidden col-span-5 rounded-lg'}>
+                <div className={'border-green-two border-4 sm:h-full overflow-hidden sm:col-span-5 rounded-lg'}>
                     {currentEvent ?
                         <div className={'flex flex-col justify-between'}>
                             <img className={'w-full'} src={currentEvent.image}/>
                             <div className={'p-4 flex gap-4 flex-col'}>
                                 <div className={'flex flex-col'}>
-                                    <p className={'text-xl font-bold text-black'}>{currentEvent.title}</p>
-                                    <p className={'text-xl font-normal text-black'}>{currentEvent.subtitle}</p>
+                                    <p className={'sm:text-xl text-xs font-bold text-black'}>{currentEvent.title}</p>
+                                    <p className={'sm:text-xl text-xs font-normal text-black'}>{currentEvent.subtitle}</p>
                                 </div>
                                 <div className={'flex items-center justify-between'}>
                                     <div
-                                        className={'w-[48%] p-4 text-green-two text-xl border-green-two border-2 rounded-lg flex items-center justify-center'}>
+                                        className={'w-[48%] p-1 sm:p-4 text-green-two text-xl border-green-two sm:text-lg text-xs border-2 rounded-lg flex items-center justify-center'}>
                                         {currentEvent.timePeriod}
                                     </div>
                                     <div
-                                        className={'w-[48%] p-4 text-white text-xl bg-green-two border-green-two border-2 rounded-lg flex items-center justify-center'}>
+                                        className={'w-[48%] p-1 sm:p-4 text-white text-xl bg-green-two sm:text-lg text-xs border-green-two border-2 rounded-lg flex items-center justify-center'}>
                                         Подробнее
                                     </div>
                                 </div>
