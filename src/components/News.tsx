@@ -106,7 +106,7 @@ const News = () => {
                 {news.map((item,counter)=>{
                     return (
                         <SwiperSlide className={'relative group'} key={counter}>
-                            <Link href={{pathname:'/events/event', query:{id:item.id}} }>
+                            <Link href={`/events/${item.id}`}>
                                 <div className={'gap-4 flex cursor-pointer flex-col'}>
                                     <div className={'rounded-lg overflow-hidden'}>
                                         <img className={'transition-all duration-300 h-60 object-cover w-full group-hover:scale-125'} src={item.image}/>

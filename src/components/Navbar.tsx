@@ -35,7 +35,7 @@ const Navbar = ({isInteravtive}:navbarInterface) => {
         // },
         {
             title:'Азбука атопии',
-            link:'/',
+            link:'/azbuka',
         },
     ]
 

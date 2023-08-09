@@ -35,6 +35,7 @@ import concatStr from "@/helpers/concatStr";
 import {classList} from "@/helpers/classList";
 import SpeakersSlider from "@/components/SpeakersSlider";
 import News from "@/components/News";
+import Partners from "@/components/Partners";
 
 export const dynamic = "force-dynamic"
 
@@ -286,7 +287,7 @@ export default function Page({params}:any) {
         <main className={'overflow-x-hidden'}>
             {/*ПЕРВЫЙ БЛОК*/}
             <motion.div
-                className="min-h-screen overflow-hidden bg-cover relative bg-[url('/pages/events/temp_event_bg.png')]">
+                className="min-h-screen overflow-hidden py-12 bg-cover relative bg-[url('/pages/events/temp_event_bg.png')]">
                 <motion.div
                     className={'w-full min-h-screen h-auto px-[20px] sm:px-[140px] grid grid-cols-1 sm:grid-cols-12'}>
                     <motion.div
@@ -304,7 +305,7 @@ export default function Page({params}:any) {
                             </div>
                             <p className={'text-white leading-[100%] opacity-50'}>{event.timePeriod}</p>
                         </div>
-                        <p className={'text-white text-3xl'}>{event.name}</p>
+                        <p className={'text-white text-2xl sm:text-3xl'}>{event.name}</p>
                         <div className={'flex flex-col gap-4'}>
                             <div className={'flex items-center gap-2'}>
                                 <img className={'w-6 aspect-square'} src={`${images}/placemark.svg`}/>
@@ -326,14 +327,14 @@ export default function Page({params}:any) {
                         </div>
                     </motion.div>
                 </motion.div>
-                <div className={'absolute bottom-[-4px] asset w-full'}>
+                <div className={'absolute bottom-[-0.5px] sm:bottom-[-4px] asset w-full'}>
                     <img src={'/main_asset_bottom.png'} alt={'asset_bottom'}></img>
                 </div>
             </motion.div>
-            <div className={'bg-white h-[854px] items-center px-[140px] gap-20 grid grid-cols-2'}>
+            <div className={'bg-white sm:h-[854px] items-center py-12 px-[20px] grid-cols-1 sm:px-[140px] gap-20 grid sm:grid-cols-2'}>
                 <img className={'w-full aspect-square col-span-1 rounded-xl'} src={event.avatar}/>
                 <div className={'flex flex-col gap-6 items-start'}>
-                    <p className={'uppercase font-extralight text-5xl text-black'}>Информация
+                    <p className={'uppercase font-extralight text-3xl sm:text-5xl text-black'}>Информация
                         <br/><span className={'font-extrabold'}>о мероприятии</span></p>
                     <p className={'font-bold uppercase text-green text-xl'}>
                         Анонс
@@ -350,53 +351,53 @@ export default function Page({params}:any) {
                 </div>
             </div>
             <div
-                className={'relative green-gradient overflow-hidden h-[700px] flex flex-col items-start sm:pl-[70px] sm:px-[140px]'}>
-                <img className={'absolute asset w-full z-50 left-0 top-0'} src={'/about_us_offset_top.png'}/>
-                <p className={'text-5xl absolute top-[140px] left-[195px] uppercase font-extralight text-white'}>Спикеры <span
+                className={'relative green-gradient overflow-hidden px-[20px] pt-12 sm:h-[700px] flex flex-col items-start sm:pl-[70px] sm:px-[140px]'}>
+                <img className={'absolute asset w-full z-50 left-0 top-[-0.5px] sm:top-0'} src={'/about_us_offset_top.png'}/>
+                <p className={'text-xl sm:text-5xl sm:px-0 px-[20px] sm:absolute sm:top-[140px] sm:left-[195px] uppercase font-extralight text-white'}>Спикеры <span
                     className={'font-extrabold'}>Конференции</span></p>
                 <SpeakersSlider speakers={event.speakers}>
 
                 </SpeakersSlider>
-                <img className={'absolute w-full asset left-0 z-50 -bottom-[1px]'} src={'/about_us_offset_bot.png'}/>
+                <img className={'absolute w-full asset left-0 z-50 bottom-[-0.5px]'} src={'/about_us_offset_bot.png'}/>
             </div>
 
-            <div className={'bg-white py-12 px-[140px]'}>
-                <p className={'uppercase font-extralight text-5xl text-black'}>Программа
+            <div className={'bg-white py-12 px-[20px] sm:px-[140px]'}>
+                <p className={'uppercase font-extralight text-2xl sm:text-5xl text-black'}>Программа
                     <br/><span className={'font-extrabold'}>Конференции</span></p>
                 <div className={'flex mt-20 flex-col gap-14'}>
                     {event.program.map((item: { name: string, timePeriod: string, speaker: string, substages?: { name: string, timePeriod: string, description: string, }[] }, counter) => {
                         return (
                             <div key={counter} className={'flex gap-8 flex-col'}>
-                                <div className={'flex gap-6 flex-row items-start'}>
+                                <div className={'flex gap-2 sm:gap-6 flex-col sm:flex-row items-start'}>
                                     <div className={'flex mr-4 items-center gap-2'}>
-                                        <img className={'w-6 aspect-square'} src={`${images}/time.svg`}/>
+                                        <img className={'w-4 sm:w-6 aspect-square'} src={`${images}/time.svg`}/>
                                         <div
-                                            className={'text-2xl text-green-two whitespace-nowrap contents font-bold'}>{item.timePeriod}</div>
+                                            className={'text-sm sm:text-2xl text-green-two whitespace-nowrap contents font-bold'}>{item.timePeriod}</div>
                                     </div>
-                                    <div className={'text-2xl text-justify font-bold'}>{item.name}</div>
+                                    <div className={'text-sm sm:text-2xl text-justify font-bold'}>{item.name}</div>
                                 </div>
                                 <div
-                                    className={'bg-[#DBEAE8] px-14 p-6 text-xl rounded-lg flex items-center justify-start'}>
+                                    className={'bg-[#DBEAE8] text-sm p-3 sm:px-14 sm:p-6 sm:text-xl rounded-lg flex items-center justify-start'}>
                                     {item.speaker}
                                 </div>
                                 {item.substages ?
-                                    <div className={'p-8'}>
+                                    <div className={'p-3 sm:p-8'}>
                                         {item.substages.map((substage,subCounter) => {
                                             return (
                                                 <div key={subCounter} className={'grid grid-cols-12 items-start'}>
                                                     <div className={'col-span-1 flex relative items-center h-full flex-col justify-center'}>
-                                                        <div className={'w-6 h-6 absolute top-0 aspect-square rounded-full bg-green-two'}>
+                                                        <div className={'sm:w-6 w-4 sm:h-6 h-4 absolute top-0 aspect-square rounded-full bg-green-two'}>
 
                                                         </div>
                                                         <div className={'h-full w-[2px] bg-green-two'}>
 
                                                         </div>
                                                     </div>
-                                                    <div className={classList('col-span-11 flex h-fit flex-col',subCounter<item?.substages?.length-1?'pb-14':'')}>
-                                                        <p className={'text-2xl w-full text-green-two contents font-bold'}>{substage?.timePeriod}</p>
-                                                        <p className={'text-2xl w-full text-black font-bold'}>{substage?.name}</p>
+                                                    <div className={classList('col-span-11 flex sm:gap-0 gap-3 h-fit flex-col',subCounter<item?.substages?.length-1?'pb-6 sm:pb-14':'')}>
+                                                        <p className={'sm:text-2xl text-sm w-full text-green-two contents font-bold'}>{substage?.timePeriod}</p>
+                                                        <p className={'sm:text-2xl text-sm w-full text-black font-bold'}>{substage?.name}</p>
                                                         {substage?.description?<div
-                                                            className={'bg-[#DBEAE8] px-14 p-6 text-xl rounded-lg flex items-center justify-start'}>
+                                                            className={'bg-[#DBEAE8] p-3 text-sm sm:px-14 sm:p-6 sm:text-xl rounded-lg flex items-center justify-start'}>
                                                             {substage?.description}
                                                         </div>:null}
                                                     </div>
@@ -413,37 +414,18 @@ export default function Page({params}:any) {
                 </div>
             </div>
 
-            <div className={'bg-[#F2F9F8] relative  py-40 flex items-center px-[20px] sm:px-[140px]'}>
+            <div className={'bg-[#F2F9F8] relative py-12 sm:py-40 flex items-center px-[20px] sm:px-[40px]'}>
                 <img className={'absolute left-0 -top-1'} src={`/pages/main/about_us_offset.png`}
                      alt={'asset_bottom'}></img>
-                <div>
+                <div className={'w-full'}>
                     <div className={'flex sm:flex-col flex-col gap-8 items-center justify-center sm:items-start sm:justify-between'}>
                         <motion.p initial={{x: -40, opacity: 0}}
                                   whileInView={{x: 0, opacity: 1}}
                                   viewport={{once: true}}
                                   transition={{ease: 'easeInOut', duration: 0.7}} className={'uppercase font-extralight text-black sm:text-left text-left text-2xl sm:text-4xl'}>Спонсоры <strong
                             className={'font-extrabold'}>конференции</strong></motion.p>
-                        <div className={'flex sm:flex-row flex-col items-center gap-4'}>
-                            <motion.img initial={{scale: 0.8, opacity: 0}}
-                                        whileInView={{scale: 1, opacity: 1}}
-                                        viewport={{once: true}}
-                                        transition={{ease: 'easeInOut', duration: 0.7,delay:0.2}} src={`/pages/main/partners/image 15.png`}/>
-                            <motion.img initial={{scale: 0.8, opacity: 0}}
-                                        whileInView={{scale: 1, opacity: 1}}
-                                        viewport={{once: true}}
-                                        transition={{ease: 'easeInOut', duration: 0.7,delay:0.4}} src={`/pages/main/partners/image 16.png`}/>
-                            <motion.img initial={{scale: 0.8, opacity: 0}}
-                                        whileInView={{scale: 1, opacity: 1}}
-                                        viewport={{once: true}}
-                                        transition={{ease: 'easeInOut', duration: 0.7,delay:0.6}} src={`/pages/main/partners/image 17.png`}/>
-                            <motion.img initial={{scale: 0.8, opacity: 0}}
-                                        whileInView={{scale: 1, opacity: 1}}
-                                        viewport={{once: true}}
-                                        transition={{ease: 'easeInOut', duration: 0.7,delay:0.8}} src={`/pages/main/partners/image 18.png`}/>
-                            <motion.img initial={{scale: 0.8, opacity: 0}}
-                                        whileInView={{scale: 1, opacity: 1}}
-                                        viewport={{once: true}}
-                                        transition={{ease: 'easeInOut', duration: 0.7,delay:1}} src={`/pages/main/partners/image 19.png`}/>
+                        <div className={' w-full '}>
+                            <Partners></Partners>
                         </div>
                     </div>
                 </div>
@@ -458,7 +440,7 @@ export default function Page({params}:any) {
                               transition={{ease: 'easeInOut', duration: 0.7}} className={'uppercase font-extralight text-black sm:text-left text-left text-2xl sm:text-4xl'}>Другие <strong
                         className={'font-extrabold'}>Мероприятия</strong></motion.p>
                 </div>
-                <motion.div className={'mt-12 w-full flex px-[40px]'}
+                <motion.div className={'mt-12 w-full flex px-[20px] sm:px-[40px]'}
                             initial={{y: -40, opacity: 0}}
                             whileInView={{y: 0, opacity: 1}}
                             viewport={{once: true}}

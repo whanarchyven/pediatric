@@ -33,7 +33,7 @@ const SpeakersSlider = ({speakers}:speakersSliderInterface) => {
 
     return (
         <div className={'w-full flex items-center'}>
-            <div className={'flex flex-col justify-center gap-8 items-center'}>
+            <div className={'hidden sm:flex flex-col justify-center gap-8 items-center'}>
                 <div
                     className={'cursor-pointer hidden sm:flex items-center p-3  justify-center w-10 aspect-square rounded-full bg-white bg-opacity-20 hover:bg-[#BCDBD5] transition-all duration-300'}
                     onClick={handlePrev}>
@@ -83,19 +83,19 @@ const SpeakersSlider = ({speakers}:speakersSliderInterface) => {
                 // //                             }
                 //                         }}
                 modules={[Mousewheel, EffectFade, Pagination, Autoplay]}
-                className={'myswiper h-[700px] w-full'}
+                className={'myswiper h-[600px] sm:h-[700px] w-full'}
             >
                 {speakers.map((speaker, counter) => {
                     return (
-                        <SwiperSlide key={counter} className={'pl-[70px]'}>
-                            <div className={'grid grid-cols-2 relative h-full gap-8 items-center'}>
+                        <SwiperSlide key={counter} className={'px-[20px] sm:px-0 sm:pl-[70px]'}>
+                            <div className={'grid grid-cols-1 sm:grid-cols-2 relative h-full gap-8 items-center'}>
                                 <div className={'flex flex-col gap-5'}>
-                                    <p className={'text-3xl font-bold text-white'}>
+                                    <p className={'text-xl sm:text-3xl font-bold text-white'}>
                                         {speaker.name}
                                     </p>
                                     <div className={'flex gap-4 items-center'}>
                                         <div
-                                            className={'flex items-center rounded-full p-2 px-4 uppercase text-white font-light opacity-50 border-white w-fit border-2 justify-center'}>
+                                            className={'flex items-center text-xs sm:text-lg rounded-full p-2 px-4 uppercase text-white font-light opacity-50 border-white w-fit border-2 justify-center'}>
                                             {speaker.post}
                                         </div>
                                         <div
@@ -103,12 +103,12 @@ const SpeakersSlider = ({speakers}:speakersSliderInterface) => {
                                             <img src={`/pages/main/mail.svg`}/>
                                         </div>
                                     </div>
-                                    <p className={'text-white font-normal'}>{concatStr(speaker.description, 20)}</p>
-                                    <p className={'text-white text-xl font-bold'}>Подробнее...</p>
+                                    <p className={'text-white text-sm font-normal'}>{concatStr(speaker.description, 20)}</p>
+                                    <p className={'text-white text-sm sm:text-xl font-bold'}>Подробнее...</p>
                                 </div>
                                 <div className={'flex items-center relative h-full justify-center'}>
                                     <img src={`pages/main/employers/avatar_layout.svg`}/>
-                                    <img className={'absolute bottom-0 w-full'} src={speaker.photo}/>
+                                    <img className={'absolute sm:bottom-0 w-full'} src={speaker.photo}/>
                                 </div>
                             </div>
                         </SwiperSlide>
