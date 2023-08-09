@@ -164,16 +164,95 @@ const Calendar = () => {
                 link: '/'
             }],
         sep: [{
-            day: 3,
-            type: 'Лекция',
-            title: 'Чем лечить ребёнка?',
-            subtitle: 'советы практикующих дерматологов',
+            day: 11,
+            type: 'Марафон',
+            title: 'Поэзия детской дерматологии, день 1',
+            subtitle: 'Научно-образовательный квест-марафон ',
             timePeriod: '12:00 - 16:00',
-            image: '/pages/main/events/main_event.png',
-            link: '/'
+            image: '/pages/main/sliderBackgrounds/2.png',
+            link: '/events/2'
+        },
+            {
+                day: 12,
+                type: 'Марафон',
+                title: 'Поэзия детской дерматологии, день 2',
+                subtitle: 'Научно-образовательный квест-марафон ',
+                timePeriod: '12:00 - 16:00',
+                image: '/pages/main/sliderBackgrounds/2.png',
+                link: '/events/2'
+            },
+            {
+                day: 13,
+                type: 'Марафон',
+                title: 'Поэзия детской дерматологии, день 3',
+                subtitle: 'Научно-образовательный квест-марафон ',
+                timePeriod: '12:00 - 16:00',
+                image: '/pages/main/sliderBackgrounds/2.png',
+                link: '/events/2'
+            },
+            {
+                day: 14,
+                type: 'Марафон',
+                title: 'Поэзия детской дерматологии, день 4',
+                subtitle: 'Научно-образовательный квест-марафон ',
+                timePeriod: '12:00 - 16:00',
+                image: '/pages/main/sliderBackgrounds/2.png',
+                link: '/events/2'
+            },
+            {
+                day: 15,
+                type: 'Марафон',
+                title: 'Поэзия детской дерматологии, день 5',
+                subtitle: 'Научно-образовательный квест-марафон ',
+                timePeriod: '12:00 - 16:00',
+                image: '/pages/main/sliderBackgrounds/2.png',
+                link: '/events/2'
+            },
+            {
+                day: 16,
+                type: 'Марафон',
+                title: 'Поэзия детской дерматологии, день 6',
+                subtitle: 'Научно-образовательный квест-марафон ',
+                timePeriod: '12:00 - 16:00',
+                image: '/pages/main/sliderBackgrounds/2.png',
+                link: '/events/2'
+            },
+            {
+                day: 17,
+                type: 'Марафон',
+                title: 'Поэзия детской дерматологии, день 7',
+                subtitle: 'Научно-образовательный квест-марафон ',
+                timePeriod: '12:00 - 16:00',
+                image: '/pages/main/sliderBackgrounds/2.png',
+                link: '/events/2'
+            },
+            {
+                day: 26,
+                type: 'Конференция',
+                title: '1 научно-практическая конференция дерматовенерологов и педиатров',
+                subtitle: 'Алтайского края и Республики Алтай',
+                timePeriod: '10:00 - 18:00',
+                image: '/pages/events/temp_event_bg.png',
+                link: '/events/0'
+            }],
+        oct: [{
+            day: 17,
+            type: 'Конференция',
+            title: '6 научно-практическая конференция дерматовенерологов и педиатров',
+            subtitle: 'Екатеринбурга',
+            timePeriod: '10:00 - 18:00',
+            image: '/pages/events/main_event.png',
+            link: '/events/0'
         }],
-        oct: [{}],
-        nov: [{}],
+        nov: [{
+            day: 11,
+            type: 'Конференция',
+            title: '6 научно-практическая конференция дерматовенерологов и педиатров',
+            subtitle: 'Москвы',
+            timePeriod: '10:00 - 18:00',
+            image: '/pages/events/temp_avatar.png',
+            link: '/events/0'
+        }],
         dec: [{}],
     })
 
@@ -254,7 +333,7 @@ const Calendar = () => {
                 <div className={'border-green-two border-4 sm:h-full overflow-hidden sm:col-span-5 rounded-lg'}>
                     {currentEvent ?
                         <div className={'flex flex-col justify-between'}>
-                            <img className={'w-full'} src={currentEvent.image}/>
+                            <img className={'w-full aspect-video object-cover'} src={currentEvent.image}/>
                             <div className={'p-4 flex gap-4 flex-col'}>
                                 <div className={'flex flex-col'}>
                                     <p className={'sm:text-xl text-xs font-bold text-black'}>{currentEvent.title}</p>
