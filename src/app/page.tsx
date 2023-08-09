@@ -369,7 +369,7 @@ export default function Home() {
                                         whileInView={{scale:1, opacity: 1}}
                                         viewport={{once: true}}
                                         transition={{ease: 'easeInOut', duration: 1, delay: 0}}
-                            className={'shadow-xl sm:h-80 h-64 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                            className={'shadow-xl  bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'sm:w-20 w-12 mt-9 aspect-square'} src={`${images}/science.svg`}/>
                             <p className={'text-white sm:text-lg text-sm font-normal text-center'}>Проведение образовательных
                                 научно-практических конференций в различных форматах
@@ -379,16 +379,15 @@ export default function Home() {
                                         whileInView={{scale:1, opacity: 1}}
                                         viewport={{once: true}}
                                         transition={{ease: 'easeInOut', duration: 1, delay: 0.3}}
-                            className={'shadow-xl sm:h-80 h-64 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                            className={'shadow-xl  bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'sm:w-20 w-12 mt-9 aspect-square'} src={`${images}/socium.svg`}/>
-                            <p className={'text-white sm:text-lg text-sm font-normal text-center'}>Обсуждение сложных клинических случаев,
-                                проведение консилиумов в рамках программы телемедицины</p>
+                            <p className={'text-white sm:text-lg text-sm font-normal text-center'}>Обьединение усилий специалистов с целью развития детской дерматологии и распостранения современных медицинских знаний</p>
                         </motion.div>
                         <motion.div initial={{scale: 0.7, opacity: 0}}
                                         whileInView={{scale:1, opacity: 1}}
                                         viewport={{once: true}}
                                         transition={{ease: 'easeInOut', duration: 1, delay: 0.6}}
-                            className={'shadow-xl sm:h-80 h-64 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                            className={'shadow-xl  bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'sm:w-20 w-12 mt-9 aspect-square'} src={`${images}/confirm.svg`}/>
                             <p className={'text-white sm:text-lg text-sm font-normal text-center'}>Цифровая трансформация в дерматологии на
                                 территории РФ</p>
@@ -397,7 +396,7 @@ export default function Home() {
                                         whileInView={{scale:1, opacity: 1}}
                                         viewport={{once: true}}
                                         transition={{ease: 'easeInOut', duration: 1, delay: 0.9}}
-                            className={'shadow-xl sm:h-80 h-64 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                            className={'shadow-xl  bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'sm:w-20 w-12 mt-9 aspect-square'} src={`${images}/love.svg`}/>
                             <p className={'text-white sm:text-lg text-sm font-normal text-center'}>Организация помощи детям с тяжелым
                                 течением кожных заболеваний</p>
@@ -539,7 +538,7 @@ export default function Home() {
                         <motion.img initial={{y: 40, opacity: 0}}
                                     whileInView={{y: 0, opacity: 1}}
                                     viewport={{once: true}}
-                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'absolute bottom-0'} src={`${images}/results_doctor.png`}/>
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'absolute bottom-0'} src={`/doctor.png`}/>
                     </div>
                 </div>
 

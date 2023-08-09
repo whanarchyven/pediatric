@@ -36,8 +36,9 @@ import {classList} from "@/helpers/classList";
 import SpeakersSlider from "@/components/SpeakersSlider";
 import News from "@/components/News";
 
+export const dynamic = "force-dynamic"
 
-export default function Page() {
+export default function Page({params}:any) {
 
     const router = useRouter()
     const images = '/pages/events'
@@ -278,7 +279,7 @@ export default function Page() {
     ]
 
 
-    const id = useSearchParams().get('id')
+    const id = params.id
     const event = id ? events[Number(id)] : events[0]
 
     return (

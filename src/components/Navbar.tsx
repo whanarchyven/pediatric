@@ -17,22 +17,22 @@ const Navbar = ({isInteravtive}:navbarInterface) => {
             title:'Об обществе',
             link:'/',
         },
-        {
-            title:'Публикации',
-            link:'/',
-        },
-        {
-            title:'Мероприятия',
-            link:'/',
-        },
-        {
-            title:'Новости',
-            link:'/',
-        },
-        {
-            title:'Контакты',
-            link:'/',
-        },
+        // {
+        //     title:'Публикации',
+        //     link:'/',
+        // },
+        // {
+        //     title:'Мероприятия',
+        //     link:'/',
+        // },
+        // {
+        //     title:'Новости',
+        //     link:'/',
+        // },
+        // {
+        //     title:'Контакты',
+        //     link:'/',
+        // },
         {
             title:'Азбука атопии',
             link:'/',
@@ -50,11 +50,11 @@ const Navbar = ({isInteravtive}:navbarInterface) => {
     const [burgerOpen,setBurgerOpen]=useState(false)
 
     return (
-        <div className={classList('sm:px-[70px] px-[20px] fixed z-[999]  top-0 left-0 py-1 sm:py-[35px] w-full grid sm:grid-cols-12 grid-cols-6 items-center transition-all duration-300',scrolled>120?'bg-green bg-opacity-80 backdrop-blur-sm':'bg-green sm:bg-transparent')}>
+        <div className={classList('sm:px-[70px] px-[20px] fixed z-[999]  top-0 left-0 py-1 sm:py-[35px] w-full grid sm:grid-cols-12 grid-cols-6 gap-4 items-center transition-all duration-300',scrolled>120?'bg-green bg-opacity-80 backdrop-blur-sm':'bg-green sm:bg-transparent')}>
             <a href={'/'} className={'col-span-2 relative h-12'}>
                 <Image src={'/logo.svg'} alt={'logo'} layout={'fill'}></Image>
             </a>
-            <div className={'col-span-8 hidden sm:flex items-center justify-around'}>
+            <div className={'col-span-8 hidden sm:flex items-center justify-start gap-20'}>
                 {links.map((link)=>{
                     return (<a key={link.title} className={'font-inter text-xs xl:text-xl font-normal text-white'} href={link.link}>{link.title}</a>)
                 })}
