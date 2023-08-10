@@ -49,14 +49,14 @@ export default function Home() {
             date: '11 ноября 2023',
             title: `<p class="font-extralight">ДЕРМАТОЛОГИЧЕСКИЕ</p><span class="font-extrabold uppercase">ЧТЕНИЯ В ПЕДИАТРИИ</span>`,
             description: '11 ноября пройдет IX Ежегодная всероссийская научно-практическая конференция с международным участием',
-            link: '/',
+            link: '/events/0',
             image: '/pages/main/main_bg.png',
         },
         {
             date: '11-17 сентября 2023',
             title: `<p class="uppercase font-extralight">Поэзия</p><span class="font-extrabold uppercase">детской дерматологии</span>`,
             description: 'Научно-образовательный квест-марафон «Поэзия детской дерматологии» пройдёт уже 11-17 сентября 2023 года!',
-            link: '/',
+            link: '/events/3',
             image: '/pages/main/sliderBackgrounds/2.png',
         },
         {
