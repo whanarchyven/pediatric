@@ -447,7 +447,7 @@ export default function Home() {
                 <motion.div initial={{y: -40, opacity: 0}}
                             whileInView={{y: 0, opacity: 1}}
                             viewport={{once: true}}
-                            transition={{ease: 'easeInOut', duration: 0.7}} className={'mt-10'}>
+                            transition={{ease: 'easeInOut', duration: 0.7}} className={'mt-10 overflow-hidden h-fit'}>
                     <Calendar></Calendar>
                 </motion.div>
             </div>
