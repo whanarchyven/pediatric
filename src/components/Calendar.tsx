@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import {classList} from "@/helpers/classList";
 import {images} from "next/dist/build/webpack/config/blocks/images";
+import Link from "next/link";
 
 const Calendar = () => {
 
@@ -169,8 +170,8 @@ const Calendar = () => {
             title: 'Поэзия детской дерматологии, день 1',
             subtitle: 'Научно-образовательный квест-марафон ',
             timePeriod: '12:00 - 16:00',
-            image: '/pages/main/sliderBackgrounds/2.png',
-            link: '/events/2'
+            image: '/pages/events/main_event.png',
+            link: '/events/3'
         },
             {
                 day: 12,
@@ -178,8 +179,8 @@ const Calendar = () => {
                 title: 'Поэзия детской дерматологии, день 2',
                 subtitle: 'Научно-образовательный квест-марафон ',
                 timePeriod: '12:00 - 16:00',
-                image: '/pages/main/sliderBackgrounds/2.png',
-                link: '/events/2'
+                image: '/pages/events/main_event.png',
+                link: '/events/3'
             },
             {
                 day: 13,
@@ -187,8 +188,8 @@ const Calendar = () => {
                 title: 'Поэзия детской дерматологии, день 3',
                 subtitle: 'Научно-образовательный квест-марафон ',
                 timePeriod: '12:00 - 16:00',
-                image: '/pages/main/sliderBackgrounds/2.png',
-                link: '/events/2'
+                image: '/pages/events/main_event.png',
+                link: '/events/3'
             },
             {
                 day: 14,
@@ -196,8 +197,8 @@ const Calendar = () => {
                 title: 'Поэзия детской дерматологии, день 4',
                 subtitle: 'Научно-образовательный квест-марафон ',
                 timePeriod: '12:00 - 16:00',
-                image: '/pages/main/sliderBackgrounds/2.png',
-                link: '/events/2'
+                image: '/pages/events/main_event.png',
+                link: '/events/3'
             },
             {
                 day: 15,
@@ -205,8 +206,8 @@ const Calendar = () => {
                 title: 'Поэзия детской дерматологии, день 5',
                 subtitle: 'Научно-образовательный квест-марафон ',
                 timePeriod: '12:00 - 16:00',
-                image: '/pages/main/sliderBackgrounds/2.png',
-                link: '/events/2'
+                image: '/pages/events/main_event.png',
+                link: '/events/3'
             },
             {
                 day: 16,
@@ -214,8 +215,8 @@ const Calendar = () => {
                 title: 'Поэзия детской дерматологии, день 6',
                 subtitle: 'Научно-образовательный квест-марафон ',
                 timePeriod: '12:00 - 16:00',
-                image: '/pages/main/sliderBackgrounds/2.png',
-                link: '/events/2'
+                image: '/pages/events/main_event.png',
+                link: '/events/3'
             },
             {
                 day: 17,
@@ -223,34 +224,34 @@ const Calendar = () => {
                 title: 'Поэзия детской дерматологии, день 7',
                 subtitle: 'Научно-образовательный квест-марафон ',
                 timePeriod: '12:00 - 16:00',
-                image: '/pages/main/sliderBackgrounds/2.png',
-                link: '/events/2'
+                image: '/pages/events/main_event.png',
+                link: '/events/3'
             },
             {
                 day: 26,
                 type: 'Конференция',
                 title: '1 научно-практическая конференция дерматовенерологов и педиатров',
                 subtitle: 'Алтайского края и Республики Алтай',
-                timePeriod: '10:00 - 18:00',
-                image: '/pages/events/temp_event_bg.png',
-                link: '/events/0'
+                timePeriod: '10:00',
+                image: '/АЛТАЙ.jpg',
+                link: '/events/1'
             }],
         oct: [{
             day: 17,
             type: 'Конференция',
-            title: '6 научно-практическая конференция дерматовенерологов и педиатров',
-            subtitle: 'Екатеринбурга',
-            timePeriod: '10:00 - 18:00',
-            image: '/pages/events/main_event.png',
-            link: '/events/0'
+            title: 'I научно-практическая конференция «Дерматологические чтения в педиатрии»',
+            subtitle: 'в г. Екатеринбург им. Н. П. Тороповой',
+            timePeriod: '10:00',
+            image: '/ЕКБ.jpg',
+            link: '/events/2'
         }],
         nov: [{
             day: 11,
             type: 'Конференция',
-            title: '6 научно-практическая конференция дерматовенерологов и педиатров',
-            subtitle: 'Москвы',
-            timePeriod: '10:00 - 18:00',
-            image: '/pages/events/temp_avatar.png',
+            title: 'IX Всероссийская научно-практическая конференция с международным участием',
+            subtitle: '«Дерматологические чтения в педиатрии»',
+            timePeriod: '10:00',
+            image: '/pages/main/sliderBackgrounds/2.png',
             link: '/events/0'
         }],
         dec: [{}],
@@ -344,10 +345,9 @@ const Calendar = () => {
                                         className={'w-[48%] p-1 sm:p-4 text-green-two text-xl border-green-two sm:text-lg text-xs border-2 rounded-lg flex items-center justify-center'}>
                                         {currentEvent.timePeriod}
                                     </div>
-                                    <div
-                                        className={'w-[48%] p-1 sm:p-4 text-white text-xl bg-green-two sm:text-lg text-xs border-green-two border-2 rounded-lg flex items-center justify-center'}>
+                                    <Link className={'w-[48%] p-1 sm:p-4 text-white text-xl bg-green-two sm:text-lg text-xs border-green-two border-2 rounded-lg flex items-center justify-center'} href={currentEvent.link}>
                                         Подробнее
-                                    </div>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
