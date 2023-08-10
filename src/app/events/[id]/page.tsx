@@ -425,7 +425,7 @@ export default function Page({params}: any) {
                 offline: 1000,
             },
                 {
-                    date: '31.09',
+                    date: '30.09',
                     online: 1500,
                     offline: 1500,
                 },
