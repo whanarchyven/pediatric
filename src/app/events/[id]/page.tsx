@@ -37,6 +37,7 @@ import SpeakersSlider from "@/components/SpeakersSlider";
 import News from "@/components/News";
 import Partners from "@/components/Partners";
 import PopUp from "@/components/PopUp";
+import compareDates from "@/helpers/compareDates";
 
 export const dynamic = "force-dynamic"
 
@@ -57,12 +58,10 @@ export default function Page({params}: any) {
             place: 'г.Москва, кластер "Ломоносов"',
             format: 'онлайн + офлайн',
             participants: 175,
-            layoutBg: '/pages/main/sliderBackgrounds/2.png',
+            layoutBg: '/pages/main/main_bg.png',
             avatar: `${images}/temp_avatar.png`,
-            announcement: '11 ноября 2023 г.  на площадке новой технологической долины МГУ в центре Москвы для мероприятий цифровой направленности, посвященных прорывным инновациям и новым трендам в мире здравоохранения, состоится главное событие 2023 года - IX Всероссийская научно-практическая конференция с международным участием «Дерматологические чтения в педиатрии».\n' +
-                '\n' +
-                'В рамках научной программы конференции будут обсуждаться наиболее актуальные проблемы дерматологии детского возраста, наряду с разбором редких клинических ситуаций и представлением результатов последних мировых научных исследований.\n',
-            description: 'Особое внимание будет уделено современному ведению пациентов с генодерматозами, аутоиммунными и аутовоспалительными кожными патологиями, а также дерматоскопической диагностике и тактике лечения различных новообразований кожи у детей. Кроме того, будут рассматриваться современные тенденции терапии атопического дерматита, вульгарных акне и ассоциированных с акне синдромов, андрогенетической и гнездной алопеции. Отдельные доклады посвящены дифференциальной диагностике многочисленных заболеваний кожи у детей, исходя из имеющихся поражений слизистой оболочки полости рта или изменения ногтевых пластин. Также подготовлены интересные сообщения о случаях аутоиммунного прогестеронового дерматита у подростков и различных реакциях кожи, связанных с нанесением татуировок.',
+            announcement: '11 ноября 2023 г.  на площадке новой технологической долины МГУ в центре Москвы для мероприятий цифровой направленности, посвященных прорывным инновациям и новым трендам в мире здравоохранения, состоится главное событие 2023 года - IX Всероссийская научно-практическая конференция с международным участием «Дерматологические чтения в педиатрии».',
+            description: 'В рамках научной программы конференции будут обсуждаться наиболее актуальные проблемы дерматологии детского возраста, наряду с разбором редких клинических ситуаций и представлением результатов последних мировых научных исследований.\n Особое внимание будет уделено современному ведению пациентов с генодерматозами, аутоиммунными и аутовоспалительными кожными патологиями, а также дерматоскопической диагностике и тактике лечения различных новообразований кожи у детей. Кроме того, будут рассматриваться современные тенденции терапии атопического дерматита, вульгарных акне и ассоциированных с акне синдромов, андрогенетической и гнездной алопеции. Отдельные доклады посвящены дифференциальной диагностике многочисленных заболеваний кожи у детей, исходя из имеющихся поражений слизистой оболочки полости рта или изменения ногтевых пластин. Также подготовлены интересные сообщения о случаях аутоиммунного прогестеронового дерматита у подростков и различных реакциях кожи, связанных с нанесением татуировок.',
             speakers: [
                 {
                     name: 'Мурашкин Николай Николаевич',
@@ -130,17 +129,17 @@ export default function Page({params}: any) {
             offlinePrice:1000,
 
             prices: [{
-                date: '31.08',
+                date: '31.08.22',
                 online: 1000,
                 offline: 1000,
             },
                 {
-                    date: '31.09',
+                    date: '31.09.22',
                     online: 1500,
                     offline: 1500,
                 },
                 {
-                    date: '31.09',
+                    date: '31.10.22',
                     online: 2000,
                     offline: 2000,
                 }]
@@ -156,7 +155,7 @@ export default function Page({params}: any) {
             format: 'онлайн + офлайн',
             participants: 175,
             layoutBg: '/АЛТАЙ.jpg',
-            avatar: `${images}/temp_avatar.png`,
+            avatar: `${images}/altay.jpg`,
             announcement: 'В фокусе научной программы конференции обсуждение наиболее актуальных проблем дерматологии детского возраста, таких как атопический дерматит, алопеция, псориаз, генетические болезни кожи, а также инновационные возможности в лечении, диагностике и профилактике заболеваний кожи у детей.',
             description: 'Цель проведения мероприятия — улучшение оказания специализированной помощи детскому населению с хроническими заболеваниями кожи.',
             speakers: [
@@ -222,24 +221,6 @@ export default function Page({params}: any) {
 
             ],
 
-            onlinePrice: 1000,
-            offlinePrice:1000,
-
-            prices: [{
-                date: '31.08',
-                online: 1000,
-                offline: 1000,
-            },
-                {
-                    date: '31.09',
-                    online: 1500,
-                    offline: 1500,
-                },
-                {
-                    date: '31.09',
-                    online: 2000,
-                    offline: 2000,
-                }]
 
         },
         {
@@ -252,7 +233,7 @@ export default function Page({params}: any) {
             format: 'онлайн + офлайн',
             participants: 175,
             layoutBg: '/ЕКБ.jpg',
-            avatar: `${images}/temp_avatar.png`,
+            avatar: `${images}/ekb.jpg`,
             announcement: 'В ходе конференции обсудят актуальные вопросы и новшества в области детской дерматологии в эпоху индивидуализированной медицины. Будут рассмотрены проблемы профилактики и лечения заболеваний, а также возможные пути решения данных задач.',
             description: 'В программе конференции собраны наиболее актуальные проблемы дерматологии детского возраста, такие как атопический дерматит, акне, системные и генетические болезни кожи, а также будут освещены инновационные возможности в лечении, диагностике и профилактике заболеваний кожи у детей.\n' +
                 'Данная обучающая программа направлена на повышение квалификации врачей-специалистов с целью улучшения оказания специализированной медицинской помощи.\n' +
@@ -320,25 +301,6 @@ export default function Page({params}: any) {
 
             ],
 
-            onlinePrice: 1000,
-            offlinePrice:1000,
-
-            prices: [{
-                date: '31.08',
-                online: 1000,
-                offline: 1000,
-            },
-                {
-                    date: '31.09',
-                    online: 1500,
-                    offline: 1500,
-                },
-                {
-                    date: '31.09',
-                    online: 2000,
-                    offline: 2000,
-                }]
-
         },
         {
             id: 3,
@@ -346,13 +308,13 @@ export default function Page({params}: any) {
             date: '11.09.2022 - 17.09.2022',
             timePeriod: '10:00-18:00',
             name: 'Научно-образовательный квест-марафон «Поэзия детской дерматологии»',
-            place: 'г. Москва, ул. Фомина, 154',
-            format: 'онлайн + офлайн',
+            place: 'Закрытый чат в TELEGRAM-канале',
+            format: 'онлайн',
             participants: 175,
             layoutBg: '/pages/main/sliderBackgrounds/2.png',
             avatar: `${images}/temp_avatar.png`,
-            announcement: 'В фокусе научной программы конференции обсуждение наиболее актуальных проблем дерматологии детского возраста, таких как атопический дерматит, алопеция, псориаз, генетические болезни кожи, а также инновационные возможности в лечении, диагностике и профилактике заболеваний кожи у детей.',
-            description: 'Цель проведения мероприятия — улучшение оказания специализированной помощи детскому населению с хроническими заболеваниями кожи.',
+            announcement: 'Данная обучающая программа направлена на повышение квалификации врачей- специалистов с целью улучшения оказания специализированной помощи детям, страдающих кожными заболеваниями.',
+            description: 'Будет обсуждена роль мультидисциплинарного подхода и освещены современные методы лечения, а также профилактики заболеваний. В ходе мероприятия всем участникам будут предоставлены видео-уроки, продолжительностью 60 минут, адаптированные видеоклипы по тематике урока, интерактивная задача, брошюры, наглядные пособия, тестовый контроль, а также прямые эфиры со спикером и модератором.',
             speakers: [
                 {
                     name: 'Мурашкин Николай Николаевич',
@@ -415,28 +377,7 @@ export default function Page({params}: any) {
                 },
 
             ],
-
-            onlinePrice: 1000,
-            offlinePrice:1000,
-
-            prices: [{
-                date: '31.08',
-                online: 1000,
-                offline: 1000,
-            },
-                {
-                    date: '30.09',
-                    online: 1500,
-                    offline: 1500,
-                },
-                {
-                    date: '31.09',
-                    online: 2000,
-                    offline: 2000,
-                }]
-
-
-
+            isOnlyOnline:true,
         }
 
 
@@ -444,7 +385,7 @@ export default function Page({params}: any) {
 
 
     const id = params.id
-    const event:typeof events[0]= id ? events[Number(id)] : events[0]
+    const event:any= id ? events[Number(id)] : events[0]
 
     const [isPopPriceOpen,setIsPopPriceOpen]=useState(false);
     const [isConfirmPopOpen,setIsConfirmPopOpen]=useState(false)
@@ -453,7 +394,7 @@ export default function Page({params}: any) {
         <main className={'overflow-x-hidden'}>
             {/*ПЕРВЫЙ БЛОК*/}
             <motion.div
-                className="min-h-screen overflow-hidden py-12 bg-cover relative">
+                className="min-h-screen overflow-hidden py-12 sm:py-0 bg-cover relative">
                 <div className={'w-full h-full absolute left-0 top-0 z-[-2]'}>
                     <img className={'w-full h-full object-cover'} src={event.layoutBg}/>
                 </div>
@@ -464,6 +405,10 @@ export default function Page({params}: any) {
                     className={'w-full min-h-screen h-auto px-[20px] sm:px-[140px] grid grid-cols-1 sm:grid-cols-12'}>
                     <motion.div
                         className={'col-span-6 sm:mt-0 mt-20 flex flex-col gap-6 sm:items-start  justify-center'}>
+                        <div className={'flex gap-4 items-center cursor-pointer'} onClick={()=>{router.back()}}>
+                            <img className={'aspect-square w-5'} src={'/arrow_prev.svg'}/>
+                            <p className={'text-white text-xl uppercase'}>Назад</p>
+                        </div>
                         <div className={'flex gap-4 items-center'}>
                             <div
                                 className={'flex items-center rounded-full p-2 px-4 uppercase text-white font-light opacity-50 border-white w-fit border-2 justify-center'}>
@@ -485,7 +430,7 @@ export default function Page({params}: any) {
                             </div>
                             <div className={'flex items-center gap-2'}>
                                 <img className={'w-6 aspect-square'} src={`${images}/placemark.svg`}/>
-                                <p className={'text-white text-lg'}><strong>Формат</strong> {event.format}</p>
+                                <p className={'text-white text-lg'}><strong>Формат: </strong> {event.format}</p>
                             </div>
                             <div className={'flex items-center gap-2'}>
                                 <img className={'w-6 aspect-square'} src={`${images}/placemark.svg`}/>
@@ -493,10 +438,12 @@ export default function Page({params}: any) {
                                     <strong>Зарегистрировались</strong> {event.participants} участников</p>
                             </div>
                         </div>
-                        <div
-                            className={'bg-white text-lg flex items-center justify-center p-3 px-5 rounded-md cursor-pointer hover:opacity-100 transition-all duration-300 opacity-50 text-black'}>
-                            Подтвердить участие
-                        </div>
+                        <Link href={'#form'}>
+                            <div
+                                className={'bg-white text-lg flex items-center justify-center p-3 px-5 rounded-md cursor-pointer hover:opacity-100 transition-all duration-300 opacity-50 text-black'}>
+                                Подтвердить участие
+                            </div>
+                        </Link>
                     </motion.div>
                 </motion.div>
                 <div className={'absolute bottom-[-0.5px] sm:bottom-[-4px] asset w-full'}>
@@ -504,8 +451,8 @@ export default function Page({params}: any) {
                 </div>
             </motion.div>
             <div
-                className={'bg-white sm:h-[854px] items-center py-12 px-[20px] grid-cols-1 sm:px-[140px] gap-20 grid sm:grid-cols-2'}>
-                <img className={'w-full aspect-square col-span-1 rounded-xl'} src={event.avatar}/>
+                className={'bg-white items-center py-12 px-[20px] grid-cols-1 sm:px-[140px] gap-20 grid sm:grid-cols-2'}>
+                <img className={'w-full aspect-square col-span-1 object-cover rounded-xl'} src={event.avatar}/>
                 <div className={'flex flex-col gap-6 items-start'}>
                     <p className={'uppercase font-extralight text-3xl sm:text-5xl text-black'}>Информация
                         <br/><span className={'font-extrabold'}>о мероприятии</span></p>
@@ -587,27 +534,27 @@ export default function Page({params}: any) {
             {/*    </div>*/}
             {/*</div>*/}
 
-            <div className={'bg-[#F2F9F8] relative py-12 sm:py-40 flex items-center px-[20px]'}>
-                <img className={'absolute left-0 -top-1'} src={`/pages/main/about_us_offset.png`}
-                     alt={'asset_bottom'}></img>
-                <div className={'w-full'}>
-                    <div
-                        className={'flex sm:flex-col flex-col gap-8 items-center justify-center sm:items-start sm:justify-between'}>
-                        <motion.p initial={{x: -40, opacity: 0}}
-                                  whileInView={{x: 0, opacity: 1}}
-                                  viewport={{once: true}}
-                                  transition={{ease: 'easeInOut', duration: 0.7}}
-                                  className={'uppercase sm:pl-[140px] font-extralight text-black sm:text-left text-left text-2xl sm:text-4xl'}>Спонсоры <strong
-                            className={'font-extrabold'}>конференции</strong></motion.p>
-                        <div className={'sm:px-[40px] w-full '}>
-                            <Partners></Partners>
-                        </div>
-                    </div>
-                </div>
-                <img className={'absolute left-0 bottom-0'} src={`/pages/main/about_us_offset_bottom.png`}
-                     alt={'asset_bottom'}></img>
-            </div>
-            <div className={'bg-white sm:py-0 py-12 px-[20px] sm:px-[140px] sm:h-[600px]'}>
+            {/*<div className={'bg-[#F2F9F8] relative py-12 sm:py-40 flex items-center px-[20px]'}>*/}
+            {/*    <img className={'absolute left-0 -top-1'} src={`/pages/main/about_us_offset.png`}*/}
+            {/*         alt={'asset_bottom'}></img>*/}
+            {/*    <div className={'w-full'}>*/}
+            {/*        <div*/}
+            {/*            className={'flex sm:flex-col flex-col gap-8 items-center justify-center sm:items-start sm:justify-between'}>*/}
+            {/*            <motion.p initial={{x: -40, opacity: 0}}*/}
+            {/*                      whileInView={{x: 0, opacity: 1}}*/}
+            {/*                      viewport={{once: true}}*/}
+            {/*                      transition={{ease: 'easeInOut', duration: 0.7}}*/}
+            {/*                      className={'uppercase sm:pl-[140px] font-extralight text-black sm:text-left text-left text-2xl sm:text-4xl'}>Спонсоры <strong*/}
+            {/*                className={'font-extrabold'}>конференции</strong></motion.p>*/}
+            {/*            <div className={'sm:px-[40px] w-full '}>*/}
+            {/*                <Partners></Partners>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*    <img className={'absolute left-0 bottom-0'} src={`/pages/main/about_us_offset_bottom.png`}*/}
+            {/*         alt={'asset_bottom'}></img>*/}
+            {/*</div>*/}
+            {!event.isOnlyOnline?<div id={'form'} className={'bg-white sm:py-0 py-12 px-[20px] sm:px-[140px] sm:h-[600px]'}>
                 <div className={'flex sm:mt-7 items-center px-[20px] sm:px-[140px] justify-center sm:justify-center'}>
                     <motion.p initial={{y: -40, opacity: 0}}
                               whileInView={{y: 0, opacity: 1}}
@@ -616,7 +563,7 @@ export default function Page({params}: any) {
                               className={'uppercase font-extralight text-black sm:text-left text-left text-2xl sm:text-4xl'}>Стоимость <strong
                         className={'font-extrabold'}>Участия</strong></motion.p>
                 </div>
-                <div className={'grid grid-cols-1 sm:grid-cols-2 gap-9 mt-10'}>
+                <div className={'grid grid-cols-1 sm:grid-cols-3 gap-9 mt-10'}>
                     <div className={'flex flex-col items-center gap-8'}>
                         <div
                             className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
@@ -624,13 +571,26 @@ export default function Page({params}: any) {
                                 <img className={'w-7 aspect-square'} src={'/online.svg'}/>
                                 <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
                             </div>
-                            <p className={'text-3xl sm:text-6xl text-white font-bold'}>{event?.onlinePrice} руб.</p>
-                            <p className={'font-extralight text-xl text-center text-white'}>Цена действует до <br/>
-                                {event.prices[0].date}</p>
-                            <p onClick={()=>{setIsPopPriceOpen(true)}} className={'font-bold cursor-pointer text-xl text-white'}>Смотреть график цен</p>
+                            <p className={'text-3xl sm:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
+                            <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции в день мероприятия</p>
                         </div>
                         <div onClick={()=>{setIsConfirmPopOpen(true)}}
-                            className={'w-full sm:w-3/5 p-4 bg-green-two text-white cursor-pointer text-xl font-light rounded-xl flex items-center justify-center'}>
+                             className={'w-full sm:w-3/5 p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                            Подтвердить участие
+                        </div>
+                    </div>
+                    <div className={'flex flex-col items-center gap-8'}>
+                        <div
+                            className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
+                            <div className={'flex items-center gap-3'}>
+                                <img className={'w-7 aspect-square'} src={'/online.svg'}/>
+                                <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
+                            </div>
+                            <p className={'text-3xl sm:text-5xl text-white font-bold'}>{event.onlinePrice?event.onlinePrice+' руб.':'БЕСПЛАТНО'}</p>
+                            <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции мероприятия <span className={'font-extrabold'}>+ запись трансляции</span></p>
+                        </div>
+                        <div onClick={()=>{setIsConfirmPopOpen(true)}}
+                             className={'w-full sm:w-3/5 p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                             Подтвердить участие
                         </div>
                     </div>
@@ -641,13 +601,14 @@ export default function Page({params}: any) {
                                 <img className={'w-7 aspect-square'} src={'/offline.svg'}/>
                                 <p className={'font-extralight text-3xl text-green-two'}>Оффлайн</p>
                             </div>
-                            <p className={'text-3xl sm:text-6xl text-green-two font-bold'}>{event?.offlinePrice} руб.</p>
-                            <p className={'font-extralight text-xl text-center text-green-two'}>Цена действует до <br/>
-                                {event.prices[0].date}</p>
-                            <p onClick={()=>{setIsPopPriceOpen(true)}} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график цен</p>
+
+                            <p className={'text-3xl sm:text-5xl text-green-two font-bold'}>{event.prices?compareDates(event.prices).offline+' руб.':'БЕСПЛАТНО'}</p>
+                            {event.prices?<p className={'font-extralight text-xl text-center text-green-two'}>Цена действует до <br/>
+                                {compareDates(event.prices).date}</p>:null}
+                            {event.prices?<p onClick={()=>{setIsPopPriceOpen(true)}} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график цен</p>:<p className={'font-extralight text-xl text-center text-green-two'}>Очное посещение мероприятия, активное участие</p>}
                         </div>
                         <div onClick={()=>{setIsConfirmPopOpen(true)}}
-                            className={'w-full sm:w-3/5 p-4 bg-green-two text-white cursor-pointer text-xl font-light rounded-xl flex items-center justify-center'}>
+                             className={'w-full sm:w-3/5 p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                             Подтвердить участие
                         </div>
                     </div>
@@ -665,7 +626,7 @@ export default function Page({params}: any) {
                                 Подтвердить участие
                             </div>
                             <div onClick={()=>{setIsConfirmPopOpen(false)}}
-                                className={'p-4 cursor-pointer border-green-two border-2 text-green-two text-sm font-light rounded-xl flex items-center justify-center'}>Вернуться к мероприятию</div>
+                                 className={'p-4 cursor-pointer border-green-two border-2 text-green-two text-sm font-light rounded-xl flex items-center justify-center'}>Вернуться к мероприятию</div>
                         </div>
                     </div>
                 </PopUp>:null}
@@ -673,27 +634,19 @@ export default function Page({params}: any) {
                 {isPopPriceOpen?<PopUp icon={'/price.svg'} closeFunc={()=>{{setIsPopPriceOpen(false)}}}>
                     <div className={'flex gap-4 h-full flex-col'}>
                         <p className={'text-[#0F5F5A] text-2xl sm:text-4xl font-light'}>ГРАФИК <br/> <span className={'font-extrabold'}>СТОИМОСТИ</span></p>
-                        <div className={'grid p-2 w-full grid-cols-3'}>
+                        <div className={'grid p-2 w-full grid-cols-2'}>
                             <div className={'text-[#0F5F5A] font-light flex items-center '}>
                                 Дата
                             </div>
                             <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
-                                <img className={'sm:flex hidden sm:w-6'} src={'/online_green.svg'}/>
-                                <p className={'text-[#0F5F5A] font-light'}>Онлайн</p>
-                            </div>
-                            <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
-                                <img className={'sm:flex hidden sm:w-6'} src={'/offline.svg'}/>
-                                <p className={'text-[#0F5F5A] font-light'}>Оффлайн</p>
+                                <p className={'text-[#0F5F5A] font-light'}>Стоимость</p>
                             </div>
                         </div>
                         {event.prices.map((item,counter)=>{
                             return (
-                                <div key={counter} className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-3'}>
+                                <div key={counter} className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-2'}>
                                     <div className={'text-[#0F5F5A] font-light flex items-center '}>
                                         {item.date}
-                                    </div>
-                                    <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
-                                        <p className={'text-[#0F5F5A] font-light'}>{item.online} рублей</p>
                                     </div>
                                     <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
                                         <p className={'text-[#0F5F5A] font-light'}>{item.offline} рублей</p>
@@ -704,11 +657,11 @@ export default function Page({params}: any) {
 
                         <div className={'w-full grid grid-cols-2 gap-3'}>
                             <div onClick={()=>{setIsPopPriceOpen(false)}}
-                                className={'p-4 cursor-pointer bg-green-two text-white text-sm font-light rounded-xl flex items-center justify-center'}>Вернуться к мероприятию</div>
+                                 className={'p-4 cursor-pointer bg-green-two text-white text-sm font-light rounded-xl flex items-center justify-center'}>Вернуться к мероприятию</div>
                         </div>
                     </div>
                 </PopUp>:null}
-            </div>
+            </div>:null}
             <div className={'bg-white sm:py-0 py-12 sm:h-[600px]'}>
                 <div className={'flex sm:mt-7 items-center px-[20px] sm:px-[140px] justify-center sm:justify-between'}>
                     <motion.p initial={{x: -40, opacity: 0}}

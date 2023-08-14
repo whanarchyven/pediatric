@@ -128,42 +128,7 @@ const Calendar = () => {
         may: [{}],
         jun: [{}],
         jul: [{}],
-        aug: [{
-            day: 3,
-            type: 'Конференция',
-            title: 'Путь детской дерматологии',
-            subtitle: 'от истоков к перспективам. Часть 1.',
-            timePeriod: '10:00 - 13:00',
-            image: '/pages/main/events/main_event.png',
-            link: '/'
-        },
-            {
-                day: 18,
-                type: 'Марафон',
-                title: 'Путь детской дерматологии',
-                subtitle: 'от истоков к перспективам. Часть 2.',
-                timePeriod: '10:00 - 13:00',
-                image: '/pages/main/events/main_event.png',
-                link: '/'
-            },
-            {
-                day: 19,
-                type: 'Марафон',
-                title: 'Путь детской дерматологии',
-                subtitle: 'от истоков к перспективам. Часть 3.',
-                timePeriod: '10:00 - 13:00',
-                image: '/pages/main/events/main_event.png',
-                link: '/'
-            },
-            {
-                day: 20,
-                type: 'Марафон',
-                title: 'Путь детской дерматологии',
-                subtitle: 'от истоков к перспективам. Часть 4.',
-                timePeriod: '10:00 - 13:00',
-                image: '/pages/main/events/main_event.png',
-                link: '/'
-            }],
+        aug: [],
         sep: [{
             day: 11,
             type: 'Марафон',

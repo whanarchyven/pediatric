@@ -4,6 +4,7 @@ import React, {useEffect, useState} from 'react';
 import Image from "next/image";
 import {classList} from "@/helpers/classList";
 import {useRouter} from "next/navigation";
+import Link from "next/link";
 
 interface navbarInterface {
     isInteractive:boolean
@@ -61,14 +62,18 @@ const Navbar = ({isInteravtive}:navbarInterface) => {
             </div>
             <div className={'col-span-2 hidden sm:flex items-center justify-end'}>
                 <div className={'flex items-center'}>
-                    <img src={'/telegram.svg'} className={'w-5 mx-2 rounded-full aspect-square relative'}>
+                    <Link href={'https://t.me/pediatric_dermatology_ru'}>
+                        <img src={'/telegram.svg'} className={'w-5 mx-2 rounded-full aspect-square relative'}>
 
-                    </img>
+                        </img>
+                    </Link>
                 </div>
                 <div className={'flex items-center'}>
-                    <img src={'/vk.svg'} className={'w-5 mx-2 rounded-full aspect-square relative'}>
+                    <Link href={'https://vk.com/pediatric_dermatology_ru'}>
+                        <img src={'/vk.svg'} className={'w-5 mx-2 rounded-full aspect-square relative'}>
 
-                    </img>
+                        </img>
+                    </Link>
                 </div>
                 <div className={'flex items-center'}>
                     <div className={'w-5 mx-2 aspect-square relative'}>

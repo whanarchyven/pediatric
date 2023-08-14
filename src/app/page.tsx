@@ -36,6 +36,7 @@ import Calendar from "@/components/Calendar";
 import News from "@/components/News";
 import CountUp from "react-countup";
 import {classList} from "@/helpers/classList";
+import Partners from "@/components/Partners";
 
 
 export default function Home() {
@@ -63,7 +64,7 @@ export default function Home() {
             date: '1 июня – 31 августа 2023',
             title: `<p class="font-extralight">Розыгрыш</p><span class="font-extrabold uppercase">LA ROCHE-POSAY</span>`,
             description: 'Успейте принять участие в главном розыгрыше этого лета- "Летняя аптечка!',
-            link: '/',
+            link: null,
             image: '/pages/main/sliderBackgrounds/1.png',
         }
     ]
@@ -83,35 +84,35 @@ export default function Home() {
 <li>Ожидайте ответа.</li>
 </ol>`,
         },
-        {
-            question: 'Как попасть в НИИ детской дерматологии? 2',
-            answer: `<ol class="list-decimal">
-<li>Напишите письмо на нашу почту dermatology@nczd.ru с просьбой направить Вам вызов на госпитализацию;</li>
-<li>В письме укажите:<ul>
-<li>ФИО ребенка;</li>
-<li>дата рождения ребенка;</li>
-<li>адрес регистрации.</li>
-</ul>
-</li>
-<li>Прикрепите выписки, которые у Вас есть от специалистов по месту жительства, также Вы можете прикрепить фотографии высыпаний;</li>
-<li>Ожидайте ответа.</li>
-</ol>`,
-        }
-        ,
-        {
-            question: 'Как попасть в НИИ детской дерматологии? 3',
-            answer: `<ol class="list-decimal">
-<li>Напишите письмо на нашу почту dermatology@nczd.ru с просьбой направить Вам вызов на госпитализацию;</li>
-<li>В письме укажите:<ul>
-<li>ФИО ребенка;</li>
-<li>дата рождения ребенка;</li>
-<li>адрес регистрации.</li>
-</ul>
-</li>
-<li>Прикрепите выписки, которые у Вас есть от специалистов по месту жительства, также Вы можете прикрепить фотографии высыпаний;</li>
-<li>Ожидайте ответа.</li>
-</ol>`,
-        }
+//         {
+//             question: 'Как попасть в НИИ детской дерматологии? 2',
+//             answer: `<ol class="list-decimal">
+// <li>Напишите письмо на нашу почту dermatology@nczd.ru с просьбой направить Вам вызов на госпитализацию;</li>
+// <li>В письме укажите:<ul>
+// <li>ФИО ребенка;</li>
+// <li>дата рождения ребенка;</li>
+// <li>адрес регистрации.</li>
+// </ul>
+// </li>
+// <li>Прикрепите выписки, которые у Вас есть от специалистов по месту жительства, также Вы можете прикрепить фотографии высыпаний;</li>
+// <li>Ожидайте ответа.</li>
+// </ol>`,
+//         }
+//         ,
+//         {
+//             question: 'Как попасть в НИИ детской дерматологии? 3',
+//             answer: `<ol class="list-decimal">
+// <li>Напишите письмо на нашу почту dermatology@nczd.ru с просьбой направить Вам вызов на госпитализацию;</li>
+// <li>В письме укажите:<ul>
+// <li>ФИО ребенка;</li>
+// <li>дата рождения ребенка;</li>
+// <li>адрес регистрации.</li>
+// </ul>
+// </li>
+// <li>Прикрепите выписки, которые у Вас есть от специалистов по месту жительства, также Вы можете прикрепить фотографии высыпаний;</li>
+// <li>Ожидайте ответа.</li>
+// </ol>`,
+//         }
 
     ]
     // bg-[url('/pages/main/main_bg.png')]
@@ -172,11 +173,11 @@ export default function Home() {
 
                                                         </div>
                                                         <p className={'text-white font-normal'}>{item.description}</p>
-                                                        <Link
+                                                        {item.link?<Link
                                                             className={'text-black p-4 rounded-md bg-white flex items-center justify-center w-48'}
                                                             href={item.link}>
                                                             Подробнее
-                                                        </Link>
+                                                        </Link>:null}
                                                         {/*<div className={'flex gap-5 items-center'}>*/}
                                                         {/*    <div*/}
                                                         {/*        className={'cursor-pointer  hidden sm:flex items-center p-[15px] justify-center  w-[50px] aspect-square rounded-full bg-[#E4F0EE] hover:bg-[#BCDBD5] transition-all duration-300'}*/}
@@ -238,11 +239,11 @@ export default function Home() {
 
                                                         </div>
                                                         <p className={'text-white font-normal'}>{item.description}</p>
-                                                        <Link
+                                                        {item.link?<Link
                                                             className={'text-black p-4 rounded-md bg-white flex items-center justify-center w-48'}
                                                             href={item.link}>
                                                             Подробнее
-                                                        </Link>
+                                                        </Link>:null}
                                                     </div>
                                                     <div className={'absolute w-screen h-screen left-0 top-0 z-[-2]'}>
                                                         <img className={'w-full object-cover object-center h-full'} src={item.image}/>
@@ -304,13 +305,13 @@ export default function Home() {
                             развивать детскую дерматологию и распространять современные медицинские знания. И в конечном
                             итоге — чтобы каждый врач мог эффективно помочь своим пациентам в любом городе и регионе.
                         </motion.p>
-                        <motion.div initial={{y: -40, opacity: 0}}
-                                    whileInView={{y: 0, opacity: 1}}
-                                    viewport={{once: true}}
-                                    transition={{ease: 'easeInOut', duration: 0.7, delay: 1.2}}
-                                    className={'p-2 text-white w-52 font-normal h-12 px-4 bg-green flex items-center justify-center rounded-lg'}>
-                            Подробнее
-                        </motion.div>
+                        {/*<motion.div initial={{y: -40, opacity: 0}}*/}
+                        {/*            whileInView={{y: 0, opacity: 1}}*/}
+                        {/*            viewport={{once: true}}*/}
+                        {/*            transition={{ease: 'easeInOut', duration: 0.7, delay: 1.2}}*/}
+                        {/*            className={'p-2 text-white w-52 font-normal h-12 px-4 bg-green flex items-center justify-center rounded-lg'}>*/}
+                        {/*    Подробнее*/}
+                        {/*</motion.div>*/}
                     </div>
                     <div className={'grid grid-cols-2 gap-4'}>
                         <div className={'flex justify-start flex-col items-end gap-4'}>
@@ -371,9 +372,7 @@ export default function Home() {
                                     viewport={{once: true}}
                                     transition={{ease: 'easeInOut', duration: 0.7, delay: 1.2}}>
                             <img className={'sm:w-10 w-12'} src={`${images}/help.svg`}/>
-                            <p className={'lowercase sm:text-lg sm:w-auto w-3/5 whitespace-pre-wrap text-sm'}>ЦЕЛЬ
-                                ОРГАНИЗАЦИИ - СОДЕЙСТВИЕ РАЗВИТИЮ <br/>
-                                ДЕТСКОЙ ДЕРМАТОЛОГИИ </p>
+                            <p className={'sm:text-lg sm:w-auto w-3/5 whitespace-pre-wrap text-sm'}>Цель организации - Содействие развитию <br/>детской дерматологии</p>
                         </motion.div>
                     </div>
                     <div className={'grid mt-10 grid-cols-1 sm:grid-cols-4 gap-4 sm:gap-16 '}>
@@ -554,14 +553,16 @@ export default function Home() {
                                 </div>
                             </motion.div>
                         </div>
-                        <motion.div
-                            initial={{y: -40, opacity: 0}}
-                            whileInView={{y: 0, opacity: 1}}
-                            viewport={{once: true}}
-                            transition={{ease: 'easeInOut', duration: 0.7}}
-                            className={'bg-white font-normal sm:self-auto self-center rounded-lg text-xl text-[#277B76] flex items-center justify-center w-72  py-5'}>
-                            Подать заявку
-                        </motion.div>
+                        <Link href={'/registration'}>
+                            <motion.div
+                                initial={{y: -40, opacity: 0}}
+                                whileInView={{y: 0, opacity: 1}}
+                                viewport={{once: true}}
+                                transition={{ease: 'easeInOut', duration: 0.7}}
+                                className={'bg-white font-normal sm:self-auto self-center rounded-lg text-xl text-[#277B76] flex items-center justify-center w-72  py-5'}>
+                                Подать заявку
+                            </motion.div>
+                        </Link>
                     </div>
                     <div className={'sm:col-span-3 sm:mt-0 mt-10 h-full relative flex items-center justify-center'}>
                         <img className={'sm:absolute bottom-0'} src={`${images}/results_doctor_sprite.svg`}/>
@@ -636,13 +637,15 @@ export default function Home() {
                             <p className={'text-xl leading-[100%]'}>Иметь доступ к образовательным материалам российских
                                 и зарубежных специалистов.</p>
                         </motion.div>
-                        <motion.div initial={{y: -40, opacity: 0}}
-                                    whileInView={{y: 0, opacity: 1}}
-                                    viewport={{once: true}}
-                                    transition={{ease: 'easeInOut', duration: 0.7}}
-                                    className={'bg-[#58BBB4] font-normal rounded-lg text-xl text-white flex items-center justify-center sm:w-72 w-full  py-5'}>
-                            Подать заявку
-                        </motion.div>
+                        <Link href={'/registration'}>
+                            <motion.div initial={{y: -40, opacity: 0}}
+                                        whileInView={{y: 0, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 0.7}}
+                                        className={'bg-[#58BBB4] font-normal rounded-lg text-xl text-white flex items-center justify-center sm:w-72 w-full  py-5'}>
+                                Подать заявку
+                            </motion.div>
+                        </Link>
                     </div>
                     <div className={'sm:col-span-5 flex justify-end sm:col-end-13'}>
                         <motion.img initial={{scale: 0.8, opacity: 0}}
@@ -700,17 +703,19 @@ export default function Home() {
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
-                            <p className={'text-xl leading-[100%]'}>Возможность стать спикеров научно-практических
+                            <p className={'text-xl leading-[100%]'}>Возможность стать спикером научно-практических
                                 конференций Общества детских дерматологов</p>
                         </motion.div>
 
-                        <motion.div initial={{y: -40, opacity: 0}}
-                                    whileInView={{y: 0, opacity: 1}}
-                                    viewport={{once: true}}
-                                    transition={{ease: 'easeInOut', duration: 0.7}}
-                                    className={'bg-[#58BBB4] font-normal rounded-lg text-xl text-white flex items-center justify-center w-full sm:w-72  py-5'}>
-                            Подать заявку
-                        </motion.div>
+                        <Link href={'/registration'}>
+                            <motion.div initial={{y: -40, opacity: 0}}
+                                        whileInView={{y: 0, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 0.7}}
+                                        className={'bg-[#58BBB4] font-normal rounded-lg text-xl text-white flex items-center justify-center w-full sm:w-72  py-5'}>
+                                Подать заявку
+                            </motion.div>
+                        </Link>
                     </div>
 
                 </div>
@@ -758,13 +763,15 @@ export default function Home() {
                                 международного формата.</p>
                         </motion.div>
 
-                        <motion.div initial={{y: -40, opacity: 0}}
-                                    whileInView={{y: 0, opacity: 1}}
-                                    viewport={{once: true}}
-                                    transition={{ease: 'easeInOut', duration: 0.7}}
-                                    className={'bg-[#58BBB4] font-normal rounded-lg text-xl text-white flex items-center justify-center w-full sm:w-72  py-5'}>
-                            Подать заявку
-                        </motion.div>
+                        <Link href={'/registration'}>
+                            <motion.div initial={{y: -40, opacity: 0}}
+                                        whileInView={{y: 0, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 0.7}}
+                                        className={'bg-[#58BBB4] font-normal rounded-lg text-xl text-white flex items-center justify-center w-full sm:w-72  py-5'}>
+                                Подать заявку
+                            </motion.div>
+                        </Link>
                     </div>
                     <div className={'sm:col-span-5 flex justify-end sm:col-end-13'}>
                         <motion.img initial={{scale: 0.8, opacity: 0}}
@@ -872,7 +879,7 @@ export default function Home() {
 
             {/*PARTNERS*/}
 
-            <div className={'sm:h-[550px] sm:py-0 py-12 bg-white flex flex-col items-center justify-center gap-2'}>
+            <div className={'sm:h-[550px] sm:px-[70px] px-[20px] sm:py-0 py-12 bg-white flex flex-col items-center justify-center gap-2'}>
                 <motion.p initial={{scale: 0.8, opacity: 0}}
                           whileInView={{scale: 1, opacity: 1}}
                           viewport={{once: true}}
@@ -880,33 +887,9 @@ export default function Home() {
                           className={'uppercase text-center font-extralight text-black text-4xl'}>ОБЪЕДИНЯЕМ
                     УСИЛИЯ <br/><strong
                         className={'font-extrabold'}>С ПАРТНЕРАМИ</strong></motion.p>
-                <div className={'flex sm:flex-row flex-col items-center gap-4'}>
-                    <motion.img initial={{scale: 0.8, opacity: 0}}
-                                whileInView={{scale: 1, opacity: 1}}
-                                viewport={{once: true}}
-                                transition={{ease: 'easeInOut', duration: 0.7, delay: 0.2}}
-                                src={`${images}/partners/image 15.png`}/>
-                    <motion.img initial={{scale: 0.8, opacity: 0}}
-                                whileInView={{scale: 1, opacity: 1}}
-                                viewport={{once: true}}
-                                transition={{ease: 'easeInOut', duration: 0.7, delay: 0.4}}
-                                src={`${images}/partners/image 16.png`}/>
-                    <motion.img initial={{scale: 0.8, opacity: 0}}
-                                whileInView={{scale: 1, opacity: 1}}
-                                viewport={{once: true}}
-                                transition={{ease: 'easeInOut', duration: 0.7, delay: 0.6}}
-                                src={`${images}/partners/image 17.png`}/>
-                    <motion.img initial={{scale: 0.8, opacity: 0}}
-                                whileInView={{scale: 1, opacity: 1}}
-                                viewport={{once: true}}
-                                transition={{ease: 'easeInOut', duration: 0.7, delay: 0.8}}
-                                src={`${images}/partners/image 18.png`}/>
-                    <motion.img initial={{scale: 0.8, opacity: 0}}
-                                whileInView={{scale: 1, opacity: 1}}
-                                viewport={{once: true}}
-                                transition={{ease: 'easeInOut', duration: 0.7, delay: 1}}
-                                src={`${images}/partners/image 19.png`}/>
-                </div>
+                <Partners>
+
+                </Partners>
             </div>
         </main>
     )
