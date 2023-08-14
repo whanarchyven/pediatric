@@ -135,7 +135,7 @@ const Calendar = () => {
             title: 'Поэзия детской дерматологии, день 1',
             subtitle: 'Научно-образовательный квест-марафон ',
             timePeriod: '12:00 - 16:00',
-            image: '/pages/events/main_event.png',
+            image: '/marafon.png',
             link: '/events/3'
         },
             {
@@ -144,7 +144,7 @@ const Calendar = () => {
                 title: 'Поэзия детской дерматологии, день 2',
                 subtitle: 'Научно-образовательный квест-марафон ',
                 timePeriod: '12:00 - 16:00',
-                image: '/pages/events/main_event.png',
+                image: '/marafon.png',
                 link: '/events/3'
             },
             {
@@ -153,7 +153,7 @@ const Calendar = () => {
                 title: 'Поэзия детской дерматологии, день 3',
                 subtitle: 'Научно-образовательный квест-марафон ',
                 timePeriod: '12:00 - 16:00',
-                image: '/pages/events/main_event.png',
+                image: '/marafon.png',
                 link: '/events/3'
             },
             {
@@ -162,7 +162,7 @@ const Calendar = () => {
                 title: 'Поэзия детской дерматологии, день 4',
                 subtitle: 'Научно-образовательный квест-марафон ',
                 timePeriod: '12:00 - 16:00',
-                image: '/pages/events/main_event.png',
+                image: '/marafon.png',
                 link: '/events/3'
             },
             {
@@ -171,7 +171,7 @@ const Calendar = () => {
                 title: 'Поэзия детской дерматологии, день 5',
                 subtitle: 'Научно-образовательный квест-марафон ',
                 timePeriod: '12:00 - 16:00',
-                image: '/pages/events/main_event.png',
+                image: '/marafon.png',
                 link: '/events/3'
             },
             {
@@ -180,7 +180,7 @@ const Calendar = () => {
                 title: 'Поэзия детской дерматологии, день 6',
                 subtitle: 'Научно-образовательный квест-марафон ',
                 timePeriod: '12:00 - 16:00',
-                image: '/pages/events/main_event.png',
+                image: '/marafon.png',
                 link: '/events/3'
             },
             {
@@ -189,7 +189,7 @@ const Calendar = () => {
                 title: 'Поэзия детской дерматологии, день 7',
                 subtitle: 'Научно-образовательный квест-марафон ',
                 timePeriod: '12:00 - 16:00',
-                image: '/pages/events/main_event.png',
+                image: '/marafon.png',
                 link: '/events/3'
             },
             {

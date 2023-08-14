@@ -40,7 +40,13 @@ export default function Home() {
                 <motion.div
                     className={'w-full min-h-screen h-auto px-[20px] sm:px-[120px] items-center grid grid-cols-1 sm:grid-cols-7'}>
                     <motion.div
-                        className={'col-span-4 sm:mt-0 mt-20 flex flex-col sm:items-start justify-center'}>
+                        className={'col-span-4 sm:mt-0 mt-20 flex flex-col gap-8 sm:items-start justify-center'}>
+                        <Link href={'/'}>
+                            <div className={'flex gap-4 items-center cursor-pointer'}>
+                                <img className={'aspect-square w-5'} src={'/arrow_prev.svg'}/>
+                                <p className={'text-white text-xl uppercase'}>Назад</p>
+                            </div>
+                        </Link>
                         <motion.p initial={{x: -40, opacity: 0}}
                                   whileInView={{x: 0, opacity: 1}}
                                   viewport={{once: true}}
