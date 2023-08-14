@@ -30,17 +30,17 @@ export default function RootLayout({
                 <img className={'w-48'} src={'/logo.svg'}/>
                 <Link href={'https://t.me/pediatric_dermatology_ru'}>
                     <div className={'flex items-center gap-3'}>
-                    <div className={'rounded-full bg-white w-9 aspect-square'}>
+                    <img src={'/telegram.svg'} className={'w-5 mx-2 rounded-full aspect-square relative'}>
 
-                    </div>
+                        </img>
                     <p className={'text-white font-extralight'}>Telegram</p>
                 </div>
                 </Link>
                 <Link href={'https://vk.com/pediatric_dermatology_ru'}>
                     <div className={'flex items-center gap-3'}>
-                    <div className={'rounded-full bg-white w-9 aspect-square'}>
+                    <img src={'/vk.svg'} className={'w-5 mx-2 rounded-full aspect-square relative'}>
 
-                    </div>
+                        </img>
                     <p className={'text-white font-extralight'}>ВКонтакте</p>
                 </div>
                 </Link>

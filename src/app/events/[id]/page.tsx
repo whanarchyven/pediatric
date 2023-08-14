@@ -312,7 +312,7 @@ export default function Page({params}: any) {
             format: 'онлайн',
             participants: 175,
             layoutBg: '/pages/main/sliderBackgrounds/2.png',
-            avatar: `${images}/temp_avatar.png`,
+            avatar: `${images}/Telegram.png`,
             announcement: 'Данная обучающая программа направлена на повышение квалификации врачей- специалистов с целью улучшения оказания специализированной помощи детям, страдающих кожными заболеваниями.',
             description: 'Будет обсуждена роль мультидисциплинарного подхода и освещены современные методы лечения, а также профилактики заболеваний. В ходе мероприятия всем участникам будут предоставлены видео-уроки, продолжительностью 60 минут, адаптированные видеоклипы по тематике урока, интерактивная задача, брошюры, наглядные пособия, тестовый контроль, а также прямые эфиры со спикером и модератором.',
             speakers: [
@@ -405,10 +405,12 @@ export default function Page({params}: any) {
                     className={'w-full min-h-screen h-auto px-[20px] sm:px-[140px] grid grid-cols-1 sm:grid-cols-12'}>
                     <motion.div
                         className={'col-span-6 sm:mt-0 mt-20 flex flex-col gap-6 sm:items-start  justify-center'}>
-                        <div className={'flex gap-4 items-center cursor-pointer'} onClick={()=>{router.back()}}>
-                            <img className={'aspect-square w-5'} src={'/arrow_prev.svg'}/>
-                            <p className={'text-white text-xl uppercase'}>Назад</p>
-                        </div>
+                        <Link href={'/'}>
+                            <div className={'flex gap-4 items-center cursor-pointer'}>
+                                <img className={'aspect-square w-5'} src={'/arrow_prev.svg'}/>
+                                <p className={'text-white text-xl uppercase'}>Назад</p>
+                            </div>
+                        </Link>
                         <div className={'flex gap-4 items-center'}>
                             <div
                                 className={'flex items-center rounded-full p-2 px-4 uppercase text-white font-light opacity-50 border-white w-fit border-2 justify-center'}>
@@ -563,22 +565,22 @@ export default function Page({params}: any) {
                               className={'uppercase font-extralight text-black sm:text-left text-left text-2xl sm:text-4xl'}>Стоимость <strong
                         className={'font-extrabold'}>Участия</strong></motion.p>
                 </div>
-                <div className={'grid grid-cols-1 sm:grid-cols-3 gap-9 mt-10'}>
-                    <div className={'flex flex-col items-center gap-8'}>
-                        <div
-                            className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
-                            <div className={'flex items-center gap-3'}>
-                                <img className={'w-7 aspect-square'} src={'/online.svg'}/>
-                                <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
+                <div className={classList('grid grid-cols-1 gap-9 mt-10',event.prices?'sm:grid-cols-3':'sm:grid-cols-2')}>
+                    {event.prices?<div className={'flex flex-col items-center gap-8'}>
+                            <div
+                                className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
+                                <div className={'flex items-center gap-3'}>
+                                    <img className={'w-7 aspect-square'} src={'/online.svg'}/>
+                                    <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
+                                </div>
+                                <p className={'text-3xl sm:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
+                                <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции в день мероприятия</p>
                             </div>
-                            <p className={'text-3xl sm:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
-                            <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции в день мероприятия</p>
-                        </div>
-                        <div onClick={()=>{setIsConfirmPopOpen(true)}}
-                             className={'w-full sm:w-3/5 p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
-                            Подтвердить участие
-                        </div>
-                    </div>
+                            <div onClick={()=>{setIsConfirmPopOpen(true)}}
+                                 className={'w-full sm:w-3/5 p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                                Подтвердить участие
+                            </div>
+                        </div>:null}
                     <div className={'flex flex-col items-center gap-8'}>
                         <div
                             className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>

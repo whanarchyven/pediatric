@@ -813,7 +813,6 @@ export default function Home() {
                                 centeredSlides={true}
                                 slidesPerView={1}
                                 loop={true}
-                                mousewheel={true}
                                 pagination={{
                                     clickable: true,
                                 }}
