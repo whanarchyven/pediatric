@@ -35,7 +35,7 @@ const News = () => {
             type:'Марафон',
             name:'Поэзия детской дерматологии',
             date:'11.09-17.09',
-            image:'/pages/main/news/1.png'
+            image:'/marafon.png'
         },
         {
             id:0,
