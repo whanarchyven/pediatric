@@ -58,7 +58,7 @@ export default function Home() {
             title: `<p class="uppercase font-extralight">Поэзия</p><span class="font-extrabold uppercase">детской дерматологии</span>`,
             description: 'Научно-образовательный квест-марафон «Поэзия детской дерматологии» пройдёт уже 11-17 сентября 2023 года!',
             link: '/events/3',
-            image: '/pages/main/sliderBackgrounds/2.png',
+            image: '/marafon.png',
         },
         {
             date: '1 июня – 31 августа 2023',

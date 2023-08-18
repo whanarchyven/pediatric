@@ -207,7 +207,7 @@ const Calendar = () => {
             title: 'I научно-практическая конференция «Дерматологические чтения в педиатрии»',
             subtitle: 'в г. Екатеринбург им. Н. П. Тороповой',
             timePeriod: '10:00',
-            image: '/ЕКБ.jpg',
+            image: `/pages/events/ekb_bg.jpeg`,
             link: '/events/2'
         }],
         nov: [{

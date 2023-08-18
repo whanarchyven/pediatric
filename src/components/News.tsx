@@ -104,6 +104,8 @@ const News = () => {
                                 </div>
                             </Link>
                         </SwiperSlide>
+
+
                     )
                 })}
             </Swiper>
