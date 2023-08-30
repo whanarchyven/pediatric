@@ -3,7 +3,7 @@
 import React, {useEffect, useState} from 'react';
 import Image from "next/image";
 import {classList} from "@/helpers/classList";
-import {useRouter} from "next/navigation";
+import {usePathname, useRouter} from "next/navigation";
 import Link from "next/link";
 
 interface navbarInterface {
@@ -13,6 +13,7 @@ interface navbarInterface {
 const Navbar = ({isInteravtive}:navbarInterface) => {
 
     const router=useRouter()
+    const pathname=usePathname()
     const links=[
         {
             title:'Об обществе',
@@ -51,7 +52,7 @@ const Navbar = ({isInteravtive}:navbarInterface) => {
     const [burgerOpen,setBurgerOpen]=useState(false)
 
     return (
-        <div className={classList('sm:px-[70px] px-[20px] fixed z-[999]  top-0 left-0 py-1 sm:py-[35px] w-full grid sm:grid-cols-12 grid-cols-6 gap-4 items-center transition-all duration-300',scrolled>120?'bg-green bg-opacity-80 backdrop-blur-sm':'bg-green sm:bg-transparent')}>
+        <div className={classList('sm:px-[70px] px-[20px] fixed z-[999]  top-0 left-0 py-1 sm:py-[35px] w-full grid sm:grid-cols-12 grid-cols-6 gap-4 items-center transition-all duration-300',scrolled>120||pathname.split('/')[1]=='account'?'navbar-gradient bg-opacity-80 backdrop-blur-sm':'bg-green sm:bg-transparent')}>
             <a href={'/'} className={'col-span-2 relative h-12'}>
                 <Image src={'/logo.svg'} alt={'logo'} layout={'fill'}></Image>
             </a>
