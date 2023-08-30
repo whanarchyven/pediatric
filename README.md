@@ -1,34 +1,251 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Сущности и ручки апи дермотологов
 
-## Getting Started
+### Сущности
 
-First, run the development server:
+##### 1. [_Юзер / User_](#User)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+##### 2. [_Событие / Event (event)_](#Event)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+##### 3. [_Статья- публикция / Publication_](#Publication)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+##### 4. [_Пост / Post_](#Post)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+##### 5. [_Сертификаты (достижения) / Achievement_](#Achievement)
 
-## Learn More
+##### 6. [_Образование (диплом) / UserEducation_](#UserEducation)
 
-To learn more about Next.js, take a look at the following resources:
+##### 7. [_Место работы / UserWorkplace_](#UserWorkplace)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+##### 8. [_Юнит программы мероприятия / EventProgrammUnit_](#EventProgrammUnit)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+##### 9. [_Цена мероприятия / EventPrice_](#EventPrice)
 
-## Deploy on Vercel
+##### 10. [_Оценка публикации / PublicationRating_](#PublicationRating)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# User
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Параметры (\* - required, иначе м.б nullable)
+
+- **id\*** - уникальный **primary key**, autoincremental
+- **email\*** - E-Mail адрес пользователя, будет использоваться для регистрации, аутентификации, операций с паролем (забыл пароль и тд.), а также отображается в профиле , **string**
+- **phone\*** - номер телефона, используется для аутентификации? отображается в профиле , **string**
+- **password\*** - хешированный пароль пользователя, **hash 264 string**
+
+- **name\*** - ФИО пользователя, **string**
+
+- **address\*** - адрес постоянного проживания пользователя, используется для отображения на странице и фильтрации рассылки события по городу проживания участников, **string**
+
+- **gender\*** - гендерная пренадлежность (пол), **string(male | female)**
+
+- **birthdate\*** - дата рождения, может быть использована для рассылок, **dateTime**
+
+- **specialization\*** - специализация пользователя, например "Дерматология", **string**
+
+- **degree** - учёная степень, **string**
+
+- **qualification** - квалификация, учёное звание, **string**
+
+- **workExperience** - опыт работы, в годах, **number**
+
+- **professionalInterests** - профессиональные интересы пользователя, **text**
+
+- **about** - "О себе", биография написанная пользователем, **text**
+
+### Методы
+
+- **базовый CRUD() - 4 эндпоинта, update желательно сделать слегка резиновым, чтобы мог принимать любой соответсвующей модели параметр и его можно было бы обновить**
+
+- **education**(User id)
+
+  - **[userEducation[]](#UserEducation)** - ref на объект модели [**UserEducation**](#UserEducation)
+    получить дипломы пользователя, (**array**)
+
+- **career**(User id)
+
+  - **[userWorkPlace[]](#UserWorkPlace)** - ref на объект модели [**UserWorkPlace**](#UserWorkPlace)
+    получить места работы пользователя, (**array**)
+
+- **achievements**(User id)
+
+  - **[userAchievement[]](#Achievement)** - ref на объект модели [**Achievement**](#Achievement)
+    получить награды, сертификаты, достижения пользователя, (**array**)
+
+- **publications**(User id)
+
+  - **[userPublication[]](#Publication)** - ref на объект модели [**Publication**](#Publication)
+    получить публикации, научные работы пользователя, (**array**)
+
+- **login**( password:string )
+
+  - **authToken** - токен для авторизации
+    **refreshToken** - токен для повторной авторизации
+    авторизоваться на платформе
+
+- **refresh**( refreshToken:string )
+
+  - **authToken** - токен для авторизации
+    получить новый токен авторизации (обновить авториз. сессию)
+
+- **remember**( email:string )
+
+  - **void**
+    отправить на мыло ссылку для сброса пароля
+
+- **confirmNewPass**( newPassword: string )
+  - **void**
+    обновить пароль пользователя
+
+# Event
+
+### Параметры (\* - required, иначе м.б nullable)
+
+- **id\*** - уникальный **primary key**, autoincremental
+- **type\*** - тип мероприятия, например "Конференция", **string**
+- **date\*** - дата проведения мероприятия, также может быть диапазон, например с 11.11 по 13.11, **date/string**
+- **time** - время проведения мероприятия, также может быть диапазон, например с 12.30 по 18.30, **time/string**
+- **name\*** - наименования мероприятия, **string**
+- **address** - адрес проведения мероприятия, **string**
+- **format\*** - формат проведения мероприятия, **online | offline | combined**
+- **layoutBg** - обложка (картинка) мероприятия, будет отрисована в первом блоке страницы event'a, **image**
+- **avatar** - картинка здания, в котором будет прохожить мероприятие, будет отрисована во втором блоке страницы event'a, а также в слайдере мероприятий, **image**
+- **anouncement\*** - анонс мероприятия, краткое описание, **text**
+- **description\*** - описание мероприятия, подробное, **text**
+- **description\*** - описание мероприятия, подробное, **text**
+
+### Методы
+
+- **CRUD**
+
+- **participants()**
+
+  - **[User []](#User)** - ref на объект модели [**User**](#User)
+    получить пользователей, зарегистрированных на событие
+
+- **speakers()**
+  - **[User []](#User)** - ref на объект модели [**User**](#User)
+    получить спикеров мероприятия
+- **programm()**
+  - **[EventProgrammUnit []](#EventProgrammUnit)** - ref на объект модели [**EventProgrammUnit**](#EventProgrammUnit)
+    получить юниты (этапы) программы мероприятия
+- **prices()**
+  - **[EventPrice []](#EventPrice)** - ref на объект модели [**EventPrice**](#EventPrice)
+    получить цены мероприятия
+
+# Publication
+
+### Параметры (\* - required, иначе м.б nullable)
+
+- **id\*** - уникальный **primary key**, autoincremental
+- **category\*** - категория (научная область мероприятия), например "Педиатрия", **string**
+- **date\*** - дата публикации, **date**
+- **views\*** - количество просмотров публикации, **number**
+- **title\*** - наименования публикации, **string**
+- **file\*** - ссылка на пдф файл публикации, **string**
+
+### Методы
+
+- **CRUD**
+
+- **authors()**
+
+  - **[User []](#User)** - ref на объект модели [**User**](#User)
+    получить пользователей, которые причастны к созданию публикации
+
+- **rating()**
+  - **rating** - среднее арифметическое всех оценок публикации, **number**
+    получить среднее арифметическое значение по пятибильной шкале всех оценок пользователей
+- **isLiked**(User id)
+  - **isLiked** - boolean, оценил ли пользователь публикацию
+    проверяет, на основании поиска по объекта модели [**PublicationRating**](#PublicationRating), оценил ли пользователь эту публикацию
+
+# Post?
+
+# Certificate
+
+### Параметры (\* - required, иначе м.б nullable)
+
+- **id\*** - уникальный **primary key**, autoincremental
+- **category\*** - категория (научная область мероприятия), например "Педиатрия", **string**
+- **date\*** - дата получения, **date**
+- **userId\*** - ref на объект модели [**User**](#User)-получатель сертификата
+- **title\*** - наименования сертификата, **string**
+- **file\*** - ссылка на пдф файл сертификата, **string**
+- **eventId** - ref на объект модели [**Event**](#Event)-мероприятие, на котором сертификат получен
+
+### Методы
+
+- **CRUD**
+
+# Education
+
+### Параметры (\* - required, иначе м.б nullable)
+
+- **id\*** - уникальный **primary key**, autoincremental
+- **collegeName\*** - наименование учебного заведения", **string**
+- **date\*** - дата окончания учебного заведения, **date**
+- **userId\*** - ref на объект модели [**User**](#User)-пользователь, получивший образование
+- **specialization\*** - специальность пользователя, **string**
+- **file\*** - ссылка на пдф файл диплома, **string**
+
+### Методы
+
+- **CRUD**
+
+# WorkPlace
+
+### Параметры (\* - required, иначе м.б nullable)
+
+- **id\*** - уникальный **primary key**, autoincremental
+- **placeName\*** - наименование места работы", **string**
+- **dateStart\*** - дата начала труд. деятельности, **date**
+- **dateEnd** - дата окончания труд. деятельности, **date**
+- **userId\*** - ref на объект модели [**User**](#User)-пользователь, работавший в этом месте
+- **post\*** - название должности, **string**
+
+### Методы
+
+- **CRUD**
+
+# EventProgrammUnit
+
+### Параметры (\* - required, иначе м.б nullable)
+
+- **id\*** - уникальный **primary key**, autoincremental
+- **eventId\*** - ref на объект модели [**Event**](#Event) - событие, к котрому относится юнит программы
+- **eventProgrammUnitId** - ref на объект модели [**EventProgrammUnit**](#EventProgrammUnit) - если юнит программы является подюнитом, и ссылается на юнит выше иераррхией **string**
+- **timeStart\*** - время начала юнита программы, **time**
+- **timeEnd** - время окончания юнита программы, **time**
+
+### Методы
+
+- **CRUD**
+- **speakers()**
+  - **[User []](#User)** - ref на объект модели [**User**](#User)
+    получить спикеров юнита программы
+
+# EventPrice
+
+### Параметры (\* - required, иначе м.б nullable)
+
+- **id\*** - уникальный **primary key**, autoincremental
+- **eventId\*** - ref на объект модели [**Event**](#Event) - событие, к котрому относится цена
+- **dateTillEnd\*** - дата, до которой данная цена актуальна, **date**
+- **online** - стоимость онлайн участия, **number**
+- **offline** - стоимость оффлайн участия, **number**
+
+### Методы
+
+- **CRUD**
+
+# PublicationRating
+
+### Параметры (\* - required, иначе м.б nullable)
+
+- **id\*** - уникальный **primary key**, autoincremental
+- **publicationId\*** - ref на объект модели [**Publication**](#Publication) - публикация, к котрой относится рейтинг
+- **userId\*** - ref на объект модели [**User**](#User), который выставил оценку
+- **rating** - оценка пользователя публикации, **number**
+
+### Методы
+
+- **CRUD**
