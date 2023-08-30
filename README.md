@@ -10,7 +10,7 @@
 
 ##### 4. [_Пост / Post_](#Post)
 
-##### 5. [_Сертификаты (достижения) / Achievement_](#Achievement)
+##### 5. [_Сертификаты (достижения) / Certificate_](#Certificate)
 
 ##### 6. [_Образование (диплом) / UserEducation_](#UserEducation)
 
