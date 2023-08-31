@@ -18,10 +18,21 @@ import 'swiper/css/effect-fade';
 
 
 // import required modules
-import {Mousewheel, EffectCoverflow, Pagination, Autoplay, EffectCards, EffectCreative, EffectCube, EffectFade, EffectFlip} from "swiper";
+import {
+    Mousewheel,
+    EffectCoverflow,
+    Pagination,
+    Autoplay,
+    EffectCards,
+    EffectCreative,
+    EffectCube,
+    EffectFade,
+    EffectFlip
+} from "swiper";
 import post from "@/components/Post";
 import Link from "next/link";
 import concatStr from "@/helpers/concatStr";
+import CountUp from "react-countup";
 
 
 export default function Home() {
@@ -51,46 +62,44 @@ export default function Home() {
         }
     ]
 
-    const employers=[
+    const employers = [
         {
-            name:'Мурашкин Николай Николаевич',
-            image:`${images}/employers/murashkin.png`,
-            offer:'Президент',
-            contact:'/',
-            description:'Руководитель НИИ детской дерматологии,\n' +
+            name: 'Мурашкин Николай Николаевич',
+            image: `${images}/employers/murashkin.png`,
+            offer: 'Президент',
+            contact: '/',
+            description: 'Руководитель НИИ детской дерматологии,\n' +
                 'Заведующий отделением дерматологии с группой лазерной хирургии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России,заведующий лабораторией патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России...\n' +
                 '\n'
         },
         {
-            name:'Леонтьев Николай Николаевич',
-            image:`${images}/employers/murashkin.png`,
-            offer:'Доктор',
-            contact:'/',
-            description:'Руководитель НИИ детской дерматологии,\n' +
+            name: 'Леонтьев Николай Николаевич',
+            image: `${images}/employers/murashkin.png`,
+            offer: 'Доктор',
+            contact: '/',
+            description: 'Руководитель НИИ детской дерматологии,\n' +
                 'Заведующий отделением дерматологии с группой лазерной хирургии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России,заведующий лабораторией патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России...\n' +
                 '\n'
         },
         {
-            name:'Гумеров Николай Николаевич',
-            image:`${images}/employers/murashkin.png`,
-            offer:'Директор',
-            contact:'/',
-            description:'Руководитель НИИ детской дерматологии,\n' +
+            name: 'Гумеров Николай Николаевич',
+            image: `${images}/employers/murashkin.png`,
+            offer: 'Директор',
+            contact: '/',
+            description: 'Руководитель НИИ детской дерматологии,\n' +
                 'Заведующий отделением дерматологии с группой лазерной хирургии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России,заведующий лабораторией патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России...\n' +
                 '\n'
         },
         {
-            name:'Горшков Николай Николаевич',
-            image:`${images}/employers/murashkin.png`,
-            offer:'Глава нацбанка',
-            contact:'/',
-            description:'Руководитель НИИ детской дерматологии,\n' +
+            name: 'Горшков Николай Николаевич',
+            image: `${images}/employers/murashkin.png`,
+            offer: 'Глава нацбанка',
+            contact: '/',
+            description: 'Руководитель НИИ детской дерматологии,\n' +
                 'Заведующий отделением дерматологии с группой лазерной хирургии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России,заведующий лабораторией патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России...\n' +
                 '\n'
         },
     ]
-
-
 
 
     return (
@@ -117,7 +126,7 @@ export default function Home() {
                                     slideShadows: false,
                                 }}
                                 loop={true}
-                                mousewheel={true}
+                                mousewheel={false}
                                 pagination={{
                                     clickable: true,
                                 }}
@@ -178,15 +187,17 @@ export default function Home() {
                     </p>
                 </div>
             </div>
-            <div className={'relative green-gradient overflow-hidden h-[700px] flex items-center sm:pl-[70px] sm:px-[140px]'}>
+            <div
+                className={'relative green-gradient overflow-hidden h-[700px] flex items-center sm:pl-[70px] sm:px-[140px]'}>
                 <img className={'absolute asset w-full z-50 left-0 top-0'} src={'/about_us_offset_top.png'}/>
-                <p className={'absolute top-28 pl-[70px] text-3xl font-extralight text-white'}>РУКОВОДСТВО ОБЩЕСТВА <br/> ДЕТСКИХ ДЕРМАТОЛОГОВ</p>
+                <p className={'absolute top-28 pl-[70px] text-3xl font-extralight text-white'}>РУКОВОДСТВО
+                    ОБЩЕСТВА <br/> ДЕТСКИХ ДЕРМАТОЛОГОВ</p>
                 <div className={'w-full'}>
                     <Swiper
                         speed={1000}
                         autoplay={{delay: 4000}}
                         effect={'fade'}
-                        fadeEffect={{ crossFade:true}}
+                        fadeEffect={{crossFade: true}}
                         direction={"vertical"}
                         centeredSlides={true}
                         slidesPerView={1}
@@ -198,7 +209,7 @@ export default function Home() {
                         //     slideShadows: false,
                         // }}
                         loop={true}
-                        mousewheel={true}
+                        mousewheel={false}
                         pagination={{
                             clickable: true,
                         }}
@@ -223,7 +234,7 @@ export default function Home() {
                                                     <img src={`${images}/mail.svg`}/>
                                                 </div>
                                             </div>
-                                            <p className={'text-white font-normal'}>{concatStr(item.description,20)}</p>
+                                            <p className={'text-white font-normal'}>{concatStr(item.description, 20)}</p>
                                             <p className={'text-white text-xl font-bold'}>Подробнее...</p>
                                         </div>
                                         <div className={'flex items-center relative h-full justify-center'}>
@@ -239,10 +250,12 @@ export default function Home() {
                 </div>
                 <img className={'absolute w-full asset left-0 z-50 -bottom-[1px]'} src={'/about_us_offset_bot.png'}/>
             </div>
-            <div className={'bg-white h-[750px] flex items-center sm:px-[140px]'}>
+            <div className={'bg-white h-[750px] flex items-center relative sm:px-[140px]'}>
+                <img className={'w-full absolute bottom-0 left-0'} src={'/pages/about/prestige_top.svg'}/>
                 <div>
                     <div className={'flex items-center justify-between'}>
-                        <p className={'uppercase font-extralight text-black text-4xl'}>Задачи <br/><strong className={'font-extrabold'}>сообщества:</strong></p>
+                        <p className={'uppercase font-extralight text-black text-4xl'}>Задачи <br/><strong
+                            className={'font-extrabold'}>сообщества:</strong></p>
                         <div className={'flex items-center gap-4'}>
                             <img className={'w-10'} src={`${images}/help.svg`}/>
                             <p className={'lowercase'}>ЦЕЛЬ ОРГАНИЗАЦИИ - СОДЕЙСТВИЕ РАЗВИТИЮ <br/>
@@ -250,32 +263,293 @@ export default function Home() {
                         </div>
                     </div>
                     <div className={'grid mt-10 grid-cols-3 gap-8 grid-rows-2'}>
-                        <div className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                        <div
+                            className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'w-14 aspect-square'} src={`${images}/science.svg`}/>
-                            <p className={'text-white text-center'}>Оказание организационно-методической помощи членам Общества</p>
+                            <p className={'text-white text-center'}>Оказание организационно-методической помощи членам
+                                Общества</p>
                         </div>
-                        <div className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                        <div
+                            className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'w-14 aspect-square'} src={`${images}/socium.svg`}/>
-                            <p className={'text-white text-center'}>Координация научной и практической деятельности членов Общества</p>
+                            <p className={'text-white text-center'}>Координация научной и практической деятельности
+                                членов Общества</p>
                         </div>
-                        <div className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                        <div
+                            className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'w-14 aspect-square'} src={`${images}/confirm.svg`}/>
-                            <p className={'text-white text-center'}>Оказание помощи в маршрутизации пациентов в НИИ Дерматологии</p>
+                            <p className={'text-white text-center'}>Оказание помощи в маршрутизации пациентов в НИИ
+                                Дерматологии</p>
                         </div>
-                        <div className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                        <div
+                            className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'w-14 aspect-square'} src={`${images}/science.svg`}/>
-                            <p className={'text-white text-center'}>Проведение научных исследований и ведение специализированных регистров</p>
+                            <p className={'text-white text-center'}>Проведение научных исследований и ведение
+                                специализированных регистров</p>
                         </div>
-                        <div className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                        <div
+                            className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'w-14 aspect-square'} src={`${images}/socium.svg`}/>
-                            <p className={'text-white text-center'}>Участие в апробациях и внедрение результатов клинических исследований</p>
+                            <p className={'text-white text-center'}>Участие в апробациях и внедрение результатов
+                                клинических исследований</p>
                         </div>
-                        <div className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                        <div
+                            className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'w-14 aspect-square'} src={`${images}/confirm.svg`}/>
-                            <p className={'text-white text-center'}>Представление и защита интересов членов Общества в государственных и общественных организациях</p>
+                            <p className={'text-white text-center'}>Представление и защита интересов членов Общества в
+                                государственных и общественных организациях</p>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className={'bg-[#7AC4B9] bg-opacity-10 py-20 flex justify-center items-center sm:px-[140px]'}>
+                <div className={'grid sm:grid-cols-12 grid-cols-1 gap-10'}>
+                    <div className={'sm:col-span-6 sm:row-start-1 row-start-2 flex justify-start'}>
+                        <motion.img initial={{scale: 0.8, opacity: 0}}
+                                    whileInView={{scale: 1, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'rounded-lg'}
+                                    src={`/pages/about/prestige.png`}/>
+                    </div>
+                    <div className={'sm:col-span-5 sm:col-end-13 flex flex-col gap-10'}>
+                        <motion.p initial={{x: -40, opacity: 0}}
+                                  whileInView={{x: 0, opacity: 1}}
+                                  viewport={{once: true}}
+                                  transition={{ease: 'easeInOut', duration: 0.7}}
+                                  className={'text-4xl font-extralight text-black'}>БЫТЬ ЧЛЕНОМ ОБЩЕСТВА <br/><span
+                            className={'font-extrabold'}> - ПРЕСТИЖНО</span></motion.p>
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}}
+                                    className={'flex items-center gap-6'}>
+                            <p className={'text-xl font-bold text-green leading-[100%]'}>ПОЧЕМУ?</p>
+                        </motion.div>
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}}
+                                    className={'flex items-start gap-6'}>
+                            <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
+
+                            </div>
+                            <p className={'text-xl leading-[100%]'}>Бонусы и привилегии в научно-образовательной
+                                деятельности </p>
+                        </motion.div>
+
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}}
+                                    className={'flex items-center gap-6'}>
+                            <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
+
+                            </div>
+                            <p className={'text-xl leading-[100%]'}>Последние новости мировой детской дерматологии</p>
+                        </motion.div>
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}}
+                                    className={'flex items-start gap-6'}>
+                            <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
+
+                            </div>
+                            <p className={'text-xl leading-[100%]'}>
+                                Доступ к публикациям отечественных и зарубежных коллег
+                            </p>
+                        </motion.div>
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}}
+                                    className={'flex items-start gap-6'}>
+                            <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
+
+                            </div>
+                            <p className={'text-xl leading-[100%]'}>Свободный доступ к образовательным подкастам</p>
+                        </motion.div>
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}}
+                                    className={'flex items-start gap-6'}>
+                            <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
+
+                            </div>
+                            <p className={'text-xl leading-[100%]'}>
+                                Официальный сертификат Общества детских дерматологов</p>
+                        </motion.div>
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}}
+                                    className={'flex items-start gap-6'}>
+                            <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
+
+                            </div>
+                            <p className={'text-xl leading-[100%]'}>
+                                Выдается промокод на подписку к платным материалам Общества</p>
+                        </motion.div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div className={'bg-white h-[700px] flex flex-col items-start justify-center relative sm:px-[140px]'}>
+                <img className={'w-full absolute top-0 z-[50] left-0'} src={'/pages/about/prestige_bottom.svg'}/>
+                <img className={'w-full h-full object-cover z-[0] absolute top-0 left-0'} src={'/pages/about/bg.png'}/>
+                <motion.div className={'flex h-28 mb-12 items-center gap-5'}
+                            initial={{x: -40, opacity: 0}}
+                            whileInView={{x: 0, opacity: 1}}
+                            viewport={{once: true}}
+                            transition={{ease: 'easeInOut', duration: 0.7}}>
+                    <div className={'h-20 bg-black w-[2px]'}>
+
+                    </div>
+                    <div className={'flex flex-col text-bold gap-3'}>
+                        <CountUp enableScrollSpy={true}
+                                 className={'text-5xl sm:text-8xl leading-[70%] font-extrabold font-inter'}
+                                 useEasing={true} suffix={'+'} end={57} decimal={' '} separator={' '}>
+                        </CountUp>
+                        <p className={'text-lg leading-[70%] font-extralight'}>Субъектов РФ</p>
+                    </div>
+                </motion.div>
+                <div className={'w-full grid grid-cols-2 gap-10'}>
+                    <div className={'flex flex-col gap-8 items-start'}>
+                        <p className={''}>На сегодняшний день в обществе детских дерматологов состоят врачи из более чем 57 субъектов
+                            Рф наиболее активными из которых являются: </p>
+                        <ul className={'pl-5'}>
+                            <li>Южный Федеральный Округ</li>
+                            <li>Республика Татарстан</li>
+                            <li>Республика Узбекистан</li>
+                            <li>Чеченская Республика</li>
+                            <li>Ростовская Область</li>
+                            <li>Самарская Область</li>
+                            <li>Тюменская Область</li>
+                            <li>Хабаровский Край</li>
+                            <li>Алтайский Край</li>
+                        </ul>
+                    </div>
+                    <div className={'flex flex-col gap-5'}>
+                        <div className={'bg-green flex items-center gap-4 rounded-lg px-6 p-3'}>
+                            <img className={'w-12 aspect-square'} src={'/pages/about/feature.svg'}/>
+                            <p className={'text-white text-xl uppercase'}>УЛУЧШЕНИЕ КАЧЕСТВА ОКАЗАНИЯ МЕДИЦИНСКОЙ ПОМОЩИ</p>
+                        </div>
+                        <div className={'bg-green flex items-center gap-4 rounded-lg px-6 p-3'}>
+                            <img className={'w-12 aspect-square'} src={'/pages/about/feature.svg'}/>
+                            <p className={'text-white text-xl uppercase'}>УЛУЧШЕНИЕ КАЧЕСТВА ОКАЗАНИЯ МЕДИЦИНСКОЙ ПОМОЩИ</p>
+                        </div>
+                        <div className={'bg-green flex items-center gap-4 rounded-lg px-6 p-3'}>
+                            <img className={'w-12 aspect-square'} src={'/pages/about/feature.svg'}/>
+                            <p className={'text-white text-xl uppercase'}>УЛУЧШЕНИЕ КАЧЕСТВА ОКАЗАНИЯ МЕДИЦИНСКОЙ ПОМОЩИ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                className={"sm:h-[700px] sm:pt-0 pt-12 px-[20px] sm:pl-[140px] sm:pr-[70px] flex flex-col justify-center overflow-hidden bg-cover relative bg-[url('/pages/main/results_bg.png')]"}>
+                <img className={'absolute left-0 top-0'} src={`${images}/results_top_offset.png`} alt={''}></img>
+
+                <div className={'grid sm:grid-cols-7 grid-cols-1 items-center h-full gap-2'}>
+                    <div className={'sm:col-span-4 flex flex-col gap-10'}>
+                        <motion.p initial={{x: -40, opacity: 0}}
+                                  whileInView={{x: 0, opacity: 1}}
+                                  viewport={{once: true}}
+                                  transition={{ease: 'easeInOut', duration: 0.7}}
+                                  className={'sm:text-4xl text-2xl font-extralight text-white'}>ПРИСОЕДИНЯЙСЯ К
+                            НАШЕМУ<br/><span
+                                className={'font-extrabold'}>ПРОФЕССИОНАЛЬНОМУ СООБЩЕСТВУ</span></motion.p>
+                        <motion.div className={'flex h-28 items-center gap-5'}
+                                    initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}}>
+                            <div className={'h-20 bg-white w-[2px]'}>
+
+                            </div>
+                            <div className={'flex flex-col text-white gap-3'}>
+                                <CountUp enableScrollSpy={true}
+                                         className={'text-5xl sm:text-8xl leading-[70%] font-extrabold font-inter'}
+                                         useEasing={true} suffix={'+'} end={20000} decimal={' '} separator={' '}>
+                                </CountUp>
+                                {/*<p className={'text-8xl leading-[70%] font-extrabold'}>20 000+</p>*/}
+                                <p className={'text-lg leading-[70%] font-extralight'}>Вылеченых детей</p>
+                            </div>
+                        </motion.div>
+                        <div className={'flex sm:flex-row flex-col items-start gap-14'}>
+                            <motion.div className={'flex h-full items-center gap-5'} initial={{x: -40, opacity: 0}}
+                                        whileInView={{x: 0, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 0.7, delay: 0.3}}>
+                                <div className={'h-20 bg-white w-[2px]'}>
+
+                                </div>
+                                <div className={'flex flex-col text-white gap-3'}>
+                                    <CountUp enableScrollSpy={true} className={'text-5xl leading-[70%] font-extrabold'}
+                                             useEasing={true} suffix={'+'} end={10} decimal={' '} separator={' '}>
+                                    </CountUp>
+                                    <p className={'text-md leading-[100%] font-extralight'}>Лет помогаем<br/>
+                                        детям</p>
+                                </div>
+                            </motion.div>
+                            <motion.div initial={{x: -40, opacity: 0}}
+                                        whileInView={{x: 0, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 0.7, delay: 0.6}}
+                                        className={'flex h-full items-center gap-5'}>
+                                <div className={'h-20 bg-white w-[2px]'}>
+
+                                </div>
+                                <div className={'flex flex-col text-white gap-3'}>
+                                    <CountUp enableScrollSpy={true} className={'text-5xl leading-[70%] font-extrabold'}
+                                             useEasing={true} suffix={'+'} end={150} decimal={' '} separator={' '}>
+                                    </CountUp>
+                                    <p className={'text-md leading-[100%] font-extralight'}>Проведено<br/>
+                                        мероприятий</p>
+                                </div>
+                            </motion.div>
+                            <motion.div initial={{x: -40, opacity: 0}}
+                                        whileInView={{x: 0, opacity: 1}}
+                                        viewport={{once: true}}
+                                        transition={{ease: 'easeInOut', duration: 0.7, delay: 0.9}}
+                                        className={'flex h-full items-center gap-5'}>
+                                <div className={'h-20 bg-white w-[2px]'}>
+
+                                </div>
+                                <div className={'flex flex-col text-white gap-3'}>
+                                    <CountUp enableScrollSpy={true} className={'text-5xl leading-[70%] font-extrabold'}
+                                             useEasing={true} suffix={'+'} end={19146} decimal={' '} separator={' '}>
+                                    </CountUp>
+                                    <p className={'text-md leading-[100%] font-extralight'}>Членов<br/>
+                                        сообщества</p>
+                                </div>
+                            </motion.div>
+                        </div>
+                        <Link href={'/registration'}>
+                            <motion.div
+                                initial={{y: -40, opacity: 0}}
+                                whileInView={{y: 0, opacity: 1}}
+                                viewport={{once: true}}
+                                transition={{ease: 'easeInOut', duration: 0.7}}
+                                className={'bg-white font-normal sm:self-auto self-center rounded-lg text-xl text-[#277B76] flex items-center justify-center w-72  py-5'}>
+                                Подать заявку
+                            </motion.div>
+                        </Link>
+                    </div>
+                    <div className={'sm:col-span-3 sm:mt-0 mt-10 h-full relative flex items-center justify-center'}>
+                        <img className={'sm:absolute bottom-0'} src={`${images}/results_doctor_sprite.svg`}/>
+                        <motion.img initial={{y: 40, opacity: 0}}
+                                    whileInView={{y: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'absolute bottom-0'}
+                                    src={`/doctor.png`}/>
+                    </div>
+                </div>
+
+
+                <img className={'absolute left-0 bottom-0'} src={`${images}/results_bottom_offset.png`} alt={''}></img>
+
             </div>
         </main>
     )

@@ -144,3 +144,7 @@ html{
 .navbar-gradient{
     background: linear-gradient(114deg, #075650 4.17%, #68C3BD 63.54%, #BACECD 100%);;
 }
+
+.contacts-bg{
+    background: linear-gradient(150deg, #075650 0.52%, #68C3BD 89.15%, #BACECD 100%);
+}
