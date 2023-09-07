@@ -38,6 +38,7 @@ import News from "@/components/News";
 import Partners from "@/components/Partners";
 import PopUp from "@/components/PopUp";
 import compareDates from "@/helpers/compareDates";
+import ConfirmForm from "@/components/ConfirmForm";
 
 export const dynamic = "force-dynamic"
 
@@ -125,8 +126,8 @@ export default function Page({params}: any) {
 
             ],
 
-            onlinePrice: 1000,
-            offlinePrice:1000,
+            onlinePrice: 1500,
+            offlinePrice:1500,
 
             prices: [{
                 date: '31.08.22',
@@ -616,33 +617,7 @@ export default function Page({params}: any) {
                     </div>
                 </div>
                 {isConfirmPopOpen?<PopUp icon={'/confirm.svg'} closeFunc={()=>{{setIsConfirmPopOpen(false)}}}>
-                    <div className={'flex gap-4 h-full flex-col'}>
-                        <p className={'text-[#0F5F5A] text-2xl sm:text-4xl font-light'}>ВЫ ПОДТВЕРЖДАЕТЕ <br/> <span className={'font-extrabold'}>СВОЕ УЧАСТИЕ?</span></p>
-                        <p className={'text-[#0F5F5A] text-lg sm:text-xl'}>После подтверждения участия в мероприятии произойдет оплата стоимости билета.
-                            <br/>
-                            <br/>
-                            Рекомендуем проверить правильность выбора формата мероприятия перед подтверждением.</p>
-                        <div className={'flex flex-col gap-2 w-full'}>
-                            <p className={'text-sm sm:text-xl font-light'}>ФИО<sup className={'text-red '}>*</sup></p>
-                            <input className={'w-full p-2 sm:p-3 rounded-md text-sm sm:text-xl border-2 border-green-two'} name={'surname'}/>
-                        </div>
-                        <div className={'flex flex-col gap-2 w-full'}>
-                            <p className={'text-sm sm:text-xl font-light'}>E-mail<sup className={'text-red '}>*</sup></p>
-                            <input className={'w-full p-2 sm:p-3 rounded-md text-sm sm:text-xl border-2 border-green-two'} name={'surname'}/>
-                        </div>
-                        <div className={'flex flex-col gap-2 w-full'}>
-                            <p className={'text-sm sm:text-xl font-light'}>Телефон<sup className={'text-red '}>*</sup></p>
-                            <input className={'w-full p-2 sm:p-3 rounded-md text-sm sm:text-xl border-2 border-green-two'} name={'surname'}/>
-                        </div>
-                        <div className={'w-full grid grid-cols-2 gap-3'}>
-                            <div
-                                className={'p-4 cursor-pointer bg-green-two text-white text-sm font-light rounded-xl flex items-center justify-center'}>
-                                Подтвердить участие
-                            </div>
-                            <div onClick={()=>{setIsConfirmPopOpen(false)}}
-                                 className={'p-4 cursor-pointer border-green-two border-2 text-green-two text-sm font-light rounded-xl flex items-center justify-center'}>Вернуться к мероприятию</div>
-                        </div>
-                    </div>
+                    <ConfirmForm closeFunc={()=>{setIsConfirmPopOpen(false)}} price={1500} event_id={id}></ConfirmForm>
                 </PopUp>:null}
 
                 {isPopPriceOpen?<PopUp icon={'/price.svg'} closeFunc={()=>{{setIsPopPriceOpen(false)}}}>

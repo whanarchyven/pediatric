@@ -48,7 +48,7 @@ export default function Home() {
     const posts = [
         {
             date: '11 ноября 2023',
-            title: `<p class="font-extralight">ДЕРМАТОЛОГИЧЕСКИЕ</p><span class="font-extrabold uppercase">ЧТЕНИЯ В ПЕДИАТРИИ</span>`,
+            title: `<p class="font-extralight">IX Всероссийская научно-практическая конференция</p><span class="font-extrabold uppercase">«Дерматологические чтения в педиатрии»</span>`,
             description: '11 ноября пройдет IX Ежегодная всероссийская научно-практическая конференция с международным участием',
             link: '/events/0',
             image: '/pages/main/main_bg.png',
@@ -62,10 +62,17 @@ export default function Home() {
         },
         {
             date: '1 июня – 31 августа 2023',
-            title: `<p class="font-extralight">Розыгрыш</p><span class="font-extrabold uppercase">LA ROCHE-POSAY</span>`,
+            title: `<p class="font-extralight">Розыгрыш</p><span class="font-extrabold uppercase">Летняя аптечка</span>`,
             description: 'Успейте принять участие в главном розыгрыше этого лета- "Летняя аптечка!',
             link: null,
             image: '/pages/main/sliderBackgrounds/1.png',
+        },
+        {
+            date: 'Присоединяйтесь!',
+            title: `<p class="font-extralight">Членство в Обществе </p><span class="font-extrabold uppercase">детских дерматологов</span>`,
+            description: ' Стань частью большой команды',
+            link: '/registration',
+            image: '/pravki/1.png',
         }
     ]
 
