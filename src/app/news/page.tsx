@@ -178,23 +178,23 @@ export default function Home() {
             {/*        <img src={'/main_asset_bottom.png'} alt={'asset_bottom'}></img>*/}
             {/*    </div>*/}
             {/*</motion.div>*/}
-            <div id={'publications'} className={'bg-white py-20 flex flex-col items-center items-center px-[140px] gap-12 '}>
+            <div id={'publications'} className={'bg-white py-20 flex flex-col items-center items-center px-[20px] sm:px-[140px] gap-12 '}>
                 <p className={'font-extralight text-black text-4xl text-center uppercase'}>Актуальные <br/> <span className={'font-extrabold'}>Новости</span> </p>
-                <div className={'flex items-center gap-6'}>
+                <div className={'flex sm:flex-row flex-col items-center gap-6'}>
                     {!params.get('category') ? <Link href={'/news'}
                                                      className={'p-4 transition-all duration-300 bg-green border-green border-2 flex items-center rounded-lg gap-2'}>
-                        <p className={'text-white font-inter font-normal'}>Все</p>
+                        <p className={'text-white text-xs s,:text-lg font-inter font-normal'}>Все</p>
                     </Link> : <Link href={'/news'} onClick={() => {
 
                     }}
                                     className={'p-4 transition-all duration-300 border-green border-2 cursor-pointer flex items-center rounded-lg gap-2'}>
-                        <p className={'text-green font-inter font-normal'}>Все</p>
+                        <p className={'text-green text-xs s,:text-lg font-inter font-normal'}>Все</p>
                     </Link>}
                     {categories.map((item, counter) => {
                         if (params.get('category') == item) {
                             return (<Link key={counter} href={{pathname: '/news', query: {category: item}}}
                                           className={'p-4 transition-all duration-300 bg-green border-green border-2 flex items-center rounded-lg gap-2'}>
-                                <p className={'text-white font-inter font-normal'}>{item}</p>
+                                <p className={'text-white text-xs s,:text-lg font-inter font-normal'}>{item}</p>
                             </Link>)
                         } else {
                             return (
@@ -202,7 +202,7 @@ export default function Home() {
 
                                 }}
                                       className={'p-4 transition-all duration-300 border-green border-2 cursor-pointer flex items-center rounded-lg gap-2'}>
-                                    <p className={'text-green font-inter font-normal'}>{item}</p>
+                                    <p className={'text-green text-xs s,:text-lg font-inter font-normal'}>{item}</p>
                                 </Link>)
 
                         }
@@ -223,7 +223,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className={'mt-6 gap-12 grid grid-cols-3'}>
+                <div className={'mt-6 gap-12 grid grid-cols-1 sm:grid-cols-3'}>
                     {news.map((item, counter) => {
                         if(params.get('category')){
                             if(item.type==params.get('category')){
@@ -237,11 +237,11 @@ export default function Home() {
                                             </div>
                                             <div className={'w-full flex items-center justify-between'}>
                                                 <div
-                                                    className={'flex rounded-lg text-white p-2 w-[65%] items-center justify-center border-2 border-green-two bg-green-two'}>
+                                                    className={'flex rounded-lg text-white p-2 whitespace-nowrap items-center justify-center border-2 border-green-two bg-green-two'}>
                                                     {item.type}
                                                 </div>
                                                 <div
-                                                    className={'flex rounded-lg text-green-two p-2 w-[30%] items-center justify-center border-2 border-green-two'}>
+                                                    className={'flex rounded-lg text-green-two p-2 whitespace-nowrap items-center justify-center border-2 border-green-two'}>
                                                     {item.date}
                                                 </div>
                                             </div>
@@ -263,11 +263,11 @@ export default function Home() {
                                         </div>
                                         <div className={'w-full flex items-center justify-between'}>
                                             <div
-                                                className={'flex rounded-lg text-white p-2 w-[65%] items-center justify-center border-2 border-green-two bg-green-two'}>
+                                                className={'flex rounded-lg text-white p-2 whitespace-nowrap items-center justify-center border-2 border-green-two bg-green-two'}>
                                                 {item.type}
                                             </div>
                                             <div
-                                                className={'flex rounded-lg text-green-two p-2 w-[30%] items-center justify-center border-2 border-green-two'}>
+                                                className={'flex rounded-lg text-green-two p-2 whitespace-nowrap items-center justify-center border-2 border-green-two'}>
                                                 {item.date}
                                             </div>
                                         </div>
