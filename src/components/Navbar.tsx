@@ -19,10 +19,10 @@ const Navbar = ({isInteravtive}:navbarInterface) => {
             title:'Об обществе',
             link:'/administration',
         },
-        {
-            title:'Публикации',
-            link:'/publications',
-        },
+        // {
+        //     title:'Публикации',
+        //     link:'/publications',
+        // },
         {
             title:'Мероприятия',
             link:'/events',
@@ -58,7 +58,7 @@ const Navbar = ({isInteravtive}:navbarInterface) => {
             </Link>
             <div className={'col-span-8 hidden sm:flex items-center justify-start gap-20'}>
                 {links.map((link)=>{
-                    return (<Link key={link.title} className={'font-inter text-xs xl:text-sm font-normal text-white'} href={link.link}>{link.title}</Link>)
+                    return (<Link key={link.title} className={'font-inter text-xs xl:text-sm font-normal whitespace-nowrap text-white'} href={link.link}>{link.title}</Link>)
                 })}
             </div>
             <div className={'col-span-2 hidden sm:flex items-center justify-end'}>

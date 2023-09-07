@@ -22,11 +22,11 @@ import {Mousewheel, EffectCoverflow, Pagination, Autoplay, EffectCards, EffectCr
 import post from "@/components/Post";
 import Link from "next/link";
 import concatStr from "@/helpers/concatStr";
+import BackButton from "@/components/BackButton";
 
 
 export default function Home() {
 
-    const router = useRouter()
 
     const images = '/pages/main'
 
@@ -36,32 +36,34 @@ export default function Home() {
     return (
         <main className={'overflow-x-hidden'}>
             {/*ПЕРВЫЙ БЛОК*/}
-            <motion.div className="min-h-screen overflow-hidden bg-cover relative bg-[url('/pages/main/main_bg.png')]">
-                <motion.div
-                    className={'w-full min-h-screen h-auto px-[20px] sm:px-[120px] items-center grid grid-cols-1 sm:grid-cols-7'}>
-                    <motion.div
-                        className={'col-span-4 sm:mt-0 mt-20 flex flex-col gap-8 sm:items-start justify-center'}>
-                        <Link href={'/'}>
-                            <div className={'flex gap-4 items-center cursor-pointer'}>
-                                <img className={'aspect-square w-5'} src={'/arrow_prev.svg'}/>
-                                <p className={'text-white text-xl uppercase'}>Назад</p>
-                            </div>
-                        </Link>
+            <div
+                className={"sm:h-[700px] sm:pt-0 pt-12 px-[20px] sm:pl-[140px] sm:pr-[70px] flex flex-col justify-center overflow-hidden bg-cover relative bg-[url('/pages/main/results_bg.png')]"}>
+
+                <div className={'grid sm:grid-cols-7 grid-cols-1 items-center h-full gap-2'}>
+                    <div className={'sm:col-span-4 flex flex-col gap-10'}>
+                        <BackButton></BackButton>
                         <motion.p initial={{x: -40, opacity: 0}}
                                   whileInView={{x: 0, opacity: 1}}
                                   viewport={{once: true}}
                                   transition={{ease: 'easeInOut', duration: 0.7}}
-                                  className={'uppercase font-extralight text-2xl sm:text-5xl text-white'}>Регистрация
-                            <br/><span className={'font-bold'}>нового участника общества</span></motion.p>
-                    </motion.div>
-                    <div className={'col-span-3 h-full flex  relative'}>
-                        <img className={'absolute bottom-0 right-0'} src={'/pages/events/murashkin.png'}/>
+                                  className={'sm:text-5xl uppercase text-2xl font-extralight text-white'}>Регистрация<br/><span
+                            className={'font-extrabold'}>Нового участника общества</span></motion.p>
+
                     </div>
-                </motion.div>
-                <div className={'absolute bottom-[-4px] asset w-full'}>
-                    <img src={'/main_asset_bottom.png'} alt={'asset_bottom'}></img>
+                    <div className={'sm:col-span-3 sm:mt-0 mt-10 h-full relative flex items-center justify-center'}>
+                        <img className={'sm:absolute bottom-0'} src={`/pages/main/results_doctor_sprite.svg`}/>
+                        <motion.img initial={{y: 40, opacity: 0}}
+                                    whileInView={{y: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'absolute bottom-0'}
+                                    src={`/doctor.png`}/>
+                    </div>
                 </div>
-            </motion.div>
+
+
+                <img className={'absolute left-0 bottom-0'} src={`/pages/main/results_bottom_offset.png`} alt={''}></img>
+
+            </div>
             <div className={'bg-white py-12 items-center sm:px-[140px] gap-20 grid px-[20px] grid-cols-1 sm:grid-cols-7'}>
                 <div className={'w-full col-span-4 flex flex-col gap-6'}>
                     <p className={'text-xl sm:text-3xl font-extralight uppercase'}>Заполните <br/> <span className={'font-extrabold'}>регистрационную анкету</span></p>

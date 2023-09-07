@@ -55,6 +55,12 @@ export default function Home() {
                                 <p className={'font-extrabold text-white text-2xl'}>+7 (952) 256 34 20</p>
                                 <p className={'font-extralight text-white '}>Единый информационный номер</p>
                             </div>
+
+                            <div className={'flex flex-col gap-2'}>
+                                <p className={'font-extrabold text-white text-2xl'}>+7 (926) 249 86 58</p>
+                                <p className={'font-extralight text-white '}>По вопросам рекламы и сотрудничества:</p>
+                            </div>
+
                             <div className={'flex flex-col gap-2'}>
                                 <p className={'font-extrabold text-white text-2xl'}>pediatric-dermatology@mail.ru</p>
                                 <p className={'font-extralight text-white '}>Напишите нам</p>

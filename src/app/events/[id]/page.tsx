@@ -578,7 +578,7 @@ export default function Page({params}: any) {
                                 <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции в день мероприятия</p>
                             </div>
                             <div onClick={()=>{setIsConfirmPopOpen(true)}}
-                                 className={'w-full sm:w-3/5 p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                                 className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                                 Подтвердить участие
                             </div>
                         </div>:null}
@@ -590,10 +590,10 @@ export default function Page({params}: any) {
                                 <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
                             </div>
                             <p className={'text-3xl sm:text-5xl text-white font-bold'}>{event.onlinePrice?event.onlinePrice+' руб.':'БЕСПЛАТНО'}</p>
-                            <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции мероприятия <span className={'font-extrabold'}>+ запись трансляции</span></p>
+                            <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции мероприятия <span className={'font-extrabold'}>{event.onlinePrice?'+ запись трансляции':''}</span></p>
                         </div>
                         <div onClick={()=>{setIsConfirmPopOpen(true)}}
-                             className={'w-full sm:w-3/5 p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                             className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                             Подтвердить участие
                         </div>
                     </div>
@@ -605,13 +605,13 @@ export default function Page({params}: any) {
                                 <p className={'font-extralight text-3xl text-green-two'}>Оффлайн</p>
                             </div>
 
-                            <p className={'text-3xl sm:text-5xl text-green-two font-bold'}>{event.prices?compareDates(event.prices).offline+' руб.':'БЕСПЛАТНО'}</p>
+                            <p className={'text-3xl sm:text-5xl text-green-two font-bold'}>{event.offlinePrice?event.offlinePrice+' руб.':'БЕСПЛАТНО'}</p>
                             {event.prices?<p className={'font-extralight text-xl text-center text-green-two'}>Цена действует до <br/>
-                                {compareDates(event.prices).date}</p>:null}
+                                {event.prices[1].date}</p>:null}
                             {event.prices?<p onClick={()=>{setIsPopPriceOpen(true)}} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график цен</p>:<p className={'font-extralight text-xl text-center text-green-two'}>Очное посещение мероприятия, активное участие</p>}
                         </div>
                         <div onClick={()=>{setIsConfirmPopOpen(true)}}
-                             className={'w-full sm:w-3/5 p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                             className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                             Подтвердить участие
                         </div>
                     </div>

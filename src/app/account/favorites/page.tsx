@@ -137,7 +137,7 @@ export default function Home() {
 
                 </div>
                 <div className={'grid grid-cols-3 mt-12 gap-8'}>
-                    {activeTab=='docs'?news.map((item, counter) => {
+                    {activeTab=='events'?news.map((item, counter) => {
                         return (
                         <Link key={counter} href={`/events/${item.id}`}>
                         <div className={'gap-4 flex cursor-pointer flex-col'}>

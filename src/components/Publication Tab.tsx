@@ -3,9 +3,10 @@ import React from 'react';
 
 interface PublicationTabInterface {
     isRateHidden?:boolean
+    isAuthorsHidden?:boolean
 }
 
-const PublicationTab = ({isRateHidden}:PublicationTabInterface) => {
+const PublicationTab = ({isRateHidden, isAuthorsHidden}:PublicationTabInterface) => {
     const images='/pages/account'
 
     return (
@@ -41,7 +42,7 @@ const PublicationTab = ({isRateHidden}:PublicationTabInterface) => {
                     </div>}
                 </div>
                 <p className={'text-sm text-black'}>Современные представления о патогенезе, особенностях клинической картины, диагностике и терапевтической тактике вульгарных акне у детей и подростков</p>
-                <p className={'text-sm opacity-50 text-black'}>Авторы: Е.Р. Аравийская, Н.Н. Мурашкин, Л.С. Намазова-Баранова, Р.А. Иванов</p>
+                {isAuthorsHidden?null:<p className={'text-sm opacity-50 text-black'}>Авторы: Е.Р. Аравийская, Н.Н. Мурашкин, Л.С. Намазова-Баранова, Р.А. Иванов</p>}
                 <div className={'flex w-full gap-4'}>
                     <div className={'p-2 bg-green cursor-pointer flex items-center rounded-lg gap-2'}>
                         <p className={'text-white font-inter text-xl font-normal px-8'}>Читать</p>

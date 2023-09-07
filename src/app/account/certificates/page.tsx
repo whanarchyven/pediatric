@@ -23,40 +23,41 @@ import PublicationTab from "@/components/Publication Tab";
 
 export default function Home() {
 
-
-
     const images = '/pages/account'
 
     return (
         <main className={'p-12'}>
-            <div className={'flex justify-between'}>
+            <div className={'flex items-center gap-12'}>
                 <p className={'uppercase font-inter font-extralight text-3xl'}>Мои <br/><span
                     className={'font-extrabold'}>Сертификаты</span></p>
+                <div className={'bg-green h-12 cursor-pointer flex items-center rounded-lg gap-2'}>
+                    <p className={'text-white font-inter text-lg font-normal px-8'}>Скачать все</p>
+                </div>
 
             </div>
             <div className={'w-full mt-10 flex flex-col gap-20'}>
                 <div className={'border-b-[1px] border-opacity-50 pb-10 border-green'}>
-                    <PublicationTab isRateHidden={true}></PublicationTab>
+                    <PublicationTab isAuthorsHidden={true} isRateHidden={true}></PublicationTab>
                 </div>
             </div>
             <div className={'w-full mt-10 flex flex-col gap-20'}>
                 <div className={'border-b-[1px] border-opacity-50 pb-10 border-green'}>
-                    <PublicationTab isRateHidden={true}></PublicationTab>
+                    <PublicationTab isAuthorsHidden={true} isRateHidden={true}></PublicationTab>
                 </div>
             </div>
             <div className={'w-full mt-10 flex flex-col gap-20'}>
                 <div className={'border-b-[1px] border-opacity-50 pb-10 border-green'}>
-                    <PublicationTab isRateHidden={true}></PublicationTab>
+                    <PublicationTab isAuthorsHidden={true} isRateHidden={true}></PublicationTab>
                 </div>
             </div>
             <div className={'w-full mt-10 flex flex-col gap-20'}>
                 <div className={'border-b-[1px] border-opacity-50 pb-10 border-green'}>
-                    <PublicationTab isRateHidden={true}></PublicationTab>
+                    <PublicationTab isAuthorsHidden={true} isRateHidden={true}></PublicationTab>
                 </div>
             </div>
             <div className={'w-full mt-10 flex flex-col gap-20'}>
                 <div className={'border-b-[1px] border-opacity-50 pb-10 border-green'}>
-                    <PublicationTab isRateHidden={true}></PublicationTab>
+                    <PublicationTab isAuthorsHidden={true} isRateHidden={true}></PublicationTab>
                 </div>
             </div>
         </main>
