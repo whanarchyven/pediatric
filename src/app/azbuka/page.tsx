@@ -550,7 +550,7 @@ export default function Home() {
 
                             </div>
                             <a href={'/catalog'} className={'px-10 p-3 w-full h-12 sm:h-full rounded-full bg-red absolute top-0 left-0 flex items-center justify-center'}>
-                                <strong>Магазин</strong>
+                                <strong>Выбрать</strong>
                             </a>
                         </div>
                     </div>
