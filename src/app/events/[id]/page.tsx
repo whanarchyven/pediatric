@@ -39,6 +39,7 @@ import Partners from "@/components/Partners";
 import PopUp from "@/components/PopUp";
 import compareDates from "@/helpers/compareDates";
 import ConfirmForm from "@/components/ConfirmForm";
+import BackButton from "@/components/BackButton";
 
 export const dynamic = "force-dynamic"
 
@@ -395,7 +396,7 @@ export default function Page({params}: any) {
         <main className={'overflow-x-hidden'}>
             {/*ПЕРВЫЙ БЛОК*/}
             <motion.div
-                className="min-h-screen overflow-hidden py-12 sm:py-0 bg-cover relative">
+                className="min-h-screen overflow-hidden py-12 sm:py-8 bg-cover relative">
                 <div className={'w-full h-full absolute left-0 top-0 z-[-2]'}>
                     <img className={'w-full h-full object-cover'} src={event.layoutBg}/>
                 </div>
@@ -406,12 +407,7 @@ export default function Page({params}: any) {
                     className={'w-full min-h-screen h-auto px-[20px] sm:px-[140px] grid grid-cols-1 sm:grid-cols-12'}>
                     <motion.div
                         className={'col-span-6 sm:mt-0 mt-20 flex flex-col gap-6 sm:items-start  justify-center'}>
-                        <Link href={'/'}>
-                            <div className={'flex gap-4 items-center cursor-pointer'}>
-                                <img className={'aspect-square w-5'} src={'/arrow_prev.svg'}/>
-                                <p className={'text-white text-xl uppercase'}>Назад</p>
-                            </div>
-                        </Link>
+                        <BackButton></BackButton>
                         <div className={'flex gap-4 items-center'}>
                             <div
                                 className={'flex items-center rounded-full p-2 px-4 uppercase text-white font-light opacity-50 border-white w-fit border-2 justify-center'}>

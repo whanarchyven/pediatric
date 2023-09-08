@@ -178,9 +178,9 @@ export default function Home() {
             {/*        <img src={'/main_asset_bottom.png'} alt={'asset_bottom'}></img>*/}
             {/*    </div>*/}
             {/*</motion.div>*/}
-            <div id={'publications'} className={'bg-white py-20 flex flex-col items-center items-center px-[20px] sm:px-[140px] gap-12 '}>
+            <div id={'publications'} className={'bg-white py-20 sm:pt-40 flex flex-col items-center items-center px-[20px] sm:px-[140px] gap-12 '}>
                 <p className={'font-extralight text-black text-4xl text-center uppercase'}>Актуальные <br/> <span className={'font-extrabold'}>Новости</span> </p>
-                <div className={'flex sm:flex-row flex-col items-center gap-6'}>
+                <div className={'hidden sm:flex sm:flex-row flex-col items-center gap-6'}>
                     {!params.get('category') ? <Link href={'/news'}
                                                      className={'p-4 transition-all duration-300 bg-green border-green border-2 flex items-center rounded-lg gap-2'}>
                         <p className={'text-white text-xs s,:text-lg font-inter font-normal'}>Все</p>
@@ -209,7 +209,58 @@ export default function Home() {
                     })}
                 </div>
 
-                <div className={'flex items-center gap-6'}>
+
+
+                <div className={'w-[100vw] sm:hidden px-[20px]'}>
+
+                    <Swiper
+                        slidesPerView={'auto'}
+                        spaceBetween={30}
+                        className={'w-full '}>
+                        <SwiperSlide style={{width:'8rem !important'}}>
+                            {!params.get('category') ? <Link href={'/events'}
+                                                             className={'p-4 transition-all duration-300 bg-green border-green border-2 w-32 flex items-center rounded-lg gap-2'}>
+                                <p className={'text-white text-xs font-inter font-normal'}>Все</p>
+                            </Link> : <Link href={'/events'} onClick={() => {
+
+                            }}
+                                            className={'p-4 transition-all duration-300 border-green border-2 cursor-pointer flex w-32 items-center rounded-lg gap-2'}>
+                                <p className={'text-green text-xs font-inter font-normal'}>Все</p>
+                            </Link>}
+                        </SwiperSlide>
+                        {categories.map((item, counter) => {
+                            if (params.get('category') == item) {
+                                return (<SwiperSlide key={counter} style={{width:'8rem !important'}}>
+                                    <Link  href={{pathname: '/events', query: {category: item}}}
+                                          className={'p-4 transition-all duration-300 bg-green border-green border-2 flex w-32 items-center rounded-lg gap-2'}>
+                                        <p className={'text-white text-xs font-inter font-normal'}>{item}</p>
+                                    </Link>
+                                </SwiperSlide>)
+                            } else {
+                                return (
+                                    <SwiperSlide key={counter} style={{width:'8rem !important'}}>
+                                        <Link  href={{pathname: '/events', query: {category: item}}} onClick={() => {
+
+                                        }}
+                                              className={'p-4 transition-all duration-300 border-green border-2 cursor-pointer w-32 flex items-center rounded-lg gap-2'}>
+                                            <p className={'text-green text-xs font-inter font-normal'}>{item}</p>
+                                        </Link>
+                                    </SwiperSlide>)
+
+                            }
+                        })}
+
+                    </Swiper>
+
+                </div>
+
+
+
+
+
+
+
+                <div className={'hidden sm:flex items-center gap-6'}>
                     <div
                         className={'cursor-pointer mr-[50px] w-12 aspect-square hidden sm:flex items-center p-3 justify-center aspect-square rounded-full bg-[#E4F0EE] hover:bg-[#BCDBD5] transition-all duration-300'}>
                         <img className={'w-full aspect-square'} src={'/arrow_prev.svg'}/>
