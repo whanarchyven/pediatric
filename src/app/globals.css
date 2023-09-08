@@ -148,3 +148,8 @@ html{
 .contacts-bg{
     background: linear-gradient(150deg, #075650 0.52%, #68C3BD 89.15%, #BACECD 100%);
 }
+
+
+.events-slider>div>.swiper-slide{
+    width: 8rem !important;
+}

@@ -214,8 +214,8 @@ export default function Home() {
                     <Swiper
                         slidesPerView={'auto'}
                         spaceBetween={30}
-                        className={'w-full '}>
-                        <SwiperSlide style={{width:'8rem !important'}}>
+                        className={'w-full events-slider'}>
+                        <SwiperSlide>
                             {!params.get('category') ? <Link href={'/events'}
                                                              className={'p-4 transition-all duration-300 bg-green border-green border-2 w-32 flex items-center rounded-lg gap-2'}>
                                 <p className={'text-white text-xs font-inter font-normal'}>Все</p>
@@ -228,7 +228,7 @@ export default function Home() {
                         </SwiperSlide>
                         {categories.map((item, counter) => {
                             if (params.get('category') == item) {
-                                return (<SwiperSlide key={counter} style={{width:'8rem !important'}}>
+                                return (<SwiperSlide key={counter}>
                                     <Link  href={{pathname: '/events', query: {category: item}}}
                                           className={'p-4 transition-all duration-300 bg-green border-green border-2 flex w-32 items-center rounded-lg gap-2'}>
                                         <p className={'text-white text-xs font-inter font-normal'}>{item}</p>
@@ -236,7 +236,7 @@ export default function Home() {
                                 </SwiperSlide>)
                             } else {
                                 return (
-                                    <SwiperSlide key={counter} style={{width:'8rem !important'}}>
+                                    <SwiperSlide key={counter}>
                                         <Link  href={{pathname: '/events', query: {category: item}}} onClick={() => {
 
                                         }}
