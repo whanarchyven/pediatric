@@ -425,14 +425,7 @@ export default function Home() {
                                 течением кожных заболеваний</p>
                         </motion.div>
                     </div>
-                    <motion.p className={'lowercase mt-12 sm:text-lg text-sm font-inter font-normal text-green-two'}
-                              initial={{y: -40, opacity: 0}}
-                              whileInView={{y: 0, opacity: 1}}
-                              viewport={{once: true}}
-                              transition={{ease: 'easeInOut', duration: 0.7, delay: 0}}>Межрегиональная общественная
-                        организация «Общество детских дерматологов» <br/>
-                        Interregional Public Organization «Society of Pediatric Dermatologists»
-                    </motion.p>
+
                 </div>
                 <img className={'absolute left-0 bottom-0'} src={`${images}/about_us_offset_bottom.png`}
                      alt={'asset_bottom'}></img>

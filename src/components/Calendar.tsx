@@ -129,78 +129,7 @@ const Calendar = () => {
         jun: [{}],
         jul: [{}],
         aug: [],
-        sep: [{
-            day: 11,
-            type: 'Марафон',
-            title: 'Поэзия детской дерматологии, день 1',
-            subtitle: 'Научно-образовательный квест-марафон ',
-            timePeriod: '12:00 - 16:00',
-            image: '/marafon.png',
-            link: '/events/3'
-        },
-            {
-                day: 12,
-                type: 'Марафон',
-                title: 'Поэзия детской дерматологии, день 2',
-                subtitle: 'Научно-образовательный квест-марафон ',
-                timePeriod: '12:00 - 16:00',
-                image: '/marafon.png',
-                link: '/events/3'
-            },
-            {
-                day: 13,
-                type: 'Марафон',
-                title: 'Поэзия детской дерматологии, день 3',
-                subtitle: 'Научно-образовательный квест-марафон ',
-                timePeriod: '12:00 - 16:00',
-                image: '/marafon.png',
-                link: '/events/3'
-            },
-            {
-                day: 14,
-                type: 'Марафон',
-                title: 'Поэзия детской дерматологии, день 4',
-                subtitle: 'Научно-образовательный квест-марафон ',
-                timePeriod: '12:00 - 16:00',
-                image: '/marafon.png',
-                link: '/events/3'
-            },
-            {
-                day: 15,
-                type: 'Марафон',
-                title: 'Поэзия детской дерматологии, день 5',
-                subtitle: 'Научно-образовательный квест-марафон ',
-                timePeriod: '12:00 - 16:00',
-                image: '/marafon.png',
-                link: '/events/3'
-            },
-            {
-                day: 16,
-                type: 'Марафон',
-                title: 'Поэзия детской дерматологии, день 6',
-                subtitle: 'Научно-образовательный квест-марафон ',
-                timePeriod: '12:00 - 16:00',
-                image: '/marafon.png',
-                link: '/events/3'
-            },
-            {
-                day: 17,
-                type: 'Марафон',
-                title: 'Поэзия детской дерматологии, день 7',
-                subtitle: 'Научно-образовательный квест-марафон ',
-                timePeriod: '12:00 - 16:00',
-                image: '/marafon.png',
-                link: '/events/3'
-            },
-            {
-                day: 26,
-                type: 'Конференция',
-                title: '2 научно-практическая конференция дерматовенерологов и педиатров',
-                subtitle: 'Алтайского края и Республики Алтай',
-                timePeriod: '10:00',
-                image: '/АЛТАЙ.jpg',
-                link: '/events/1'
-            }],
+        sep: [],
         oct: [{
             day: 17,
             type: 'Конференция',
@@ -216,7 +145,7 @@ const Calendar = () => {
             title: 'IX Всероссийская научно-практическая конференция с международным участием',
             subtitle: '«Дерматологические чтения в педиатрии»',
             timePeriod: '10:00',
-            image: '/pages/main/sliderBackgrounds/2.png',
+            image: '/pages/main/main_bg.png',
             link: '/events/0'
         }],
         dec: [{}],

@@ -58,7 +58,7 @@ export default function Home() {
 
                             <div className={'flex flex-col gap-2'}>
                                 <p className={'font-extrabold text-white text-lg sm:text-2xl'}>+7 (926) 249 86 58</p>
-                                <p className={'font-extralight text-white sm:text-lg text-sm '}>По вопросам рекламы и сотрудничества:</p>
+                                <p className={'font-extralight text-white sm:text-lg text-sm '}>По вопросам рекламы и сотрудничества</p>
                             </div>
 
                             <div className={'flex flex-col gap-2'}>
@@ -67,14 +67,14 @@ export default function Home() {
                             </div>
                         </div>
                         <div className={'flex items-center gap-8'}>
-                            <div className={'flex items-center gap-2'}>
+                            <Link href={'https://t.me/pediatric_dermatology_ru'} className={'flex items-center gap-2'}>
                                 <img className={'w-8 aspect-square'} src={'/telegram.svg'}/>
                                 <p className={'font-extralight text-xl text-white'}>Telegram</p>
-                            </div>
-                            <div className={'flex items-center gap-2'}>
+                            </Link>
+                            <Link href={'https://vk.com/pediatric_dermatology_ru'} className={'flex items-center gap-2'}>
                                 <img className={'w-8 aspect-square'} src={'/vk.svg'}/>
                                 <p className={'font-extralight text-xl text-white'}>ВКонтакте</p>
-                            </div>
+                            </Link>
                         </div>
                     </div>
                     <div className={'flex items-start justify-center gap-6 flex-col'}>

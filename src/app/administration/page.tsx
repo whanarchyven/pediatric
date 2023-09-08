@@ -113,13 +113,6 @@ export default function Home() {
             description: 'Профессор, заведующий кафедрой дерматовенерологии и косметологии Саратовского ГМУ. Член Профильной комиссии Экспертного совета Минздрава России по дерматовенерологии и косметологии, член правления Российского общества дерматовенерологов и косметологов, член Европейской академии дерматологии и венерологии.'
         },
         {
-            name: 'Амбарчян Эдуард Тигранович',
-            image: `${images}/employers/ambarchyan.png`,
-            offer: 'Кандидат медицинских наук',
-            contact: 'mailto:edo_amb@mail.ru',
-            description: 'Врач-дерматовенеролог, заведующий отделением дерматологии Научно-исследовательского института педиатрии и охраны здоровья детей ЦКБ РАН (НИИ педиатрии ЦКБ РАН). Член Европейского общества детских дерматологов (European Society for Pediatric Dermatology).'
-        },
-        {
             name: 'Савелова Алёна Андреевна',
             image: `${images}/employers/savelova.png`,
             offer: 'Врач-дерматовенеролог ',
@@ -136,7 +129,7 @@ export default function Home() {
         {
             name: 'Иванов Роман Александрович',
             image: `${images}/employers/ivanov.png`,
-            offer: 'Врач-дерматовенеролог',
+            offer: 'Кандидат медицинских наук',
             contact: '/',
             description: 'Врач-дерматовенеролог отделения дерматологии с группой лазерной хирургии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России, научный сотрудник лаборатории патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России. Член Европейского общества детских дерматологов (European Society for Pediatric Dermatology).'
         }, {
@@ -148,153 +141,156 @@ export default function Home() {
         }, {
             name: 'Опрятин Леонид Андреевич',
             image: `${images}/employers/opryatin.png`,
-            offer: 'Врач-дерматовенеролог ',
+            offer: 'Кандидат медицинских наук',
             contact: 'mailto:opryatin.l@gmail.com',
             description: 'Врач-дерматовенеролог отделения дерматологии с группой лазерной хирургии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России, научный сотрудник лаборатории патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России. Член Европейского общества детских дерматологов (European Society for Pediatric Dermatology).'
         },
     ]
 
+    const [employersPop,setEmployersPop]=useState(false)
+    const [activeName,setActiveName]=useState('');
+    const [activeDecription,setActiveDescription]=useState('')
 
     return (
         <main className={'overflow-x-hidden'}>
             {/*ПЕРВЫЙ БЛОК*/}
-            <motion.div
-                className={classList("min-h-screen sm:bg-top bg-[left_50rem_top_1rem] overflow-hidden bg-cover green-gradient relative ")}>
-                <div className={'absolute flex sm:hidden w-full h-full bg-green-two opacity-50 left-0 top-0'}>
+            {/*<motion.div*/}
+            {/*    className={classList("min-h-screen sm:bg-top bg-[left_50rem_top_1rem] overflow-hidden bg-cover green-gradient relative ")}>*/}
+            {/*    <div className={'absolute flex sm:hidden w-full h-full bg-green-two opacity-50 left-0 top-0'}>*/}
 
-                </div>
+            {/*    </div>*/}
 
-                <motion.div
-                    className={'w-full min-h-screen h-auto'}>
-                    <motion.div
-                        className={'sm:col-span-12 sm:mt-0 flex flex-col sm:items-start  justify-center'}>
-                        <div className={'sm:flex hidden w-screen'}>
-                            <Swiper
-                                ref={sliderRef}
-                                speed={1000}
-                                autoplay={{delay: 4000}}
-                                effect={'fade'}
-                                direction={"vertical"}
-                                slidesPerView={1}
-                                loop={true}
-                                pagination={{
-                                    clickable: true,
-                                }}
-                                modules={[Mousewheel, EffectFade, Pagination, Autoplay]}
-                                className={'mainswiper sm:h-screen absolute left-0 top-0 w-screen'}
-                            >
-                                {posts.map((item, counter) => {
-                                    return (
-                                        <SwiperSlide key={counter} className={''}>
-                                            <div
-                                                className={'flex h-full pl-[140px] flex-col justify-center items-center'}>
-                                                <div className={'grid w-full grid-cols-12'}>
-                                                    <div className={'flex col-span-6 justify-center flex-col gap-5'}>
-                                                        <div
-                                                            className={'flex items-center rounded-full p-2 px-4 uppercase text-white font-light opacity-50 border-white w-fit border-2 justify-center'}>
-                                                            {item.date}
-                                                        </div>
-                                                        <div className={'text-left text-5xl text-white '}
-                                                             dangerouslySetInnerHTML={{__html: item.title}}>
+            {/*    <motion.div*/}
+            {/*        className={'w-full min-h-screen h-auto'}>*/}
+            {/*        <motion.div*/}
+            {/*            className={'sm:col-span-12 sm:mt-0 flex flex-col sm:items-start  justify-center'}>*/}
+            {/*            <div className={'sm:flex hidden w-screen'}>*/}
+            {/*                <Swiper*/}
+            {/*                    ref={sliderRef}*/}
+            {/*                    speed={1000}*/}
+            {/*                    autoplay={{delay: 4000}}*/}
+            {/*                    effect={'fade'}*/}
+            {/*                    direction={"vertical"}*/}
+            {/*                    slidesPerView={1}*/}
+            {/*                    loop={true}*/}
+            {/*                    pagination={{*/}
+            {/*                        clickable: true,*/}
+            {/*                    }}*/}
+            {/*                    modules={[Mousewheel, EffectFade, Pagination, Autoplay]}*/}
+            {/*                    className={'mainswiper sm:h-screen absolute left-0 top-0 w-screen'}*/}
+            {/*                >*/}
+            {/*                    {posts.map((item, counter) => {*/}
+            {/*                        return (*/}
+            {/*                            <SwiperSlide key={counter} className={''}>*/}
+            {/*                                <div*/}
+            {/*                                    className={'flex h-full pl-[140px] flex-col justify-center items-center'}>*/}
+            {/*                                    <div className={'grid w-full grid-cols-12'}>*/}
+            {/*                                        <div className={'flex col-span-6 justify-center flex-col gap-5'}>*/}
+            {/*                                            <div*/}
+            {/*                                                className={'flex items-center rounded-full p-2 px-4 uppercase text-white font-light opacity-50 border-white w-fit border-2 justify-center'}>*/}
+            {/*                                                {item.date}*/}
+            {/*                                            </div>*/}
+            {/*                                            <div className={'text-left text-5xl text-white '}*/}
+            {/*                                                 dangerouslySetInnerHTML={{__html: item.title}}>*/}
 
-                                                        </div>
-                                                        <p className={'text-white font-normal'}>{item.description}</p>
-                                                        {item.link ? <Link
-                                                            className={'text-black p-4 rounded-md bg-white flex items-center justify-center w-48'}
-                                                            href={item.link}>
-                                                            Подробнее
-                                                        </Link> : null}
-                                                        {/*<div className={'flex gap-5 items-center'}>*/}
-                                                        {/*    <div*/}
-                                                        {/*        className={'cursor-pointer  hidden sm:flex items-center p-[15px] justify-center  w-[50px] aspect-square rounded-full bg-[#E4F0EE] hover:bg-[#BCDBD5] transition-all duration-300'}*/}
-                                                        {/*        onClick={handlePrev}>*/}
-                                                        {/*        <img className={'w-full aspect-square'}*/}
-                                                        {/*             src={'/arrow_prev.svg'}/>*/}
-                                                        {/*    </div>*/}
-                                                        {/*    <div*/}
-                                                        {/*        className={'cursor-pointer   relative hidden sm:flex items-center p-[15px] justify-center w-[50px] aspect-square rounded-full bg-[#E4F0EE] hover:bg-[#BCDBD5] transition-all duration-300'}*/}
-                                                        {/*        onClick={handleNext}>*/}
-                                                        {/*        <img className={'w-full aspect-square'}*/}
-                                                        {/*             src={'/arrow_next.svg'}/>*/}
-                                                        {/*    </div>*/}
-                                                        {/*</div>*/}
-                                                    </div>
-                                                    <div className={'absolute w-screen h-screen left-0 top-0 z-[-2]'}>
-                                                        <img className={'w-full object-cover h-full'} src={item.image}/>
-                                                    </div>
-                                                    <div
-                                                        className={'absolute green-gradient opacity-40 w-screen h-screen left-0 top-0 z-[-1]'}>
-                                                    </div>
-                                                </div>
-                                            </div>
+            {/*                                            </div>*/}
+            {/*                                            <p className={'text-white font-normal'}>{item.description}</p>*/}
+            {/*                                            {item.link ? <Link*/}
+            {/*                                                className={'text-black p-4 rounded-md bg-white flex items-center justify-center w-48'}*/}
+            {/*                                                href={item.link}>*/}
+            {/*                                                Подробнее*/}
+            {/*                                            </Link> : null}*/}
+            {/*                                            /!*<div className={'flex gap-5 items-center'}>*!/*/}
+            {/*                                            /!*    <div*!/*/}
+            {/*                                            /!*        className={'cursor-pointer  hidden sm:flex items-center p-[15px] justify-center  w-[50px] aspect-square rounded-full bg-[#E4F0EE] hover:bg-[#BCDBD5] transition-all duration-300'}*!/*/}
+            {/*                                            /!*        onClick={handlePrev}>*!/*/}
+            {/*                                            /!*        <img className={'w-full aspect-square'}*!/*/}
+            {/*                                            /!*             src={'/arrow_prev.svg'}/>*!/*/}
+            {/*                                            /!*    </div>*!/*/}
+            {/*                                            /!*    <div*!/*/}
+            {/*                                            /!*        className={'cursor-pointer   relative hidden sm:flex items-center p-[15px] justify-center w-[50px] aspect-square rounded-full bg-[#E4F0EE] hover:bg-[#BCDBD5] transition-all duration-300'}*!/*/}
+            {/*                                            /!*        onClick={handleNext}>*!/*/}
+            {/*                                            /!*        <img className={'w-full aspect-square'}*!/*/}
+            {/*                                            /!*             src={'/arrow_next.svg'}/>*!/*/}
+            {/*                                            /!*    </div>*!/*/}
+            {/*                                            /!*</div>*!/*/}
+            {/*                                        </div>*/}
+            {/*                                        <div className={'absolute w-screen h-screen left-0 top-0 z-[-2]'}>*/}
+            {/*                                            <img className={'w-full object-cover h-full'} src={item.image}/>*/}
+            {/*                                        </div>*/}
+            {/*                                        <div*/}
+            {/*                                            className={'absolute green-gradient opacity-40 w-screen h-screen left-0 top-0 z-[-1]'}>*/}
+            {/*                                        </div>*/}
+            {/*                                    </div>*/}
+            {/*                                </div>*/}
 
-                                        </SwiperSlide>
-                                    )
-                                })}
+            {/*                            </SwiperSlide>*/}
+            {/*                        )*/}
+            {/*                    })}*/}
 
-                            </Swiper>
-                        </div>
+            {/*                </Swiper>*/}
+            {/*            </div>*/}
 
-                        <div className={'sm:hidden flex h-screen w-screen'}>
-                            <Swiper
-                                speed={1000}
-                                autoplay={{delay: 4000}}
-                                effect={'fade'}
-                                direction={"horizontal"}
-                                slidesPerView={1}
-                                loop={true}
-                                pagination={{
-                                    clickable: true,
-                                }}
-                                modules={[Mousewheel, EffectFade, Pagination, Autoplay]}
-                                className={'mainswiper sm:h-screen h-screen absolute left-0 top-0 w-screen'}
-                            >
-                                {posts.map((item, counter) => {
-                                    return (
-                                        <SwiperSlide key={counter} className={''}>
-                                            <div
-                                                className={'flex h-full pl-[20px] sm:pl-[140px] flex-col justify-center items-center'}>
-                                                <div className={'grid w-full grid-cols-12'}>
-                                                    <div className={'flex col-span-12 justify-center flex-col gap-5'}>
-                                                        <div
-                                                            className={'flex items-center rounded-full p-2 px-4 uppercase text-white font-light opacity-50 border-white w-fit border-2 justify-center'}>
-                                                            {item.date}
-                                                        </div>
-                                                        <div className={'text-left text-2xl text-white '}
-                                                             dangerouslySetInnerHTML={{__html: item.title}}>
+            {/*            <div className={'sm:hidden flex h-screen w-screen'}>*/}
+            {/*                <Swiper*/}
+            {/*                    speed={1000}*/}
+            {/*                    autoplay={{delay: 4000}}*/}
+            {/*                    effect={'fade'}*/}
+            {/*                    direction={"horizontal"}*/}
+            {/*                    slidesPerView={1}*/}
+            {/*                    loop={true}*/}
+            {/*                    pagination={{*/}
+            {/*                        clickable: true,*/}
+            {/*                    }}*/}
+            {/*                    modules={[Mousewheel, EffectFade, Pagination, Autoplay]}*/}
+            {/*                    className={'mainswiper sm:h-screen h-screen absolute left-0 top-0 w-screen'}*/}
+            {/*                >*/}
+            {/*                    {posts.map((item, counter) => {*/}
+            {/*                        return (*/}
+            {/*                            <SwiperSlide key={counter} className={''}>*/}
+            {/*                                <div*/}
+            {/*                                    className={'flex h-full pl-[20px] sm:pl-[140px] flex-col justify-center items-center'}>*/}
+            {/*                                    <div className={'grid w-full grid-cols-12'}>*/}
+            {/*                                        <div className={'flex col-span-12 justify-center flex-col gap-5'}>*/}
+            {/*                                            <div*/}
+            {/*                                                className={'flex items-center rounded-full p-2 px-4 uppercase text-white font-light opacity-50 border-white w-fit border-2 justify-center'}>*/}
+            {/*                                                {item.date}*/}
+            {/*                                            </div>*/}
+            {/*                                            <div className={'text-left text-2xl text-white '}*/}
+            {/*                                                 dangerouslySetInnerHTML={{__html: item.title}}>*/}
 
-                                                        </div>
-                                                        <p className={'text-white font-normal'}>{item.description}</p>
-                                                        {item.link ? <Link
-                                                            className={'text-black p-4 rounded-md bg-white flex items-center justify-center w-48'}
-                                                            href={item.link}>
-                                                            Подробнее
-                                                        </Link> : null}
-                                                    </div>
-                                                    <div className={'absolute w-screen h-screen left-0 top-0 z-[-2]'}>
-                                                        <img className={'w-full object-cover object-center h-full'}
-                                                             src={item.image}/>
-                                                    </div>
-                                                    <div
-                                                        className={'absolute green-gradient opacity-70 w-screen h-screen left-0 top-0 z-[-1]'}>
-                                                    </div>
-                                                </div>
-                                            </div>
+            {/*                                            </div>*/}
+            {/*                                            <p className={'text-white font-normal'}>{item.description}</p>*/}
+            {/*                                            {item.link ? <Link*/}
+            {/*                                                className={'text-black p-4 rounded-md bg-white flex items-center justify-center w-48'}*/}
+            {/*                                                href={item.link}>*/}
+            {/*                                                Подробнее*/}
+            {/*                                            </Link> : null}*/}
+            {/*                                        </div>*/}
+            {/*                                        <div className={'absolute w-screen h-screen left-0 top-0 z-[-2]'}>*/}
+            {/*                                            <img className={'w-full object-cover object-center h-full'}*/}
+            {/*                                                 src={item.image}/>*/}
+            {/*                                        </div>*/}
+            {/*                                        <div*/}
+            {/*                                            className={'absolute green-gradient opacity-70 w-screen h-screen left-0 top-0 z-[-1]'}>*/}
+            {/*                                        </div>*/}
+            {/*                                    </div>*/}
+            {/*                                </div>*/}
 
-                                        </SwiperSlide>
-                                    )
-                                })}
+            {/*                            </SwiperSlide>*/}
+            {/*                        )*/}
+            {/*                    })}*/}
 
-                            </Swiper>
-                        </div>
+            {/*                </Swiper>*/}
+            {/*            </div>*/}
 
-                    </motion.div>
-                </motion.div>
-                <div className={'absolute bottom-[-1px] z-[10] asset w-full'}>
-                    <img src={'/main_asset_bottom.png'} alt={'asset_bottom'}></img>
-                </div>
-            </motion.div>
-            <div className={'bg-white sm:h-[854px] items-center px-[20px] py-12 sm:px-[140px] gap-20 grid grid-cols-1 sm:grid-cols-2'}>
+            {/*        </motion.div>*/}
+            {/*    </motion.div>*/}
+            {/*    <div className={'absolute bottom-[-1px] z-[10] asset w-full'}>*/}
+            {/*        <img src={'/main_asset_bottom.png'} alt={'asset_bottom'}></img>*/}
+            {/*    </div>*/}
+            {/*</motion.div>*/}
+            <div className={'bg-white sm:h-[854px] items-center px-[20px] pt-40 py-12 sm:px-[140px] gap-20 grid grid-cols-1 sm:grid-cols-2'}>
                 <img className={'w-full aspect-square col-span-1 rounded-xl'} src={`${images}/kids.jpg`}/>
                 <div className={'flex flex-col gap-6 items-start'}>
                     <p className={'uppercase font-extralight text-2xl sm:text-5xl text-black'}>О ДЕТСКОЙ
@@ -322,6 +318,13 @@ export default function Home() {
                 <img className={'absolute asset w-full z-50 left-0 top-0'} src={'/about_us_offset_top.png'}/>
                 <p className={'sm:absolute top-28 sm:pl-[70px] text-xl sm:text-3xl font-extralight text-white'}>РУКОВОДСТВО
                     ОБЩЕСТВА <br/> ДЕТСКИХ ДЕРМАТОЛОГОВ</p>
+                {employersPop?<div className={'w-full h-full absolute left-0 top-0 z-[20] bg-black bg-opacity-70 flex items-center justify-center'}>
+                    <div className={'w-2/3 p-9 gap-4 rounded-lg flex flex-col bg-white relative'}>
+                        <img onClick={()=>{setEmployersPop(false)}} className={'w-8 aspect-square absolute top-4 right-4 cursor-pointer'} src={'/close_black.svg'}/>
+                        <p className={'font-bold text-4xl'}>{activeName}</p>
+                        <p className={'text-lg'}>{activeDecription}</p>
+                    </div>
+                </div>:null}
                 <div className={'w-full hidden sm:flex'}>
                     <Swiper
                         speed={1000}
@@ -367,11 +370,15 @@ export default function Home() {
                                                 </Link>
                                             </div>
                                             <p className={'text-white font-normal'}>{concatStr(item.description, 20)}</p>
-                                            <p className={'text-white text-xl font-bold'}>Подробнее...</p>
+                                            <p className={'text-white text-xl cursor-pointer font-bold'} onClick={()=>{
+                                                setActiveName(item.name);
+                                                setActiveDescription(item.description);
+                                                setEmployersPop(true);
+                                            }}>Подробнее...</p>
                                         </div>
                                         <div className={'flex items-center relative h-full justify-center'}>
                                             <img src={`${images}/employers/avatar_layout.svg`}/>
-                                            <img className={'absolute bottom-0 w-full'} src={item.image}/>
+                                            <img className={'absolute bottom-16 w-full'} src={item.image}/>
                                         </div>
                                     </div>
                                 </SwiperSlide>
