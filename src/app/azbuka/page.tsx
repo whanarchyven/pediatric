@@ -588,7 +588,7 @@ export default function Home() {
                             whileInView={{scale: 1, opacity: 1}}
                             viewport={{once: true}}
                             transition={{ease: 'easeInOut', duration: 0.7, delay: 0.8}}>
-                    <img className={'sm:absolute z-50 h-full'} src={'/doctor2.png'}/>
+                    <img className={'sm:absolute z-50 h-full'} src={'/pages/main/employers/murashkin.png'}/>
                 </motion.div>
                 {showHelpPop ? <HelpPop callback={() => {
                     setShowHelpPop(false)
