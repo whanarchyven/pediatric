@@ -51,7 +51,7 @@ export default function Home() {
             type: 'Конференция',
             name: 'IX Всероссийская научно-практическая конференция с международным участием «Дерматологические чтения в педиатрии»',
             date: '11.11',
-            image: '/pages/events/ekb_bg.jpeg'
+            image: '/pages/main/main_bg.png'
         },
 
         {
@@ -59,7 +59,7 @@ export default function Home() {
             type: 'Конференция',
             name: 'I научно-практическая конференция «Дерматологические чтения в педиатрии» в г. Екатеринбург им. Н. П. Тороповой',
             date: '17.10-18.10',
-            image: '/pages/main/main_bg.png'
+            image: '/pages/events/ekb_bg.jpeg'
         },
         // {
         //     id: 3,
