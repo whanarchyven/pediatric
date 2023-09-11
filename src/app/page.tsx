@@ -72,7 +72,14 @@ export default function Home() {
             title: `<p class="font-extralight">Членство в Обществе </p><span class="font-extrabold uppercase">детских дерматологов</span>`,
             description: ' Стань частью большой команды',
             link: '/registration',
-            image: '/pravki/1.png',
+            image: '/pages/main/events/login.png',
+        },
+        {
+            date: '11.09-11.11',
+            title: `<p class="font-extralight">Воздушный</p><span class="font-extrabold uppercase">рейс</span>`,
+            description: 'Присоединяйтесь к нам в этом по-настоящему масштабном путешествии!',
+            link: '/events/4',
+            image: '/pages/main/events/shar.png',
         }
     ]
 
