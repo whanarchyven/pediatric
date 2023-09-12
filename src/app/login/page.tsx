@@ -42,6 +42,7 @@ export default function Home() {
 
     const [checkboxRadio, setCheckboxRadio] = useState('yes')
     const [personal, setPersonal] = useState(false)
+    const [showWarning,setShowWarning]=useState(false)
 
     return (
         <main className={'overflow-x-hidden'}>
@@ -56,6 +57,7 @@ export default function Home() {
                             к дополнительным возможностям сайта.</p>
                         <div className={'flex gap-2 flex-col'}>
                             <p className={'text-white font-bold'}>E-mail</p>
+                            {showWarning?<p className={'text-rose-500 font-normal'}>Неверный логин или пароль</p>:null}
                             <input type={'text'} placeholder={'my.email@gmail.com'}
                                    className={'p-4 outline-0 text-white bg-transparent transition-all duration-300 placeholder:font-extralight w-96 border-white border-2 cursor-pointer flex items-center rounded-full gap-2'}/>
                         </div>
@@ -65,7 +67,10 @@ export default function Home() {
                                    className={'p-4 outline-0 text-white bg-transparent transition-all duration-300 placeholder:font-extralight w-96 border-white border-2 cursor-pointer flex items-center rounded-full gap-2'}/>
                         </div>
                         <div className={'flex justify-between w-2/3'}>
-                            <div
+                            <div onClick={()=>{
+                                setShowWarning(true);
+
+                            }}
                                 className={'p-4 px-12 cursor-pointer transition-all duration-300 bg-white border-white border-2 w-40 flex justify-center items-center rounded-lg gap-2'}>
                                 <p className={'text-black font-inter font-normal'}>Войти</p>
                             </div>

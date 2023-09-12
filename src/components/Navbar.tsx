@@ -76,7 +76,7 @@ const Navbar = ({isInteravtive}:navbarInterface) => {
                         </img>
                     </Link>
                 </div>
-                <Link href={'/account/profile'} className={'flex items-center'}>
+                <Link href={'/login'} className={'flex items-center'}>
                     <div className={'w-5 mx-2 aspect-square relative'}>
                         <Image src={'/account.svg'} alt={'account'} layout={'fill'}></Image>
                     </div>
