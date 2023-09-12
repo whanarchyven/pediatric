@@ -5,6 +5,9 @@ const nextConfig = {
         ignoreBuildErrors: true,
     },
     trailingSlash: true,
+    experimental: {
+        serverActions: true,
+    },
 
 }
 
