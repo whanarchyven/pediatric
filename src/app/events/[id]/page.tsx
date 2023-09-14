@@ -828,7 +828,7 @@ export default function Page({params}: any) {
                     </div>
                 </div>
                 {isConfirmPopOpen?<PopUp icon={'/confirm.svg'} closeFunc={()=>{{setIsConfirmPopOpen(false)}}}>
-                    <ConfirmForm closeFunc={()=>{setIsConfirmPopOpen(false)}} price={event.onlinePrice} event_id={event.name}></ConfirmForm>
+                    <ConfirmForm closeFunc={()=>{setIsConfirmPopOpen(false)}} price={event.onlinePrice} event_id={event.id-1} event_name={event.name}></ConfirmForm>
                 </PopUp>:null}
 
                 {isPopPriceOpen?<PopUp icon={'/price.svg'} closeFunc={()=>{{setIsPopPriceOpen(false)}}}>
