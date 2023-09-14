@@ -8,8 +8,8 @@ import Link from "next/link";
 const inter = Inter({subsets: ['latin']})
 
 export const metadata = {
-    title: 'Азбука атопического дерматита',
-    description: 'наметки лендоса',
+    title: 'Общество детских дерматологов',
+    description: '',
 }
 
 export default function RootLayout({

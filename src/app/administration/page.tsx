@@ -319,10 +319,10 @@ export default function Home() {
                 <p className={'sm:absolute top-28 sm:pl-[70px] text-xl sm:text-3xl font-extralight text-white'}>РУКОВОДСТВО
                     ОБЩЕСТВА <br/> ДЕТСКИХ ДЕРМАТОЛОГОВ</p>
                 {employersPop?<div className={'w-full h-full absolute left-0 top-0 z-[20] bg-black bg-opacity-70 flex items-center justify-center'}>
-                    <div className={'w-2/3 p-9 gap-4 rounded-lg flex flex-col bg-white relative'}>
+                    <div className={'w-full sm:w-2/3 p-9 gap-4 rounded-lg flex flex-col bg-white relative'}>
                         <img onClick={()=>{setEmployersPop(false)}} className={'w-8 aspect-square absolute top-4 right-4 cursor-pointer'} src={'/close_black.svg'}/>
-                        <p className={'font-bold text-4xl'}>{activeName}</p>
-                        <p className={'text-lg'}>{activeDecription}</p>
+                        <p className={'font-bold text-lg sm:text-4xl'}>{activeName}</p>
+                        <p className={'text-xs sm:text-lg'}>{activeDecription}</p>
                     </div>
                 </div>:null}
                 <div className={'w-full hidden sm:flex'}>
@@ -434,11 +434,15 @@ export default function Home() {
                                                 </Link>
                                             </div>
                                             <p className={'text-white sm:text-lg text-xs font-normal'}>{concatStr(item.description, 20)}</p>
-                                            <p className={'text-white text-sm sm:text-xl font-bold'}>Подробнее...</p>
+                                            <p onClick={()=>{
+                                                setActiveName(item.name);
+                                                setActiveDescription(item.description);
+                                                setEmployersPop(true);
+                                            }} className={'text-white text-sm sm:text-xl font-bold'}>Подробнее...</p>
                                         </div>
                                         <div className={'flex items-center relative sm:h-full justify-center'}>
                                             <img src={`${images}/employers/avatar_layout.svg`}/>
-                                            <img className={'absolute bottom-0 w-full sm:scale-100 scale-125'} src={item.image}/>
+                                            <img className={'absolute bottom-0 w-full sm:scale-100 scale-110'} src={item.image}/>
                                         </div>
                                     </div>
                                 </SwiperSlide>
