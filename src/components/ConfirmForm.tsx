@@ -41,7 +41,7 @@ const ConfirmForm = ({closeFunc, price, event_id,event_name}: confirmPopInterfac
                 event: String(event_id),
                 transactions: {
                     initial: {
-                        amountRub: String(price),
+                        amountRub: price,
                     }
                 },
                 after_reg_email_subject: "Благодарим за регистрацию!",
