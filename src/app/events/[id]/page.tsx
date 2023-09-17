@@ -127,7 +127,7 @@ export default function Page({params}: any) {
 
             ],
 
-            onlinePrice: 1500,
+            onlinePrice: 1000,
             offlinePrice:1500,
 
             prices: [{
@@ -606,6 +606,8 @@ export default function Page({params}: any) {
     const [isPopPriceOpen,setIsPopPriceOpen]=useState(false);
     const [isConfirmPopOpen,setIsConfirmPopOpen]=useState(false)
 
+    const [currentPrice,setCurrentPrice]=useState(0);
+
     return (
         <main className={'overflow-x-hidden'}>
             {/*ПЕРВЫЙ БЛОК*/}
@@ -788,7 +790,7 @@ export default function Page({params}: any) {
                                 <p className={'text-3xl sm:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
                                 <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции в день мероприятия</p>
                             </div>
-                            <div onClick={()=>{setIsConfirmPopOpen(true)}}
+                            <div onClick={()=>{setIsConfirmPopOpen(true);setCurrentPrice(5)}}
                                  className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                                 Подтвердить участие
                             </div>
@@ -803,7 +805,7 @@ export default function Page({params}: any) {
                             <p className={'text-3xl sm:text-5xl text-white font-bold'}>{event.onlinePrice?event.onlinePrice+' руб.':'БЕСПЛАТНО'}</p>
                             <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции мероприятия <span className={'font-extrabold'}>{event.onlinePrice?'+ запись трансляции':''}</span></p>
                         </div>
-                        <div onClick={()=>{setIsConfirmPopOpen(true)}}
+                        <div onClick={()=>{setIsConfirmPopOpen(true);setCurrentPrice(event.onlinePrice)}}
                              className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                             Подтвердить участие
                         </div>
@@ -821,14 +823,14 @@ export default function Page({params}: any) {
                                 {event.prices[1].date}</p>:null}
                             {event.prices?<p onClick={()=>{setIsPopPriceOpen(true)}} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график цен</p>:<p className={'font-extralight text-xl text-center text-green-two'}>Очное посещение мероприятия, активное участие</p>}
                         </div>
-                        <div onClick={()=>{setIsConfirmPopOpen(true)}}
+                        <div onClick={()=>{setIsConfirmPopOpen(true);setCurrentPrice(event.offlinePrice)}}
                              className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                             Подтвердить участие
                         </div>
                     </div>
                 </div>
                 {isConfirmPopOpen?<PopUp icon={'/confirm.svg'} closeFunc={()=>{{setIsConfirmPopOpen(false)}}}>
-                    <ConfirmForm closeFunc={()=>{setIsConfirmPopOpen(false)}} price={event.onlinePrice} event_id={event.id-1} event_name={event.name}></ConfirmForm>
+                    <ConfirmForm closeFunc={()=>{setIsConfirmPopOpen(false)}} price={currentPrice} event_id={event.id-1} event_name={event.name}></ConfirmForm>
                 </PopUp>:null}
 
                 {isPopPriceOpen?<PopUp icon={'/price.svg'} closeFunc={()=>{{setIsPopPriceOpen(false)}}}>
@@ -842,7 +844,7 @@ export default function Page({params}: any) {
                                 <p className={'text-[#0F5F5A] font-light'}>Стоимость</p>
                             </div>
                         </div>
-                        {event.prices.map((item,counter)=>{
+                        {event.prices.map((item:any,counter:any)=>{
                             return (
                                 <div key={counter} className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-2'}>
                                     <div className={'text-[#0F5F5A] font-light flex items-center '}>
