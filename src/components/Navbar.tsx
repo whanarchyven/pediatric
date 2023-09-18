@@ -76,12 +76,12 @@ const Navbar = ({isInteravtive}:navbarInterface) => {
                         </img>
                     </Link>
                 </div>
-                <Link href={'/login'} className={'flex items-center'}>
+                <div className={'flex items-center'}>
                     <div className={'w-5 mx-2 aspect-square relative'}>
                         <Image src={'/account.svg'} alt={'account'} layout={'fill'}></Image>
                     </div>
                     <p className={'text-white font-inter font-normal'}>Профиль</p>
-                </Link>
+                </div>
             </div>
             <div className={'sm:hidden col-span-1 flex justify-end items-center col-end-7'}>
                 <img className={'aspect-square w-5'} src={burgerOpen?'/close.svg':'/burger.svg'} onClick={()=>{setBurgerOpen(!burgerOpen)}}/>
