@@ -10,15 +10,17 @@ interface confirmPopInterface {
     price: number,
     event_id: number,
     event_name:string,
+    participationType:'online'| 'offline'| 'online-free',
+    query:string,
 }
 
-const ConfirmForm = ({closeFunc, price, event_id,event_name}: confirmPopInterface) => {
+const ConfirmForm = ({closeFunc, price, event_id,event_name,participationType,query}: confirmPopInterface) => {
 
 
     const router = useRouter();
     const [email, setEmail] = useState('')
     const [name, setName] = useState('')
-    const [some, setSome] = useState<any>(null);
+    const [phone, setPhone] = useState('');
     const [loading, setLoading] = useState(false);
 
     let data = JSON.stringify({
@@ -44,6 +46,11 @@ const ConfirmForm = ({closeFunc, price, event_id,event_name}: confirmPopInterfac
                         amountRub: price,
                     }
                 },
+            meta: {
+                    participationType:participationType,
+                    query:query,
+                    phone:phone,
+            },
                 after_reg_email_subject: "Благодарим за регистрацию!",
                 after_reg_email_body: String(`<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -362,7 +369,7 @@ a[x-apple-data-detectors] {
                   <td align="center" valign="top" style="padding:0;Margin:0;width:560px">
                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr>
-                      <td style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">Спасибо за ваш выбор!<br>Ваша поддержка - наше главное вдохновение. Не пропустите: ваш пропуск на конференцию Вы получите за день до старта мероприятия. Готовьтесь к невероятному!</p></td>
+                      <td style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">Спасибо за ваш выбор!<br>Ваша поддержка - наше главное вдохновение. Не пропустите: ваш пропуск на конференцию в {participationType} формате  Вы получите за день до старта мероприятия. Готовьтесь к невероятному!</p></td>
                      </tr>
                      <tr>
                       <td align="center" style="padding:20px;Margin:0;font-size:0">
@@ -416,6 +423,7 @@ a[x-apple-data-detectors] {
  </body>
 </html>`),
                 after_pay_email_placeholders: {
+                    participationType:participationType=='offline'?'оффлайн':'онлайн',
                     name: String(name)
                 }
             },
@@ -450,8 +458,8 @@ a[x-apple-data-detectors] {
             </div>
             <div className={'flex flex-col gap-2 w-full'}>
                 <p className={'text-sm sm:text-xl font-light'}>Телефон<sup className={'text-red '}>*</sup></p>
-                <input className={'w-full p-2 sm:p-3 rounded-md text-sm sm:text-xl border-2 border-green-two'}
-                       name={'surname'}/>
+                <input value={phone} onChange={(event)=>{setPhone(event.target.value)}} className={'w-full p-2 sm:p-3 rounded-md text-sm sm:text-xl border-2 border-green-two'}
+                       name={'phone'}/>
             </div>
             <div className={'w-full grid grid-cols-2 gap-3'}>
                 <div onClick={() => {

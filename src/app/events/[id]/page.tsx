@@ -607,6 +607,9 @@ export default function Page({params}: any) {
     const [isConfirmPopOpen,setIsConfirmPopOpen]=useState(false)
 
     const [currentPrice,setCurrentPrice]=useState(0);
+    const [participationType,setParticipationType]=useState<'online'|'offline'|'online-free'>('online');
+
+    const query=useSearchParams().toString();
 
     return (
         <main className={'overflow-x-hidden'}>
@@ -790,7 +793,7 @@ export default function Page({params}: any) {
                                 <p className={'text-3xl sm:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
                                 <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции в день мероприятия</p>
                             </div>
-                            <div onClick={()=>{setIsConfirmPopOpen(true);setCurrentPrice(5)}}
+                            <div onClick={()=>{setIsConfirmPopOpen(true);setCurrentPrice(0);setParticipationType('online-free')}}
                                  className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                                 Подтвердить участие
                             </div>
@@ -805,7 +808,7 @@ export default function Page({params}: any) {
                             <p className={'text-3xl sm:text-5xl text-white font-bold'}>{event.onlinePrice?event.onlinePrice+' руб.':'БЕСПЛАТНО'}</p>
                             <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции мероприятия <span className={'font-extrabold'}>{event.onlinePrice?'+ запись трансляции':''}</span></p>
                         </div>
-                        <div onClick={()=>{setIsConfirmPopOpen(true);setCurrentPrice(event.onlinePrice)}}
+                        <div onClick={()=>{setIsConfirmPopOpen(true);setCurrentPrice(event.onlinePrice);setParticipationType('online')}}
                              className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                             Подтвердить участие
                         </div>
@@ -823,14 +826,14 @@ export default function Page({params}: any) {
                                 {event.prices[1].date}</p>:null}
                             {event.prices?<p onClick={()=>{setIsPopPriceOpen(true)}} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график цен</p>:<p className={'font-extralight text-xl text-center text-green-two'}>Очное посещение мероприятия, активное участие</p>}
                         </div>
-                        <div onClick={()=>{setIsConfirmPopOpen(true);setCurrentPrice(event.offlinePrice)}}
+                        <div onClick={()=>{setIsConfirmPopOpen(true);setCurrentPrice(event.offlinePrice);setParticipationType('offline')}}
                              className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                             Подтвердить участие
                         </div>
                     </div>
                 </div>
                 {isConfirmPopOpen?<PopUp icon={'/confirm.svg'} closeFunc={()=>{{setIsConfirmPopOpen(false)}}}>
-                    <ConfirmForm closeFunc={()=>{setIsConfirmPopOpen(false)}} price={currentPrice} event_id={event.id-1} event_name={event.name}></ConfirmForm>
+                    <ConfirmForm query={query} participationType={participationType} closeFunc={()=>{setIsConfirmPopOpen(false)}} price={currentPrice} event_id={event.id-1} event_name={event.name}></ConfirmForm>
                 </PopUp>:null}
 
                 {isPopPriceOpen?<PopUp icon={'/price.svg'} closeFunc={()=>{{setIsPopPriceOpen(false)}}}>

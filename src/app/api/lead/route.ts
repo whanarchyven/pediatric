@@ -4,7 +4,7 @@ import axios from "axios";
 export async function POST(request: Request) {
     try {
         const data = await request.json();
-
+        console.log(data);
         const result=await axios.post('https://ars.ptq.pw/mg/pderm/crm/getLink', data,{headers:{
             Authorization:'Bearer dBNSFaf9hwHEx7ZLRS9mFaUM7MvD4U2ZVfdHZJ8qgKELpQ8MJL'
             }})
