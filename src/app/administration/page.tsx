@@ -290,7 +290,7 @@ export default function Home() {
             {/*        <img src={'/main_asset_bottom.png'} alt={'asset_bottom'}></img>*/}
             {/*    </div>*/}
             {/*</motion.div>*/}
-            <div className={'bg-white sm:h-[854px] items-center px-[20px] pt-40 py-12 sm:px-[140px] gap-20 grid grid-cols-1 sm:grid-cols-2'}>
+            <div className={'bg-white items-center px-[20px] pt-40 py-12 sm:px-[140px] gap-20 grid grid-cols-1 sm:grid-cols-2'}>
                 <img className={'w-full aspect-square col-span-1 rounded-xl'} src={`${images}/kids.jpg`}/>
                 <div className={'flex flex-col gap-6 items-start'}>
                     <p className={'uppercase font-extralight text-2xl sm:text-5xl text-black'}>О ДЕТСКОЙ
@@ -646,13 +646,11 @@ export default function Home() {
                         </div>
                         <div className={'bg-green flex items-center gap-4 rounded-lg px-6 p-3'}>
                             <img className={'w-12 aspect-square'} src={'/pages/about/feature.svg'}/>
-                            <p className={'text-white text-xl uppercase'}>УЛУЧШЕНИЕ КАЧЕСТВА ОКАЗАНИЯ МЕДИЦИНСКОЙ
-                                ПОМОЩИ</p>
+                            <p className={'text-white text-xl uppercase'}> Научные исследования и разработки</p>
                         </div>
                         <div className={'bg-green flex items-center gap-4 rounded-lg px-6 p-3'}>
                             <img className={'w-12 aspect-square'} src={'/pages/about/feature.svg'}/>
-                            <p className={'text-white text-xl uppercase'}>УЛУЧШЕНИЕ КАЧЕСТВА ОКАЗАНИЯ МЕДИЦИНСКОЙ
-                                ПОМОЩИ</p>
+                            <p className={'text-white text-xl uppercase'}> Профессиональное развитие</p>
                         </div>
                     </div>
                 </div>

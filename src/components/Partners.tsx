@@ -30,39 +30,33 @@ const News = () => {
 
     const news = [
         {
-            image: '/pages/main/partners/image 15.png'
+            image: '/pages/main/partners/ispd.png'
         },
         {
-            image: '/pages/main/partners/image 16.png'
+            image: '/pages/main/partners/дети бела.jpg'
         },
         {
-            image: '/pages/main/partners/image 17.png'
+            image: '/pages/main/partners/родвк.png'
         },
         {
-            image: '/pages/main/partners/image 18.png'
+            image: '/pages/main/partners/спр.png'
         },
         {
-            image: '/pages/main/partners/image 19.png'
+            image: '/pages/main/partners/ispd.png'
         },
         {
-            image: '/pages/main/partners/image 15.png'
+            image: '/pages/main/partners/дети бела.jpg'
         },
         {
-            image: '/pages/main/partners/image 16.png'
+            image: '/pages/main/partners/родвк.png'
         },
         {
-            image: '/pages/main/partners/image 17.png'
-        },
-        {
-            image: '/pages/main/partners/image 18.png'
-        },
-        {
-            image: '/pages/main/partners/image 19.png'
+            image: '/pages/main/partners/спр.png'
         },
     ]
 
     return (
-        <div className={'flex w-full items-center'}>
+        <div className={'flex w-full mt-5 items-center'}>
             <div
                 className={'cursor-pointer mr-[50px] hidden sm:flex items-center p-[15px] justify-center  w-[50px] aspect-square rounded-full bg-[#E4F0EE] hover:bg-[#BCDBD5] transition-all duration-300'}
                 onClick={handlePrev}>
@@ -89,7 +83,7 @@ const News = () => {
                         <SwiperSlide className={'relative group'} key={counter}>
                             <div className={'rounded-lg overflow-hidden'}>
                                 <img
-                                    className={'transition-all cursor-pointer duration-300 h-60 object-cover w-full group-hover:scale-125'}
+                                    className={'transition-all cursor-pointer duration-300 h-60 object-contain w-full group-hover:scale-125'}
                                     src={item.image}/>
                             </div>
                         </SwiperSlide>
