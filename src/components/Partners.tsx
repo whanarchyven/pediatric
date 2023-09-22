@@ -83,7 +83,7 @@ const News = () => {
                         <SwiperSlide className={'relative group'} key={counter}>
                             <div className={'rounded-lg overflow-hidden'}>
                                 <img
-                                    className={'transition-all cursor-pointer duration-300 h-60 object-contain w-full group-hover:scale-125'}
+                                    className={'transition-all cursor-pointer duration-300 h-60 object-contain w-full sm:group-hover:scale-125'}
                                     src={item.image}/>
                             </div>
                         </SwiperSlide>

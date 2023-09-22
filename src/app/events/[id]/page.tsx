@@ -91,41 +91,6 @@ export default function Page({params}: any) {
                 },
 
             ],
-            program: [
-                {
-                    name: 'Открытие конференции',
-                    timePeriod: '10:00',
-                    speaker: 'Президент «Общества детских дерматологов» Н.Н. Мурашкин. Главный внештатный специалист дерматовенеролог и косметолог МЗ Алтайского края Зав. кафедрой дерматовенерологии, косметологии и иммунологии ФГБОУ ВО АГМУ МЗ РФ д.м.н. Ю.С. Ковалёва',
-
-                },
-                {
-                    name: 'Демонстрация клинических случаев редких состояний и заболеваний кожи у детей (Интерактивное обсуждение)',
-                    timePeriod: '10:05-11:15',
-                    speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, Р.А. Иванов, А.А. Савелова',
-                    substages: [
-                        {
-                            name: 'Лечение псориаза у детей: реалии и перспективы',
-                            timePeriod: '10:45-11:00',
-                            description: 'При поддержке компании Johnson&Johnson. Баллы НМО не начисляются'
-                        },
-                        {
-                            name: 'Современные возможности ингибирования ИЛ-17 у детей с псориазом',
-                            timePeriod: '11:00-11:15',
-                        }
-                    ]
-                },
-                {
-                    name: 'Демонстрация клинических случаев редких состояний и заболеваний кожи у детей (Интерактивное обсуждение)',
-                    timePeriod: '10:05-11:15',
-                    speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, Р.А. Иванов, А.А. Савелова',
-                },
-                {
-                    name: 'Демонстрация клинических случаев редких состояний и заболеваний кожи у детей (Интерактивное обсуждение)',
-                    timePeriod: '10:05-11:15',
-                    speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, Р.А. Иванов, А.А. Савелова',
-                },
-
-            ],
 
             onlinePrice: 1000,
             offlinePrice:1500,
@@ -187,41 +152,6 @@ export default function Page({params}: any) {
                 },
 
             ],
-            program: [
-                {
-                    name: 'Открытие конференции',
-                    timePeriod: '10:00',
-                    speaker: 'Президент «Общества детских дерматологов» Н.Н. Мурашкин. Главный внештатный специалист дерматовенеролог и косметолог МЗ Алтайского края Зав. кафедрой дерматовенерологии, косметологии и иммунологии ФГБОУ ВО АГМУ МЗ РФ д.м.н. Ю.С. Ковалёва',
-
-                },
-                {
-                    name: 'Демонстрация клинических случаев редких состояний и заболеваний кожи у детей (Интерактивное обсуждение)',
-                    timePeriod: '10:05-11:15',
-                    speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, Р.А. Иванов, А.А. Савелова',
-                    substages: [
-                        {
-                            name: 'Лечение псориаза у детей: реалии и перспективы',
-                            timePeriod: '10:45-11:00',
-                            description: 'При поддержке компании Johnson&Johnson. Баллы НМО не начисляются'
-                        },
-                        {
-                            name: 'Современные возможности ингибирования ИЛ-17 у детей с псориазом',
-                            timePeriod: '11:00-11:15',
-                        }
-                    ]
-                },
-                {
-                    name: 'Демонстрация клинических случаев редких состояний и заболеваний кожи у детей (Интерактивное обсуждение)',
-                    timePeriod: '10:05-11:15',
-                    speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, Р.А. Иванов, А.А. Савелова',
-                },
-                {
-                    name: 'Демонстрация клинических случаев редких состояний и заболеваний кожи у детей (Интерактивное обсуждение)',
-                    timePeriod: '10:05-11:15',
-                    speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, Р.А. Иванов, А.А. Савелова',
-                },
-
-            ],
 
 
         },
@@ -267,41 +197,6 @@ export default function Page({params}: any) {
                 },
 
             ],
-            program: [
-                {
-                    name: 'Открытие конференции',
-                    timePeriod: '10:00',
-                    speaker: 'Президент «Общества детских дерматологов» Н.Н. Мурашкин. Главный внештатный специалист дерматовенеролог и косметолог МЗ Алтайского края Зав. кафедрой дерматовенерологии, косметологии и иммунологии ФГБОУ ВО АГМУ МЗ РФ д.м.н. Ю.С. Ковалёва',
-
-                },
-                {
-                    name: 'Демонстрация клинических случаев редких состояний и заболеваний кожи у детей (Интерактивное обсуждение)',
-                    timePeriod: '10:05-11:15',
-                    speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, Р.А. Иванов, А.А. Савелова',
-                    substages: [
-                        {
-                            name: 'Лечение псориаза у детей: реалии и перспективы',
-                            timePeriod: '10:45-11:00',
-                            description: 'При поддержке компании Johnson&Johnson. Баллы НМО не начисляются'
-                        },
-                        {
-                            name: 'Современные возможности ингибирования ИЛ-17 у детей с псориазом',
-                            timePeriod: '11:00-11:15',
-                        }
-                    ]
-                },
-                {
-                    name: 'Демонстрация клинических случаев редких состояний и заболеваний кожи у детей (Интерактивное обсуждение)',
-                    timePeriod: '10:05-11:15',
-                    speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, Р.А. Иванов, А.А. Савелова',
-                },
-                {
-                    name: 'Демонстрация клинических случаев редких состояний и заболеваний кожи у детей (Интерактивное обсуждение)',
-                    timePeriod: '10:05-11:15',
-                    speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, Р.А. Иванов, А.А. Савелова',
-                },
-
-            ],
 
         },
         {
@@ -344,41 +239,6 @@ export default function Page({params}: any) {
                 },
 
             ],
-            program: [
-                {
-                    name: 'Открытие конференции',
-                    timePeriod: '10:00',
-                    speaker: 'Президент «Общества детских дерматологов» Н.Н. Мурашкин. Главный внештатный специалист дерматовенеролог и косметолог МЗ Алтайского края Зав. кафедрой дерматовенерологии, косметологии и иммунологии ФГБОУ ВО АГМУ МЗ РФ д.м.н. Ю.С. Ковалёва',
-
-                },
-                {
-                    name: 'Демонстрация клинических случаев редких состояний и заболеваний кожи у детей (Интерактивное обсуждение)',
-                    timePeriod: '10:05-11:15',
-                    speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, Р.А. Иванов, А.А. Савелова',
-                    substages: [
-                        {
-                            name: 'Лечение псориаза у детей: реалии и перспективы',
-                            timePeriod: '10:45-11:00',
-                            description: 'При поддержке компании Johnson&Johnson. Баллы НМО не начисляются'
-                        },
-                        {
-                            name: 'Современные возможности ингибирования ИЛ-17 у детей с псориазом',
-                            timePeriod: '11:00-11:15',
-                        }
-                    ]
-                },
-                {
-                    name: 'Демонстрация клинических случаев редких состояний и заболеваний кожи у детей (Интерактивное обсуждение)',
-                    timePeriod: '10:05-11:15',
-                    speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, Р.А. Иванов, А.А. Савелова',
-                },
-                {
-                    name: 'Демонстрация клинических случаев редких состояний и заболеваний кожи у детей (Интерактивное обсуждение)',
-                    timePeriod: '10:05-11:15',
-                    speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, Р.А. Иванов, А.А. Савелова',
-                },
-
-            ],
             isOnlyOnline:true,
         },
 
@@ -396,7 +256,6 @@ export default function Page({params}: any) {
             announcement: 'Данная обучающая программа направлена на повышение квалификации врачей-специалистов с целью улучшения оказания специализированной медицинской помощи.',
             description: 'В рамках проекта всем участникам будут предоставлены видео-уроки общей продолжительностью более чем 60 минут, адаптированные видеоклипы по тематике занятий, брошюры, наглядные пособия, аудио материалы со спикером и модератором, а также будет проведен детальный разбор интерактивных задач и тестовый контроль знаний.',
             speakers: [],
-            program: [],
             isOnlyOnline:true,
             link:'https://t.me/+WTJWBaZ5lZ42OTZi',
         },
@@ -417,7 +276,6 @@ export default function Page({params}: any) {
                 '\n' +
                 'В научной программе будут освещены актуальные проблемы дерматологии детского возраста, такие как атопический дерматит, псориаз, акне, злокачественные новообразования кожи, а также обсуждены вопросы аутоиммунной патологии: гнездная алопеция и витилиго. Кроме того, будет проводиться оценка эффективности междисциплинарного подхода, интерпретация лабораторных исследований и дерматоскопической картины, наряду с возможностями современных методов лечения. ',
             speakers: [],
-            program: [],
             isOnlyOnline:true,
             isPassed:true,
         },
@@ -435,7 +293,6 @@ export default function Page({params}: any) {
             avatar: `/pages/events/novosib.jpeg`,
             announcement: 'Данная обучающая программа направлена на повышение квалификации врачей-специалистов с целью улучшения оказания специализированной медицинской помощи.',
             speakers: [],
-            program: [],
             isOnlyOnline:true,
             isPassed:true,
         },
@@ -453,7 +310,6 @@ export default function Page({params}: any) {
             avatar: `/pages/events/clinick.jpeg`,
             announcement: 'Данная обучающая программа направлена на повышение квалификации врачей-специалистов с целью улучшения оказания специализированной медицинской помощи.',
             speakers: [],
-            program: [],
             isOnlyOnline:true,
             isPassed:true,
         },
@@ -477,7 +333,6 @@ export default function Page({params}: any) {
                 'Присоединяйтесь и будьте вместе с нами!',
             description: 'В программе конференции собраны наиболее актуальные проблемы дерматологии детского возраста, такие как атопический дерматит, акне, системные и генетические болезни кожи, а также будут освещены инновационные возможности в лечении, диагностике и профилактике заболеваний кожи у детей.',
             speakers: [],
-            program: [],
             isOnlyOnline:true,
             isPassed:true,
         },
@@ -496,7 +351,6 @@ export default function Page({params}: any) {
                 '\n' +
                 'Цель проведения мероприятия - улучшение оказания специализированной помощи детскому населению с хроническими заболеваниями.',
             speakers: [],
-            program: [],
             isOnlyOnline:true,
             isPassed:true,
         },
@@ -540,38 +394,150 @@ export default function Page({params}: any) {
                 },
 
             ],
+
+            onlinePrice: 1,
+            offlinePrice:1500,
+
+            prices: [{
+                date: '31.08.22',
+                online: 1000,
+                offline: 1000,
+            },
+                {
+                    date: '31.09.22',
+                    online: 1500,
+                    offline: 1500,
+                },
+                {
+                    date: '31.10.22',
+                    online: 2000,
+                    offline: 2000,
+                }]
+
+        },
+        {
+            id: 10,
+            type: 'Конференция',
+            date: '23.09.2023',
+            timePeriod: '10:00-16:35',
+            name: 'I НАУЧНО-ПРАКТИЧЕСКАЯ КОНФЕРЕНЦИЯ «ПУТЬ ДЕТСКОЙ ДЕРМАТОЛОГИИ: ОТ ИСТОКОВ К ПЕРСПЕКТИВАМ. АТОПИЧЕСКИЙ ДЕРМАТИТ»',
+            place: 'г.Москва',
+            format: 'онлайн',
+            isOnlyOnline: true,
+            isStream:true,
+            participants: 256,
+            layoutBg: '/pages/new.png',
+            avatar: `/pages/new.png`,
+            announcement: 'В ходе конференции будут разобраны наиболее значимые патологии в дерматологии детского возраста, а именно атопический дерматит, формы заболевания и этапы диагностики, а также инновационные технологии терапии. Вас ожидают клинические разборы и детальное рассмотрение тактики ведения пациентов.',
+            description: 'Принять участие в работе конференции может любой специалист области дерматологии, а также смежных областей медицины с любого региона нашей страны.\n',
+            speakers: [
+                {
+                    name: 'Мурашкин Николай Николаевич',
+                    post: 'ПРЕЗИДЕНТ',
+                    contact: '/',
+                    description: 'Руководитель НИИ детской дерматологии,\n' +
+                        'Заведующий отделением дерматологии с группой лазерной хирургии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России,заведующий лабораторией патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России',
+                    photo: `${images}/murashkin.png`,
+                },
+                {
+                    name: 'Ковалевич Анастасия Владимировна',
+                    post: 'ЭКСПЕРТ',
+                    contact: '/',
+                    description: 'Руководитель НИИ детской дерматологии,\n' +
+                        'Заведующий отделением дерматологии с группой лазерной хирургии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России,заведующий лабораторией патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России',
+                    photo: `${images}/kovalevich.png`,
+                },
+                {
+                    name: 'Ковалевич 2 Анастасия Владимировна',
+                    post: 'ЭКСПЕРТ',
+                    contact: '/',
+                    description: 'Руководитель НИИ детской дерматологии,\n' +
+                        'Заведующий отделением дерматологии с группой лазерной хирургии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России,заведующий лабораторией патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России',
+                    photo: `${images}/kovalevich.png`,
+                },
+
+            ],
             program: [
                 {
-                    name: 'Открытие конференции',
-                    timePeriod: '10:00',
-                    speaker: 'Президент «Общества детских дерматологов» Н.Н. Мурашкин. Главный внештатный специалист дерматовенеролог и косметолог МЗ Алтайского края Зав. кафедрой дерматовенерологии, косметологии и иммунологии ФГБОУ ВО АГМУ МЗ РФ д.м.н. Ю.С. Ковалёва',
+                    name: 'Открытие конференции. Вступительное слово',
+                    timePeriod: '10:00-10:05',
 
                 },
                 {
-                    name: 'Демонстрация клинических случаев редких состояний и заболеваний кожи у детей (Интерактивное обсуждение)',
-                    timePeriod: '10:05-11:15',
-                    speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, Р.А. Иванов, А.А. Савелова',
-                    substages: [
-                        {
-                            name: 'Лечение псориаза у детей: реалии и перспективы',
-                            timePeriod: '10:45-11:00',
-                            description: 'При поддержке компании Johnson&Johnson. Баллы НМО не начисляются'
-                        },
-                        {
-                            name: 'Современные возможности ингибирования ИЛ-17 у детей с псориазом',
-                            timePeriod: '11:00-11:15',
-                        }
-                    ]
+                    name: 'Три наиболее значимые патологии детского возраста: общие черты и важные отличительные признаки',
+                    timePeriod: '10:05 – 10:20 ',
+                    speaker: 'д.м.н., профессор Мурашкин Н.Н.',},
+                {
+                    name: 'Атопический дерматит и витамин D: факты и спорные вопросы. ',
+                    timePeriod: '10:20 – 10:40',
+                    speaker: 'к.м.н. Иванов Р.А.',
                 },
                 {
-                    name: 'Демонстрация клинических случаев редких состояний и заболеваний кожи у детей (Интерактивное обсуждение)',
-                    timePeriod: '10:05-11:15',
-                    speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, Р.А. Иванов, А.А. Савелова',
+                    name: 'Вопросы транскутанной сенсибилизации в развитии пищевой аллергии у детей. ',
+                    timePeriod: '10:40 – 11:00 ',
+                    speaker: 'д.м.н., профессор Мурашкин Н.Н.',
+                },{
+                    name: 'Современные подходы к диагностике и лечению поллинозов и перекрестной пищевой аллергии у детей',
+                    timePeriod: '11:00 – 11:20 ',
+                    speaker: 'к.м.н. Ерешко О.А.',
+                },{
+                    name: 'Инновационные технологии лечения атопического дерматита: уникальные лекарственные формы наружных средств.',
+                    timePeriod: '11:20 – 11:35',
+                    speaker: 'к.м.н. Материкин А.И.',
+                },{
+                    name: 'ПЕРЕРЫВ',
+                    timePeriod: '11:35 – 11:50 ',
+                },{
+                    name: 'Когда говорит кожа – проблема атопического дерматита в области лица у детей и подростков: клинические проявления и методы эффективного воздействия',
+                    timePeriod: '11:50 – 12:20',
+                    speaker: 'д.м.н., профессор Мурашкин Н.Н.\n' +
+                        ' При поддержке компании LEO Pharma\n',
+                },{
+                    name: 'Аутоиммунные формы атопического дерматита у детей: что мы знаем об этом?',
+                    timePeriod: '12:20 – 12:40',
+                    speaker: 'к.м.н. Опрятин Л.А.',
+                },{
+                    name: 'Эффективность анти-IgE-терапии в лечении тяжелой бронхиальной астмы, осложненной повторными внебольничными пневмониями',
+                    timePeriod: '13:00 – 13:15',
+                    speaker: 'к.м.н. Ерешко О.А.',
                 },
                 {
-                    name: 'Демонстрация клинических случаев редких состояний и заболеваний кожи у детей (Интерактивное обсуждение)',
-                    timePeriod: '10:05-11:15',
-                    speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, Р.А. Иванов, А.А. Савелова',
+                    name: 'ПЕРЕРЫВ',
+                    timePeriod: '13:15 – 13:30 ',
+                },{
+                    name: 'Особенности течения и тактики ведения атопического дерматита, осложненного вторичной инфекцией.',
+                    timePeriod: '13:30 – 13:45 ',
+                    speaker: 'д.м.н., профессор Мурашкин Н.Н.',
+                },{
+                    name: 'Для чего нужна проактивная терапия при атопическом дерматите?',
+                    timePeriod: '13:45 – 14:15',
+                    speaker: 'д.м.н. Аравийская Е.Р.',
+                },{
+                    name: 'Клинический разбор: детальное рассмотрение тактики ведения пациентов на основании полученных знаний.',
+                    timePeriod: '14:15 – 14:45',
+                    speaker: 'к.м.н. Иванов Р.А.',
+                },{
+                    name: 'Клинико-генетические фенотипы и иммунологические аспекты врожденных ихтиозов',
+                    timePeriod: '14:45 – 15:15 ',
+                    speaker: 'Аветисян К.О.',
+                },
+                {
+                    name: 'ПЕРЕРЫВ',
+                    timePeriod: '15:15 – 15:30 ',
+                },
+                {
+                    name: 'Дерматологические аспекты глазокожного альбинизма.',
+                    timePeriod: '15:30 – 15:55',
+                    speaker: 'д.м.н., профессор Мурашкин Н.Н.',
+                },
+                {
+                    name: 'Ангидротическая эктодермальная дисплазия.',
+                    timePeriod: '15:55 – 16:30',
+                    speaker: 'к.м.н. Иванов Р.А.',
+                },
+                {
+                    name: 'Закрытие конференции.',
+                    timePeriod: '16:30 – 16:35',
                 },
 
             ],
@@ -596,6 +562,7 @@ export default function Page({params}: any) {
                 }]
 
         }
+
 
     ]
 
@@ -699,58 +666,61 @@ export default function Page({params}: any) {
             {/*    <img className={'absolute w-full asset left-0 z-50 bottom-[-0.5px]'} src={'/about_us_offset_bot.png'}/>*/}
             {/*</div>*/}
 
-            {/*<div className={'bg-white py-12 px-[20px] sm:px-[140px]'}>*/}
-            {/*    <p className={'uppercase font-extralight text-2xl sm:text-5xl text-black'}>Программа*/}
-            {/*        <br/><span className={'font-extrabold'}>Конференции</span></p>*/}
-            {/*    <div className={'flex mt-20 flex-col gap-14'}>*/}
-            {/*        {event.program.map((item: { name: string, timePeriod: string, speaker: string, substages?: { name: string, timePeriod: string, description: string, }[] }, counter) => {*/}
-            {/*            return (*/}
-            {/*                <div key={counter} className={'flex gap-8 flex-col'}>*/}
-            {/*                    <div className={'flex gap-2 sm:gap-6 flex-col sm:flex-row items-start'}>*/}
-            {/*                        <div className={'flex mr-4 items-center gap-2'}>*/}
-            {/*                            <img className={'w-4 sm:w-6 aspect-square'} src={`${images}/time.svg`}/>*/}
-            {/*                            <div*/}
-            {/*                                className={'text-sm sm:text-2xl text-green-two whitespace-nowrap contents font-bold'}>{item.timePeriod}</div>*/}
-            {/*                        </div>*/}
-            {/*                        <div className={'text-sm sm:text-2xl text-justify font-bold'}>{item.name}</div>*/}
-            {/*                    </div>*/}
-            {/*                    <div*/}
-            {/*                        className={'bg-[#DBEAE8] text-sm p-3 sm:px-14 sm:p-6 sm:text-xl rounded-lg flex items-center justify-start'}>*/}
-            {/*                        {item.speaker}*/}
-            {/*                    </div>*/}
-            {/*                    {item.substages ?*/}
-            {/*                        <div className={'p-3 sm:p-8'}>*/}
-            {/*                            {item.substages.map((substage,subCounter) => {*/}
-            {/*                                return (*/}
-            {/*                                    <div key={subCounter} className={'grid grid-cols-12 items-start'}>*/}
-            {/*                                        <div className={'col-span-1 flex relative items-center h-full flex-col justify-center'}>*/}
-            {/*                                            <div className={'sm:w-6 w-4 sm:h-6 h-4 absolute top-0 aspect-square rounded-full bg-green-two'}>*/}
+            {event.program ?<div className={'bg-white py-12 px-[20px] sm:px-[140px]'}>
+                <p className={'uppercase font-extralight text-2xl sm:text-5xl text-black'}>Программа
+                    <br/><span className={'font-extrabold'}>Конференции</span></p>
+                <div className={'flex mt-20 flex-col gap-14'}>
+                    {event.program.map((item: { name: string, timePeriod: string, speaker: string, substages?: { name: string, timePeriod: string, description: string, }[] }, counter:number) => {
+                        return (
+                            <div key={counter} className={'flex gap-8 flex-col'}>
+                                <div className={'flex sm:grid sm:grid-cols-12 gap-2 sm:gap-6 flex-col sm:flex-row items-start'}>
+                                    <div className={'col-span-2 mr-4 flex items-center gap-2'}>
+                                        <img className={'w-4 sm:w-6 aspect-square'} src={`${images}/time.svg`}/>
+                                        <div
+                                            className={'text-sm sm:text-2xl text-green-two whitespace-nowrap contents font-bold'}>{item.timePeriod}</div>
+                                    </div>
+                                    <div className={'text-sm col-span-10 sm:text-2xl text-justify font-bold'}>{item.name}</div>
+                                </div>
+                                {item.speaker?<div
+                                    className={'bg-[#DBEAE8] text-sm p-3 sm:px-14 sm:p-6 sm:text-xl rounded-lg flex items-center justify-start'}>
+                                    {item.speaker}
+                                </div>:null}
+                                {item.substages ?
+                                    <div className={'p-3 sm:p-8'}>
+                                        {item.substages.map((substage,subCounter) => {
+                                            if(item.substages){
+                                                return (
+                                                    <div key={subCounter} className={'grid grid-cols-12 items-start'}>
+                                                        <div className={'col-span-1 flex relative items-center h-full flex-col justify-center'}>
+                                                            <div className={'sm:w-6 w-4 sm:h-6 h-4 absolute top-0 aspect-square rounded-full bg-green-two'}>
 
-            {/*                                            </div>*/}
-            {/*                                            <div className={'h-full w-[2px] bg-green-two'}>*/}
+                                                            </div>
+                                                            <div className={'h-full w-[2px] bg-green-two'}>
 
-            {/*                                            </div>*/}
-            {/*                                        </div>*/}
-            {/*                                        <div className={classList('col-span-11 flex sm:gap-0 gap-3 h-fit flex-col',subCounter<item?.substages?.length-1?'pb-6 sm:pb-14':'')}>*/}
-            {/*                                            <p className={'sm:text-2xl text-sm w-full text-green-two contents font-bold'}>{substage?.timePeriod}</p>*/}
-            {/*                                            <p className={'sm:text-2xl text-sm w-full text-black font-bold'}>{substage?.name}</p>*/}
-            {/*                                            {substage?.description?<div*/}
-            {/*                                                className={'bg-[#DBEAE8] p-3 text-sm sm:px-14 sm:p-6 sm:text-xl rounded-lg flex items-center justify-start'}>*/}
-            {/*                                                {substage?.description}*/}
-            {/*                                            </div>:null}*/}
-            {/*                                        </div>*/}
-            {/*                                    </div>*/}
-            {/*                                )*/}
-            {/*                            })*/}
-            {/*                            }*/}
-            {/*                        </div>*/}
+                                                            </div>
+                                                        </div>
+                                                        <div className={classList('col-span-11 flex sm:gap-0 gap-3 h-fit flex-col',subCounter<item?.substages?.length-1?'pb-6 sm:pb-14':'')}>
+                                                            <p className={'sm:text-2xl text-sm w-full text-green-two contents font-bold'}>{substage?.timePeriod}</p>
+                                                            <p className={'sm:text-2xl text-sm w-full text-black font-bold'}>{substage?.name}</p>
+                                                            {substage?.description?<div
+                                                                className={'bg-[#DBEAE8] p-3 text-sm sm:px-14 sm:p-6 sm:text-xl rounded-lg flex items-center justify-start'}>
+                                                                {substage?.description}
+                                                            </div>:null}
+                                                        </div>
+                                                    </div>
+                                                )
 
-            {/*                        : null}*/}
-            {/*                </div>*/}
-            {/*            )*/}
-            {/*        })}*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+                                            }
+                                        })
+                                        }
+                                    </div>
+
+                                    : null}
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>:null}
 
             {/*<div className={'bg-[#F2F9F8] relative py-12 sm:py-40 flex items-center px-[20px]'}>*/}
             {/*    <img className={'absolute left-0 -top-1'} src={`/pages/main/about_us_offset.png`}*/}
@@ -867,6 +837,73 @@ export default function Page({params}: any) {
                     </div>
                 </PopUp>:null}
             </div>:null}
+
+
+
+            {event.isStream?<div className={'bg-white relative sm:py-0 py-12 px-[20px] sm:px-[140px] sm:h-[600px]'}>
+                <div id={'form'} className={'absolute -top-40'}></div>
+                <div className={'flex sm:mt-7 items-center px-[20px] sm:px-[140px] justify-center sm:justify-center'}>
+                    <motion.p initial={{y: -40, opacity: 0}}
+                              whileInView={{y: 0, opacity: 1}}
+                              viewport={{once: true}}
+                              transition={{ease: 'easeInOut', duration: 0.7}}
+                              className={'uppercase font-extralight text-black sm:text-left text-left text-2xl sm:text-4xl'}>Зарегистрироваться <strong
+                        className={'font-extrabold'}>На онлайн трансляцию</strong></motion.p>
+                </div>
+                <div className={classList('grid grid-cols-1 gap-9 mt-10',event.prices?'sm:flex sm:justify-center':'sm:grid-cols-2')}>
+                    {event.prices?<div className={'flex flex-col items-center gap-8'}>
+                        <div
+                            className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
+                            <div className={'flex items-center gap-3'}>
+                                <img className={'w-7 aspect-square'} src={'/online.svg'}/>
+                                <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
+                            </div>
+                            <p className={'text-3xl sm:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
+                            <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции в день мероприятия</p>
+                        </div>
+                        <div onClick={()=>{setIsConfirmPopOpen(true);setCurrentPrice(0);setParticipationType('online-free')}}
+                             className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                            Подтвердить участие
+                        </div>
+                    </div>:null}
+                </div>
+                {isConfirmPopOpen?<PopUp icon={'/confirm.svg'} closeFunc={()=>{{setIsConfirmPopOpen(false)}}}>
+                    <ConfirmForm query={query} participationType={participationType} closeFunc={()=>{setIsConfirmPopOpen(false)}} price={currentPrice} event_id={event.id} event_name={event.name}></ConfirmForm>
+                </PopUp>:null}
+
+                {isPopPriceOpen?<PopUp icon={'/price.svg'} closeFunc={()=>{{setIsPopPriceOpen(false)}}}>
+                    <div className={'flex gap-4 h-full flex-col'}>
+                        <p className={'text-[#0F5F5A] text-2xl sm:text-4xl font-light'}>ГРАФИК <br/> <span className={'font-extrabold'}>СТОИМОСТИ</span></p>
+                        <div className={'grid p-2 w-full grid-cols-2'}>
+                            <div className={'text-[#0F5F5A] font-light flex items-center '}>
+                                Дата
+                            </div>
+                            <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
+                                <p className={'text-[#0F5F5A] font-light'}>Стоимость</p>
+                            </div>
+                        </div>
+                        {event.prices.map((item:any,counter:any)=>{
+                            return (
+                                <div key={counter} className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-2'}>
+                                    <div className={'text-[#0F5F5A] font-light flex items-center '}>
+                                        {item.date}
+                                    </div>
+                                    <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
+                                        <p className={'text-[#0F5F5A] font-light'}>{item.offline} рублей</p>
+                                    </div>
+                                </div>
+                            )
+                        })}
+
+                        <div className={'w-full grid grid-cols-2 gap-3'}>
+                            <div onClick={()=>{setIsPopPriceOpen(false)}}
+                                 className={'p-4 cursor-pointer bg-green-two text-white text-sm font-light rounded-xl flex items-center justify-center'}>Вернуться к мероприятию</div>
+                        </div>
+                    </div>
+                </PopUp>:null}
+            </div>:null}
+
+
             <div className={'bg-white sm:py-0 py-12 sm:h-[600px]'}>
                 <div className={'flex sm:mt-7 items-center px-[20px] sm:px-[140px] justify-center sm:justify-between'}>
                     <motion.p initial={{x: -40, opacity: 0}}

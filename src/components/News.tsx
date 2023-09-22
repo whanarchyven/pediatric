@@ -45,6 +45,13 @@ const News = () => {
             date:'17.10-18.10',
             image:'/pages/events/ekb_bg.jpeg'
         },
+        {
+            id:11,
+            type:'Конференция',
+            name:'I НАУЧНО-ПРАКТИЧЕСКАЯ КОНФЕРЕНЦИЯ «ПУТЬ ДЕТСКОЙ ДЕРМАТОЛОГИИ: ОТ ИСТОКОВ К ПЕРСПЕКТИВАМ. АТОПИЧЕСКИЙ ДЕРМАТИТ»',
+            date:'23.09',
+            image:'/pages/new.png'
+        },
 
 
     ]
@@ -66,7 +73,7 @@ const News = () => {
                             spaceBetween: 10
                         },
                         640:{
-                            slidesPerView:2,
+                            slidesPerView:3,
                             spaceBetween:70
                         }
                     }}

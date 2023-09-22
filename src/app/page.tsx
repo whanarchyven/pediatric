@@ -644,7 +644,7 @@ export default function Home() {
                             <p className={'text-xl leading-[100%]'}>Иметь доступ к образовательным материалам российских
                                 и зарубежных специалистов.</p>
                         </motion.div>
-                        <Link href={'/registration'}>
+                        <Link className={'w-full'} href={'/registration'}>
                             <motion.div initial={{y: -40, opacity: 0}}
                                         whileInView={{y: 0, opacity: 1}}
                                         viewport={{once: true}}
