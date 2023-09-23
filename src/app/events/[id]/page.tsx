@@ -357,16 +357,18 @@ export default function Page({params}: any) {
         {
             id: 9,
             type: 'Конференция',
-            date: '11.11.2023',
-            timePeriod: '10:00',
-            name: 'Собрание Иванов Пупкиных',
-            place: 'г.Москва, кластер "Ломоносов"',
-            format: 'онлайн + офлайн',
-            participants: 684,
-            layoutBg: '/pages/main/main_bg.png',
-            avatar: `/conference_avatar.png`,
-            announcement: '11 ноября 2023 г.  на площадке новой технологической долины МГУ в центре Москвы для мероприятий цифровой направленности, посвященных прорывным инновациям и новым трендам в мире здравоохранения, состоится главное событие 2023 года - IX Всероссийская научно-практическая конференция с международным участием «Дерматологические чтения в педиатрии».',
-            description: 'В рамках научной программы конференции будут обсуждаться наиболее актуальные проблемы дерматологии детского возраста, наряду с разбором редких клинических ситуаций и представлением результатов последних мировых научных исследований.\n Особое внимание будет уделено современному ведению пациентов с генодерматозами, аутоиммунными и аутовоспалительными кожными патологиями, а также дерматоскопической диагностике и тактике лечения различных новообразований кожи у детей. Кроме того, будут рассматриваться современные тенденции терапии атопического дерматита, вульгарных акне и ассоциированных с акне синдромов, андрогенетической и гнездной алопеции. Отдельные доклады посвящены дифференциальной диагностике многочисленных заболеваний кожи у детей, исходя из имеющихся поражений слизистой оболочки полости рта или изменения ногтевых пластин. Также подготовлены интересные сообщения о случаях аутоиммунного прогестеронового дерматита у подростков и различных реакциях кожи, связанных с нанесением татуировок.',
+            date: '23.09.2023',
+            timePeriod: '10:00-16:35',
+            name: 'I НАУЧНО-ПРАКТИЧЕСКАЯ КОНФЕРЕНЦИЯ «ПУТЬ ДЕТСКОЙ ДЕРМАТОЛОГИИ: ОТ ИСТОКОВ К ПЕРСПЕКТИВАМ. АТОПИЧЕСКИЙ ДЕРМАТИТ»',
+            place: 'г.Москва',
+            format: 'онлайн',
+            isOnlyOnline: true,
+            isStream:true,
+            participants: 256,
+            layoutBg: '/pages/new.png',
+            avatar: `/pages/new.png`,
+            announcement: 'В ходе конференции будут разобраны наиболее значимые патологии в дерматологии детского возраста, а именно атопический дерматит, формы заболевания и этапы диагностики, а также инновационные технологии терапии. Вас ожидают клинические разборы и детальное рассмотрение тактики ведения пациентов.',
+            description: 'Принять участие в работе конференции может любой специалист области дерматологии, а также смежных областей медицины с любого региона нашей страны.\n',
             speakers: [
                 {
                     name: 'Мурашкин Николай Николаевич',
@@ -391,6 +393,90 @@ export default function Page({params}: any) {
                     description: 'Руководитель НИИ детской дерматологии,\n' +
                         'Заведующий отделением дерматологии с группой лазерной хирургии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России,заведующий лабораторией патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России',
                     photo: `${images}/kovalevich.png`,
+                },
+
+            ],
+            program: [
+                {
+                    name: 'Открытие конференции. Вступительное слово',
+                    timePeriod: '10:00-10:05',
+
+                },
+                {
+                    name: 'Три наиболее значимые патологии детского возраста: общие черты и важные отличительные признаки',
+                    timePeriod: '10:05 – 10:20 ',
+                    speaker: 'д.м.н., профессор Мурашкин Н.Н.',},
+                {
+                    name: 'Атопический дерматит и витамин D: факты и спорные вопросы. ',
+                    timePeriod: '10:20 – 10:40',
+                    speaker: 'к.м.н. Иванов Р.А.',
+                },
+                {
+                    name: 'Вопросы транскутанной сенсибилизации в развитии пищевой аллергии у детей. ',
+                    timePeriod: '10:40 – 11:00 ',
+                    speaker: 'д.м.н., профессор Мурашкин Н.Н.',
+                },{
+                    name: 'Современные подходы к диагностике и лечению поллинозов и перекрестной пищевой аллергии у детей',
+                    timePeriod: '11:00 – 11:20 ',
+                    speaker: 'к.м.н. Ерешко О.А.',
+                },{
+                    name: 'Инновационные технологии лечения атопического дерматита: уникальные лекарственные формы наружных средств.',
+                    timePeriod: '11:20 – 11:35',
+                    speaker: 'к.м.н. Материкин А.И.',
+                },{
+                    name: 'ПЕРЕРЫВ',
+                    timePeriod: '11:35 – 11:50 ',
+                },{
+                    name: 'Когда говорит кожа – проблема атопического дерматита в области лица у детей и подростков: клинические проявления и методы эффективного воздействия',
+                    timePeriod: '11:50 – 12:20',
+                    speaker: 'д.м.н., профессор Мурашкин Н.Н.\n' +
+                        ' При поддержке компании LEO Pharma\n',
+                },{
+                    name: 'Аутоиммунные формы атопического дерматита у детей: что мы знаем об этом?',
+                    timePeriod: '12:20 – 12:40',
+                    speaker: 'к.м.н. Опрятин Л.А.',
+                },{
+                    name: 'Эффективность анти-IgE-терапии в лечении тяжелой бронхиальной астмы, осложненной повторными внебольничными пневмониями',
+                    timePeriod: '13:00 – 13:15',
+                    speaker: 'к.м.н. Ерешко О.А.',
+                },
+                {
+                    name: 'ПЕРЕРЫВ',
+                    timePeriod: '13:15 – 13:30 ',
+                },{
+                    name: 'Особенности течения и тактики ведения атопического дерматита, осложненного вторичной инфекцией.',
+                    timePeriod: '13:30 – 13:45 ',
+                    speaker: 'д.м.н., профессор Мурашкин Н.Н.',
+                },{
+                    name: 'Для чего нужна проактивная терапия при атопическом дерматите?',
+                    timePeriod: '13:45 – 14:15',
+                    speaker: 'д.м.н. Аравийская Е.Р.',
+                },{
+                    name: 'Клинический разбор: детальное рассмотрение тактики ведения пациентов на основании полученных знаний.',
+                    timePeriod: '14:15 – 14:45',
+                    speaker: 'к.м.н. Иванов Р.А.',
+                },{
+                    name: 'Клинико-генетические фенотипы и иммунологические аспекты врожденных ихтиозов',
+                    timePeriod: '14:45 – 15:15 ',
+                    speaker: 'Аветисян К.О.',
+                },
+                {
+                    name: 'ПЕРЕРЫВ',
+                    timePeriod: '15:15 – 15:30 ',
+                },
+                {
+                    name: 'Дерматологические аспекты глазокожного альбинизма.',
+                    timePeriod: '15:30 – 15:55',
+                    speaker: 'д.м.н., профессор Мурашкин Н.Н.',
+                },
+                {
+                    name: 'Ангидротическая эктодермальная дисплазия.',
+                    timePeriod: '15:55 – 16:30',
+                    speaker: 'к.м.н. Иванов Р.А.',
+                },
+                {
+                    name: 'Закрытие конференции.',
+                    timePeriod: '16:30 – 16:35',
                 },
 
             ],
@@ -490,8 +576,7 @@ export default function Page({params}: any) {
                 },{
                     name: 'Когда говорит кожа – проблема атопического дерматита в области лица у детей и подростков: клинические проявления и методы эффективного воздействия',
                     timePeriod: '11:50 – 12:20',
-                    speaker: 'д.м.н., профессор Мурашкин Н.Н.\n' +
-                        ' При поддержке компании LEO Pharma\n',
+                    speaker: 'д.м.н., профессор Мурашкин Н.Н. При поддержке компании LEO Pharma',
                 },{
                     name: 'Аутоиммунные формы атопического дерматита у детей: что мы знаем об этом?',
                     timePeriod: '12:20 – 12:40',
@@ -683,7 +768,7 @@ export default function Page({params}: any) {
                                 </div>
                                 {item.speaker?<div
                                     className={'bg-[#DBEAE8] text-sm p-3 sm:px-14 sm:p-6 sm:text-xl rounded-lg flex items-center justify-start'}>
-                                    {item.speaker}
+                                    {item.speaker=='д.м.н., профессор Мурашкин Н.Н. При поддержке компании LEO Pharma'?<p>д.м.н., профессор Мурашкин Н.Н. <span className={'font-bold'}>При поддержке компании LEO Pharma</span></p>:item.speaker}
                                 </div>:null}
                                 {item.substages ?
                                     <div className={'p-3 sm:p-8'}>
@@ -840,33 +925,25 @@ export default function Page({params}: any) {
 
 
 
-            {event.isStream?<div className={'bg-white relative sm:py-0 py-12 px-[20px] sm:px-[140px] sm:h-[600px]'}>
+            {event.isStream?<div className={'bg-white relative sm:py-0 py-12 px-[20px] sm:px-[140px] '}>
                 <div id={'form'} className={'absolute -top-40'}></div>
                 <div className={'flex sm:mt-7 items-center px-[20px] sm:px-[140px] justify-center sm:justify-center'}>
                     <motion.p initial={{y: -40, opacity: 0}}
                               whileInView={{y: 0, opacity: 1}}
                               viewport={{once: true}}
                               transition={{ease: 'easeInOut', duration: 0.7}}
-                              className={'uppercase font-extralight text-black sm:text-left text-left text-2xl sm:text-4xl'}>Зарегистрироваться <strong
-                        className={'font-extrabold'}>На онлайн трансляцию</strong></motion.p>
+                              className={'uppercase font-extralight text-black sm:text-left text-center text-left text-2xl sm:text-4xl'}>Онлайн-трансляция <strong
+                        className={'font-extrabold'}>мероприятия</strong></motion.p>
                 </div>
-                <div className={classList('grid grid-cols-1 gap-9 mt-10',event.prices?'sm:flex sm:justify-center':'sm:grid-cols-2')}>
-                    {event.prices?<div className={'flex flex-col items-center gap-8'}>
-                        <div
-                            className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
-                            <div className={'flex items-center gap-3'}>
-                                <img className={'w-7 aspect-square'} src={'/online.svg'}/>
-                                <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
-                            </div>
-                            <p className={'text-3xl sm:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
-                            <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции в день мероприятия</p>
-                        </div>
-                        <div onClick={()=>{setIsConfirmPopOpen(true);setCurrentPrice(0);setParticipationType('online-free')}}
-                             className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
-                            Подтвердить участие
-                        </div>
-                    </div>:null}
+
+                <div className={'sm:flex items-center hidden my-12 justify-center'}>
+                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/0OOxapHpFKU" title="I НПК «Путь детской дерматологии: от истоков к перспективам. Атопический дерматит»" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                 </div>
+
+                <div className={'sm:hidden items-center flex my-12 justify-center'}>
+                    <iframe width="320" height="240" src="https://www.youtube.com/embed/0OOxapHpFKU" title="I НПК «Путь детской дерматологии: от истоков к перспективам. Атопический дерматит»" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                </div>
+
                 {isConfirmPopOpen?<PopUp icon={'/confirm.svg'} closeFunc={()=>{{setIsConfirmPopOpen(false)}}}>
                     <ConfirmForm query={query} participationType={participationType} closeFunc={()=>{setIsConfirmPopOpen(false)}} price={currentPrice} event_id={event.id} event_name={event.name}></ConfirmForm>
                 </PopUp>:null}

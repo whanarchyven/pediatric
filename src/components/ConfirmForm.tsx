@@ -630,11 +630,12 @@ a[x-apple-data-detectors] {
         <div className={'flex gap-4 h-full flex-col'}>
             <p className={'text-[#0F5F5A] text-2xl sm:text-4xl font-light'}>ВЫ ПОДТВЕРЖДАЕТЕ <br/> <span
                 className={'font-extrabold'}>СВОЕ УЧАСТИЕ?</span></p>
-            <p className={'text-[#0F5F5A] text-lg sm:text-xl'}>После подтверждения участия в мероприятии произойдет
+            {participationType=='online-free'?<p className={'text-[#0F5F5A] text-lg sm:text-xl'}>Рекомендуем проверить правильность выбора формата мероприятия перед подтверждением.
+                </p>:<p className={'text-[#0F5F5A] text-lg sm:text-xl'}>После подтверждения участия в мероприятии произойдет
                 оплата стоимости билета.
                 <br/>
                 <br/>
-                Рекомендуем проверить правильность выбора формата мероприятия перед подтверждением.</p>
+                Рекомендуем проверить правильность выбора формата мероприятия перед подтверждением.</p>}
             <div className={'flex flex-col gap-2 w-full'}>
                 <p className={'text-sm sm:text-xl font-light'}>ФИО<sup className={'text-red '}>*</sup></p>
                 <input value={name} onChange={(event) => {
