@@ -944,6 +944,24 @@ export default function Page({params}: any) {
                     <iframe width="320" height="240" src="https://www.youtube.com/embed/0OOxapHpFKU" title="I НПК «Путь детской дерматологии: от истоков к перспективам. Атопический дерматит»" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
                 </div>
 
+                <div className={classList('grid grid-cols-1 gap-9 mt-10',event.prices?'sm:flex sm:justify-center':'sm:grid-cols-2')}>
+                    {event.prices?<div className={'flex flex-col items-center gap-8'}>
+                        <div
+                            className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
+                            <div className={'flex items-center gap-3'}>
+                                <img className={'w-7 aspect-square'} src={'/online.svg'}/>
+                                <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
+                            </div>
+                            <p className={'text-3xl sm:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
+                            <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции в день мероприятия</p>
+                        </div>
+                        <div onClick={()=>{setIsConfirmPopOpen(true);setCurrentPrice(0);setParticipationType('online-free')}}
+                             className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                            Подтвердить участие
+                        </div>
+                    </div>:null}
+                </div>
+
                 {isConfirmPopOpen?<PopUp icon={'/confirm.svg'} closeFunc={()=>{{setIsConfirmPopOpen(false)}}}>
                     <ConfirmForm query={query} participationType={participationType} closeFunc={()=>{setIsConfirmPopOpen(false)}} price={currentPrice} event_id={event.id} event_name={event.name}></ConfirmForm>
                 </PopUp>:null}
