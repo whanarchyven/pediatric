@@ -506,7 +506,7 @@ export default function Page({params}: any) {
             type: 'Конференция',
             date: '23.09.2023',
             timePeriod: '10:00-16:35',
-            name: 'I НАУЧНО-ПРАКТИЧЕСКАЯ КОНФЕРЕНЦИЯ «ПУТЬ ДЕТСКОЙ ДЕРМАТОЛОГИИ: ОТ ИСТОКОВ К ПЕРСПЕКТИВАМ. АТОПИЧЕСКИЙ ДЕРМАТИТ»',
+            name: 'I научно-практическая конференция «Путь детской дерматологии: от истоков к перспективам. атопический дерматит»',
             place: 'г.Москва',
             format: 'онлайн',
             isOnlyOnline: true,
@@ -998,6 +998,7 @@ export default function Page({params}: any) {
                 </PopUp>:null}
             </div>:null}
 
+            {event.date=='11.11.2023'?<a className={'text-dark-green font-bold px-[20px] sm:px-[140px]'} target={'_blank'} href={'/kpfile.pdf'}>Коммерческое предложение</a>:null}
 
             <div className={'bg-white sm:py-0 py-12 sm:h-[600px]'}>
                 <div className={'flex sm:mt-7 items-center px-[20px] sm:px-[140px] justify-center sm:justify-between'}>

@@ -30,29 +30,62 @@ const News = () => {
 
     const news = [
         {
-            image: '/pages/main/partners/ispd.png'
+            image: '/pages/main/partners/ispd.png',
+            link:'https://www.ispedderm.com/'
         },
         {
-            image: '/pages/main/partners/дети бела.jpg'
+            image: '/pages/main/partners/ESPD лого.jpg',
+            link:'https://www.espd.info/'
         },
         {
-            image: '/pages/main/partners/родвк.png'
+            image: '/pages/main/partners/дети бела.jpg',
+            link:'https://deti-bela.ru/'
         },
         {
-            image: '/pages/main/partners/спр.png'
+            image: '/pages/main/partners/родвк.png',
+            link:'https://www.rodv.ru/'
         },
         {
-            image: '/pages/main/partners/ispd.png'
+            image: '/pages/main/partners/спр.png',
+            link:'https://www.pediatr-russia.ru/'
         },
         {
-            image: '/pages/main/partners/дети бела.jpg'
+            image: '/pages/main/partners/Ассоциация здоровье детей.png',
+            link:''
         },
         {
-            image: '/pages/main/partners/родвк.png'
+            image: '/pages/main/partners/НЦЗД.jpg',
+            link:''
         },
         {
-            image: '/pages/main/partners/спр.png'
+            image: '/pages/main/partners/ispd.png',
+            link:'https://www.ispedderm.com/'
         },
+        {
+            image: '/pages/main/partners/ESPD лого.jpg',
+            link:'https://www.espd.info/'
+        },
+        {
+            image: '/pages/main/partners/дети бела.jpg',
+            link:'https://deti-bela.ru/'
+        },
+        {
+            image: '/pages/main/partners/родвк.png',
+            link:'https://www.rodv.ru/'
+        },
+        {
+            image: '/pages/main/partners/спр.png',
+            link:'https://www.pediatr-russia.ru/'
+        },
+        {
+            image: '/pages/main/partners/Ассоциация здоровье детей.png',
+            link:''
+        },
+        {
+            image: '/pages/main/partners/НЦЗД.jpg',
+            link:''
+        },
+
     ]
 
     return (
@@ -81,11 +114,15 @@ const News = () => {
                 {news.map((item, counter) => {
                     return (
                         <SwiperSlide className={'relative group'} key={counter}>
-                            <div className={'rounded-lg overflow-hidden'}>
+                            {item.link!=''?<Link href={item.link} className={'rounded-lg cursor-pointer overflow-hidden'}>
                                 <img
                                     className={'transition-all cursor-pointer duration-300 h-60 object-contain w-full sm:group-hover:scale-125'}
                                     src={item.image}/>
-                            </div>
+                            </Link>:<div className={'rounded-lg cursor-pointer overflow-hidden'}>
+                                <img
+                                    className={'transition-all cursor-pointer duration-300 h-60 object-contain w-full sm:group-hover:scale-125'}
+                                    src={item.image}/>
+                            </div>}
                         </SwiperSlide>
                     )
                 })}
