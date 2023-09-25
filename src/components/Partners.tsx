@@ -30,59 +30,59 @@ const News = () => {
 
     const news = [
         {
-            image: '/pages/main/partners/ispd.png',
+            image: '/pages/main/partners/ispd1.png',
             link:'https://www.ispedderm.com/'
         },
         {
-            image: '/pages/main/partners/ESPD лого.jpg',
+            image: '/pages/main/partners/ESPD1 лого.jpg',
             link:'https://www.espd.info/'
         },
         {
-            image: '/pages/main/partners/дети бела.jpg',
+            image: '/pages/main/partners/дети бела1.jpg',
             link:'https://deti-bela.ru/'
         },
         {
-            image: '/pages/main/partners/родвк.png',
+            image: '/pages/main/partners/родвк1.png',
             link:'https://www.rodv.ru/'
         },
         {
-            image: '/pages/main/partners/спр.png',
+            image: '/pages/main/partners/спр1.png',
             link:'https://www.pediatr-russia.ru/'
         },
         {
-            image: '/pages/main/partners/Ассоциация здоровье детей.png',
+            image: '/pages/main/partners/Ассоциация здоровье детей1.png',
             link:''
         },
         {
-            image: '/pages/main/partners/НЦЗД.jpg',
+            image: '/pages/main/partners/НЦЗД1.jpg',
             link:''
         },
         {
-            image: '/pages/main/partners/ispd.png',
+            image: '/pages/main/partners/ispd1.png',
             link:'https://www.ispedderm.com/'
         },
         {
-            image: '/pages/main/partners/ESPD лого.jpg',
+            image: '/pages/main/partners/ESPD1 лого.jpg',
             link:'https://www.espd.info/'
         },
         {
-            image: '/pages/main/partners/дети бела.jpg',
+            image: '/pages/main/partners/дети бела1.jpg',
             link:'https://deti-bela.ru/'
         },
         {
-            image: '/pages/main/partners/родвк.png',
+            image: '/pages/main/partners/родвк1.png',
             link:'https://www.rodv.ru/'
         },
         {
-            image: '/pages/main/partners/спр.png',
+            image: '/pages/main/partners/спр1.png',
             link:'https://www.pediatr-russia.ru/'
         },
         {
-            image: '/pages/main/partners/Ассоциация здоровье детей.png',
+            image: '/pages/main/partners/Ассоциация здоровье детей1.png',
             link:''
         },
         {
-            image: '/pages/main/partners/НЦЗД.jpg',
+            image: '/pages/main/partners/НЦЗД1.jpg',
             link:''
         },
 
