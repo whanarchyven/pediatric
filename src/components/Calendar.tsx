@@ -110,7 +110,7 @@ const Calendar = () => {
         }
     }
 
-    const [currentMonth, setCurrentMonth] = useState(months[7])
+    const [currentMonth, setCurrentMonth] = useState(months[9])
 
     const [days, setDays] = useState(getDaysArray(2023, currentMonth.id))
 
@@ -146,7 +146,16 @@ const Calendar = () => {
             timePeriod: '10:00',
             image: `/pages/events/ekb_bg.jpeg`,
             link: '/events/2'
-        }],
+        },
+            {
+                day: 7,
+                type: 'Конференция',
+                title: 'II научно-практическая конференция «Путь детской дерматологии: от истоков к перспективам»',
+                subtitle: 'онлайн конференция',
+                timePeriod: '10:00-15:30',
+                image: `/pages/new.png`,
+                link: '/events/12'
+            },],
         nov: [{
             day: 11,
             type: 'Конференция',

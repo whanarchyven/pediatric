@@ -121,9 +121,12 @@ export default function Page({params}: any) {
                     timePeriod: '11:10 – 11:30',
                     speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, к.м.н Л.А. Опрятин, к.м.н М.А. Леонова',
                 }, {
-                    name: 'ПЕРЕРЫВ',
+                    name: 'ПЕРЕРЫВ (ответы на вопросы)',
                     timePeriod: '11:30 – 11:45',
-                }, {
+                },
+                {
+                    name: 'I СИМПОЗИУМ ',
+                },{
                     name: 'Дерматологические аспекты хронических воспалительных \nзаболеваний пилосебацейного комплекса у детей',
                     timePeriod: '11:45 – 13:15',
                     substages: [
@@ -154,9 +157,12 @@ export default function Page({params}: any) {
                         }
                     ]
                 }, {
-                    name: 'ПЕРЕРЫВ',
+                    name: 'ПЕРЕРЫВ (ответы на вопросы)',
                     timePeriod: '13:15 – 13:45',
-                }, {
+                },
+                {
+                    name: 'II СИМПОЗИУМ ',
+                },{
                     name: 'Фронтиры дерматологической науки: оригинальные взгляды на актуальные темы',
                     timePeriod: '13:45 – 15:15',
                     substages: [
@@ -178,8 +184,11 @@ export default function Page({params}: any) {
                     ]
                 },
                 {
-                    name: 'ПЕРЕРЫВ',
+                    name: 'ПЕРЕРЫВ (ответы на вопросы)',
                     timePeriod: '15:15 – 15:30',
+                },
+                {
+                    name: 'III СИМПОЗИУМ ',
                 },
                 {
                     name: 'Растущие с атопическим дерматитом: новые горизонты и предотвращение осложнений',
@@ -204,8 +213,11 @@ export default function Page({params}: any) {
 
                 },
                 {
-                    name: 'ПЕРЕРЫВ',
+                    name: 'ПЕРЕРЫВ (ответы на вопросы)',
                     timePeriod: '17:00 – 17:15',
+                },
+                {
+                    name: 'IV СИМПОЗИУМ ',
                 },{
                     name: 'Дерматология 2.0: финальные открытия и научные дебаты',
                     timePeriod: '17:15 – 18:45',
@@ -237,6 +249,9 @@ export default function Page({params}: any) {
 
             program2: [
                 {
+                    name: 'I СИМПОЗИУМ ',
+                },
+                {
                     name: 'Новые главы в диагностике и терапии новообразований кожи в детском возрасте',
                     timePeriod: '11:45 – 13:15',
                     substages: [
@@ -264,12 +279,20 @@ export default function Page({params}: any) {
                             name: 'Дерматологические проявления опухолей системы крови',
                             timePeriod: '12:45 – 13:00',
                             description: 'д.м.н. Т.Т. Валиев'
+                        },
+                        {
+                            name: 'Грибовидный микоз у детей',
+                            timePeriod: '13:00 – 13:15',
+                            description: 'к.м.н. Л.А. Опрятин'
                         }
                     ]
                 }, {
-                    name: 'ПЕРЕРЫВ',
+                    name: 'ПЕРЕРЫВ (ответы на вопросы)',
                     timePeriod: '13:15 – 13:45',
-                }, {
+                },
+                {
+                    name: 'II СИМПОЗИУМ ',
+                },{
                     name: 'Дерматология неопределенности: сложные заболевания с неясной этиологией',
                     timePeriod: '13:45 – 15:15',
                     substages: [
@@ -306,8 +329,11 @@ export default function Page({params}: any) {
                     ]
                 },
                 {
-                    name: 'ПЕРЕРЫВ',
+                    name: 'ПЕРЕРЫВ (ответы на вопросы)',
                     timePeriod: '15:15 – 15:30',
+                },
+                {
+                    name: 'III СИМПОЗИУМ ',
                 },
                 {
                     name: 'От зеркала к микроскопу: погружение в мир дерматоскопии',
@@ -890,7 +916,162 @@ export default function Page({params}: any) {
                     offline: 2000,
                 }]
 
+        },
+        {
+            id: 11,
+            type: 'Конференция',
+            date: '07.10.2023',
+            timePeriod: '10:00-15:30',
+            name: 'II НАУЧНО-ПРАКТИЧЕСКАЯ КОНФЕРЕНЦИЯ «ПУТЬ ДЕТСКОЙ ДЕРМАТОЛОГИИ: ОТ ИСТОКОВ К ПЕРСПЕКТИВАМ»',
+            place: 'г.Москва',
+            format: 'онлайн',
+            isOnlyOnline: true,
+            isStream: true,
+            participants: 1256,
+            layoutBg: '/pages/new.png',
+            avatar: `/pages/new.png`,
+            announcement: 'В ходе конференции будут разобраны наиболее значимые патологии в дерматологии детского возраста, а именно атопический дерматит, пустулезный псориаз, красный волосяной лишай Девержи, врожденный буллезный эпидермолиз, а также инновационные технологии системной терапии. Вас ожидают клинические разборы и детальное рассмотрение тактики ведения пациентов.',
+            description: 'Принять участие в работе конференции может любой специалист области дерматологии, а также смежных областей медицины с любого региона нашей страны.',
+            speakers: [
+                {
+                    name: 'Мурашкин Николай Николаевич',
+                    post: 'ПРЕЗИДЕНТ',
+                    contact: '/',
+                    description: 'Руководитель НИИ детской дерматологии,\n' +
+                        'Заведующий отделением дерматологии с группой лазерной хирургии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России,заведующий лабораторией патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России',
+                    photo: `${images}/murashkin.png`,
+                },
+                {
+                    name: 'Ковалевич Анастасия Владимировна',
+                    post: 'ЭКСПЕРТ',
+                    contact: '/',
+                    description: 'Руководитель НИИ детской дерматологии,\n' +
+                        'Заведующий отделением дерматологии с группой лазерной хирургии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России,заведующий лабораторией патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России',
+                    photo: `${images}/kovalevich.png`,
+                },
+                {
+                    name: 'Ковалевич 2 Анастасия Владимировна',
+                    post: 'ЭКСПЕРТ',
+                    contact: '/',
+                    description: 'Руководитель НИИ детской дерматологии,\n' +
+                        'Заведующий отделением дерматологии с группой лазерной хирургии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России,заведующий лабораторией патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России',
+                    photo: `${images}/kovalevich.png`,
+                },
+
+            ],
+            program: [
+                {
+                    name: 'Открытие конференции. Вступительное слово',
+                    timePeriod: '10:00-10:05',
+
+                },
+                {
+                    name: 'Нарушения барьерных свойств кожи при атопическом дерматите: роль филаггрина и возможности терапии',
+                    timePeriod: '10:05 – 10:25 ',
+                    speaker: 'д.м.н., профессор Круглова Л.С.',
+                    sponsor:'Reddy\'s Laboratories'
+                },
+                {
+                    name: 'Системные заболевания детского возраста: что должен знать дерматолог?',
+                    timePeriod: '10:25 – 10:45',
+                    speaker: 'к.м.н. Опрятин Л.А.',
+                },
+                {
+                    name: 'Пустулезный псориаз у детей.',
+                    timePeriod: '10:45 – 11:05',
+                    speaker: 'к.м.н. Епишев Р.В.',
+                },
+                {
+                    name: 'ПЕРЕРЫВ',
+                    timePeriod: '11:05 – 11:20',
+                },{
+                    name: 'Дифференцированный подход к диагностике и лечению врожденного буллезного эпидермолиза у детей',
+                    timePeriod: '11:20 – 11:40',
+                    speaker: 'к.м.н. Леонова М.А.',
+                }, {
+                    name: 'Дерматологические проявления при кардиоваскулярной патологии у детей',
+                    timePeriod: '11:40 – 12:00',
+                    speaker: 'к.м.н. Материкин А.И.',
+                }, {
+                    name: 'Персонифицированный подход к пациенту с тяжелым течением атопического дерматита',
+                    timePeriod: '12:00 – 12:55',
+                    substages: [
+                        {
+                            name:'Основные аспекты проведения эффективной наружной терапии атопического дерматита у детей',
+                            timePeriod: '12:00 – 12:35',
+                            description: 'д.м.н., профессор Мурашкин Н.Н.',
+                            sponsor:'LEO Pharma'
+                        },
+                        {
+                            name:'Актуальные вопросы дифференциальной диагностики и лечения пациентов с атопическим дерматитом в детском возрасте',
+                            timePeriod: '12:35 – 12:55',
+                            description: 'д.м.н., профессор Олисова О.Ю.',
+                            sponsor:'Sanofi'
+                        }
+                    ]
+                },
+                {
+                    name: 'ПЕРЕРЫВ',
+                    timePeriod: '12:55 – 13:10',
+                },{
+                    name: 'Ведение атипичных и минимальных форм атопического дерматита у детей: на что стоит обратить внимание?',
+                    timePeriod: '13:10 – 13:30',
+                    speaker: 'к.м.н. Иванов Р.А.',
+                }, {
+                    name: 'Дерматологические и соматические причины зуда при атопическом дерматите: вопросы патогенеза и подходы к терапии с применением антигистаминных средств.',
+                    timePeriod: '13:30 – 14:00',
+                    speaker: 'д.м.н., профессор Мурашкин Н.Н.',
+                    sponsor: 'OlainFarm'
+                },
+                {
+                    name: 'Вульгарный псориаз и красный волосяной лишай Девержи: клинико-диагностические параллели.',
+                    timePeriod: '14:00 – 14:15',
+                    speaker: 'к.м.н. Опрятин Л.А.',
+                }, {
+                    name: 'Коморбидности псориаза детского возраста: особенности диагностики и терапевтической тактики',
+                    timePeriod: '14:15 – 14:30',
+                    speaker: 'к.м.н. Материкин А.И.',
+                },
+                {
+                    name: 'ПЕРЕРЫВ',
+                    timePeriod: '14:30 – 14:45',
+                },{
+                    name: 'Рубцовые алопеции в практике детского дерматолога и педиатра.',
+                    timePeriod: '14:45 – 15:00',
+                    speaker: 'Опрятин Л.А.',
+                }, {
+                    name: 'Пеленочный дерматит от «А» до «Я»: разнообразие клинических проявлений, аспекты профилактики и лечения.',
+                    timePeriod: '15:00 – 15:25',
+                    speaker: 'д.м.н., профессор Мурашкин Н.Н',
+                },
+                {
+                    name: 'Закрытие конференции',
+                    timePeriod: '15:25 – 15:30',
+                },
+
+            ],
+
+            onlinePrice: 1,
+            offlinePrice: 1500,
+
+            prices: [{
+                date: '31.08.22',
+                online: 1000,
+                offline: 1000,
+            },
+                {
+                    date: '31.09.22',
+                    online: 1500,
+                    offline: 1500,
+                },
+                {
+                    date: '31.10.22',
+                    online: 2000,
+                    offline: 2000,
+                }]
+
         }
+
 
 
     ]
@@ -913,7 +1094,7 @@ export default function Page({params}: any) {
         <main className={'overflow-x-hidden'}>
             {/*ПЕРВЫЙ БЛОК*/}
             <motion.div
-                className="min-h-screen overflow-hidden py-12 sm:py-8 bg-cover relative">
+                className="min-h-screen overflow-hidden py-20 lg:py-8 bg-cover relative">
                 <div className={'w-full h-full absolute left-0 top-0 z-[-2]'}>
                     <img className={'w-full h-full object-cover'} src={event.layoutBg}/>
                 </div>
@@ -921,9 +1102,9 @@ export default function Page({params}: any) {
 
                 </div>
                 <motion.div
-                    className={'w-full min-h-screen h-auto px-[20px] sm:px-[140px] grid grid-cols-1 sm:grid-cols-12'}>
+                    className={'w-full min-h-screen h-auto px-[20px] lg:px-[140px] grid grid-cols-1 lg:grid-cols-12'}>
                     <motion.div
-                        className={'col-span-6 sm:mt-0 mt-20 flex flex-col gap-6 sm:items-start  justify-center'}>
+                        className={'col-span-6 lg:mt-0 mt-5 sm:mt-20 flex flex-col gap-6 sm:items-start  justify-center'}>
                         <BackButton></BackButton>
                         <div className={'flex gap-4 items-center'}>
                             <div
@@ -967,21 +1148,21 @@ export default function Page({params}: any) {
                 </div>
             </motion.div>
             <div
-                className={'bg-white items-center py-12 px-[20px] grid-cols-1 sm:px-[140px] gap-20 grid sm:grid-cols-2'}>
+                className={'bg-white items-center py-12 px-[20px] grid-cols-1 lg:px-[140px] gap-20 grid lg:grid-cols-2'}>
                 <img className={'w-full aspect-square col-span-1 object-cover rounded-xl'} src={event.avatar}/>
                 <div className={'flex flex-col gap-6 items-start'}>
                     <p className={'uppercase font-extralight text-3xl sm:text-5xl text-black'}>Информация
                         <br/><span className={'font-extrabold'}>о мероприятии</span></p>
-                    <p className={'font-bold uppercase text-green text-xl'}>
+                    <p className={'font-bold uppercase text-green xl:text-3xl text-xl'}>
                         Анонс
                     </p>
-                    <p className={'font-normal text-black'}>
+                    <p className={'font-normal xl:text-2xl text-black'}>
                         {event.announcement}
                     </p>
-                    {event.description ? <p className={'font-bold uppercase text-green text-xl'}>
+                    {event.description ? <p className={'font-bold uppercase text-green xl:text-3xl text-xl'}>
                         Описание
                     </p> : null}
-                    {event.description ? <p className={'font-normal text-black'}>
+                    {event.description ? <p className={'font-normal xl:text-2xl text-black'}>
                         {event.description}
                     </p> : null}
                 </div>
@@ -997,11 +1178,11 @@ export default function Page({params}: any) {
             {/*    <img className={'absolute w-full asset left-0 z-50 bottom-[-0.5px]'} src={'/about_us_offset_bot.png'}/>*/}
             {/*</div>*/}
 
-            {currentProgram ? <div className={'bg-white py-12 px-[20px] sm:px-[140px]'}>
-                <p className={'uppercase font-extralight text-2xl sm:text-5xl text-black'}>Программа
+            {currentProgram ? <div className={'bg-white py-12 px-[20px] lg:px-[140px]'}>
+                <p className={'uppercase font-extralight text-2xl lg:text-5xl text-black'}>Программа
                     <br/><span className={'font-extrabold'}>Конференции</span></p>
 
-                <div className={'flex mt-20 items-center gap-16'}>
+                {event?.program2?<div className={'flex mt-20 items-center gap-16'}>
                     <div onClick={() => {
                         setCurrentProgram([...event.program])
                     }}
@@ -1014,29 +1195,31 @@ export default function Page({params}: any) {
                          className={classList('flex cursor-pointer items-center text-2xl font-bold justify-center', currentProgram[0].name == event.program2[0].name ? 'border-b-2 border-green-two text-green-two' : 'text-black')}>
                         Малый зал
                     </div>
-                </div>
+                </div>:null}
                 <div className={'flex mt-20 flex-col gap-14'}>
-                    {currentProgram.map((item: { name: string, timePeriod: string, speaker: string, substages?: { name: string, timePeriod: string, description: string, }[] }, counter: number) => {
+                    {currentProgram.map((item: {
+                        sponsor?: string;
+                        name: string, timePeriod: string, speaker: string, substages?: { name: string, timePeriod: string, description: string, sponsor?:string}[] }, counter: number) => {
                         return (
                             <div key={counter} className={'flex gap-8 flex-col'}>
                                 <div
-                                    className={'flex sm:grid sm:grid-cols-12 gap-2 sm:gap-6 flex-col sm:flex-row items-start'}>
-                                    <div className={'col-span-2 mr-4 flex items-center gap-2'}>
-                                        <img className={'w-4 sm:w-6 aspect-square'} src={`${images}/time.svg`}/>
+                                    className={'flex lg:grid lg:grid-cols-12 gap-2 lg:gap-6 flex-col lg:flex-row items-start'}>
+                                    {item.timePeriod?<div className={'col-span-2 mr-4 flex items-center gap-2'}>
+                                        <img className={'w-4 lg:w-6 aspect-square'} src={`${images}/time.svg`}/>
                                         <div
-                                            className={'text-sm sm:text-2xl text-green-two whitespace-nowrap contents font-bold'}>{item.timePeriod}</div>
-                                    </div>
+                                            className={'text-lg lg:text-2xl text-green-two whitespace-nowrap contents font-bold'}>{item.timePeriod}</div>
+                                    </div>:null}
                                     <div
-                                        className={'text-sm col-span-10 sm:text-2xl whitespace-pre-wrap text-justify font-bold'}>{item.name}</div>
+                                        className={'text-lg col-span-10 lg:text-2xl whitespace-pre-wrap text-justify font-bold'}>{item.name}</div>
                                 </div>
                                 {item.speaker ? <div
-                                    className={'bg-[#DBEAE8] text-sm p-3 sm:px-14 sm:p-6 sm:text-xl rounded-lg flex items-center justify-start'}>
-                                    {item.speaker == 'д.м.н., профессор Мурашкин Н.Н. При поддержке компании LEO Pharma' ?
-                                        <p>д.м.н., профессор Мурашкин Н.Н. <span className={'font-bold'}>При поддержке компании LEO Pharma</span>
+                                    className={'bg-[#DBEAE8] text-lg p-3 lg:px-14 lg:p-6 lg:text-xl rounded-lg flex items-center justify-start'}>
+                                    {item?.sponsor?
+                                        <p>{item.speaker}<span className={'font-bold'}><br/>При поддержке компании {item.sponsor}</span>
                                         </p> : item.speaker}
                                 </div> : null}
                                 {item.substages ?
-                                    <div className={'p-3 sm:p-8'}>
+                                    <div className={'p-3 lg:p-8'}>
                                         {item.substages.map((substage, subCounter) => {
                                             if (item.substages) {
                                                 return (
@@ -1044,7 +1227,7 @@ export default function Page({params}: any) {
                                                         <div
                                                             className={'col-span-1 flex relative items-center h-full flex-col justify-center'}>
                                                             <div
-                                                                className={'sm:w-6 w-4 sm:h-6 h-4 absolute top-0 aspect-square rounded-full bg-green-two'}>
+                                                                className={'lg:w-6 w-4 lg:h-6 h-4 absolute top-0 aspect-square rounded-full bg-green-two'}>
 
                                                             </div>
                                                             <div className={'h-full w-[2px] bg-green-two'}>
@@ -1052,12 +1235,14 @@ export default function Page({params}: any) {
                                                             </div>
                                                         </div>
                                                         <div
-                                                            className={classList('col-span-11 flex sm:gap-0 gap-3 h-fit flex-col', subCounter < item?.substages?.length - 1 ? 'pb-6 sm:pb-14' : '')}>
-                                                            <p className={'sm:text-2xl text-sm w-full text-green-two contents font-bold'}>{substage?.timePeriod}</p>
-                                                            <p className={'sm:text-2xl text-sm w-full text-black font-medium'}>{substage?.name}</p>
+                                                            className={classList('col-span-11 flex lg:gap-0 gap-3 h-fit flex-col', subCounter < item?.substages?.length - 1 ? 'pb-6 lg:pb-14' : '')}>
+                                                            <p className={'lg:text-2xl text-lg w-full text-green-two contents font-bold'}>{substage?.timePeriod}</p>
+                                                            <p className={'lg:text-2xl text-lg w-full text-black font-medium'}>{substage?.name}</p>
                                                             {substage?.description ? <div
-                                                                className={'bg-[#DBEAE8] p-3 text-sm sm:px-14 sm:p-6 sm:text-xl rounded-lg flex items-center justify-start'}>
-                                                                {substage?.description}
+                                                                className={'bg-[#DBEAE8] p-3 text-lg lg:px-14 lg:p-6 lg:text-xl rounded-lg flex items-center justify-start'}>
+                                                                {substage?.sponsor?
+                                                                    <p>{substage.description}<span className={'font-bold'}><br/>При поддержке компании {substage.sponsor}</span>
+                                                                    </p> : substage.description}
                                                             </div> : null}
                                                         </div>
                                                     </div>
@@ -1075,7 +1260,7 @@ export default function Page({params}: any) {
                 </div>
             </div> : null}
 
-            {/*<div className={'bg-[#F2F9F8] relative py-12 sm:py-40 flex items-center px-[20px]'}>*/}
+            {/*<div className={'bg-[#F2F9F8] relative py-12 lg:py-40 flex items-center px-[20px]'}>*/}
             {/*    <img className={'absolute left-0 -top-1'} src={`/pages/main/about_us_offset.png`}*/}
             {/*         alt={'asset_bottom'}></img>*/}
             {/*    <div className={'w-full'}>*/}
@@ -1096,19 +1281,19 @@ export default function Page({params}: any) {
             {/*         alt={'asset_bottom'}></img>*/}
             {/*</div>*/}
             {!event.isOnlyOnline ?
-                <div className={'bg-white relative sm:py-0 py-12 px-[20px] sm:px-[140px] sm:h-[600px]'}>
+                <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] lg:h-[600px]'}>
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div
-                        className={'flex sm:mt-7 items-center px-[20px] sm:px-[140px] justify-center sm:justify-center'}>
+                        className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-center'}>
                         <motion.p initial={{y: -40, opacity: 0}}
                                   whileInView={{y: 0, opacity: 1}}
                                   viewport={{once: true}}
                                   transition={{ease: 'easeInOut', duration: 0.7}}
-                                  className={'uppercase font-extralight text-black sm:text-left text-left text-2xl sm:text-4xl'}>Стоимость <strong
+                                  className={'uppercase font-extralight text-black lg:text-left text-left text-2xl lg:text-4xl'}>Стоимость <strong
                             className={'font-extrabold'}>Участия</strong></motion.p>
                     </div>
                     <div
-                        className={classList('grid grid-cols-1 gap-9 mt-10', event.prices ? 'sm:grid-cols-3' : 'sm:grid-cols-2')}>
+                        className={classList('grid grid-cols-1 gap-9 mt-10', event.prices ? 'lg:grid-cols-3' : 'lg:grid-cols-2')}>
                         {event.prices ? <div className={'flex flex-col items-center gap-8'}>
                             <div
                                 className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
@@ -1116,7 +1301,7 @@ export default function Page({params}: any) {
                                     <img className={'w-7 aspect-square'} src={'/online.svg'}/>
                                     <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
                                 </div>
-                                <p className={'text-3xl sm:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
+                                <p className={'text-3xl lg:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
                                 <p className={'font-extralight text-xl text-center text-white'}>Доступ к
                                     онлайн-трансляции в день мероприятия</p>
                             </div>
@@ -1125,7 +1310,7 @@ export default function Page({params}: any) {
                                 setCurrentPrice(0);
                                 setParticipationType('online-free')
                             }}
-                                 className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                                 className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                                 Подтвердить участие
                             </div>
                         </div> : null}
@@ -1136,7 +1321,7 @@ export default function Page({params}: any) {
                                     <img className={'w-7 aspect-square'} src={'/online.svg'}/>
                                     <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
                                 </div>
-                                <p className={'text-3xl sm:text-5xl text-white font-bold'}>{event.onlinePrice ? event.onlinePrice + ' руб.' : 'БЕСПЛАТНО'}</p>
+                                <p className={'text-3xl lg:text-5xl text-white font-bold'}>{event.onlinePrice ? event.onlinePrice + ' руб.' : 'БЕСПЛАТНО'}</p>
                                 <p className={'font-extralight text-xl text-center text-white'}>Доступ к
                                     онлайн-трансляции мероприятия <span
                                         className={'font-extrabold'}>{event.onlinePrice ? '+ запись трансляции' : ''}</span>
@@ -1147,7 +1332,7 @@ export default function Page({params}: any) {
                                 setCurrentPrice(event.onlinePrice);
                                 setParticipationType('online')
                             }}
-                                 className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                                 className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                                 Подтвердить участие
                             </div>
                         </div>
@@ -1159,7 +1344,7 @@ export default function Page({params}: any) {
                                     <p className={'font-extralight text-3xl text-green-two'}>Оффлайн</p>
                                 </div>
 
-                                <p className={'text-3xl sm:text-5xl text-green-two font-bold'}>{event.offlinePrice ? event.offlinePrice + ' руб.' : 'БЕСПЛАТНО'}</p>
+                                <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{event.offlinePrice ? event.offlinePrice + ' руб.' : 'БЕСПЛАТНО'}</p>
                                 {event.prices ?
                                     <p className={'font-extralight text-xl text-center text-green-two'}>Цена действует
                                         до <br/>
@@ -1176,7 +1361,7 @@ export default function Page({params}: any) {
                                 setCurrentPrice(event.offlinePrice);
                                 setParticipationType('offline')
                             }}
-                                 className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                                 className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                                 Подтвердить участие
                             </div>
                         </div>
@@ -1197,7 +1382,7 @@ export default function Page({params}: any) {
                         }
                     }}>
                         <div className={'flex gap-4 h-full flex-col'}>
-                            <p className={'text-[#0F5F5A] text-2xl sm:text-4xl font-light'}>ГРАФИК <br/> <span
+                            <p className={'text-[#0F5F5A] text-2xl lg:text-4xl font-light'}>ГРАФИК <br/> <span
                                 className={'font-extrabold'}>СТОИМОСТИ</span></p>
                             <div className={'grid p-2 w-full grid-cols-2'}>
                                 <div className={'text-[#0F5F5A] font-light flex items-center '}>
@@ -1234,18 +1419,18 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-            {event.isStream ? <div className={'bg-white relative sm:py-0 py-12 px-[20px] sm:px-[140px] '}>
+            {event.isStream ? <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] '}>
                 <div id={'form'} className={'absolute -top-40'}></div>
-                <div className={'flex sm:mt-7 items-center px-[20px] sm:px-[140px] justify-center sm:justify-center'}>
+                <div className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-center'}>
                     <motion.p initial={{y: -40, opacity: 0}}
                               whileInView={{y: 0, opacity: 1}}
                               viewport={{once: true}}
                               transition={{ease: 'easeInOut', duration: 0.7}}
-                              className={'uppercase font-extralight text-black sm:text-left text-center text-left text-2xl sm:text-4xl'}>Онлайн-трансляция <strong
+                              className={'uppercase font-extralight text-black lg:text-left text-center text-left text-2xl lg:text-4xl'}>Онлайн-трансляция <strong
                         className={'font-extrabold'}>мероприятия</strong></motion.p>
                 </div>
 
-                <div className={'sm:flex items-center hidden my-12 justify-center'}>
+                <div className={'lg:flex items-center hidden my-12 justify-center'}>
                     <iframe width="1280" height="720" src="https://www.youtube.com/embed/0OOxapHpFKU"
                             title="I НПК «Путь детской дерматологии: от истоков к перспективам. Атопический дерматит»"
                             frameBorder="0"
@@ -1253,8 +1438,8 @@ export default function Page({params}: any) {
                             allowFullScreen></iframe>
                 </div>
 
-                <div className={'sm:hidden items-center flex my-12 justify-center'}>
-                    <iframe width="320" height="240" src="https://www.youtube.com/embed/0OOxapHpFKU"
+                <div className={'lg:hidden items-center flex my-12 justify-center'}>
+                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/0OOxapHpFKU"
                             title="I НПК «Путь детской дерматологии: от истоков к перспективам. Атопический дерматит»"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -1262,7 +1447,7 @@ export default function Page({params}: any) {
                 </div>
 
                 <div
-                    className={classList('grid grid-cols-1 gap-9 mt-10', event.prices ? 'sm:flex sm:justify-center' : 'sm:grid-cols-2')}>
+                    className={classList('grid grid-cols-1 gap-9 mt-10', event.prices ? 'lg:flex lg:justify-center' : 'lg:grid-cols-2')}>
                     {event.prices ? <div className={'flex flex-col items-center gap-8'}>
                         <div
                             className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
@@ -1270,7 +1455,7 @@ export default function Page({params}: any) {
                                 <img className={'w-7 aspect-square'} src={'/online.svg'}/>
                                 <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
                             </div>
-                            <p className={'text-3xl sm:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
+                            <p className={'text-3xl lg:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
                             <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции в
                                 день мероприятия</p>
                         </div>
@@ -1279,7 +1464,7 @@ export default function Page({params}: any) {
                             setCurrentPrice(0);
                             setParticipationType('online-free')
                         }}
-                             className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                             className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                             Подтвердить участие
                         </div>
                     </div> : null}
@@ -1301,7 +1486,7 @@ export default function Page({params}: any) {
                     }
                 }}>
                     <div className={'flex gap-4 h-full flex-col'}>
-                        <p className={'text-[#0F5F5A] text-2xl sm:text-4xl font-light'}>ГРАФИК <br/> <span
+                        <p className={'text-[#0F5F5A] text-2xl lg:text-4xl font-light'}>ГРАФИК <br/> <span
                             className={'font-extrabold'}>СТОИМОСТИ</span></p>
                         <div className={'grid p-2 w-full grid-cols-2'}>
                             <div className={'text-[#0F5F5A] font-light flex items-center '}>
@@ -1338,19 +1523,19 @@ export default function Page({params}: any) {
             </div> : null}
 
             {event.date == '11.11.2023' ?
-                <a className={'text-dark-green font-bold px-[20px] sm:px-[140px]'} target={'_blank'}
+                <a className={'text-dark-green font-bold px-[20px] lg:px-[140px]'} target={'_blank'}
                    href={'/kpfile.pdf'}>Коммерческое предложение</a> : null}
 
-            <div className={'bg-white sm:py-0 py-12 sm:h-[600px]'}>
-                <div className={'flex sm:mt-7 items-center px-[20px] sm:px-[140px] justify-center sm:justify-between'}>
+            <div className={'bg-white lg:py-0 py-12 lg:h-[600px]'}>
+                <div className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-between'}>
                     <motion.p initial={{x: -40, opacity: 0}}
                               whileInView={{x: 0, opacity: 1}}
                               viewport={{once: true}}
                               transition={{ease: 'easeInOut', duration: 0.7}}
-                              className={'uppercase font-extralight text-black sm:text-left text-left text-2xl sm:text-4xl'}>Другие <strong
+                              className={'uppercase font-extralight text-black lg:text-left text-left text-2xl lg:text-4xl'}>Другие <strong
                         className={'font-extrabold'}>Мероприятия</strong></motion.p>
                 </div>
-                <motion.div className={'mt-12 w-full flex px-[20px] sm:px-[40px]'}
+                <motion.div className={'mt-12 w-full flex px-[20px] lg:px-[40px]'}
                             initial={{y: -40, opacity: 0}}
                             whileInView={{y: 0, opacity: 1}}
                             viewport={{once: true}}

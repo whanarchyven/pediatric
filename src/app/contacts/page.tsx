@@ -47,23 +47,23 @@ export default function Home() {
             {/*ПЕРВЫЙ БЛОК*/}
             <motion.div className="min-h-screen overflow-hidden bg-cover relative contacts-bg">
                 <motion.div
-                    className={'w-full min-h-screen h-auto px-[20px] py-20 sm:px-[90px] justify-items-center gap-12 sm:gap-0 grid grid-cols-1 sm:grid-cols-2'}>
+                    className={'w-full min-h-screen h-auto px-[20px] py-20 lg:px-[90px] justify-items-center gap-12 sm:gap-0 grid grid-cols-1 sm:grid-cols-2'}>
                     <div className={'flex items-start justify-center gap-6 flex-col'}>
-                        <p className={'text-white uppercase text-xl sm:text-4xl font-extralight'}>Контакты</p>
+                        <p className={'text-white uppercase text-xl lg:text-4xl font-extralight'}>Контакты</p>
                         <div className={'border-l-2 flex flex-col gap-8 border-white pl-4'}>
                             <div className={'flex flex-col gap-2'}>
-                                <p className={'font-extrabold text-white text-lg sm:text-2xl'}>+7 (952) 256 34 20</p>
-                                <p className={'font-extralight text-white sm:text-lg text-sm '}>Единый информационный номер</p>
+                                <p className={'font-extrabold text-white text-lg lg:text-2xl'}>+7 (952) 256 34 20</p>
+                                <p className={'font-extralight text-white lg:text-lg text-sm '}>Единый информационный номер</p>
                             </div>
 
                             <div className={'flex flex-col gap-2'}>
-                                <p className={'font-extrabold text-white text-lg sm:text-2xl'}>+7 (926) 249 86 58</p>
-                                <p className={'font-extralight text-white sm:text-lg text-sm '}>По вопросам рекламы и сотрудничества</p>
+                                <p className={'font-extrabold text-white text-lg lg:text-2xl'}>+7 (926) 249 86 58</p>
+                                <p className={'font-extralight text-white lg:text-lg text-sm '}>По вопросам рекламы и сотрудничества</p>
                             </div>
 
                             <div className={'flex flex-col gap-2'}>
-                                <p className={'font-extrabold text-white text-lg sm:text-2xl'}>pediatric-dermatology@mail.ru</p>
-                                <p className={'font-extralight text-white sm:text-lg text-sm '}>Напишите нам</p>
+                                <p className={'font-extrabold text-white text-lg lg:text-2xl'}>pediatric-dermatology@mail.ru</p>
+                                <p className={'font-extralight text-white lg:text-lg text-sm '}>Напишите нам</p>
                             </div>
                         </div>
                         <div className={'flex items-center gap-8'}>
@@ -78,19 +78,19 @@ export default function Home() {
                         </div>
                     </div>
                     <div className={'flex items-start justify-center gap-6 flex-col'}>
-                        <p className={'text-white uppercase text-xl sm:text-4xl font-extralight'}>РЕКВИЗИТЫ:</p>
+                        <p className={'text-white uppercase text-xl lg:text-4xl font-extralight'}>РЕКВИЗИТЫ:</p>
                         <div className={'border-l-2 flex flex-col gap-8 border-white pl-4'}>
                             <div className={'flex flex-col gap-2'}>
-                                <p className={'font-extrabold text-white text-lg sm:text-2xl'}>МОО «Общество детских <br/>дерматологов»</p>
-                                <p className={'font-extralight text-white sm:text-lg text-sm '}>ИНН/КПП: 7736323518 / 773601001</p>
-                                <p className={'font-extralight text-white sm:text-lg text-sm '}>ОГРН: 1197700011871</p>
+                                <p className={'font-extrabold text-white text-lg lg:text-2xl'}>МОО «Общество детских <br/>дерматологов»</p>
+                                <p className={'font-extralight text-white lg:text-lg text-sm '}>ИНН/КПП: 7736323518 / 773601001</p>
+                                <p className={'font-extralight text-white lg:text-lg text-sm '}>ОГРН: 1197700011871</p>
                             </div>
                         </div>
-                        <p className={'text-white uppercase text-xl sm:text-4xl font-extralight'}>АДРЕС:</p>
+                        <p className={'text-white uppercase text-xl lg:text-4xl font-extralight'}>АДРЕС:</p>
                         <div className={'border-l-2 flex flex-col gap-8 border-white pl-4'}>
                             <div className={'flex flex-col gap-2'}>
-                                <p className={'font-extrabold text-white text-lg sm:text-2xl'}>Ломоносовский пр-кт., 2, стр. 1</p>
-                                <p className={'font-extralight text-white sm:text-lg text-sm '}>Москва, 119034</p>
+                                <p className={'font-extrabold text-white text-lg lg:text-2xl'}>Ломоносовский пр-кт., 2, стр. 1</p>
+                                <p className={'font-extralight text-white lg:text-lg text-sm '}>Москва, 119034</p>
                             </div>
                         </div>
 

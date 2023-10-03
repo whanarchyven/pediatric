@@ -64,6 +64,10 @@ export default function Reviews() {
                             spaceBetween: 10
                         },
                         640:{
+                            slidesPerView:2,
+                            spaceBetween:70
+                        },
+                        1280:{
                             slidesPerView:3,
                             spaceBetween:70
                         }

@@ -45,14 +45,21 @@ export default function Home() {
 
 
     const news = [
-
         {
-            id:11,
+            id:12,
             type:'Конференция',
-            name:'I научно-практическая конференция «Путь детской дерматологии: от истоков к перспективам. атопический дерматит»',
-            date:'23.09',
+            name:'II научно-практическая конференция «Путь детской дерматологии: от истоков к перспективам»',
+            date:'07.10',
             image:'/pages/new.png'
         },
+
+        // {
+        //     id:11,
+        //     type:'Конференция',
+        //     name:'I научно-практическая конференция «Путь детской дерматологии: от истоков к перспективам. атопический дерматит»',
+        //     date:'23.09',
+        //     image:'/pages/new.png'
+        // },
         {
             id: 0,
             type: 'Конференция',
@@ -183,7 +190,7 @@ export default function Home() {
             {/*        <img src={'/main_asset_bottom.png'} alt={'asset_bottom'}></img>*/}
             {/*    </div>*/}
             {/*</motion.div>*/}
-            <div id={'publications'} className={'bg-white py-20 sm:pt-40 flex flex-col items-center items-center px-[20px] sm:px-[140px] gap-12 '}>
+            <div id={'publications'} className={'bg-white py-20 sm:pt-40 flex flex-col items-center items-center px-[20px] lg:px-[140px] gap-12 '}>
                 <p className={'font-extrabold text-black text-2xl sm:text-4xl uppercase'}>Мероприятия</p>
                 <div className={'hidden sm:flex sm:flex-row flex-col items-center gap-6'}>
                     {!params.get('category') ? <Link href={'/events'}
@@ -269,7 +276,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className={'mt-6 gap-12 grid grid-cols-1 sm:grid-cols-3'}>
+                <div className={'mt-6 gap-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'}>
                     {news.map((item, counter) => {
                         if(params.get('category')){
                             if(item.type==params.get('category')){

@@ -137,12 +137,12 @@ export default function Home() {
             {/*ПЕРВЫЙ БЛОК*/}
             <motion.div className="min-h-screen overflow-hidden bg-cover relative bg-[url('/main_bg.png')]">
                 <motion.div
-                    className={'w-full min-h-screen h-auto px-[20px] sm:px-[70px] grid grid-cols-1 sm:grid-cols-12'}>
+                    className={'w-full min-h-screen h-auto px-[20px] lg:px-[70px] grid grid-cols-1 lg:grid-cols-12'}>
                     <div>
                     </div>
                     <motion.div
-                        className={'col-span-5 sm:mt-0 mt-20 flex flex-col h-full sm:items-start items-center justify-center'}>
-                        <motion.div className={'sm:grid sm:w-full w-4/5 sm:grid-cols-5'}
+                        className={'col-span-5 lg:mt-0 mt-20 flex flex-col h-full lg:items-start items-center justify-center'}>
+                        <motion.div className={'lg:grid lg:w-full sm:w-2/5 w-4/5 lg:grid-cols-5'}
                                     initial={{x: -100, opacity: 0}}
                                     whileInView={{x: 0, opacity: 1}}
                                     viewport={{once: true}}
@@ -150,28 +150,28 @@ export default function Home() {
                         >
                             <img className={'col-span-3'} src={'/azbuka_logo.svg'}/>
                         </motion.div>
-                        <motion.div className={'mt-10 sm:grid sm:grid-cols-5'}
+                        <motion.div className={'mt-10 lg:grid lg:grid-cols-5'}
                                     initial={{y: -50, opacity: 0}}
                                     whileInView={{y: 0, opacity: 1}}
                                     viewport={{once: true}}
                                     transition={{ease: 'easeInOut', duration: 0.7, delay: 0.3}}>
-                            <p className={'text-white sm:text-left sm:text-2xl text-center text-xs font-inter col-span-5'}>Социально-образовательный
+                            <p className={'text-white lg:text-left lg:text-2xl text-center sm:text-xl text-xs font-inter col-span-5'}>Социально-образовательный
                                 проект для тех, кто столкнулся с атопическим дерматитом
                                 - малышей и их родителей, а также их лечащих докторов</p>
                         </motion.div>
-                        <motion.div className={'mt-5 sm:grid sm:grid-cols-5'}
+                        <motion.div className={'mt-5 lg:grid lg:grid-cols-5'}
                                     initial={{y: -20, opacity: 0}}
                                     whileInView={{y: 0, opacity: 1}}
                                     viewport={{once: true}}
                                     transition={{ease: 'easeInOut', duration: 0.7, delay: 0.6}}>
                             <a href={'#about'}
-                               className={'sm:col-span-2 flex items-center justify-center text-2xl w-full p-4 bg-white rounded-lg'}>
+                               className={'lg:col-span-2 flex items-center justify-center text-2xl w-full p-4 bg-white rounded-lg'}>
                                 Подробнее
                             </a>
                         </motion.div>
                     </motion.div>
-                    <div className={'col-span-6 flex flex-col h-full justify-end'}>
-                        <motion.img className={'aspect-square w-full'} src={'/mommy.png'}
+                    <div className={'lg:col-span-6 flex flex-col h-full justify-end'}>
+                        <motion.img className={'aspect-square sm:w-2/3 lg:w-full'} src={'/mommy.png'}
                                     initial={{y: 100, opacity: 0}}
                                     whileInView={{y: 0, opacity: 1}}
                                     viewport={{once: true}}
@@ -188,25 +188,25 @@ export default function Home() {
             {/*ВТОРОЙ БЛОК*/}
 
             <div
-                className={'bg-white overflow-y-visible px-[20px] sm:min-h-[558px] grid grid-cols-1 sm:grid-cols-12 relative'}>
+                className={'bg-white overflow-y-visible px-[20px] lg:min-h-[558px] grid grid-cols-1 lg:grid-cols-12 relative'}>
                 <a id={'about'} className={'-top-32 absolute'}></a>
                 <div
-                    className={'sm:col-span-4 sm:col-start-2 sm:row-start-1 row-start-2 relative flex flex-col items-center justify-center'}>
-                    <motion.img className={'sm:absolute z-30'} src={'/child.png'}
+                    className={'lg:col-span-4 w-full lg:col-start-2 lg:row-start-1 row-start-2 relative flex flex-col items-center justify-center'}>
+                    <motion.img className={'lg:absolute z-30'} src={'/child.png'}
                                 initial={{scale: 0.7, opacity: 0}}
                                 whileInView={{scale: 1, opacity: 1}}
                                 viewport={{once: true}}
                                 transition={{ease: 'easeInOut', duration: 1}}/>
                 </div>
                 <div className={'col-span-5 col-end-12 flex self-start items-start justify-center h-full flex-col'}>
-                    <motion.p className={'font-bold my-2 sm:my-6 text-2xl sm:text-4xl text-black uppercase'}
+                    <motion.p className={'font-bold my-2 lg:my-6 text-2xl lg:text-4xl text-black uppercase'}
                               initial={{x: -50, opacity: 0}}
                               whileInView={{x: 0, opacity: 1}}
                               viewport={{once: true}}
                               transition={{ease: 'easeInOut', duration: 0.7}}>
                         О проекте
                     </motion.p>
-                    <motion.p className={'text-sm sm:text-xl my-2 sm:my-6'}
+                    <motion.p className={'text-lg lg:text-xl my-2 lg:my-6'}
                               initial={{y: -20, opacity: 0}}
                               whileInView={{y: 0, opacity: 1}}
                               viewport={{once: true}}
@@ -218,7 +218,7 @@ export default function Home() {
                         организациями пациентов
                     </motion.p>
                     {showMore ? null :
-                        <motion.a className={'font-bold sm:my-6 my-2 text-red text-sm sm:text-xl cursor-pointer'}
+                        <motion.a className={'font-bold lg:my-6 my-2 text-red text-lg lg:text-xl cursor-pointer'}
                                   initial={{y: -20, opacity: 0}}
                                   whileInView={{y: 0, opacity: 1}}
                                   viewport={{once: true}}
@@ -229,7 +229,7 @@ export default function Home() {
                             {showMore ? '' : 'Подробнее'}
                         </motion.a>}
                     {showMore ?
-                        <p className={'text-sm sm:text-xl my-2 sm:my-6'}>На протяжении многих лет наши бренды предлагают
+                        <p className={'text-lg lg:text-xl my-2 lg:my-6'}>На протяжении многих лет наши бренды предлагают
                             рынку высокоэффективные и безопасные
                             средства, предназначенные специально для кожи, склонной к атопическому дерматиту.
                             <br/><br/>
@@ -245,24 +245,24 @@ export default function Home() {
             {/*ТРЕТИЙ БЛОК*/}
 
             <div
-                className={'h-[779px] overflow-hidden green-bg px-[20px] sm:py-0 pt-6 sm:px-[70px] relative grid grid-cols-1 sm:grid-cols-12'}>
+                className={'sm:h-[800px] lg:h-[779px] overflow-hidden green-bg px-[20px] lg:py-0 pt-6 lg:px-[70px] relative grid grid-cols-1 lg:grid-cols-12'}>
                 <img className={'absolute asset w-full top-0'} src={'/about_us_offset_top.png'}/>
-                <div className={'hidden sm:block'}>
+                <div className={'hidden lg:block'}>
                 </div>
-                <div className={'col-span-5 flex flex-col items-center h-full justify-center'}>
-                    <motion.p className={'text-white font-bold text-xl sm:text-4xl w-4/5'}
+                <div className={'lg:col-span-5 flex w-full flex-col lg:items-center mt-10 h-full lg:justify-center'}>
+                    <motion.p className={'text-white font-bold text-xl lg:text-4xl w-4/5'}
                               initial={{x: -50, opacity: 0}}
                               whileInView={{x: 0, opacity: 1}}
                               viewport={{once: true}}
                               transition={{ease: 'easeInOut', duration: 0.7}}>ДОРОГИЕ ПАЦИЕНТЫ <br/> И РОДИТЕЛИ!
                     </motion.p>
                     <div className={'flex mt-4 w-full'}>
-                        <motion.img className={'mr-3 sm:w-auto w-5 self-start'} src={'/quotes.svg'}
+                        <motion.img className={'mr-3 lg:w-auto w-5 self-start'} src={'/quotes.svg'}
                                     initial={{x: 20, opacity: 0, rotate: 180}}
                                     whileInView={{x: 0, opacity: 1, rotate: 0}}
                                     viewport={{once: true}}
                                     transition={{ease: 'easeInOut', duration: 0.7, delay: 0.3}}/>
-                        <motion.p className={'text-xs sm:text-xl text-white w-4/5'}
+                        <motion.p className={'text-xs sm:text-lg lg:text-xl text-white w-4/5'}
                                   initial={{y: 20, opacity: 0}}
                                   whileInView={{y: 0, opacity: 1}}
                                   viewport={{once: true}}
@@ -273,7 +273,7 @@ export default function Home() {
                             Проверенные, полезные знания об атопическом дерматите в одном месте и в удобном формате. Для
                             стойкой ремиссии, чистой кожи и качественно новой жизни вашего ребенка и всей семьи!»
                         </motion.p>
-                        <motion.img className={'ml-0 sm:w-auto w-5 self-end rotate-180'} src={'/quotes.svg'}
+                        <motion.img className={'ml-0 lg:w-auto w-5 self-end rotate-180'} src={'/quotes.svg'}
                                     initial={{x: -20, opacity: 0, rotate: 0}}
                                     whileInView={{x: 0, opacity: 1, rotate: 180}}
                                     viewport={{once: true}}
@@ -282,9 +282,9 @@ export default function Home() {
 
                 </div>
                 <div className={'col-span-6 flex flex-col relative justify-center items-center'}>
-                    <img className={'absolute bottom-0 w-full'} src={'/about_us_footage.svg'}/>
+                    <img className={'lg:absolute bottom-0 w-2/3 lg:w-full'} src={'/about_us_footage.svg'}/>
                     <motion.div
-                        className={'shadow-lg bg-white absolute sm:text-lg text-xs bottom-5 z-[20] sm:text-center text-center sm:top-auto sm:bottom-5 sm:w-96 rounded-lg p-3'}
+                        className={'shadow-lg bg-white absolute lg:text-lg text-xs bottom-5 z-[20] lg:text-center text-center lg:top-auto lg:bottom-5 lg:w-96 rounded-lg p-3'}
                         animate={{x: posX, y: posY}}
                         transition={{
                             type: 'spring',
@@ -296,7 +296,7 @@ export default function Home() {
                         }}>
                         Руководитель НИИ дерматологии, доктор медицинских наук, профессор.
                     </motion.div>
-                    <motion.img className={'absolute bottom-0 w-4/5'} src={'/doctor.png'}
+                    <motion.img className={'absolute bottom-0 w-3/5 lg:w-4/5'} src={'/doctor.png'}
                                 initial={{y: 100, opacity: 0}}
                                 whileInView={{y: 0, opacity: 1}}
                                 viewport={{once: true}}
@@ -325,12 +325,12 @@ export default function Home() {
                             damping: 10,
                             restDelta: 0.001
                         }}
-                        className={'shadow-lg rounded-xl bg-white absolute sm:-right-0 -right-2 top-16 sm:top-auto sm:bottom-72 flex items-center justify-center p-1 sm:p-3'}>
+                        className={'shadow-lg rounded-xl bg-white lg:absolute lg:-right-0 -right-2 top-16 lg:top-auto lg:bottom-72 flex items-center justify-center p-1 lg:p-3'}>
                         <div
-                            className={'sm:w-14 w-8 h-8 sm:h-14 relative flex items-center justify-center p-2 bg-red rounded-full'}>
+                            className={'lg:w-14 w-8 h-8 lg:h-14 relative flex items-center justify-center p-2 bg-red rounded-full'}>
                             <img className={''} src={'/stetoscope.svg'}/>
                         </div>
-                        <p className={'font-bold ml-3 sm:text-sm text-xs leading-[110%]'}>Мурашкин<br/>Николай<br/>Николаевич
+                        <p className={'font-bold ml-3 lg:text-sm text-xs leading-[110%]'}>Мурашкин<br/>Николай<br/>Николаевич
                         </p>
                     </motion.div>
                     {/*<motion.div*/}
@@ -343,7 +343,7 @@ export default function Home() {
                     {/*        ease: 'linear',*/}
                     {/*        damping: 30*/}
                     {/*    }}*/}
-                    {/*    className={'shadow-lg bg-white absolute left-4 sm:right-20 sm:bottom-32 flex items-center justify-center w-8 h-8 p-1.5 sm:w-20 sm:h-20 rounded-full sm:p-3'}>*/}
+                    {/*    className={'shadow-lg bg-white absolute left-4 lg:right-20 lg:bottom-32 flex items-center justify-center w-8 h-8 p-1.5 lg:w-20 lg:h-20 rounded-full lg:p-3'}>*/}
                     {/*    <img className={''} src={'/heart.svg'}/>*/}
                     {/*</motion.div>*/}
                 </div>
@@ -353,9 +353,9 @@ export default function Home() {
 
 
             {/*ЧЕТВЁРТЫЙ БЛОК*/}
-            <div className={'bg-white flex flex-col py-20 px-[20px] sm:px-[70px] relative items-center justify-center'}>
+            <div className={'bg-white flex flex-col py-20 px-[20px] lg:px-[70px] relative items-center justify-center'}>
                 <a id={'posts'} className={'-top-32 absolute'}></a>
-                <motion.p className={'font-bold sm:text-left text-center text-xl sm:text-4xl text-black uppercase'}
+                <motion.p className={'font-bold lg:text-left text-center text-xl lg:text-4xl text-black uppercase'}
                           initial={{y: -40, opacity: 0}}
                           whileInView={{y: 0, opacity: 1}}
                           viewport={{once: true}}
@@ -372,23 +372,23 @@ export default function Home() {
             {/*ПЯТЫЙ БЛОК*/}
 
             <div
-                className={'bg-white flex flex-col py-3 sm:py-1 px-[20px] sm:px-[70px] relative items-center justify-center'}>
+                className={'bg-white flex flex-col py-3 lg:py-1 px-[20px] lg:px-[70px] relative items-center justify-center'}>
                 <a id={'videolessons'} className={'-top-32 absolute'}></a>
-                <div className={'w-full flex sm:px-[4.5rem] items-center justify-between'}>
+                <div className={'w-full flex lg:px-[4.5rem] items-center justify-between'}>
                     <motion.p
-                        className={'font-bold sm:block hidden text-xs sm:text-4xl sm:mb-2 sm:mb-6 text-black uppercase'}
+                        className={'font-bold lg:block hidden text-xs lg:text-4xl lg:mb-2 lg:mb-6 text-black uppercase'}
                         initial={{x: -40, opacity: 0}}
                         whileInView={{x: 0, opacity: 1}}
                         viewport={{once: true}}
                         transition={{ease: 'easeInOut', duration: 0.7}}>Видеоуроки
                     </motion.p>
                     <motion.div
-                        className={'bg-green rounded-xl w-full sm:w-auto p-1 sm:p-4 flex items-center justify-center'}
+                        className={'bg-green rounded-xl w-full lg:w-auto p-1 lg:p-4 flex items-center justify-center'}
                         initial={{x: 40, opacity: 0}}
                         whileInView={{x: 0, opacity: 1}}
                         viewport={{once: true}}
                         transition={{ease: 'easeInOut', duration: 0.7}}>
-                        <img className={'w-8 aspect-square mr-2 sm:mr-4'} src={'/lesson.svg'}/>
+                        <img className={'w-8 aspect-square mr-2 lg:mr-4'} src={'/lesson.svg'}/>
                         <p className={'font-bold text-white'}>Уроки доктора Продеуса</p>
                     </motion.div>
                 </div>
@@ -403,9 +403,9 @@ export default function Home() {
 
             {/*ШЕСТОЙ БЛОК*/}
 
-            <div className={'bg-white flex flex-col px-[20px] sm:py-1 sm:px-[70px] items-center justify-center'}>
-                <div className={'w-full flex sm:px-[4.5rem] items-center justify-between'}>
-                    <motion.div className={'bg-red sm:w-auto w-full rounded-xl p-4 flex items-center justify-center'}
+            <div className={'bg-white flex flex-col px-[20px] lg:py-1 lg:px-[70px] items-center justify-center'}>
+                <div className={'w-full flex lg:px-[4.5rem] items-center justify-between'}>
+                    <motion.div className={'bg-red lg:w-auto w-full rounded-xl p-4 flex items-center justify-center'}
                                 initial={{x: -40, opacity: 0}}
                                 whileInView={{x: 0, opacity: 1}}
                                 viewport={{once: true}}
@@ -426,10 +426,10 @@ export default function Home() {
             {/*СЕДБМОЙ БЛОК*/}
 
             <div
-                className={'w-full relative px-[20px] sm:px-[70px] bg-[url("/bg_reviews.jpg")] flex items-center justify-center flex-col h-[867px] relative'}>
+                className={'w-full relative px-[20px] lg:px-[70px] bg-[url("/bg_reviews.jpg")] flex items-center justify-center flex-col h-[867px] relative'}>
                 <a id={'reviews'} className={'-top-32 absolute'}></a>
                 <img className={'absolute asset w-full left-0 top-0'} src={'/reviews_offset.png'}/>
-                <motion.p className={'text-white text-3xl sm:text-5xl font-bold uppercase'}
+                <motion.p className={'text-white text-3xl lg:text-5xl font-bold uppercase'}
                           initial={{scale: 0.7, opacity: 0}}
                           whileInView={{scale: 1, opacity: 1}}
                           viewport={{once: true}}
@@ -443,7 +443,7 @@ export default function Home() {
                     <Reviews/>
                 </motion.div>
                 <div
-                    className={'bg-red duration-300 transition-all cursor-pointer mt-2 w-full sm:w-1/5 border-red border-2 sm:p-4 p-1 sm:text-xs text-sm text-white flex items-center rounded-lg font-bold justify-center'}
+                    className={'bg-red duration-300 transition-all cursor-pointer mt-2 w-full lg:w-1/5 border-red border-2 lg:p-4 p-1 lg:text-xs text-lg text-white flex items-center rounded-lg font-bold justify-center'}
                     onClick={() => {
                         setShowReviewPop(true)
                     }}>
@@ -457,7 +457,7 @@ export default function Home() {
 
             {/*ВОСЬМОЙ БЛОК*/}
 
-            {/*<div className={'bg-white flex flex-col px-[20px] sm:py-20 sm:px-[70px] items-center justify-center'}>*/}
+            {/*<div className={'bg-white flex flex-col px-[20px] lg:py-20 sm:px-[70px] items-center justify-center'}>*/}
             {/*    <motion.p className={'font-bold text-4xl text-black uppercase'}*/}
             {/*              initial={{y: -40, opacity: 0}}*/}
             {/*              whileInView={{y: 0, opacity: 1}}*/}
@@ -472,7 +472,7 @@ export default function Home() {
             {/*    </motion.div>*/}
             {/*</div>*/}
 
-            <div className={'bg-white flex flex-col sm:py-20 px-[20px] pb-32 sm:px-[140px] items-start justify-center'}>
+            <div className={'bg-white flex flex-col sm:py-20 px-[20px] sm:px-[80px] pb-32 lg:px-[140px] items-start justify-center'}>
                 <p className={'font-bold text-lg sm:text-4xl text-black uppercase'}>ПОДБЕРИ СВОЮ ПРОГРАММУ УХОДА <br
                     className={'sm:block hidden'}/>
                     <span className={'text-green font-bold'}>ЗА АТОПИЧНОЙ КОЖЕЙ</span></p>
@@ -561,7 +561,7 @@ export default function Home() {
             {/*ДЕВЯТЫЙ БЛОК*/}
 
             <div
-                className={'w-full relative px-[20px] sm:px-[140px] resources-bg sm:grid items-center gap-10 sm:grid-cols-5 pt-20 sm:py-20 overflow-visible'}>
+                className={'w-full relative px-[20px] lg:px-[140px] resources-bg sm:grid items-center gap-10 sm:grid-cols-5 pt-20 sm:py-20 overflow-visible'}>
                 <a id={'resources'} className={'-top-32 absolute'}></a>
                 <img className={'absolute w-full asset left-0 top-0'} src={'/resources_offset.png'}/>
                 <div className={'col-span-3 flex flex-col items-center sm:items-start justify-center'}>

@@ -290,7 +290,7 @@ export default function Home() {
             {/*        <img src={'/main_asset_bottom.png'} alt={'asset_bottom'}></img>*/}
             {/*    </div>*/}
             {/*</motion.div>*/}
-            <div className={'bg-white items-center px-[20px] pt-40 py-12 sm:px-[140px] gap-20 grid grid-cols-1 sm:grid-cols-2'}>
+            <div className={'bg-white items-center px-[20px] pt-40 py-12 lg:px-[140px] gap-20 grid grid-cols-1 lg:grid-cols-2'}>
                 <img className={'w-full aspect-square col-span-1 rounded-xl'} src={`${images}/kids.jpg`}/>
                 <div className={'flex flex-col gap-6 items-start'}>
                     <p className={'uppercase font-extralight text-2xl sm:text-5xl text-black'}>О ДЕТСКОЙ
@@ -314,9 +314,9 @@ export default function Home() {
                 </div>
             </div>
             <div
-                className={'relative green-gradient overflow-hidden pt-12 px-[20px] sm:h-[700px] flex flex-col items-start sm:pl-[70px] sm:px-[140px]'}>
+                className={'relative green-gradient overflow-hidden pt-12 px-[20px] lg:h-[700px] flex flex-col items-start lg:pl-[70px] lg:px-[140px]'}>
                 <img className={'absolute asset w-full z-50 left-0 top-0'} src={'/about_us_offset_top.png'}/>
-                <p className={'sm:absolute top-28 sm:pl-[70px] text-xl sm:text-3xl font-extralight text-white'}>РУКОВОДСТВО
+                <p className={'lg:absolute top-28 lg:pl-[70px] text-xl lg:text-3xl font-extralight text-white'}>РУКОВОДСТВО
                     ОБЩЕСТВА <br/> ДЕТСКИХ ДЕРМАТОЛОГОВ</p>
                 {employersPop?<div className={'w-full h-full absolute left-0 top-0 z-[20] bg-black bg-opacity-70 flex items-center justify-center'}>
                     <div className={'w-full sm:w-2/3 p-9 gap-4 rounded-lg flex flex-col bg-white relative'}>
@@ -325,7 +325,7 @@ export default function Home() {
                         <p className={'text-xs sm:text-lg'}>{activeDecription}</p>
                     </div>
                 </div>:null}
-                <div className={'w-full hidden sm:flex'}>
+                <div className={'w-full hidden lg:flex'}>
                     <Swiper
                         speed={1000}
                         autoplay={{delay: 4000}}
@@ -389,7 +389,7 @@ export default function Home() {
                 </div>
 
 
-                <div className={'w-full mt-6 flex sm:hidden'}>
+                <div className={'w-full mt-6 flex lg:hidden'}>
                     <Swiper
                         speed={1000}
                         autoplay={{delay: 4000}}
@@ -415,7 +415,7 @@ export default function Home() {
                     >
                         {employers.map((item, counter) => {
                             return (
-                                <SwiperSlide key={counter} className={'sm:px-0 sm:pl-[70px]'}>
+                                <SwiperSlide key={counter} className={'lg:px-0 lg:pl-[70px]'}>
                                     <div className={'sm:grid flex flex-col gap-2 sm:grid-cols-2 relative h-full sm:gap-8 items-center'}>
                                         <div className={'flex flex-col gap-5'}>
                                             <p className={'text-xl sm:text-3xl font-bold text-white'}>
@@ -423,7 +423,7 @@ export default function Home() {
                                             </p>
                                             <div className={'flex gap-4 items-center'}>
                                                 <div
-                                                    className={'flex items-center rounded-full p-2 px-4 uppercase sm:text-lg text-xs text-white font-light opacity-50 border-white w-fit border-2 justify-center'}>
+                                                    className={'flex items-center rounded-full p-2 px-4 uppercase lg:text-lg text-xs text-white font-light opacity-50 border-white w-fit border-2 justify-center'}>
                                                     {item.offer}
                                                 </div>
                                                 <Link href={item.contact}>
@@ -456,11 +456,11 @@ export default function Home() {
 
                 <img className={'absolute w-full asset left-0 z-50 -bottom-[1px]'} src={'/about_us_offset_bot.png'}/>
             </div>
-            <div className={'bg-white py-12 px-[20px] sm:h-[750px] flex items-center relative sm:px-[140px]'}>
+            <div className={'bg-white py-12 px-[20px] lg:h-[750px] flex items-center relative lg:px-[140px]'}>
                 <img className={'w-full absolute bottom-0 left-0'} src={'/pages/about/prestige_top.svg'}/>
                 <div>
                     <div className={'flex items-start gap-4 sm:gap-0 sm:items-center flex-col sm:flex-row sm:justify-between'}>
-                        <p className={'uppercase font-extralight text-black text-xl sm:text-4xl'}>Задачи <br/><strong
+                        <p className={'uppercase font-extralight text-black text-xl lg:text-4xl'}>Задачи <br/><strong
                             className={'font-extrabold'}>сообщества:</strong></p>
                         <div className={'flex items-center gap-4'}>
                             <img className={'w-10'} src={`${images}/help.svg`}/>
@@ -470,37 +470,37 @@ export default function Home() {
                     </div>
                     <div className={'grid mt-10 sm:grid-cols-3 gap-8 grid-cols-1 sm:grid-rows-2'}>
                         <div
-                            className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                            className={'shadow-xl lg:h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'w-14 aspect-square'} src={`${images}/science.svg`}/>
                             <p className={'text-white text-center'}>Оказание организационно-методической помощи членам
                                 Общества</p>
                         </div>
                         <div
-                            className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                            className={'shadow-xl lg:h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'w-14 aspect-square'} src={`${images}/socium.svg`}/>
                             <p className={'text-white text-center'}>Координация научной и практической деятельности
                                 членов Общества</p>
                         </div>
                         <div
-                            className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                            className={'shadow-xl lg:h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'w-14 aspect-square'} src={`${images}/confirm.svg`}/>
                             <p className={'text-white text-center'}>Оказание помощи в маршрутизации пациентов в НИИ
                                 Дерматологии</p>
                         </div>
                         <div
-                            className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                            className={'shadow-xl lg:h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'w-14 aspect-square'} src={`${images}/science.svg`}/>
                             <p className={'text-white text-center'}>Проведение научных исследований и ведение
                                 специализированных регистров</p>
                         </div>
                         <div
-                            className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                            className={'shadow-xl lg:h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'w-14 aspect-square'} src={`${images}/socium.svg`}/>
                             <p className={'text-white text-center'}>Участие в апробациях и внедрение результатов
                                 клинических исследований</p>
                         </div>
                         <div
-                            className={'shadow-xl h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
+                            className={'shadow-xl lg:h-52 bg-green-two gap-5 w-full flex items-center justify-start flex-col p-4 rounded-xl'}>
                             <img className={'w-14 aspect-square'} src={`${images}/confirm.svg`}/>
                             <p className={'text-white text-center'}>Представление и защита интересов членов Общества в
                                 государственных и общественных организациях</p>
@@ -508,16 +508,16 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div className={'bg-[#7AC4B9] bg-opacity-10 py-20 px-[20px] flex justify-center items-center sm:px-[140px]'}>
-                <div className={'grid sm:grid-cols-12 grid-cols-1 gap-10'}>
-                    <div className={'sm:col-span-6 sm:row-start-1 row-start-2 flex justify-start'}>
+            <div className={'bg-[#7AC4B9] bg-opacity-10 py-20 px-[20px] flex justify-center items-center lg:px-[140px]'}>
+                <div className={'grid lg:grid-cols-12 grid-cols-1 gap-10'}>
+                    <div className={'lg:col-span-6 lg:row-start-1 row-start-2 flex justify-start'}>
                         <motion.img initial={{scale: 0.8, opacity: 0}}
                                     whileInView={{scale: 1, opacity: 1}}
                                     viewport={{once: true}}
-                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'rounded-lg object-cover'}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'rounded-lg w-full lg:w-auto object-cover'}
                                     src={`/pages/about/prestige.png`}/>
                     </div>
-                    <div className={'sm:col-span-5 sm:col-end-13 flex flex-col gap-10'}>
+                    <div className={'lg:col-span-5 lg:col-end-13 flex flex-col gap-10'}>
                         <motion.p initial={{x: -40, opacity: 0}}
                                   whileInView={{x: 0, opacity: 1}}
                                   viewport={{once: true}}
@@ -602,7 +602,7 @@ export default function Home() {
 
                 </div>
             </div>
-            <div className={'bg-white sm:h-[700px] py-12 px-[20px] flex flex-col items-start justify-center relative sm:px-[140px]'}>
+            <div className={'bg-white lg:h-[700px] py-12 px-[20px] flex flex-col items-start justify-center relative lg:px-[140px]'}>
                 <img className={'w-full absolute top-0 z-[50] left-0'} src={'/pages/about/prestige_bottom.svg'}/>
                 <img className={'w-full h-full object-cover z-[0] absolute top-0 left-0'} src={'/pages/about/bg.png'}/>
                 <motion.div className={'flex h-28 mb-12 items-center gap-5'}
@@ -656,7 +656,7 @@ export default function Home() {
                 </div>
             </div>
             <div
-                className={"sm:h-[700px] sm:pt-0 pt-12 px-[20px] sm:pl-[140px] sm:pr-[70px] flex flex-col justify-center overflow-hidden bg-cover relative bg-[url('/pages/main/results_bg.png')]"}>
+                className={"lg:h-[700px] lg:pt-0 pt-12 px-[20px] lg:pl-[140px] lg:pr-[70px] flex flex-col justify-center overflow-hidden bg-cover relative bg-[url('/pages/main/results_bg.png')]"}>
                 <img className={'absolute left-0 top-0'} src={`${images}/results_top_offset.png`} alt={''}></img>
 
                 <div className={'grid sm:grid-cols-7 grid-cols-1 items-center h-full gap-2'}>
@@ -665,7 +665,7 @@ export default function Home() {
                                   whileInView={{x: 0, opacity: 1}}
                                   viewport={{once: true}}
                                   transition={{ease: 'easeInOut', duration: 0.7}}
-                                  className={'sm:text-4xl text-2xl font-extralight text-white'}>ПРИСОЕДИНЯЙСЯ К
+                                  className={'lg:text-4xl text-2xl font-extralight text-white'}>ПРИСОЕДИНЯЙСЯ К
                             НАШЕМУ<br/><span
                                 className={'font-extrabold'}>ПРОФЕССИОНАЛЬНОМУ СООБЩЕСТВУ</span></motion.p>
                         <motion.div className={'flex h-28 items-center gap-5'}
@@ -678,14 +678,14 @@ export default function Home() {
                             </div>
                             <div className={'flex flex-col text-white gap-3'}>
                                 <CountUp enableScrollSpy={true}
-                                         className={'text-5xl sm:text-8xl leading-[70%] font-extrabold font-inter'}
+                                         className={'text-5xl lg:text-8xl leading-[70%] font-extrabold font-inter'}
                                          useEasing={true} suffix={'+'} end={20000} decimal={' '} separator={' '}>
                                 </CountUp>
                                 {/*<p className={'text-8xl leading-[70%] font-extrabold'}>20 000+</p>*/}
                                 <p className={'text-lg leading-[70%] font-extralight'}>Вылеченых детей</p>
                             </div>
                         </motion.div>
-                        <div className={'flex sm:flex-row flex-col items-start gap-14'}>
+                        <div className={'flex lg:flex-row flex-col items-start gap-14'}>
                             <motion.div className={'flex h-full items-center gap-5'} initial={{x: -40, opacity: 0}}
                                         whileInView={{x: 0, opacity: 1}}
                                         viewport={{once: true}}
@@ -694,7 +694,7 @@ export default function Home() {
 
                                 </div>
                                 <div className={'flex flex-col text-white gap-3'}>
-                                    <CountUp enableScrollSpy={true} className={'text-5xl leading-[70%] font-extrabold'}
+                                    <CountUp enableScrollSpy={true} className={'text-5xl whitespace-nowrap lg:text-5xl leading-[70%] font-extrabold'}
                                              useEasing={true} suffix={'+'} end={10} decimal={' '} separator={' '}>
                                     </CountUp>
                                     <p className={'text-md leading-[100%] font-extralight'}>Лет помогаем<br/>
@@ -710,7 +710,7 @@ export default function Home() {
 
                                 </div>
                                 <div className={'flex flex-col text-white gap-3'}>
-                                    <CountUp enableScrollSpy={true} className={'text-5xl leading-[70%] font-extrabold'}
+                                    <CountUp enableScrollSpy={true} className={'text-5xl whitespace-nowrap lg:text-5xl leading-[70%] font-extrabold'}
                                              useEasing={true} suffix={'+'} end={150} decimal={' '} separator={' '}>
                                     </CountUp>
                                     <p className={'text-md leading-[100%] font-extralight'}>Проведено<br/>
@@ -726,7 +726,7 @@ export default function Home() {
 
                                 </div>
                                 <div className={'flex flex-col text-white gap-3'}>
-                                    <CountUp enableScrollSpy={true} className={'text-5xl leading-[70%] font-extrabold'}
+                                    <CountUp enableScrollSpy={true} className={'text-5xl whitespace-nowrap lg:text-5xl leading-[70%] font-extrabold'}
                                              useEasing={true} suffix={'+'} end={19146} decimal={' '} separator={' '}>
                                     </CountUp>
                                     <p className={'text-md leading-[100%] font-extralight'}>Членов<br/>

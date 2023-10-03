@@ -1029,9 +1029,13 @@ export default function Slider() {
                             spaceBetween: 10
                         },
                         640:{
+                            slidesPerView:1,
+                            spaceBetween:70
+                        },
+                        1280:{
                             slidesPerView:3,
                             spaceBetween:70
-                        }
+                        },
                     }}
                 // navigation={{
                 //     prevEl: navigationPrevRef.current,
@@ -1072,10 +1076,10 @@ export default function Slider() {
                 onClick={handleNext}>
                 <img className={'w-full aspect-square'} src={'/arrow_next.svg'}/>
             </div>
-            {isPopVisible?<div className={'fixed h-screen top-0 w-full left-0 bg-black z-[999] bg-opacity-50 flex items-center justify-center p-[10px] sm:px-[20px]'}>
-                <img className={'w-9 right-5 top-5 aspect-square cursor-pointer hidden sm:flex absolute'} src={'/close.svg'} onClick={()=>{setIsPopVisible(false)}}/>
-                <img className={'w-6 right-2 top-4 aspect-square cursor-pointer flex sm:hidden absolute'} src={'/close_black.svg'} onClick={()=>{setIsPopVisible(false)}}/>
-                <div className={'p-5 flex flex-col h-full sm:h-[600px] overflow-y-scroll gap-4 bg-white rounded-xl w-full sm:w-1/2'}>
+            {isPopVisible?<div className={'fixed h-screen top-0 w-full left-0 bg-black z-[999] bg-opacity-50 flex items-center justify-center p-[10px] lg:px-[20px]'}>
+                <img className={'w-9 right-5 top-5 aspect-square cursor-pointer hidden lg:flex absolute'} src={'/close.svg'} onClick={()=>{setIsPopVisible(false)}}/>
+                <img className={'w-6 right-2 top-4 aspect-square cursor-pointer flex lg:hidden absolute'} src={'/close_black.svg'} onClick={()=>{setIsPopVisible(false)}}/>
+                <div className={'p-5 flex flex-col h-full lg:h-[600px] overflow-y-scroll gap-4 bg-white rounded-xl w-full lg:w-1/2'}>
                     <img className={'object-cover aspect-video w-full'} src={`/posts/${currentPost.image}.jpg`}/>
                     <p className={'font-bold text-2xl'}>{currentPost.title}</p>
                     <p className={'text-sm'}>{currentPost.caption}</p>

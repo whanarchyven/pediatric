@@ -14,14 +14,14 @@ const ReviewPop = ({callback}:reviewPopInterface) => {
         <div className={'fixed h-screen top-0 w-full left-0 bg-black z-[999] bg-opacity-50 flex items-center justify-center p-[10px] sm:px-[20px]'}>
             <img className={'w-9 right-5 top-5 aspect-square cursor-pointer hidden sm:flex absolute'} src={'/close.svg'} onClick={()=>{callback()}}/>
             <img className={'w-6 right-2 top-4 aspect-square cursor-pointer flex sm:hidden absolute'} src={'/close_black.svg'} onClick={()=>{callback()}}/>
-            <div className={'p-5 flex flex-col h-full sm:h-[600px] overflow-y-scroll gap-2 bg-white rounded-xl w-full sm:w-1/2'}>
+            <div className={'p-5 flex flex-col h-full sm:h-[600px] overflow-y-scroll gap-2 bg-white rounded-xl w-full sm:w-2/3 lg:w-1/2'}>
                 <p className={'text-3xl font-bold'}>Оставить отзыв:</p>
-                <p className={'sm:text-lg text-xs font-semibold'}>Как вас зовут?</p>
+                <p className={'sm:text-sm lg:text-lg text-xs font-semibold'}>Как вас зовут?</p>
                 <input className={'border-red border-2 p-2'}/>
-                <p className={'sm:text-lg text-xs font-semibold'}>Загрузите аватар</p>
+                <p className={'sm:text-sm lg:text-lg text-xs font-semibold'}>Загрузите аватар</p>
                 <DragNDrop setFile={setFile}></DragNDrop>
                 <div className={'flex sm:flex-row flex-col items-center'}>
-                    <p className={'sm:text-lg text-xs font-semibold'}>Оцените качество продуктов / услуг:</p>
+                    <p className={'sm:text-sm lg:text-lg text-xs font-semibold'}>Оцените качество продуктов / услуг:</p>
                     <div className={'ml-2 sm:ml-7 flex'}>
                         {arrStar.map((star,counter)=>{
                             if(counter<stars){
@@ -37,7 +37,7 @@ const ReviewPop = ({callback}:reviewPopInterface) => {
                         })}
                     </div>
                 </div>
-                <p className={'sm:text-lg text-xs font-semibold'}>Напишите ваш отзыв!</p>
+                <p className={'sm:text-sm lg:text-lg text-xs font-semibold'}>Напишите ваш отзыв!</p>
                 <textarea className={'border-2 p-2 border-red'} rows={7}>
 
                 </textarea>

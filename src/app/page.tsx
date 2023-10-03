@@ -441,7 +441,7 @@ export default function Home() {
             {/*КАЛЕНДАРЬ*/}
 
             <div
-                className={'bg-white lg:h-[1000px] lg:py-0 py-12 flex flex-col justify-center px-[20px] lg:px-[140px]'}>
+                className={'bg-white  lg:py-20 py-12 flex flex-col justify-center px-[20px] lg:px-[140px]'}>
                 <div className={'flex mt-7 items-center justify-center sm:justify-between'}>
                     <motion.p initial={{x: -40, opacity: 0}}
                               whileInView={{x: 0, opacity: 1}}
