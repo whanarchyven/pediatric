@@ -104,10 +104,14 @@ const News = () => {
                             slidesPerView: 1,
                             spaceBetween: 10
                         },
-                        640: {
-                            slidesPerView: 4,
-                            spaceBetween: 70
-                        }
+                        640:{
+                            slidesPerView:1,
+                            spaceBetween:70
+                        },
+                        1280:{
+                            slidesPerView:3,
+                            spaceBetween:70
+                        },
                     }}
                     className={'w-full'}
             >

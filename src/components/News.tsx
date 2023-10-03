@@ -73,9 +73,13 @@ const News = () => {
                             spaceBetween: 10
                         },
                         640:{
+                            slidesPerView:1,
+                            spaceBetween:70
+                        },
+                        1280:{
                             slidesPerView:3,
                             spaceBetween:70
-                        }
+                        },
                     }}
             >
                 {news.map((item,counter)=>{

@@ -239,15 +239,15 @@ const Calendar = () => {
                             <img className={'w-full aspect-video object-cover'} src={currentEvent.image}/>
                             <div className={'p-4 flex gap-4 flex-col'}>
                                 <div className={'flex flex-col'}>
-                                    <p className={'sm:text-xl text-xs font-bold text-black'}>{currentEvent.title}</p>
-                                    <p className={'sm:text-xl text-xs font-normal text-black'}>{currentEvent.subtitle}</p>
+                                    <p className={'lg:text-xl text-xs font-bold text-black'}>{currentEvent.title}</p>
+                                    <p className={'lg:text-xl text-xs font-normal text-black'}>{currentEvent.subtitle}</p>
                                 </div>
                                 <div className={'flex items-center justify-between'}>
                                     <div
-                                        className={'w-[48%] p-1 sm:p-4 text-green-two text-xl border-green-two sm:text-lg text-xs border-2 rounded-lg flex items-center justify-center'}>
+                                        className={'w-[48%] p-1 lg:p-4 text-green-two text-xl border-green-two lg:text-lg text-xs border-2 rounded-lg flex items-center justify-center'}>
                                         {currentEvent.timePeriod}
                                     </div>
-                                    <Link className={'w-[48%] p-1 sm:p-4 text-white text-xl bg-green-two sm:text-lg text-xs border-green-two border-2 rounded-lg flex items-center justify-center'} href={currentEvent.link}>
+                                    <Link className={'w-[48%] p-1 lg:p-4 text-white text-xl bg-green-two lg:text-lg text-xs border-green-two border-2 rounded-lg flex items-center justify-center'} href={currentEvent.link}>
                                         Подробнее
                                     </Link>
                                 </div>

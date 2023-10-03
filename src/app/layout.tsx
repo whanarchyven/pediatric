@@ -25,7 +25,7 @@ export default function RootLayout({
             {children}
         </div>
         {/*ФУТЕР*/}
-        <div className={'bg-black grid gap-12 grid-cols-1 items-start justify-center sm:grid-cols-12 py-20 px-[20px] sm:px-[70px] items-start'}>
+        <div className={'bg-black grid gap-12 grid-cols-1 items-start justify-center lg:grid-cols-12 py-20 px-[20px] sm:px-[70px] items-start'}>
             <div className={'sm:col-span-3 gap-8 flex flex-col relative justify-between'}>
                 <img className={'w-48'} src={'/logo.svg'}/>
                 <Link href={'https://t.me/pediatric_dermatology_ru'}>
@@ -78,7 +78,7 @@ export default function RootLayout({
                     Члены общества получают эксклюзивный доступ к мероприятиям, вдохновляющим беседам и многому другому.</p>
                 <Link href={'/registration'}>
                     <div
-                        className={'bg-transparent border-2 border-white font-normal rounded-lg text-xl text-white flex items-center justify-center w-60 py-5'}>
+                        className={'bg-transparent border-2 border-white font-normal rounded-lg text-xl text-white flex items-center justify-center lg:w-60 py-5'}>
                         Подать заявку
                     </div>
                 </Link>

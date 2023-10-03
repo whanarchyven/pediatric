@@ -175,14 +175,14 @@ export default function Home() {
                                     return (
                                         <SwiperSlide key={counter} className={''}>
                                             <div
-                                                className={'flex h-full pl-[140px] flex-col justify-center items-center'}>
+                                                className={'flex h-full pl-[80px] lg:pl-[140px] flex-col justify-center items-center'}>
                                                 <div className={'grid w-full grid-cols-12'}>
                                                     <div className={'flex col-span-6 justify-center flex-col gap-5'}>
                                                         <div
                                                             className={'flex items-center rounded-full p-2 px-4 uppercase text-white font-light opacity-50 border-white w-fit border-2 justify-center'}>
                                                             {item.date}
                                                         </div>
-                                                        <div className={'text-left text-5xl text-white '}
+                                                        <div className={'text-left text-3xl lg:text-5xl text-white '}
                                                              dangerouslySetInnerHTML={{__html: item.title}}>
 
                                                         </div>
@@ -286,8 +286,8 @@ export default function Home() {
             {/*О НАС*/}
 
 
-            <div className={'bg-white sm:h-[854px] flex items-center sm:py-0 py-12 px-[20px] sm:px-[140px]'}>
-                <div className={'gap-20 grid grid-cols-1 sm:grid-cols-2'}>
+            <div className={'bg-white lg:h-[854px] flex items-center lg:py-0 py-12 px-[20px] lg:px-[140px]'}>
+                <div className={'gap-20 grid grid-cols-1 lg:grid-cols-2'}>
                     <div className={'flex flex-col gap-6 items-start'}>
                         <motion.p initial={{x: -40, opacity: 0}}
                                   whileInView={{x: 0, opacity: 1}}
@@ -368,7 +368,7 @@ export default function Home() {
             {/*О НАС*/}
 
             <div
-                className={'bg-[#F2F9F8] relative sm:py-0 py-12 sm:h-[900px] flex items-center px-[20px] sm:px-[140px]'}>
+                className={'bg-[#F2F9F8] relative lg:py-0 py-20 lg:h-[900px] flex items-center px-[20px] lg:px-[140px]'}>
                 <img className={'absolute left-0 -top-1'} src={`${images}/about_us_offset.png`}
                      alt={'asset_bottom'}></img>
                 <div>
@@ -386,10 +386,10 @@ export default function Home() {
                                     viewport={{once: true}}
                                     transition={{ease: 'easeInOut', duration: 0.7, delay: 1.2}}>
                             <img className={'sm:w-10 w-12'} src={`${images}/help.svg`}/>
-                            <p className={'sm:text-lg sm:w-auto w-3/5 whitespace-pre-wrap text-sm'}>Цель организации - Содействие развитию <br/>детской дерматологии</p>
+                            <p className={'lg:text-lg sm:w-auto w-3/5 whitespace-pre-wrap text-sm'}>Цель организации - Содействие развитию <br/>детской дерматологии</p>
                         </motion.div>
                     </div>
-                    <div className={'grid mt-10 grid-cols-1 sm:grid-cols-4 gap-4 sm:gap-16 '}>
+                    <div className={'grid mt-10 sm:grid-cols-2 grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-16 '}>
                         <motion.div initial={{scale: 0.7, opacity: 0}}
                                     whileInView={{scale: 1, opacity: 1}}
                                     viewport={{once: true}}
@@ -441,7 +441,7 @@ export default function Home() {
             {/*КАЛЕНДАРЬ*/}
 
             <div
-                className={'bg-white sm:h-[1000px] sm:py-0 py-12 flex flex-col justify-center px-[20px] sm:px-[140px]'}>
+                className={'bg-white lg:h-[1000px] lg:py-0 py-12 flex flex-col justify-center px-[20px] lg:px-[140px]'}>
                 <div className={'flex mt-7 items-center justify-center sm:justify-between'}>
                     <motion.p initial={{x: -40, opacity: 0}}
                               whileInView={{x: 0, opacity: 1}}
@@ -460,8 +460,8 @@ export default function Home() {
 
             {/*НОВОСТИ*/}
 
-            <div className={'bg-white sm:py-0 py-12 sm:h-[600px]'}>
-                <div className={'flex sm:mt-7 items-center px-[20px] sm:px-[140px] justify-center sm:justify-between'}>
+            <div className={'bg-white lg:py-0 py-12 lg:h-[600px]'}>
+                <div className={'flex sm:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-between'}>
                     <motion.p className={'uppercase font-extrabold text-black text-4xl'}
                               initial={{x: -40, opacity: 0}}
                               whileInView={{x: 0, opacity: 1}}
@@ -482,10 +482,10 @@ export default function Home() {
             {/*РЕЗУЛЬТАТЫ*/}
 
             <div
-                className={"sm:h-[700px] sm:pt-0 pt-12 px-[20px] sm:pl-[140px] sm:pr-[70px] flex flex-col justify-center overflow-hidden bg-cover relative bg-[url('/pages/main/results_bg.png')]"}>
+                className={"lg:h-[700px] lg:pt-0 pt-12 px-[20px] lg:pl-[140px] lg:pr-[70px] flex flex-col justify-center overflow-hidden bg-cover relative bg-[url('/pages/main/results_bg.png')]"}>
                 <img className={'absolute left-0 top-0'} src={`${images}/results_top_offset.png`} alt={''}></img>
 
-                <div className={'grid sm:grid-cols-7 grid-cols-1 items-center h-full gap-2'}>
+                <div className={'grid lg:grid-cols-7 grid-cols-1 items-center h-full gap-2'}>
                     <div className={'sm:col-span-4 flex flex-col gap-10'}>
                         <motion.p initial={{x: -40, opacity: 0}}
                                   whileInView={{x: 0, opacity: 1}}
@@ -571,8 +571,8 @@ export default function Home() {
                             </motion.div>
                         </Link>
                     </div>
-                    <div className={'sm:col-span-3 sm:mt-0 mt-10 h-full relative flex items-center justify-center'}>
-                        <img className={'sm:absolute bottom-0'} src={`${images}/results_doctor_sprite.svg`}/>
+                    <div className={'lg:col-span-3 lg:mt-0 mt-10 h-full relative flex items-center justify-center'}>
+                        <img className={'lg:absolute bottom-0'} src={`${images}/results_doctor_sprite.svg`}/>
                         <motion.img initial={{y: 40, opacity: 0}}
                                     whileInView={{y: 0, opacity: 1}}
                                     viewport={{once: true}}
@@ -589,7 +589,7 @@ export default function Home() {
 
             {/*FEATURES*/}
 
-            <div className={'sm:px-[140px] px-[20px] bg-white py-12 sm:py-14'}>
+            <div className={'lg:px-[140px] px-[20px] bg-white py-12 lg:py-14'}>
                 <div className={'grid grid-cols-1 sm:grid-cols-12 gap-10'}>
                     <div className={'sm:col-span-6 flex flex-col items-start sm:items-start gap-10'}>
                         <motion.p initial={{y: -40, opacity: 0}}
@@ -606,7 +606,7 @@ export default function Home() {
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
-                            <p className={'text-xl leading-[100%]'}>Быть в курсе актуальных новостей в области детской
+                            <p className={'text-sm lg:text-xl leading-[100%]'}>Быть в курсе актуальных новостей в области детской
                                 дерматологии.</p>
                         </motion.div>
                         <motion.div initial={{x: -40, opacity: 0}}
@@ -617,7 +617,7 @@ export default function Home() {
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
-                            <p className={'text-xl leading-[100%]'}>
+                            <p className={'text-sm lg:text-xl leading-[100%]'}>
                                 Следить за последними результатами клинических исследований новых лекарственных средств,
                                 применяемых в детской дерматологии.</p>
                         </motion.div>
@@ -629,7 +629,7 @@ export default function Home() {
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
-                            <p className={'text-xl leading-[100%]'}>Иметь доступ к прослушиванию регулярных вебинаров на
+                            <p className={'text-sm lg:text-xl leading-[100%]'}>Иметь доступ к прослушиванию регулярных вебинаров на
                                 актуальные темы о заболеваниях кожи, волос, и ногтей в детском возрасте от ведущих
                                 специалистов нашей страны и европейского общества детских дерматологов.</p>
                         </motion.div>
@@ -641,7 +641,7 @@ export default function Home() {
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
-                            <p className={'text-xl leading-[100%]'}>Иметь доступ к образовательным материалам российских
+                            <p className={'text-sm lg:text-xl leading-[100%]'}>Иметь доступ к образовательным материалам российских
                                 и зарубежных специалистов.</p>
                         </motion.div>
                         <Link className={'w-full'} href={'/registration'}>
@@ -658,18 +658,18 @@ export default function Home() {
                         <motion.img initial={{scale: 0.8, opacity: 0}}
                                     whileInView={{scale: 1, opacity: 1}}
                                     viewport={{once: true}}
-                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'rounded-lg'}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'rounded-lg lg:h-full object-cover h-96'}
                                     src={`${images}/feautures/1.png`}/>
                     </div>
                 </div>
             </div>
-            <div className={'sm:px-[140px] px-[20px] bg-white py-12 sm:py-14'}>
+            <div className={'lg:px-[140px] px-[20px] bg-white py-12 lg:py-14'}>
                 <div className={'grid sm:grid-cols-12 grid-cols-1 gap-10'}>
                     <div className={'sm:col-span-6 sm:row-start-1 row-start-2 flex justify-start'}>
                         <motion.img initial={{scale: 0.8, opacity: 0}}
                                     whileInView={{scale: 1, opacity: 1}}
                                     viewport={{once: true}}
-                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'rounded-lg'}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'rounded-lg lg:h-full object-cover h-96'}
                                     src={`${images}/feautures/2.png`}/>
                     </div>
                     <div className={'sm:col-span-5 sm:col-end-13 flex flex-col gap-10'}>
@@ -687,7 +687,7 @@ export default function Home() {
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
-                            <p className={'text-xl leading-[100%]'}>Программа онлайн обучения с доступом к просмотру
+                            <p className={'text-sm lg:text-xl leading-[100%]'}>Программа онлайн обучения с доступом к просмотру
                                 клинических случаев, вебинаров, семинаров, а также возможностью участвовать в
                                 фокус-сессиях и
                                 дискуссиях в области детской дерматологии.</p>
@@ -700,7 +700,7 @@ export default function Home() {
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
-                            <p className={'text-xl leading-[100%]'}>Возможность получать баллы НМО.</p>
+                            <p className={'text-sm lg:text-xl leading-[100%]'}>Возможность получать баллы НМО.</p>
                         </motion.div>
                         <motion.div initial={{x: -40, opacity: 0}}
                                     whileInView={{x: 0, opacity: 1}}
@@ -710,7 +710,7 @@ export default function Home() {
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
-                            <p className={'text-xl leading-[100%]'}>Возможность стать спикером научно-практических
+                            <p className={'text-sm lg:text-xl leading-[100%]'}>Возможность стать спикером научно-практических
                                 конференций Общества детских дерматологов</p>
                         </motion.div>
 
@@ -727,7 +727,7 @@ export default function Home() {
 
                 </div>
             </div>
-            <div className={'sm:px-[140px] bg-white py-12 px-[20px] sm:py-14'}>
+            <div className={'lg:px-[140px] bg-white py-12 px-[20px] lg:py-14'}>
                 <div className={'grid grid-cols-1 sm:grid-cols-12 items-center gap-10'}>
                     <div className={'sm:col-span-6 flex flex-col gap-10'}>
                         <motion.p initial={{x: -40, opacity: 0}}
@@ -744,7 +744,7 @@ export default function Home() {
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
-                            <p className={'text-xl leading-[100%]'}>Множество возможностей для общения с детскими
+                            <p className={'text-sm lg:text-xl leading-[100%]'}>Множество возможностей для общения с детскими
                                 дерматологами со всего мира.</p>
                         </motion.div>
                         <motion.div initial={{x: -40, opacity: 0}}
@@ -755,7 +755,7 @@ export default function Home() {
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
-                            <p className={'text-xl leading-[100%]'}>Право на получение сертификата члена Общества
+                            <p className={'text-sm lg:text-xl leading-[100%]'}>Право на получение сертификата члена Общества
                                 детских дерматологов с индивидуальным номером.</p>
                         </motion.div>
                         <motion.div initial={{x: -40, opacity: 0}}
@@ -766,7 +766,7 @@ export default function Home() {
                             <div className={'w-8 h-8 aspect-square bg-[#58BBB4]'}>
 
                             </div>
-                            <p className={'text-xl leading-[100%]'}>Бонусы при участии в крупных конференциях
+                            <p className={'text-sm lg:text-xl leading-[100%]'}>Бонусы при участии в крупных конференциях
                                 международного формата.</p>
                         </motion.div>
 
@@ -795,11 +795,11 @@ export default function Home() {
 
 
             <motion.div
-                className={"sm:h-[600px] sm:py-0 py-12 flex flex-col justify-center  overflow-hidden bg-cover relative bg-[url('/pages/main/faq_bg.png')]"}>
+                className={"lg:h-[600px] lg:py-0 py-12 flex flex-col justify-center  overflow-hidden bg-cover relative bg-[url('/pages/main/faq_bg.png')]"}>
                 <img className={'absolute left-0 top-0 w-full'} src={`${images}/faq_top_offset.png`}
                      alt={'asset_bottom'}/>
                 <motion.p
-                    className={'text-2xl sm:text-4xl top-10 absolute text-white px-[20px] sm:px-[140px] font-extralight text-black'}
+                    className={'text-2xl lg:text-4xl top-10 absolute text-white px-[20px] lg:px-[140px] font-extralight text-black'}
                     initial={{x: -40, opacity: 0}}
                     whileInView={{x: 0, opacity: 1}}
                     viewport={{once: true}}
@@ -808,10 +808,10 @@ export default function Home() {
                     ЗАДАВАЕМЫЕ<br/><span
                         className={'font-extrabold'}>ВОПРОСЫ</span></motion.p>
                 <motion.div
-                    className={'w-full h-[600px] h-auto px-[20px] sm:px-[70px] grid grid-cols-1 sm:grid-cols-12'}>
+                    className={'w-full h-[600px] h-auto px-[20px] lg:px-[70px] grid grid-cols-1 lg:grid-cols-12'}>
                     <motion.div
                         className={'col-span-6 sm:mt-0 mt-20 flex flex-col sm:items-start  justify-center'}>
-                        <div className={'w-full sm:flex hidden'}>
+                        <div className={'w-full lg:flex hidden'}>
                             <Swiper
                                 speed={1000}
                                 autoplay={{delay: 4000}}
@@ -844,7 +844,7 @@ export default function Home() {
 
                             </Swiper>
                         </div>
-                        <div className={'w-full sm:hidden flex'}>
+                        <div className={'w-full lg:hidden flex'}>
                             <Swiper
                                 speed={1000}
                                 autoplay={{delay: 4000}}

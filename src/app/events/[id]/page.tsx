@@ -92,8 +92,279 @@ export default function Page({params}: any) {
 
             ],
 
+
+            program: [
+                {
+                    name: 'ОТКРЫТИЕ КОНФЕРЕНЦИИ. ПРИВЕТСТВЕННОЕ СЛОВО',
+                    timePeriod: '10:00 – 10:30',
+                    substages: [
+                        {
+                            name: '«Детская дерматология в эпоху инноваций»',
+                            timePeriod: '',
+                            description: 'Президент МОО «Общества детских дерматологов», \n' +
+                                'д.м.н., профессор Н.Н. Мурашкин\n'
+                        },
+                        {
+                            name: 'Цифровизация в управлении здоровьем орфанного пациента',
+                            timePeriod: '',
+                            description: 'Учредитель и руководитель БФ «Дети-бабочки». Основатель Международной \n Ассоциации по Генетическим Заболеваниям А.А. Куратова '
+                        },
+                    ]
+                },
+                {
+                    name: 'ПЛЕНАРНЫЙ ДОКЛАД. Генетические заболевания кожи у детей: что мы знаем и умеем сегодня?',
+                    timePeriod: '10:30 – 11:10',
+                    speaker: 'д.м.н., профессор Мурашкин Н.Н.',
+                },
+                {
+                    name: 'Демонстрация клинических случаев года',
+                    timePeriod: '11:10 – 11:30',
+                    speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, к.м.н Л.А. Опрятин, к.м.н М.А. Леонова',
+                }, {
+                    name: 'ПЕРЕРЫВ',
+                    timePeriod: '11:30 – 11:45',
+                }, {
+                    name: 'Дерматологические аспекты хронических воспалительных \nзаболеваний пилосебацейного комплекса у детей',
+                    timePeriod: '11:45 – 13:15',
+                    substages: [
+                        {
+                            name: 'Вульгарные акне в детском возрасте: новые тенденции в патогенезе и лечении',
+                            timePeriod: '11:45 – 12:15',
+                            description: 'д.м.н., профессор Е.А. Аравийская'
+                        },
+                        {
+                            name: 'Синдромы, ассоциированные с акне',
+                            timePeriod: '12:15 – 12:30',
+                            description: 'д.м.н., профессор Л.С. Круглова'
+                        },
+                        {
+                            name: 'Гнойный гидраденит в детской дерматологической практике',
+                            timePeriod: '12:30 – 12:45',
+                            description: 'к.м.н. А.И. Материкин'
+                        },
+                        {
+                            name: 'Подрывающий фолликулит кожи волосистой части головы: свежий взгляд на старую проблему',
+                            timePeriod: '12:45 – 13:00',
+                            description: 'к.м.н. В.В. Вавилов'
+                        },
+                        {
+                            name: 'Аутоиммунный прогестероновый дерматит у подростков',
+                            timePeriod: '13:00 – 13:15',
+                            description: 'д.м.н., профессор Н.Н. Мурашкин'
+                        }
+                    ]
+                }, {
+                    name: 'ПЕРЕРЫВ',
+                    timePeriod: '13:15 – 13:45',
+                }, {
+                    name: 'Фронтиры дерматологической науки: оригинальные взгляды на актуальные темы',
+                    timePeriod: '13:45 – 15:15',
+                    substages: [
+                        {
+                            name: 'Профессорский лекторий. Инновационные подходы к лечению псориаза у детей',
+                            timePeriod: '13:45 – 14:45',
+                            description: 'д.м.н., профессор Н.Н. Мурашкин, д.м.н., профессор А.Л. Бакулев'
+                        },
+                        {
+                            name: 'Приоткрывая завесу тайны: о чем могут рассказать дерматологу поражения слизистой оболочки полости рта в детском возрасте?',
+                            timePeriod: '14:45 – 15:00',
+                            description: 'к.м.н. Р.А. Иванов'
+                        },
+                        {
+                            name: 'Татуировки у подростков: осложнения, риски и пути решения проблем',
+                            timePeriod: '15:00 – 15:15',
+                            description: 'к.м.н. Д.В. Федоров'
+                        }
+                    ]
+                },
+                {
+                    name: 'ПЕРЕРЫВ',
+                    timePeriod: '15:15 – 15:30',
+                },
+                {
+                    name: 'Растущие с атопическим дерматитом: новые горизонты и предотвращение осложнений',
+                    timePeriod: '15:30 – 17:00',
+                    substages: [
+                        {
+                            name: 'Профессорский лекторий: разговор о наболевшем. Осложнения атопического дерматита у детей',
+                            timePeriod: '15:30 – 16:30',
+                            description: 'д.м.н., профессор Н.Н. Мурашкин, д.м.н., профессор Е.А. Аравийская'
+                        },
+                        {
+                            name: 'Дерматологические маски первичных иммунодефицитов у детей',
+                            timePeriod: '16:30 – 16:45',
+                            description: 'д.м.н., профессор А.Ю. Щербина'
+                        },
+                        {
+                            name: 'Отказ от традиций: переходим к современному лечению атопического дерматита',
+                            timePeriod: '16:45 – 17:00',
+                            description: 'д.м.н., профессор РАН Тамразова О.Б.'
+                        }
+                    ]
+
+                },
+                {
+                    name: 'ПЕРЕРЫВ',
+                    timePeriod: '17:00 – 17:15',
+                },{
+                    name: 'Дерматология 2.0: финальные открытия и научные дебаты',
+                    timePeriod: '17:15 – 18:45',
+                    substages: [
+                        {
+                            name: 'Локализованная склеродермия и склеродермоподобные заболевания: путь к пониманию эффективной терапии',
+                            timePeriod: '17:15 – 17:45',
+                            description: 'д.м.н., профессор Антонио Торрело (Испания)'
+                        },
+                        {
+                            name: 'Папулосквамозные поражения кожи у детей, ассоциированные',
+                            timePeriod: '17:45 – 18:00',
+                            description: 'д.м.н., профессор Н.Н. Мурашкин'
+                        },
+                        {
+                            name: 'Разбор клинических случаев года',
+                            timePeriod: '18:00 – 18:30',
+                            description: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, к.м.н Л.А. Опрятин, к.м.н М.А. Леонова'
+                        },
+                        {
+                            name: 'ЗАКРЫТИЕ КОНФЕРЕНЦИИ. \n' +
+                                'Обсуждение, ответы на вопросы',
+                            timePeriod: '18:30 – 18:45',
+                        }
+                    ]
+
+                },
+            ],
+
+            program2: [
+                {
+                    name: 'ОТКРЫТИЕ КОНФЕРЕНЦИИ. ПРИВЕТСТВЕННОЕ СЛОВО ',
+                    timePeriod: '10:00 – 10:30',
+                    substages: [
+                        {
+                            name: '«Детская дерматология в эпоху инноваций»',
+                            timePeriod: '',
+                            description: 'Президент МОО «Общества детских дерматологов», \n' +
+                                'д.м.н., профессор Н.Н. Мурашкин\n'
+                        },
+                        {
+                            name: 'Цифровизация в управлении здоровьем орфанного пациента',
+                            timePeriod: '',
+                            description: 'Учредитель и руководитель БФ «Дети-бабочки». Основатель Международной \n Ассоциации по Генетическим Заболеваниям А.А. Куратова '
+                        },
+                    ]
+                },
+                {
+                    name: 'ПЛЕНАРНЫЙ ДОКЛАД. Генетические заболевания кожи у детей: что мы знаем и умеем сегодня?',
+                    timePeriod: '10:30 – 11:10',
+                    speaker: 'д.м.н., профессор Мурашкин Н.Н.',
+                },
+                {
+                    name: 'Демонстрация клинических случаев года',
+                    timePeriod: '11:10 – 11:30',
+                    speaker: 'к.м.н. А.И. Материкин, к.м.н. Р.В. Епишев, к.м.н Л.А. Опрятин, к.м.н М.А. Леонова',
+                }, {
+                    name: 'ПЕРЕРЫВ',
+                    timePeriod: '11:30 – 11:45',
+                }, {
+                    name: 'Новые главы в диагностике и терапии новообразований кожи в детском возрасте',
+                    timePeriod: '11:45 – 13:15',
+                    substages: [
+                        {
+                            name: 'Командный подход к ведению детей с инфантильными гемангиомами. Работа над ошибками',
+                            timePeriod: '11:45 – 12:00',
+                            description: 'д.м.н., профессор Н.П. Котлукова, д.м.н. Т.С. Белышева'
+                        },
+                        {
+                            name: 'О лечении сосудистых аномалий сиролимусом',
+                            timePeriod: '12:00 – 12:15',
+                            description: 'к.м.н. Е.К. Донюш'
+                        },
+                        {
+                            name: 'Возможности хирургического лечения детей с врожденными гигантскими пигментными невусами',
+                            timePeriod: '12:15 – 12:30',
+                            description: 'д.м.н. Т.А. Гассан'
+                        },
+                        {
+                            name: 'Особенности диагностики и течения меланомы кожи у детей',
+                            timePeriod: '12:30 – 12:45',
+                            description: 'д.м.н. Т.С. Белышева'
+                        },
+                        {
+                            name: 'Дерматологические проявления опухолей системы крови',
+                            timePeriod: '12:45 – 13:00',
+                            description: 'д.м.н. Т.Т. Валиев'
+                        }
+                    ]
+                }, {
+                    name: 'ПЕРЕРЫВ',
+                    timePeriod: '13:15 – 13:45',
+                }, {
+                    name: 'Дерматология неопределенности: сложные заболевания с неясной этиологией',
+                    timePeriod: '13:45 – 15:15',
+                    substages: [
+                        {
+                            name: 'Диагностика и тактика ведения хронической спонтанной крапивницы в детском возрасте',
+                            timePeriod: '13:45 – 14:00',
+                            description: 'к.м.н. О.А. Ерешко'
+                        },
+                        {
+                            name: 'Атопический дерматит и эозинофильный эзофагит как новая ступень «атопического марша»',
+                            timePeriod: '14:00 – 14:15',
+                            description: 'Вязанкина С.С.'
+                        },
+                        {
+                            name: 'Консервативные методики коррекции рубцовых деформаций у детей',
+                            timePeriod: '14:15 – 14:30',
+                            description: 'д.м.н., профессор Стенько А.Г.'
+                        },
+                        {
+                            name: 'Лечение локализованной склеродермии в детском возрасте: традиции и инновации',
+                            timePeriod: '14:30 – 14:45',
+                            description: 'к.м.н. Р.В. Епишев'
+                        },
+                        {
+                            name: 'Склероатрофический лихен у девочек и мальчиков',
+                            timePeriod: '14:45 – 15:00',
+                            description: 'к.м.н. М.А. Леонова'
+                        },
+                        {
+                            name: 'Нейтрофильные дерматозы у детей',
+                            timePeriod: '15:00 – 15:15',
+                            description: 'к.м.н. Э.Т. Амбарчян'
+                        }
+                    ]
+                },
+                {
+                    name: 'ПЕРЕРЫВ',
+                    timePeriod: '15:15 – 15:30',
+                },
+                {
+                    name: 'От зеркала к микроскопу: погружение в мир дерматоскопии',
+                    timePeriod: '15:30 – 17:00',
+                    substages: [
+                        {
+                            name: 'Пигментные новообразования кожи у детей: что должен знать дерматолог',
+                            timePeriod: '15:30 – 16:00',
+                            description: 'д.м.н. Т.С. Белышева'
+                        },
+                        {
+                            name: 'Беспигментные новообразования кожи у детей: удалять, наблюдать или обследовать?',
+                            timePeriod: '16:00 – 16:30',
+                            description: 'к.м.н. А.В. Миченко'
+                        },
+                        {
+                            name: 'Опухоли кожи у детей: квиз',
+                            timePeriod: '16:30 – 17:00',
+                            description: 'Ю.Ю. Сергеев'
+                        }
+                    ]
+
+                },
+
+            ],
+
             onlinePrice: 1000,
-            offlinePrice:1500,
+            offlinePrice: 1500,
 
             prices: [{
                 date: '31.08.22',
@@ -239,7 +510,7 @@ export default function Page({params}: any) {
                 },
 
             ],
-            isOnlyOnline:true,
+            isOnlyOnline: true,
         },
 
         {
@@ -256,8 +527,8 @@ export default function Page({params}: any) {
             announcement: 'Данная обучающая программа направлена на повышение квалификации врачей-специалистов с целью улучшения оказания специализированной медицинской помощи.',
             description: 'В рамках проекта всем участникам будут предоставлены видео-уроки общей продолжительностью более чем 60 минут, адаптированные видеоклипы по тематике занятий, брошюры, наглядные пособия, аудио материалы со спикером и модератором, а также будет проведен детальный разбор интерактивных задач и тестовый контроль знаний.',
             speakers: [],
-            isOnlyOnline:true,
-            link:'https://t.me/+WTJWBaZ5lZ42OTZi',
+            isOnlyOnline: true,
+            link: 'https://t.me/+WTJWBaZ5lZ42OTZi',
         },
 
         {
@@ -276,8 +547,8 @@ export default function Page({params}: any) {
                 '\n' +
                 'В научной программе будут освещены актуальные проблемы дерматологии детского возраста, такие как атопический дерматит, псориаз, акне, злокачественные новообразования кожи, а также обсуждены вопросы аутоиммунной патологии: гнездная алопеция и витилиго. Кроме того, будет проводиться оценка эффективности междисциплинарного подхода, интерпретация лабораторных исследований и дерматоскопической картины, наряду с возможностями современных методов лечения. ',
             speakers: [],
-            isOnlyOnline:true,
-            isPassed:true,
+            isOnlyOnline: true,
+            isPassed: true,
         },
 
         {
@@ -293,8 +564,8 @@ export default function Page({params}: any) {
             avatar: `/pages/events/novosib.jpeg`,
             announcement: 'Данная обучающая программа направлена на повышение квалификации врачей-специалистов с целью улучшения оказания специализированной медицинской помощи.',
             speakers: [],
-            isOnlyOnline:true,
-            isPassed:true,
+            isOnlyOnline: true,
+            isPassed: true,
         },
 
         {
@@ -310,8 +581,8 @@ export default function Page({params}: any) {
             avatar: `/pages/events/clinick.jpeg`,
             announcement: 'Данная обучающая программа направлена на повышение квалификации врачей-специалистов с целью улучшения оказания специализированной медицинской помощи.',
             speakers: [],
-            isOnlyOnline:true,
-            isPassed:true,
+            isOnlyOnline: true,
+            isPassed: true,
         },
 
         {
@@ -333,8 +604,8 @@ export default function Page({params}: any) {
                 'Присоединяйтесь и будьте вместе с нами!',
             description: 'В программе конференции собраны наиболее актуальные проблемы дерматологии детского возраста, такие как атопический дерматит, акне, системные и генетические болезни кожи, а также будут освещены инновационные возможности в лечении, диагностике и профилактике заболеваний кожи у детей.',
             speakers: [],
-            isOnlyOnline:true,
-            isPassed:true,
+            isOnlyOnline: true,
+            isPassed: true,
         },
         {
             id: 8,
@@ -351,8 +622,8 @@ export default function Page({params}: any) {
                 '\n' +
                 'Цель проведения мероприятия - улучшение оказания специализированной помощи детскому населению с хроническими заболеваниями.',
             speakers: [],
-            isOnlyOnline:true,
-            isPassed:true,
+            isOnlyOnline: true,
+            isPassed: true,
         },
         {
             id: 9,
@@ -363,7 +634,7 @@ export default function Page({params}: any) {
             place: 'г.Москва',
             format: 'онлайн',
             isOnlyOnline: true,
-            isStream:true,
+            isStream: true,
             participants: 256,
             layoutBg: '/pages/new.png',
             avatar: `/pages/new.png`,
@@ -405,7 +676,8 @@ export default function Page({params}: any) {
                 {
                     name: 'Три наиболее значимые патологии детского возраста: общие черты и важные отличительные признаки',
                     timePeriod: '10:05 – 10:20 ',
-                    speaker: 'д.м.н., профессор Мурашкин Н.Н.',},
+                    speaker: 'д.м.н., профессор Мурашкин Н.Н.',
+                },
                 {
                     name: 'Атопический дерматит и витамин D: факты и спорные вопросы. ',
                     timePeriod: '10:20 – 10:40',
@@ -415,27 +687,27 @@ export default function Page({params}: any) {
                     name: 'Вопросы транскутанной сенсибилизации в развитии пищевой аллергии у детей. ',
                     timePeriod: '10:40 – 11:00 ',
                     speaker: 'д.м.н., профессор Мурашкин Н.Н.',
-                },{
+                }, {
                     name: 'Современные подходы к диагностике и лечению поллинозов и перекрестной пищевой аллергии у детей',
                     timePeriod: '11:00 – 11:20 ',
                     speaker: 'к.м.н. Ерешко О.А.',
-                },{
+                }, {
                     name: 'Инновационные технологии лечения атопического дерматита: уникальные лекарственные формы наружных средств.',
                     timePeriod: '11:20 – 11:35',
                     speaker: 'к.м.н. Материкин А.И.',
-                },{
+                }, {
                     name: 'ПЕРЕРЫВ',
                     timePeriod: '11:35 – 11:50 ',
-                },{
+                }, {
                     name: 'Когда говорит кожа – проблема атопического дерматита в области лица у детей и подростков: клинические проявления и методы эффективного воздействия',
                     timePeriod: '11:50 – 12:20',
                     speaker: 'д.м.н., профессор Мурашкин Н.Н.\n' +
                         ' При поддержке компании LEO Pharma\n',
-                },{
+                }, {
                     name: 'Аутоиммунные формы атопического дерматита у детей: что мы знаем об этом?',
                     timePeriod: '12:20 – 12:40',
                     speaker: 'к.м.н. Опрятин Л.А.',
-                },{
+                }, {
                     name: 'Эффективность анти-IgE-терапии в лечении тяжелой бронхиальной астмы, осложненной повторными внебольничными пневмониями',
                     timePeriod: '13:00 – 13:15',
                     speaker: 'к.м.н. Ерешко О.А.',
@@ -443,19 +715,19 @@ export default function Page({params}: any) {
                 {
                     name: 'ПЕРЕРЫВ',
                     timePeriod: '13:15 – 13:30 ',
-                },{
+                }, {
                     name: 'Особенности течения и тактики ведения атопического дерматита, осложненного вторичной инфекцией.',
                     timePeriod: '13:30 – 13:45 ',
                     speaker: 'д.м.н., профессор Мурашкин Н.Н.',
-                },{
+                }, {
                     name: 'Для чего нужна проактивная терапия при атопическом дерматите?',
                     timePeriod: '13:45 – 14:15',
                     speaker: 'д.м.н. Аравийская Е.Р.',
-                },{
+                }, {
                     name: 'Клинический разбор: детальное рассмотрение тактики ведения пациентов на основании полученных знаний.',
                     timePeriod: '14:15 – 14:45',
                     speaker: 'к.м.н. Иванов Р.А.',
-                },{
+                }, {
                     name: 'Клинико-генетические фенотипы и иммунологические аспекты врожденных ихтиозов',
                     timePeriod: '14:45 – 15:15 ',
                     speaker: 'Аветисян К.О.',
@@ -482,7 +754,7 @@ export default function Page({params}: any) {
             ],
 
             onlinePrice: 1,
-            offlinePrice:1500,
+            offlinePrice: 1500,
 
             prices: [{
                 date: '31.08.22',
@@ -510,7 +782,7 @@ export default function Page({params}: any) {
             place: 'г.Москва',
             format: 'онлайн',
             isOnlyOnline: true,
-            isStream:true,
+            isStream: true,
             participants: 256,
             layoutBg: '/pages/new.png',
             avatar: `/pages/new.png`,
@@ -552,7 +824,8 @@ export default function Page({params}: any) {
                 {
                     name: 'Три наиболее значимые патологии детского возраста: общие черты и важные отличительные признаки',
                     timePeriod: '10:05 – 10:20 ',
-                    speaker: 'д.м.н., профессор Мурашкин Н.Н.',},
+                    speaker: 'д.м.н., профессор Мурашкин Н.Н.',
+                },
                 {
                     name: 'Атопический дерматит и витамин D: факты и спорные вопросы. ',
                     timePeriod: '10:20 – 10:40',
@@ -562,26 +835,26 @@ export default function Page({params}: any) {
                     name: 'Вопросы транскутанной сенсибилизации в развитии пищевой аллергии у детей. ',
                     timePeriod: '10:40 – 11:00 ',
                     speaker: 'д.м.н., профессор Мурашкин Н.Н.',
-                },{
+                }, {
                     name: 'Современные подходы к диагностике и лечению поллинозов и перекрестной пищевой аллергии у детей',
                     timePeriod: '11:00 – 11:20 ',
                     speaker: 'к.м.н. Ерешко О.А.',
-                },{
+                }, {
                     name: 'Инновационные технологии лечения атопического дерматита: уникальные лекарственные формы наружных средств.',
                     timePeriod: '11:20 – 11:35',
                     speaker: 'к.м.н. Материкин А.И.',
-                },{
+                }, {
                     name: 'ПЕРЕРЫВ',
                     timePeriod: '11:35 – 11:50 ',
-                },{
+                }, {
                     name: 'Когда говорит кожа – проблема атопического дерматита в области лица у детей и подростков: клинические проявления и методы эффективного воздействия',
                     timePeriod: '11:50 – 12:20',
                     speaker: 'д.м.н., профессор Мурашкин Н.Н. При поддержке компании LEO Pharma',
-                },{
+                }, {
                     name: 'Аутоиммунные формы атопического дерматита у детей: что мы знаем об этом?',
                     timePeriod: '12:20 – 12:40',
                     speaker: 'к.м.н. Опрятин Л.А.',
-                },{
+                }, {
                     name: 'Эффективность анти-IgE-терапии в лечении тяжелой бронхиальной астмы, осложненной повторными внебольничными пневмониями',
                     timePeriod: '13:00 – 13:15',
                     speaker: 'к.м.н. Ерешко О.А.',
@@ -589,19 +862,19 @@ export default function Page({params}: any) {
                 {
                     name: 'ПЕРЕРЫВ',
                     timePeriod: '13:15 – 13:30 ',
-                },{
+                }, {
                     name: 'Особенности течения и тактики ведения атопического дерматита, осложненного вторичной инфекцией.',
                     timePeriod: '13:30 – 13:45 ',
                     speaker: 'д.м.н., профессор Мурашкин Н.Н.',
-                },{
+                }, {
                     name: 'Для чего нужна проактивная терапия при атопическом дерматите?',
                     timePeriod: '13:45 – 14:15',
                     speaker: 'д.м.н. Аравийская Е.Р.',
-                },{
+                }, {
                     name: 'Клинический разбор: детальное рассмотрение тактики ведения пациентов на основании полученных знаний.',
                     timePeriod: '14:15 – 14:45',
                     speaker: 'к.м.н. Иванов Р.А.',
-                },{
+                }, {
                     name: 'Клинико-генетические фенотипы и иммунологические аспекты врожденных ихтиозов',
                     timePeriod: '14:45 – 15:15 ',
                     speaker: 'Аветисян К.О.',
@@ -628,7 +901,7 @@ export default function Page({params}: any) {
             ],
 
             onlinePrice: 1,
-            offlinePrice:1500,
+            offlinePrice: 1500,
 
             prices: [{
                 date: '31.08.22',
@@ -653,15 +926,17 @@ export default function Page({params}: any) {
 
 
     const id = params.id
-    const event:any= id ? events[Number(id)] : events[0]
+    const event: any = id ? events[Number(id)] : events[0]
 
-    const [isPopPriceOpen,setIsPopPriceOpen]=useState(false);
-    const [isConfirmPopOpen,setIsConfirmPopOpen]=useState(false)
+    const [isPopPriceOpen, setIsPopPriceOpen] = useState(false);
+    const [isConfirmPopOpen, setIsConfirmPopOpen] = useState(false)
 
-    const [currentPrice,setCurrentPrice]=useState(0);
-    const [participationType,setParticipationType]=useState<'online'|'offline'|'online-free'>('online');
+    const [currentPrice, setCurrentPrice] = useState(0);
+    const [participationType, setParticipationType] = useState<'online' | 'offline' | 'online-free'>('online');
 
-    const query=useSearchParams().toString();
+    const query = useSearchParams().toString();
+
+    const [currentProgram, setCurrentProgram] = useState(event.program ? event.program : null);
 
     return (
         <main className={'overflow-x-hidden'}>
@@ -708,7 +983,7 @@ export default function Page({params}: any) {
                                     <strong>Зарегистрировались</strong> {event.participants} участников</p>
                             </div>
                         </div>
-                        <Link  href={event.link?event.link:'#form'}>
+                        <Link href={event.link ? event.link : '#form'}>
                             <div
                                 className={'bg-white text-lg flex items-center justify-center p-3 px-5 rounded-md cursor-pointer hover:opacity-100 transition-all duration-300 opacity-50 text-black'}>
                                 Подтвердить участие
@@ -732,12 +1007,12 @@ export default function Page({params}: any) {
                     <p className={'font-normal text-black'}>
                         {event.announcement}
                     </p>
-                    {event.description?<p className={'font-bold uppercase text-green text-xl'}>
-                            Описание
-                        </p>:null}
-                    {event.description?<p className={'font-normal text-black'}>
+                    {event.description ? <p className={'font-bold uppercase text-green text-xl'}>
+                        Описание
+                    </p> : null}
+                    {event.description ? <p className={'font-normal text-black'}>
                         {event.description}
-                    </p>:null}
+                    </p> : null}
                 </div>
             </div>
             {/*<div*/}
@@ -751,46 +1026,68 @@ export default function Page({params}: any) {
             {/*    <img className={'absolute w-full asset left-0 z-50 bottom-[-0.5px]'} src={'/about_us_offset_bot.png'}/>*/}
             {/*</div>*/}
 
-            {event.program ?<div className={'bg-white py-12 px-[20px] sm:px-[140px]'}>
+            {currentProgram ? <div className={'bg-white py-12 px-[20px] sm:px-[140px]'}>
                 <p className={'uppercase font-extralight text-2xl sm:text-5xl text-black'}>Программа
                     <br/><span className={'font-extrabold'}>Конференции</span></p>
+
+                <div className={'flex mt-20 items-center gap-16'}>
+                    <div onClick={() => {
+                        setCurrentProgram([...event.program])
+                    }}
+                         className={classList('flex cursor-pointer items-center text-2xl font-bold justify-center', currentProgram[0].name == event.program[0].name ? 'border-b-2 border-green-two text-green-two' : 'text-black')}>
+                        Большой зал
+                    </div>
+                    <div onClick={() => {
+                        setCurrentProgram([...event.program2])
+                    }}
+                         className={classList('flex cursor-pointer items-center text-2xl font-bold justify-center', currentProgram[0].name == event.program2[0].name ? 'border-b-2 border-green-two text-green-two' : 'text-black')}>
+                        Малый зал
+                    </div>
+                </div>
                 <div className={'flex mt-20 flex-col gap-14'}>
-                    {event.program.map((item: { name: string, timePeriod: string, speaker: string, substages?: { name: string, timePeriod: string, description: string, }[] }, counter:number) => {
+                    {currentProgram.map((item: { name: string, timePeriod: string, speaker: string, substages?: { name: string, timePeriod: string, description: string, }[] }, counter: number) => {
                         return (
                             <div key={counter} className={'flex gap-8 flex-col'}>
-                                <div className={'flex sm:grid sm:grid-cols-12 gap-2 sm:gap-6 flex-col sm:flex-row items-start'}>
+                                <div
+                                    className={'flex sm:grid sm:grid-cols-12 gap-2 sm:gap-6 flex-col sm:flex-row items-start'}>
                                     <div className={'col-span-2 mr-4 flex items-center gap-2'}>
                                         <img className={'w-4 sm:w-6 aspect-square'} src={`${images}/time.svg`}/>
                                         <div
                                             className={'text-sm sm:text-2xl text-green-two whitespace-nowrap contents font-bold'}>{item.timePeriod}</div>
                                     </div>
-                                    <div className={'text-sm col-span-10 sm:text-2xl text-justify font-bold'}>{item.name}</div>
+                                    <div
+                                        className={'text-sm col-span-10 sm:text-2xl whitespace-pre-wrap text-justify font-bold'}>{item.name}</div>
                                 </div>
-                                {item.speaker?<div
+                                {item.speaker ? <div
                                     className={'bg-[#DBEAE8] text-sm p-3 sm:px-14 sm:p-6 sm:text-xl rounded-lg flex items-center justify-start'}>
-                                    {item.speaker=='д.м.н., профессор Мурашкин Н.Н. При поддержке компании LEO Pharma'?<p>д.м.н., профессор Мурашкин Н.Н. <span className={'font-bold'}>При поддержке компании LEO Pharma</span></p>:item.speaker}
-                                </div>:null}
+                                    {item.speaker == 'д.м.н., профессор Мурашкин Н.Н. При поддержке компании LEO Pharma' ?
+                                        <p>д.м.н., профессор Мурашкин Н.Н. <span className={'font-bold'}>При поддержке компании LEO Pharma</span>
+                                        </p> : item.speaker}
+                                </div> : null}
                                 {item.substages ?
                                     <div className={'p-3 sm:p-8'}>
-                                        {item.substages.map((substage,subCounter) => {
-                                            if(item.substages){
+                                        {item.substages.map((substage, subCounter) => {
+                                            if (item.substages) {
                                                 return (
                                                     <div key={subCounter} className={'grid grid-cols-12 items-start'}>
-                                                        <div className={'col-span-1 flex relative items-center h-full flex-col justify-center'}>
-                                                            <div className={'sm:w-6 w-4 sm:h-6 h-4 absolute top-0 aspect-square rounded-full bg-green-two'}>
+                                                        <div
+                                                            className={'col-span-1 flex relative items-center h-full flex-col justify-center'}>
+                                                            <div
+                                                                className={'sm:w-6 w-4 sm:h-6 h-4 absolute top-0 aspect-square rounded-full bg-green-two'}>
 
                                                             </div>
                                                             <div className={'h-full w-[2px] bg-green-two'}>
 
                                                             </div>
                                                         </div>
-                                                        <div className={classList('col-span-11 flex sm:gap-0 gap-3 h-fit flex-col',subCounter<item?.substages?.length-1?'pb-6 sm:pb-14':'')}>
+                                                        <div
+                                                            className={classList('col-span-11 flex sm:gap-0 gap-3 h-fit flex-col', subCounter < item?.substages?.length - 1 ? 'pb-6 sm:pb-14' : '')}>
                                                             <p className={'sm:text-2xl text-sm w-full text-green-two contents font-bold'}>{substage?.timePeriod}</p>
-                                                            <p className={'sm:text-2xl text-sm w-full text-black font-bold'}>{substage?.name}</p>
-                                                            {substage?.description?<div
+                                                            <p className={'sm:text-2xl text-sm w-full text-black font-medium'}>{substage?.name}</p>
+                                                            {substage?.description ? <div
                                                                 className={'bg-[#DBEAE8] p-3 text-sm sm:px-14 sm:p-6 sm:text-xl rounded-lg flex items-center justify-start'}>
                                                                 {substage?.description}
-                                                            </div>:null}
+                                                            </div> : null}
                                                         </div>
                                                     </div>
                                                 )
@@ -805,7 +1102,7 @@ export default function Page({params}: any) {
                         )
                     })}
                 </div>
-            </div>:null}
+            </div> : null}
 
             {/*<div className={'bg-[#F2F9F8] relative py-12 sm:py-40 flex items-center px-[20px]'}>*/}
             {/*    <img className={'absolute left-0 -top-1'} src={`/pages/main/about_us_offset.png`}*/}
@@ -827,18 +1124,21 @@ export default function Page({params}: any) {
             {/*    <img className={'absolute left-0 bottom-0'} src={`/pages/main/about_us_offset_bottom.png`}*/}
             {/*         alt={'asset_bottom'}></img>*/}
             {/*</div>*/}
-            {!event.isOnlyOnline?<div className={'bg-white relative sm:py-0 py-12 px-[20px] sm:px-[140px] sm:h-[600px]'}>
-                <div id={'form'} className={'absolute -top-40'}></div>
-                <div className={'flex sm:mt-7 items-center px-[20px] sm:px-[140px] justify-center sm:justify-center'}>
-                    <motion.p initial={{y: -40, opacity: 0}}
-                              whileInView={{y: 0, opacity: 1}}
-                              viewport={{once: true}}
-                              transition={{ease: 'easeInOut', duration: 0.7}}
-                              className={'uppercase font-extralight text-black sm:text-left text-left text-2xl sm:text-4xl'}>Стоимость <strong
-                        className={'font-extrabold'}>Участия</strong></motion.p>
-                </div>
-                <div className={classList('grid grid-cols-1 gap-9 mt-10',event.prices?'sm:grid-cols-3':'sm:grid-cols-2')}>
-                    {event.prices?<div className={'flex flex-col items-center gap-8'}>
+            {!event.isOnlyOnline ?
+                <div className={'bg-white relative sm:py-0 py-12 px-[20px] sm:px-[140px] sm:h-[600px]'}>
+                    <div id={'form'} className={'absolute -top-40'}></div>
+                    <div
+                        className={'flex sm:mt-7 items-center px-[20px] sm:px-[140px] justify-center sm:justify-center'}>
+                        <motion.p initial={{y: -40, opacity: 0}}
+                                  whileInView={{y: 0, opacity: 1}}
+                                  viewport={{once: true}}
+                                  transition={{ease: 'easeInOut', duration: 0.7}}
+                                  className={'uppercase font-extralight text-black sm:text-left text-left text-2xl sm:text-4xl'}>Стоимость <strong
+                            className={'font-extrabold'}>Участия</strong></motion.p>
+                    </div>
+                    <div
+                        className={classList('grid grid-cols-1 gap-9 mt-10', event.prices ? 'sm:grid-cols-3' : 'sm:grid-cols-2')}>
+                        {event.prices ? <div className={'flex flex-col items-center gap-8'}>
                             <div
                                 className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
                                 <div className={'flex items-center gap-3'}>
@@ -846,86 +1146,124 @@ export default function Page({params}: any) {
                                     <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
                                 </div>
                                 <p className={'text-3xl sm:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
-                                <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции в день мероприятия</p>
+                                <p className={'font-extralight text-xl text-center text-white'}>Доступ к
+                                    онлайн-трансляции в день мероприятия</p>
                             </div>
-                            <div onClick={()=>{setIsConfirmPopOpen(true);setCurrentPrice(0);setParticipationType('online-free')}}
+                            <div onClick={() => {
+                                setIsConfirmPopOpen(true);
+                                setCurrentPrice(0);
+                                setParticipationType('online-free')
+                            }}
                                  className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                                 Подтвердить участие
                             </div>
-                        </div>:null}
-                    <div className={'flex flex-col items-center gap-8'}>
-                        <div
-                            className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
-                            <div className={'flex items-center gap-3'}>
-                                <img className={'w-7 aspect-square'} src={'/online.svg'}/>
-                                <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
-                            </div>
-                            <p className={'text-3xl sm:text-5xl text-white font-bold'}>{event.onlinePrice?event.onlinePrice+' руб.':'БЕСПЛАТНО'}</p>
-                            <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции мероприятия <span className={'font-extrabold'}>{event.onlinePrice?'+ запись трансляции':''}</span></p>
-                        </div>
-                        <div onClick={()=>{setIsConfirmPopOpen(true);setCurrentPrice(event.onlinePrice);setParticipationType('online')}}
-                             className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
-                            Подтвердить участие
-                        </div>
-                    </div>
-                    <div className={'flex flex-col items-center gap-8'}>
-                        <div
-                            className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>
-                            <div className={'flex items-center gap-3'}>
-                                <img className={'w-7 aspect-square'} src={'/offline.svg'}/>
-                                <p className={'font-extralight text-3xl text-green-two'}>Оффлайн</p>
-                            </div>
-
-                            <p className={'text-3xl sm:text-5xl text-green-two font-bold'}>{event.offlinePrice?event.offlinePrice+' руб.':'БЕСПЛАТНО'}</p>
-                            {event.prices?<p className={'font-extralight text-xl text-center text-green-two'}>Цена действует до <br/>
-                                {event.prices[1].date}</p>:null}
-                            {event.prices?<p onClick={()=>{setIsPopPriceOpen(true)}} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график цен</p>:<p className={'font-extralight text-xl text-center text-green-two'}>Очное посещение мероприятия, активное участие</p>}
-                        </div>
-                        <div onClick={()=>{setIsConfirmPopOpen(true);setCurrentPrice(event.offlinePrice);setParticipationType('offline')}}
-                             className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
-                            Подтвердить участие
-                        </div>
-                    </div>
-                </div>
-                {isConfirmPopOpen?<PopUp icon={'/confirm.svg'} closeFunc={()=>{{setIsConfirmPopOpen(false)}}}>
-                    <ConfirmForm query={query} participationType={participationType} closeFunc={()=>{setIsConfirmPopOpen(false)}} price={currentPrice} event_id={event.id} event_name={event.name}></ConfirmForm>
-                </PopUp>:null}
-
-                {isPopPriceOpen?<PopUp icon={'/price.svg'} closeFunc={()=>{{setIsPopPriceOpen(false)}}}>
-                    <div className={'flex gap-4 h-full flex-col'}>
-                        <p className={'text-[#0F5F5A] text-2xl sm:text-4xl font-light'}>ГРАФИК <br/> <span className={'font-extrabold'}>СТОИМОСТИ</span></p>
-                        <div className={'grid p-2 w-full grid-cols-2'}>
-                            <div className={'text-[#0F5F5A] font-light flex items-center '}>
-                                Дата
-                            </div>
-                            <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
-                                <p className={'text-[#0F5F5A] font-light'}>Стоимость</p>
-                            </div>
-                        </div>
-                        {event.prices.map((item:any,counter:any)=>{
-                            return (
-                                <div key={counter} className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-2'}>
-                                    <div className={'text-[#0F5F5A] font-light flex items-center '}>
-                                        {item.date}
-                                    </div>
-                                    <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
-                                        <p className={'text-[#0F5F5A] font-light'}>{item.offline} рублей</p>
-                                    </div>
+                        </div> : null}
+                        <div className={'flex flex-col items-center gap-8'}>
+                            <div
+                                className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
+                                <div className={'flex items-center gap-3'}>
+                                    <img className={'w-7 aspect-square'} src={'/online.svg'}/>
+                                    <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
                                 </div>
-                            )
-                        })}
+                                <p className={'text-3xl sm:text-5xl text-white font-bold'}>{event.onlinePrice ? event.onlinePrice + ' руб.' : 'БЕСПЛАТНО'}</p>
+                                <p className={'font-extralight text-xl text-center text-white'}>Доступ к
+                                    онлайн-трансляции мероприятия <span
+                                        className={'font-extrabold'}>{event.onlinePrice ? '+ запись трансляции' : ''}</span>
+                                </p>
+                            </div>
+                            <div onClick={() => {
+                                setIsConfirmPopOpen(true);
+                                setCurrentPrice(event.onlinePrice);
+                                setParticipationType('online')
+                            }}
+                                 className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                                Подтвердить участие
+                            </div>
+                        </div>
+                        <div className={'flex flex-col items-center gap-8'}>
+                            <div
+                                className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>
+                                <div className={'flex items-center gap-3'}>
+                                    <img className={'w-7 aspect-square'} src={'/offline.svg'}/>
+                                    <p className={'font-extralight text-3xl text-green-two'}>Оффлайн</p>
+                                </div>
 
-                        <div className={'w-full grid grid-cols-2 gap-3'}>
-                            <div onClick={()=>{setIsPopPriceOpen(false)}}
-                                 className={'p-4 cursor-pointer bg-green-two text-white text-sm font-light rounded-xl flex items-center justify-center'}>Вернуться к мероприятию</div>
+                                <p className={'text-3xl sm:text-5xl text-green-two font-bold'}>{event.offlinePrice ? event.offlinePrice + ' руб.' : 'БЕСПЛАТНО'}</p>
+                                {event.prices ?
+                                    <p className={'font-extralight text-xl text-center text-green-two'}>Цена действует
+                                        до <br/>
+                                        {event.prices[1].date}</p> : null}
+                                {event.prices ? <p onClick={() => {
+                                        setIsPopPriceOpen(true)
+                                    }} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график
+                                        цен</p> :
+                                    <p className={'font-extralight text-xl text-center text-green-two'}>Очное посещение
+                                        мероприятия, активное участие</p>}
+                            </div>
+                            <div onClick={() => {
+                                setIsConfirmPopOpen(true);
+                                setCurrentPrice(event.offlinePrice);
+                                setParticipationType('offline')
+                            }}
+                                 className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                                Подтвердить участие
+                            </div>
                         </div>
                     </div>
-                </PopUp>:null}
-            </div>:null}
+                    {isConfirmPopOpen ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
+                        {
+                            setIsConfirmPopOpen(false)
+                        }
+                    }}>
+                        <ConfirmForm query={query} participationType={participationType} closeFunc={() => {
+                            setIsConfirmPopOpen(false)
+                        }} price={currentPrice} event_id={event.id} event_name={event.name}></ConfirmForm>
+                    </PopUp> : null}
+
+                    {isPopPriceOpen ? <PopUp icon={'/price.svg'} closeFunc={() => {
+                        {
+                            setIsPopPriceOpen(false)
+                        }
+                    }}>
+                        <div className={'flex gap-4 h-full flex-col'}>
+                            <p className={'text-[#0F5F5A] text-2xl sm:text-4xl font-light'}>ГРАФИК <br/> <span
+                                className={'font-extrabold'}>СТОИМОСТИ</span></p>
+                            <div className={'grid p-2 w-full grid-cols-2'}>
+                                <div className={'text-[#0F5F5A] font-light flex items-center '}>
+                                    Дата
+                                </div>
+                                <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
+                                    <p className={'text-[#0F5F5A] font-light'}>Стоимость</p>
+                                </div>
+                            </div>
+                            {event.prices.map((item: any, counter: any) => {
+                                return (
+                                    <div key={counter}
+                                         className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-2'}>
+                                        <div className={'text-[#0F5F5A] font-light flex items-center '}>
+                                            {item.date}
+                                        </div>
+                                        <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
+                                            <p className={'text-[#0F5F5A] font-light'}>{item.offline} рублей</p>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+
+                            <div className={'w-full grid grid-cols-2 gap-3'}>
+                                <div onClick={() => {
+                                    setIsPopPriceOpen(false)
+                                }}
+                                     className={'p-4 cursor-pointer bg-green-two text-white text-sm font-light rounded-xl flex items-center justify-center'}>Вернуться
+                                    к мероприятию
+                                </div>
+                            </div>
+                        </div>
+                    </PopUp> : null}
+                </div> : null}
 
 
-
-            {event.isStream?<div className={'bg-white relative sm:py-0 py-12 px-[20px] sm:px-[140px] '}>
+            {event.isStream ? <div className={'bg-white relative sm:py-0 py-12 px-[20px] sm:px-[140px] '}>
                 <div id={'form'} className={'absolute -top-40'}></div>
                 <div className={'flex sm:mt-7 items-center px-[20px] sm:px-[140px] justify-center sm:justify-center'}>
                     <motion.p initial={{y: -40, opacity: 0}}
@@ -937,15 +1275,24 @@ export default function Page({params}: any) {
                 </div>
 
                 <div className={'sm:flex items-center hidden my-12 justify-center'}>
-                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/0OOxapHpFKU" title="I НПК «Путь детской дерматологии: от истоков к перспективам. Атопический дерматит»" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/0OOxapHpFKU"
+                            title="I НПК «Путь детской дерматологии: от истоков к перспективам. Атопический дерматит»"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen></iframe>
                 </div>
 
                 <div className={'sm:hidden items-center flex my-12 justify-center'}>
-                    <iframe width="320" height="240" src="https://www.youtube.com/embed/0OOxapHpFKU" title="I НПК «Путь детской дерматологии: от истоков к перспективам. Атопический дерматит»" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                    <iframe width="320" height="240" src="https://www.youtube.com/embed/0OOxapHpFKU"
+                            title="I НПК «Путь детской дерматологии: от истоков к перспективам. Атопический дерматит»"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen></iframe>
                 </div>
 
-                <div className={classList('grid grid-cols-1 gap-9 mt-10',event.prices?'sm:flex sm:justify-center':'sm:grid-cols-2')}>
-                    {event.prices?<div className={'flex flex-col items-center gap-8'}>
+                <div
+                    className={classList('grid grid-cols-1 gap-9 mt-10', event.prices ? 'sm:flex sm:justify-center' : 'sm:grid-cols-2')}>
+                    {event.prices ? <div className={'flex flex-col items-center gap-8'}>
                         <div
                             className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
                             <div className={'flex items-center gap-3'}>
@@ -953,22 +1300,38 @@ export default function Page({params}: any) {
                                 <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
                             </div>
                             <p className={'text-3xl sm:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
-                            <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции в день мероприятия</p>
+                            <p className={'font-extralight text-xl text-center text-white'}>Доступ к онлайн-трансляции в
+                                день мероприятия</p>
                         </div>
-                        <div onClick={()=>{setIsConfirmPopOpen(true);setCurrentPrice(0);setParticipationType('online-free')}}
+                        <div onClick={() => {
+                            setIsConfirmPopOpen(true);
+                            setCurrentPrice(0);
+                            setParticipationType('online-free')
+                        }}
                              className={'w-full sm:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                             Подтвердить участие
                         </div>
-                    </div>:null}
+                    </div> : null}
                 </div>
 
-                {isConfirmPopOpen?<PopUp icon={'/confirm.svg'} closeFunc={()=>{{setIsConfirmPopOpen(false)}}}>
-                    <ConfirmForm query={query} participationType={participationType} closeFunc={()=>{setIsConfirmPopOpen(false)}} price={currentPrice} event_id={event.id} event_name={event.name}></ConfirmForm>
-                </PopUp>:null}
+                {isConfirmPopOpen ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
+                    {
+                        setIsConfirmPopOpen(false)
+                    }
+                }}>
+                    <ConfirmForm query={query} participationType={participationType} closeFunc={() => {
+                        setIsConfirmPopOpen(false)
+                    }} price={currentPrice} event_id={event.id} event_name={event.name}></ConfirmForm>
+                </PopUp> : null}
 
-                {isPopPriceOpen?<PopUp icon={'/price.svg'} closeFunc={()=>{{setIsPopPriceOpen(false)}}}>
+                {isPopPriceOpen ? <PopUp icon={'/price.svg'} closeFunc={() => {
+                    {
+                        setIsPopPriceOpen(false)
+                    }
+                }}>
                     <div className={'flex gap-4 h-full flex-col'}>
-                        <p className={'text-[#0F5F5A] text-2xl sm:text-4xl font-light'}>ГРАФИК <br/> <span className={'font-extrabold'}>СТОИМОСТИ</span></p>
+                        <p className={'text-[#0F5F5A] text-2xl sm:text-4xl font-light'}>ГРАФИК <br/> <span
+                            className={'font-extrabold'}>СТОИМОСТИ</span></p>
                         <div className={'grid p-2 w-full grid-cols-2'}>
                             <div className={'text-[#0F5F5A] font-light flex items-center '}>
                                 Дата
@@ -977,9 +1340,10 @@ export default function Page({params}: any) {
                                 <p className={'text-[#0F5F5A] font-light'}>Стоимость</p>
                             </div>
                         </div>
-                        {event.prices.map((item:any,counter:any)=>{
+                        {event.prices.map((item: any, counter: any) => {
                             return (
-                                <div key={counter} className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-2'}>
+                                <div key={counter}
+                                     className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-2'}>
                                     <div className={'text-[#0F5F5A] font-light flex items-center '}>
                                         {item.date}
                                     </div>
@@ -991,14 +1355,20 @@ export default function Page({params}: any) {
                         })}
 
                         <div className={'w-full grid grid-cols-2 gap-3'}>
-                            <div onClick={()=>{setIsPopPriceOpen(false)}}
-                                 className={'p-4 cursor-pointer bg-green-two text-white text-sm font-light rounded-xl flex items-center justify-center'}>Вернуться к мероприятию</div>
+                            <div onClick={() => {
+                                setIsPopPriceOpen(false)
+                            }}
+                                 className={'p-4 cursor-pointer bg-green-two text-white text-sm font-light rounded-xl flex items-center justify-center'}>Вернуться
+                                к мероприятию
+                            </div>
                         </div>
                     </div>
-                </PopUp>:null}
-            </div>:null}
+                </PopUp> : null}
+            </div> : null}
 
-            {event.date=='11.11.2023'?<a className={'text-dark-green font-bold px-[20px] sm:px-[140px]'} target={'_blank'} href={'/kpfile.pdf'}>Коммерческое предложение</a>:null}
+            {event.date == '11.11.2023' ?
+                <a className={'text-dark-green font-bold px-[20px] sm:px-[140px]'} target={'_blank'}
+                   href={'/kpfile.pdf'}>Коммерческое предложение</a> : null}
 
             <div className={'bg-white sm:py-0 py-12 sm:h-[600px]'}>
                 <div className={'flex sm:mt-7 items-center px-[20px] sm:px-[140px] justify-center sm:justify-between'}>
