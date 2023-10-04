@@ -1094,7 +1094,7 @@ export default function Page({params}: any) {
         <main className={'overflow-x-hidden'}>
             {/*ПЕРВЫЙ БЛОК*/}
             <motion.div
-                className="min-h-screen overflow-hidden py-20 lg:py-8 bg-cover relative">
+                className="lg:min-h-screen overflow-hidden py-20 lg:py-8 bg-cover relative">
                 <div className={'w-full h-full absolute left-0 top-0 z-[-2]'}>
                     <img className={'w-full h-full object-cover'} src={event.layoutBg}/>
                 </div>
@@ -1102,7 +1102,7 @@ export default function Page({params}: any) {
 
                 </div>
                 <motion.div
-                    className={'w-full min-h-screen h-auto px-[20px] lg:px-[140px] grid grid-cols-1 lg:grid-cols-12'}>
+                    className={'w-full lg:min-h-screen h-auto px-[20px] lg:px-[140px] grid grid-cols-1 lg:grid-cols-12'}>
                     <motion.div
                         className={'col-span-6 lg:mt-0 sm:mt-20 flex flex-col gap-6 sm:items-start lg:justify-center'}>
                         <BackButton></BackButton>
