@@ -1104,7 +1104,7 @@ export default function Page({params}: any) {
                 <motion.div
                     className={'w-full min-h-screen h-auto px-[20px] lg:px-[140px] grid grid-cols-1 lg:grid-cols-12'}>
                     <motion.div
-                        className={'col-span-6 lg:mt-0 mt-5 sm:mt-20 flex flex-col gap-6 sm:items-start  justify-center'}>
+                        className={'col-span-6 lg:mt-0 sm:mt-20 flex flex-col gap-6 sm:items-start lg:justify-center'}>
                         <BackButton></BackButton>
                         <div className={'flex gap-4 items-center'}>
                             <div
@@ -1210,7 +1210,7 @@ export default function Page({params}: any) {
                                             className={'text-lg lg:text-2xl text-green-two whitespace-nowrap contents font-bold'}>{item.timePeriod}</div>
                                     </div>:null}
                                     <div
-                                        className={'text-lg col-span-10 lg:text-2xl whitespace-pre-wrap text-justify font-bold'}>{item.name}</div>
+                                        className={'text-lg col-span-10 lg:text-2xl whitespace-pre-wrap lg:text-justify font-bold'}>{item.name}</div>
                                 </div>
                                 {item.speaker ? <div
                                     className={'bg-[#DBEAE8] text-lg p-3 lg:px-14 lg:p-6 lg:text-xl rounded-lg flex items-center justify-start'}>
