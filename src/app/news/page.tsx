@@ -70,7 +70,7 @@ export default function Home() {
             type:'Конференция',
             name:'II научно-практическая конференция «Путь детской дерматологии: от истоков к перспективам»',
             date:'07.10',
-            image:'/pages/new.png'
+            image:'/pages/new2.png'
         },
         {
             id:11,

@@ -153,7 +153,7 @@ const Calendar = () => {
                 title: 'II научно-практическая конференция «Путь детской дерматологии: от истоков к перспективам»',
                 subtitle: 'онлайн конференция',
                 timePeriod: '10:00-15:30',
-                image: `/pages/new.png`,
+                image: `/pages/new2.png`,
                 link: '/events/12'
             },],
         nov: [{
