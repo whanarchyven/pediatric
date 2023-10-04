@@ -1438,13 +1438,13 @@ export default function Page({params}: any) {
                 {/*            allowFullScreen></iframe>*/}
                 {/*</div>*/}
 
-                <div className={'lg:hidden items-center flex my-12 justify-center'}>
-                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/0OOxapHpFKU"
-                            title="I НПК «Путь детской дерматологии: от истоков к перспективам. Атопический дерматит»"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen></iframe>
-                </div>
+                {/*<div className={'lg:hidden items-center flex my-12 justify-center'}>*/}
+                {/*    <iframe width="100%" height="400" src="https://www.youtube.com/embed/0OOxapHpFKU"*/}
+                {/*            title="I НПК «Путь детской дерматологии: от истоков к перспективам. Атопический дерматит»"*/}
+                {/*            frameBorder="0"*/}
+                {/*            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"*/}
+                {/*            allowFullScreen></iframe>*/}
+                {/*</div>*/}
 
                 <div
                     className={classList('grid grid-cols-1 gap-9 mt-10', event.prices ? 'lg:flex lg:justify-center' : 'lg:grid-cols-2')}>
