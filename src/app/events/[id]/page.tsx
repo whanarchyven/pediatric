@@ -1419,32 +1419,32 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-            {event.isStream ? <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] '}>
+            {event.isStream&&event.date=='07.10.2023' ? <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] '}>
                 <div id={'form'} className={'absolute -top-40'}></div>
-                {/*<div className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-center'}>*/}
-                {/*    <motion.p initial={{y: -40, opacity: 0}}*/}
-                {/*              whileInView={{y: 0, opacity: 1}}*/}
-                {/*              viewport={{once: true}}*/}
-                {/*              transition={{ease: 'easeInOut', duration: 0.7}}*/}
-                {/*              className={'uppercase font-extralight text-black lg:text-left text-center text-left text-2xl lg:text-4xl'}>Онлайн-трансляция <strong*/}
-                {/*        className={'font-extrabold'}>мероприятия</strong></motion.p>*/}
-                {/*</div>*/}
+                <div className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-center'}>
+                    <motion.p initial={{y: -40, opacity: 0}}
+                              whileInView={{y: 0, opacity: 1}}
+                              viewport={{once: true}}
+                              transition={{ease: 'easeInOut', duration: 0.7}}
+                              className={'uppercase font-extralight text-black lg:text-left text-center text-left text-2xl lg:text-4xl'}>Онлайн-трансляция <strong
+                        className={'font-extrabold'}>мероприятия</strong></motion.p>
+                </div>
 
-                {/*<div className={'lg:flex items-center hidden my-12 justify-center'}>*/}
-                {/*    <iframe width="1280" height="720" src="https://www.youtube.com/embed/0OOxapHpFKU"*/}
-                {/*            title="I НПК «Путь детской дерматологии: от истоков к перспективам. Атопический дерматит»"*/}
-                {/*            frameBorder="0"*/}
-                {/*            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"*/}
-                {/*            allowFullScreen></iframe>*/}
-                {/*</div>*/}
+                <div className={'lg:flex items-center hidden my-12 justify-center'}>
+                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/n6v4RRVKa6I?si=Da8QRwG5Gr2Y8FnL&controls=0"
+                            title="II НПК «Путь детской дерматологии: от истоков к перспективам"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen></iframe>
+                </div>
 
-                {/*<div className={'lg:hidden items-center flex my-12 justify-center'}>*/}
-                {/*    <iframe width="100%" height="400" src="https://www.youtube.com/embed/0OOxapHpFKU"*/}
-                {/*            title="I НПК «Путь детской дерматологии: от истоков к перспективам. Атопический дерматит»"*/}
-                {/*            frameBorder="0"*/}
-                {/*            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"*/}
-                {/*            allowFullScreen></iframe>*/}
-                {/*</div>*/}
+                <div className={'lg:hidden items-center flex my-12 justify-center'}>
+                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/n6v4RRVKa6I?si=Da8QRwG5Gr2Y8FnL&controls=0"
+                            title="II НПК «Путь детской дерматологии: от истоков к перспективам"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen></iframe>
+                </div>
 
                 <div
                     className={classList('grid grid-cols-1 gap-9 mt-10', event.prices ? 'lg:flex lg:justify-center' : 'lg:grid-cols-2')}>

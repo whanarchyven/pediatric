@@ -49,12 +49,12 @@ export default function Home() {
             {/*ПЕРВЫЙ БЛОК*/}
             <motion.div className="min-h-screen overflow-hidden bg-cover relative bg-[url('/pages/main/main_bg.png')]">
                 <motion.div
-                    className={'w-full sm:min-h-screen h-auto px-[20px] sm:px-[120px] items-center sm:grid flex justify-between  gap-12 flex-col sm:grid-cols-1 sm:grid-cols-7'}>
+                    className={'w-full sm:min-h-screen h-auto px-[20px] lg:px-[120px] items-center sm:grid flex justify-between  gap-12 flex-col sm:grid-cols-1 sm:grid-cols-7'}>
                     <motion.div
                         className={'sm:col-span-4 sm:mt-0 mt-20 flex flex-col gap-8 sm:items-start justify-center'}>
-                        <p className={'uppercase font-extralight text-2xl sm:text-6xl text-white'}><span className={'font-extrabold'}>Благодарим <br/> </span> за регистрацию!</p>
+                        <p className={'uppercase font-extralight text-2xl lg:text-6xl text-white'}><span className={'font-extrabold'}>Благодарим <br/> </span> за регистрацию!</p>
                         <p className={' font-extralight text-2xl sm:text-2xl font-medium text-white'}>Вы успешно зарегистрировались на мероприятие.</p>
-                        <p className={' font-extralight text-2xl sm:text-xl text-white'}>Мы напомним вам о предстоящим мероприятии заранее. <br/> Следите за новостями на нашем сайте и в социальных сетях!</p>
+                        <p className={' font-extralight text-2xl sm:text-xl text-white'}>Мы напомним вам о предстоящем мероприятии заранее. <br/> Следите за новостями на нашем сайте и в социальных сетях!</p>
                     </motion.div>
                     <div className={'sm:col-span-3 h-full flex  relative'}>
                         <img className={'sm:absolute scale-110 bottom-0 right-0'} src={'/pages/events/murashkin.png'}/>

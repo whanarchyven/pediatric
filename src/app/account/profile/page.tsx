@@ -1,4 +1,4 @@
-
+"use client"
 import React, {useEffect, useState} from "react";
 import Slider from "@/components/Slider";
 import VideoPlayer from "@/components/VideoPlayer";
@@ -27,11 +27,94 @@ export default function Home() {
 
     const images='/pages/account'
 
+    const [profile,setProfile]=useState({
+        name:'Иванова Анна Сергеевна',
+        photo:'/pages/account/temp_avatar.png',
+        phone:'+7 (952) 256 34 20',
+        email:'pediatric-dermatology@mail.ru',
+        city:'Москва, Россия',
+        gender:'Женский',
+        birthDate:'23.10.1996',
+        experience:21,
+        specialization:'dermatology',
+    })
+
+    const mutateProfile=<T extends keyof typeof profile>(key:T,newValue:typeof profile[T])=>{
+        let temp= {...profile}
+        temp[key]=newValue;
+        setProfile({...temp})
+    }
+
+    const [education,setEducation]=useState({
+        degree:'Доктор наук',
+        post:'Профессор',
+        colleges:[
+            {
+                id:1,
+                yearStart:1992,
+                yearEnd:1996,
+                university:'МГУ',
+                faculty:'Биохимический факультет',
+                degree:'Бакалавриат',
+                diploma:'/diplom.pdf'
+            },
+            {
+                id:2,
+                yearStart:1997,
+                yearEnd:1999,
+                university:'СПБГУ',
+                faculty:'Медицинский факультет',
+                degree:'Магистратура',
+                diploma:'/diplom.pdf'
+            }
+        ]
+    })
+
+    const addNewCollege = (college:typeof education.colleges[0]) => {
+        let temp={...education}
+        temp.colleges.push(college)
+        setEducation({...temp})
+    }
+
+    const removeCollege = (id:number) => {
+        let temp={...education}
+        let index=temp.colleges.findIndex(item=>item.id==id)
+        temp.colleges.splice(index,id)
+        setEducation({...temp})
+    }
+
+
+    const [workplaces,setWorkplaces]=useState([{
+        placeName:'НЦЗД',
+        start:'Январь 2022',
+        end:'Июнь 2023',
+        post:'врач',
+        description:'С января 2023 года по июнь 2023 года я имел честь работать в Национальном Центре Заболеваний Кожи и Дерматологии (НЦЗД) в Москве в качестве врача-дерматолога. Это был уникальный и захватывающий опыт, который дал мне возможность заботиться о пациентах и применять мои знания и навыки в области дерматологии.\n' +
+            '\n' +
+            'Моя работа включала в себя следующие обязанности и активности:\n' +
+            '\n' +
+            'Диагностика и лечение дерматологических заболеваний: Я проводил медицинские осмотры пациентов, ставил диагнозы и разрабатывал планы лечения для различных кожных проблем, включая аллергии, инфекции, экземы, псориаз, акне и другие заболевания.\n' +
+            '\n' +
+            'Косметологические процедуры: В рамках своей специализации, я также выполнял различные косметологические процедуры, такие как удаление бородавок, лазерная терапия, ботокс-инъекции и химический пилинг, помогая пациентам улучшить состояние и внешний вид своей кожи.\n' +
+            '\n' +
+            'Образование и консультации: Я предоставлял пациентам подробную информацию о состоянии и лечении, а также советы по уходу за кожей. Образование пациентов и консультации были важной частью моей работы.\n' +
+            '\n' +
+            'Исследования и академическая деятельность: Я активно участвовал в научных исследованиях в области дерматологии, публиковал статьи и презентовал результаты исследований на конференциях и семинарах.\n' +
+            '\n' +
+            'Сотрудничество с коллегами: Я работал в команде с другими специалистами в области здравоохранения, включая других врачей, медсестер и ассистентов, чтобы обеспечить лучшее возможное обслуживание пациентов.\n' +
+            '\n' +
+            'Моя работа в НЦЗД была увлекательным путешествием в мир дерматологии, и я стремился предоставлять высококачественное медицинское обслуживание и поддержку моим пациентам, помогая им достичь здоровой и красивой кожи.'
+    }
+    ])
+
+    const [isEditor,setIsEditor]=useState(false)
+
+
     return (
         <main className={'p-12'}>
             <div className={'flex justify-between'}>
                 <p className={'uppercase font-inter font-extralight text-3xl'}>Основные данные</p>
-                <div className={'p-2 bg-green cursor-pointer flex items-center rounded-lg gap-2'}>
+                <div onClick={()=>{setIsEditor(true)}} className={'p-2 bg-green cursor-pointer flex items-center rounded-lg gap-2'}>
                     <img className={'w-4 aspect-square'} src={`${images}/edit.svg`}/>
                     <p className={'text-white font-inter font-normal'}>Редактировать профиль</p>
                 </div>
@@ -41,21 +124,26 @@ export default function Home() {
                     <div className={'flex gap-8 items-start'}>
                         <img className={'rounded-full aspect-square object-cover w-1/4'} src={`${images}/temp_avatar.png`}/>
                         <div className={'flex flex-col gap-3'}>
-                            <p className={'text-green-two text-2xl font-bold'}>Иванова Анна Сергеевна</p>
+                            {!isEditor?<p className={'text-green-two text-2xl font-bold'}>Иванова Анна Сергеевна</p>:<input placeholder={'Иванова Анна Сергеевна'} className={'text-green-two px-2 border-green border-2 text-2xl rounded-lg font-bold'}></input>}
                             <div className={'flex gap-3 font-inter text-black items-center'}>
                                 <img className={'w-5'} src={`${images}/phone.svg`}/>
-                                <p className={'font-normal'}>+7 (952) 256 34 20</p>
+                                {!isEditor?<p className={'font-normal'}>+7 (952) 256 34 20</p>:<input placeholder={'+7 (952) 256 34 20'} className={'font-normal px-2 border-green border-2 rounded-lg'}></input>}
                             </div>
                             <div className={'flex gap-3 font-inter text-black items-center'}>
                                 <img className={'w-5'} src={`${images}/email.svg`}/>
-                                <p className={'font-normal'}>pediatric-dermatology@mail.ru</p>
+                                {!isEditor?<p className={'font-normal'}>pediatric-dermatology@mail.ru</p>:<input placeholder={'pediatric-dermatology@mail.ru'} className={'font-normal px-2 border-green border-2 rounded-lg'}></input>}
                             </div>
                             <div className={'flex gap-3 font-inter text-black items-center'}>
                                 <img className={'w-5'} src={`${images}/location.svg`}/>
-                                <p className={'font-normal'}>Москва, Россия</p>
+                                {!isEditor?<p className={'font-normal'}>Москва, Россия</p>:<input placeholder={'Москва, Россия'} className={'font-normal px-2 border-green border-2 rounded-lg'}></input>}
                             </div>
-                            <p className={'text-lg'}><span className={'font-bold'}>Пол:</span> Женский</p>
-                            <p className={'text-lg'}><span className={'font-bold'}>Дата рождения:</span> 23.10.1996</p>
+                            <div className={'flex gap-3 font-inter text-black items-center'}>
+                                <p className={'font-bold text-lg'}>Пол:</p>
+                                {!isEditor?<p className={'font-normal text-lg'}>Женский</p>:<input placeholder={'Женский'} className={'font-normal text-lg px-2 border-green border-2 rounded-lg'}></input>}
+
+                            </div>
+
+                            <p className={'font-bold text-lg'}>Дата рождения: <span className={'font-normal'}>23.10.1996</span></p>
                             <div className={'flex items-center justify-between gap-3'}>
                                 <div className={'border-2 border-green-two rounded-full font-light px-5 text-green-two text-sm p-2 flex items-center justify-center'}>
                                     Дерматология
