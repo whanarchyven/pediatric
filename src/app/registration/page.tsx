@@ -41,8 +41,12 @@ export default function Home() {
     const doTest=async ()=>{
         return trpc.echo.query({test:"123"}).then(console.log)
     }
+    const doTestPost=async ()=>{
+        return trpc.echoMutate.mutate({test:"123"}).then(console.log)
+    }
     useEffect(()=>{
         doTest()
+        doTestPost()
     },[])
       
     
