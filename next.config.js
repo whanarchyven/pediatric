@@ -8,6 +8,14 @@ const nextConfig = {
     experimental: {
         serverActions: true,
     },
+    async rewrites() {
+        return [
+          {
+            source: '/trpc/:path*',
+            destination: 'https://rnxmo-206-189-53-94.a.free.pinggy.online/trpc/:path*',
+          },
+        ];
+      },
 
 }
 
