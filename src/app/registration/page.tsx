@@ -33,11 +33,19 @@ import post from "@/components/Post";
 import Link from "next/link";
 import concatStr from "@/helpers/concatStr";
 import BackButton from "@/components/BackButton";
+import { trpc } from "@/helpers/sdk";
 
 
 export default function Home() {
-
-
+   
+    const doTest=async ()=>{
+        return trpc.echo.query({test:"123"}).then(console.log)
+    }
+    useEffect(()=>{
+        doTest()
+    },[])
+      
+    
     const images = '/pages/main'
 
     const [checkboxRadio, setCheckboxRadio] = useState('yes')
