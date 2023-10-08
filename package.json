@@ -10,6 +10,8 @@
     "export": "next export"
   },
   "dependencies": {
+    "@trpc/client": "^10.40.0",
+    "@trpc/server": "^10.40.0",
     "@types/node": "20.3.2",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
