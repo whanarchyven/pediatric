@@ -140,6 +140,19 @@ declare const app: Elysia<"", {
             };
         };
     };
+    "/el2": {
+        get: {
+            body: unknown;
+            params: {
+                echo: string;
+            };
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: string;
+            };
+        };
+    };
     "/ela": {
         post: {
             body: {

@@ -11,11 +11,11 @@ const nextConfig = {
     async rewrites() {
         return [
           {
-            source: '/trpc/:path*',
+            source: '^/trpc/:path*',
             destination: 'https://rnpyu-194-135-222-130.a.free.pinggy.online/trpc/:path*',
           },
           {
-            source: '/api2/:path*',
+            source: '^/api2/:path*',
             destination: 'https://rnpyu-194-135-222-130.a.free.pinggy.online/:path*',
           },
 
