@@ -12,11 +12,11 @@ const nextConfig = {
         return [
           {
             source: '^/trpc/:path*',
-            destination: 'https://rnpyu-194-135-222-130.a.free.pinggy.online/trpc/:path*',
+            destination: 'https://bot.ptq.pw/trpc/:path*',
           },
           {
             source: '^/api2/:path*',
-            destination: 'https://rnpyu-194-135-222-130.a.free.pinggy.online/:path*',
+            destination: 'https://bot.ptq.pw/:path*',
           },
 
         ];
