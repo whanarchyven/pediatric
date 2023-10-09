@@ -12,8 +12,13 @@ const nextConfig = {
         return [
           {
             source: '/trpc/:path*',
-            destination: 'https://rnxmo-206-189-53-94.a.free.pinggy.online/trpc/:path*',
+            destination: 'https://rnpyu-194-135-222-130.a.free.pinggy.online/trpc/:path*',
           },
+          {
+            source: '/api2/:path*',
+            destination: 'https://rnpyu-194-135-222-130.a.free.pinggy.online/:path*',
+          },
+
         ];
       },
 

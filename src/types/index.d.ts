@@ -1,3 +1,5 @@
+/// <reference types="bun-types" />
+import { Elysia } from "elysia";
 export declare const router: import("@trpc/server").CreateRouterInner<import("@trpc/server").RootConfig<{
     ctx: object;
     meta: object;
@@ -81,4 +83,77 @@ export declare const router: import("@trpc/server").CreateRouterInner<import("@t
         _output_out: typeof import("@trpc/server").unsetMarker;
     }, string>;
 }>;
+declare const app: Elysia<"", {
+    request: {};
+    store: {};
+}, {
+    type: {};
+    error: {};
+}, {
+    body: unknown;
+    headers: unknown;
+    query: unknown;
+    params: unknown;
+    cookie: unknown;
+    response: unknown;
+}, {
+    [x: `${string}/*`]: {
+        get: {
+            body: unknown;
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<Response>;
+            };
+        };
+    } & {
+        post: {
+            body: unknown;
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<Response>;
+            };
+        };
+    };
+    "/": {
+        get: {
+            body: unknown;
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: string;
+            };
+        };
+    };
+    "/el": {
+        get: {
+            body: unknown;
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: string;
+            };
+        };
+    };
+    "/ela": {
+        post: {
+            body: {
+                echo: string;
+            };
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: string;
+            };
+        };
+    };
+}, false>;
 export type router = typeof router;
+export type ElysiaApp = typeof app;
+export {};

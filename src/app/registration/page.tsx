@@ -33,7 +33,7 @@ import post from "@/components/Post";
 import Link from "next/link";
 import concatStr from "@/helpers/concatStr";
 import BackButton from "@/components/BackButton";
-import { trpc } from "@/helpers/sdk";
+import { eden, fetchE, trpc } from "@/helpers/sdk";
 
 
 export default function Home() {
@@ -42,11 +42,24 @@ export default function Home() {
         return trpc.echo.query({test:"123"}).then(console.log)
     }
     const doTestPost=async ()=>{
+
         return trpc.echoMutate.mutate({test:"123"}).then(console.log)
     }
+    const doTestEden=async ()=>{
+        eden.ela.post({
+            echo: "hello from eden"
+        })
+        return eden.ela.post({echo:"123"})
+    }
+    const doTestEdenFetch=async ()=>{
+        return fetchE("/ela",{method:"POST",body:{echo:"hello from eden fetch"}})
+    }
+   
     useEffect(()=>{
         doTest()
         doTestPost()
+        doTestEden()
+        doTestEdenFetch()
     },[])
       
     
