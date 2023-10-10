@@ -13,7 +13,13 @@ declare const PdermUserSchema: mongoose.Schema<any, mongoose.Model<any, any, any
     joinCommunity: boolean;
     uuid: string;
     gender: string;
+    education: any[];
+    career: any[];
     confirmPassword?: string | undefined;
+    birthDate?: string | undefined;
+    about?: string | undefined;
+    interests?: string | undefined;
+    photoUrl?: string | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     lastName: string;
     firstName: string;
@@ -28,7 +34,13 @@ declare const PdermUserSchema: mongoose.Schema<any, mongoose.Model<any, any, any
     joinCommunity: boolean;
     uuid: string;
     gender: string;
+    education: any[];
+    career: any[];
     confirmPassword?: string | undefined;
+    birthDate?: string | undefined;
+    about?: string | undefined;
+    interests?: string | undefined;
+    photoUrl?: string | undefined;
 }>> & mongoose.FlatRecord<{
     lastName: string;
     firstName: string;
@@ -43,7 +55,13 @@ declare const PdermUserSchema: mongoose.Schema<any, mongoose.Model<any, any, any
     joinCommunity: boolean;
     uuid: string;
     gender: string;
+    education: any[];
+    career: any[];
     confirmPassword?: string | undefined;
+    birthDate?: string | undefined;
+    about?: string | undefined;
+    interests?: string | undefined;
+    photoUrl?: string | undefined;
 }> & {
     _id: mongoose.Types.ObjectId;
 }>;
@@ -60,6 +78,37 @@ export declare const PdermUserRegTDto: import("@sinclair/typebox").TObject<{
     password: import("@sinclair/typebox").TString;
     confirmPassword: import("@sinclair/typebox").TString;
     joinCommunity: import("@sinclair/typebox").TBoolean;
+}>;
+export declare const PdermEditUserRegTDto: import("@sinclair/typebox").TObject<{
+    uuid: import("@sinclair/typebox").TString;
+    lastName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    firstName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    middleName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    birthDate: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    gender: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    phoneNumber: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    specialty: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    city: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    workplace: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    position: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    password: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    confirmPassword: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    joinCommunity: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
+    photoUrl: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    education: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
+        title: import("@sinclair/typebox").TString;
+        school: import("@sinclair/typebox").TString;
+    }>>>;
+    about: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    interests: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    career: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
+        monthStart: import("@sinclair/typebox").TString;
+        yearStart: import("@sinclair/typebox").TNumber;
+        monthEnd: import("@sinclair/typebox").TString;
+        yearEnd: import("@sinclair/typebox").TNumber;
+        place: import("@sinclair/typebox").TString;
+        position: import("@sinclair/typebox").TString;
+    }>>>;
 }>;
 export declare const PdermUserLoginTDto: import("@sinclair/typebox").TObject<{
     email: import("@sinclair/typebox").TString;
@@ -79,7 +128,13 @@ export declare const PdermUserModel: mongoose.Model<{
     joinCommunity: boolean;
     uuid: string;
     gender: string;
+    education: any[];
+    career: any[];
     confirmPassword?: string | undefined;
+    birthDate?: string | undefined;
+    about?: string | undefined;
+    interests?: string | undefined;
+    photoUrl?: string | undefined;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
     lastName: string;
     firstName: string;
@@ -94,7 +149,13 @@ export declare const PdermUserModel: mongoose.Model<{
     joinCommunity: boolean;
     uuid: string;
     gender: string;
+    education: any[];
+    career: any[];
     confirmPassword?: string | undefined;
+    birthDate?: string | undefined;
+    about?: string | undefined;
+    interests?: string | undefined;
+    photoUrl?: string | undefined;
 }> & {
     lastName: string;
     firstName: string;
@@ -109,7 +170,13 @@ export declare const PdermUserModel: mongoose.Model<{
     joinCommunity: boolean;
     uuid: string;
     gender: string;
+    education: any[];
+    career: any[];
     confirmPassword?: string | undefined;
+    birthDate?: string | undefined;
+    about?: string | undefined;
+    interests?: string | undefined;
+    photoUrl?: string | undefined;
 } & {
     _id: mongoose.Types.ObjectId;
 }, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
@@ -126,7 +193,13 @@ export declare const PdermUserModel: mongoose.Model<{
     joinCommunity: boolean;
     uuid: string;
     gender: string;
+    education: any[];
+    career: any[];
     confirmPassword?: string | undefined;
+    birthDate?: string | undefined;
+    about?: string | undefined;
+    interests?: string | undefined;
+    photoUrl?: string | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     lastName: string;
     firstName: string;
@@ -141,7 +214,13 @@ export declare const PdermUserModel: mongoose.Model<{
     joinCommunity: boolean;
     uuid: string;
     gender: string;
+    education: any[];
+    career: any[];
     confirmPassword?: string | undefined;
+    birthDate?: string | undefined;
+    about?: string | undefined;
+    interests?: string | undefined;
+    photoUrl?: string | undefined;
 }>> & mongoose.FlatRecord<{
     lastName: string;
     firstName: string;
@@ -156,7 +235,13 @@ export declare const PdermUserModel: mongoose.Model<{
     joinCommunity: boolean;
     uuid: string;
     gender: string;
+    education: any[];
+    career: any[];
     confirmPassword?: string | undefined;
+    birthDate?: string | undefined;
+    about?: string | undefined;
+    interests?: string | undefined;
+    photoUrl?: string | undefined;
 }> & {
     _id: mongoose.Types.ObjectId;
 }>>;

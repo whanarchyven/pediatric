@@ -18,6 +18,7 @@ declare const app: Elysia<"", {
         cookie: Record<string, string>;
         setCookie: (name: string, value: string, options?: import("@elysiajs/cookie").SetCookieOptions | undefined) => void;
         removeCookie: (name: string) => void;
+        auth_user_uuid?: undefined;
         uuid?: undefined;
     } | {
         jwt: {
@@ -34,6 +35,7 @@ declare const app: Elysia<"", {
         cookie: Record<string, string>;
         setCookie: (name: string, value: string, options?: import("@elysiajs/cookie").SetCookieOptions | undefined) => void;
         removeCookie: (name: string) => void;
+        auth_user_uuid: string;
         uuid: string;
     };
     store: {};
@@ -121,7 +123,7 @@ declare const app: Elysia<"", {
             };
         };
     };
-    "/user/:id/profile": {
+    "/user/:user_uuid/profile": {
         get: {
             body: unknown;
             params: unknown;
@@ -146,7 +148,13 @@ declare const app: Elysia<"", {
                         joinCommunity: boolean;
                         uuid: string;
                         gender: string;
+                        education: any[];
+                        career: any[];
                         confirmPassword?: string | undefined;
+                        birthDate?: string | undefined;
+                        about?: string | undefined;
+                        interests?: string | undefined;
+                        photoUrl?: string | undefined;
                     }> & {
                         _id: mongoose.Types.ObjectId;
                     };
@@ -156,16 +164,46 @@ declare const app: Elysia<"", {
         };
     } & {
         post: {
-            body: unknown;
+            body: {
+                lastName?: string | undefined;
+                firstName?: string | undefined;
+                middleName?: string | undefined;
+                phoneNumber?: string | undefined;
+                specialty?: string | undefined;
+                city?: string | undefined;
+                workplace?: string | undefined;
+                position?: string | undefined;
+                password?: string | undefined;
+                confirmPassword?: string | undefined;
+                joinCommunity?: boolean | undefined;
+                gender?: string | undefined;
+                education?: {
+                    title: string;
+                    school: string;
+                }[] | undefined;
+                birthDate?: string | undefined;
+                about?: string | undefined;
+                interests?: string | undefined;
+                career?: {
+                    position: string;
+                    monthStart: string;
+                    yearStart: number;
+                    monthEnd: string;
+                    yearEnd: number;
+                    place: string;
+                }[] | undefined;
+                photoUrl?: string | undefined;
+                uuid: string;
+            };
             params: unknown;
             query: unknown;
             headers: unknown;
             response: {
-                200: string;
+                200: Promise<string>;
             };
         };
     };
-    "/user/:id/publication/list": {
+    "/user/:user_uuid/publication/list": {
         get: {
             body: unknown;
             params: unknown;
@@ -176,7 +214,7 @@ declare const app: Elysia<"", {
             };
         };
     };
-    "/user/:id/publication": {
+    "/user/:user_uuid/publication": {
         post: {
             body: unknown;
             params: unknown;
@@ -187,7 +225,7 @@ declare const app: Elysia<"", {
             };
         };
     };
-    "/user/:id/bookmark/publication/list": {
+    "/user/:user_uuid/bookmark/publication/list": {
         get: {
             body: unknown;
             params: unknown;
@@ -198,7 +236,7 @@ declare const app: Elysia<"", {
             };
         };
     };
-    "/user/:id/bookmark/publication": {
+    "/user/:user_uuid/bookmark/publication": {
         post: {
             body: unknown;
             params: unknown;
@@ -209,7 +247,7 @@ declare const app: Elysia<"", {
             };
         };
     };
-    "/user/:id/bookmark/event/list": {
+    "/user/:user_uuid/bookmark/event/list": {
         get: {
             body: unknown;
             params: unknown;
@@ -220,7 +258,7 @@ declare const app: Elysia<"", {
             };
         };
     };
-    "/user/:id/bookmark/event": {
+    "/user/:user_uuid/bookmark/event": {
         post: {
             body: unknown;
             params: unknown;
@@ -231,7 +269,7 @@ declare const app: Elysia<"", {
             };
         };
     };
-    "/user/:id/upload": {
+    "/upload": {
         post: {
             body: {
                 file: File;
