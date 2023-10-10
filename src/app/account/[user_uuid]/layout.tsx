@@ -15,18 +15,17 @@ export const metadata = {
     description: 'наметки лендоса',
 }
 
-export default function AccountLayout({
-                                       children,
-                                   }: {
+export default function AccountLayout(props: {
     children: React.ReactNode
 }) {
-
+const {children,params:{user_uuid}} = props;
+    console.log(props)
 
 
     return (
         <div className={'grid pt-28 pb-0 grid-cols-10'}>
             <div className={'col-span-2 relative bg-[#E3F1EF] flex items-start p-12 min-h-screen'}>
-                <Sidebar></Sidebar>
+                <Sidebar user_uuid={user_uuid}></Sidebar>
             </div>
             <div className={'col-span-8'}>
                 {children}

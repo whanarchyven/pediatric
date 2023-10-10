@@ -7,6 +7,7 @@ import {motion} from "framer-motion";
 import {useRouter} from "next/navigation";
 import ReviewPop from "@/components/ReviewPop";
 import HelpPop from "@/components/HelpPop";
+import {eden} from "@/helpers/sdk"
 
 
 import {Swiper, SwiperSlide, useSwiperSlide} from "swiper/react";
@@ -42,7 +43,26 @@ export default function Home() {
 
     const [checkboxRadio, setCheckboxRadio] = useState('yes')
     const [personal, setPersonal] = useState(false)
-    const [showWarning,setShowWarning]=useState(false)
+    const [showWarning,setShowWarning]=useState("")
+    const [email,setEmail] = useState("")
+    const [password,setPassword]=useState("")
+    const doLogin = ()=>{
+        eden.auth.login.post({email,password}).then(({data})=>{
+        
+            if (data.user_uuid){
+                const userUuid = data.user_uuid;
+                router.push(`/account/${userUuid}/profile`)
+            }
+            if (data.error) {
+                
+                return setShowWarning(data.error??"Неправильные логин или пароль")
+            }
+           
+            
+        }).catch(e=>{
+            setShowWarning("Неправильные логин или пароль")
+        })
+    }
 
     return (
         <main className={'overflow-x-hidden'}>
@@ -57,18 +77,19 @@ export default function Home() {
                             к дополнительным возможностям сайта.</p>
                         <div className={'flex gap-2 flex-col'}>
                             <p className={'text-white font-bold'}>E-mail</p>
-                            {showWarning?<p className={'text-rose-500 font-normal'}>Неверный логин или пароль</p>:null}
-                            <input type={'text'} placeholder={'my.email@gmail.com'}
+                            {showWarning?<p className={'text-rose-500 font-normal'}>{showWarning}</p>:null}
+                            <input type={'text'} onChange={(e)=>{setEmail(e.target.value)}} placeholder={'my.email@gmail.com'}
                                    className={'p-4 outline-0 text-white bg-transparent transition-all duration-300 placeholder:font-extralight w-96 border-white border-2 cursor-pointer flex items-center rounded-full gap-2'}/>
                         </div>
                         <div className={'flex gap-2 flex-col'}>
                             <p className={'text-white font-bold'}>Пароль</p>
-                            <input type={'password'} placeholder={''}
+                            <input onChange={(e)=>{setPassword(e.target.value)}} type={'password'} placeholder={''}
                                    className={'p-4 outline-0 text-white bg-transparent transition-all duration-300 placeholder:font-extralight w-96 border-white border-2 cursor-pointer flex items-center rounded-full gap-2'}/>
                         </div>
                         <div className={'flex justify-between w-2/3'}>
                             <div onClick={()=>{
-                                setShowWarning(true);
+                                // setShowWarning(true);
+                                doLogin();
 
                             }}
                                 className={'p-4 px-12 cursor-pointer transition-all duration-300 bg-white border-white border-2 w-40 flex justify-center items-center rounded-lg gap-2'}>

@@ -5,6 +5,8 @@ import Image from "next/image";
 import {classList} from "@/helpers/classList";
 import {usePathname, useRouter} from "next/navigation";
 import Link from "next/link";
+import { eden, useEden } from '@/helpers/sdk';
+import { Router } from 'next/router';
 
 interface navbarInterface {
     isInteractive:boolean
@@ -42,6 +44,9 @@ const Navbar = ({isInteractive}:navbarInterface) => {
     ]
 
     const [scrolled,setScrolled]=useState(0)
+    const {data} = useEden(e=>e.user.my.profile.get())
+    const loggedIn = !!data?.profile
+    
 
     useEffect(()=>{
         window.addEventListener('scroll', function() {
@@ -76,11 +81,11 @@ const Navbar = ({isInteractive}:navbarInterface) => {
                         </img>
                     </Link>
                 </div>
-                <div className={'flex items-center'}>
+                <div className={'flex items-center cursor-pointer'} onClick={()=>{loggedIn?router.push('/account/profile'):router.push('/registration')}}>
                     <div className={'w-5 mx-2 aspect-square relative'}>
                         <Image src={'/account.svg'} alt={'account'} layout={'fill'}></Image>
                     </div>
-                    <p className={'text-white lg:text-lg text-sm font-inter font-normal'}>Профиль</p>
+                    <p className={'text-white lg:text-lg text-sm font-inter font-normal'}>{loggedIn?"Профиль":"Войти"}</p>
                 </div>
             </div>
             <div className={'sm:hidden col-span-1 flex justify-end items-center col-end-7'}>

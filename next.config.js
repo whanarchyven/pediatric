@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const backendUrl = "https://bot.ptq.pw"
+// const backendUrl = "http://localhost:3201"
 const nextConfig = {
     // output: 'export',
     typescript:{
@@ -11,12 +13,12 @@ const nextConfig = {
     async rewrites() {
         return [
           {
-            source: '^/trpc/:path*',
-            destination: 'https://bot.ptq.pw/trpc/:path*',
+            source: '/trpc/:path*',
+            destination: `${backendUrl}/trpc/:path*`,
           },
           {
-            source: '^/api2/:path*',
-            destination: 'https://bot.ptq.pw/:path*',
+            source: '/api2/:path*',
+            destination: `${backendUrl}/:path*`,
           },
 
         ];
