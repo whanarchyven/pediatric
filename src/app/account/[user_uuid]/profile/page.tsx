@@ -22,6 +22,7 @@ import 'swiper/css/effect-fade';
 import PublicationTab from "@/components/Publication Tab";
 import {eden, useEden} from "@/helpers/sdk";
 import "react-datepicker/dist/react-datepicker.css";
+import EducationPop from "@/components/EducationPop";
 // import required modules
 
 
@@ -41,10 +42,10 @@ export default function Home(params: { params: { user_uuid: string } }) {
         gender,
         specialty,
         birthDate,
-        photoUrl
+        photoUrl, education
     } = data?.profile ?? {} as any;
 
-    console.log(data?.profile);
+    console.log(data);
 
     const [profile, setProfile] = useState({
         lastName: lastName,
@@ -65,7 +66,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
         setProfile({...temp})
     }
 
-    const [education, setEducation] = useState({
+    const [educationTemp, setEducationTemp] = useState({
         degree: 'Доктор наук',
         post: 'Профессор',
         colleges: [
@@ -90,18 +91,9 @@ export default function Home(params: { params: { user_uuid: string } }) {
         ]
     })
 
-    const addNewCollege = (college: typeof education.colleges[0]) => {
-        let temp = {...education}
-        temp.colleges.push(college)
-        setEducation({...temp})
-    }
 
-    const removeCollege = (id: number) => {
-        let temp = {...education}
-        let index = temp.colleges.findIndex(item => item.id == id)
-        temp.colleges.splice(index, id)
-        setEducation({...temp})
-    }
+    const [educationPop, setEducationPop] = useState(false);
+
 
     const initializeTempData = () => {
         setProfile({
@@ -144,8 +136,8 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
     const [isEditor, setIsEditor] = useState(false)
 
-    const updateProfile=async ()=>{
-        eden.user[user_uuid].profile.post({uuid:user_uuid}).then((res)=>{
+    const updateProfile = async () => {
+        eden.user[user_uuid].profile.post({uuid: user_uuid, ...profile}).then((res) => {
             console.log(res)
             setIsEditor(false)
         })
@@ -154,6 +146,12 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
     return (
         <main className={'p-12'}>
+            {educationPop ? <EducationPop user_uuid={
+                user_uuid
+            } afterPostCallback={() => {
+            }} closeFunc={() => {
+                setEducationPop(false)
+            }}></EducationPop> : null}
             <div className={'flex justify-between'}>
                 <p className={'uppercase font-inter font-extralight text-3xl'}>Основные данные</p>
                 {!isEditor ? <div onClick={() => {
@@ -197,28 +195,38 @@ export default function Home(params: { params: { user_uuid: string } }) {
                             <div className={'flex gap-3 font-inter text-black items-center'}>
                                 <img className={'w-5'} src={`${images}/phone.svg`}/>
                                 {!isEditor ?
-                                    <p className={'font-normal'}>{phoneNumber ? phoneNumber : 'Не указано'}</p> : <input value={profile.phoneNumber}
-                                        onChange={(event)=>{mutateProfile('phoneNumber',event.target.value)}}
-                                        placeholder={profile.phoneNumber ? profile.phoneNumber : 'Введите номер телефона'}
-                                        className={'font-normal px-2 border-green border-2 rounded-lg'}></input>}
+                                    <p className={'font-normal'}>{phoneNumber ? phoneNumber : 'Не указано'}</p> :
+                                    <input value={profile.phoneNumber}
+                                           onChange={(event) => {
+                                               mutateProfile('phoneNumber', event.target.value)
+                                           }}
+                                           placeholder={profile.phoneNumber ? profile.phoneNumber : 'Введите номер телефона'}
+                                           className={'font-normal px-2 border-green border-2 rounded-lg'}></input>}
                             </div>
                             <div className={'flex gap-3 font-inter text-black items-center'}>
                                 <img className={'w-5'} src={`${images}/email.svg`}/>
                                 {!isEditor ? <p className={'font-normal'}>{email ? email : 'Не указано'}</p> :
-                                    <input onChange={(event)=>{mutateProfile('email',event.target.value)}} value={profile.email} placeholder={profile.email ? profile.email : 'Введите email'}
+                                    <input onChange={(event) => {
+                                        mutateProfile('email', event.target.value)
+                                    }} value={profile.email}
+                                           placeholder={profile.email ? profile.email : 'Введите email'}
                                            className={'font-normal px-2 border-green border-2 rounded-lg'}></input>}
                             </div>
                             <div className={'flex gap-3 font-inter text-black items-center'}>
                                 <img className={'w-5'} src={`${images}/location.svg`}/>
                                 {!isEditor ? <p className={'font-normal'}>{city ? city : 'Не указано'}</p> :
-                                    <input onChange={(event)=>{mutateProfile('city',event.target.value)}} value={profile.city} placeholder={profile.city ? profile.city : 'Введите город'}
+                                    <input onChange={(event) => {
+                                        mutateProfile('city', event.target.value)
+                                    }} value={profile.city} placeholder={profile.city ? profile.city : 'Введите город'}
                                            className={'font-normal px-2 border-green border-2 rounded-lg'}></input>}
                             </div>
                             <div className={'flex gap-3 font-inter text-black items-center'}>
                                 <p className={'font-bold text-lg'}>Пол:</p>
                                 {!isEditor ?
-                                    <p className={'font-normal text-lg'}>{profile.gender ? profile.gender : 'Не указано'}</p> :
-                                    <select onChange={(event)=>{mutateProfile('gender',event.target.value)}} className={'font-normal text-lg px-2 border-green border-2 rounded-lg'}>
+                                    <p className={'font-normal text-lg'}>{gender ? gender : 'Не указано'}</p> :
+                                    <select onChange={(event) => {
+                                        mutateProfile('gender', event.target.value)
+                                    }} className={'font-normal text-lg px-2 border-green border-2 rounded-lg'}>
                                         <option value={'Мужской'} selected={gender == 'Мужской'}>Мужской</option>
                                         <option value={'Женский'} selected={gender == 'Женский'}>Женский</option>
                                     </select>}
@@ -227,7 +235,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                             <div className={'flex gap-3 font-inter text-black items-center'}>
                                 <p className={'font-bold text-lg'}>Дата рождения:</p>
                                 {!isEditor ?
-                                    <p className={'font-normal text-lg'}>{profile.birthDate ? profile.birthDate : 'Не указана'}</p> :
+                                    <p className={'font-normal text-lg'}>{birthDate ? birthDate : 'Не указана'}</p> :
                                     <DatePicker placeholderText={profile.birthDate ? profile.birthDate : 'Введите дату'}
                                                 className={'border-2 border-green p-1 rounded-lg text-center w-1/2'}
                                                 dateFormat={"dd.MM.yyyy"} locale={"ru"} selected={null}
@@ -248,18 +256,25 @@ export default function Home(params: { params: { user_uuid: string } }) {
                         </div>
                     </div>
                     <div className={'flex flex-col gap-2'}>
-                        <p className={'uppercase font-inter font-extralight mb-6 text-3xl'}>Образование</p>
-                        <div className={'grid gap-4 w-4/5 grid-cols-2'}>
-                            <p className={' font-bold'}> Первое образование:</p>
-                            <p className={''}>1-й Московский</p>
-                            <p className={' font-bold'}>Второе образование:</p>
-                            <p className={''}>2-й Питерский</p>
-                            <p className={' font-bold'}>Третье образование:</p>
-                            <p className={''}>СамГМУ</p>
-                            <p className={' font-bold'}>Ученая степень:</p>
-                            <p className={''}>Доктор наук</p>
-                            <p className={' font-bold'}>Ученое звание:</p>
-                            <p className={''}>Профессор</p>
+                        <div className={'flex mb-6 gap-7 items-center'}>
+                            <p className={'uppercase font-inter font-extralight text-3xl'}>Образование</p>
+                            {isEditor ? <div onClick={() => {
+                                setEducationPop(true)
+                            }} className={'bg-green-two text-white cursor-pointer font-normal p-3 rounded-lg'}>Добавить
+                                +</div> : null}
+                        </div>
+                        <div className={'w-4/5 flex flex-col gap-2'}>
+                            {education?.map((item: any, counter: number) => {
+                                return (
+                                    <div className={'w-full grid grid-cols-2 gap-3'}>
+                                        <p className={'font-bold'}>{counter + 1} образование</p>
+                                    </div>
+                                )
+                            })}
+                            {/*<p className={' font-bold'}>Ученая степень:</p>*/}
+                            {/*<p className={''}>Доктор наук</p>*/}
+                            {/*<p className={' font-bold'}>Ученое звание:</p>*/}
+                            {/*<p className={''}>Профессор</p>*/}
                         </div>
                     </div>
                     <div className={'flex flex-col'}>

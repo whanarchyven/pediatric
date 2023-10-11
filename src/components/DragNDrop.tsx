@@ -1,15 +1,14 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
-interface dragnDropInterface {
-    setFile?:(arg:FileList)=>any
+interface dragndropInterface {
+    setFile:(arg:any)=>any
 }
-
-const DragNDrop = ({setFile}:dragnDropInterface) => {
+const DragNDrop = ({setFile}:dragndropInterface) => {
     const [dragActive, setDragActive] = React.useState(false);
     // ref
-    const inputRef = React.useRef<HTMLInputElement>(null);
+    const inputRef = React.useRef(null);
 
-    const [tempFile,setTempFile]=useState<File>()
+    const [tempFile,setTempFile]=useState()
 
     // handle drag events
     const handleDrag = function(e:any) {
@@ -42,28 +41,21 @@ const DragNDrop = ({setFile}:dragnDropInterface) => {
             setFile(e.target.files)
             setTempFile(e.target.files[0])
         }
+
     };
 
 // triggers the input when the button is clicked
-    const onButtonClick = () => {
-        if(inputRef.current){
-            inputRef.current.click();
-        }
-    };
 
     return (
-        <form id="form-file-upload" onDragEnter={handleDrag} onSubmit={(e) => e.preventDefault()}>
-            <input ref={inputRef} type="file" id="input-file-upload" multiple={true} onChange={handleChange} />
+        <form id="form-file-upload" className={'border-0'} onDragEnter={handleDrag} onSubmit={(e) => e.preventDefault()}>
+            <input className={'hidden'} ref={inputRef} type="file" id="input-file-upload" multiple={true} onChange={handleChange} />
             <label id="label-file-upload" htmlFor="input-file-upload" className={dragActive ? "drag-active" : "" }>
-                {tempFile!=undefined?<div className={'flex items-center'}>
-                    <img src={'/images/icons/done.svg'}/>
-                    <p className={'ml-3 font-normal max-w-xl opacity-100 text-red whitespace-pre-wrap text-left'}>{tempFile.name} <br/>
-                        <strong className={'font-bold'}>Успешно загружено!</strong> </p>
-                    {/*<button className="upload-button" onClick={onButtonClick}>Upload a file</button>*/}
-                </div>:<div className={'flex items-center'}>
-                    <img src={'/smile.svg'}/>
-                    <p className={'ml-3 font-normal opacity-100 text-red text-left'}>Нажмите или перетащите изображение</p>
-                    {/*<button className="upload-button" onClick={onButtonClick}>Upload a file</button>*/}
+                {tempFile!=undefined?<div className={'flex border-green-two border-2 w-full justify-center bg-green-two p-3 rounded-lg items-center gap-2'}>
+                    <img className={'w-12 aspect-square'} src={'/upload_file_white.svg'}/>
+                    <p className={'text-white'}>Загружено!</p>
+                </div>:<div className={'flex border-green-two border-2 p-3 w-full justify-center rounded-lg items-center gap-2'}>
+                    <img className={'w-12 aspect-square'} src={'/upload_file.svg'}/>
+                    <p>Загрузите файл диплома</p>
                 </div>}
             </label>
             { dragActive && <div id="drag-file-element" onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}></div> }

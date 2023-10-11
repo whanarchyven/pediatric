@@ -67,13 +67,8 @@ html{
 }
 
 #label-file-upload {
-    height: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #F98577;background-color: transparent;
-    border-radius: 0px;
-
+    width: 100%;
 }
 
 #label-file-upload.drag-active {
