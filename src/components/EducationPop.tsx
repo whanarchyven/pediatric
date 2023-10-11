@@ -2,25 +2,34 @@
 import React, {useState} from 'react';
 import DragNDrop from "@/components/DragNDrop";
 import {eden} from "@/helpers/sdk";
+import FormData from "form-data";
+import axios from "axios";
+import {uploadFile} from "@/helpers/uploadFile";
 
 
 interface educationPopInterface {
     closeFunc:()=>any
     afterPostCallback:()=>any,
-    user_uuid:string
+    user_uuid:string,
+    email:string,
+    education:[],
 }
 
-const EducationPop = ({closeFunc,afterPostCallback,user_uuid}:educationPopInterface) => {
-    const [yearStart,setYearStart]=useState('')
-    const [yearEnd,setYearEnd]=useState('')
+const EducationPop = ({closeFunc,afterPostCallback,user_uuid,email,education}:educationPopInterface) => {
+    const [yearStart,setYearStart]=useState<number>(0)
+    const [yearEnd,setYearEnd]=useState<number>(0)
     const [university,setUniversity]=useState('')
     const [faculty,setFaculty]=useState('')
     const [degree,setDegree]=useState('')
-    const[diploma,setDiploma]=useState(null)
+    const[diploma,setDiploma]=useState('')
+    const[diplomaTemp,setDiplomaTemp]=useState(null)
 
 
-    const updateEducation=async ()=>{
-        eden.user[user_uuid].profile.post({uuid:user_uuid,education:{yearStart,yearEnd,university,faculty,degree}}).then((res)=>{
+
+    const updateEducation=async (diplomaURL:string)=>{
+        eden.user[user_uuid].profile.post({
+            uuid: user_uuid, education: [...education,{yearStart, yearEnd, university, faculty, degree, diploma:diplomaURL}],email:email
+        }).then((res)=>{
             console.log(res)
             closeFunc()
         })
@@ -39,7 +48,7 @@ const EducationPop = ({closeFunc,afterPostCallback,user_uuid}:educationPopInterf
                     <p className={'font-normal text-xl'}>Год начала обучения</p>
                     <input value={yearStart}
                            onChange={(event) => {
-                               setYearStart(event.target.value)
+                               setYearStart(Number(event.target.value))
                            }} placeholder={'Введите год'}
                            className={'text-green-two p-2 border-green border-2 text-lg rounded-lg font-normal'}></input>
                 </div>
@@ -47,7 +56,7 @@ const EducationPop = ({closeFunc,afterPostCallback,user_uuid}:educationPopInterf
                     <p className={'font-normal text-xl'}>Год окончания обучения</p>
                     <input value={yearEnd}
                            onChange={(event) => {
-                               setYearEnd(event.target.value)
+                               setYearEnd(Number(event.target.value))
                            }} placeholder={'Введите год'}
                            className={'text-green-two p-2 border-green border-2 text-lg rounded-lg font-normal'}></input>
                 </div>
@@ -76,8 +85,14 @@ const EducationPop = ({closeFunc,afterPostCallback,user_uuid}:educationPopInterf
                            }} placeholder={'Бакалавриат'}
                            className={'text-green-two p-2 border-green border-2 text-lg rounded-lg font-normal'}></input>
                 </div>
-                <DragNDrop setFile={setDiploma}></DragNDrop>
-                <div className={'bg-green-two p-4 flex text-white cursor-pointer justify-center items-center rounded-lg mt-5 text-2xl'}>
+                <DragNDrop setFile={setDiplomaTemp}></DragNDrop>
+                <div onClick={()=>{
+                    if(diplomaTemp){
+                        uploadFile(diplomaTemp).then((res)=>{
+                            updateEducation(res);
+                        })
+                    }
+                }} className={'bg-green-two p-4 flex text-white cursor-pointer justify-center items-center rounded-lg mt-5 text-2xl'}>
                     Добавить
                 </div>
             </div>

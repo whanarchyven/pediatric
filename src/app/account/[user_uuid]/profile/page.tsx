@@ -23,6 +23,8 @@ import PublicationTab from "@/components/Publication Tab";
 import {eden, useEden} from "@/helpers/sdk";
 import "react-datepicker/dist/react-datepicker.css";
 import EducationPop from "@/components/EducationPop";
+import FormData from "form-data";
+import ShowEducationPop from "@/components/ShowEducationPop";
 // import required modules
 
 
@@ -143,15 +145,19 @@ export default function Home(params: { params: { user_uuid: string } }) {
         })
     }
 
+    const [currentEducationShow,setCurrentEducationShow]=useState<typeof education[0]>()
+    const[currentEducationShowCounter,setCurrentEducationShowCounter]=useState(1)
+    const [educationShowOpen,setEducationShowOpen]=useState(false);
 
     return (
         <main className={'p-12'}>
-            {educationPop ? <EducationPop user_uuid={
+            {educationPop ? <EducationPop education={education} email={email} user_uuid={
                 user_uuid
             } afterPostCallback={() => {
             }} closeFunc={() => {
                 setEducationPop(false)
             }}></EducationPop> : null}
+            {educationShowOpen?<ShowEducationPop closeFunc={()=>{setEducationShowOpen(false)}} education={currentEducationShow} counter={currentEducationShowCounter}/>:null}
             <div className={'flex justify-between'}>
                 <p className={'uppercase font-inter font-extralight text-3xl'}>Основные данные</p>
                 {!isEditor ? <div onClick={() => {
@@ -264,10 +270,18 @@ export default function Home(params: { params: { user_uuid: string } }) {
                                 +</div> : null}
                         </div>
                         <div className={'w-4/5 flex flex-col gap-2'}>
-                            {education?.map((item: any, counter: number) => {
+                            {education?.map((item:typeof education[0], counter: number) => {
                                 return (
-                                    <div className={'w-full grid grid-cols-2 gap-3'}>
+                                    <div key={counter} className={'w-full grid grid-cols-2 gap-3'}>
                                         <p className={'font-bold'}>{counter + 1} образование</p>
+                                        <div className={'flex items-start gap-3'}>
+                                            <p>{item.faculty} факультет {item.university}</p>
+                                            <img onClick={()=>{
+                                                setCurrentEducationShow(item)
+                                                setCurrentEducationShowCounter(counter+1)
+                                                setEducationShowOpen(true)
+                                            }} className={'w-5 cursor-pointer aspect-square'} src={'/info.svg'}/>
+                                        </div>
                                     </div>
                                 )
                             })}

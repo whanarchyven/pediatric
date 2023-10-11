@@ -208,7 +208,7 @@ declare const app: Elysia<"", {
                     category: string;
                 }[] | undefined;
                 photoUrl?: string | undefined;
-                email: string;
+                email: string|undefined;
                 uuid: string;
             };
             params: unknown;
