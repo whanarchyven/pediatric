@@ -25,6 +25,9 @@ import "react-datepicker/dist/react-datepicker.css";
 import EducationPop from "@/components/EducationPop";
 import FormData from "form-data";
 import ShowEducationPop from "@/components/ShowEducationPop";
+import DragNDrop from "@/components/DragNDrop";
+import {uploadFile} from "@/helpers/uploadFile";
+import {classList} from "@/helpers/classList";
 // import required modules
 
 
@@ -44,7 +47,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
         gender,
         specialty,
         birthDate,
-        photoUrl, education
+        photoUrl, education, about,interests
     } = data?.profile ?? {} as any;
 
     console.log(data);
@@ -60,6 +63,8 @@ export default function Home(params: { params: { user_uuid: string } }) {
         gender: gender ? gender : 'Не указано',
         birthDate: birthDate ? birthDate : 'Не указано',
         specialty: specialty ? specialty : 'Не указано',
+        about:about?about:'Не указано',
+        interests:interests?interests:'Не указано'
     })
 
     const mutateProfile = <T extends keyof typeof profile>(key: T, newValue: typeof profile[T]) => {
@@ -109,6 +114,8 @@ export default function Home(params: { params: { user_uuid: string } }) {
             gender: gender,
             birthDate: birthDate,
             specialty: specialty,
+            about: about,
+            interests:interests
         })
     }
 
@@ -145,9 +152,13 @@ export default function Home(params: { params: { user_uuid: string } }) {
         })
     }
 
-    const [currentEducationShow,setCurrentEducationShow]=useState<typeof education[0]>()
-    const[currentEducationShowCounter,setCurrentEducationShowCounter]=useState(1)
-    const [educationShowOpen,setEducationShowOpen]=useState(false);
+    const [currentEducationShow, setCurrentEducationShow] = useState<typeof education[0]>()
+    const [currentEducationShowCounter, setCurrentEducationShowCounter] = useState(1)
+    const [educationShowOpen, setEducationShowOpen] = useState(false);
+
+    const [tempPhotoUrl, setTempPhotoUrl] = useState<FileList>()
+    const [avatarUpdated,setAvatarUpdated]=useState(false)
+
 
     return (
         <main className={'p-12'}>
@@ -157,7 +168,9 @@ export default function Home(params: { params: { user_uuid: string } }) {
             }} closeFunc={() => {
                 setEducationPop(false)
             }}></EducationPop> : null}
-            {educationShowOpen?<ShowEducationPop closeFunc={()=>{setEducationShowOpen(false)}} education={currentEducationShow} counter={currentEducationShowCounter}/>:null}
+            {educationShowOpen ? <ShowEducationPop closeFunc={() => {
+                setEducationShowOpen(false)
+            }} education={currentEducationShow} counter={currentEducationShowCounter}/> : null}
             <div className={'flex justify-between'}>
                 <p className={'uppercase font-inter font-extralight text-3xl'}>Основные данные</p>
                 {!isEditor ? <div onClick={() => {
@@ -166,7 +179,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                 }} className={'p-2 bg-green cursor-pointer flex items-center rounded-lg gap-2'}>
                     <img className={'w-4 aspect-square'} src={`${images}/edit.svg`}/>
                     <p className={'text-white font-inter font-normal'}>Редактировать профиль</p>
-                </div> : <div onClick={() => {
+                </div> : <div onClick={async () => {
                     updateProfile();
                 }} className={'p-2 bg-green cursor-pointer flex items-center rounded-lg gap-2'}>
                     <img className={'w-6 aspect-square'} src={`/done.svg`}/>
@@ -174,10 +187,49 @@ export default function Home(params: { params: { user_uuid: string } }) {
                 </div>}
             </div>
             <div className={'w-full mt-10 grid grid-cols-2'}>
-                <div className={'border-r-[1px] flex flex-col pr-8 gap-16 border-green'}>
+                <div className={' flex flex-col pr-8 gap-16 border-green'}>
                     <div className={'flex gap-8 items-start'}>
-                        <img className={'rounded-full aspect-square object-cover w-1/4'}
-                             src={`${images}/temp_avatar.png`}/>
+                        {isEditor ? <div className={'w-1/4 relative'}>{photoUrl ?
+                            <div><img className={'rounded-full aspect-square object-cover w-full'}
+                                      src={photoUrl}/>
+                                <div
+                                    className={'absolute z-[30] bg-white w-full h-full top-0 left-0 bg-opacity-50 backdrop-blur-sm flex flex-col gap-5 items-center justify-center rounded-full'}>
+                                    <DragNDrop setFile={setTempPhotoUrl}/>
+                                    <div
+                                        className={classList('flex justify-center items-center rounded-lg p-2 cursor-pointer font-bold border-2 border-green-two',avatarUpdated?'bg-green-two text-white':'bg-white text-green-two')}
+                                        onClick={async () => {
+                                            if (tempPhotoUrl) {
+                                                const photo = await uploadFile(tempPhotoUrl)
+                                                mutateProfile('photoUrl', photo)
+                                                setAvatarUpdated(true)
+                                            }
+                                        }}>{avatarUpdated?'Обновлено!':'Обновить'}
+                                    </div>
+                                </div>
+                            </div> :
+                            <div><img className={'rounded-full aspect-square object-cover w-full'}
+                                      src={`/john_doe.svg`}/>
+                                <div
+                                    className={'absolute z-[30] bg-white w-full h-full top-0 left-0 bg-opacity-50 backdrop-blur-sm flex flex-col gap-5 items-center justify-center rounded-full'}>
+                                    <DragNDrop setFile={setTempPhotoUrl}/>
+                                    <div
+                                        className={classList('flex justify-center items-center rounded-lg p-2 cursor-pointer font-bold border-2 border-green-two',avatarUpdated?'bg-green-two text-white':'bg-white text-green-two')}
+                                        onClick={async () => {
+                                            if (tempPhotoUrl) {
+                                                const photo = await uploadFile(tempPhotoUrl)
+                                                mutateProfile('photoUrl', photo)
+                                                setAvatarUpdated(true)
+                                            }
+                                        }}>{avatarUpdated?'Обновлено!':'Обновить'}
+                                    </div>
+                                </div>
+                            </div>}
+                        </div> : <div className={'w-1/4'}>
+                            {photoUrl ? <img className={'rounded-full aspect-square object-cover w-full'}
+                                             src={photoUrl}/> :
+                                <img className={'rounded-full aspect-square object-cover w-full'}
+                                     src={`/john_doe.svg`}/>}
+                        </div>}
                         <div className={'flex w-full flex-col gap-3'}>
                             {!isEditor ?
                                 <p className={'text-green-two text-2xl font-bold'}>{lastName} {firstName} {middleName}</p> :
@@ -270,15 +322,15 @@ export default function Home(params: { params: { user_uuid: string } }) {
                                 +</div> : null}
                         </div>
                         <div className={'w-4/5 flex flex-col gap-2'}>
-                            {education?.map((item:typeof education[0], counter: number) => {
+                            {education?.map((item: typeof education[0], counter: number) => {
                                 return (
                                     <div key={counter} className={'w-full grid grid-cols-2 gap-3'}>
                                         <p className={'font-bold'}>{counter + 1} образование</p>
                                         <div className={'flex items-start gap-3'}>
                                             <p>{item.faculty} факультет {item.university}</p>
-                                            <img onClick={()=>{
+                                            <img onClick={() => {
                                                 setCurrentEducationShow(item)
-                                                setCurrentEducationShowCounter(counter+1)
+                                                setCurrentEducationShowCounter(counter + 1)
                                                 setEducationShowOpen(true)
                                             }} className={'w-5 cursor-pointer aspect-square'} src={'/info.svg'}/>
                                         </div>
@@ -292,127 +344,122 @@ export default function Home(params: { params: { user_uuid: string } }) {
                         </div>
                     </div>
                     <div className={'flex flex-col'}>
-                        <p className={'uppercase font-inter font-extralight mb-6 text-3xl'}>Карьера</p>
-                        <div className={'grid gap-4 mb-6 w-4/5 grid-cols-2'}>
-                            <p className={' font-bold'}>Опыт работы:</p>
-                            <p className={''}>21 год</p>
-                        </div>
-                        <div className={'relative flex flex-col gap-7'}>
-                            <div className={'h-full absolute left-1.5 w-[1px] bg-green'}>
+                        {/*<p className={'uppercase font-inter font-extralight mb-6 text-3xl'}>Карьера</p>*/}
+                        {/*<div className={'grid gap-4 mb-6 w-4/5 grid-cols-2'}>*/}
+                        {/*    <p className={' font-bold'}>Опыт работы:</p>*/}
+                        {/*    <p className={''}>21 год</p>*/}
+                        {/*</div>*/}
+                        {/*<div className={'relative flex flex-col gap-7'}>*/}
+                        {/*    <div className={'h-full absolute left-1.5 w-[1px] bg-green'}>*/}
 
-                            </div>
-                            <div className={'flex items-start gap-5'}>
-                                <div className={'w-3 aspect-square rounded-full bg-green'}>
+                        {/*    </div>*/}
+                        {/*    <div className={'flex items-start gap-5'}>*/}
+                        {/*        <div className={'w-3 aspect-square rounded-full bg-green'}>*/}
 
-                                </div>
-                                <div className={'flex flex-col gap-4'}>
-                                    <p className={'font-bold text-green-two leading-[80%]'}>Январь 2022 - Июнь 2023</p>
-                                    <p className={'font-normal text-black leading-[80%]'}>Место работы: Нцзд</p>
-                                    <p className={'font-normal text-black leading-[80%] pb-8'}>Должность: врач</p>
-                                </div>
-                            </div>
-                            <div className={'flex items-start gap-5'}>
-                                <div className={'w-3 aspect-square rounded-full bg-green'}>
+                        {/*        </div>*/}
+                        {/*        <div className={'flex flex-col gap-4'}>*/}
+                        {/*            <p className={'font-bold text-green-two leading-[80%]'}>Январь 2022 - Июнь 2023</p>*/}
+                        {/*            <p className={'font-normal text-black leading-[80%]'}>Место работы: Нцзд</p>*/}
+                        {/*            <p className={'font-normal text-black leading-[80%] pb-8'}>Должность: врач</p>*/}
+                        {/*        </div>*/}
+                        {/*    </div>*/}
+                        {/*    <div className={'flex items-start gap-5'}>*/}
+                        {/*        <div className={'w-3 aspect-square rounded-full bg-green'}>*/}
 
-                                </div>
-                                <div className={'flex flex-col gap-4'}>
-                                    <p className={'font-bold text-green-two leading-[80%]'}>Январь 2021 - Июнь 2022</p>
-                                    <p className={'font-normal text-black leading-[80%]'}>Место работы: Нцзд</p>
-                                    <p className={'font-normal text-black leading-[80%] pb-8'}>Должность: врач</p>
-                                </div>
-                            </div>
-                            <div className={'flex items-start gap-5'}>
-                                <div className={'w-3 aspect-square rounded-full bg-green'}>
+                        {/*        </div>*/}
+                        {/*        <div className={'flex flex-col gap-4'}>*/}
+                        {/*            <p className={'font-bold text-green-two leading-[80%]'}>Январь 2021 - Июнь 2022</p>*/}
+                        {/*            <p className={'font-normal text-black leading-[80%]'}>Место работы: Нцзд</p>*/}
+                        {/*            <p className={'font-normal text-black leading-[80%] pb-8'}>Должность: врач</p>*/}
+                        {/*        </div>*/}
+                        {/*    </div>*/}
+                        {/*    <div className={'flex items-start gap-5'}>*/}
+                        {/*        <div className={'w-3 aspect-square rounded-full bg-green'}>*/}
 
-                                </div>
-                                <div className={'flex flex-col gap-4'}>
-                                    <p className={'font-bold text-green-two leading-[80%]'}>Январь 2020 - Июнь 2021</p>
-                                    <p className={'font-normal text-black leading-[80%]'}>Место работы: Нцзд</p>
-                                    <p className={'font-normal text-black leading-[80%] pb-8'}>Должность: врач</p>
-                                </div>
-                            </div>
-                            <div className={'flex items-start gap-5'}>
-                                <div className={'w-3 aspect-square rounded-full bg-green'}>
+                        {/*        </div>*/}
+                        {/*        <div className={'flex flex-col gap-4'}>*/}
+                        {/*            <p className={'font-bold text-green-two leading-[80%]'}>Январь 2020 - Июнь 2021</p>*/}
+                        {/*            <p className={'font-normal text-black leading-[80%]'}>Место работы: Нцзд</p>*/}
+                        {/*            <p className={'font-normal text-black leading-[80%] pb-8'}>Должность: врач</p>*/}
+                        {/*        </div>*/}
+                        {/*    </div>*/}
+                        {/*    <div className={'flex items-start gap-5'}>*/}
+                        {/*        <div className={'w-3 aspect-square rounded-full bg-green'}>*/}
 
-                                </div>
-                                <div className={'flex flex-col gap-4'}>
-                                    <p className={'font-bold text-green-two leading-[80%]'}>Январь 2019 - Июнь 2020</p>
-                                    <p className={'font-normal text-black leading-[80%]'}>Место работы: Нцзд</p>
-                                    <p className={'font-normal text-black leading-[80%]'}>Должность: врач</p>
-                                </div>
-                            </div>
-                        </div>
+                        {/*        </div>*/}
+                        {/*        <div className={'flex flex-col gap-4'}>*/}
+                        {/*            <p className={'font-bold text-green-two leading-[80%]'}>Январь 2019 - Июнь 2020</p>*/}
+                        {/*            <p className={'font-normal text-black leading-[80%]'}>Место работы: Нцзд</p>*/}
+                        {/*            <p className={'font-normal text-black leading-[80%]'}>Должность: врач</p>*/}
+                        {/*        </div>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                     </div>
                     <div className={'flex flex-col gap-6'}>
                         <p className={'uppercase font-inter font-extralight text-3xl'}>О себе и интересы</p>
                         <div className={'flex flex-col gap-4'}>
                             <p className={'font-bold text-black text-lg'}>Профессиональные интересы:</p>
-                            <p className={'text-black'}>современная медицина, заболевания опорно-двигательного аппарата,
-                                особенности терапии болевых синдромов различного происхождения, головные боли у
-                                детей</p>
+                            {isEditor?<textarea className={'font-normal px-2 border-green border-2 rounded-lg'} value={profile?.interests} onChange={(event)=>{mutateProfile('interests',event.target.value)}}>{profile?.interests}</textarea>:<p className={'text-black'}>{interests?interests:'Не указано'}</p>}
                         </div>
                         <div className={'flex flex-col gap-4'}>
                             <p className={'font-bold text-black text-lg'}>О себе:</p>
-                            <p className={'text-black'}>Приветствую, я молодой дерматолог с широкими профессиональными
-                                интересами, включая современную медицину и заболевания опорно-двигательного аппарата.
-                                Мне также интересно изучение терапии болевых синдромов и головных болей у детей. Готова
-                                помочь вам улучшить ваше здоровье!</p>
+                            {isEditor?<textarea className={'font-normal px-2 border-green border-2 rounded-lg'} value={profile?.about} onChange={(event)=>{mutateProfile('about',event.target.value)}}>{profile?.about}</textarea>:<p className={'text-black'}>{about?about:'Не указано'}</p>}
                         </div>
                     </div>
                 </div>
                 <div className={'flex px-8 flex-col'}>
-                    <p className={'font-bold text-xl text-black'}>Награды</p>
-                    <div className={'grid grid-cols-4 mt-4 gap-8'}>
-                        <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`}
-                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
-                            <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
-                        </div>
-                        <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`}
-                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
-                            <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
-                        </div>
-                        <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`}
-                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
-                            <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
-                        </div>
-                        <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`}
-                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
-                            <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
-                        </div>
-                        <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`}
-                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
-                            <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
-                        </div>
-                        <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`}
-                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
-                            <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
-                        </div>
-                        <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`}
-                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
-                            <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
-                        </div>
-                        <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`}
-                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
-                            <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
-                        </div>
+                    {/*<p className={'font-bold text-xl text-black'}>Награды</p>*/}
+                    {/*<div className={'grid grid-cols-4 mt-4 gap-8'}>*/}
+                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
+                    {/*        <img src={`${images}/temp_certificate.png`}*/}
+                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
+                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
+                    {/*    </div>*/}
+                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
+                    {/*        <img src={`${images}/temp_certificate.png`}*/}
+                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
+                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
+                    {/*    </div>*/}
+                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
+                    {/*        <img src={`${images}/temp_certificate.png`}*/}
+                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
+                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
+                    {/*    </div>*/}
+                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
+                    {/*        <img src={`${images}/temp_certificate.png`}*/}
+                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
+                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
+                    {/*    </div>*/}
+                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
+                    {/*        <img src={`${images}/temp_certificate.png`}*/}
+                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
+                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
+                    {/*    </div>*/}
+                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
+                    {/*        <img src={`${images}/temp_certificate.png`}*/}
+                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
+                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
+                    {/*    </div>*/}
+                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
+                    {/*        <img src={`${images}/temp_certificate.png`}*/}
+                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
+                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
+                    {/*    </div>*/}
+                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
+                    {/*        <img src={`${images}/temp_certificate.png`}*/}
+                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
+                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
+                    {/*    </div>*/}
 
-                    </div>
+                    {/*</div>*/}
                     <div className={'flex flex-col gap-10 mt-8'}>
-                        <p className={'font-bold text-xl text-black'}>Научные работы</p>
-                        <PublicationTab></PublicationTab>
-                        <PublicationTab></PublicationTab>
-                        <PublicationTab></PublicationTab>
-                        <PublicationTab></PublicationTab>
-                        <PublicationTab></PublicationTab>
-                        <PublicationTab></PublicationTab>
+                        {/*<p className={'font-bold text-xl text-black'}>Научные работы</p>*/}
+                        {/*<PublicationTab></PublicationTab>*/}
+                        {/*<PublicationTab></PublicationTab>*/}
+                        {/*<PublicationTab></PublicationTab>*/}
+                        {/*<PublicationTab></PublicationTab>*/}
+                        {/*<PublicationTab></PublicationTab>*/}
+                        {/*<PublicationTab></PublicationTab>*/}
                     </div>
                 </div>
             </div>
