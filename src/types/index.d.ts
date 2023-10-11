@@ -135,6 +135,9 @@ declare const app: Elysia<"", {
                     profile?: undefined;
                 } | {
                     profile: mongoose.FlattenMaps<{
+                        createdAt: NativeDate;
+                        updatedAt: NativeDate;
+                    } & {
                         lastName: string;
                         firstName: string;
                         middleName: string;
@@ -150,7 +153,9 @@ declare const app: Elysia<"", {
                         gender: string;
                         education: any[];
                         career: any[];
+                        saved: any[];
                         confirmPassword?: string | undefined;
+                        fullNameNormalized?: string | undefined;
                         birthDate?: string | undefined;
                         about?: string | undefined;
                         interests?: string | undefined;
@@ -178,94 +183,441 @@ declare const app: Elysia<"", {
                 joinCommunity?: boolean | undefined;
                 gender?: string | undefined;
                 education?: {
-                    title: string;
-                    school: string;
+                    faculty?: string | undefined;
+                    degree?: string | undefined;
+                    diploma?: string | undefined;
+                    yearStart: number;
+                    yearEnd: number;
+                    university: string;
                 }[] | undefined;
                 birthDate?: string | undefined;
                 about?: string | undefined;
                 interests?: string | undefined;
                 career?: {
                     position: string;
-                    monthStart: string;
                     yearStart: number;
-                    monthEnd: string;
                     yearEnd: number;
+                    monthStart: string;
+                    monthEnd: string;
                     place: string;
                 }[] | undefined;
+                saved?: {
+                    title: string;
+                    imageUrl: string;
+                    href: string;
+                    category: string;
+                }[] | undefined;
                 photoUrl?: string | undefined;
+                email: string;
                 uuid: string;
             };
             params: unknown;
             query: unknown;
             headers: unknown;
             response: {
-                200: Promise<string>;
+                200: Promise<{
+                    success: string;
+                }>;
             };
         };
     };
-    "/user/:user_uuid/publication/list": {
-        get: {
-            body: unknown;
+    "/user/:user_uuid/profile/content-save": {
+        post: {
+            body: {
+                title: string;
+                imageUrl: string;
+                href: string;
+                category: string;
+            };
             params: unknown;
             query: unknown;
             headers: unknown;
             response: {
-                200: string;
+                200: Promise<{
+                    success: string;
+                }>;
+            };
+        };
+    };
+    "/user/:user_uuid/profile/content-save-undo": {
+        post: {
+            body: {
+                href: string;
+            };
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<{
+                    success: string;
+                }>;
+            };
+        };
+    };
+    "/user/:user_uuid/publication/list/own-published": {
+        get: {
+            body: unknown;
+            params: {
+                limit?: number | undefined;
+                skip?: number | undefined;
+            };
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<{
+                    publications: (mongoose.FlattenMaps<{
+                        createdAt: NativeDate;
+                        updatedAt: NativeDate;
+                    } & {
+                        uuid: string;
+                        date: Date;
+                        title: string;
+                        category: string;
+                        viewCount: number;
+                        likedByUserUuids: string[];
+                        savedByUserUuids: string[];
+                        fileUrl: string;
+                        authors: string[];
+                        awards: any[];
+                        publishedByUserUuid?: string | undefined;
+                    }> & {
+                        _id: mongoose.Types.ObjectId;
+                    })[];
+                    count: number;
+                }>;
             };
         };
     };
     "/user/:user_uuid/publication": {
         post: {
-            body: unknown;
+            body: {
+                authors?: string[] | undefined;
+                awards?: {
+                    title: string;
+                    imageUrl: string;
+                }[] | undefined;
+                uuid: string;
+                date: string;
+                title: string;
+                category: string;
+                fileUrl: string;
+            };
             params: unknown;
             query: unknown;
             headers: unknown;
             response: {
-                200: string;
+                200: Promise<{
+                    success: string;
+                }>;
             };
         };
     };
-    "/user/:user_uuid/bookmark/publication/list": {
+    "/user/:user_uuid/publication/like": {
+        post: {
+            body: {
+                uuid: string;
+            };
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<{
+                    success: string;
+                }>;
+            };
+        };
+    };
+    "/user/:user_uuid/publication/undo-like": {
+        post: {
+            body: {
+                uuid: string;
+            };
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<{
+                    success: string;
+                }>;
+            };
+        };
+    };
+    "/user/:user_uuid/publication/save": {
+        post: {
+            body: {
+                uuid: string;
+            };
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<{
+                    success: string;
+                }>;
+            };
+        };
+    };
+    "/user/:user_uuid/publication/undo-save": {
+        post: {
+            body: {
+                uuid: string;
+            };
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<{
+                    success: string;
+                }>;
+            };
+        };
+    };
+    "/publication/list/": {
         get: {
             body: unknown;
-            params: unknown;
+            params: {
+                search?: string | undefined;
+                limit?: number | undefined;
+                skip?: number | undefined;
+            };
             query: unknown;
             headers: unknown;
             response: {
-                200: string;
+                200: Promise<{
+                    publications: (mongoose.FlattenMaps<{
+                        createdAt: NativeDate;
+                        updatedAt: NativeDate;
+                    } & {
+                        uuid: string;
+                        date: Date;
+                        title: string;
+                        category: string;
+                        viewCount: number;
+                        likedByUserUuids: string[];
+                        savedByUserUuids: string[];
+                        fileUrl: string;
+                        authors: string[];
+                        awards: any[];
+                        publishedByUserUuid?: string | undefined;
+                    }> & {
+                        _id: mongoose.Types.ObjectId;
+                    })[];
+                    count: number;
+                }>;
             };
         };
     };
-    "/user/:user_uuid/bookmark/publication": {
-        post: {
-            body: unknown;
-            params: unknown;
-            query: unknown;
-            headers: unknown;
-            response: {
-                200: string;
-            };
-        };
-    };
-    "/user/:user_uuid/bookmark/event/list": {
+    "/event/list": {
         get: {
             body: unknown;
-            params: unknown;
+            params: {
+                search?: string | undefined;
+                limit?: number | undefined;
+                skip?: number | undefined;
+            };
             query: unknown;
             headers: unknown;
             response: {
-                200: string;
+                200: Promise<{
+                    events: (mongoose.FlattenMaps<{
+                        createdAt: NativeDate;
+                        updatedAt: NativeDate;
+                    } & {
+                        type: string;
+                        id: string;
+                        date: string;
+                        format: string;
+                        place: string;
+                        name: string;
+                        timePeriod: string;
+                        participants: number;
+                        layoutBg: string;
+                        avatar: string;
+                        announcement: string;
+                        speakers: any[];
+                        halls: any[];
+                        prices: any[];
+                        link?: string | undefined;
+                        description?: string | undefined;
+                        onlinePrice?: number | undefined;
+                        offlinePrice?: number | undefined;
+                        isOnlyOnline?: boolean | undefined;
+                        isPassed?: boolean | undefined;
+                        isStream?: boolean | undefined;
+                    }> & {
+                        _id: mongoose.Types.ObjectId;
+                    })[];
+                }>;
             };
         };
     };
-    "/user/:user_uuid/bookmark/event": {
+    "/admin/event/create": {
         post: {
-            body: unknown;
+            body: {
+                id?: string | undefined;
+                link?: string | undefined;
+                description?: string | undefined;
+                onlinePrice?: number | undefined;
+                offlinePrice?: number | undefined;
+                prices?: {
+                    date: string;
+                    online: number;
+                    offline: number;
+                }[] | undefined;
+                isOnlyOnline?: boolean | undefined;
+                isPassed?: boolean | undefined;
+                isStream?: boolean | undefined;
+                type: string;
+                date: string;
+                format: string;
+                place: string;
+                name: string;
+                timePeriod: string;
+                participants: number;
+                layoutBg: string;
+                avatar: string;
+                announcement: string;
+                speakers: {
+                    name: string;
+                    description: string;
+                    post: string;
+                    contact: string;
+                    photo: string;
+                }[];
+                halls: {
+                    name: string;
+                    program: {
+                        timePeriod?: string | undefined;
+                        sponsor?: string | undefined;
+                        speaker?: string | undefined;
+                        substages?: {
+                            description?: string | undefined;
+                            sponsor?: string | undefined;
+                            name: string;
+                            timePeriod: string;
+                        }[] | undefined;
+                        name: string;
+                    };
+                }[];
+            };
             params: unknown;
             query: unknown;
             headers: unknown;
             response: {
-                200: string;
+                200: Promise<{
+                    events: mongoose.Document<unknown, {}, {
+                        createdAt: NativeDate;
+                        updatedAt: NativeDate;
+                    } & {
+                        type: string;
+                        id: string;
+                        date: string;
+                        format: string;
+                        place: string;
+                        name: string;
+                        timePeriod: string;
+                        participants: number;
+                        layoutBg: string;
+                        avatar: string;
+                        announcement: string;
+                        speakers: any[];
+                        halls: any[];
+                        prices: any[];
+                        link?: string | undefined;
+                        description?: string | undefined;
+                        onlinePrice?: number | undefined;
+                        offlinePrice?: number | undefined;
+                        isOnlyOnline?: boolean | undefined;
+                        isPassed?: boolean | undefined;
+                        isStream?: boolean | undefined;
+                    }> & {
+                        createdAt: NativeDate;
+                        updatedAt: NativeDate;
+                    } & {
+                        type: string;
+                        id: string;
+                        date: string;
+                        format: string;
+                        place: string;
+                        name: string;
+                        timePeriod: string;
+                        participants: number;
+                        layoutBg: string;
+                        avatar: string;
+                        announcement: string;
+                        speakers: any[];
+                        halls: any[];
+                        prices: any[];
+                        link?: string | undefined;
+                        description?: string | undefined;
+                        onlinePrice?: number | undefined;
+                        offlinePrice?: number | undefined;
+                        isOnlyOnline?: boolean | undefined;
+                        isPassed?: boolean | undefined;
+                        isStream?: boolean | undefined;
+                    } & {
+                        _id: mongoose.Types.ObjectId;
+                    };
+                }>;
+            };
+        };
+    };
+    "/admin/event/update": {
+        post: {
+            body: {
+                id?: string | undefined;
+                link?: string | undefined;
+                description?: string | undefined;
+                onlinePrice?: number | undefined;
+                offlinePrice?: number | undefined;
+                prices?: {
+                    date: string;
+                    online: number;
+                    offline: number;
+                }[] | undefined;
+                isOnlyOnline?: boolean | undefined;
+                isPassed?: boolean | undefined;
+                isStream?: boolean | undefined;
+                type: string;
+                date: string;
+                format: string;
+                place: string;
+                name: string;
+                timePeriod: string;
+                participants: number;
+                layoutBg: string;
+                avatar: string;
+                announcement: string;
+                speakers: {
+                    name: string;
+                    description: string;
+                    post: string;
+                    contact: string;
+                    photo: string;
+                }[];
+                halls: {
+                    name: string;
+                    program: {
+                        timePeriod?: string | undefined;
+                        sponsor?: string | undefined;
+                        speaker?: string | undefined;
+                        substages?: {
+                            description?: string | undefined;
+                            sponsor?: string | undefined;
+                            name: string;
+                            timePeriod: string;
+                        }[] | undefined;
+                        name: string;
+                    };
+                }[];
+            };
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<{
+                    success: string;
+                }>;
             };
         };
     };

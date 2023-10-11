@@ -1,5 +1,10 @@
 import * as mongoose from "mongoose";
-declare const PdermUserSchema: mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
+declare const PdermUserSchema: mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, {
+    timestamps: true;
+}, {
+    createdAt: NativeDate;
+    updatedAt: NativeDate;
+} & {
     lastName: string;
     firstName: string;
     middleName: string;
@@ -15,12 +20,17 @@ declare const PdermUserSchema: mongoose.Schema<any, mongoose.Model<any, any, any
     gender: string;
     education: any[];
     career: any[];
+    saved: any[];
     confirmPassword?: string | undefined;
+    fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
     photoUrl?: string | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
+    createdAt: NativeDate;
+    updatedAt: NativeDate;
+} & {
     lastName: string;
     firstName: string;
     middleName: string;
@@ -36,12 +46,17 @@ declare const PdermUserSchema: mongoose.Schema<any, mongoose.Model<any, any, any
     gender: string;
     education: any[];
     career: any[];
+    saved: any[];
     confirmPassword?: string | undefined;
+    fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
     photoUrl?: string | undefined;
 }>> & mongoose.FlatRecord<{
+    createdAt: NativeDate;
+    updatedAt: NativeDate;
+} & {
     lastName: string;
     firstName: string;
     middleName: string;
@@ -57,7 +72,9 @@ declare const PdermUserSchema: mongoose.Schema<any, mongoose.Model<any, any, any
     gender: string;
     education: any[];
     career: any[];
+    saved: any[];
     confirmPassword?: string | undefined;
+    fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
@@ -79,12 +96,22 @@ export declare const PdermUserRegTDto: import("@sinclair/typebox").TObject<{
     confirmPassword: import("@sinclair/typebox").TString;
     joinCommunity: import("@sinclair/typebox").TBoolean;
 }>;
+export declare const PdermUserSaveTDto: import("@sinclair/typebox").TObject<{
+    title: import("@sinclair/typebox").TString;
+    imageUrl: import("@sinclair/typebox").TString;
+    href: import("@sinclair/typebox").TString;
+    category: import("@sinclair/typebox").TString;
+}>;
+export declare const PdermUserSaveUndoTDto: import("@sinclair/typebox").TObject<{
+    href: import("@sinclair/typebox").TString;
+}>;
 export declare const PdermEditUserRegTDto: import("@sinclair/typebox").TObject<{
     uuid: import("@sinclair/typebox").TString;
     lastName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     firstName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     middleName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     birthDate: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    email: import("@sinclair/typebox").TString;
     gender: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     phoneNumber: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     specialty: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
@@ -96,11 +123,21 @@ export declare const PdermEditUserRegTDto: import("@sinclair/typebox").TObject<{
     joinCommunity: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
     photoUrl: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     education: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
-        title: import("@sinclair/typebox").TString;
-        school: import("@sinclair/typebox").TString;
+        yearStart: import("@sinclair/typebox").TNumber;
+        yearEnd: import("@sinclair/typebox").TNumber;
+        university: import("@sinclair/typebox").TString;
+        faculty: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+        degree: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+        diploma: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     }>>>;
     about: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     interests: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    saved: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
+        title: import("@sinclair/typebox").TString;
+        imageUrl: import("@sinclair/typebox").TString;
+        href: import("@sinclair/typebox").TString;
+        category: import("@sinclair/typebox").TString;
+    }>>>;
     career: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
         monthStart: import("@sinclair/typebox").TString;
         yearStart: import("@sinclair/typebox").TNumber;
@@ -115,6 +152,9 @@ export declare const PdermUserLoginTDto: import("@sinclair/typebox").TObject<{
     password: import("@sinclair/typebox").TString;
 }>;
 export declare const PdermUserModel: mongoose.Model<{
+    createdAt: NativeDate;
+    updatedAt: NativeDate;
+} & {
     lastName: string;
     firstName: string;
     middleName: string;
@@ -130,12 +170,17 @@ export declare const PdermUserModel: mongoose.Model<{
     gender: string;
     education: any[];
     career: any[];
+    saved: any[];
     confirmPassword?: string | undefined;
+    fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
     photoUrl?: string | undefined;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
+    createdAt: NativeDate;
+    updatedAt: NativeDate;
+} & {
     lastName: string;
     firstName: string;
     middleName: string;
@@ -151,12 +196,17 @@ export declare const PdermUserModel: mongoose.Model<{
     gender: string;
     education: any[];
     career: any[];
+    saved: any[];
     confirmPassword?: string | undefined;
+    fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
     photoUrl?: string | undefined;
 }> & {
+    createdAt: NativeDate;
+    updatedAt: NativeDate;
+} & {
     lastName: string;
     firstName: string;
     middleName: string;
@@ -172,14 +222,21 @@ export declare const PdermUserModel: mongoose.Model<{
     gender: string;
     education: any[];
     career: any[];
+    saved: any[];
     confirmPassword?: string | undefined;
+    fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
     photoUrl?: string | undefined;
 } & {
     _id: mongoose.Types.ObjectId;
-}, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
+}, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, {
+    timestamps: true;
+}, {
+    createdAt: NativeDate;
+    updatedAt: NativeDate;
+} & {
     lastName: string;
     firstName: string;
     middleName: string;
@@ -195,12 +252,17 @@ export declare const PdermUserModel: mongoose.Model<{
     gender: string;
     education: any[];
     career: any[];
+    saved: any[];
     confirmPassword?: string | undefined;
+    fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
     photoUrl?: string | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
+    createdAt: NativeDate;
+    updatedAt: NativeDate;
+} & {
     lastName: string;
     firstName: string;
     middleName: string;
@@ -216,12 +278,17 @@ export declare const PdermUserModel: mongoose.Model<{
     gender: string;
     education: any[];
     career: any[];
+    saved: any[];
     confirmPassword?: string | undefined;
+    fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
     photoUrl?: string | undefined;
 }>> & mongoose.FlatRecord<{
+    createdAt: NativeDate;
+    updatedAt: NativeDate;
+} & {
     lastName: string;
     firstName: string;
     middleName: string;
@@ -237,7 +304,9 @@ export declare const PdermUserModel: mongoose.Model<{
     gender: string;
     education: any[];
     career: any[];
+    saved: any[];
     confirmPassword?: string | undefined;
+    fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
