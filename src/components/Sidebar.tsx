@@ -57,7 +57,6 @@ const Sidebar = ({user_uuid}:{user_uuid:string}) => {
     const pathname=usePathname()
     const {data} = useEden(()=>eden.user[user_uuid].profile.get())
     if (!data?.profile) return null
-  //   return data.profile
     const {lastName,name,position}=data.profile;
 
     

@@ -4,10 +4,14 @@ import Slider from "@/components/Slider";
 import VideoPlayer from "@/components/VideoPlayer";
 import Reviews from "@/components/Reviews";
 import {motion} from "framer-motion";
-import {useRouter} from "next/navigation";
+import {useParams, useRouter} from "next/navigation";
 import ReviewPop from "@/components/ReviewPop";
 import HelpPop from "@/components/HelpPop";
+import DatePicker from "react-datepicker";
+import {registerLocale, setDefaultLocale} from "react-datepicker";
+import ru from 'date-fns/locale/ru';
 
+registerLocale('ru', ru)
 
 import {Swiper, SwiperSlide, useSwiperSlide} from "swiper/react";
 
@@ -16,80 +20,111 @@ import "swiper/css";
 import "swiper/css/pagination";
 import 'swiper/css/effect-fade';
 import PublicationTab from "@/components/Publication Tab";
-
-
+import {eden, useEden} from "@/helpers/sdk";
+import "react-datepicker/dist/react-datepicker.css";
 // import required modules
 
 
+export default function Home(params: { params: { user_uuid: string } }) {
+    const images = '/pages/account'
+    const user_uuid = params.params.user_uuid
 
-export default function Home() {
+    const {data} = useEden(() => eden.user[user_uuid].profile.get())
 
+    const {
+        lastName,
+        firstName,
+        middleName,
+        phoneNumber,
+        email,
+        city,
+        gender,
+        specialty,
+        birthDate,
+        photoUrl
+    } = data?.profile ?? {} as any;
 
-    const images='/pages/account'
+    console.log(data?.profile);
 
-    const [profile,setProfile]=useState({
-        name:'Иванова Анна Сергеевна',
-        photo:'/pages/account/temp_avatar.png',
-        phone:'+7 (952) 256 34 20',
-        email:'pediatric-dermatology@mail.ru',
-        city:'Москва, Россия',
-        gender:'Женский',
-        birthDate:'23.10.1996',
-        experience:21,
-        specialization:'dermatology',
+    const [profile, setProfile] = useState({
+        lastName: lastName,
+        firstName: firstName,
+        middleName: middleName,
+        photoUrl: photoUrl ? photoUrl : '/john_doe.svg',
+        phoneNumber: phoneNumber ? phoneNumber : 'Не укаазано',
+        email: email ? email : 'Не указано',
+        city: city ? city : 'Не указано',
+        gender: gender ? gender : 'Не указано',
+        birthDate: birthDate ? birthDate : 'Не указано',
+        specialty: specialty ? specialty : 'Не указано',
     })
 
-    const mutateProfile=<T extends keyof typeof profile>(key:T,newValue:typeof profile[T])=>{
-        let temp= {...profile}
-        temp[key]=newValue;
+    const mutateProfile = <T extends keyof typeof profile>(key: T, newValue: typeof profile[T]) => {
+        let temp = {...profile}
+        temp[key] = newValue;
         setProfile({...temp})
     }
 
-    const [education,setEducation]=useState({
-        degree:'Доктор наук',
-        post:'Профессор',
-        colleges:[
+    const [education, setEducation] = useState({
+        degree: 'Доктор наук',
+        post: 'Профессор',
+        colleges: [
             {
-                id:1,
-                yearStart:1992,
-                yearEnd:1996,
-                university:'МГУ',
-                faculty:'Биохимический факультет',
-                degree:'Бакалавриат',
-                diploma:'/diplom.pdf'
+                id: 1,
+                yearStart: 1992,
+                yearEnd: 1996,
+                university: 'МГУ',
+                faculty: 'Биохимический факультет',
+                degree: 'Бакалавриат',
+                diploma: '/diplom.pdf'
             },
             {
-                id:2,
-                yearStart:1997,
-                yearEnd:1999,
-                university:'СПБГУ',
-                faculty:'Медицинский факультет',
-                degree:'Магистратура',
-                diploma:'/diplom.pdf'
+                id: 2,
+                yearStart: 1997,
+                yearEnd: 1999,
+                university: 'СПБГУ',
+                faculty: 'Медицинский факультет',
+                degree: 'Магистратура',
+                diploma: '/diplom.pdf'
             }
         ]
     })
 
-    const addNewCollege = (college:typeof education.colleges[0]) => {
-        let temp={...education}
+    const addNewCollege = (college: typeof education.colleges[0]) => {
+        let temp = {...education}
         temp.colleges.push(college)
         setEducation({...temp})
     }
 
-    const removeCollege = (id:number) => {
-        let temp={...education}
-        let index=temp.colleges.findIndex(item=>item.id==id)
-        temp.colleges.splice(index,id)
+    const removeCollege = (id: number) => {
+        let temp = {...education}
+        let index = temp.colleges.findIndex(item => item.id == id)
+        temp.colleges.splice(index, id)
         setEducation({...temp})
     }
 
+    const initializeTempData = () => {
+        setProfile({
+            lastName: lastName,
+            firstName: firstName,
+            middleName: middleName,
+            photoUrl: photoUrl,
+            phoneNumber: phoneNumber,
+            email: email,
+            city: city,
+            gender: gender,
+            birthDate: birthDate,
+            specialty: specialty,
+        })
+    }
 
-    const [workplaces,setWorkplaces]=useState([{
-        placeName:'НЦЗД',
-        start:'Январь 2022',
-        end:'Июнь 2023',
-        post:'врач',
-        description:'С января 2023 года по июнь 2023 года я имел честь работать в Национальном Центре Заболеваний Кожи и Дерматологии (НЦЗД) в Москве в качестве врача-дерматолога. Это был уникальный и захватывающий опыт, который дал мне возможность заботиться о пациентах и применять мои знания и навыки в области дерматологии.\n' +
+
+    const [workplaces, setWorkplaces] = useState([{
+        placeName: 'НЦЗД',
+        start: 'Январь 2022',
+        end: 'Июнь 2023',
+        post: 'врач',
+        description: 'С января 2023 года по июнь 2023 года я имел честь работать в Национальном Центре Заболеваний Кожи и Дерматологии (НЦЗД) в Москве в качестве врача-дерматолога. Это был уникальный и захватывающий опыт, который дал мне возможность заботиться о пациентах и применять мои знания и навыки в области дерматологии.\n' +
             '\n' +
             'Моя работа включала в себя следующие обязанности и активности:\n' +
             '\n' +
@@ -107,48 +142,106 @@ export default function Home() {
     }
     ])
 
-    const [isEditor,setIsEditor]=useState(false)
+    const [isEditor, setIsEditor] = useState(false)
+
+    const updateProfile=async ()=>{
+        eden.user[user_uuid].profile.post({uuid:user_uuid}).then((res)=>{
+            console.log(res)
+            setIsEditor(false)
+        })
+    }
 
 
     return (
         <main className={'p-12'}>
             <div className={'flex justify-between'}>
                 <p className={'uppercase font-inter font-extralight text-3xl'}>Основные данные</p>
-                <div onClick={()=>{setIsEditor(true)}} className={'p-2 bg-green cursor-pointer flex items-center rounded-lg gap-2'}>
+                {!isEditor ? <div onClick={() => {
+                    initializeTempData();
+                    setIsEditor(true)
+                }} className={'p-2 bg-green cursor-pointer flex items-center rounded-lg gap-2'}>
                     <img className={'w-4 aspect-square'} src={`${images}/edit.svg`}/>
                     <p className={'text-white font-inter font-normal'}>Редактировать профиль</p>
-                </div>
+                </div> : <div onClick={() => {
+                    updateProfile();
+                }} className={'p-2 bg-green cursor-pointer flex items-center rounded-lg gap-2'}>
+                    <img className={'w-6 aspect-square'} src={`/done.svg`}/>
+                    <p className={'text-white font-inter font-normal'}>Сохранить изменения</p>
+                </div>}
             </div>
             <div className={'w-full mt-10 grid grid-cols-2'}>
                 <div className={'border-r-[1px] flex flex-col pr-8 gap-16 border-green'}>
                     <div className={'flex gap-8 items-start'}>
-                        <img className={'rounded-full aspect-square object-cover w-1/4'} src={`${images}/temp_avatar.png`}/>
-                        <div className={'flex flex-col gap-3'}>
-                            {!isEditor?<p className={'text-green-two text-2xl font-bold'}>Иванова Анна Сергеевна</p>:<input placeholder={'Иванова Анна Сергеевна'} className={'text-green-two px-2 border-green border-2 text-2xl rounded-lg font-bold'}></input>}
+                        <img className={'rounded-full aspect-square object-cover w-1/4'}
+                             src={`${images}/temp_avatar.png`}/>
+                        <div className={'flex w-full flex-col gap-3'}>
+                            {!isEditor ?
+                                <p className={'text-green-two text-2xl font-bold'}>{lastName} {firstName} {middleName}</p> :
+                                <div className={'flex flex-col gap-3'}>
+                                    <input value={profile.lastName}
+                                           onChange={(event) => {
+                                               mutateProfile('lastName', event.target.value)
+                                           }} placeholder={profile.lastName}
+                                           className={'text-green-two px-2 border-green border-2 text-2xl rounded-lg font-bold'}></input>
+                                    <input value={profile.firstName}
+                                           onChange={(event) => {
+                                               mutateProfile('firstName', event.target.value)
+                                           }} placeholder={profile.firstName}
+                                           className={'text-green-two px-2 border-green border-2 text-2xl rounded-lg font-bold'}></input>
+                                    <input value={profile.middleName}
+                                           onChange={(event) => {
+                                               mutateProfile('middleName', event.target.value)
+                                           }} placeholder={profile.middleName}
+                                           className={'text-green-two px-2 border-green border-2 text-2xl rounded-lg font-bold'}></input>
+                                </div>}
                             <div className={'flex gap-3 font-inter text-black items-center'}>
                                 <img className={'w-5'} src={`${images}/phone.svg`}/>
-                                {!isEditor?<p className={'font-normal'}>+7 (952) 256 34 20</p>:<input placeholder={'+7 (952) 256 34 20'} className={'font-normal px-2 border-green border-2 rounded-lg'}></input>}
+                                {!isEditor ?
+                                    <p className={'font-normal'}>{phoneNumber ? phoneNumber : 'Не указано'}</p> : <input value={profile.phoneNumber}
+                                        onChange={(event)=>{mutateProfile('phoneNumber',event.target.value)}}
+                                        placeholder={profile.phoneNumber ? profile.phoneNumber : 'Введите номер телефона'}
+                                        className={'font-normal px-2 border-green border-2 rounded-lg'}></input>}
                             </div>
                             <div className={'flex gap-3 font-inter text-black items-center'}>
                                 <img className={'w-5'} src={`${images}/email.svg`}/>
-                                {!isEditor?<p className={'font-normal'}>pediatric-dermatology@mail.ru</p>:<input placeholder={'pediatric-dermatology@mail.ru'} className={'font-normal px-2 border-green border-2 rounded-lg'}></input>}
+                                {!isEditor ? <p className={'font-normal'}>{email ? email : 'Не указано'}</p> :
+                                    <input onChange={(event)=>{mutateProfile('email',event.target.value)}} value={profile.email} placeholder={profile.email ? profile.email : 'Введите email'}
+                                           className={'font-normal px-2 border-green border-2 rounded-lg'}></input>}
                             </div>
                             <div className={'flex gap-3 font-inter text-black items-center'}>
                                 <img className={'w-5'} src={`${images}/location.svg`}/>
-                                {!isEditor?<p className={'font-normal'}>Москва, Россия</p>:<input placeholder={'Москва, Россия'} className={'font-normal px-2 border-green border-2 rounded-lg'}></input>}
+                                {!isEditor ? <p className={'font-normal'}>{city ? city : 'Не указано'}</p> :
+                                    <input onChange={(event)=>{mutateProfile('city',event.target.value)}} value={profile.city} placeholder={profile.city ? profile.city : 'Введите город'}
+                                           className={'font-normal px-2 border-green border-2 rounded-lg'}></input>}
                             </div>
                             <div className={'flex gap-3 font-inter text-black items-center'}>
                                 <p className={'font-bold text-lg'}>Пол:</p>
-                                {!isEditor?<p className={'font-normal text-lg'}>Женский</p>:<input placeholder={'Женский'} className={'font-normal text-lg px-2 border-green border-2 rounded-lg'}></input>}
+                                {!isEditor ?
+                                    <p className={'font-normal text-lg'}>{profile.gender ? profile.gender : 'Не указано'}</p> :
+                                    <select onChange={(event)=>{mutateProfile('gender',event.target.value)}} className={'font-normal text-lg px-2 border-green border-2 rounded-lg'}>
+                                        <option value={'Мужской'} selected={gender == 'Мужской'}>Мужской</option>
+                                        <option value={'Женский'} selected={gender == 'Женский'}>Женский</option>
+                                    </select>}
+
+                            </div>
+                            <div className={'flex gap-3 font-inter text-black items-center'}>
+                                <p className={'font-bold text-lg'}>Дата рождения:</p>
+                                {!isEditor ?
+                                    <p className={'font-normal text-lg'}>{profile.birthDate ? profile.birthDate : 'Не указана'}</p> :
+                                    <DatePicker placeholderText={profile.birthDate ? profile.birthDate : 'Введите дату'}
+                                                className={'border-2 border-green p-1 rounded-lg text-center w-1/2'}
+                                                dateFormat={"dd.MM.yyyy"} locale={"ru"} selected={null}
+                                                onChange={(date) => mutateProfile('birthDate', date?.toLocaleDateString("ru-RU"))}/>}
 
                             </div>
 
-                            <p className={'font-bold text-lg'}>Дата рождения: <span className={'font-normal'}>23.10.1996</span></p>
-                            <div className={'flex items-center justify-between gap-3'}>
-                                <div className={'border-2 border-green-two rounded-full font-light px-5 text-green-two text-sm p-2 flex items-center justify-center'}>
-                                    Дерматология
+                            <div className={'flex items-center  gap-3'}>
+                                <div
+                                    className={'border-2 border-green-two rounded-full font-light px-5 text-green-two text-sm p-2 flex items-center justify-center'}>
+                                    {specialty}
                                 </div>
-                                <div className={'border-2 border-green-two rounded-full font-light px-5 text-green-two text-sm p-2 flex items-center justify-center'}>
+                                <div
+                                    className={'border-2 border-green-two rounded-full font-light px-5 text-green-two text-sm p-2 flex items-center justify-center'}>
                                     Стаж 21 год
                                 </div>
                             </div>
@@ -225,11 +318,16 @@ export default function Home() {
                         <p className={'uppercase font-inter font-extralight text-3xl'}>О себе и интересы</p>
                         <div className={'flex flex-col gap-4'}>
                             <p className={'font-bold text-black text-lg'}>Профессиональные интересы:</p>
-                            <p className={'text-black'}>современная медицина, заболевания опорно-двигательного аппарата, особенности терапии болевых синдромов различного происхождения, головные боли у детей</p>
+                            <p className={'text-black'}>современная медицина, заболевания опорно-двигательного аппарата,
+                                особенности терапии болевых синдромов различного происхождения, головные боли у
+                                детей</p>
                         </div>
                         <div className={'flex flex-col gap-4'}>
                             <p className={'font-bold text-black text-lg'}>О себе:</p>
-                            <p className={'text-black'}>Приветствую, я молодой дерматолог с широкими профессиональными интересами, включая современную медицину и заболевания опорно-двигательного аппарата. Мне также интересно изучение терапии болевых синдромов и головных болей у детей. Готова помочь вам улучшить ваше здоровье!</p>
+                            <p className={'text-black'}>Приветствую, я молодой дерматолог с широкими профессиональными
+                                интересами, включая современную медицину и заболевания опорно-двигательного аппарата.
+                                Мне также интересно изучение терапии болевых синдромов и головных болей у детей. Готова
+                                помочь вам улучшить ваше здоровье!</p>
                         </div>
                     </div>
                 </div>
@@ -237,35 +335,43 @@ export default function Home() {
                     <p className={'font-bold text-xl text-black'}>Награды</p>
                     <div className={'grid grid-cols-4 mt-4 gap-8'}>
                         <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`} className={'rounded-full cursor-pointer aspect-square object-cover'}/>
+                            <img src={`${images}/temp_certificate.png`}
+                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
                             <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
                         </div>
                         <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`} className={'rounded-full cursor-pointer aspect-square object-cover'}/>
+                            <img src={`${images}/temp_certificate.png`}
+                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
                             <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
                         </div>
                         <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`} className={'rounded-full cursor-pointer aspect-square object-cover'}/>
+                            <img src={`${images}/temp_certificate.png`}
+                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
                             <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
                         </div>
                         <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`} className={'rounded-full cursor-pointer aspect-square object-cover'}/>
+                            <img src={`${images}/temp_certificate.png`}
+                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
                             <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
                         </div>
                         <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`} className={'rounded-full cursor-pointer aspect-square object-cover'}/>
+                            <img src={`${images}/temp_certificate.png`}
+                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
                             <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
                         </div>
                         <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`} className={'rounded-full cursor-pointer aspect-square object-cover'}/>
+                            <img src={`${images}/temp_certificate.png`}
+                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
                             <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
                         </div>
                         <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`} className={'rounded-full cursor-pointer aspect-square object-cover'}/>
+                            <img src={`${images}/temp_certificate.png`}
+                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
                             <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
                         </div>
                         <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`} className={'rounded-full cursor-pointer aspect-square object-cover'}/>
+                            <img src={`${images}/temp_certificate.png`}
+                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
                             <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
                         </div>
 

@@ -81,7 +81,7 @@ const Navbar = ({isInteractive}:navbarInterface) => {
                         </img>
                     </Link>
                 </div>
-                <div className={'flex items-center cursor-pointer'} onClick={()=>{loggedIn?router.push('/account/profile'):router.push('/registration')}}>
+                <div className={'flex items-center cursor-pointer'} onClick={()=>{loggedIn?router.push('/account/my/profile'):router.push('/registration')}}>
                     <div className={'w-5 mx-2 aspect-square relative'}>
                         <Image src={'/account.svg'} alt={'account'} layout={'fill'}></Image>
                     </div>
