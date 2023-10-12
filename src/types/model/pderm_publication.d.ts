@@ -61,7 +61,7 @@ export declare const PdermPublicationCreateTDto: import("@sinclair/typebox").TOb
         imageUrl: import("@sinclair/typebox").TString;
     }>>>;
 }>;
-export declare const PdermPublictationModel: mongoose.Model<{
+export declare const PdermPublicationModel: mongoose.Model<{
     createdAt: NativeDate;
     updatedAt: NativeDate;
 } & {

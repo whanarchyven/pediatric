@@ -26,6 +26,7 @@ declare const PdermUserSchema: mongoose.Schema<any, mongoose.Model<any, any, any
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
+    verificationCode?: string | undefined;
     photoUrl?: string | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     createdAt: NativeDate;
@@ -52,6 +53,7 @@ declare const PdermUserSchema: mongoose.Schema<any, mongoose.Model<any, any, any
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
+    verificationCode?: string | undefined;
     photoUrl?: string | undefined;
 }>> & mongoose.FlatRecord<{
     createdAt: NativeDate;
@@ -78,6 +80,7 @@ declare const PdermUserSchema: mongoose.Schema<any, mongoose.Model<any, any, any
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
+    verificationCode?: string | undefined;
     photoUrl?: string | undefined;
 }> & {
     _id: mongoose.Types.ObjectId;
@@ -176,6 +179,7 @@ export declare const PdermUserModel: mongoose.Model<{
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
+    verificationCode?: string | undefined;
     photoUrl?: string | undefined;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
     createdAt: NativeDate;
@@ -202,6 +206,7 @@ export declare const PdermUserModel: mongoose.Model<{
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
+    verificationCode?: string | undefined;
     photoUrl?: string | undefined;
 }> & {
     createdAt: NativeDate;
@@ -228,6 +233,7 @@ export declare const PdermUserModel: mongoose.Model<{
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
+    verificationCode?: string | undefined;
     photoUrl?: string | undefined;
 } & {
     _id: mongoose.Types.ObjectId;
@@ -258,6 +264,7 @@ export declare const PdermUserModel: mongoose.Model<{
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
+    verificationCode?: string | undefined;
     photoUrl?: string | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     createdAt: NativeDate;
@@ -284,6 +291,7 @@ export declare const PdermUserModel: mongoose.Model<{
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
+    verificationCode?: string | undefined;
     photoUrl?: string | undefined;
 }>> & mongoose.FlatRecord<{
     createdAt: NativeDate;
@@ -310,6 +318,7 @@ export declare const PdermUserModel: mongoose.Model<{
     birthDate?: string | undefined;
     about?: string | undefined;
     interests?: string | undefined;
+    verificationCode?: string | undefined;
     photoUrl?: string | undefined;
 }> & {
     _id: mongoose.Types.ObjectId;
