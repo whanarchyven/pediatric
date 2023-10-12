@@ -328,7 +328,7 @@ declare const app: Elysia<"", {
                     category: string;
                 }[] | undefined;
                 photoUrl?: string | undefined;
-                email: string|undefined;
+                email: string;
                 uuid: string;
             };
             params: unknown;
@@ -754,6 +754,17 @@ declare const app: Elysia<"", {
                     })[];
                     count: number;
                 }>;
+            };
+        };
+    };
+    "/echo": {
+        get: {
+            body: unknown;
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: string;
             };
         };
     };
