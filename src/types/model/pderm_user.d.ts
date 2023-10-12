@@ -142,12 +142,11 @@ export declare const PdermEditUserRegTDto: import("@sinclair/typebox").TObject<{
         category: import("@sinclair/typebox").TString;
     }>>>;
     career: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
-        monthStart: import("@sinclair/typebox").TString;
-        yearStart: import("@sinclair/typebox").TNumber;
-        monthEnd: import("@sinclair/typebox").TString;
-        yearEnd: import("@sinclair/typebox").TNumber;
-        place: import("@sinclair/typebox").TString;
-        position: import("@sinclair/typebox").TString;
+        placeName: import("@sinclair/typebox").TString;
+        start: import("@sinclair/typebox").TString;
+        end: import("@sinclair/typebox").TString;
+        post: import("@sinclair/typebox").TString;
+        description: import("@sinclair/typebox").TString;
     }>>>;
 }>;
 export declare const PdermUserLoginTDto: import("@sinclair/typebox").TObject<{

@@ -9,9 +9,9 @@ declare const PdermEventSchema: mongoose.Schema<any, mongoose.Model<any, any, an
     id: string;
     date: string;
     format: string;
-    place: string;
     name: string;
     timePeriod: string;
+    place: string;
     participants: number;
     layoutBg: string;
     avatar: string;
@@ -19,8 +19,8 @@ declare const PdermEventSchema: mongoose.Schema<any, mongoose.Model<any, any, an
     speakers: any[];
     halls: any[];
     prices: any[];
-    link?: string | undefined;
     description?: string | undefined;
+    link?: string | undefined;
     onlinePrice?: number | undefined;
     offlinePrice?: number | undefined;
     isOnlyOnline?: boolean | undefined;
@@ -34,9 +34,9 @@ declare const PdermEventSchema: mongoose.Schema<any, mongoose.Model<any, any, an
     id: string;
     date: string;
     format: string;
-    place: string;
     name: string;
     timePeriod: string;
+    place: string;
     participants: number;
     layoutBg: string;
     avatar: string;
@@ -44,8 +44,8 @@ declare const PdermEventSchema: mongoose.Schema<any, mongoose.Model<any, any, an
     speakers: any[];
     halls: any[];
     prices: any[];
-    link?: string | undefined;
     description?: string | undefined;
+    link?: string | undefined;
     onlinePrice?: number | undefined;
     offlinePrice?: number | undefined;
     isOnlyOnline?: boolean | undefined;
@@ -59,9 +59,9 @@ declare const PdermEventSchema: mongoose.Schema<any, mongoose.Model<any, any, an
     id: string;
     date: string;
     format: string;
-    place: string;
     name: string;
     timePeriod: string;
+    place: string;
     participants: number;
     layoutBg: string;
     avatar: string;
@@ -69,8 +69,8 @@ declare const PdermEventSchema: mongoose.Schema<any, mongoose.Model<any, any, an
     speakers: any[];
     halls: any[];
     prices: any[];
-    link?: string | undefined;
     description?: string | undefined;
+    link?: string | undefined;
     onlinePrice?: number | undefined;
     offlinePrice?: number | undefined;
     isOnlyOnline?: boolean | undefined;
@@ -87,9 +87,9 @@ export declare const PdermEventModel: mongoose.Model<{
     id: string;
     date: string;
     format: string;
-    place: string;
     name: string;
     timePeriod: string;
+    place: string;
     participants: number;
     layoutBg: string;
     avatar: string;
@@ -97,8 +97,8 @@ export declare const PdermEventModel: mongoose.Model<{
     speakers: any[];
     halls: any[];
     prices: any[];
-    link?: string | undefined;
     description?: string | undefined;
+    link?: string | undefined;
     onlinePrice?: number | undefined;
     offlinePrice?: number | undefined;
     isOnlyOnline?: boolean | undefined;
@@ -112,9 +112,9 @@ export declare const PdermEventModel: mongoose.Model<{
     id: string;
     date: string;
     format: string;
-    place: string;
     name: string;
     timePeriod: string;
+    place: string;
     participants: number;
     layoutBg: string;
     avatar: string;
@@ -122,8 +122,8 @@ export declare const PdermEventModel: mongoose.Model<{
     speakers: any[];
     halls: any[];
     prices: any[];
-    link?: string | undefined;
     description?: string | undefined;
+    link?: string | undefined;
     onlinePrice?: number | undefined;
     offlinePrice?: number | undefined;
     isOnlyOnline?: boolean | undefined;
@@ -137,9 +137,9 @@ export declare const PdermEventModel: mongoose.Model<{
     id: string;
     date: string;
     format: string;
-    place: string;
     name: string;
     timePeriod: string;
+    place: string;
     participants: number;
     layoutBg: string;
     avatar: string;
@@ -147,8 +147,8 @@ export declare const PdermEventModel: mongoose.Model<{
     speakers: any[];
     halls: any[];
     prices: any[];
-    link?: string | undefined;
     description?: string | undefined;
+    link?: string | undefined;
     onlinePrice?: number | undefined;
     offlinePrice?: number | undefined;
     isOnlyOnline?: boolean | undefined;
@@ -166,9 +166,9 @@ export declare const PdermEventModel: mongoose.Model<{
     id: string;
     date: string;
     format: string;
-    place: string;
     name: string;
     timePeriod: string;
+    place: string;
     participants: number;
     layoutBg: string;
     avatar: string;
@@ -176,8 +176,8 @@ export declare const PdermEventModel: mongoose.Model<{
     speakers: any[];
     halls: any[];
     prices: any[];
-    link?: string | undefined;
     description?: string | undefined;
+    link?: string | undefined;
     onlinePrice?: number | undefined;
     offlinePrice?: number | undefined;
     isOnlyOnline?: boolean | undefined;
@@ -191,9 +191,9 @@ export declare const PdermEventModel: mongoose.Model<{
     id: string;
     date: string;
     format: string;
-    place: string;
     name: string;
     timePeriod: string;
+    place: string;
     participants: number;
     layoutBg: string;
     avatar: string;
@@ -201,8 +201,8 @@ export declare const PdermEventModel: mongoose.Model<{
     speakers: any[];
     halls: any[];
     prices: any[];
-    link?: string | undefined;
     description?: string | undefined;
+    link?: string | undefined;
     onlinePrice?: number | undefined;
     offlinePrice?: number | undefined;
     isOnlyOnline?: boolean | undefined;
@@ -216,9 +216,9 @@ export declare const PdermEventModel: mongoose.Model<{
     id: string;
     date: string;
     format: string;
-    place: string;
     name: string;
     timePeriod: string;
+    place: string;
     participants: number;
     layoutBg: string;
     avatar: string;
@@ -226,8 +226,8 @@ export declare const PdermEventModel: mongoose.Model<{
     speakers: any[];
     halls: any[];
     prices: any[];
-    link?: string | undefined;
     description?: string | undefined;
+    link?: string | undefined;
     onlinePrice?: number | undefined;
     offlinePrice?: number | undefined;
     isOnlyOnline?: boolean | undefined;

@@ -56,6 +56,17 @@ declare const app: Elysia<"", {
             };
         };
     };
+    "/auth/echo": {
+        get: {
+            body: unknown;
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: string;
+            };
+        };
+    };
     "/auth/signUp": {
         post: {
             body: {
@@ -314,12 +325,11 @@ declare const app: Elysia<"", {
                 about?: string | undefined;
                 interests?: string | undefined;
                 career?: {
-                    position: string;
-                    yearStart: number;
-                    yearEnd: number;
-                    monthStart: string;
-                    monthEnd: string;
-                    place: string;
+                    placeName: string;
+                    start: string;
+                    end: string;
+                    post: string;
+                    description: string;
                 }[] | undefined;
                 saved?: {
                     title: string;
@@ -512,9 +522,9 @@ declare const app: Elysia<"", {
                         id: string;
                         date: string;
                         format: string;
-                        place: string;
                         name: string;
                         timePeriod: string;
+                        place: string;
                         participants: number;
                         layoutBg: string;
                         avatar: string;
@@ -522,8 +532,8 @@ declare const app: Elysia<"", {
                         speakers: any[];
                         halls: any[];
                         prices: any[];
-                        link?: string | undefined;
                         description?: string | undefined;
+                        link?: string | undefined;
                         onlinePrice?: number | undefined;
                         offlinePrice?: number | undefined;
                         isOnlyOnline?: boolean | undefined;
@@ -540,8 +550,8 @@ declare const app: Elysia<"", {
         post: {
             body: {
                 id?: string | undefined;
-                link?: string | undefined;
                 description?: string | undefined;
+                link?: string | undefined;
                 onlinePrice?: number | undefined;
                 offlinePrice?: number | undefined;
                 prices?: {
@@ -555,17 +565,17 @@ declare const app: Elysia<"", {
                 type: string;
                 date: string;
                 format: string;
-                place: string;
                 name: string;
                 timePeriod: string;
+                place: string;
                 participants: number;
                 layoutBg: string;
                 avatar: string;
                 announcement: string;
                 speakers: {
-                    name: string;
-                    description: string;
                     post: string;
+                    description: string;
+                    name: string;
                     contact: string;
                     photo: string;
                 }[];
@@ -599,8 +609,8 @@ declare const app: Elysia<"", {
         post: {
             body: {
                 id?: string | undefined;
-                link?: string | undefined;
                 description?: string | undefined;
+                link?: string | undefined;
                 onlinePrice?: number | undefined;
                 offlinePrice?: number | undefined;
                 prices?: {
@@ -614,17 +624,17 @@ declare const app: Elysia<"", {
                 type: string;
                 date: string;
                 format: string;
-                place: string;
                 name: string;
                 timePeriod: string;
+                place: string;
                 participants: number;
                 layoutBg: string;
                 avatar: string;
                 announcement: string;
                 speakers: {
-                    name: string;
-                    description: string;
                     post: string;
+                    description: string;
+                    name: string;
                     contact: string;
                     photo: string;
                 }[];
