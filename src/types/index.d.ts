@@ -492,6 +492,28 @@ declare const app: Elysia<"", {
             };
         };
     };
+    "/user/:user_uuid/publication/update": {
+        post: {
+            body: {
+                uuid?: string | undefined;
+                authors?: string[] | undefined;
+                date: string;
+                title: string;
+                category: string;
+                fileUrl: string;
+            };
+            params: {
+                user_uuid: string;
+            };
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<{
+                    success: string;
+                }>;
+            };
+        };
+    };
     "/user/:user_uuid/publication/like": {
         post: {
             body: {
