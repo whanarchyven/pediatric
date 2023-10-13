@@ -530,12 +530,12 @@ declare const app: Elysia<"", {
     "/user/:user_uuid/publication/save": {
         post: {
             body: {
-                uuid?: string | undefined;
+                date?: string | undefined;
+                title?: string | undefined;
+                category?: string | undefined;
+                fileUrl?: string | undefined;
                 authors?: string[] | undefined;
-                date: string;
-                title: string;
-                category: string;
-                fileUrl: string;
+                uuid: string;
             };
             params: {
                 user_uuid: string;

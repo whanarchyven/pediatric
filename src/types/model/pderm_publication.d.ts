@@ -54,6 +54,14 @@ export declare const PdermPublicationCreateTDto: import("@sinclair/typebox").TOb
     fileUrl: import("@sinclair/typebox").TString;
     authors: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TString>>;
 }>;
+export declare const PdermPublicationEditTDto: import("@sinclair/typebox").TObject<{
+    uuid: import("@sinclair/typebox").TString;
+    category: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    title: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    date: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    fileUrl: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    authors: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TString>>;
+}>;
 export declare const PdermPublicationModel: mongoose.Model<{
     createdAt: NativeDate;
     updatedAt: NativeDate;
