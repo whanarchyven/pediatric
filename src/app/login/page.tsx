@@ -101,7 +101,7 @@ export default function Home() {
                             </div>
                         </div>
                     </motion.div>
-                    <div className={'lg:col-span-3 lg:mt-0 mt-12 flex relative'}>
+                    <div className={'lg:col-span-3 lg:mt-0 mt-12 lg:h-full flex relative'}>
                         <img className={'lg:absolute w-full lg:bottom-0 lg:right-0'} src={'/pages/events/murashkin.png'}/>
                     </div>
                 </motion.div>
