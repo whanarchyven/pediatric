@@ -253,12 +253,13 @@ declare const app: Elysia<"", {
         get: {
             body: unknown;
             params: {
+                user_uuid: string;
+            };
+            query: {
                 search?: string | undefined;
                 limit?: number | undefined;
                 skip?: number | undefined;
-                user_uuid: string;
             };
-            query: unknown;
             headers: unknown;
             response: {
                 200: Promise<{
@@ -778,15 +779,15 @@ declare const app: Elysia<"", {
             };
         };
     };
-    "/publication/list/": {
+    "/publication/list": {
         get: {
             body: unknown;
-            params: {
+            params: unknown;
+            query: {
                 search?: string | undefined;
                 limit?: number | undefined;
                 skip?: number | undefined;
             };
-            query: unknown;
             headers: unknown;
             response: {
                 200: Promise<{
