@@ -439,11 +439,12 @@ declare const app: Elysia<"", {
         get: {
             body: unknown;
             params: {
-                limit?: number | undefined;
-                skip?: number | undefined;
                 user_uuid: string;
             };
-            query: unknown;
+            query: {
+                limit?: number | undefined;
+                skip?: number | undefined;
+            };
             headers: unknown;
             response: {
                 200: Promise<{
@@ -479,7 +480,9 @@ declare const app: Elysia<"", {
                 category: string;
                 fileUrl: string;
             };
-            params: unknown;
+            params: {
+                user_uuid: string;
+            };
             query: unknown;
             headers: unknown;
             response: {
@@ -494,7 +497,9 @@ declare const app: Elysia<"", {
             body: {
                 uuid: string;
             };
-            params: unknown;
+            params: {
+                user_uuid: string;
+            };
             query: unknown;
             headers: unknown;
             response: {
@@ -509,7 +514,9 @@ declare const app: Elysia<"", {
             body: {
                 uuid: string;
             };
-            params: unknown;
+            params: {
+                user_uuid: string;
+            };
             query: unknown;
             headers: unknown;
             response: {
@@ -524,7 +531,9 @@ declare const app: Elysia<"", {
             body: {
                 uuid: string;
             };
-            params: unknown;
+            params: {
+                user_uuid: string;
+            };
             query: unknown;
             headers: unknown;
             response: {
@@ -539,7 +548,9 @@ declare const app: Elysia<"", {
             body: {
                 uuid: string;
             };
-            params: unknown;
+            params: {
+                user_uuid: string;
+            };
             query: unknown;
             headers: unknown;
             response: {
