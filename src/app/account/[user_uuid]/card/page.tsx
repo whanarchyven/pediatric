@@ -4,7 +4,7 @@ import Slider from "@/components/Slider";
 import VideoPlayer from "@/components/VideoPlayer";
 import Reviews from "@/components/Reviews";
 import {motion} from "framer-motion";
-import {useRouter} from "next/navigation";
+import {usePathname, useRouter} from "next/navigation";
 import ReviewPop from "@/components/ReviewPop";
 import HelpPop from "@/components/HelpPop";
 import QRCode from "react-qr-code";
@@ -34,7 +34,12 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const images = '/pages/account'
     const user_uuid = params.params.user_uuid
 
-    const {data} = useEden(() => eden.user[user_uuid].profile.get())
+    const pathname=usePathname()
+
+    // @ts-ignore
+    const {data} = useEden(() => pathname.split('/')[2]!='my'?eden.user[user_uuid].card.get():eden.user[user_uuid].profile.get())
+
+
 
     const {
         lastName,
@@ -55,6 +60,10 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const [currentEducationShowCounter, setCurrentEducationShowCounter] = useState(1)
     const [educationShowOpen, setEducationShowOpen] = useState(false);
 
+
+    const publicationsData = useEden(() => eden.user[user_uuid].publication.list["own-published"].get())
+
+    const {publications}=publicationsData?.data?? {} as any
 
     return (
         <main className={'p-12'}>
@@ -246,10 +255,19 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
                     {/*</div>*/}
                     <div className={'flex flex-col gap-10 mt-8'}>
-                        <p className={'font-bold text-xl text-black'}>Научные работы</p>
-                        <div className={'flex h-52 border-[1px] border-green rounded-lg items-center justify-center'}>
-                            <p className={'opacity-50'}>Публикации не найдены</p>
+                        <div className={' flex justify-between'}>
+                            <p className={'font-bold text-xl text-black'}>Научные работы</p>
                         </div>
+                        {publications && publications.length > 0 ? <div className={'flex gap-12 flex-col'}>
+                            {publications.map((publication:typeof publications[0])=>{
+                                return(
+                                    <PublicationTab {...publication} key={publication.title}></PublicationTab>
+                                )
+                            })}
+                        </div> : <div
+                            className={'flex h-52 border-[1px] border-green rounded-lg items-center justify-center'}>
+                            <p className={'opacity-50'}>Публикации не найдены</p>
+                        </div>}
                     </div>
                 </div>
             </div>
