@@ -586,12 +586,12 @@ declare const app: Elysia<"", {
     "/event/list": {
         get: {
             body: unknown;
-            params: {
+            params: unknown;
+            query: {
                 search?: string | undefined;
                 limit?: number | undefined;
                 skip?: number | undefined;
             };
-            query: unknown;
             headers: unknown;
             response: {
                 200: Promise<{
