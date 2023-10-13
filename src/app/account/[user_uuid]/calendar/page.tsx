@@ -1,4 +1,4 @@
-
+"use client"
 import React, {useEffect, useState} from "react";
 import Slider from "@/components/Slider";
 import VideoPlayer from "@/components/VideoPlayer";
@@ -55,34 +55,34 @@ export default function Home() {
             <div className={'mt-8'}>
                 <Calendar></Calendar>
             </div>
-            <div className={'mt-12'}>
-                <p className={'uppercase font-inter font-extralight text-3xl'}>МЕРОПРИЯТИЯ, НА КОТОРЫЕ <br/><span
-                    className={'font-extrabold'}>ВЫ ЗАРЕГИСТРИРОВАЛИСЬ</span></p>
-                <div className={'grid grid-cols-3 mt-12 gap-8'}>
-                    {news.map((item,counter)=>{
-                        return (
-                            <Link key={counter} href={`/events/${item.id}`}>
-                                <div className={'gap-4 flex cursor-pointer flex-col'}>
-                                    <div className={'rounded-lg overflow-hidden'}>
-                                        <img className={'transition-all duration-300 h-60 object-cover w-full group-hover:scale-125'} src={item.image}/>
-                                    </div>
-                                    <div className={'w-full flex items-center justify-between'}>
-                                        <div className={'flex rounded-lg text-white p-2 w-[65%] items-center justify-center border-2 border-green-two bg-green-two'}>
-                                            {item.type}
-                                        </div>
-                                        <div className={'flex rounded-lg text-green-two p-2 w-[30%] items-center justify-center border-2 border-green-two'}>
-                                            {item.date}
-                                        </div>
-                                    </div>
-                                    <p className={'text-center font-normal text-black'}>{item.name}</p>
-                                </div>
-                            </Link>
+            {/*<div className={'mt-12'}>*/}
+            {/*    <p className={'uppercase font-inter font-extralight text-3xl'}>МЕРОПРИЯТИЯ, НА КОТОРЫЕ <br/><span*/}
+            {/*        className={'font-extrabold'}>ВЫ ЗАРЕГИСТРИРОВАЛИСЬ</span></p>*/}
+            {/*    <div className={'grid grid-cols-3 mt-12 gap-8'}>*/}
+            {/*        {news.map((item,counter)=>{*/}
+            {/*            return (*/}
+            {/*                <Link key={counter} href={`/events/${item.id}`}>*/}
+            {/*                    <div className={'gap-4 flex cursor-pointer flex-col'}>*/}
+            {/*                        <div className={'rounded-lg overflow-hidden'}>*/}
+            {/*                            <img className={'transition-all duration-300 h-60 object-cover w-full group-hover:scale-125'} src={item.image}/>*/}
+            {/*                        </div>*/}
+            {/*                        <div className={'w-full flex items-center justify-between'}>*/}
+            {/*                            <div className={'flex rounded-lg text-white p-2 w-[65%] items-center justify-center border-2 border-green-two bg-green-two'}>*/}
+            {/*                                {item.type}*/}
+            {/*                            </div>*/}
+            {/*                            <div className={'flex rounded-lg text-green-two p-2 w-[30%] items-center justify-center border-2 border-green-two'}>*/}
+            {/*                                {item.date}*/}
+            {/*                            </div>*/}
+            {/*                        </div>*/}
+            {/*                        <p className={'text-center font-normal text-black'}>{item.name}</p>*/}
+            {/*                    </div>*/}
+            {/*                </Link>*/}
 
-                        )
-                    })}
+            {/*            )*/}
+            {/*        })}*/}
 
-                </div>
-            </div>
+            {/*    </div>*/}
+            {/*</div>*/}
         </main>
     )
 }

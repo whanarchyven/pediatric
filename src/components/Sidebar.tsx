@@ -28,16 +28,16 @@ const Sidebar = ({user_uuid}:{user_uuid:string}) => {
             icon:'/pages/account/sidebar/calendar.svg',
             link:'calendar'
         },
-        {
-            name:'Избранное',
-            icon:'/pages/account/sidebar/favorites.svg',
-            link:'favorites'
-        },
-        {
-            name:'Статьи и публикации',
-            icon:'/pages/account/sidebar/publications.svg',
-            link:'publications'
-        },
+        // {
+        //     name:'Избранное',
+        //     icon:'/pages/account/sidebar/favorites.svg',
+        //     link:'favorites'
+        // },
+        // {
+        //     name:'Статьи и публикации',
+        //     icon:'/pages/account/sidebar/publications.svg',
+        //     link:'publications'
+        // },
         {
             name:'Приглашение в чат',
             icon:'/pages/account/sidebar/chat.svg',
@@ -57,19 +57,19 @@ const Sidebar = ({user_uuid}:{user_uuid:string}) => {
     const pathname=usePathname()
     const {data} = useEden(()=>eden.user[user_uuid].profile.get())
     if (!data?.profile) return null
-    const {lastName,name,position}=data.profile;
+    const {lastName,firstName,position,photoUrl}=data.profile;
 
     
     return (
         <div className={'flex flex-col sticky top-40 items-start gap-4'}>
             {/* {JSON.stringify(data)} */}
-            <div className={'flex mb-12 gap-4'}>
-                <img className={'rounded-full w-12 aspect-square object-cover'} src={'/pages/account/temp_avatar.png'}/>
+            <Link href={'/account/my/profile'} className={'flex mb-12 gap-4'}>
+                <img className={'rounded-full w-12 aspect-square object-cover'} src={photoUrl?photoUrl:'/john_doe.svg'}/>
                 <div className={'flex flex-col h-12 justify-between'}>
-                    <p className={'font-bold font-inter text-dark-green'}>{lastName} {name}</p>
+                    <p className={'font-bold font-inter text-dark-green'}>{lastName} {firstName}</p>
                     <p className={'font-light text-sm font-inter text-dark-green'}>{position}</p>
                 </div>
-            </div>
+            </Link>
             {links.map((link,counter)=>{
                 return <Link href={`/account/${user_uuid}/${link.link}`} className={classList('flex cursor-pointer items-center gap-3',pathname.split('/')[3]==link.link?'opacity-100':'opacity-30',counter==links.length-2?'mt-12':'')} key={link.link}>
                     <img className={'w-5 aspect-square'} src={link.icon}/>

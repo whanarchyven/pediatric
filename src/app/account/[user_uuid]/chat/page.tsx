@@ -1,5 +1,4 @@
-
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Slider from "@/components/Slider";
 import VideoPlayer from "@/components/VideoPlayer";
 import Reviews from "@/components/Reviews";
@@ -9,13 +8,12 @@ import ReviewPop from "@/components/ReviewPop";
 import HelpPop from "@/components/HelpPop";
 
 
-import {Swiper, SwiperSlide, useSwiperSlide} from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import 'swiper/css/effect-fade';
 import PublicationTab from "@/components/Publication Tab";
+import Link from "next/link";
 
 
 // import required modules
@@ -35,10 +33,10 @@ export default function Home() {
                         <p className={'uppercase  font-inter font-extralight text-3xl'}>Приглашаем вас <br/><span
                             className={'font-extrabold'}>в общий чат</span></p>
                         <p>Чтобы принять приглашение в чат, сканируйте QR-код или перейдите по ссылке ниже</p>
-                        <div
+                        <Link href={'https://t.me/pediatric_dermatology_ru'}
                             className={'p-4 px-12 cursor-pointer transition-all duration-300 bg-green border-green border-2 w-60 flex justify-center items-center rounded-lg gap-2'}>
                             <p className={'text-white font-inter font-normal'}>Перейти в чат</p>
-                        </div>
+                        </Link>
                     </div>
                     <div className={''}>
                         <img src={`${images}/big_qr.png`}/>

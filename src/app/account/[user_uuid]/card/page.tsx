@@ -1,5 +1,5 @@
-
-import React, {useEffect, useState} from "react";
+"use client"
+import React, {useState} from "react";
 import Slider from "@/components/Slider";
 import VideoPlayer from "@/components/VideoPlayer";
 import Reviews from "@/components/Reviews";
@@ -7,7 +7,7 @@ import {motion} from "framer-motion";
 import {useRouter} from "next/navigation";
 import ReviewPop from "@/components/ReviewPop";
 import HelpPop from "@/components/HelpPop";
-
+import QRCode from "react-qr-code";
 
 import {Swiper, SwiperSlide, useSwiperSlide} from "swiper/react";
 
@@ -16,140 +16,240 @@ import "swiper/css";
 import "swiper/css/pagination";
 import 'swiper/css/effect-fade';
 import PublicationTab from "@/components/Publication Tab";
+import {eden, useEden} from "@/helpers/sdk";
+import EducationPop from "@/components/EducationPop";
+import ShowEducationPop from "@/components/ShowEducationPop";
+import NewCareerPop from "@/components/NewCareerPop";
+import DragNDrop from "@/components/DragNDrop";
+import {classList} from "@/helpers/classList";
+import {uploadFile} from "@/helpers/uploadFile";
+import DatePicker from "react-datepicker";
+import Link from "next/link";
 
 
 // import required modules
 
 
-export default function Home() {
-
-
-
+export default function Home(params: { params: { user_uuid: string } }) {
     const images = '/pages/account'
+    const user_uuid = params.params.user_uuid
+
+    const {data} = useEden(() => eden.user[user_uuid].profile.get())
+
+    const {
+        lastName,
+        firstName,
+        middleName,
+        phoneNumber,
+        email,
+        city,
+        gender,
+        specialty,
+        birthDate,
+        photoUrl, education, about, interests, career, position
+    } = data?.profile ?? {} as any;
+
+    console.log(data);
+
+    const [currentEducationShow, setCurrentEducationShow] = useState<typeof education[0]>()
+    const [currentEducationShowCounter, setCurrentEducationShowCounter] = useState(1)
+    const [educationShowOpen, setEducationShowOpen] = useState(false);
+
 
     return (
         <main className={'p-12'}>
+
             <div className={'flex justify-between'}>
                 <p className={'uppercase font-inter font-extralight text-3xl'}>Визитная <br/><span
                     className={'font-extrabold'}>Карточка</span></p>
-
             </div>
             <div className={'w-full mt-10 grid grid-cols-2'}>
-                <div className={'border-r-[1px] flex flex-col pr-8 gap-16 border-green'}>
+                <div className={' flex flex-col pr-8 gap-16 border-r-[1px] border-green'}>
                     <div className={'flex gap-8 items-start'}>
-                        <img className={'rounded-full aspect-square object-cover w-1/4'}
-                             src={`${images}/temp_avatar.png`}/>
-                        <div className={'flex flex-col gap-3'}>
-                            <p className={'text-green-two text-2xl font-bold'}>Иванова Анна Сергеевна</p>
+                        <div className={'w-1/4'}>
+                            {photoUrl ? <img className={'rounded-full aspect-square object-cover w-full'}
+                                             src={photoUrl}/> :
+                                <img className={'rounded-full aspect-square object-cover w-full'}
+                                     src={`/john_doe.svg`}/>}
+                        </div>
+                        <div className={'flex w-full flex-col gap-3'}>
+                            <p className={'text-green text-2xl font-bold'}>{lastName} {firstName} {middleName}</p>
                             <div className={'flex gap-3 font-inter text-black items-center'}>
                                 <img className={'w-5'} src={`${images}/phone.svg`}/>
-                                <p className={'font-normal'}>+7 (952) 256 34 20</p>
+                                <p className={'font-normal'}>{phoneNumber ? phoneNumber : 'Не указано'}</p>
                             </div>
                             <div className={'flex gap-3 font-inter text-black items-center'}>
                                 <img className={'w-5'} src={`${images}/email.svg`}/>
-                                <p className={'font-normal'}>pediatric-dermatology@mail.ru</p>
+                                <p className={'font-normal'}>{email ? email : 'Не указано'}</p>
                             </div>
                             <div className={'flex gap-3 font-inter text-black items-center'}>
                                 <img className={'w-5'} src={`${images}/location.svg`}/>
-                                <p className={'font-normal'}>Москва, Россия</p>
+                                <p className={'font-normal'}>{city ? city : 'Не указано'}</p>
                             </div>
-                            <p className={'text-lg'}><span className={'font-bold'}>Пол:</span> Женский</p>
-                            <p className={'text-lg'}><span className={'font-bold'}>Дата рождения:</span> 23.10.1996</p>
-                            <div className={'flex items-center justify-between gap-3'}>
+                            <div className={'flex gap-3 font-inter text-black items-center'}>
+                                <p className={'font-bold text-lg'}>Пол:</p>
+                                <p className={'font-normal text-lg'}>{gender ? gender : 'Не указано'}</p>
+
+                            </div>
+                            <div className={'flex gap-3 font-inter text-black items-center'}>
+                                <p className={'font-bold text-lg'}>Дата рождения:</p>
+                                <p className={'font-normal text-lg'}>{birthDate ? birthDate : 'Не указана'}</p>
+
+                            </div>
+
+                            <div className={'flex items-center  gap-3'}>
                                 <div
-                                    className={'border-2 border-green-two rounded-full font-light px-5 text-green-two text-sm p-2 flex items-center justify-center'}>
-                                    Дерматология
+                                    className={'border-2 border-green rounded-full font-light px-5 text-green text-sm p-2 flex items-center justify-center'}>
+                                    {specialty}
                                 </div>
-                                <div
-                                    className={'border-2 border-green-two rounded-full font-light px-5 text-green-two text-sm p-2 flex items-center justify-center'}>
-                                    Стаж 21 год
-                                </div>
+                                {/*<div*/}
+                                {/*    className={'border-2 border-green rounded-full font-light px-5 text-green text-sm p-2 flex items-center justify-center'}>*/}
+                                {/*    Стаж 21 год*/}
+                                {/*</div>*/}
                             </div>
                         </div>
                     </div>
+                    {/*<div className={'flex flex-col gap-2'}>*/}
+                    {/*    <div className={'flex mb-6 gap-7 items-center'}>*/}
+                    {/*        <p className={'uppercase font-inter font-extralight text-3xl'}>Образование</p>*/}
+                    {/*    </div>*/}
+                    {/*    <div className={'w-4/5 flex flex-col gap-2'}>*/}
+                    {/*        {education?.map((item: typeof education[0], counter: number) => {*/}
+                    {/*            return (*/}
+                    {/*                <div key={counter} className={'w-full grid grid-cols-2 gap-3'}>*/}
+                    {/*                    <p className={'font-bold'}>{counter + 1} образование</p>*/}
+                    {/*                    <div className={'flex items-start gap-3'}>*/}
+                    {/*                        <p>{item.faculty} факультет {item.university}</p>*/}
+                    {/*                        <img onClick={() => {*/}
+                    {/*                            setCurrentEducationShow(item)*/}
+                    {/*                            setCurrentEducationShowCounter(counter + 1)*/}
+                    {/*                            setEducationShowOpen(true)*/}
+                    {/*                        }} className={'w-5 cursor-pointer aspect-square'} src={'/info.svg'}/>*/}
+                    {/*                    </div>*/}
+                    {/*                </div>*/}
+                    {/*            )*/}
+                    {/*        })}*/}
+                    {/*        /!*<p className={' font-bold'}>Ученая степень:</p>*!/*/}
+                    {/*        /!*<p className={''}>Доктор наук</p>*!/*/}
+                    {/*        /!*<p className={' font-bold'}>Ученое звание:</p>*!/*/}
+                    {/*        /!*<p className={''}>Профессор</p>*!/*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
+                    {/*<div className={'flex flex-col'}>*/}
+                    {/*    <div className={'flex mb-6 items-center gap-7'}>*/}
+                    {/*        <p className={'uppercase font-inter font-extralight text-3xl'}>Карьера</p>*/}
+                    {/*    </div>*/}
+                    {/*    <div className={'grid gap-4 mb-6 w-4/5 grid-cols-2'}>*/}
+                    {/*        <p className={' font-bold'}>Текущая должность</p>*/}
+                    {/*        <p className={''}>{position}</p>                        </div>*/}
+                    {/*    <div className={'relative flex flex-col gap-7'}>*/}
+                    {/*        <div className={'h-full absolute left-1.5 w-[1px] bg-green'}>*/}
+
+                    {/*        </div>*/}
+                    {/*        {career?.map((item:{*/}
+                    {/*            placeName: string;*/}
+                    {/*            start: string;*/}
+                    {/*            end: string;*/}
+                    {/*            post: string;*/}
+                    {/*            description: string;*/}
+                    {/*        })=>{*/}
+                    {/*            return(*/}
+                    {/*                <div className={'flex items-start gap-5'}>*/}
+                    {/*                    <div className={'w-3 aspect-square rounded-full bg-green'}>*/}
+
+                    {/*                    </div>*/}
+                    {/*                    <div className={'flex flex-col gap-4'}>*/}
+                    {/*                        <p className={'font-bold text-green leading-[80%]'}>{item.start} - {item.end}</p>*/}
+                    {/*                        <p className={'font-normal text-black leading-[80%]'}>Место работы: {item.placeName}</p>*/}
+                    {/*                        <p className={'font-normal text-black leading-[80%] pb-8'}>Должность: {item.post}</p>*/}
+                    {/*                    </div>*/}
+                    {/*                </div>*/}
+                    {/*            )*/}
+                    {/*        })}*/}
+
+                    {/*    </div>*/}
+                    {/*</div>*/}
                     <div className={'flex flex-col gap-6'}>
                         <p className={'uppercase font-inter font-extralight text-3xl'}>О себе и интересы</p>
                         <div className={'flex flex-col gap-4'}>
                             <p className={'font-bold text-black text-lg'}>Профессиональные интересы:</p>
-                            <p className={'text-black'}>современная медицина, заболевания опорно-двигательного аппарата,
-                                особенности терапии болевых синдромов различного происхождения, головные боли у
-                                детей</p>
+                            <p className={'text-black'}>{interests ? interests : 'Не указано'}</p>
                         </div>
                         <div className={'flex flex-col gap-4'}>
                             <p className={'font-bold text-black text-lg'}>О себе:</p>
-                            <p className={'text-black'}>Приветствую, я молодой дерматолог с широкими профессиональными
-                                интересами, включая современную медицину и заболевания опорно-двигательного аппарата.
-                                Мне также интересно изучение терапии болевых синдромов и головных болей у детей. Готова
-                                помочь вам улучшить ваше здоровье!</p>
+                            <p className={'text-black'}>{about ? about : 'Не указано'}</p>
                         </div>
                     </div>
-                    <div className={'flex gap-6 items-center'}>
-                        <img className={'aspect-square w-1/4'} src={`${images}/qr.png`}/>
-                        <div className={'flex flex-col gap-3'}>
-                            <p className={'font-bold text-black text-2xl'}>QR- код</p>
-                            <p className={'text-black text-sm'}>Чтобы увидеть вашу визитную карточку достаточно отсканировать этот QR-код</p>
-                            <div className={'flex w-full gap-4'}>
-                                <div className={'p-2 bg-green cursor-pointer flex items-center rounded-lg gap-2'}>
-                                    <p className={'text-white font-inter text-sm font-normal px-8'}>Открыть</p>
-                                </div>
-                                <div className={'p-2 border-green border-2 cursor-pointer flex items-center rounded-lg gap-2'}>
-                                    <p className={'text-green-two font-inter text-sm font-normal px-8'}>Скачать</p>
-                                </div>
+                    <div className={'flex items-center gap-12'}>
+                        <div className={'aspect-square w-1/3'}>
+                            <QRCode className={'w-full h-full'}
+                                    value={`https://www.pediatric-dermatology.ru/account/${user_uuid}/card/`}></QRCode>
+                        </div>
+                        <div className={'flex flex-col gap-4'}>
+                            <p className={'font-bold text-2xl'}>QR-код</p>
+                            <p>Чтобы увидеть вашу визитную карточку достаточно отсканировать этот QR-код</p>
+                            <div className={'flex items-center gap-4'}>
+                                <Link href={`https://www.pediatric-dermatology.ru/account/${user_uuid}/card/`} className={'flex items-center justify-center font-bold text-white rounded-lg bg-green p-2 px-10'}>
+                                    Открыть
+                                </Link>
                             </div>
                         </div>
+
                     </div>
                 </div>
-                <div className={'flex px-8 flex-col'}>
+                <div className={'flex px-8 flex-col gap-10'}>
                     <p className={'font-bold text-xl text-black'}>Награды</p>
-                    <div className={'grid grid-cols-4 mt-4 gap-8'}>
-                        <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`}
-                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
-                            <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
-                        </div>
-                        <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`}
-                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
-                            <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
-                        </div>
-                        <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`}
-                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
-                            <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
-                        </div>
-                        <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`}
-                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
-                            <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
-                        </div>
-                        <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`}
-                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
-                            <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
-                        </div>
-                        <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`}
-                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
-                            <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
-                        </div>
-                        <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`}
-                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
-                            <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
-                        </div>
-                        <div className={'flex flex-col gap-3 items-center'}>
-                            <img src={`${images}/temp_certificate.png`}
-                                 className={'rounded-full cursor-pointer aspect-square object-cover'}/>
-                            <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>
-                        </div>
-
+                    <div className={'flex h-52 border-[1px] border-green rounded-lg items-center justify-center'}>
+                        <p className={'opacity-50'}>Награды не найдены</p>
                     </div>
+                    {/*<div className={'grid grid-cols-4 mt-4 gap-8'}>*/}
+                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
+                    {/*        <img src={`${images}/temp_certificate.png`}*/}
+                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
+                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
+                    {/*    </div>*/}
+                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
+                    {/*        <img src={`${images}/temp_certificate.png`}*/}
+                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
+                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
+                    {/*    </div>*/}
+                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
+                    {/*        <img src={`${images}/temp_certificate.png`}*/}
+                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
+                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
+                    {/*    </div>*/}
+                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
+                    {/*        <img src={`${images}/temp_certificate.png`}*/}
+                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
+                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
+                    {/*    </div>*/}
+                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
+                    {/*        <img src={`${images}/temp_certificate.png`}*/}
+                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
+                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
+                    {/*    </div>*/}
+                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
+                    {/*        <img src={`${images}/temp_certificate.png`}*/}
+                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
+                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
+                    {/*    </div>*/}
+                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
+                    {/*        <img src={`${images}/temp_certificate.png`}*/}
+                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
+                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
+                    {/*    </div>*/}
+                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
+                    {/*        <img src={`${images}/temp_certificate.png`}*/}
+                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
+                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
+                    {/*    </div>*/}
+
+                    {/*</div>*/}
                     <div className={'flex flex-col gap-10 mt-8'}>
                         <p className={'font-bold text-xl text-black'}>Научные работы</p>
-                        <PublicationTab></PublicationTab>
-                        <PublicationTab></PublicationTab>
-                        <PublicationTab></PublicationTab>
-
+                        <div className={'flex h-52 border-[1px] border-green rounded-lg items-center justify-center'}>
+                            <p className={'opacity-50'}>Публикации не найдены</p>
+                        </div>
                     </div>
                 </div>
             </div>

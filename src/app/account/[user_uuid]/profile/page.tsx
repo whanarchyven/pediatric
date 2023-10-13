@@ -28,6 +28,7 @@ import ShowEducationPop from "@/components/ShowEducationPop";
 import DragNDrop from "@/components/DragNDrop";
 import {uploadFile} from "@/helpers/uploadFile";
 import {classList} from "@/helpers/classList";
+import NewCareerPop from "@/components/NewCareerPop";
 // import required modules
 
 
@@ -47,10 +48,14 @@ export default function Home(params: { params: { user_uuid: string } }) {
         gender,
         specialty,
         birthDate,
-        photoUrl, education, about,interests
+        photoUrl, education, about,interests,career,position
     } = data?.profile ?? {} as any;
 
     console.log(data);
+
+    const publications=useEden(()=>eden.user[user_uuid].publication.list["own-published"].get())
+
+    console.log(publications)
 
     const [profile, setProfile] = useState({
         lastName: lastName,
@@ -64,7 +69,8 @@ export default function Home(params: { params: { user_uuid: string } }) {
         birthDate: birthDate ? birthDate : 'Не указано',
         specialty: specialty ? specialty : 'Не указано',
         about:about?about:'Не указано',
-        interests:interests?interests:'Не указано'
+        interests:interests?interests:'Не указано',
+        position:position?position:'Не указано'
     })
 
     const mutateProfile = <T extends keyof typeof profile>(key: T, newValue: typeof profile[T]) => {
@@ -72,31 +78,6 @@ export default function Home(params: { params: { user_uuid: string } }) {
         temp[key] = newValue;
         setProfile({...temp})
     }
-
-    const [educationTemp, setEducationTemp] = useState({
-        degree: 'Доктор наук',
-        post: 'Профессор',
-        colleges: [
-            {
-                id: 1,
-                yearStart: 1992,
-                yearEnd: 1996,
-                university: 'МГУ',
-                faculty: 'Биохимический факультет',
-                degree: 'Бакалавриат',
-                diploma: '/diplom.pdf'
-            },
-            {
-                id: 2,
-                yearStart: 1997,
-                yearEnd: 1999,
-                university: 'СПБГУ',
-                faculty: 'Медицинский факультет',
-                degree: 'Магистратура',
-                diploma: '/diplom.pdf'
-            }
-        ]
-    })
 
 
     const [educationPop, setEducationPop] = useState(false);
@@ -115,7 +96,8 @@ export default function Home(params: { params: { user_uuid: string } }) {
             birthDate: birthDate,
             specialty: specialty,
             about: about,
-            interests:interests
+            interests:interests,
+            position: position
         })
     }
 
@@ -160,6 +142,8 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const [avatarUpdated,setAvatarUpdated]=useState(false)
 
 
+    const [newCareerPop,setNewCareerPop]=useState(false)
+
     return (
         <main className={'p-12'}>
             {educationPop ? <EducationPop education={education} email={email} user_uuid={
@@ -171,6 +155,10 @@ export default function Home(params: { params: { user_uuid: string } }) {
             {educationShowOpen ? <ShowEducationPop closeFunc={() => {
                 setEducationShowOpen(false)
             }} education={currentEducationShow} counter={currentEducationShowCounter}/> : null}
+
+
+            {newCareerPop?<NewCareerPop closeFunc={()=>{setNewCareerPop(false)}} afterPostCallback={()=>{}} user_uuid={user_uuid} email={email} career={career}/>:null}
+
             <div className={'flex justify-between'}>
                 <p className={'uppercase font-inter font-extralight text-3xl'}>Основные данные</p>
                 {!isEditor ? <div onClick={() => {
@@ -187,7 +175,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                 </div>}
             </div>
             <div className={'w-full mt-10 grid grid-cols-2'}>
-                <div className={' flex flex-col pr-8 gap-16 border-green'}>
+                <div className={' flex flex-col pr-8 gap-16 border-r-[1px] border-green'}>
                     <div className={'flex gap-8 items-start'}>
                         {isEditor ? <div className={'w-1/4 relative'}>{photoUrl ?
                             <div><img className={'rounded-full aspect-square object-cover w-full'}
@@ -196,7 +184,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                                     className={'absolute z-[30] bg-white w-full h-full top-0 left-0 bg-opacity-50 backdrop-blur-sm flex flex-col gap-5 items-center justify-center rounded-full'}>
                                     <DragNDrop setFile={setTempPhotoUrl}/>
                                     <div
-                                        className={classList('flex justify-center items-center rounded-lg p-2 cursor-pointer font-bold border-2 border-green-two',avatarUpdated?'bg-green-two text-white':'bg-white text-green-two')}
+                                        className={classList('flex justify-center items-center rounded-lg p-2 cursor-pointer font-bold border-2 border-green',avatarUpdated?'bg-green text-white':'bg-white text-green')}
                                         onClick={async () => {
                                             if (tempPhotoUrl) {
                                                 const photo = await uploadFile(tempPhotoUrl)
@@ -213,7 +201,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                                     className={'absolute z-[30] bg-white w-full h-full top-0 left-0 bg-opacity-50 backdrop-blur-sm flex flex-col gap-5 items-center justify-center rounded-full'}>
                                     <DragNDrop setFile={setTempPhotoUrl}/>
                                     <div
-                                        className={classList('flex justify-center items-center rounded-lg p-2 cursor-pointer font-bold border-2 border-green-two',avatarUpdated?'bg-green-two text-white':'bg-white text-green-two')}
+                                        className={classList('flex justify-center items-center rounded-lg p-2 cursor-pointer font-bold border-2 border-green',avatarUpdated?'bg-green text-white':'bg-white text-green')}
                                         onClick={async () => {
                                             if (tempPhotoUrl) {
                                                 const photo = await uploadFile(tempPhotoUrl)
@@ -232,23 +220,23 @@ export default function Home(params: { params: { user_uuid: string } }) {
                         </div>}
                         <div className={'flex w-full flex-col gap-3'}>
                             {!isEditor ?
-                                <p className={'text-green-two text-2xl font-bold'}>{lastName} {firstName} {middleName}</p> :
+                                <p className={'text-green text-2xl font-bold'}>{lastName} {firstName} {middleName}</p> :
                                 <div className={'flex flex-col gap-3'}>
                                     <input value={profile.lastName}
                                            onChange={(event) => {
                                                mutateProfile('lastName', event.target.value)
                                            }} placeholder={profile.lastName}
-                                           className={'text-green-two px-2 border-green border-2 text-2xl rounded-lg font-bold'}></input>
+                                           className={'text-green px-2 border-green border-2 text-2xl rounded-lg font-bold'}></input>
                                     <input value={profile.firstName}
                                            onChange={(event) => {
                                                mutateProfile('firstName', event.target.value)
                                            }} placeholder={profile.firstName}
-                                           className={'text-green-two px-2 border-green border-2 text-2xl rounded-lg font-bold'}></input>
+                                           className={'text-green px-2 border-green border-2 text-2xl rounded-lg font-bold'}></input>
                                     <input value={profile.middleName}
                                            onChange={(event) => {
                                                mutateProfile('middleName', event.target.value)
                                            }} placeholder={profile.middleName}
-                                           className={'text-green-two px-2 border-green border-2 text-2xl rounded-lg font-bold'}></input>
+                                           className={'text-green px-2 border-green border-2 text-2xl rounded-lg font-bold'}></input>
                                 </div>}
                             <div className={'flex gap-3 font-inter text-black items-center'}>
                                 <img className={'w-5'} src={`${images}/phone.svg`}/>
@@ -303,13 +291,13 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
                             <div className={'flex items-center  gap-3'}>
                                 <div
-                                    className={'border-2 border-green-two rounded-full font-light px-5 text-green-two text-sm p-2 flex items-center justify-center'}>
+                                    className={'border-2 border-green rounded-full font-light px-5 text-green text-sm p-2 flex items-center justify-center'}>
                                     {specialty}
                                 </div>
-                                <div
-                                    className={'border-2 border-green-two rounded-full font-light px-5 text-green-two text-sm p-2 flex items-center justify-center'}>
-                                    Стаж 21 год
-                                </div>
+                                {/*<div*/}
+                                {/*    className={'border-2 border-green rounded-full font-light px-5 text-green text-sm p-2 flex items-center justify-center'}>*/}
+                                {/*    Стаж 21 год*/}
+                                {/*</div>*/}
                             </div>
                         </div>
                     </div>
@@ -318,7 +306,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                             <p className={'uppercase font-inter font-extralight text-3xl'}>Образование</p>
                             {isEditor ? <div onClick={() => {
                                 setEducationPop(true)
-                            }} className={'bg-green-two text-white cursor-pointer font-normal p-3 rounded-lg'}>Добавить
+                            }} className={'bg-green text-white cursor-pointer font-normal p-3 rounded-lg'}>Добавить
                                 +</div> : null}
                         </div>
                         <div className={'w-4/5 flex flex-col gap-2'}>
@@ -344,56 +332,47 @@ export default function Home(params: { params: { user_uuid: string } }) {
                         </div>
                     </div>
                     <div className={'flex flex-col'}>
-                        {/*<p className={'uppercase font-inter font-extralight mb-6 text-3xl'}>Карьера</p>*/}
-                        {/*<div className={'grid gap-4 mb-6 w-4/5 grid-cols-2'}>*/}
-                        {/*    <p className={' font-bold'}>Опыт работы:</p>*/}
-                        {/*    <p className={''}>21 год</p>*/}
-                        {/*</div>*/}
-                        {/*<div className={'relative flex flex-col gap-7'}>*/}
-                        {/*    <div className={'h-full absolute left-1.5 w-[1px] bg-green'}>*/}
+                        <div className={'flex mb-6 items-center gap-7'}>
+                            <p className={'uppercase font-inter font-extralight text-3xl'}>Карьера</p>
+                            {isEditor?<div onClick={() => {
+                                setNewCareerPop(true)
+                            }} className={'bg-green text-white cursor-pointer font-normal p-3 rounded-lg'}>Добавить
+                                +</div>:null}
+                        </div>
+                        <div className={'grid gap-4 mb-6 w-4/5 grid-cols-2'}>
+                            <p className={' font-bold'}>Текущая должность</p>
+                            {isEditor?<input value={profile.position}
+                                             onChange={(event) => {
+                                                 mutateProfile('position', event.target.value)
+                                             }} placeholder={profile.position}
+                                             className={'font-normal px-2 border-green border-2 rounded-lg'}></input>:<p className={''}>{position}</p>}
+                        </div>
+                        <div className={'relative flex flex-col gap-7'}>
+                            <div className={'h-full absolute left-1.5 w-[1px] bg-green'}>
 
-                        {/*    </div>*/}
-                        {/*    <div className={'flex items-start gap-5'}>*/}
-                        {/*        <div className={'w-3 aspect-square rounded-full bg-green'}>*/}
+                            </div>
+                            {career?.map((item:{
+                                placeName: string;
+                                start: string;
+                                end: string;
+                                post: string;
+                                description: string;
+                            },counter:number)=>{
+                                return(
+                                    <div key={counter} className={'flex items-start gap-5'}>
+                                        <div className={'w-3 aspect-square rounded-full bg-green'}>
 
-                        {/*        </div>*/}
-                        {/*        <div className={'flex flex-col gap-4'}>*/}
-                        {/*            <p className={'font-bold text-green-two leading-[80%]'}>Январь 2022 - Июнь 2023</p>*/}
-                        {/*            <p className={'font-normal text-black leading-[80%]'}>Место работы: Нцзд</p>*/}
-                        {/*            <p className={'font-normal text-black leading-[80%] pb-8'}>Должность: врач</p>*/}
-                        {/*        </div>*/}
-                        {/*    </div>*/}
-                        {/*    <div className={'flex items-start gap-5'}>*/}
-                        {/*        <div className={'w-3 aspect-square rounded-full bg-green'}>*/}
+                                        </div>
+                                        <div className={'flex flex-col gap-4'}>
+                                            <p className={'font-bold text-green leading-[80%]'}>{item.start} - {item.end}</p>
+                                            <p className={'font-normal text-black leading-[80%]'}>Место работы: {item.placeName}</p>
+                                            <p className={'font-normal text-black leading-[80%] pb-8'}>Должность: {item.post}</p>
+                                        </div>
+                                    </div>
+                                )
+                            })}
 
-                        {/*        </div>*/}
-                        {/*        <div className={'flex flex-col gap-4'}>*/}
-                        {/*            <p className={'font-bold text-green-two leading-[80%]'}>Январь 2021 - Июнь 2022</p>*/}
-                        {/*            <p className={'font-normal text-black leading-[80%]'}>Место работы: Нцзд</p>*/}
-                        {/*            <p className={'font-normal text-black leading-[80%] pb-8'}>Должность: врач</p>*/}
-                        {/*        </div>*/}
-                        {/*    </div>*/}
-                        {/*    <div className={'flex items-start gap-5'}>*/}
-                        {/*        <div className={'w-3 aspect-square rounded-full bg-green'}>*/}
-
-                        {/*        </div>*/}
-                        {/*        <div className={'flex flex-col gap-4'}>*/}
-                        {/*            <p className={'font-bold text-green-two leading-[80%]'}>Январь 2020 - Июнь 2021</p>*/}
-                        {/*            <p className={'font-normal text-black leading-[80%]'}>Место работы: Нцзд</p>*/}
-                        {/*            <p className={'font-normal text-black leading-[80%] pb-8'}>Должность: врач</p>*/}
-                        {/*        </div>*/}
-                        {/*    </div>*/}
-                        {/*    <div className={'flex items-start gap-5'}>*/}
-                        {/*        <div className={'w-3 aspect-square rounded-full bg-green'}>*/}
-
-                        {/*        </div>*/}
-                        {/*        <div className={'flex flex-col gap-4'}>*/}
-                        {/*            <p className={'font-bold text-green-two leading-[80%]'}>Январь 2019 - Июнь 2020</p>*/}
-                        {/*            <p className={'font-normal text-black leading-[80%]'}>Место работы: Нцзд</p>*/}
-                        {/*            <p className={'font-normal text-black leading-[80%]'}>Должность: врач</p>*/}
-                        {/*        </div>*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
+                        </div>
                     </div>
                     <div className={'flex flex-col gap-6'}>
                         <p className={'uppercase font-inter font-extralight text-3xl'}>О себе и интересы</p>
@@ -407,8 +386,11 @@ export default function Home(params: { params: { user_uuid: string } }) {
                         </div>
                     </div>
                 </div>
-                <div className={'flex px-8 flex-col'}>
-                    {/*<p className={'font-bold text-xl text-black'}>Награды</p>*/}
+                <div className={'flex px-8 flex-col gap-10'}>
+                    <p className={'font-bold text-xl text-black'}>Награды</p>
+                    <div className={'flex h-52 border-[1px] border-green rounded-lg items-center justify-center'}>
+                        <p className={'opacity-50'}>Награды не найдены</p>
+                    </div>
                     {/*<div className={'grid grid-cols-4 mt-4 gap-8'}>*/}
                     {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
                     {/*        <img src={`${images}/temp_certificate.png`}*/}
@@ -453,13 +435,10 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
                     {/*</div>*/}
                     <div className={'flex flex-col gap-10 mt-8'}>
-                        {/*<p className={'font-bold text-xl text-black'}>Научные работы</p>*/}
-                        {/*<PublicationTab></PublicationTab>*/}
-                        {/*<PublicationTab></PublicationTab>*/}
-                        {/*<PublicationTab></PublicationTab>*/}
-                        {/*<PublicationTab></PublicationTab>*/}
-                        {/*<PublicationTab></PublicationTab>*/}
-                        {/*<PublicationTab></PublicationTab>*/}
+                        <p className={'font-bold text-xl text-black'}>Научные работы</p>
+                        <div className={'flex h-52 border-[1px] border-green rounded-lg items-center justify-center'}>
+                            <p className={'opacity-50'}>Публикации не найдены</p>
+                        </div>
                     </div>
                 </div>
             </div>

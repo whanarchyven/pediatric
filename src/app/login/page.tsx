@@ -48,17 +48,17 @@ export default function Home() {
     const [password,setPassword]=useState("")
     const doLogin = ()=>{
         eden.auth.login.post({email,password}).then(({data})=>{
-        
-            if (data.user_uuid){
-                const userUuid = data.user_uuid;
+
+            if (data?.user_uuid){
+                const userUuid = data?.user_uuid;
                 router.push(`/account/${userUuid}/profile`)
             }
-            if (data.error) {
-                
-                return setShowWarning(data.error??"Неправильные логин или пароль")
+            if (data?.error) {
+
+                return setShowWarning(data?.error??"Неправильные логин или пароль")
             }
-           
-            
+
+
         }).catch(e=>{
             setShowWarning("Неправильные логин или пароль")
         })

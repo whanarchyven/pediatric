@@ -1,4 +1,4 @@
-
+"use client"
 import React, {useEffect, useState} from "react";
 import Slider from "@/components/Slider";
 import VideoPlayer from "@/components/VideoPlayer";
@@ -35,31 +35,36 @@ export default function Home() {
                 </div>
 
             </div>
-            <div className={'w-full mt-10 flex flex-col gap-20'}>
-                <div className={'border-b-[1px] border-opacity-50 pb-10 border-green'}>
-                    <PublicationTab isAuthorsHidden={true} isRateHidden={true}></PublicationTab>
+            <div className={'flex flex-col gap-10 mt-8'}>
+                <div className={'flex h-52 border-[1px] border-green rounded-lg items-center justify-center'}>
+                    <p className={'opacity-50'}>Сертификаты не найдены</p>
                 </div>
             </div>
-            <div className={'w-full mt-10 flex flex-col gap-20'}>
-                <div className={'border-b-[1px] border-opacity-50 pb-10 border-green'}>
-                    <PublicationTab isAuthorsHidden={true} isRateHidden={true}></PublicationTab>
-                </div>
-            </div>
-            <div className={'w-full mt-10 flex flex-col gap-20'}>
-                <div className={'border-b-[1px] border-opacity-50 pb-10 border-green'}>
-                    <PublicationTab isAuthorsHidden={true} isRateHidden={true}></PublicationTab>
-                </div>
-            </div>
-            <div className={'w-full mt-10 flex flex-col gap-20'}>
-                <div className={'border-b-[1px] border-opacity-50 pb-10 border-green'}>
-                    <PublicationTab isAuthorsHidden={true} isRateHidden={true}></PublicationTab>
-                </div>
-            </div>
-            <div className={'w-full mt-10 flex flex-col gap-20'}>
-                <div className={'border-b-[1px] border-opacity-50 pb-10 border-green'}>
-                    <PublicationTab isAuthorsHidden={true} isRateHidden={true}></PublicationTab>
-                </div>
-            </div>
+            {/*<div className={'w-full mt-10 flex flex-col gap-20'}>*/}
+            {/*    <div className={'border-b-[1px] border-opacity-50 pb-10 border-green'}>*/}
+            {/*        <PublicationTab isAuthorsHidden={true} isRateHidden={true}></PublicationTab>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+            {/*<div className={'w-full mt-10 flex flex-col gap-20'}>*/}
+            {/*    <div className={'border-b-[1px] border-opacity-50 pb-10 border-green'}>*/}
+            {/*        <PublicationTab isAuthorsHidden={true} isRateHidden={true}></PublicationTab>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+            {/*<div className={'w-full mt-10 flex flex-col gap-20'}>*/}
+            {/*    <div className={'border-b-[1px] border-opacity-50 pb-10 border-green'}>*/}
+            {/*        <PublicationTab isAuthorsHidden={true} isRateHidden={true}></PublicationTab>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+            {/*<div className={'w-full mt-10 flex flex-col gap-20'}>*/}
+            {/*    <div className={'border-b-[1px] border-opacity-50 pb-10 border-green'}>*/}
+            {/*        <PublicationTab isAuthorsHidden={true} isRateHidden={true}></PublicationTab>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+            {/*<div className={'w-full mt-10 flex flex-col gap-20'}>*/}
+            {/*    <div className={'border-b-[1px] border-opacity-50 pb-10 border-green'}>*/}
+            {/*        <PublicationTab isAuthorsHidden={true} isRateHidden={true}></PublicationTab>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
         </main>
     )
 }
