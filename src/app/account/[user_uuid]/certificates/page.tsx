@@ -26,8 +26,8 @@ export default function Home() {
     const images = '/pages/account'
 
     return (
-        <main className={'p-12'}>
-            <div className={'flex items-center gap-12'}>
+        <main className={'p-2 lg:p-12'}>
+            <div className={'flex lg:flex-row flex-col lg:items-center gap-12'}>
                 <p className={'uppercase font-inter font-extralight text-3xl'}>Мои <br/><span
                     className={'font-extrabold'}>Сертификаты</span></p>
                 <div className={'bg-green h-12 cursor-pointer flex items-center rounded-lg gap-2'}>

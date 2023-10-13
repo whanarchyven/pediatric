@@ -266,7 +266,7 @@ const Calendar = () => {
                         <div
                             className={'flex items-center gap-4 font-extralight text-3xl flex-col text-center justify-center w-full h-full text-green-two'}>
                             <img className={'w-20 aspect-square'} src={`/pages/main/calendar.svg`}/>
-                            <p className={''}>
+                            <p className={'lg:text-base text-xl'}>
                                 Выберите дату в календаре, чтобы посмотреть мероприятие
                             </p>
 

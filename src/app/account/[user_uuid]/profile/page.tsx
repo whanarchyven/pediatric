@@ -50,7 +50,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
         gender,
         specialty,
         birthDate,
-        photoUrl, education, about, interests, career, position
+        photoUrl, education, about, interests, career, position,uuid
     } = data?.profile ?? {} as any;
 
     console.log(data);
@@ -130,11 +130,12 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
     const [isEditor, setIsEditor] = useState(false)
 
-    const updateProfile = async () => {
-        eden.user[user_uuid].profile.post({uuid: user_uuid, ...profile}).then((res) => {
+    const updateProfile = async (photoUrl:string) => {
+        eden.user[user_uuid].profile.post({uuid: user_uuid, ...profile,photoUrl}).then((res) => {
             console.log(res)
             setIsEditor(false)
         })
+        window.location.reload();
     }
 
     const [currentEducationShow, setCurrentEducationShow] = useState<typeof education[0]>()
@@ -154,7 +155,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
 
     return (
-        <main className={'p-12'}>
+        <main className={'p-2 lg:p-12'}>
             {educationPop ? <EducationPop education={education} email={email} user_uuid={
                 user_uuid
             } afterPostCallback={() => {
@@ -175,43 +176,50 @@ export default function Home(params: { params: { user_uuid: string } }) {
                 setPublicationPop(false)
             }}/> : null}
 
-            <div className={'flex justify-between'}>
-                <p className={'uppercase font-inter font-extralight text-3xl'}>Основные данные</p>
+            <div className={'flex lg:flex-row flex-col gap-2 lg:justify-between'}>
+                <p className={'uppercase font-inter font-extralight text-2xl lg:text-3xl'}>Основные данные</p>
                 {!isEditor ? <div onClick={() => {
                         initializeTempData();
                         setIsEditor(true)
-                    }} className={'p-2 bg-green cursor-pointer flex items-center rounded-lg gap-2'}>
+                    }} className={'p-2 bg-green cursor-pointer w-fit flex items-center rounded-lg gap-2'}>
                         <img className={'w-4 aspect-square'} src={`${images}/edit.svg`}/>
-                        <p className={'text-white font-inter font-normal'}>Редактировать профиль</p>
+                        <p className={'text-white font-inter lg:text-base text-xs font-normal'}>Редактировать профиль</p>
                     </div>
                     :
                     <div onClick={async () => {
-                        updateProfile();
+                        if(tempPhotoUrl){
+                            await uploadFile(tempPhotoUrl).then((res)=>{
+                                updateProfile(res);
+                            })
+                        }
+                        else{
+                            updateProfile(photoUrl);
+                        }
                     }} className={'p-2 bg-green cursor-pointer flex items-center rounded-lg gap-2'}>
                         <img className={'w-6 aspect-square'} src={`/done.svg`}/>
                         <p className={'text-white font-inter font-normal'}>Сохранить изменения</p>
                     </div>
                 }
             </div>
-            <div className={'w-full mt-10 grid grid-cols-2'}>
-                <div className={' flex flex-col pr-8 gap-16 border-r-[1px] border-green'}>
-                    <div className={'flex gap-8 items-start'}>
-                        {isEditor ? <div className={'w-1/4 relative'}>{photoUrl ?
+            <div className={'w-full mt-10 grid lg:grid-cols-2'}>
+                <div className={'flex w-full flex-col lg:pr-8 gap-16 border-r-[1px] border-green'}>
+                    <div className={'flex lg:flex-row flex-col gap-8 items-start'}>
+                        {isEditor ? <div className={'lg:w-1/4 w-1/2 relative'}>{photoUrl ?
                             <div><img className={'rounded-full aspect-square object-cover w-full'}
                                       src={photoUrl}/>
                                 <div
                                     className={'absolute z-[30] bg-white w-full h-full top-0 left-0 bg-opacity-50 backdrop-blur-sm flex flex-col gap-5 items-center justify-center rounded-full'}>
                                     <DragNDrop setFile={setTempPhotoUrl}/>
-                                    <div
-                                        className={classList('flex justify-center items-center rounded-lg p-2 cursor-pointer font-bold border-2 border-green', avatarUpdated ? 'bg-green text-white' : 'bg-white text-green')}
-                                        onClick={async () => {
-                                            if (tempPhotoUrl) {
-                                                const photo = await uploadFile(tempPhotoUrl)
-                                                mutateProfile('photoUrl', photo)
-                                                setAvatarUpdated(true)
-                                            }
-                                        }}>{avatarUpdated ? 'Обновлено!' : 'Обновить'}
-                                    </div>
+                                    {/*<div*/}
+                                    {/*    className={classList('flex justify-center items-center rounded-lg p-2 cursor-pointer font-bold border-2 border-green', avatarUpdated ? 'bg-green text-white' : 'bg-white text-green')}*/}
+                                    {/*    onClick={async () => {*/}
+                                    {/*        if (tempPhotoUrl) {*/}
+                                    {/*            const photo = await uploadFile(tempPhotoUrl)*/}
+                                    {/*            mutateProfile('photoUrl', photo)*/}
+                                    {/*            setAvatarUpdated(true)*/}
+                                    {/*        }*/}
+                                    {/*    }}>{avatarUpdated ? 'Обновлено!' : 'Обновить'}*/}
+                                    {/*</div>*/}
                                 </div>
                             </div> :
                             <div><img className={'rounded-full aspect-square object-cover w-full'}
@@ -219,19 +227,19 @@ export default function Home(params: { params: { user_uuid: string } }) {
                                 <div
                                     className={'absolute z-[30] bg-white w-full h-full top-0 left-0 bg-opacity-50 backdrop-blur-sm flex flex-col gap-5 items-center justify-center rounded-full'}>
                                     <DragNDrop setFile={setTempPhotoUrl}/>
-                                    <div
-                                        className={classList('flex justify-center items-center rounded-lg p-2 cursor-pointer font-bold border-2 border-green', avatarUpdated ? 'bg-green text-white' : 'bg-white text-green')}
-                                        onClick={async () => {
-                                            if (tempPhotoUrl) {
-                                                const photo = await uploadFile(tempPhotoUrl)
-                                                mutateProfile('photoUrl', photo)
-                                                setAvatarUpdated(true)
-                                            }
-                                        }}>{avatarUpdated ? 'Обновлено!' : 'Обновить'}
-                                    </div>
+                                    {/*<div*/}
+                                    {/*    className={classList('flex justify-center items-center rounded-lg p-2 cursor-pointer font-bold border-2 border-green', avatarUpdated ? 'bg-green text-white' : 'bg-white text-green')}*/}
+                                    {/*    onClick={async () => {*/}
+                                    {/*        if (tempPhotoUrl) {*/}
+                                    {/*            const photo = await uploadFile(tempPhotoUrl)*/}
+                                    {/*            mutateProfile('photoUrl', photo)*/}
+                                    {/*            setAvatarUpdated(true)*/}
+                                    {/*        }*/}
+                                    {/*    }}>{avatarUpdated ? 'Обновлено!' : 'Обновить'}*/}
+                                    {/*</div>*/}
                                 </div>
                             </div>}
-                        </div> : <div className={'w-1/4'}>
+                        </div> : <div className={'lg:w-1/4 w-1/2'}>
                             {photoUrl ? <img className={'rounded-full aspect-square object-cover w-full'}
                                              src={photoUrl}/> :
                                 <img className={'rounded-full aspect-square object-cover w-full'}
@@ -239,23 +247,23 @@ export default function Home(params: { params: { user_uuid: string } }) {
                         </div>}
                         <div className={'flex w-full flex-col gap-3'}>
                             {!isEditor ?
-                                <p className={'text-green text-2xl font-bold'}>{lastName} {firstName} {middleName}</p> :
-                                <div className={'flex flex-col gap-3'}>
+                                <p className={'text-green text-2xl whitespace-normal font-bold'}>{lastName} {firstName} {middleName}</p> :
+                                <div className={'flex flex-col w-full gap-3'}>
                                     <input value={profile.lastName}
                                            onChange={(event) => {
                                                mutateProfile('lastName', event.target.value)
-                                           }} placeholder={profile.lastName}
-                                           className={'text-green px-2 border-green border-2 text-2xl rounded-lg font-bold'}></input>
+                                           }} placeholder={'Фамилия'}
+                                           className={'text-green px-2 border-green border-2 text-xl lg:text-2xl rounded-lg font-bold'}></input>
                                     <input value={profile.firstName}
                                            onChange={(event) => {
                                                mutateProfile('firstName', event.target.value)
-                                           }} placeholder={profile.firstName}
-                                           className={'text-green px-2 border-green border-2 text-2xl rounded-lg font-bold'}></input>
+                                           }} placeholder={"Имя"}
+                                           className={'text-green px-2 border-green border-2 text-xl lg:text-2xl rounded-lg font-bold'}></input>
                                     <input value={profile.middleName}
                                            onChange={(event) => {
                                                mutateProfile('middleName', event.target.value)
-                                           }} placeholder={profile.middleName}
-                                           className={'text-green px-2 border-green border-2 text-2xl rounded-lg font-bold'}></input>
+                                           }} placeholder={"Отчество"}
+                                           className={'text-green px-2 border-green border-2 text-xl lg:text-2xl rounded-lg font-bold'}></input>
                                 </div>}
                             <div className={'flex gap-3 font-inter text-black items-center'}>
                                 <img className={'w-5'} src={`${images}/phone.svg`}/>
@@ -322,24 +330,34 @@ export default function Home(params: { params: { user_uuid: string } }) {
                     </div>
                     <div className={'flex flex-col gap-2'}>
                         <div className={'flex mb-6 gap-7 items-center'}>
-                            <p className={'uppercase font-inter font-extralight text-3xl'}>Образование</p>
+                            <p className={'uppercase font-inter font-extralight text-2xl lg:text-3xl'}>Образование</p>
                             {isEditor ? <div onClick={() => {
                                 setEducationPop(true)
-                            }} className={'bg-green text-white cursor-pointer font-normal p-3 rounded-lg'}>Добавить
+                            }} className={'bg-green text-white cursor-pointer font-normal p-2 lg:text-base text-sm lg text-sm lg:text-base p-2:lg:p-3 rounded-lg'}>Добавить
                                 +</div> : null}
                         </div>
                         <div className={'w-4/5 flex flex-col gap-2'}>
                             {education?.map((item: typeof education[0], counter: number) => {
                                 return (
                                     <div key={counter} className={'w-full grid grid-cols-2 gap-3'}>
-                                        <p className={'font-bold'}>{counter + 1} образование</p>
+                                        <p className={'font-bold text-sm lg:text-base'}>{counter + 1} образование</p>
                                         <div className={'flex items-start gap-3'}>
-                                            <p>{item.faculty} факультет {item.university}</p>
-                                            <img onClick={() => {
+                                            <p className={'lg:text-base text-xs'}>{item.faculty} факультет {item.university}</p>
+                                            {!isEditor?<img onClick={() => {
                                                 setCurrentEducationShow(item)
                                                 setCurrentEducationShowCounter(counter + 1)
                                                 setEducationShowOpen(true)
-                                            }} className={'w-5 cursor-pointer aspect-square'} src={'/info.svg'}/>
+                                            }} className={'w-5 cursor-pointer aspect-square'} src={'/info.svg'}/>:<img onClick={async () => {
+                                                let temp=[...education]
+                                                let index=temp.findIndex(ed=>ed==item)
+                                                temp.splice(index,1)
+                                                eden.user[user_uuid].profile.post({
+                                                    uuid: user_uuid, education: [...temp],email:email
+                                                }).then((res)=>{
+                                                    console.log(res)
+                                                    window.location.reload();
+                                                })
+                                            }} className={'w-5 -mt-1 cursor-pointer aspect-square'} src={'/close_black.svg'}/>}
                                         </div>
                                     </div>
                                 )
@@ -352,20 +370,20 @@ export default function Home(params: { params: { user_uuid: string } }) {
                     </div>
                     <div className={'flex flex-col'}>
                         <div className={'flex mb-6 items-center gap-7'}>
-                            <p className={'uppercase font-inter font-extralight text-3xl'}>Карьера</p>
+                            <p className={'uppercase font-inter font-extralight text-2xl lg:text-3xl'}>Карьера</p>
                             {isEditor ? <div onClick={() => {
                                 setNewCareerPop(true)
-                            }} className={'bg-green text-white cursor-pointer font-normal p-3 rounded-lg'}>Добавить
+                            }} className={'bg-green text-white cursor-pointer font-normal text-sm lg:text-base p-2 lg:p-3 rounded-lg'}>Добавить
                                 +</div> : null}
                         </div>
                         <div className={'grid gap-4 mb-6 w-4/5 grid-cols-2'}>
-                            <p className={' font-bold'}>Текущая должность</p>
+                            <p className={'lg:text-base text-sm font-bold'}>Текущая должность</p>
                             {isEditor ? <input value={profile.position}
                                                onChange={(event) => {
                                                    mutateProfile('position', event.target.value)
                                                }} placeholder={profile.position}
                                                className={'font-normal px-2 border-green border-2 rounded-lg'}></input> :
-                                <p className={''}>{position}</p>}
+                                <p className={'lg:text-base text-sm'}>{position}</p>}
                         </div>
                         <div className={'relative flex flex-col gap-7'}>
                             <div className={'h-full absolute left-1.5 w-[1px] bg-green'}>
@@ -384,15 +402,25 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
                                         </div>
                                         <div className={'flex flex-col gap-4'}>
-                                            <p className={'font-bold text-green leading-[80%]'}>{item.start} - {item.end}</p>
-                                            <p className={'font-normal text-black leading-[80%]'}>Место
+                                            <p className={'font-bold text-green lg:text-base text-sm lg:leading-[80%]'}>{item.start} - {item.end}</p>
+                                            <p className={'font-normal text-black lg:text-base text-sm lg:leading-[80%]'}>Место
                                                 работы: {item.placeName}</p>
-                                            <p className={'font-normal text-black leading-[80%] pb-8'}>Должность: {item.post}</p>
+                                            <p className={'font-normal text-black lg:text-base text-sm lg:leading-[80%] pb-8'}>Должность: {item.post}</p>
                                         </div>
-                                        <img onClick={() => {
+                                        {!isEditor?<img onClick={() => {
                                             setCurrentCareer(item)
                                             setShowCareerPop(true)
-                                        }} className={'w-5 -mt-1 cursor-pointer aspect-square'} src={'/info.svg'}/>
+                                        }} className={'w-5 -mt-1 cursor-pointer aspect-square'} src={'/info.svg'}/>:<img onClick={async () => {
+                                            let temp=[...career]
+                                            let index=temp.findIndex(car=>car==item)
+                                            temp.splice(index,1)
+                                            eden.user[user_uuid].profile.post({
+                                                uuid: user_uuid, career: [...temp],email:email
+                                            }).then((res)=>{
+                                                console.log(res)
+                                                window.location.reload();
+                                            })
+                                        }} className={'w-5 -mt-1 cursor-pointer aspect-square'} src={'/close_black.svg'}/>}
                                     </div>
                                 )
                             })}
@@ -400,7 +428,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                         </div>
                     </div>
                     <div className={'flex flex-col gap-6'}>
-                        <p className={'uppercase font-inter font-extralight text-3xl'}>О себе и интересы</p>
+                        <p className={'uppercase font-inter font-extralight text-2xl lg:text-3xl'}>О себе и интересы</p>
                         <div className={'flex flex-col gap-4'}>
                             <p className={'font-bold text-black text-lg'}>Профессиональные интересы:</p>
                             {isEditor ? <textarea className={'font-normal px-2 border-green border-2 rounded-lg'}
@@ -421,9 +449,9 @@ export default function Home(params: { params: { user_uuid: string } }) {
                         </div>
                     </div>
                 </div>
-                <div className={'flex px-8 flex-col gap-10'}>
+                <div className={'flex lg:px-8 max-w-screen lg:mt-0 mt-6 flex-col gap-10'}>
                     <p className={'font-bold text-xl text-black'}>Награды</p>
-                    <div className={'flex h-52 border-[1px] border-green rounded-lg items-center justify-center'}>
+                    <div className={'flex h-52 lg:border-[1px] border-green rounded-lg items-center justify-center'}>
                         <p className={'opacity-50'}>Награды не найдены</p>
                     </div>
                     {/*<div className={'grid grid-cols-4 mt-4 gap-8'}>*/}
@@ -474,14 +502,14 @@ export default function Home(params: { params: { user_uuid: string } }) {
                             <p className={'font-bold text-xl text-black'}>Научные работы</p>
                             <div onClick={() => {
                                 setPublicationPop(true)
-                            }} className={'bg-green text-white cursor-pointer font-normal p-3 rounded-lg'}>Добавить
+                            }} className={'bg-green text-white cursor-pointer font-normal text-sm lg:text-base p-2 lg:p-3 rounded-lg'}>Добавить
                                 +
                             </div>
                         </div>
                         {publications && publications.length > 0 ? <div className={'flex gap-12 flex-col'}>
                             {publications.map((publication:typeof publications[0])=>{
                                 return(
-                                    <PublicationTab {...publication} key={publication.title}></PublicationTab>
+                                    <PublicationTab user_uuid={uuid} {...publication} key={publication.title}></PublicationTab>
                                 )
                             })}
                         </div> : <div

@@ -33,14 +33,15 @@ const EducationPop = ({closeFunc,afterPostCallback,user_uuid,email,education}:ed
             console.log(res)
             closeFunc()
         })
+        window.location.reload();
     }
 
 
 
     return (
-        <div className={'fixed z-[999] w-full h-full left-0 top-0 bg-white bg-opacity-10 backdrop-blur-sm flex items-center justify-center'}>
-            <div className={'w-1/3 bg-white p-3 rounded-lg border-green-two border-2 flex gap-4 flex-col'}>
-                <div className={'flex justify-between'}>
+        <div className={'fixed z-[999] w-full h-full left-0 p-3 top-0 bg-white bg-opacity-10 backdrop-blur-sm flex items-center justify-center'}>
+            <div className={'lg:w-1/3 w-full overflow-y-scroll max-h-screen bg-white p-3 rounded-lg border-green border-2 flex gap-4 flex-col'}>
+                <div className={'flex items-start justify-between'}>
                     <p className={'font-bold text-3xl'}>Добавить данные об образовании</p>
                     <img onClick={()=>{closeFunc()}} className={'cursor-pointer'} src={'/close_black.svg'}/>
                 </div>
@@ -50,7 +51,7 @@ const EducationPop = ({closeFunc,afterPostCallback,user_uuid,email,education}:ed
                            onChange={(event) => {
                                setYearStart(Number(event.target.value))
                            }} placeholder={'Введите год'}
-                           className={'text-green-two p-2 border-green border-2 text-lg rounded-lg font-normal'}></input>
+                           className={'text-green p-2 border-green border-2 text-lg rounded-lg font-normal'}></input>
                 </div>
                 <div className={'flex flex-col gap-2'}>
                     <p className={'font-normal text-xl'}>Год окончания обучения</p>
@@ -58,7 +59,7 @@ const EducationPop = ({closeFunc,afterPostCallback,user_uuid,email,education}:ed
                            onChange={(event) => {
                                setYearEnd(Number(event.target.value))
                            }} placeholder={'Введите год'}
-                           className={'text-green-two p-2 border-green border-2 text-lg rounded-lg font-normal'}></input>
+                           className={'text-green p-2 border-green border-2 text-lg rounded-lg font-normal'}></input>
                 </div>
                 <div className={'flex flex-col gap-2'}>
                     <p className={'font-normal text-xl'}>Наименование учебного заведения</p>
@@ -66,7 +67,7 @@ const EducationPop = ({closeFunc,afterPostCallback,user_uuid,email,education}:ed
                            onChange={(event) => {
                                setUniversity(event.target.value)
                            }} placeholder={'Полное название ВУЗ\'а'}
-                           className={'text-green-two p-2 border-green border-2 text-lg rounded-lg font-normal'}></input>
+                           className={'text-green p-2 border-green border-2 text-lg rounded-lg font-normal'}></input>
                 </div>
                 <div className={'flex flex-col gap-2'}>
                     <p className={'font-normal text-xl'}>Наименование факультета</p>
@@ -74,7 +75,7 @@ const EducationPop = ({closeFunc,afterPostCallback,user_uuid,email,education}:ed
                            onChange={(event) => {
                                setFaculty(event.target.value)
                            }} placeholder={'Медицинский'}
-                           className={'text-green-two p-2 border-green border-2 text-lg rounded-lg font-normal'}></input>
+                           className={'text-green p-2 border-green border-2 text-lg rounded-lg font-normal'}></input>
                 </div>
 
                 <div className={'flex flex-col gap-2'}>
@@ -83,7 +84,7 @@ const EducationPop = ({closeFunc,afterPostCallback,user_uuid,email,education}:ed
                            onChange={(event) => {
                                setDegree(event.target.value)
                            }} placeholder={'Бакалавриат'}
-                           className={'text-green-two p-2 border-green border-2 text-lg rounded-lg font-normal'}></input>
+                           className={'text-green p-2 border-green border-2 text-lg rounded-lg font-normal'}></input>
                 </div>
                 <DragNDrop setFile={setDiplomaTemp}></DragNDrop>
                 <div onClick={()=>{
@@ -92,7 +93,7 @@ const EducationPop = ({closeFunc,afterPostCallback,user_uuid,email,education}:ed
                             updateEducation(res);
                         })
                     }
-                }} className={'bg-green-two p-4 flex text-white cursor-pointer justify-center items-center rounded-lg mt-5 text-2xl'}>
+                }} className={'bg-green p-4 flex text-white cursor-pointer justify-center items-center rounded-lg mt-5 text-2xl'}>
                     Добавить
                 </div>
             </div>

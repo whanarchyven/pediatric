@@ -66,16 +66,16 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const {publications}=publicationsData?.data?? {} as any
 
     return (
-        <main className={'p-12'}>
+        <main className={'p-2 lg:p-12'}>
 
             <div className={'flex justify-between'}>
                 <p className={'uppercase font-inter font-extralight text-3xl'}>Визитная <br/><span
                     className={'font-extrabold'}>Карточка</span></p>
             </div>
-            <div className={'w-full mt-10 grid grid-cols-2'}>
-                <div className={' flex flex-col pr-8 gap-16 border-r-[1px] border-green'}>
-                    <div className={'flex gap-8 items-start'}>
-                        <div className={'w-1/4'}>
+            <div className={'w-full mt-10 grid lg:grid-cols-2'}>
+                <div className={'flex w-full flex-col lg:pr-8 gap-16 lg:border-r-[1px] border-green'}>
+                    <div className={'flex lg:flex-row flex-col gap-8 items-start'}>
+                        <div className={'lg:w-1/4 w-1/2'}>
                             {photoUrl ? <img className={'rounded-full aspect-square object-cover w-full'}
                                              src={photoUrl}/> :
                                 <img className={'rounded-full aspect-square object-cover w-full'}
@@ -179,7 +179,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                     {/*    </div>*/}
                     {/*</div>*/}
                     <div className={'flex flex-col gap-6'}>
-                        <p className={'uppercase font-inter font-extralight text-3xl'}>О себе и интересы</p>
+                        <p className={'uppercase font-inter font-extralight text-2xl lg:text-3xl'}>О себе и интересы</p>
                         <div className={'flex flex-col gap-4'}>
                             <p className={'font-bold text-black text-lg'}>Профессиональные интересы:</p>
                             <p className={'text-black'}>{interests ? interests : 'Не указано'}</p>
@@ -189,14 +189,14 @@ export default function Home(params: { params: { user_uuid: string } }) {
                             <p className={'text-black'}>{about ? about : 'Не указано'}</p>
                         </div>
                     </div>
-                    <div className={'flex items-center gap-12'}>
-                        <div className={'aspect-square w-1/3'}>
+                    <div className={'flex lg:flex-row flex-col items-center gap-12'}>
+                        <div className={'aspect-square lg:w-1/3'}>
                             <QRCode className={'w-full h-full'}
                                     value={`https://www.pediatric-dermatology.ru/account/${user_uuid}/card/`}></QRCode>
                         </div>
-                        <div className={'flex flex-col gap-4'}>
+                        <div className={'flex lg:items-start items-center flex-col gap-4'}>
                             <p className={'font-bold text-2xl'}>QR-код</p>
-                            <p>Чтобы увидеть вашу визитную карточку достаточно отсканировать этот QR-код</p>
+                            <p className={'lg:text-left text-center'}>Чтобы увидеть вашу визитную карточку достаточно отсканировать этот QR-код</p>
                             <div className={'flex items-center gap-4'}>
                                 <Link href={`https://www.pediatric-dermatology.ru/account/${user_uuid}/card/`} className={'flex items-center justify-center font-bold text-white rounded-lg bg-green p-2 px-10'}>
                                     Открыть
@@ -206,7 +206,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
                     </div>
                 </div>
-                <div className={'flex px-8 flex-col gap-10'}>
+                <div className={'flex lg:px-8 max-w-screen lg:mt-0 mt-6 flex-col gap-10'}>
                     <p className={'font-bold text-xl text-black'}>Награды</p>
                     <div className={'flex h-52 border-[1px] border-green rounded-lg items-center justify-center'}>
                         <p className={'opacity-50'}>Награды не найдены</p>
@@ -257,11 +257,16 @@ export default function Home(params: { params: { user_uuid: string } }) {
                     <div className={'flex flex-col gap-10 mt-8'}>
                         <div className={' flex justify-between'}>
                             <p className={'font-bold text-xl text-black'}>Научные работы</p>
+                            <div onClick={() => {
+                                setPublicationPop(true)
+                            }} className={'bg-green text-white cursor-pointer font-normal text-sm lg:text-base p-2 lg:p-3 rounded-lg'}>Добавить
+                                +
+                            </div>
                         </div>
                         {publications && publications.length > 0 ? <div className={'flex gap-12 flex-col'}>
                             {publications.map((publication:typeof publications[0])=>{
                                 return(
-                                    <PublicationTab {...publication} key={publication.title}></PublicationTab>
+                                    <PublicationTab user_uuid={user_uuid} {...publication} key={publication.title}></PublicationTab>
                                 )
                             })}
                         </div> : <div

@@ -7,6 +7,7 @@ import {usePathname, useRouter} from "next/navigation";
 import Link from "next/link";
 import { eden, useEden } from '@/helpers/sdk';
 import { Router } from 'next/router';
+import Sidebar from "@/components/Sidebar";
 
 interface navbarInterface {
     isInteractive:boolean
@@ -55,6 +56,7 @@ const Navbar = ({isInteractive}:navbarInterface) => {
     },[])
 
     const [burgerOpen,setBurgerOpen]=useState(false)
+    console.log('aaaaaa',data)
 
     return (
         <div className={classList('sm:px-[15px] lg:px-[70px] px-[20px] fixed z-[999]  top-0 left-0 py-1 sm:py-[35px] w-full grid sm:grid-cols-12 grid-cols-6 gap-4 items-center transition-all duration-300',scrolled>120||pathname.split('/')[1]=='account'||pathname.split('/')[1]=='events'||pathname.split('/')[1]=='news'||pathname.split('/')[1]=='administration'?'navbar-gradient bg-opacity-80 backdrop-blur-sm':'bg-green sm:bg-transparent')}>
@@ -91,11 +93,15 @@ const Navbar = ({isInteractive}:navbarInterface) => {
             <div className={'sm:hidden col-span-1 flex justify-end items-center col-end-7'}>
                 <img className={'aspect-square w-5'} src={burgerOpen?'/close.svg':'/burger.svg'} onClick={()=>{setBurgerOpen(!burgerOpen)}}/>
             </div>
-            {burgerOpen?<div className={'h-screen pt-10 flex flex-col col-span-6 gap-6'}>
+            {burgerOpen&&!pathname.includes('/account')?<div className={'h-screen pt-10 flex flex-col col-span-6 gap-6'}>
                 {links.map((link)=>{
                     return (<a key={link.title} className={'font-inter text-sm font-normal text-white'} href={link.link}>{link.title}</a>)
                 })}
             </div>:null}
+            {burgerOpen&&pathname.includes('/account')?<div className={'h-screen pt-10 flex flex-col col-span-6 gap-6'}>
+                <Sidebar user_uuid={data?.profile.uuid}></Sidebar>
+            </div>:null}
+
         </div>
     );
 };

@@ -53,9 +53,9 @@ const DragNDrop = ({setFile}:dragndropInterface) => {
                 {tempFile!=undefined?<div className={'flex border-green border-2 w-full justify-center bg-green p-3 rounded-lg items-center gap-2'}>
                     <img className={'w-12 aspect-square'} src={'/upload_file_white.svg'}/>
                     <p className={'text-white'}>Загружено!</p>
-                </div>:<div className={'flex border-green border-2 bg-white p-3 w-full justify-center rounded-lg items-center gap-2'}>
+                </div>:<div className={'flex border-green border-2 bg-white p-3 w-full min-w-fit justify-center rounded-lg items-center gap-2'}>
                     <img className={'w-12 aspect-square'} src={'/upload_file.svg'}/>
-                    <p>Загрузите файл</p>
+                    <p className={'text-left'}>Загрузите файл</p>
                 </div>}
             </label>
             { dragActive && <div id="drag-file-element" onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}></div> }

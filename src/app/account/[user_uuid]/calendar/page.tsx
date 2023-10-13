@@ -47,7 +47,7 @@ export default function Home() {
     ]
 
     return (
-        <main className={'p-12'}>
+        <main className={'p-2 lg:p-12'}>
             <div className={'flex justify-between'}>
                 <p className={'uppercase font-inter font-extralight text-3xl'}>Календарь <br/><span
                     className={'font-extrabold'}>Событий 2023</span></p>

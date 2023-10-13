@@ -31,14 +31,15 @@ const NewCareerPop = ({closeFunc,afterPostCallback,user_uuid,email,career}:newCa
             console.log(res)
             closeFunc()
         })
+        window.location.reload();
     }
 
 
 
     return (
-        <div className={'fixed z-[999] w-full h-full left-0 top-0 bg-white bg-opacity-10 backdrop-blur-sm flex items-center justify-center'}>
-            <div className={'w-1/3 bg-white p-3 rounded-lg border-green-two border-2 flex gap-4 flex-col'}>
-                <div className={'flex justify-between'}>
+        <div className={'fixed z-[999] w-full h-full left-0 p-3 top-0 bg-white bg-opacity-10 backdrop-blur-sm flex items-center justify-center'}>
+            <div className={'lg:w-1/3 w-full overflow-y-scroll max-h-screen bg-white p-3 rounded-lg border-green border-2 flex gap-4 flex-col'}>
+                <div className={'flex items-start justify-between'}>
                     <p className={'font-bold text-3xl'}>Добавить данные о Месте работы</p>
                     <img onClick={()=>{closeFunc()}} className={'cursor-pointer'} src={'/close_black.svg'}/>
                 </div>
@@ -85,7 +86,7 @@ const NewCareerPop = ({closeFunc,afterPostCallback,user_uuid,email,career}:newCa
                 </div>
                 <div onClick={()=>{
                     updateNewCareer();
-                }} className={'bg-green-two p-4 flex text-white cursor-pointer justify-center items-center rounded-lg mt-5 text-2xl'}>
+                }} className={'bg-green p-4 flex text-white cursor-pointer justify-center items-center rounded-lg mt-5 text-2xl'}>
                     Добавить
                 </div>
             </div>
