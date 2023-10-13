@@ -473,8 +473,8 @@ declare const app: Elysia<"", {
     "/user/:user_uuid/publication": {
         post: {
             body: {
+                uuid?: string | undefined;
                 authors?: string[] | undefined;
-                uuid: string;
                 date: string;
                 title: string;
                 category: string;
@@ -505,6 +505,7 @@ declare const app: Elysia<"", {
             response: {
                 200: Promise<{
                     success: string;
+                    debug: mongoose.UpdateWriteOpResult;
                 }>;
             };
         };
@@ -529,7 +530,12 @@ declare const app: Elysia<"", {
     "/user/:user_uuid/publication/save": {
         post: {
             body: {
-                uuid: string;
+                uuid?: string | undefined;
+                authors?: string[] | undefined;
+                date: string;
+                title: string;
+                category: string;
+                fileUrl: string;
             };
             params: {
                 user_uuid: string;

@@ -47,7 +47,7 @@ declare const PdermPublicationSchema: mongoose.Schema<any, mongoose.Model<any, a
     _id: mongoose.Types.ObjectId;
 }>;
 export declare const PdermPublicationCreateTDto: import("@sinclair/typebox").TObject<{
-    uuid: import("@sinclair/typebox").TString;
+    uuid: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     category: import("@sinclair/typebox").TString;
     title: import("@sinclair/typebox").TString;
     date: import("@sinclair/typebox").TString;
