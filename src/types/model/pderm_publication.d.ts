@@ -14,7 +14,6 @@ declare const PdermPublicationSchema: mongoose.Schema<any, mongoose.Model<any, a
     savedByUserUuids: string[];
     fileUrl: string;
     authors: string[];
-    awards: any[];
     publishedByUserUuid?: string | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     createdAt: NativeDate;
@@ -29,7 +28,6 @@ declare const PdermPublicationSchema: mongoose.Schema<any, mongoose.Model<any, a
     savedByUserUuids: string[];
     fileUrl: string;
     authors: string[];
-    awards: any[];
     publishedByUserUuid?: string | undefined;
 }>> & mongoose.FlatRecord<{
     createdAt: NativeDate;
@@ -44,7 +42,6 @@ declare const PdermPublicationSchema: mongoose.Schema<any, mongoose.Model<any, a
     savedByUserUuids: string[];
     fileUrl: string;
     authors: string[];
-    awards: any[];
     publishedByUserUuid?: string | undefined;
 }> & {
     _id: mongoose.Types.ObjectId;
@@ -56,10 +53,6 @@ export declare const PdermPublicationCreateTDto: import("@sinclair/typebox").TOb
     date: import("@sinclair/typebox").TString;
     fileUrl: import("@sinclair/typebox").TString;
     authors: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TString>>;
-    awards: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
-        title: import("@sinclair/typebox").TString;
-        imageUrl: import("@sinclair/typebox").TString;
-    }>>>;
 }>;
 export declare const PdermPublicationModel: mongoose.Model<{
     createdAt: NativeDate;
@@ -74,7 +67,6 @@ export declare const PdermPublicationModel: mongoose.Model<{
     savedByUserUuids: string[];
     fileUrl: string;
     authors: string[];
-    awards: any[];
     publishedByUserUuid?: string | undefined;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
     createdAt: NativeDate;
@@ -89,7 +81,6 @@ export declare const PdermPublicationModel: mongoose.Model<{
     savedByUserUuids: string[];
     fileUrl: string;
     authors: string[];
-    awards: any[];
     publishedByUserUuid?: string | undefined;
 }> & {
     createdAt: NativeDate;
@@ -104,7 +95,6 @@ export declare const PdermPublicationModel: mongoose.Model<{
     savedByUserUuids: string[];
     fileUrl: string;
     authors: string[];
-    awards: any[];
     publishedByUserUuid?: string | undefined;
 } & {
     _id: mongoose.Types.ObjectId;
@@ -123,7 +113,6 @@ export declare const PdermPublicationModel: mongoose.Model<{
     savedByUserUuids: string[];
     fileUrl: string;
     authors: string[];
-    awards: any[];
     publishedByUserUuid?: string | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     createdAt: NativeDate;
@@ -138,7 +127,6 @@ export declare const PdermPublicationModel: mongoose.Model<{
     savedByUserUuids: string[];
     fileUrl: string;
     authors: string[];
-    awards: any[];
     publishedByUserUuid?: string | undefined;
 }>> & mongoose.FlatRecord<{
     createdAt: NativeDate;
@@ -153,7 +141,6 @@ export declare const PdermPublicationModel: mongoose.Model<{
     savedByUserUuids: string[];
     fileUrl: string;
     authors: string[];
-    awards: any[];
     publishedByUserUuid?: string | undefined;
 }> & {
     _id: mongoose.Types.ObjectId;

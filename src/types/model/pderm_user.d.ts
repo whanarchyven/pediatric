@@ -21,6 +21,7 @@ declare const PdermUserSchema: mongoose.Schema<any, mongoose.Model<any, any, any
     education: any[];
     career: any[];
     saved: any[];
+    awards: any[];
     confirmPassword?: string | undefined;
     fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;
@@ -48,6 +49,7 @@ declare const PdermUserSchema: mongoose.Schema<any, mongoose.Model<any, any, any
     education: any[];
     career: any[];
     saved: any[];
+    awards: any[];
     confirmPassword?: string | undefined;
     fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;
@@ -75,6 +77,7 @@ declare const PdermUserSchema: mongoose.Schema<any, mongoose.Model<any, any, any
     education: any[];
     career: any[];
     saved: any[];
+    awards: any[];
     confirmPassword?: string | undefined;
     fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;
@@ -98,6 +101,10 @@ export declare const PdermUserRegTDto: import("@sinclair/typebox").TObject<{
     password: import("@sinclair/typebox").TString;
     confirmPassword: import("@sinclair/typebox").TString;
     joinCommunity: import("@sinclair/typebox").TBoolean;
+    awards: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
+        title: import("@sinclair/typebox").TString;
+        imageUrl: import("@sinclair/typebox").TString;
+    }>>>;
 }>;
 export declare const PdermUserSaveTDto: import("@sinclair/typebox").TObject<{
     title: import("@sinclair/typebox").TString;
@@ -173,6 +180,7 @@ export declare const PdermUserModel: mongoose.Model<{
     education: any[];
     career: any[];
     saved: any[];
+    awards: any[];
     confirmPassword?: string | undefined;
     fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;
@@ -200,6 +208,7 @@ export declare const PdermUserModel: mongoose.Model<{
     education: any[];
     career: any[];
     saved: any[];
+    awards: any[];
     confirmPassword?: string | undefined;
     fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;
@@ -227,6 +236,7 @@ export declare const PdermUserModel: mongoose.Model<{
     education: any[];
     career: any[];
     saved: any[];
+    awards: any[];
     confirmPassword?: string | undefined;
     fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;
@@ -258,6 +268,7 @@ export declare const PdermUserModel: mongoose.Model<{
     education: any[];
     career: any[];
     saved: any[];
+    awards: any[];
     confirmPassword?: string | undefined;
     fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;
@@ -285,6 +296,7 @@ export declare const PdermUserModel: mongoose.Model<{
     education: any[];
     career: any[];
     saved: any[];
+    awards: any[];
     confirmPassword?: string | undefined;
     fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;
@@ -312,6 +324,7 @@ export declare const PdermUserModel: mongoose.Model<{
     education: any[];
     career: any[];
     saved: any[];
+    awards: any[];
     confirmPassword?: string | undefined;
     fullNameNormalized?: string | undefined;
     birthDate?: string | undefined;

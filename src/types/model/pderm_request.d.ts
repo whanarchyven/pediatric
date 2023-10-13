@@ -10,8 +10,8 @@ export declare const PdermRequestModel: mongoose.Model<{
         phone?: string | undefined;
     } | undefined;
     _id?: mongoose.Types.ObjectId | undefined;
-    event?: string | undefined;
     customer?: string | undefined;
+    event?: string | undefined;
     transactions?: {
         initial?: {
             amountRub: number;
@@ -47,8 +47,8 @@ export declare const PdermRequestModel: mongoose.Model<{
         phone?: string | undefined;
     } | undefined;
     _id?: mongoose.Types.ObjectId | undefined;
-    event?: string | undefined;
     customer?: string | undefined;
+    event?: string | undefined;
     transactions?: {
         initial?: {
             amountRub: number;
@@ -84,8 +84,8 @@ export declare const PdermRequestModel: mongoose.Model<{
         phone?: string | undefined;
     } | undefined;
     _id?: mongoose.Types.ObjectId | undefined;
-    event?: string | undefined;
     customer?: string | undefined;
+    event?: string | undefined;
     transactions?: {
         initial?: {
             amountRub: number;
@@ -123,8 +123,8 @@ export declare const PdermRequestModel: mongoose.Model<{
         phone?: string | undefined;
     } | undefined;
     _id?: mongoose.Types.ObjectId | undefined;
-    event?: string | undefined;
     customer?: string | undefined;
+    event?: string | undefined;
     transactions?: {
         initial?: {
             amountRub: number;
@@ -160,8 +160,8 @@ export declare const PdermRequestModel: mongoose.Model<{
         phone?: string | undefined;
     } | undefined;
     _id?: mongoose.Types.ObjectId | undefined;
-    event?: string | undefined;
     customer?: string | undefined;
+    event?: string | undefined;
     transactions?: {
         initial?: {
             amountRub: number;
@@ -197,8 +197,8 @@ export declare const PdermRequestModel: mongoose.Model<{
         phone?: string | undefined;
     } | undefined;
     _id?: mongoose.Types.ObjectId | undefined;
-    event?: string | undefined;
     customer?: string | undefined;
+    event?: string | undefined;
     transactions?: {
         initial?: {
             amountRub: number;

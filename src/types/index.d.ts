@@ -20,6 +20,7 @@ declare const app: Elysia<"", {
         removeCookie: (name: string) => void;
         isAdmin: boolean;
         auth_user_uuid: string;
+        auth_user_email: string;
         uuid: string;
         canEditUser: boolean;
     };
@@ -56,6 +57,17 @@ declare const app: Elysia<"", {
             };
         };
     };
+    "/admin/stats": {
+        get: {
+            body: unknown;
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<string>;
+            };
+        };
+    };
     "/auth/echo": {
         get: {
             body: unknown;
@@ -70,6 +82,10 @@ declare const app: Elysia<"", {
     "/auth/signUp": {
         post: {
             body: {
+                awards?: {
+                    title: string;
+                    imageUrl: string;
+                }[] | undefined;
                 lastName: string;
                 firstName: string;
                 middleName: string;
@@ -94,6 +110,17 @@ declare const app: Elysia<"", {
                     success: string;
                     error?: undefined;
                 }>;
+            };
+        };
+    };
+    "/auth/login/admin_eehaekae4zah6abahy3uShaem3Ru9hai": {
+        get: {
+            body: unknown;
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: string;
             };
         };
     };
@@ -188,6 +215,7 @@ declare const app: Elysia<"", {
                         education: any[];
                         career: any[];
                         saved: any[];
+                        awards: any[];
                         confirmPassword?: string | undefined;
                         fullNameNormalized?: string | undefined;
                         birthDate?: string | undefined;
@@ -202,6 +230,25 @@ declare const app: Elysia<"", {
             };
         };
     };
+    "/user/:user_uuid/participations": {
+        get: {
+            body: unknown;
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<{
+                    sum: number;
+                    info: mongoose.FlattenMaps<{
+                        name?: string | undefined;
+                        participationType?: string | undefined;
+                        event_name?: string | undefined;
+                        event_id?: string | undefined;
+                    }> | undefined;
+                }[]>;
+            };
+        };
+    };
     "/user/:user_uuid/user-list": {
         get: {
             body: unknown;
@@ -209,6 +256,7 @@ declare const app: Elysia<"", {
                 search?: string | undefined;
                 limit?: number | undefined;
                 skip?: number | undefined;
+                user_uuid: string;
             };
             query: unknown;
             headers: unknown;
@@ -234,6 +282,7 @@ declare const app: Elysia<"", {
                         education: any[];
                         career: any[];
                         saved: any[];
+                        awards: any[];
                         confirmPassword?: string | undefined;
                         fullNameNormalized?: string | undefined;
                         birthDate?: string | undefined;
@@ -282,6 +331,7 @@ declare const app: Elysia<"", {
                         education: any[];
                         career: any[];
                         saved: any[];
+                        awards: any[];
                         confirmPassword?: string | undefined;
                         fullNameNormalized?: string | undefined;
                         birthDate?: string | undefined;
@@ -390,6 +440,7 @@ declare const app: Elysia<"", {
             params: {
                 limit?: number | undefined;
                 skip?: number | undefined;
+                user_uuid: string;
             };
             query: unknown;
             headers: unknown;
@@ -408,7 +459,6 @@ declare const app: Elysia<"", {
                         savedByUserUuids: string[];
                         fileUrl: string;
                         authors: string[];
-                        awards: any[];
                         publishedByUserUuid?: string | undefined;
                     }> & {
                         _id: mongoose.Types.ObjectId;
@@ -422,10 +472,6 @@ declare const app: Elysia<"", {
         post: {
             body: {
                 authors?: string[] | undefined;
-                awards?: {
-                    title: string;
-                    imageUrl: string;
-                }[] | undefined;
                 uuid: string;
                 date: string;
                 title: string;
@@ -757,7 +803,6 @@ declare const app: Elysia<"", {
                         savedByUserUuids: string[];
                         fileUrl: string;
                         authors: string[];
-                        awards: any[];
                         publishedByUserUuid?: string | undefined;
                     }> & {
                         _id: mongoose.Types.ObjectId;
