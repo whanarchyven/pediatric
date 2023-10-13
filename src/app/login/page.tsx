@@ -71,7 +71,7 @@ export default function Home() {
                 <motion.div
                     className={'w-full min-h-screen h-auto px-[20px] sm:px-[120px] items-center grid grid-cols-1 sm:grid-cols-7'}>
                     <motion.div
-                        className={'col-span-4 sm:mt-0 mt-20 flex flex-col gap-8 sm:items-start justify-center'}>
+                        className={'lg:col-span-4 sm:mt-0 mt-20 flex flex-col gap-8 sm:items-start justify-center'}>
                         <p className={'uppercase font-extralight text-2xl sm:text-4xl text-white'}>ВХОД</p>
                         <p className={' font-extralight text-2xl sm:text-lg text-white'}>Авторизация позволит Вам получить доступ<br/>
                             к дополнительным возможностям сайта.</p>
@@ -86,7 +86,7 @@ export default function Home() {
                             <input onChange={(e)=>{setPassword(e.target.value)}} type={'password'} placeholder={''}
                                    className={'p-4 outline-0 text-white bg-transparent transition-all duration-300 placeholder:font-extralight w-96 border-white border-2 cursor-pointer flex items-center rounded-full gap-2'}/>
                         </div>
-                        <div className={'flex justify-between w-2/3'}>
+                        <div className={'flex justify-between lg:w-2/3'}>
                             <div onClick={()=>{
                                 // setShowWarning(true);
                                 doLogin();
@@ -101,8 +101,8 @@ export default function Home() {
                             </div>
                         </div>
                     </motion.div>
-                    <div className={'col-span-3 h-full flex  relative'}>
-                        <img className={'absolute bottom-0 right-0'} src={'/pages/events/murashkin.png'}/>
+                    <div className={'lg:col-span-3 lg:mt-0 mt-12 flex relative'}>
+                        <img className={'lg:absolute w-full lg:bottom-0 lg:right-0'} src={'/pages/events/murashkin.png'}/>
                     </div>
                 </motion.div>
                 <div className={'absolute bottom-[-4px] asset w-full'}>
