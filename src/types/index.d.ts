@@ -569,7 +569,7 @@ export declare const app: Elysia<"", {
         };
     };
     "/user/:user_uuid/publication/list/saved": {
-        post: {
+        get: {
             body: unknown;
             params: unknown;
             query: unknown;
