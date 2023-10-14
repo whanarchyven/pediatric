@@ -235,6 +235,7 @@ export declare const app: Elysia<"", {
             response: {
                 200: Promise<{
                     status: string | undefined;
+                    qrCodeUrl: string | undefined;
                     sum: number;
                     info: {
                         name?: string | undefined;
@@ -970,7 +971,7 @@ export declare const app: Elysia<"", {
                 search?: string | undefined;
                 limit?: number | undefined;
                 skip?: number | undefined;
-                categories?: string[] | undefined;
+                categories?: string | undefined;
             };
             headers: unknown;
             response: {
