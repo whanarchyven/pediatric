@@ -82,10 +82,6 @@ export declare const app: Elysia<"", {
     "/auth/signUp": {
         post: {
             body: {
-                awards?: {
-                    title: string;
-                    imageUrl: string;
-                }[] | undefined;
                 lastName: string;
                 firstName: string;
                 middleName: string;
@@ -390,6 +386,10 @@ export declare const app: Elysia<"", {
                     category: string;
                 }[] | undefined;
                 photoUrl?: string | undefined;
+                awards?: {
+                    title: string;
+                    imageUrl: string;
+                }[] | undefined;
                 email: string;
                 uuid: string;
             };
@@ -967,6 +967,7 @@ export declare const app: Elysia<"", {
             body: unknown;
             params: unknown;
             query: {
+                category?: number | undefined;
                 search?: string | undefined;
                 limit?: number | undefined;
                 skip?: number | undefined;

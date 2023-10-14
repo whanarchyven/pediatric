@@ -57,6 +57,8 @@ import { useEffect, useState } from 'react';
 
   }
 
+  // eden.publication.list.get({$query:{skip:1}})
+
   // export const useGetProfile = (user_uuid:string)=>{
   //   const {data} = useEden(()=>eden.user[user_uuid].profile.get())
     

@@ -101,10 +101,6 @@ export declare const PdermUserRegTDto: import("@sinclair/typebox").TObject<{
     password: import("@sinclair/typebox").TString;
     confirmPassword: import("@sinclair/typebox").TString;
     joinCommunity: import("@sinclair/typebox").TBoolean;
-    awards: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
-        title: import("@sinclair/typebox").TString;
-        imageUrl: import("@sinclair/typebox").TString;
-    }>>>;
 }>;
 export declare const PdermUserSaveTDto: import("@sinclair/typebox").TObject<{
     title: import("@sinclair/typebox").TString;
@@ -154,6 +150,10 @@ export declare const PdermEditUserRegTDto: import("@sinclair/typebox").TObject<{
         end: import("@sinclair/typebox").TString;
         post: import("@sinclair/typebox").TString;
         description: import("@sinclair/typebox").TString;
+    }>>>;
+    awards: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
+        title: import("@sinclair/typebox").TString;
+        imageUrl: import("@sinclair/typebox").TString;
     }>>>;
 }>;
 export declare const PdermUserLoginTDto: import("@sinclair/typebox").TObject<{
