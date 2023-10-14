@@ -2,7 +2,7 @@
 import { Elysia } from "elysia";
 import mongoose from "mongoose";
 import { trpcAppRouter } from "./trpc";
-declare const app: Elysia<"", {
+export declare const app: Elysia<"", {
     request: {
         jwt: {
             readonly sign: (morePayload: Record<string, string> & import("@elysiajs/jwt").JWTPayloadSpec) => Promise<string>;
@@ -238,13 +238,14 @@ declare const app: Elysia<"", {
             headers: unknown;
             response: {
                 200: Promise<{
+                    status: string | undefined;
                     sum: number;
-                    info: mongoose.FlattenMaps<{
+                    info: {
                         name?: string | undefined;
                         participationType?: string | undefined;
                         event_name?: string | undefined;
                         event_id?: string | undefined;
-                    }> | undefined;
+                    } | undefined;
                 }[]>;
             };
         };
@@ -583,6 +584,148 @@ declare const app: Elysia<"", {
             };
         };
     };
+    "/eventwithId:event_id": {
+        get: {
+            body: unknown;
+            params: {
+                event_id: string;
+            };
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<{
+                    events: (mongoose.Document<unknown, {}, {
+                        createdAt: NativeDate;
+                        updatedAt: NativeDate;
+                    } & {
+                        type: string;
+                        id: string;
+                        date: string;
+                        format: string;
+                        name: string;
+                        dateStart: Date;
+                        timePeriod: string;
+                        place: string;
+                        participants: number;
+                        layoutBg: string;
+                        avatar: string;
+                        announcement: string;
+                        speakers: any[];
+                        halls: any[];
+                        prices: any[];
+                        description?: string | undefined;
+                        link?: string | undefined;
+                        dateEnd?: Date | undefined;
+                        onlinePrice?: number | undefined;
+                        offlinePrice?: number | undefined;
+                        isOnlyOnline?: boolean | undefined;
+                        isPassed?: boolean | undefined;
+                        isStream?: boolean | undefined;
+                    }> & {
+                        createdAt: NativeDate;
+                        updatedAt: NativeDate;
+                    } & {
+                        type: string;
+                        id: string;
+                        date: string;
+                        format: string;
+                        name: string;
+                        dateStart: Date;
+                        timePeriod: string;
+                        place: string;
+                        participants: number;
+                        layoutBg: string;
+                        avatar: string;
+                        announcement: string;
+                        speakers: any[];
+                        halls: any[];
+                        prices: any[];
+                        description?: string | undefined;
+                        link?: string | undefined;
+                        dateEnd?: Date | undefined;
+                        onlinePrice?: number | undefined;
+                        offlinePrice?: number | undefined;
+                        isOnlyOnline?: boolean | undefined;
+                        isPassed?: boolean | undefined;
+                        isStream?: boolean | undefined;
+                    } & {
+                        _id: mongoose.Types.ObjectId;
+                    }) | null;
+                }>;
+            };
+        };
+    };
+    "/eventbyId/:event_id": {
+        get: {
+            body: unknown;
+            params: {
+                event_id: string;
+            };
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<{
+                    events: (mongoose.Document<unknown, {}, {
+                        createdAt: NativeDate;
+                        updatedAt: NativeDate;
+                    } & {
+                        type: string;
+                        id: string;
+                        date: string;
+                        format: string;
+                        name: string;
+                        dateStart: Date;
+                        timePeriod: string;
+                        place: string;
+                        participants: number;
+                        layoutBg: string;
+                        avatar: string;
+                        announcement: string;
+                        speakers: any[];
+                        halls: any[];
+                        prices: any[];
+                        description?: string | undefined;
+                        link?: string | undefined;
+                        dateEnd?: Date | undefined;
+                        onlinePrice?: number | undefined;
+                        offlinePrice?: number | undefined;
+                        isOnlyOnline?: boolean | undefined;
+                        isPassed?: boolean | undefined;
+                        isStream?: boolean | undefined;
+                    }> & {
+                        createdAt: NativeDate;
+                        updatedAt: NativeDate;
+                    } & {
+                        type: string;
+                        id: string;
+                        date: string;
+                        format: string;
+                        name: string;
+                        dateStart: Date;
+                        timePeriod: string;
+                        place: string;
+                        participants: number;
+                        layoutBg: string;
+                        avatar: string;
+                        announcement: string;
+                        speakers: any[];
+                        halls: any[];
+                        prices: any[];
+                        description?: string | undefined;
+                        link?: string | undefined;
+                        dateEnd?: Date | undefined;
+                        onlinePrice?: number | undefined;
+                        offlinePrice?: number | undefined;
+                        isOnlyOnline?: boolean | undefined;
+                        isPassed?: boolean | undefined;
+                        isStream?: boolean | undefined;
+                    } & {
+                        _id: mongoose.Types.ObjectId;
+                    }) | null;
+                }>;
+            };
+        };
+    };
     "/event/list": {
         get: {
             body: unknown;
@@ -604,6 +747,7 @@ declare const app: Elysia<"", {
                         date: string;
                         format: string;
                         name: string;
+                        dateStart: Date;
                         timePeriod: string;
                         place: string;
                         participants: number;
@@ -615,6 +759,7 @@ declare const app: Elysia<"", {
                         prices: any[];
                         description?: string | undefined;
                         link?: string | undefined;
+                        dateEnd?: Date | undefined;
                         onlinePrice?: number | undefined;
                         offlinePrice?: number | undefined;
                         isOnlyOnline?: boolean | undefined;
@@ -633,6 +778,7 @@ declare const app: Elysia<"", {
                 id?: string | undefined;
                 description?: string | undefined;
                 link?: string | undefined;
+                dateEnd?: Date | undefined;
                 onlinePrice?: number | undefined;
                 offlinePrice?: number | undefined;
                 prices?: {
@@ -647,6 +793,7 @@ declare const app: Elysia<"", {
                 date: string;
                 format: string;
                 name: string;
+                dateStart: Date;
                 timePeriod: string;
                 place: string;
                 participants: number;
@@ -692,6 +839,7 @@ declare const app: Elysia<"", {
                 id?: string | undefined;
                 description?: string | undefined;
                 link?: string | undefined;
+                dateEnd?: Date | undefined;
                 onlinePrice?: number | undefined;
                 offlinePrice?: number | undefined;
                 prices?: {
@@ -706,6 +854,7 @@ declare const app: Elysia<"", {
                 date: string;
                 format: string;
                 name: string;
+                dateStart: Date;
                 timePeriod: string;
                 place: string;
                 participants: number;
@@ -748,12 +897,12 @@ declare const app: Elysia<"", {
     "/post/list": {
         get: {
             body: unknown;
-            params: {
+            params: unknown;
+            query: {
                 search?: string | undefined;
                 limit?: number | undefined;
                 skip?: number | undefined;
             };
-            query: unknown;
             headers: unknown;
             response: {
                 200: Promise<{
@@ -876,4 +1025,3 @@ declare const app: Elysia<"", {
 }, false>;
 export type router = typeof trpcAppRouter;
 export type ElysiaApp = typeof app;
-export {};

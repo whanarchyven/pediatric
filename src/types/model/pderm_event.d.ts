@@ -1,84 +1,5 @@
 import * as mongoose from "mongoose";
-declare const PdermEventSchema: mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, {
-    timestamps: true;
-}, {
-    createdAt: NativeDate;
-    updatedAt: NativeDate;
-} & {
-    type: string;
-    id: string;
-    date: string;
-    format: string;
-    name: string;
-    timePeriod: string;
-    place: string;
-    participants: number;
-    layoutBg: string;
-    avatar: string;
-    announcement: string;
-    speakers: any[];
-    halls: any[];
-    prices: any[];
-    description?: string | undefined;
-    link?: string | undefined;
-    onlinePrice?: number | undefined;
-    offlinePrice?: number | undefined;
-    isOnlyOnline?: boolean | undefined;
-    isPassed?: boolean | undefined;
-    isStream?: boolean | undefined;
-}, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
-    createdAt: NativeDate;
-    updatedAt: NativeDate;
-} & {
-    type: string;
-    id: string;
-    date: string;
-    format: string;
-    name: string;
-    timePeriod: string;
-    place: string;
-    participants: number;
-    layoutBg: string;
-    avatar: string;
-    announcement: string;
-    speakers: any[];
-    halls: any[];
-    prices: any[];
-    description?: string | undefined;
-    link?: string | undefined;
-    onlinePrice?: number | undefined;
-    offlinePrice?: number | undefined;
-    isOnlyOnline?: boolean | undefined;
-    isPassed?: boolean | undefined;
-    isStream?: boolean | undefined;
-}>> & mongoose.FlatRecord<{
-    createdAt: NativeDate;
-    updatedAt: NativeDate;
-} & {
-    type: string;
-    id: string;
-    date: string;
-    format: string;
-    name: string;
-    timePeriod: string;
-    place: string;
-    participants: number;
-    layoutBg: string;
-    avatar: string;
-    announcement: string;
-    speakers: any[];
-    halls: any[];
-    prices: any[];
-    description?: string | undefined;
-    link?: string | undefined;
-    onlinePrice?: number | undefined;
-    offlinePrice?: number | undefined;
-    isOnlyOnline?: boolean | undefined;
-    isPassed?: boolean | undefined;
-    isStream?: boolean | undefined;
-}> & {
-    _id: mongoose.Types.ObjectId;
-}>;
+import { Static } from '@sinclair/typebox';
 export declare const PdermEventModel: mongoose.Model<{
     createdAt: NativeDate;
     updatedAt: NativeDate;
@@ -88,6 +9,7 @@ export declare const PdermEventModel: mongoose.Model<{
     date: string;
     format: string;
     name: string;
+    dateStart: Date;
     timePeriod: string;
     place: string;
     participants: number;
@@ -99,6 +21,7 @@ export declare const PdermEventModel: mongoose.Model<{
     prices: any[];
     description?: string | undefined;
     link?: string | undefined;
+    dateEnd?: Date | undefined;
     onlinePrice?: number | undefined;
     offlinePrice?: number | undefined;
     isOnlyOnline?: boolean | undefined;
@@ -113,6 +36,7 @@ export declare const PdermEventModel: mongoose.Model<{
     date: string;
     format: string;
     name: string;
+    dateStart: Date;
     timePeriod: string;
     place: string;
     participants: number;
@@ -124,6 +48,7 @@ export declare const PdermEventModel: mongoose.Model<{
     prices: any[];
     description?: string | undefined;
     link?: string | undefined;
+    dateEnd?: Date | undefined;
     onlinePrice?: number | undefined;
     offlinePrice?: number | undefined;
     isOnlyOnline?: boolean | undefined;
@@ -138,6 +63,7 @@ export declare const PdermEventModel: mongoose.Model<{
     date: string;
     format: string;
     name: string;
+    dateStart: Date;
     timePeriod: string;
     place: string;
     participants: number;
@@ -149,6 +75,7 @@ export declare const PdermEventModel: mongoose.Model<{
     prices: any[];
     description?: string | undefined;
     link?: string | undefined;
+    dateEnd?: Date | undefined;
     onlinePrice?: number | undefined;
     offlinePrice?: number | undefined;
     isOnlyOnline?: boolean | undefined;
@@ -167,6 +94,7 @@ export declare const PdermEventModel: mongoose.Model<{
     date: string;
     format: string;
     name: string;
+    dateStart: Date;
     timePeriod: string;
     place: string;
     participants: number;
@@ -178,6 +106,7 @@ export declare const PdermEventModel: mongoose.Model<{
     prices: any[];
     description?: string | undefined;
     link?: string | undefined;
+    dateEnd?: Date | undefined;
     onlinePrice?: number | undefined;
     offlinePrice?: number | undefined;
     isOnlyOnline?: boolean | undefined;
@@ -192,6 +121,7 @@ export declare const PdermEventModel: mongoose.Model<{
     date: string;
     format: string;
     name: string;
+    dateStart: Date;
     timePeriod: string;
     place: string;
     participants: number;
@@ -203,6 +133,7 @@ export declare const PdermEventModel: mongoose.Model<{
     prices: any[];
     description?: string | undefined;
     link?: string | undefined;
+    dateEnd?: Date | undefined;
     onlinePrice?: number | undefined;
     offlinePrice?: number | undefined;
     isOnlyOnline?: boolean | undefined;
@@ -217,6 +148,7 @@ export declare const PdermEventModel: mongoose.Model<{
     date: string;
     format: string;
     name: string;
+    dateStart: Date;
     timePeriod: string;
     place: string;
     participants: number;
@@ -228,6 +160,7 @@ export declare const PdermEventModel: mongoose.Model<{
     prices: any[];
     description?: string | undefined;
     link?: string | undefined;
+    dateEnd?: Date | undefined;
     onlinePrice?: number | undefined;
     offlinePrice?: number | undefined;
     isOnlyOnline?: boolean | undefined;
@@ -236,11 +169,12 @@ export declare const PdermEventModel: mongoose.Model<{
 }> & {
     _id: mongoose.Types.ObjectId;
 }>>;
-export type PdermEvent = mongoose.InferSchemaType<typeof PdermEventSchema>;
 export declare const PdermEventType: import("@sinclair/typebox").TObject<{
     id: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     type: import("@sinclair/typebox").TString;
     date: import("@sinclair/typebox").TString;
+    dateStart: import("@sinclair/typebox").TDate;
+    dateEnd: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TDate>;
     timePeriod: import("@sinclair/typebox").TString;
     name: import("@sinclair/typebox").TString;
     place: import("@sinclair/typebox").TString;
@@ -284,4 +218,4 @@ export declare const PdermEventType: import("@sinclair/typebox").TObject<{
     isPassed: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
     isStream: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
 }>;
-export {};
+export type PdermEvent = Static<typeof PdermEventType>;
