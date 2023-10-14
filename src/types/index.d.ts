@@ -568,6 +568,35 @@ export declare const app: Elysia<"", {
             };
         };
     };
+    "/user/:user_uuid/publication/list/saved": {
+        post: {
+            body: unknown;
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<{
+                    publications: (mongoose.FlattenMaps<{
+                        createdAt: NativeDate;
+                        updatedAt: NativeDate;
+                    } & {
+                        uuid: string;
+                        date: Date;
+                        title: string;
+                        category: string;
+                        viewCount: number;
+                        likedByUserUuids: string[];
+                        savedByUserUuids: string[];
+                        fileUrl: string;
+                        authors: string[];
+                        publishedByUserUuid?: string | undefined;
+                    }> & {
+                        _id: mongoose.Types.ObjectId;
+                    })[];
+                }>;
+            };
+        };
+    };
     "/user/:user_uuid/publication/undo-save": {
         post: {
             body: {
