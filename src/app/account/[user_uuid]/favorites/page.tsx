@@ -16,148 +16,179 @@ import "swiper/css";
 import "swiper/css/pagination";
 import 'swiper/css/effect-fade';
 import PublicationTab from "@/components/Publication Tab";
-import Calendar from "@/components/Calendar";
-import Link from "next/link";
-import Post from "@/components/Post";
+import {eden, useEden} from "@/helpers/sdk";
+import axios from "axios";
+import {Pagination} from "swiper";
+import NewPublicationPop from "@/components/NewPublicationPop";
 
 
 // import required modules
 
 
-export default function Home() {
+export default function Home(params: { params: { user_uuid: string } }) {
 
-    const router = useRouter()
-
-    const [activeTab, setActiveTab] = useState('docs')
-
+    const user_uuidTemp = params.params.user_uuid
     const images = '/pages/account'
 
-    const news = [
-        {
-            id: 0,
-            type: 'Конференция',
-            name: 'IX Всероссийская научно-практическая конференция с международным участием «Дерматологические чтения в педиатрии»',
-            date: '11.11',
-            image: '/pages/events/ekb_bg.jpeg'
-        },
-        {
-            id: 2,
-            type: 'Конференция',
-            name: 'I научно-практическая конференция «Дерматологические чтения в педиатрии» в г. Екатеринбург им. Н. П. Тороповой',
-            date: '17.10-18.10',
-            image: '/pages/main/main_bg.png'
-        },
-    ]
+    const [publications,setPublications]=useState<any>([])
+    const [allTags,setAllTags]=useState<string[]>([])
+    // @ts-ignore
 
-    const posts=[
-        {
-            title:'Азбука атопика',
-            caption:'Атопический дерматит — хроническое воспалительное поражение кожи, протекающее с периодами обострений и ремиссий.',
-            image:'1',
-        },
-        {
-            title:'Атопический дерматит и зуд',
-            caption:'Беспокойный сон малыша как "страшный сон" мамы атопика...',
-            image:'2',
-        },
-        {
-            title:'Роль эмолентов в лечении атопического дерматита',
-            caption:'Что такое эмоленты и их применение в базовом уходе за кожей малыша с атопическим дерматитом...',
-            image:'3',
-        },
-        {
-            title:'Азбука атопика',
-            caption:'Атопический дерматит — хроническое воспалительное поражение кожи, протекающее с периодами обострений и ремиссий.',
-            image:'1',
-        },
-        {
-            title:'Атопический дерматит и зуд',
-            caption:'Беспокойный сон малыша как "страшный сон" мамы атопика...',
-            image:'2',
-        },
-        {
-            title:'Роль эмолентов в лечении атопического дерматита',
-            caption:'Что такое эмоленты и их применение в базовом уходе за кожей малыша с атопическим дерматитом...',
-            image:'3',
-        },
 
-    ]
 
+    const {data} = useEden(() => eden.user[user_uuidTemp].profile.get())
+
+    const {
+        uuid,email
+    } = data?.profile ?? {} as any;
+
+    console.log(uuid)
+
+
+    const fetchData=async ()=>{
+        if(uuid){
+            const publicationsData = eden.user[uuid].publication.list.saved.get().then((res)=>{
+                if(res.data){
+                    console.log(res)
+                    setPublications([...res.data.publications])
+                }
+            })
+        }
+    }
+
+    useEffect(()=>{
+        fetchData()
+    },[uuid])
+
+    useEffect(() => {
+        let temp=[...allTags]
+        publications.map((item:any)=>{
+            if(!temp.includes(item.category)){
+                temp.push(item.category)
+            }
+        })
+        setAllTags([...temp])
+    }, [publications]);
+
+
+    const [name,setName]=useState('')
+
+
+
+    const [publicationPop, setPublicationPop] = useState(false);
+
+    const [tags,setTags]=useState<string[]>([])
+
+    const [isFilterOpen,setIsFilterOpen]=useState(false)
+
+
+    const [tagText,setTagText]=useState('')
+
+    const filterByName=async (name:string)=>{
+        const publicationsData = eden.user[uuid].publication.list.saved.get({$query:{search:name,categories:[...tags].join(',')}}).then((res)=>{
+            if(res.data){
+                console.log([...res.data.publications])
+                setPublications([...res.data.publications])
+            }
+        })
+
+    }
+
+    const filterByTag=async ()=>{
+        const publicationsData = eden.user[uuid].publication.list.saved.get({$query:{search:name,categories:[...tags].join(',')}}).then((res)=>{
+            if(res.data){
+                console.log(res)
+                setPublications([...res.data.publications])
+            }
+        })
+
+    }
+
+    useEffect(() => {
+        filterByTag()
+    }, [tags]);
 
     return (
-        <main className={'p-12'}>
-            <div className={''}>
-                <p className={'uppercase font-inter font-extralight text-3xl'}>Избранное</p>
-                <div className={'flex mt-8 items-center gap-6'}>
-                    {activeTab == 'docs' ?
-                        <div className={'p-4 transition-all duration-300 bg-green border-green border-2 flex items-center rounded-lg gap-2'}>
-                            <img className={'w-4 aspect-square'} src={`${images}/docs_active.svg`}/>
-                            <p className={'text-white font-inter font-normal'}>Материалы</p>
-                        </div> : <div onClick={()=>{setActiveTab('docs')}} className={'p-4 transition-all duration-300 border-green border-2 cursor-pointer flex items-center rounded-lg gap-2'}>
-                            <img className={'w-4 aspect-square'} src={`${images}/docs.svg`}/>
-                            <p className={'text-green font-inter font-normal'}>Материалы</p>
-                        </div>}
-                    {activeTab == 'events' ?
-                        <div className={'p-4 transition-all duration-300 bg-green border-green border-2 flex items-center rounded-lg gap-2'}>
-                            <img className={'w-4 aspect-square'} src={`${images}/events_active.svg`}/>
-                            <p className={'text-white font-inter font-normal'}>Мероприятия</p>
-                        </div> : <div onClick={()=>{setActiveTab('events')}} className={'p-4 transition-all duration-300 border-green border-2 cursor-pointer flex items-center rounded-lg gap-2'}>
-                            <img className={'w-4 aspect-square'} src={`${images}/events.svg`}/>
-                            <p className={'text-green font-inter font-normal'}>Мероприятия</p>
-                        </div>}
+        <main className={'p-2 lg:p-12'}>
+            {publicationPop ? <NewPublicationPop email={email} user_uuid={uuid} closeFunc={() => {
+                fetchData();
+                setPublicationPop(false)
+            }}/> : null}
+            <div className={'flex justify-between items-center'}>
+                <p className={'uppercase font-inter font-extralight text-3xl'}>Сохраненные <br/><span
+                    className={'font-extrabold'}>материалы</span></p>
 
-
+            </div>
+            <div className={'flex flex-wrap items-center my-8 gap-4'}>
+                <input value={name} onChange={(event)=>{setName(event.target.value)}} placeholder={'Поиск по названию'}
+                    className={'p-4 transition-all duration-300 placeholder:font-extralight w-96 border-black border-[1px] cursor-pointer flex items-center rounded-lg gap-2'}/>
+                <div onClick={()=>{filterByName(name)}}
+                    className={'p-4 px-12 cursor-pointer transition-all duration-300 bg-green border-green border-2 flex items-center rounded-lg gap-2'}>
+                    <img className={'w-4 aspect-square'} src={`${images}/search.svg`}/>
+                    <p className={'text-white font-inter font-normal'}>Поиск</p>
                 </div>
-                <div className={'grid grid-cols-3 mt-12 gap-8'}>
-                    {activeTab=='events'?news.map((item, counter) => {
-                        return (
-                        <Link key={counter} href={`/events/${item.id}`}>
-                        <div className={'gap-4 flex cursor-pointer flex-col'}>
-                        <div className={'rounded-lg overflow-hidden'}>
-                        <img
-                        className={'transition-all duration-300 h-60 object-cover w-full group-hover:scale-125'}
-                        src={item.image}/>
-                        </div>
-                        <div className={'w-full flex items-center justify-between'}>
-                        <div
-                        className={'flex rounded-lg text-white p-2 w-[65%] items-center justify-center border-2 border-green-two bg-green-two'}>
-                    {item.type}
-                        </div>
-                        <div
-                        className={'flex rounded-lg text-green-two p-2 w-[30%] items-center justify-center border-2 border-green-two'}>
-                    {item.date}
-                        </div>
-                        </div>
-                        <p className={'text-center font-normal text-black'}>{item.name}</p>
-                        </div>
-                        </Link>
-
-                        )
-                    }):posts.map((item, counter) => {
-                        return (
-                            <Link className={'relative'} key={counter} href={'/'}>
-                                <div className={'w-5 z-20 bg-green rounded-full p-1 flex items-center justify-center cursor-pointer sm:w-8 aspect-square absolute right-7 top-7'}>
-                                    <img src={'/save_filled.svg'}/></div>
-                                <div className={'w-full p-4 flex gap-4 flex-col h-full items-center justify-center '} >
-                                    <img className={'cursor-pointer w-full h-52 object-cover rounded-lg'} src={`/posts/${item.image}.jpg`} onClick={()=>{}}/>
-                                    <p className={'text-black w-full truncate text-sm sm:text-lg text-center font-bold'}>
-                                        {item.title}
-                                    </p>
-                                    <p className={'text-black truncate w-full sm:text-sm text-xs text-center'}>
-                                        {item.caption}
-                                    </p>
-                                    <div className={'hover:bg-green justify-self-end hover:text-white duration-300 transition-all cursor-pointer mt-2 w-full sm:w-3/4 border-green border-2 sm:p-4 p-1 sm:text-xs text-sm text-green flex items-center rounded-lg font-bold justify-center'} onClick={()=>{
-                                    }}>
-                                        Читать статью
-                                    </div>
-                                </div>
-                            </Link>
-
-                        )
-                    })
-                    }
+                <div onClick={()=>{setIsFilterOpen(!isFilterOpen)}} className={'p-4 px-12 transition-all duration-300 border-green border-2 cursor-pointer flex items-center rounded-lg gap-2'}>
+                    <img  className={'w-4 aspect-square'} src={`${images}/filters.svg`}/>
+                    <p className={'text-green font-inter font-normal'}>Фильтр по категории</p>
                 </div>
             </div>
+            {isFilterOpen?
+                <div className={'flex flex-wrap items-center gap-4'}>
+                    <input placeholder={'Поиск по категории'} value={tagText} onChange={(event)=>{setTagText(event.target.value)}} className={'p-4 transition-all duration-300 placeholder:font-extralight w-96 border-black border-[1px] cursor-pointer flex items-center rounded-lg gap-2'} list="tags"/>
+                    <datalist id="tags">
+                        {allTags.map((tag)=>{
+                            return(
+                                <option key={tag}>{tag}</option>
+                            )
+                        })}
+                    </datalist>
+                    <div onClick={()=>{setTags([...tags,tagText]);setTagText('')}}
+                         className={'p-4 px-12 cursor-pointer transition-all duration-300 bg-green border-green border-2 flex items-center rounded-lg gap-2'}>
+                        <p className={'text-white font-inter font-normal'}>Добавить категорию</p>
+                    </div>
+                </div>:null}
+            <div className={'mt-4 flex flex-wrap gap-4'}>
+                {tags.map((tag)=>{
+                    return(
+                        <div key={tag} className={'flex items-center gap-2 justify-center p-3 rounded-full text-green border-[1px] border-green w-fit'}>
+                            <p>{tag}</p>
+                            <img onClick={()=>{
+                                let tempTags=[...tags];
+                                let index=tempTags.findIndex(value => value==tag)
+                                tempTags.splice(index,1);
+                                setTags([...tempTags])
+                            }} className={'w-5 cursor-pointer'} src={'/close_green.svg'}/>
+                        </div>
+                    )
+                })}
+            </div>
+            {/*<div className={'flex items-center mt-3 gap-4'}>*/}
+            {/*    <div*/}
+            {/*        className={'border-2 border-green-two gap-3 rounded-full font-light px-5 text-green-two text-sm p-2 flex items-center justify-center'}>*/}
+            {/*        <img src={`${images}/close.svg`}/>*/}
+            {/*        <p>Дерматология</p>*/}
+            {/*    </div>*/}
+            {/*    <div*/}
+            {/*        className={'border-2 border-green-two gap-3 rounded-full font-light px-5 text-green-two text-sm p-2 flex items-center justify-center'}>*/}
+            {/*        <img src={`${images}/close.svg`}/>*/}
+            {/*        <p>2023</p>*/}
+            {/*    </div>*/}
+            {/*    <div*/}
+            {/*        className={'border-2 border-green-two gap-3 rounded-full font-light px-5 text-green-two text-sm p-2 flex items-center justify-center'}>*/}
+            {/*        <img src={`${images}/close.svg`}/>*/}
+            {/*        <p>Мероприятия</p>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+            {publications && publications.length > 0 ? <div className={'flex gap-12 mt-16 flex-col'}>
+                {publications.map((publication:typeof publications[0])=>{
+                    return(
+                        <PublicationTab user_uuid={uuid} {...publication} key={publication.title}></PublicationTab>
+                    )
+                })}
+            </div> : <div
+                className={'flex h-52 border-[1px] border-green rounded-lg items-center justify-center'}>
+                <p className={'opacity-50'}>Публикации не найдены</p>
+            </div>}
         </main>
     )
 }

@@ -32,6 +32,8 @@ const NewPublicationPop = ({closeFunc,user_uuid,email}:newPublicationPopInterfac
         window.location.reload();
     }
 
+
+
     return (
         <div className={'fixed z-[999] w-full h-full left-0 top-0 p-3 bg-white bg-opacity-10 backdrop-blur-sm flex items-center justify-center'}>
             <div className={'lg:w-1/3 w-full overflow-y-scroll max-h-screen bg-white p-3 pb-10 max-h-[90%] overflow-y-scroll rounded-lg border-green-two border-2 flex gap-5 flex-col'}>
@@ -82,12 +84,11 @@ const NewPublicationPop = ({closeFunc,user_uuid,email}:newPublicationPopInterfac
                             temp.push(tempAuthor)
                             setAuthors([...temp])
                             setTempAuthor('');
-                        }} className={'bg-green lg:w-[20%] w-full text-white cursor-pointer text-center text-sm whitespace-nowrap font-normal p-3 rounded-lg'}>Добавить автора
-                            +</div>
+                        }} className={'bg-green lg:w-[30%] w-full text-white cursor-pointer text-center text-sm whitespace-nowrap font-normal p-3 rounded-lg'}>Добавить автора +</div>
                     </div>
                     <div className={'flex flex-col my-2 gap-3'}>
                         <p className={'font-normal lg:w-[70%] text-xl'}>Загрузите файл публикации (pdf)</p>
-                        <div className={'lg:w-[20%]'}>
+                        <div className={'lg:w-full]'}>
                             <DragNDrop setFile={setFile}></DragNDrop>
                         </div>
                     </div>
@@ -97,7 +98,7 @@ const NewPublicationPop = ({closeFunc,user_uuid,email}:newPublicationPopInterfac
                                 newPublication(res)
                             })
                         }
-                    }} className={'bg-green lg:w-1/2 p-4 flex text-white cursor-pointer justify-center items-center rounded-lg mt-5 text-xl'}>
+                    }} className={'bg-green lg:w-full p-4 flex text-white cursor-pointer justify-center items-center rounded-lg mt-5 text-xl'}>
                         Опубликовать
                     </div>
                 </div>

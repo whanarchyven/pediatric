@@ -51,7 +51,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
         gender,
         specialty,
         birthDate,
-        photoUrl, education, about, interests, career, position
+        photoUrl, education, about, interests, career, position,uuid
     } = data?.profile ?? {} as any;
 
     console.log(data);
@@ -61,7 +61,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const [educationShowOpen, setEducationShowOpen] = useState(false);
 
 
-    const publicationsData = useEden(() => eden.user[user_uuid].publication.list["own-published"].get())
+    const publicationsData = useEden(() => eden.user[uuid].publication.list["own-published"].get())
 
     const {publications}=publicationsData?.data?? {} as any
 
@@ -192,13 +192,13 @@ export default function Home(params: { params: { user_uuid: string } }) {
                     <div className={'flex lg:flex-row flex-col items-center gap-12'}>
                         <div className={'aspect-square lg:w-1/3'}>
                             <QRCode className={'w-full h-full'}
-                                    value={`https://www.pediatric-dermatology.ru/account/${user_uuid}/card/`}></QRCode>
+                                    value={`https://www.pediatric-dermatology.ru/account/${uuid}/card/`}></QRCode>
                         </div>
                         <div className={'flex lg:items-start items-center flex-col gap-4'}>
                             <p className={'font-bold text-2xl'}>QR-код</p>
                             <p className={'lg:text-left text-center'}>Чтобы увидеть вашу визитную карточку достаточно отсканировать этот QR-код</p>
                             <div className={'flex items-center gap-4'}>
-                                <Link href={`https://www.pediatric-dermatology.ru/account/${user_uuid}/card/`} className={'flex items-center justify-center font-bold text-white rounded-lg bg-green p-2 px-10'}>
+                                <Link href={`https://www.pediatric-dermatology.ru/account/${uuid}/card/`} className={'flex items-center justify-center font-bold text-white rounded-lg bg-green p-2 px-10'}>
                                     Открыть
                                 </Link>
                             </div>

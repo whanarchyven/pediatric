@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Slider from "@/components/Slider";
 import VideoPlayer from "@/components/VideoPlayer";
 import Reviews from "@/components/Reviews";
@@ -34,6 +34,7 @@ import Link from "next/link";
 import concatStr from "@/helpers/concatStr";
 import CountUp from "react-countup";
 import {classList} from "@/helpers/classList";
+import {eden} from "@/helpers/sdk";
 
 
 export default function Home() {
@@ -44,80 +45,66 @@ export default function Home() {
     const params = useSearchParams();
 
 
-    const news = [
-        {
-            id: 0,
-            type: 'Конференция',
-            name: 'IX Всероссийская научно-практическая конференция с международным участием «Дерматологические чтения в педиатрии»',
-            date: '11.11.2023',
-            image: '/pages/main/main_bg.png'
-        },
-        {
-            id: 2,
-            type: 'Конференция',
-            name: 'I научно-практическая конференция «Дерматологические чтения в педиатрии» в г. Екатеринбург им. Н. П. Тороповой',
-            date: '17.10-18.10',
-            image: '/pages/events/ekb_bg.jpeg'
-        },
-        {
-            id:12,
-            type:'Конференция',
-            name:'II научно-практическая конференция «Путь детской дерматологии: от истоков к перспективам»',
-            date:'07.10.2023',
-            image:'/pages/new2.png'
-        },
-        {
-            id:11,
-            type:'Конференция',
-            name:'I научно-практическая конференция «Путь детской дерматологии: от истоков к перспективам. атопический дерматит»',
-            date:'23.09.2023',
-            image:'/pages/new.png'
-        },
+    const [news,setNews]=useState<Array<{
+        id?: string | undefined;
+        description?: string | undefined;
+        link?: string | undefined;
+        dateEnd?: Date | undefined;
+        onlinePrice?: number | undefined;
+        offlinePrice?: number | undefined;
+        prices?: {
+            date: string;
+            online: number;
+            offline: number;
+        }[] | undefined;
+        isOnlyOnline?: boolean | undefined;
+        isPassed?: boolean | undefined;
+        isStream?: boolean | undefined;
+        type: string;
+        date: string;
+        format: string;
+        name: string;
+        dateStart: Date;
+        timePeriod: string;
+        place: string;
+        participants: number;
+        layoutBg: string;
+        avatar: string;
+        announcement: string;
+        speakers: {
+            post: string;
+            description: string;
+            name: string;
+            contact: string;
+            photo: string;
+        }[];
+        halls: {
+            name: string;
+            program: Array<{
+                timePeriod?: string | undefined;
+                sponsor?: string | undefined;
+                speaker?: string | undefined;
+                substages?: {
+                    description?: string | undefined;
+                    sponsor?: string | undefined;
+                    name: string;
+                    timePeriod: string;
+                }[] | undefined;
+                name: string;
+            }>;
+        }[];
+    }>>()
 
-        // {
-        //     id: 3,
-        //     type: 'Конференция',
-        //     date: '11.09.2023 - 11.11.2023',
-        //     name: 'Воздушный рейс',
-        //     image: '/pages/main/sliderBackgrounds/2.png'
-        // },
-        {
-            id: 5,
-            type: 'Конференция',
-            date: '10.06.2023',
-            name: 'I Научно-практическая конференция «Летняя академия детской дерматологии»',
-            image: '/pages/events/summer_bg.jpeg'
-        },
-        {
-            id: 6,
-            type: 'Конференция',
-            date: '01.06.2023',
-            name: 'I Научно-практическая конференция "Дерматологические чтения в педиатрии" в г.Новосибирск',
-            image: '/pages/events/novosib.jpeg'
-        },
-        {
-            id: 7,
-            type: 'Конференция',
-            date: '19.05.2023',
-            name: 'II научно-образовательная конференция "Актуальные вопросы дерматологии детского возраста: простые решения сложных проблем, разбор клинических случаев".',
-            image: '/pages/events/clinick.jpeg'
-        },
-        {
-            id: 8,
-            type: 'Конференция',
-            date: '29.04.2023',
-            name: 'II Научно-практическая конференция дерматологов и педиатров в г.Грозный "Дерматологические чтения в педиатрии"',
-            image: '/pages/events/grozny.jpeg'
-        },
-        {
-            id: 9,
-            type: 'Конференция',
-            date: '22.04.2023',
-            name: 'II Научно-образовательная конференция "Псориаз в детском возрасте: современные решения старых проблем"',
-            image: '/pages/events/ocean.jpg'
-        },
+    const fetchEvent = async () => {
+        const event: any = await eden.event.list.get().then((res: any) => {
+            console.log('aaaaaa', [...res.data.events])
+            setNews([...res.data.events])
+        })
 
-    ]
+    }
+    useEffect(() => {
+        fetchEvent()
+    }, [])
 
 
     const categories = [
@@ -126,6 +113,8 @@ export default function Home() {
         'Марафон',
         'Подкаст',
     ]
+
+
 
     return (
         <main className={'overflow-x-hidden'}>
@@ -276,7 +265,7 @@ export default function Home() {
                 </div>
 
                 <div className={'mt-6 gap-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'}>
-                    {news.map((item, counter) => {
+                    {news?.map((item, counter) => {
                         if(params.get('category')){
                             if(item.type==params.get('category')){
                                 return (
@@ -285,7 +274,7 @@ export default function Home() {
                                             <div className={'rounded-lg overflow-hidden'}>
                                                 <img
                                                     className={'transition-all duration-300 h-60 object-cover w-full group-hover:scale-125'}
-                                                    src={item.image}/>
+                                                    src={item.layoutBg}/>
                                             </div>
                                             <div className={'w-full flex items-center justify-between'}>
                                                 <div
@@ -311,7 +300,7 @@ export default function Home() {
                                         <div className={'rounded-lg overflow-hidden'}>
                                             <img
                                                 className={'transition-all duration-300 h-60 object-cover w-full group-hover:scale-125'}
-                                                src={item.image}/>
+                                                src={item.layoutBg}/>
                                         </div>
                                         <div className={'w-full flex items-center justify-between'}>
                                             <div

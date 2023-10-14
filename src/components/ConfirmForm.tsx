@@ -8,7 +8,7 @@ import {redirect, useRouter} from "next/navigation";
 interface confirmPopInterface {
     closeFunc: () => any,
     price: number,
-    event_id: number,
+    event_id: string,
     event_name:string,
     participationType:'online'| 'offline'| 'online-free',
     query:string,

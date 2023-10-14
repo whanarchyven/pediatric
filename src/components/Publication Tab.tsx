@@ -98,10 +98,10 @@ const PublicationTab = ({isRateHidden, isAuthorsHidden, authors, _id, __v, updat
                         else{
                             await eden.user[user_uuid].publication.save.post({
                                 uuid: uuid,
-                                date: date,
-                                title: title,
-                                category: category,
-                                fileUrl: fileUrl
+                                // date: date,
+                                // title: title,
+                                // category: category,
+                                // fileUrl: fileUrl
                             }).then((res)=>{
                                 window.location.reload()
                                 console.log(res)

@@ -55,6 +55,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
     console.log(data);
 
+    // @ts-ignore
     const publicationsData = useEden(() => eden.user[user_uuid].publication.list["own-published"].get())
 
     const {publications}=publicationsData?.data?? {} as any
@@ -151,8 +152,6 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const [currentCareer, setCurrentCareer] = useState<typeof career[0]>()
 
 
-    const [publicationPop, setPublicationPop] = useState(false);
-
 
     return (
         <main className={'p-2 lg:p-12'}>
@@ -172,9 +171,6 @@ export default function Home(params: { params: { user_uuid: string } }) {
                 setNewCareerPop(false)
             }} afterPostCallback={() => {
             }} user_uuid={user_uuid} email={email} career={career}/> : null}
-            {publicationPop ? <NewPublicationPop email={email} user_uuid={user_uuid} closeFunc={() => {
-                setPublicationPop(false)
-            }}/> : null}
 
             <div className={'flex lg:flex-row flex-col gap-2 lg:justify-between'}>
                 <p className={'uppercase font-inter font-extralight text-2xl lg:text-3xl'}>Основные данные</p>
@@ -500,11 +496,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                     <div className={'flex flex-col gap-10 mt-8'}>
                         <div className={' flex justify-between'}>
                             <p className={'font-bold text-xl text-black'}>Научные работы</p>
-                            <div onClick={() => {
-                                setPublicationPop(true)
-                            }} className={'bg-green text-white cursor-pointer font-normal text-sm lg:text-base p-2 lg:p-3 rounded-lg'}>Добавить
-                                +
-                            </div>
+
                         </div>
                         {publications && publications.length > 0 ? <div className={'flex gap-12 flex-col'}>
                             {publications.map((publication:typeof publications[0])=>{

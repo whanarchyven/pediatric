@@ -32,11 +32,17 @@ const Sidebar = ({user_uuid}:{user_uuid:string}) => {
             iconWhite:'/pages/account/sidebar/white/calendar.svg',
             link:'calendar'
         },
-        // {
-        //     name:'Избранное',
-        //     icon:'/pages/account/sidebar/favorites.svg',
-        //     link:'favorites'
-        // },
+        {
+            name:'Мои мероприятия',
+            icon:'/pages/account/sidebar/events.svg',
+            iconWhite:'/pages/account/sidebar/white/events.svg',
+            link:'events'
+        },
+        {
+            name:'Избранное',
+            icon:'/pages/account/sidebar/favorites.svg',
+            link:'favorites'
+        },
         {
             name:'Статьи и публикации',
             icon:'/pages/account/sidebar/publications.svg',
