@@ -967,10 +967,10 @@ export declare const app: Elysia<"", {
             body: unknown;
             params: unknown;
             query: {
-                category?: number | undefined;
                 search?: string | undefined;
                 limit?: number | undefined;
                 skip?: number | undefined;
+                categories?: string[] | undefined;
             };
             headers: unknown;
             response: {
