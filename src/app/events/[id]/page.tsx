@@ -41,6 +41,7 @@ import compareDates from "@/helpers/compareDates";
 import ConfirmForm from "@/components/ConfirmForm";
 import BackButton from "@/components/BackButton";
 import {eden} from "@/helpers/sdk";
+import QRCode from "react-qr-code";
 
 export const dynamic = "force-dynamic"
 
@@ -136,6 +137,50 @@ export default function Page({params}: any) {
         name: string;
     }>>();
 
+
+    const [needPrice, setNeedPrice] = useState<any>({})
+
+    useEffect(() => {
+        let nowDate = new Date();
+        nowDate.setHours(0, 0, 0, 0)
+        let tempPrice = event?.prices ? event?.prices[0] : null
+        event?.prices?.map((price, counter) => {
+            let lexems = price.date.split('.')
+            if (new Date(`${lexems[1]}/${lexems[0]}/${lexems[2]}`) < nowDate && event?.prices && counter + 1 < event?.prices?.length) {
+                tempPrice = event?.prices[counter + 1]
+            }
+        })
+
+        setNeedPrice(tempPrice)
+
+    }, [event]);
+
+
+    const [registration, setRegistration] = useState<any>()
+
+    const [uuid,setUuid]=useState('')
+
+    eden.user.my.profile.get().then((res) => {
+        console.log(res?.data?.profile?.uuid)
+        setUuid(res?.data?.profile?.uuid)
+    })
+
+    useEffect(() => {
+        if (event?.id) {
+            eden.user.my.participations.byEventId[event.id].get().then((res) => {
+                console.log(res?.data?.registration)
+                setRegistration(res?.data?.registration)
+            })
+        }
+    }, [event]);
+
+
+    const [qrCodeUrl,setQrCodeUrl]=useState()
+
+    useEffect(() => {
+
+    }, []);
+
     return (
         <main className={'overflow-x-hidden'}>
             {/*ПЕРВЫЙ БЛОК*/}
@@ -203,13 +248,13 @@ export default function Page({params}: any) {
                     <p className={'font-bold uppercase text-green xl:text-3xl text-xl'}>
                         Анонс
                     </p>
-                    <p className={'font-normal xl:text-xl text-black'}>
+                    <p className={'font-normal xl:text-lg text-black'}>
                         {event?.announcement}
                     </p>
                     {event?.description ? <p className={'font-bold uppercase text-green xl:text-3xl text-xl'}>
                         Описание
                     </p> : null}
-                    {event?.description ? <p className={'font-normal xl:text-xl text-black'}>
+                    {event?.description ? <p className={'font-normal xl:text-lg text-black'}>
                         {event?.description}
                     </p> : null}
                 </div>
@@ -230,7 +275,7 @@ export default function Page({params}: any) {
                     <br/><span className={'font-extrabold'}>Конференции</span></p>
 
                 <div className={'flex mt-20 items-center gap-16'}>
-                    {event?.halls.map((hall,counter) => {
+                    {event?.halls.map((hall, counter) => {
                         return (
                             <div key={counter} onClick={() => {
                                 setCurrentProgram([...hall.program])
@@ -243,7 +288,7 @@ export default function Page({params}: any) {
                     }
                 </div>
                 <div className={'flex mt-20 flex-col gap-14'}>
-                    {currentProgram.map((item,counter) => {
+                    {currentProgram.map((item, counter) => {
                         return (
                             <div key={counter} className={'flex gap-8 flex-col'}>
                                 <div
@@ -331,14 +376,21 @@ export default function Page({params}: any) {
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div
                         className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-center'}>
-                        <motion.p initial={{y: -40, opacity: 0}}
-                                  whileInView={{y: 0, opacity: 1}}
-                                  viewport={{once: true}}
-                                  transition={{ease: 'easeInOut', duration: 0.7}}
-                                  className={'uppercase font-extralight text-black lg:text-left text-left text-2xl lg:text-4xl'}>Стоимость <strong
-                            className={'font-extrabold'}>Участия</strong></motion.p>
+                        {registration?.isPayed ? <motion.p initial={{y: -40, opacity: 0}}
+                                                  whileInView={{y: 0, opacity: 1}}
+                                                  viewport={{once: true}}
+                                                  transition={{ease: 'easeInOut', duration: 0.7}}
+                                                  className={'uppercase font-extralight text-black lg:text-left text-left text-2xl lg:text-4xl'}>Ваш
+                                приобретённый <strong
+                                    className={'font-extrabold'}>Пакет Участия</strong></motion.p> :
+                            <motion.p initial={{y: -40, opacity: 0}}
+                                      whileInView={{y: 0, opacity: 1}}
+                                      viewport={{once: true}}
+                                      transition={{ease: 'easeInOut', duration: 0.7}}
+                                      className={'uppercase font-extralight text-black lg:text-left text-left text-2xl lg:text-4xl'}>Стоимость <strong
+                                className={'font-extrabold'}>Участия</strong></motion.p>}
                     </div>
-                    <div
+                    {!registration?.isPayed ? <div
                         className={classList('grid grid-cols-1 gap-9 mt-10', event?.prices ? 'lg:grid-cols-3' : 'lg:grid-cols-2')}>
                         {event?.prices ? <div className={'flex flex-col items-center gap-8'}>
                             <div
@@ -367,7 +419,7 @@ export default function Page({params}: any) {
                                     <img className={'w-7 aspect-square'} src={'/online.svg'}/>
                                     <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
                                 </div>
-                                <p className={'text-3xl lg:text-5xl text-white font-bold'}>{event?.onlinePrice ? event?.onlinePrice + ' руб.' : 'БЕСПЛАТНО'}</p>
+                                <p className={'text-3xl lg:text-5xl text-white font-bold'}>{event?.onlinePrice ? needPrice?.online + ' руб.' : 'БЕСПЛАТНО'}</p>
                                 <p className={'font-extralight text-xl text-center text-white'}>Доступ к
                                     онлайн-трансляции мероприятия <span
                                         className={'font-extrabold'}>{event?.onlinePrice ? '+ запись трансляции' : ''}</span>
@@ -375,7 +427,7 @@ export default function Page({params}: any) {
                             </div>
                             <div onClick={() => {
                                 setIsConfirmPopOpen(true);
-                                if(event?.onlinePrice) {
+                                if (event?.onlinePrice) {
                                     setCurrentPrice(event?.onlinePrice);
                                 }
                                 setParticipationType('online')
@@ -392,11 +444,11 @@ export default function Page({params}: any) {
                                     <p className={'font-extralight text-3xl text-green-two'}>Оффлайн</p>
                                 </div>
 
-                                <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{event?.offlinePrice ? event?.offlinePrice + ' руб.' : 'БЕСПЛАТНО'}</p>
+                                <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{event?.offlinePrice ? needPrice?.offline + ' руб.' : 'БЕСПЛАТНО'}</p>
                                 {event?.prices ?
                                     <p className={'font-extralight text-xl text-center text-green-two'}>Цена действует
                                         до <br/>
-                                        {event?.prices[1]?.date}</p> : null}
+                                        {needPrice?.date}</p> : null}
                                 {event?.prices ? <p onClick={() => {
                                         setIsPopPriceOpen(true)
                                     }} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график
@@ -406,7 +458,7 @@ export default function Page({params}: any) {
                             </div>
                             <div onClick={() => {
                                 setIsConfirmPopOpen(true);
-                                if(event?.offlinePrice) {
+                                if (event?.offlinePrice) {
                                     setCurrentPrice(event?.offlinePrice);
                                 }
                                 setParticipationType('offline')
@@ -415,8 +467,21 @@ export default function Page({params}: any) {
                                 Подтвердить участие
                             </div>
                         </div>
-                    </div>
-                    {isConfirmPopOpen&&event?.name&&event?.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
+                    </div> : <div className={'grid grid-cols-2 mt-32 gap-32 items-start'}>
+                        <div className={'flex flex-col gap-4'}>
+                            <p className={'text-2xl uppercase font-black'}>Формат: <span className={'font-light'}>{registration?.meta?.participationType}</span></p>
+                            <p className={'text-2xl uppercase font-black'}>Дата и время: <span className={'font-light'}>{event?.date} в {event?.timePeriod}</span></p>
+                            <p className={'text-2xl uppercase font-black'}>Место: <span className={'font-light'}>{event?.place}</span></p>
+                            <p className={'text-2xl uppercase font-light'}>Мы очень ждём вас, свой билет вы можете скачать по ссылке ниже:</p>
+                            <Link href={`https://pediatric-dermatology.vercel.app/wallet-pass/${uuid}`} className={'flex text-white w-96 font-bold items-center justify-center p-3 bg-green-two rounded-lg'}>
+                                Скачать
+                            </Link>
+                        </div>
+                        <div className={'flex items-center justify-end'}>
+                            <QRCode className={'w-3/5'} value={`https://pediatric-dermatology.vercel.app/wallet-pass/${uuid}`}></QRCode>
+                        </div>
+                    </div>}
+                    {isConfirmPopOpen && event?.name && event?.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
                         {
                             setIsConfirmPopOpen(false)
                         }
@@ -447,7 +512,7 @@ export default function Page({params}: any) {
                                     <div key={counter}
                                          className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-2'}>
                                         <div className={'text-[#0F5F5A] font-light flex items-center '}>
-                                            {item.date}
+                                            до {item.date}
                                         </div>
                                         <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
                                             <p className={'text-[#0F5F5A] font-light'}>{item.offline} рублей</p>
@@ -525,7 +590,7 @@ export default function Page({params}: any) {
                         </div> : null}
                     </div>
 
-                    {isConfirmPopOpen&&event.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
+                    {isConfirmPopOpen && event.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
                         {
                             setIsConfirmPopOpen(false)
                         }
@@ -556,7 +621,7 @@ export default function Page({params}: any) {
                                     <div key={counter}
                                          className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-2'}>
                                         <div className={'text-[#0F5F5A] font-light flex items-center '}>
-                                            {item.date}
+                                           до {item.date}
                                         </div>
                                         <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
                                             <p className={'text-[#0F5F5A] font-light'}>{item.offline} рублей</p>
