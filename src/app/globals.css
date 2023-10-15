@@ -148,3 +148,16 @@ html{
 .events-slider>div>.swiper-slide{
     width: 8rem !important;
 }
+
+.rjsf label {
+    @apply block
+}
+.rjsf .form-group{
+    @apply my-1
+}
+.rjsf .form-group .form-group fieldset {
+    @apply ml-3 pl-3 border-l border-gray-500;
+}
+.rjsf {
+    @apply w-full
+}

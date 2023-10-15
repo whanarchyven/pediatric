@@ -219,3 +219,184 @@ export declare const PdermEventType: import("@sinclair/typebox").TObject<{
     isStream: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
 }>;
 export type PdermEvent = Static<typeof PdermEventType>;
+export declare const PdermEventJsonSchema: {
+    $schema: string;
+    type: string;
+    title: string;
+    properties: {
+        id: {
+            type: string[];
+            title: string;
+        };
+        type: {
+            type: string;
+            title: string;
+        };
+        date: {
+            type: string;
+            title: string;
+        };
+        dateStart: {
+            type: string;
+            format: string;
+            title: string;
+        };
+        dateEnd: {
+            type: string[];
+            format: string;
+            title: string;
+        };
+        timePeriod: {
+            type: string;
+            title: string;
+        };
+        name: {
+            type: string;
+            title: string;
+        };
+        place: {
+            type: string;
+            title: string;
+        };
+        format: {
+            type: string;
+            title: string;
+        };
+        participants: {
+            type: string;
+            title: string;
+        };
+        layoutBg: {
+            type: string;
+            title: string;
+        };
+        avatar: {
+            type: string;
+            title: string;
+        };
+        announcement: {
+            type: string;
+            title: string;
+        };
+        description: {
+            type: string[];
+            title: string;
+        };
+        speakers: {
+            type: string;
+            title: string;
+            items: {
+                type: string;
+                properties: {
+                    name: {
+                        type: string;
+                        title: string;
+                    };
+                    post: {
+                        type: string;
+                        title: string;
+                    };
+                    contact: {
+                        type: string;
+                        title: string;
+                    };
+                    description: {
+                        type: string;
+                        title: string;
+                    };
+                    photo: {
+                        type: string;
+                        title: string;
+                    };
+                };
+                required: string[];
+            };
+        };
+        halls: {
+            type: string;
+            title: string;
+            items: {
+                type: string;
+                properties: {
+                    name: {
+                        type: string;
+                        title: string;
+                    };
+                    program: {
+                        type: string;
+                        title: string;
+                        properties: {
+                            name: {
+                                type: string;
+                                title: string;
+                            };
+                            timePeriod: {
+                                type: string;
+                                title: string;
+                            };
+                            speaker: {
+                                type: string;
+                                title: string;
+                            };
+                            sponsor: {
+                                type: string;
+                                title: string;
+                            };
+                            substages: {
+                                type: string;
+                                title: string;
+                                items: {
+                                    type: string;
+                                    properties: {
+                                        name: {
+                                            type: string;
+                                            title: string;
+                                        };
+                                        timePeriod: {
+                                            type: string;
+                                            title: string;
+                                        };
+                                        description: {
+                                            type: string;
+                                            title: string;
+                                        };
+                                        sponsor: {
+                                            type: string;
+                                            title: string;
+                                        };
+                                    };
+                                    required: string[];
+                                };
+                            };
+                        };
+                        required: string[];
+                    };
+                };
+                required: string[];
+            };
+        };
+        prices: {
+            type: string;
+            title: string;
+            items: {
+                type: string;
+                properties: {
+                    date: {
+                        type: string;
+                        title: string;
+                    };
+                    online: {
+                        type: string;
+                        title: string;
+                    };
+                    offline: {
+                        type: string;
+                        title: string;
+                    };
+                };
+                required: string[];
+            };
+        };
+    };
+    required: string[];
+};

@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@elysiajs/eden": "^0.7.4",
+    "@rjsf/core": "^5.13.2",
+    "@rjsf/utils": "^5.13.2",
+    "@rjsf/validator-ajv8": "^5.13.2",
     "@trpc/client": "^10.40.0",
     "@types/node": "20.3.2",
     "@types/react": "18.2.14",
