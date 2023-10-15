@@ -25,6 +25,7 @@ import {classList} from "@/helpers/classList";
 import {uploadFile} from "@/helpers/uploadFile";
 import DatePicker from "react-datepicker";
 import Link from "next/link";
+import ShowCareerPop from "@/components/ShowCareerPop";
 
 
 // import required modules
@@ -63,10 +64,19 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
     const publicationsData = useEden(() => eden.user[uuid].publication.list["own-published"].get())
 
+    const [showCareerPop, setShowCareerPop] = useState(false)
+    const [currentCareer, setCurrentCareer] = useState<typeof career[0]>()
     const {publications}=publicationsData?.data?? {} as any
 
     return (
         <main className={'p-2 lg:p-12'}>
+            {educationShowOpen ? <ShowEducationPop closeFunc={() => {
+                setEducationShowOpen(false)
+            }} education={currentEducationShow} counter={currentEducationShowCounter}/> : null}
+
+            {showCareerPop ? <ShowCareerPop closeFunc={() => {
+                setShowCareerPop(false)
+            }} workplace={currentCareer}/> : null}
 
             <div className={'flex justify-between'}>
                 <p className={'uppercase font-inter font-extralight text-3xl'}>Визитная <br/><span
@@ -118,66 +128,70 @@ export default function Home(params: { params: { user_uuid: string } }) {
                             </div>
                         </div>
                     </div>
-                    {/*<div className={'flex flex-col gap-2'}>*/}
-                    {/*    <div className={'flex mb-6 gap-7 items-center'}>*/}
-                    {/*        <p className={'uppercase font-inter font-extralight text-3xl'}>Образование</p>*/}
-                    {/*    </div>*/}
-                    {/*    <div className={'w-4/5 flex flex-col gap-2'}>*/}
-                    {/*        {education?.map((item: typeof education[0], counter: number) => {*/}
-                    {/*            return (*/}
-                    {/*                <div key={counter} className={'w-full grid grid-cols-2 gap-3'}>*/}
-                    {/*                    <p className={'font-bold'}>{counter + 1} образование</p>*/}
-                    {/*                    <div className={'flex items-start gap-3'}>*/}
-                    {/*                        <p>{item.faculty} факультет {item.university}</p>*/}
-                    {/*                        <img onClick={() => {*/}
-                    {/*                            setCurrentEducationShow(item)*/}
-                    {/*                            setCurrentEducationShowCounter(counter + 1)*/}
-                    {/*                            setEducationShowOpen(true)*/}
-                    {/*                        }} className={'w-5 cursor-pointer aspect-square'} src={'/info.svg'}/>*/}
-                    {/*                    </div>*/}
-                    {/*                </div>*/}
-                    {/*            )*/}
-                    {/*        })}*/}
-                    {/*        /!*<p className={' font-bold'}>Ученая степень:</p>*!/*/}
-                    {/*        /!*<p className={''}>Доктор наук</p>*!/*/}
-                    {/*        /!*<p className={' font-bold'}>Ученое звание:</p>*!/*/}
-                    {/*        /!*<p className={''}>Профессор</p>*!/*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
-                    {/*<div className={'flex flex-col'}>*/}
-                    {/*    <div className={'flex mb-6 items-center gap-7'}>*/}
-                    {/*        <p className={'uppercase font-inter font-extralight text-3xl'}>Карьера</p>*/}
-                    {/*    </div>*/}
-                    {/*    <div className={'grid gap-4 mb-6 w-4/5 grid-cols-2'}>*/}
-                    {/*        <p className={' font-bold'}>Текущая должность</p>*/}
-                    {/*        <p className={''}>{position}</p>                        </div>*/}
-                    {/*    <div className={'relative flex flex-col gap-7'}>*/}
-                    {/*        <div className={'h-full absolute left-1.5 w-[1px] bg-green'}>*/}
+                    <div className={'flex flex-col gap-2'}>
+                        <div className={'flex mb-6 gap-7 items-center'}>
+                            <p className={'uppercase font-inter font-extralight text-3xl'}>Образование</p>
+                        </div>
+                        <div className={'w-4/5 flex flex-col gap-2'}>
+                            {education?.map((item: typeof education[0], counter: number) => {
+                                return (
+                                    <div key={counter} className={'w-full grid grid-cols-2 gap-3'}>
+                                        <p className={'font-bold'}>{counter + 1} образование</p>
+                                        <div className={'flex items-start gap-3'}>
+                                            <p>{item.faculty} факультет {item.university}</p>
+                                            <img onClick={() => {
+                                                setCurrentEducationShow(item)
+                                                setCurrentEducationShowCounter(counter + 1)
+                                                setEducationShowOpen(true)
+                                            }} className={'w-5 cursor-pointer aspect-square'} src={'/info.svg'}/>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                            {/*<p className={' font-bold'}>Ученая степень:</p>*/}
+                            {/*<p className={''}>Доктор наук</p>*/}
+                            {/*<p className={' font-bold'}>Ученое звание:</p>*/}
+                            {/*<p className={''}>Профессор</p>*/}
+                        </div>
+                    </div>
+                    <div className={'flex flex-col'}>
+                        <div className={'flex mb-6 items-center gap-7'}>
+                            <p className={'uppercase font-inter font-extralight text-3xl'}>Карьера</p>
+                        </div>
+                        <div className={'grid gap-4 mb-6 w-4/5 grid-cols-2'}>
+                            <p className={' font-bold'}>Текущая должность</p>
+                            <p className={''}>{position}</p>                        </div>
+                        <div className={'relative flex flex-col gap-7'}>
+                            <div className={'h-full absolute left-1.5 w-[1px] bg-green'}>
 
-                    {/*        </div>*/}
-                    {/*        {career?.map((item:{*/}
-                    {/*            placeName: string;*/}
-                    {/*            start: string;*/}
-                    {/*            end: string;*/}
-                    {/*            post: string;*/}
-                    {/*            description: string;*/}
-                    {/*        })=>{*/}
-                    {/*            return(*/}
-                    {/*                <div className={'flex items-start gap-5'}>*/}
-                    {/*                    <div className={'w-3 aspect-square rounded-full bg-green'}>*/}
+                            </div>
+                            {career?.map((item: {
+                                placeName: string;
+                                start: string;
+                                end: string;
+                                post: string;
+                                description: string;
+                            }, counter: number) => {
+                                return (
+                                    <div key={counter} className={'flex items-start gap-5'}>
+                                        <div className={'w-3 aspect-square rounded-full bg-green'}>
 
-                    {/*                    </div>*/}
-                    {/*                    <div className={'flex flex-col gap-4'}>*/}
-                    {/*                        <p className={'font-bold text-green leading-[80%]'}>{item.start} - {item.end}</p>*/}
-                    {/*                        <p className={'font-normal text-black leading-[80%]'}>Место работы: {item.placeName}</p>*/}
-                    {/*                        <p className={'font-normal text-black leading-[80%] pb-8'}>Должность: {item.post}</p>*/}
-                    {/*                    </div>*/}
-                    {/*                </div>*/}
-                    {/*            )*/}
-                    {/*        })}*/}
+                                        </div>
+                                        <div className={'flex flex-col gap-4'}>
+                                            <p className={'font-bold text-green lg:text-base text-sm lg:leading-[80%]'}>{item.start} - {item.end}</p>
+                                            <p className={'font-normal text-black lg:text-base text-sm lg:leading-[80%]'}>Место
+                                                работы: {item.placeName}</p>
+                                            <p className={'font-normal text-black lg:text-base text-sm lg:leading-[80%] pb-8'}>Должность: {item.post}</p>
+                                        </div>
+                                        <img onClick={() => {
+                                            setCurrentCareer(item)
+                                            setShowCareerPop(true)
+                                        }} className={'w-5 -mt-1 cursor-pointer aspect-square'} src={'/info.svg'}/>                                    </div>
+                                )
+                            })}
 
-                    {/*    </div>*/}
-                    {/*</div>*/}
+                        </div>
+                    </div>
                     <div className={'flex flex-col gap-6'}>
                         <p className={'uppercase font-inter font-extralight text-2xl lg:text-3xl'}>О себе и интересы</p>
                         <div className={'flex flex-col gap-4'}>

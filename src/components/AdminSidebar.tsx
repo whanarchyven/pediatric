@@ -5,7 +5,7 @@ import {usePathname} from "next/navigation";
 import Link from "next/link";
 import { eden, useEden } from '@/helpers/sdk';
 
-const Sidebar = ({user_uuid}:{user_uuid:string}) => {
+const AdminSidebar = ({user_uuid}:{user_uuid:string}) => {
 
     const links=[
         {
@@ -83,4 +83,4 @@ const Sidebar = ({user_uuid}:{user_uuid:string}) => {
     );
 };
 
-export default Sidebar;
+export default AdminSidebar;
