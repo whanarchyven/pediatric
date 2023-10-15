@@ -376,7 +376,7 @@ export default function Page({params}: any) {
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div
                         className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-center'}>
-                        {registration?.isPayed ? <motion.p initial={{y: -40, opacity: 0}}
+                        {registration?.is_paid ? <motion.p initial={{y: -40, opacity: 0}}
                                                   whileInView={{y: 0, opacity: 1}}
                                                   viewport={{once: true}}
                                                   transition={{ease: 'easeInOut', duration: 0.7}}
@@ -390,7 +390,7 @@ export default function Page({params}: any) {
                                       className={'uppercase font-extralight text-black lg:text-left text-left text-2xl lg:text-4xl'}>Стоимость <strong
                                 className={'font-extrabold'}>Участия</strong></motion.p>}
                     </div>
-                    {!registration?.isPayed ? <div
+                    {!registration?.is_paid ? <div
                         className={classList('grid grid-cols-1 gap-9 mt-10', event?.prices ? 'lg:grid-cols-3' : 'lg:grid-cols-2')}>
                         {event?.prices ? <div className={'flex flex-col items-center gap-8'}>
                             <div
