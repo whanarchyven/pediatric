@@ -203,13 +203,13 @@ export default function Page({params}: any) {
                     <p className={'font-bold uppercase text-green xl:text-3xl text-xl'}>
                         Анонс
                     </p>
-                    <p className={'font-normal xl:text-2xl text-black'}>
+                    <p className={'font-normal xl:text-xl text-black'}>
                         {event?.announcement}
                     </p>
                     {event?.description ? <p className={'font-bold uppercase text-green xl:text-3xl text-xl'}>
                         Описание
                     </p> : null}
-                    {event?.description ? <p className={'font-normal xl:text-2xl text-black'}>
+                    {event?.description ? <p className={'font-normal xl:text-xl text-black'}>
                         {event?.description}
                     </p> : null}
                 </div>

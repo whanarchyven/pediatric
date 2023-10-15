@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import 'swiper/css/effect-fade';
 import {eden, useEden} from "@/helpers/sdk";
+import Link from "next/link";
 
 
 
@@ -34,46 +35,46 @@ export default function Home(params: { params: { user_uuid: string } }) {
                     <div className={'col-span-1 text-white font-bold bg-green flex items-center justify-start border-l-[1px] p-3 border-green'}>
                         Дата
                     </div>
-                    <div className={'col-span-6 text-white font-bold bg-green  border-l-[1px] p-3 border-white'}>
+                    <div className={'col-span-1 text-white font-bold bg-green  border-l-[1px] p-3 border-white'}>
+                        Обложка
+                    </div>
+                    <div className={'col-span-6 text-white font-bold bg-green lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-white'}>
                         Название мероприятия
                     </div>
                     <div className={'col-span-1 text-white font-bold bg-green lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-white'}>
-                        Оплачено
+                        Кол-во участников
                     </div>
-                    <div className={'col-span-2 text-white font-bold bg-green lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-white'}>
-                        Тип участия
-                    </div>
-                    <div className={'col-span-2 text-white font-bold bg-green lg:border-r-0 border-r-[1px] border-l-[1px] border-r-[1px] p-3 border-r-green border-l-white'}>
-                        Пропуск на мероприятие
+                    <div className={'col-span-3 text-white font-bold bg-green lg:border-r-0 border-r-[1px] border-l-[1px] border-r-[1px] p-3 border-r-green border-l-white'}>
+
                     </div>
                 </div>
-                {/*{participations.map((participation:typeof participations[0],counter:number)=>{*/}
-                {/*    return(*/}
-                {/*        // <PublicationTab user_uuid={uuid} {...participation} key={participation.title}></PublicationTab>*/}
-                {/*        <div key={counter} className={'grid  border-b-[1px] border-green  lg:grid-cols-12'}>*/}
-                {/*            <div className={'lg:col-span-1 flex items-center justify-start lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-green'}>*/}
-                {/*                {events?.find(item=>item.id==participation.info.event_id)?.date}*/}
-                {/*            </div>*/}
-                {/*            <div className={'lg:col-span-6 lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-green'}>*/}
-                {/*                {participation.info.event_name}*/}
-                {/*            </div>*/}
-                {/*            <div className={'lg:col-span-1 lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-green'}>*/}
-                {/*                {participation.sum}*/}
-                {/*            </div>*/}
-                {/*            <div className={'lg:col-span-2 lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-green'}>*/}
-                {/*                {participation.info.participationType}*/}
-                {/*            </div>*/}
-                {/*            <div className={'lg:col-span-2 lg:border-r-0 border-r-[1px] border-l-[1px] border-r-[1px] p-3 border-green'}>*/}
-                {/*                <div onClick={()=>{*/}
-                {/*                    setActiveQr(participation.qrCodeUrl)*/}
-                {/*                    setIsQrCodeOpen(true)*/}
-                {/*                }} className={'p-4 bg-green flex rounded-lg cursor-pointer items-center justify-center font-bold text-white'}>*/}
-                {/*                    Посмотреть*/}
-                {/*                </div>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    )*/}
-                {/*})}*/}
+                {events.map((event:typeof events[0],counter:number)=>{
+                    return(
+                        // <PublicationTab user_uuid={uuid} {...participation} key={participation.title}></PublicationTab>
+                        <div key={counter} className={'grid  border-b-[1px] border-green  lg:grid-cols-12'}>
+                            <div className={'lg:col-span-1 flex items-center justify-start lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-green'}>
+                                {event.date}
+                            </div>
+                            <div className={'lg:col-span-1 lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-green'}>
+                                <img className={'w-full h-full object-cover'} src={event.layoutBg}/>
+                            </div>
+                            <div className={'lg:col-span-6 lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-green'}>
+                                {event.name}
+                            </div>
+                            <div className={'lg:col-span-1 lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-green'}>
+                                {event.participants}
+                            </div>
+                            <div className={'lg:col-span-3 flex items-center gap-2 lg:border-r-0 border-r-[1px] border-l-[1px] border-r-[1px] p-3 border-green'}>
+                                <div  className={'p-4 bg-green flex rounded-lg cursor-pointer items-center justify-center font-bold text-white'}>
+                                    Участники
+                                </div>
+                                <Link href={`/admin/events/${event.id}`} className={'p-4 bg-green flex rounded-lg cursor-pointer items-center justify-center font-bold text-white'}>
+                                    Редактировать
+                                </Link>
+                            </div>
+                        </div>
+                    )
+                })}
             </div> : <div
                 className={'flex h-52 border-[1px] border-green rounded-lg items-center justify-center'}>
                 <p className={'opacity-50'}>Мероприятия не найдены</p>

@@ -5,7 +5,7 @@ import {usePathname} from "next/navigation";
 import Link from "next/link";
 import { eden, useEden } from '@/helpers/sdk';
 
-const AdminSidebar = ({user_uuid}:{user_uuid:string}) => {
+const AdminSidebar = () => {
 
     const links=[
         {
@@ -40,8 +40,10 @@ const AdminSidebar = ({user_uuid}:{user_uuid:string}) => {
             link:'logout'
         },
     ]
+
+
     const pathname=usePathname()
-    const {data} = useEden(()=>eden.user[user_uuid].profile.get())
+    const {data} = useEden(()=>eden.user.my.profile.get())
 
     if (!data?.profile) return null
     const {lastName,firstName,position,photoUrl}=data.profile;
