@@ -86,8 +86,8 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
     const filterByName=async (name:string)=>{
         const publicationsData = eden.user[uuid].publication.list.saved.get({$query:{search:name,categories:[...tags].join(',')}}).then((res)=>{
-            if(res.data){
-                console.log([...res.data.publications])
+            if(res?.data?.publications){
+                console.log('aaaaa',[...res.data.publications])
                 setPublications([...res.data.publications])
             }
         })
@@ -96,7 +96,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
     const filterByTag=async ()=>{
         const publicationsData = eden.user[uuid].publication.list.saved.get({$query:{search:name,categories:[...tags].join(',')}}).then((res)=>{
-            if(res.data){
+            if(res?.data?.publications){
                 console.log(res)
                 setPublications([...res.data.publications])
             }

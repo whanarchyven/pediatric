@@ -250,19 +250,19 @@ export default function Home() {
                     </Swiper>
                 </div>
 
-                <div className={'sm:flex hidden items-center gap-6'}>
-                    <div
-                        className={'cursor-pointer mr-[50px] w-12 aspect-square hidden sm:flex items-center p-3 justify-center aspect-square rounded-full bg-[#E4F0EE] hover:bg-[#BCDBD5] transition-all duration-300'}>
-                        <img className={'w-full aspect-square'} src={'/arrow_prev.svg'}/>
-                    </div>
-                    {[1,2,3,4,5].map((item,counter)=>{
-                        return (<p key={counter} className={classList('text-green text-2xl font-normal',item==1?'opacity-100':'opacity-30 cursor-pointer')}>{item}</p>)
-                    })}
-                    <div
-                        className={'cursor-pointer ml-[50px] w-12 aspect-square relative hidden sm:flex items-center p-3 justify-center aspect-square rounded-full bg-[#E4F0EE] hover:bg-[#BCDBD5] transition-all duration-300'}>
-                        <img className={'w-full aspect-square'} src={'/arrow_next.svg'}/>
-                    </div>
-                </div>
+                {/*<div className={'sm:flex hidden items-center gap-6'}>*/}
+                {/*    <div*/}
+                {/*        className={'cursor-pointer mr-[50px] w-12 aspect-square hidden sm:flex items-center p-3 justify-center aspect-square rounded-full bg-[#E4F0EE] hover:bg-[#BCDBD5] transition-all duration-300'}>*/}
+                {/*        <img className={'w-full aspect-square'} src={'/arrow_prev.svg'}/>*/}
+                {/*    </div>*/}
+                {/*    {[1,2,3,4,5].map((item,counter)=>{*/}
+                {/*        return (<p key={counter} className={classList('text-green text-2xl font-normal',item==1?'opacity-100':'opacity-30 cursor-pointer')}>{item}</p>)*/}
+                {/*    })}*/}
+                {/*    <div*/}
+                {/*        className={'cursor-pointer ml-[50px] w-12 aspect-square relative hidden sm:flex items-center p-3 justify-center aspect-square rounded-full bg-[#E4F0EE] hover:bg-[#BCDBD5] transition-all duration-300'}>*/}
+                {/*        <img className={'w-full aspect-square'} src={'/arrow_next.svg'}/>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
                 <div className={'mt-6 gap-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'}>
                     {news?.map((item, counter) => {

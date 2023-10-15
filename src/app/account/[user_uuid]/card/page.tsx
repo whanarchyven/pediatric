@@ -189,7 +189,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                             <p className={'text-black'}>{about ? about : 'Не указано'}</p>
                         </div>
                     </div>
-                    <div className={'flex lg:flex-row flex-col items-center gap-12'}>
+                    {pathname.split('/')[2]=='my'?<div className={'flex lg:flex-row flex-col items-center gap-12'}>
                         <div className={'aspect-square lg:w-1/3'}>
                             <QRCode className={'w-full h-full'}
                                     value={`https://www.pediatric-dermatology.ru/account/${uuid}/card/`}></QRCode>
@@ -204,7 +204,8 @@ export default function Home(params: { params: { user_uuid: string } }) {
                             </div>
                         </div>
 
-                    </div>
+                    </div>:null}
+
                 </div>
                 <div className={'flex lg:px-8 max-w-screen lg:mt-0 mt-6 flex-col gap-10'}>
                     <p className={'font-bold text-xl text-black'}>Награды</p>
@@ -257,11 +258,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                     <div className={'flex flex-col gap-10 mt-8'}>
                         <div className={' flex justify-between'}>
                             <p className={'font-bold text-xl text-black'}>Научные работы</p>
-                            <div onClick={() => {
-                                setPublicationPop(true)
-                            }} className={'bg-green text-white cursor-pointer font-normal text-sm lg:text-base p-2 lg:p-3 rounded-lg'}>Добавить
-                                +
-                            </div>
+
                         </div>
                         {publications && publications.length > 0 ? <div className={'flex gap-12 flex-col'}>
                             {publications.map((publication:typeof publications[0])=>{

@@ -23,7 +23,7 @@ const NewPublicationPop = ({closeFunc,user_uuid,email}:newPublicationPopInterfac
 
     const newPublication=async (fileUrl:string)=>{
         eden.user[user_uuid].publication.post({
-            uuid: user_uuid, category, title, fileUrl, authors,
+             category, title, fileUrl, authors,
             date: new Date().toDateString()
         }).then((res)=>{
             console.log(res)
