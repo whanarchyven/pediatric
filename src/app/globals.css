@@ -152,8 +152,8 @@ html{
 .rjsf label {
     @apply block text-xs text-gray-700
 }
-.rjsf input {
-    @apply w-full bg-gray-100 rounded-sm
+.rjsf input, .rjsf textarea {
+    @apply w-full bg-[#E3F1EF] rounded-sm
 }
 .rjsf .form-group{
     @apply my-1

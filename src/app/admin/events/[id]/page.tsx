@@ -65,6 +65,47 @@ export default function Home(params: { params: { id: string } }) {
           {schema && event && (
             <Form
               formData={(data as any)?.events}
+              uiSchema={{
+                "id": {
+                  "ui:widget": "hidden"
+                },
+                "name": {
+                  "ui:autofocus": true,
+                  "ui:emptyValue": ""
+                },
+                "date": {
+                  "ui:widget": "date"
+                },
+                "dateStart": {
+                  "ui:widget": "date-time"
+                },
+                "dateEnd": {
+                  "ui:widget": "date-time"
+                },
+                "halls": {
+                  "items": {
+                    "program": {
+                      "substages": {
+                        "items": {
+                          "description": {
+                            "ui:widget": "textarea"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "prices": {
+                  "items": {
+                    "date": {
+                      "ui:widget": "date"
+                    }
+                  }
+                },
+                "description": {
+                  "ui:widget": "textarea"
+                }
+              }}
               schema={schema}
               validator={validator}
               onChange={(e) => console.log(e)}
