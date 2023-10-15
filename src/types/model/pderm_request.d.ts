@@ -36,6 +36,7 @@ export declare const PdermRequestModel: mongoose.Model<{
     user_email?: string | undefined;
     register_timestamp?: Date | undefined;
     after_pay_email_text?: string | undefined;
+    cert?: string | undefined;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
     email: string;
     invoice_id: number;
@@ -73,6 +74,7 @@ export declare const PdermRequestModel: mongoose.Model<{
     user_email?: string | undefined;
     register_timestamp?: Date | undefined;
     after_pay_email_text?: string | undefined;
+    cert?: string | undefined;
 }> & {
     email: string;
     invoice_id: number;
@@ -110,6 +112,7 @@ export declare const PdermRequestModel: mongoose.Model<{
     user_email?: string | undefined;
     register_timestamp?: Date | undefined;
     after_pay_email_text?: string | undefined;
+    cert?: string | undefined;
 } & Required<{
     _id: mongoose.Types.ObjectId;
 }>, mongoose.Schema<any, mongoose.Model<any, any, any, any, any, any>, {}, {}, {}, {}, mongoose.DefaultSchemaOptions, {
@@ -149,6 +152,7 @@ export declare const PdermRequestModel: mongoose.Model<{
     user_email?: string | undefined;
     register_timestamp?: Date | undefined;
     after_pay_email_text?: string | undefined;
+    cert?: string | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     email: string;
     invoice_id: number;
@@ -186,6 +190,7 @@ export declare const PdermRequestModel: mongoose.Model<{
     user_email?: string | undefined;
     register_timestamp?: Date | undefined;
     after_pay_email_text?: string | undefined;
+    cert?: string | undefined;
 }>> & mongoose.FlatRecord<{
     email: string;
     invoice_id: number;
@@ -223,6 +228,7 @@ export declare const PdermRequestModel: mongoose.Model<{
     user_email?: string | undefined;
     register_timestamp?: Date | undefined;
     after_pay_email_text?: string | undefined;
+    cert?: string | undefined;
 }> & Required<{
     _id: mongoose.Types.ObjectId;
 }>>>;
