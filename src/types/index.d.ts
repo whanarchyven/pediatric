@@ -281,6 +281,17 @@ export declare const app: Elysia<"", {
             };
         };
     };
+    "/user/:user_uuid/participations/byEventId/:event_id/getCert": {
+        get: {
+            body: unknown;
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<Response>;
+            };
+        };
+    };
     "/user/:user_uuid/user-list": {
         get: {
             body: unknown;
