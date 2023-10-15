@@ -1,47 +1,33 @@
-"use client"
-import '@/app/globals.css'
-import {Inter} from 'next/font/google'
-import Image from "next/image";
-import Navbar from "@/components/Navbar";
-import React, {useState} from "react";
-import Link from "next/link";
-import {classList} from "@/helpers/classList";
-import {usePathname} from "next/navigation";
-import Sidebar from "@/components/Sidebar";
+import '@/app/globals.css';
 import AdminSidebar from "@/components/AdminSidebar";
-import {eden} from "@/helpers/sdk";
+import { eden } from "@/helpers/sdk";
+import { edenServer } from '@/helpers/sdk-server';
+import { Inter } from 'next/font/google';
+import React from "react";
 
-const inter = Inter({subsets: ['latin']})
 
 // export const metadata = {
 //     title: 'Азбука атопического дерматита',
 //     description: 'наметки лендоса',
 // }
 export const dynamic = "force-dynamic"
-export default function AdminLayout(props: {
+export default async function AdminLayout(props: {
     children: React.ReactNode
 }) {
 const {children} = props;
     console.log(props)
-    const [isOpenBurger,setIsOpenBurger]=useState(false)
-    const [loading,setLoading]=useState(true)
-    const[isAdmin,setIsAdmin]=useState(false)
-    const [uuid,setUuid]=useState('')
-    const data = eden.user.my.profile.get().then((res) => {
-        if (res?.data?.isAdmin) {
-            setIsAdmin(true)
-            setUuid(res?.data?.profile.uuid)
-            console.log('true');
-        }
-        setLoading(false)
-    })
-    if(loading){
-        return (
-            <div className={'h-screen w-screen flex items-center justify-center green-gradient'}>
-                <img className={'w-20 aspect-square animate-spin'} src={'/loading.svg'}/>
-            </div>
-        )
-    }else{
+    
+        
+    let isAdmin = false;
+    let uuid = '';
+    const res = await edenServer.user.my.profile.get()
+    if (res?.data?.isAdmin) {
+        isAdmin = true
+        uuid = res?.data?.profile.uuid
+        
+    }
+    
+    
         if(isAdmin){
             return (
                 <div className={'lg:grid lg:pt-28 pt-14 pb-0 lg:grid-cols-10'}>
@@ -66,5 +52,5 @@ const {children} = props;
                 </div>
             )
         }
-    }
+    
 }
