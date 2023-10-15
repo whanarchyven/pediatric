@@ -247,6 +247,29 @@ export declare const app: Elysia<"", {
             };
         };
     };
+    "/user/:user_uuid/admin/participations/byEventId/:event_id": {
+        get: {
+            body: unknown;
+            params: {
+                event_id: string;
+            };
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<{
+                    status: string | undefined;
+                    sum: number;
+                    info: {
+                        name?: string | undefined;
+                        participationType?: string | undefined;
+                        event_name?: string | undefined;
+                        event_id?: string | undefined;
+                    } | undefined;
+                    email: string | undefined;
+                }[]>;
+            };
+        };
+    };
     "/user/:user_uuid/user-list": {
         get: {
             body: unknown;
