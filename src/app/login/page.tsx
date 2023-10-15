@@ -79,12 +79,12 @@ export default function Home() {
                             <p className={'text-white font-bold'}>E-mail</p>
                             {showWarning?<p className={'text-rose-500 font-normal'}>{showWarning}</p>:null}
                             <input type={'text'} onChange={(e)=>{setEmail(e.target.value)}} placeholder={'my.email@gmail.com'}
-                                   className={'p-4 outline-0 text-white bg-transparent transition-all duration-300 placeholder:font-extralight w-96 border-white border-2 cursor-pointer flex items-center rounded-full gap-2'}/>
+                                   className={'p-4 outline-0 text-white max-w-screen-sm bg-transparent transition-all duration-300 placeholder:font-extralight lg:w-96 border-white border-2 cursor-pointer flex items-center rounded-full gap-2'}/>
                         </div>
                         <div className={'flex gap-2 flex-col'}>
                             <p className={'text-white font-bold'}>Пароль</p>
                             <input onChange={(e)=>{setPassword(e.target.value)}} type={'password'} placeholder={''}
-                                   className={'p-4 outline-0 text-white bg-transparent transition-all duration-300 placeholder:font-extralight w-96 border-white border-2 cursor-pointer flex items-center rounded-full gap-2'}/>
+                                   className={'p-4 outline-0 text-white max-w-screen-sm bg-transparent transition-all duration-300 placeholder:font-extralight lg:w-96 border-white border-2 cursor-pointer flex items-center rounded-full gap-2'}/>
                         </div>
                         <div className={'flex justify-between lg:w-2/3'}>
                             <div onClick={()=>{

@@ -67,6 +67,7 @@ const Navbar = ({isInteractive}:navbarInterface) => {
                 {links.map((link)=>{
                     return (<Link key={link.title} className={'font-inter text-xs xl:text-sm font-normal whitespace-nowrap text-white'} href={link.link}>{link.title}</Link>)
                 })}
+
             </div>
             <div className={'col-span-2 hidden gap-1 sm:flex items-center justify-end'}>
                 <div className={'flex items-center'}>
@@ -83,7 +84,7 @@ const Navbar = ({isInteractive}:navbarInterface) => {
                         </img>
                     </Link>
                 </div>
-                <div className={'flex items-center cursor-pointer'} onClick={()=>{loggedIn?router.push('/account/my/profile'):router.push('/registration')}}>
+                <div className={'flex items-center cursor-pointer'} onClick={()=>{loggedIn?router.push('/account/my/profile'):router.push('/login')}}>
                     <div className={'w-5 mx-2 aspect-square relative'}>
                         <Image src={'/account.svg'} alt={'account'} layout={'fill'}></Image>
                     </div>
@@ -97,12 +98,18 @@ const Navbar = ({isInteractive}:navbarInterface) => {
                 {links.map((link)=>{
                     return (<a key={link.title} className={'font-inter text-sm font-normal text-white'} href={link.link}>{link.title}</a>)
                 })}
+                <div className={'flex flex-row-reverse justify-end items-center mt-10 cursor-pointer'} onClick={()=>{loggedIn?router.push('/account/my/profile'):router.push('/login')}}>
+                    <div className={'w-5 mx-2 aspect-square relative'}>
+                        <Image src={'/account.svg'} alt={'account'} layout={'fill'}></Image>
+                    </div>
+                    <p className={'text-white lg:text-lg text-sm font-inter font-normal'}>{loggedIn?"Профиль":"Войти"}</p>
+                </div>
             </div>:null}
             {burgerOpen&&(pathname.includes('/account'))?<div className={'h-screen pt-10 flex flex-col col-span-6 gap-6'}>
                 <Sidebar user_uuid={data?.profile.uuid}></Sidebar>
             </div>:null}
             {burgerOpen&&(pathname.includes('/admin'))?<div className={'h-screen pt-10 flex flex-col col-span-6 gap-6'}>
-                <AdminSidebar user_uuid={data?.profile.uuid}></AdminSidebar>
+                <AdminSidebar user_uuid={data?.profile?.uuid}></AdminSidebar>
             </div>:null}
 
         </div>
