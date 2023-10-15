@@ -60,7 +60,7 @@ export default function Home(params: { params: { id: string } }) {
           <span className={"font-extrabold"}>Мероприятия</span>
         </p>
       </div>
-      <div className={"grid grid-cols-2 items-start"}>
+      <div className={""}>
         <div className={""}>
           {schema && event && (
             <Form
@@ -70,10 +70,10 @@ export default function Home(params: { params: { id: string } }) {
               onChange={(e) => console.log(e)}
               onSubmit={(e) => console.log(e)}
               onError={(e) => console.log(e)}
-              widgets={{TextInput:TailwindTextInput}}
+            //   widgets={{TextInput:TailwindTextInput}}
             />
           )}
-          ,{JSON.stringify(data)}
+          <pre className="text-xs">{JSON.stringify(data,null,2)}</pre>
         </div>
       </div>
     </main>
