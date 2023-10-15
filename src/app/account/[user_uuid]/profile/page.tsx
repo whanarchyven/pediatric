@@ -463,12 +463,12 @@ export default function Home(params: { params: { user_uuid: string } }) {
                         }} className={'bg-green text-white cursor-pointer font-normal p-2 lg:text-base text-sm lg text-sm lg:text-base p-2:lg:p-3 rounded-lg'}>Добавить
                             +</div>:null}
                     </div>
-                    {awards&&awards.length>0?<div className={'grid grid-cols-4 mt-4 gap-8'}>
+                    {awards&&awards.length>0?<div className={'grid grid-cols-5 mt-4 gap-8'}>
                         {awards.map((award:typeof awards[0],counter:number)=>{
                             return(
                                 <div key={counter} onClick={()=>{setCurrentAward(award);setShowAwardsPop(true)}} className={'flex flex-col gap-3 items-center'}>
-                                    <img src={award.imageUrl}
-                                         className={'rounded-full cursor-pointer aspect-square object-cover'}/>
+                                    <img src={'/awards.svg'}
+                                         className={'rounded-full w-full cursor-pointer aspect-square object-cover'}/>
                                     <p className={'font-normal text-black text-center text-xs'}>{award.title}</p>
                                 </div>
                             )

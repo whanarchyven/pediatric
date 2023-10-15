@@ -242,22 +242,20 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
                 </div>
                 <div className={'flex lg:px-8 max-w-screen lg:mt-0 mt-6 flex-col gap-10'}>
-                    <div className={'flex justify-between items-center'}>
+                    {awards&&awards.length>0?<div className={'flex justify-between items-center'}>
                         <p className={'font-bold text-xl text-black'}>Награды</p>
-                    </div>
-                    {awards&&awards.length>0?<div className={'grid grid-cols-4 mt-4 gap-8'}>
+                    </div>:null}
+                    {awards&&awards.length>0?<div className={'grid grid-cols-5 mt-4 gap-8'}>
                         {awards.map((award:typeof awards[0],counter:number)=>{
                             return(
                                 <div key={counter} onClick={()=>{setCurrentAward(award);setShowAwardsPop(true)}} className={'flex flex-col gap-3 items-center'}>
-                                    <img src={award.imageUrl}
-                                         className={'rounded-full cursor-pointer aspect-square object-cover'}/>
+                                    <img src={'/awards.svg'}
+                                         className={'rounded-full w-full cursor-pointer aspect-square object-cover'}/>
                                     <p className={'font-normal text-black text-center text-xs'}>{award.title}</p>
                                 </div>
                             )
                         })}
-                    </div>:<div className={'flex h-52 lg:border-[1px] border-green rounded-lg items-center justify-center'}>
-                        <p className={'opacity-50'}>Награды не найдены</p>
-                    </div>}
+                    </div>:null}
                     <div className={'flex flex-col gap-10 mt-8'}>
                         <div className={' flex justify-between'}>
                             <p className={'font-bold text-xl text-black'}>Научные работы</p>
