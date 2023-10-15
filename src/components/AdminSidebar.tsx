@@ -10,21 +10,21 @@ const AdminSidebar = ({user_uuid}:{user_uuid:string}) => {
     const links=[
         {
             name:'Пользователи',
-            icon:'/pages/account/sidebar/account.svg',
+            icon:'/admin/users.svg',
             iconWhite:'/pages/account/sidebar/white/account.svg',
             link:'users'
         },
         {
             name:'Мероприятия',
-            icon:'/pages/account/sidebar/account.svg',
+            icon:'/admin/events.svg',
             iconWhite:'/pages/account/sidebar/white/account.svg',
             link:'events'
         },
         {
-            name:'Новости',
-            icon:'/pages/account/sidebar/account.svg',
-            iconWhite:'/pages/account/sidebar/white/account.svg',
-            link:'news'
+            name:'Статьи',
+            icon:'/admin/posts.svg',
+            iconWhite:'/admin/posts.svg',
+            link:'posts'
         },
 
         {
@@ -72,7 +72,7 @@ const AdminSidebar = ({user_uuid}:{user_uuid:string}) => {
                     return null
                 }
                 else{
-                    return( <Link href={`/account/my/${link.link}`} className={classList('flex cursor-pointer items-center gap-3',pathname.split('/')[3]==link.link?'opacity-100':'opacity-30',counter==links.length-2?'mt-12':'')} key={link.link}>
+                    return( <Link href={`/admin/${link.link}`} className={classList('flex cursor-pointer items-center gap-3',pathname.split('/')[2]==link.link?'opacity-100':'opacity-30',counter==links.length-2?'mt-12':'')} key={link.link}>
                         <img className={'w-5 lg:flex hidden aspect-square'} src={link.icon}/>
                         <img className={'w-5 flex lg:hidden aspect-square'} src={link.iconWhite}/>
                         <p className={'font-inter text-white lg:text-dark-green font-normal'}>{link.name}</p>

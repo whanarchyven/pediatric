@@ -33,10 +33,12 @@ import ShowCareerPop from "@/components/ShowCareerPop";
 import NewPublicationPop from "@/components/NewPublicationPop";
 // import required modules
 
-
+export const dynamic = "force-dynamic"
 export default function Home(params: { params: { user_uuid: string } }) {
     const images = '/pages/account'
     const user_uuid = params.params.user_uuid
+
+    const router=useRouter()
 
     const {data} = useEden(() => eden.user[user_uuid].profile.get())
 
@@ -176,7 +178,10 @@ export default function Home(params: { params: { user_uuid: string } }) {
             }} user_uuid={user_uuid} email={email} career={career}/> : null}
 
             <div className={'flex lg:flex-row flex-col gap-2 lg:justify-between'}>
-                <p className={'uppercase font-inter font-extralight text-2xl lg:text-3xl'}>Основные данные</p>
+                <div className={'flex items-center gap-3'}>
+                    <img className={'cursor-pointer'} onClick={()=>{router.back()}} src={'/admin/back.svg'}/>
+                    <p className={'uppercase font-inter font-extralight text-2xl lg:text-3xl'}>Основные данные</p>
+                </div>
                 {!isEditor ? <div onClick={() => {
                         initializeTempData();
                         setIsEditor(true)
@@ -188,6 +193,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                     <div onClick={async () => {
                         if(tempPhotoUrl){
                             await uploadFile(tempPhotoUrl).then((res)=>{
+                                console.log('asdsaaaaaaaaaaa')
                                 updateProfile(res);
                             })
                         }

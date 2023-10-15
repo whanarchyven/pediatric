@@ -8,6 +8,7 @@ import Link from "next/link";
 import { eden, useEden } from '@/helpers/sdk';
 import { Router } from 'next/router';
 import Sidebar from "@/components/Sidebar";
+import AdminSidebar from "@/components/AdminSidebar";
 
 interface navbarInterface {
     isInteractive:boolean
@@ -92,13 +93,16 @@ const Navbar = ({isInteractive}:navbarInterface) => {
             <div className={'sm:hidden col-span-1 flex justify-end items-center col-end-7'}>
                 <img className={'aspect-square w-5'} src={burgerOpen?'/close.svg':'/burger.svg'} onClick={()=>{setBurgerOpen(!burgerOpen)}}/>
             </div>
-            {burgerOpen&&!pathname.includes('/account')?<div className={'h-screen pt-10 flex flex-col col-span-6 gap-6'}>
+            {burgerOpen&&!pathname.includes('/account')&&!pathname.includes('/admin')?<div className={'h-screen pt-10 flex flex-col col-span-6 gap-6'}>
                 {links.map((link)=>{
                     return (<a key={link.title} className={'font-inter text-sm font-normal text-white'} href={link.link}>{link.title}</a>)
                 })}
             </div>:null}
-            {burgerOpen&&pathname.includes('/account')?<div className={'h-screen pt-10 flex flex-col col-span-6 gap-6'}>
+            {burgerOpen&&(pathname.includes('/account'))?<div className={'h-screen pt-10 flex flex-col col-span-6 gap-6'}>
                 <Sidebar user_uuid={data?.profile.uuid}></Sidebar>
+            </div>:null}
+            {burgerOpen&&(pathname.includes('/admin'))?<div className={'h-screen pt-10 flex flex-col col-span-6 gap-6'}>
+                <AdminSidebar user_uuid={data?.profile.uuid}></AdminSidebar>
             </div>:null}
 
         </div>

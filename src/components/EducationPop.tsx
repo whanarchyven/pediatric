@@ -5,6 +5,7 @@ import {eden} from "@/helpers/sdk";
 import FormData from "form-data";
 import axios from "axios";
 import {uploadFile} from "@/helpers/uploadFile";
+import {isArray} from "util";
 
 
 interface educationPopInterface {
@@ -27,12 +28,23 @@ const EducationPop = ({closeFunc,afterPostCallback,user_uuid,email,education}:ed
 
 
     const updateEducation=async (diplomaURL:string)=>{
-        eden.user[user_uuid].profile.post({
-            uuid: user_uuid, education: [...education,{yearStart, yearEnd, university, faculty, degree, diploma:diplomaURL}],email:email
-        }).then((res)=>{
-            console.log(res)
-            closeFunc()
-        })
+        if(isArray(education)){
+            eden.user[user_uuid].profile.post({
+                uuid: user_uuid, education: [...education,{yearStart, yearEnd, university, faculty, degree, diploma:diplomaURL}],email:email
+            }).then((res)=>{
+                console.log(res)
+                closeFunc()
+            })
+        }
+        else{
+            eden.user[user_uuid].profile.post({
+                uuid: user_uuid, education: [{yearStart, yearEnd, university, faculty, degree, diploma:diplomaURL}],email:email
+            }).then((res)=>{
+                console.log(res)
+                closeFunc()
+            })
+
+        }
         window.location.reload();
     }
 
@@ -90,6 +102,7 @@ const EducationPop = ({closeFunc,afterPostCallback,user_uuid,email,education}:ed
                 <div onClick={()=>{
                     if(diplomaTemp){
                         uploadFile(diplomaTemp).then((res)=>{
+                            console.log(res)
                             updateEducation(res);
                         })
                     }
