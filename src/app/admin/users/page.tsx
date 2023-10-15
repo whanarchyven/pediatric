@@ -80,24 +80,10 @@ export default function Home(params: { params: { user_uuid: string } }) {
             </div>
             {isQrCodeOpen?<QrPop closeFunc={()=>{setIsQrCodeOpen(false)}} activeQrLink={activeQr}></QrPop>:null}
 
-            {participations && participations.length > 0 ? <div className={'flex mt-16 border-t-[1px] border-green flex-col'}>
-                <div className={'lg:grid hidden border-b-[1px] border-green grid-cols-12'}>
-                    <div className={'col-span-4 text-white font-bold bg-green flex items-center justify-start border-l-[1px] p-3 border-green'}>
-                        Дата
-                    </div>
-                    <div className={'col-span-2 text-white font-bold bg-green  border-l-[1px] p-3 border-white'}>
-                        Название мероприятия
-                    </div>
-                    <div className={'col-span-2 text-white font-bold bg-green lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-white'}>
-                        Оплачено
-                    </div>
-                    <div className={'col-span-2 text-white font-bold bg-green lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-white'}>
-                        Тип участия
-                    </div>
-                    <div className={'col-span-2 text-white font-bold bg-green lg:border-r-0 border-r-[1px] border-l-[1px] border-r-[1px] p-3 border-r-green border-l-white'}>
-                        Пропуск на мероприятие
-                    </div>
-                </div>
+            whanarchyvven, [16.10.2023 1:22]
+
+
+            <div className={'flex mt-16 border-t-[1px] border-green flex-col'}>
                 {users.map((user:typeof users[0],counter:number)=>{
                     return(
                         // <PublicationTab user_uuid={uuid} {...participation} key={participation.title}></PublicationTab>
@@ -122,10 +108,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                         </div>
                     )
                 })}
-            </div> : <div
-                className={'flex h-52 border-[1px] border-green rounded-lg items-center justify-center'}>
-                <p className={'opacity-50'}>Мероприятия не найдены</p>
-            </div>}
+            </div>
 
 
         </main>
