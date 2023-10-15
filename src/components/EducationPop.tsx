@@ -9,37 +9,35 @@ import {isArray} from "util";
 
 
 interface educationPopInterface {
-    closeFunc:()=>any
-    afterPostCallback:()=>any,
-    user_uuid:string,
-    email:string,
-    education:[],
+    closeFunc: () => any
+    afterPostCallback: () => any,
+    user_uuid: string,
+    email: string,
+    education: [],
 }
 
-const EducationPop = ({closeFunc,afterPostCallback,user_uuid,email,education}:educationPopInterface) => {
-    const [yearStart,setYearStart]=useState<number>(0)
-    const [yearEnd,setYearEnd]=useState<number>(0)
-    const [university,setUniversity]=useState('')
-    const [faculty,setFaculty]=useState('')
-    const [degree,setDegree]=useState('')
-    const[diploma,setDiploma]=useState('')
-    const[diplomaTemp,setDiplomaTemp]=useState(null)
+const EducationPop = ({closeFunc, afterPostCallback, user_uuid, email, education}: educationPopInterface) => {
+    const [yearStart, setYearStart] = useState<number>(0)
+    const [yearEnd, setYearEnd] = useState<number>(0)
+    const [university, setUniversity] = useState('')
+    const [faculty, setFaculty] = useState('')
+    const [degree, setDegree] = useState('')
+    const [diploma, setDiploma] = useState('')
+    const [diplomaTemp, setDiplomaTemp] = useState(null)
 
 
-
-    const updateEducation=async (diplomaURL:string)=>{
-        if(isArray(education)){
+    const updateEducation = async (diplomaURL: string) => {
+        if (isArray(education)) {
             eden.user[user_uuid].profile.post({
-                uuid: user_uuid, education: [...education,{yearStart, yearEnd, university, faculty, degree, diploma:diplomaURL}],email:email
-            }).then((res)=>{
+                uuid: user_uuid, education: [...education, {yearStart, yearEnd, university, faculty, degree, diploma: diplomaURL}], email: email
+            }).then((res) => {
                 console.log(res)
                 closeFunc()
             })
-        }
-        else{
+        } else {
             eden.user[user_uuid].profile.post({
-                uuid: user_uuid, education: [{yearStart, yearEnd, university, faculty, degree, diploma:diplomaURL}],email:email
-            }).then((res)=>{
+                uuid: user_uuid, education: [{yearStart, yearEnd, university, faculty, degree, diploma: diplomaURL}], email: email
+            }).then((res) => {
                 console.log(res)
                 closeFunc()
             })
@@ -49,13 +47,16 @@ const EducationPop = ({closeFunc,afterPostCallback,user_uuid,email,education}:ed
     }
 
 
-
     return (
-        <div className={'fixed z-[999] w-full h-full left-0 p-3 top-0 bg-white bg-opacity-10 backdrop-blur-sm flex items-center justify-center'}>
-            <div className={'lg:w-1/3 w-full overflow-y-scroll max-h-screen bg-white p-3 rounded-lg border-green border-2 flex gap-4 flex-col'}>
+        <div
+            className={'fixed z-[999] w-full h-full left-0 p-3 top-0 bg-white bg-opacity-10 backdrop-blur-sm flex items-center justify-center'}>
+            <div
+                className={'lg:w-1/3 w-full overflow-y-scroll max-h-screen bg-white p-3 rounded-lg border-green border-2 flex gap-4 flex-col'}>
                 <div className={'flex items-start justify-between'}>
                     <p className={'font-bold text-3xl'}>Добавить данные об образовании</p>
-                    <img onClick={()=>{closeFunc()}} className={'cursor-pointer'} src={'/close_black.svg'}/>
+                    <img onClick={() => {
+                        closeFunc()
+                    }} className={'cursor-pointer'} src={'/close_black.svg'}/>
                 </div>
                 <div className={'flex flex-col gap-2'}>
                     <p className={'font-normal text-xl'}>Год начала обучения</p>
@@ -99,14 +100,17 @@ const EducationPop = ({closeFunc,afterPostCallback,user_uuid,email,education}:ed
                            className={'text-green p-2 border-green border-2 text-lg rounded-lg font-normal'}></input>
                 </div>
                 <DragNDrop setFile={setDiplomaTemp}></DragNDrop>
-                <div onClick={()=>{
-                    if(diplomaTemp){
-                        uploadFile(diplomaTemp).then((res)=>{
+                <div onClick={() => {
+                    if (diplomaTemp) {
+                        uploadFile(diplomaTemp).then((res) => {
                             console.log(res)
                             updateEducation(res);
                         })
+                    } else {
+                        updateEducation('not_uploaded');
                     }
-                }} className={'bg-green p-4 flex text-white cursor-pointer justify-center items-center rounded-lg mt-5 text-2xl'}>
+                }}
+                     className={'bg-green p-4 flex text-white cursor-pointer justify-center items-center rounded-lg mt-5 text-2xl'}>
                     Добавить
                 </div>
             </div>

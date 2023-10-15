@@ -1,5 +1,5 @@
 "use client"
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Slider from "@/components/Slider";
 import VideoPlayer from "@/components/VideoPlayer";
 import Reviews from "@/components/Reviews";
@@ -26,6 +26,7 @@ import {uploadFile} from "@/helpers/uploadFile";
 import DatePicker from "react-datepicker";
 import Link from "next/link";
 import ShowCareerPop from "@/components/ShowCareerPop";
+import ShowAwardPop from "@/components/ShowAwardPop";
 
 
 // import required modules
@@ -38,7 +39,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const pathname=usePathname()
 
     // @ts-ignore
-    const {data} = useEden(() => pathname.split('/')[2]!='my'?eden.user[user_uuid].card.get():eden.user[user_uuid].profile.get())
+    const {data} = useEden(() => pathname.split('/')[2]!='my'?eden.user[user_uuid].card.get():eden.user.my.profile.get())
 
 
 
@@ -52,7 +53,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
         gender,
         specialty,
         birthDate,
-        photoUrl, education, about, interests, career, position,uuid
+        photoUrl, education, about, interests, career, position,uuid,awards
     } = data?.profile ?? {} as any;
 
     console.log(data);
@@ -62,11 +63,28 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const [educationShowOpen, setEducationShowOpen] = useState(false);
 
 
-    const publicationsData = useEden(() => eden.user[uuid].publication.list["own-published"].get())
+
+    const [publications,setPublications]=useState<Array<any>>([])
+
+    useEffect(() => {
+        eden.user[uuid].publication.list["own-published"].get().then((res)=>{
+            console.log(res)
+            if(res?.data?.publications){
+                setPublications(res?.data?.publications)
+            }
+        })
+    }, [uuid]);
 
     const [showCareerPop, setShowCareerPop] = useState(false)
     const [currentCareer, setCurrentCareer] = useState<typeof career[0]>()
-    const {publications}=publicationsData?.data?? {} as any
+
+
+
+    const [newAwardsPop, setNewAwardsPop] = useState(false)
+    const [showAwardsPop, setShowAwardsPop] = useState(false)
+    const [currentAward, setCurrentAward] = useState<typeof career[0]>()
+
+
 
     return (
         <main className={'p-2 lg:p-12'}>
@@ -77,6 +95,8 @@ export default function Home(params: { params: { user_uuid: string } }) {
             {showCareerPop ? <ShowCareerPop closeFunc={() => {
                 setShowCareerPop(false)
             }} workplace={currentCareer}/> : null}
+
+            {showAwardsPop?<ShowAwardPop closeFunc={()=>{setShowAwardsPop(false)}} award={currentAward}/>:null}
 
             <div className={'flex justify-between'}>
                 <p className={'uppercase font-inter font-extralight text-3xl'}>Визитная <br/><span
@@ -222,53 +242,22 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
                 </div>
                 <div className={'flex lg:px-8 max-w-screen lg:mt-0 mt-6 flex-col gap-10'}>
-                    <p className={'font-bold text-xl text-black'}>Награды</p>
-                    <div className={'flex h-52 border-[1px] border-green rounded-lg items-center justify-center'}>
-                        <p className={'opacity-50'}>Награды не найдены</p>
+                    <div className={'flex justify-between items-center'}>
+                        <p className={'font-bold text-xl text-black'}>Награды</p>
                     </div>
-                    {/*<div className={'grid grid-cols-4 mt-4 gap-8'}>*/}
-                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
-                    {/*        <img src={`${images}/temp_certificate.png`}*/}
-                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
-                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
-                    {/*    </div>*/}
-                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
-                    {/*        <img src={`${images}/temp_certificate.png`}*/}
-                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
-                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
-                    {/*    </div>*/}
-                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
-                    {/*        <img src={`${images}/temp_certificate.png`}*/}
-                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
-                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
-                    {/*    </div>*/}
-                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
-                    {/*        <img src={`${images}/temp_certificate.png`}*/}
-                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
-                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
-                    {/*    </div>*/}
-                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
-                    {/*        <img src={`${images}/temp_certificate.png`}*/}
-                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
-                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
-                    {/*    </div>*/}
-                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
-                    {/*        <img src={`${images}/temp_certificate.png`}*/}
-                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
-                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
-                    {/*    </div>*/}
-                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
-                    {/*        <img src={`${images}/temp_certificate.png`}*/}
-                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
-                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
-                    {/*    </div>*/}
-                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
-                    {/*        <img src={`${images}/temp_certificate.png`}*/}
-                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
-                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
-                    {/*    </div>*/}
-
-                    {/*</div>*/}
+                    {awards&&awards.length>0?<div className={'grid grid-cols-4 mt-4 gap-8'}>
+                        {awards.map((award:typeof awards[0],counter:number)=>{
+                            return(
+                                <div key={counter} onClick={()=>{setCurrentAward(award);setShowAwardsPop(true)}} className={'flex flex-col gap-3 items-center'}>
+                                    <img src={award.imageUrl}
+                                         className={'rounded-full cursor-pointer aspect-square object-cover'}/>
+                                    <p className={'font-normal text-black text-center text-xs'}>{award.title}</p>
+                                </div>
+                            )
+                        })}
+                    </div>:<div className={'flex h-52 lg:border-[1px] border-green rounded-lg items-center justify-center'}>
+                        <p className={'opacity-50'}>Награды не найдены</p>
+                    </div>}
                     <div className={'flex flex-col gap-10 mt-8'}>
                         <div className={' flex justify-between'}>
                             <p className={'font-bold text-xl text-black'}>Научные работы</p>

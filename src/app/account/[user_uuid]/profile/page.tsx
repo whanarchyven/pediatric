@@ -31,6 +31,8 @@ import {classList} from "@/helpers/classList";
 import NewCareerPop from "@/components/NewCareerPop";
 import ShowCareerPop from "@/components/ShowCareerPop";
 import NewPublicationPop from "@/components/NewPublicationPop";
+import AwardsPop from "@/components/AwardsPop";
+import ShowAwardPop from "@/components/ShowAwardPop";
 // import required modules
 
 
@@ -50,7 +52,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
         gender,
         specialty,
         birthDate,
-        photoUrl, education, about, interests, career, position,uuid
+        photoUrl, education, about, interests, career, position,uuid,awards
     } = data?.profile ?? {} as any;
 
     console.log(data);
@@ -74,7 +76,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
         specialty: specialty ? specialty : 'Не указано',
         about: about ? about : 'Не указано',
         interests: interests ? interests : 'Не указано',
-        position: position ? position : 'Не указано'
+        position: position ? position : 'Не указано',
     })
 
     const mutateProfile = <T extends keyof typeof profile>(key: T, newValue: typeof profile[T]) => {
@@ -156,6 +158,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const [currentAward, setCurrentAward] = useState<typeof career[0]>()
 
 
+
     return (
         <main className={'p-2 lg:p-12'}>
             {educationPop ? <EducationPop education={education} email={email} user_uuid={
@@ -174,6 +177,10 @@ export default function Home(params: { params: { user_uuid: string } }) {
                 setNewCareerPop(false)
             }} afterPostCallback={() => {
             }} user_uuid={user_uuid} email={email} career={career}/> : null}
+
+            {newAwardsPop?<AwardsPop closeFunc={()=>{setNewAwardsPop(false)}} user_uuid={user_uuid} email={email} awards={awards}></AwardsPop>:null}
+
+            {showAwardsPop?<ShowAwardPop closeFunc={()=>{setShowAwardsPop(false)}} award={currentAward}/>:null}
 
             <div className={'flex lg:flex-row flex-col gap-2 lg:justify-between'}>
                 <p className={'uppercase font-inter font-extralight text-2xl lg:text-3xl'}>Основные данные</p>
@@ -449,53 +456,28 @@ export default function Home(params: { params: { user_uuid: string } }) {
                     </div>
                 </div>
                 <div className={'flex lg:px-8 max-w-screen lg:mt-0 mt-6 flex-col gap-10'}>
-                    <p className={'font-bold text-xl text-black'}>Награды</p>
-                    <div className={'flex h-52 lg:border-[1px] border-green rounded-lg items-center justify-center'}>
-                        <p className={'opacity-50'}>Награды не найдены</p>
+                    <div className={'flex justify-between items-center'}>
+                        <p className={'font-bold text-xl text-black'}>Награды</p>
+                        {isEditor?<div onClick={() => {
+                            setNewAwardsPop(true)
+                        }} className={'bg-green text-white cursor-pointer font-normal p-2 lg:text-base text-sm lg text-sm lg:text-base p-2:lg:p-3 rounded-lg'}>Добавить
+                            +</div>:null}
                     </div>
-                    {/*<div className={'grid grid-cols-4 mt-4 gap-8'}>*/}
-                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
-                    {/*        <img src={`${images}/temp_certificate.png`}*/}
-                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
-                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
-                    {/*    </div>*/}
-                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
-                    {/*        <img src={`${images}/temp_certificate.png`}*/}
-                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
-                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
-                    {/*    </div>*/}
-                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
-                    {/*        <img src={`${images}/temp_certificate.png`}*/}
-                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
-                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
-                    {/*    </div>*/}
-                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
-                    {/*        <img src={`${images}/temp_certificate.png`}*/}
-                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
-                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
-                    {/*    </div>*/}
-                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
-                    {/*        <img src={`${images}/temp_certificate.png`}*/}
-                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
-                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
-                    {/*    </div>*/}
-                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
-                    {/*        <img src={`${images}/temp_certificate.png`}*/}
-                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
-                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
-                    {/*    </div>*/}
-                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
-                    {/*        <img src={`${images}/temp_certificate.png`}*/}
-                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
-                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
-                    {/*    </div>*/}
-                    {/*    <div className={'flex flex-col gap-3 items-center'}>*/}
-                    {/*        <img src={`${images}/temp_certificate.png`}*/}
-                    {/*             className={'rounded-full cursor-pointer aspect-square object-cover'}/>*/}
-                    {/*        <p className={'font-normal text-black text-center text-xs'}>НАГРАДЫ 2023</p>*/}
-                    {/*    </div>*/}
+                    {awards&&awards.length>0?<div className={'grid grid-cols-4 mt-4 gap-8'}>
+                        {awards.map((award:typeof awards[0],counter:number)=>{
+                            return(
+                                <div key={counter} onClick={()=>{setCurrentAward(award);setShowAwardsPop(true)}} className={'flex flex-col gap-3 items-center'}>
+                                    <img src={award.imageUrl}
+                                         className={'rounded-full cursor-pointer aspect-square object-cover'}/>
+                                    <p className={'font-normal text-black text-center text-xs'}>{award.title}</p>
+                                </div>
+                            )
+                        })}
+                    </div>:<div className={'flex h-52 lg:border-[1px] border-green rounded-lg items-center justify-center'}>
+                        <p className={'opacity-50'}>Награды не найдены</p>
+                    </div>}
 
-                    {/*</div>*/}
+
                     <div className={'flex flex-col gap-10 mt-8'}>
                         <div className={' flex justify-between'}>
                             <p className={'font-bold text-xl text-black'}>Научные работы</p>
