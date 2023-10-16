@@ -41,6 +41,9 @@ export default function Home(params: { params: { id: string } }) {
 
   
   const { data } = useEden(() => eden.user.my.admin.participations.byEventId[event_id].get())
+  const certLink = (email:string, event_id:string)=>
+    `/api2/user/my/admin/participations/byEventId/${event_id}/getCertByEmail/${email}`
+  
 
   // const {event}=eventsData?.data?.events?? {} as any
 
@@ -66,9 +69,15 @@ export default function Home(params: { params: { id: string } }) {
           <div>Всего: {data.length}</div>
           <div>Завершившие регистрацию: {data.filter(p=>p.status==="finished").length}</div>
           <div>Количество платных: {data.filter(p=>(p.sum>0&&p.status==="finished")).length}</div>
-          {data.filter(p=>p.status==="finished").map((d,i)=><div key={i}>
-            <p>{d?.info?.participationType} {d?.info?.name} {d.email}<Link href="">Выпуск сертификата</Link></p>
+          <div className="mt-10">
+          {data.filter(p=>p.status==="finished").map((d,i)=><div className="grid grid-cols-8 justify-center" key={i}>
+            <span className="text-xs">{d?.info?.participationType}</span> 
+            <span className="col-span-2">{d?.info?.name}</span>
+            <span className="col-span-2"> {d.email}</span> 
+            <div><a className="underline cursor-pointer text-xs" href={(d.info?.event_id&&d.email)&&certLink(d?.email, d.info?.event_id)} target="_blank" rel={"noreferer"}>Выпуск сертификата</a></div>
           </div>)}
+          </div>
+          
           <pre className="text-xs">{JSON.stringify(data,null,2)}</pre>
           {/* <pre className="text-xs">{data.map(d=>`${d.info.participationType}\n${d.info.name}\t${d.email}\n\n`)}</pre> */}
         </div>

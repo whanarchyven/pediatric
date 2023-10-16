@@ -197,22 +197,27 @@ export declare const app: Elysia<"", {
                     } & {
                         lastName: string;
                         firstName: string;
-                        middleName: string;
-                        phoneNumber: string;
-                        specialty: string;
                         email: string;
-                        city: string;
-                        workplace: string;
-                        position: string;
                         password: string;
-                        joinCommunity: boolean;
                         uuid: string;
                         gender: string;
                         education: any[];
                         career: any[];
                         saved: any[];
                         awards: any[];
+                        middleName?: string | undefined;
+                        phoneNumber?: string | undefined;
+                        specialty?: string | undefined;
+                        city?: string | undefined;
+                        workplace?: string | undefined;
+                        position?: string | undefined;
                         confirmPassword?: string | undefined;
+                        joinCommunity?: boolean | undefined;
+                        isBlocked?: boolean | undefined;
+                        isMember?: boolean | undefined;
+                        legacyId?: string | undefined;
+                        impotedFromSiteVersion?: string | undefined;
+                        lastAuthAt?: Date | undefined;
                         fullNameNormalized?: string | undefined;
                         birthDate?: string | undefined;
                         about?: string | undefined;
@@ -271,7 +276,7 @@ export declare const app: Elysia<"", {
             };
         };
     };
-    "/user/:user_uuid/admin/participations/byEventId/:event_id/getCert": {
+    "/user/:user_uuid/admin/participations/byEventId/:event_id/getCertByEmail/:for_user_email": {
         get: {
             body: unknown;
             params: unknown;
@@ -404,22 +409,27 @@ export declare const app: Elysia<"", {
                     } & {
                         lastName: string;
                         firstName: string;
-                        middleName: string;
-                        phoneNumber: string;
-                        specialty: string;
                         email: string;
-                        city: string;
-                        workplace: string;
-                        position: string;
                         password: string;
-                        joinCommunity: boolean;
                         uuid: string;
                         gender: string;
                         education: any[];
                         career: any[];
                         saved: any[];
                         awards: any[];
+                        middleName?: string | undefined;
+                        phoneNumber?: string | undefined;
+                        specialty?: string | undefined;
+                        city?: string | undefined;
+                        workplace?: string | undefined;
+                        position?: string | undefined;
                         confirmPassword?: string | undefined;
+                        joinCommunity?: boolean | undefined;
+                        isBlocked?: boolean | undefined;
+                        isMember?: boolean | undefined;
+                        legacyId?: string | undefined;
+                        impotedFromSiteVersion?: string | undefined;
+                        lastAuthAt?: Date | undefined;
                         fullNameNormalized?: string | undefined;
                         birthDate?: string | undefined;
                         about?: string | undefined;
@@ -453,22 +463,27 @@ export declare const app: Elysia<"", {
                     } & {
                         lastName: string;
                         firstName: string;
-                        middleName: string;
-                        phoneNumber: string;
-                        specialty: string;
                         email: string;
-                        city: string;
-                        workplace: string;
-                        position: string;
                         password: string;
-                        joinCommunity: boolean;
                         uuid: string;
                         gender: string;
                         education: any[];
                         career: any[];
                         saved: any[];
                         awards: any[];
+                        middleName?: string | undefined;
+                        phoneNumber?: string | undefined;
+                        specialty?: string | undefined;
+                        city?: string | undefined;
+                        workplace?: string | undefined;
+                        position?: string | undefined;
                         confirmPassword?: string | undefined;
+                        joinCommunity?: boolean | undefined;
+                        isBlocked?: boolean | undefined;
+                        isMember?: boolean | undefined;
+                        legacyId?: string | undefined;
+                        impotedFromSiteVersion?: string | undefined;
+                        lastAuthAt?: Date | undefined;
                         fullNameNormalized?: string | undefined;
                         birthDate?: string | undefined;
                         about?: string | undefined;
@@ -500,22 +515,22 @@ export declare const app: Elysia<"", {
                 joinCommunity?: boolean | undefined;
                 gender?: string | undefined;
                 education?: {
+                    yearStart?: number | undefined;
+                    yearEnd?: number | undefined;
                     faculty?: string | undefined;
                     degree?: string | undefined;
                     diploma?: string | undefined;
-                    yearStart: number;
-                    yearEnd: number;
                     university: string;
                 }[] | undefined;
                 birthDate?: string | undefined;
                 about?: string | undefined;
                 interests?: string | undefined;
                 career?: {
+                    start?: string | undefined;
+                    end?: string | undefined;
+                    post?: string | undefined;
+                    description?: string | undefined;
                     placeName: string;
-                    start: string;
-                    end: string;
-                    post: string;
-                    description: string;
                 }[] | undefined;
                 saved?: {
                     title: string;
@@ -1153,7 +1168,7 @@ export declare const app: Elysia<"", {
                 date: string;
                 format: string;
                 name: string;
-                dateStart: Date;
+                dateStart: string;
                 timePeriod: string;
                 place: string;
                 participants: number;
@@ -1180,7 +1195,7 @@ export declare const app: Elysia<"", {
                             timePeriod: string;
                         }[] | undefined;
                         name: string;
-                    };
+                    }[];
                 }[];
             };
             params: unknown;
@@ -1214,7 +1229,7 @@ export declare const app: Elysia<"", {
                 date: string;
                 format: string;
                 name: string;
-                dateStart: Date;
+                dateStart: string;
                 timePeriod: string;
                 place: string;
                 participants: number;
@@ -1241,7 +1256,7 @@ export declare const app: Elysia<"", {
                             timePeriod: string;
                         }[] | undefined;
                         name: string;
-                    };
+                    }[];
                 }[];
             };
             params: unknown;
