@@ -94,11 +94,11 @@ const Navbar = ({isInteractive}:navbarInterface) => {
             <div className={'sm:hidden col-span-1 flex justify-end items-center col-end-7'}>
                 <img className={'aspect-square w-5'} src={burgerOpen?'/close.svg':'/burger.svg'} onClick={()=>{setBurgerOpen(!burgerOpen)}}/>
             </div>
-            {burgerOpen&&!pathname.includes('/account')&&!pathname.includes('/admin')?<div className={'h-screen pt-10 flex flex-col col-span-6 gap-6'}>
+            {burgerOpen&&!pathname.includes('/account')&&!pathname.includes('/admin')?<div className={'h-screen overflow-y-scroll pt-10 pb-20 flex flex-col col-span-6 gap-6'}>
                 {links.map((link)=>{
                     return (<a key={link.title} className={'font-inter text-sm font-normal text-white'} href={link.link}>{link.title}</a>)
                 })}
-                <div className={'flex flex-row-reverse justify-end items-center mt-10 cursor-pointer'} onClick={()=>{loggedIn&&localStorage.getItem('loggedOut')!='true'?router.push('/account/my/profile'):router.push('/login')}}>
+                <div className={'flex flex-row-reverse justify-end items-center cursor-pointer'} onClick={()=>{loggedIn&&localStorage.getItem('loggedOut')!='true'?router.push('/account/my/profile'):router.push('/login')}}>
                     <div className={'w-5 mx-2 aspect-square relative'}>
                         <Image src={'/account.svg'} alt={'account'} layout={'fill'}></Image>
                     </div>
