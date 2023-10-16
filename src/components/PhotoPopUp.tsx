@@ -25,7 +25,7 @@ const EducationPop = ({closeFunc,user_uuid,email,imageOld}:educationPopInterface
     const cropperRef = createRef<ReactCropperElement>();
     const [loading,setLoading]=useState(false);
     const updateProfile = async (photoUrl: string) => {
-        eden.user[user_uuid].profile.post({
+        await eden.user[user_uuid].profile.post({
             uuid: user_uuid, photoUrl,
             email: email
         }).then((res) => {
@@ -36,6 +36,10 @@ const EducationPop = ({closeFunc,user_uuid,email,imageOld}:educationPopInterface
         })
     
     }
+
+    const [fileName,setFileName]=useState('')
+
+
     const onChange = (e: any) => {
         e.preventDefault();
         let files;
@@ -49,14 +53,16 @@ const EducationPop = ({closeFunc,user_uuid,email,imageOld}:educationPopInterface
             setImage(reader.result as any);
         };
         reader.readAsDataURL(files[0]);
+        setFileName(files[0].name.split(' ').join('_'))
     };
 
     const getCropData = () => {
         if (typeof cropperRef.current?.cropper !== "undefined") {
-            cropperRef.current?.cropper.getCroppedCanvas().toBlob((blob)=>{
+            cropperRef.current?.cropper.getCroppedCanvas().toBlob(async (blob)=>{
                 if(blob){
-                    const file=blobToFile(blob,"cropped.png");
-                    uploadFileBlob(file).then((res)=>{
+                    const file=blobToFile(blob,fileName);
+                    await uploadFileBlob(file).then((res)=>{
+
                         updateProfile(res);
                     })
                 }
@@ -78,7 +84,7 @@ const EducationPop = ({closeFunc,user_uuid,email,imageOld}:educationPopInterface
                         <Cropper
                             ref={cropperRef}
                             style={{ height: 400, width: "100%" }}
-                            zoomTo={0.5}
+                            zoomTo={0.1}
                             initialAspectRatio={1}
                             preview=".img-preview"
                             src={image}
@@ -86,11 +92,9 @@ const EducationPop = ({closeFunc,user_uuid,email,imageOld}:educationPopInterface
                             minCropBoxHeight={10}
                             minCropBoxWidth={10}
                             background={false}
-                            responsive={false}
+                            responsive={true}
                             aspectRatio={1}
                             autoCropArea={1}
-                            checkOrientation={false} // https://github.com/fengyuanchen/cropperjs/issues/671
-                            guides={true}
                         />
                     </div>
                     <div className={'bg-green mt-6 rounded-lg text-white font-bold w-full flex items-center justify-center lg:w-96 h-12'} onClick={()=>{

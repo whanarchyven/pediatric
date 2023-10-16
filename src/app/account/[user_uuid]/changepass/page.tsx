@@ -42,7 +42,9 @@ export default function Home(params: { params: { user_uuid: string } }) {
             email: email
         }).then((res) => {
             setShowStatus('Пароль успешно изменен');
-
+            setTimeout(()=>{
+                router.push('/account/my/profile')
+            },2000)
         })
     }
     const [showError,setShowError]=useState(false)
@@ -67,7 +69,6 @@ export default function Home(params: { params: { user_uuid: string } }) {
                         if(password==confirmPassword&&showStatus=='Изменить') {
                             setShowError(false);
                             updateProfile();
-                            router.push('/account/my/profile')
                         }
                         else {
                             setShowError(true)
