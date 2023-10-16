@@ -30,8 +30,9 @@ const EducationPop = ({closeFunc,user_uuid,email,imageOld}:educationPopInterface
         }).then((res) => {
             console.log(res)
             closeFunc();
+            window.location.reload();
         })
-        window.location.reload();
+    
     }
     const onChange = (e: any) => {
         e.preventDefault();
