@@ -41,6 +41,8 @@ export default function Home(params: { params: { id: string } }) {
   const { data } = useEden(() => eden.event.byId[event_id].get());
   const { data: schema } = useEden(() => eden.event.jsonschema.get());
 
+
+
   // const {event}=eventsData?.data?.events?? {} as any
 
   // console.log(event)
@@ -109,12 +111,16 @@ export default function Home(params: { params: { id: string } }) {
               schema={schema}
               validator={validator}
               onChange={(e) => console.log(e)}
-              onSubmit={(e) => console.log(e)}
+              onSubmit={(e) => {
+                console.log(e);
+                const {_id,__v,createdAt,updatedAt,...fd} =  e.formData;
+                 eden.event.update.post(fd);
+              }}
               onError={(e) => console.log(e)}
             //   widgets={{TextInput:TailwindTextInput}}
             />
           )}
-          <pre className="text-xs">{JSON.stringify(data,null,2)}</pre>
+          {/* <pre className="text-xs">{JSON.stringify(data,null,2)}</pre> */}
         </div>
       </div>
     </main>

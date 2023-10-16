@@ -325,51 +325,53 @@ export declare const PdermEventJsonSchema: {
                     program: {
                         type: string;
                         title: string;
-                        properties: {
-                            name: {
-                                type: string;
-                                title: string;
-                            };
-                            timePeriod: {
-                                type: string;
-                                title: string;
-                            };
-                            speaker: {
-                                type: string;
-                                title: string;
-                            };
-                            sponsor: {
-                                type: string;
-                                title: string;
-                            };
-                            substages: {
-                                type: string;
-                                title: string;
-                                items: {
+                        items: {
+                            type: string;
+                            properties: {
+                                name: {
                                     type: string;
-                                    properties: {
-                                        name: {
-                                            type: string;
-                                            title: string;
+                                    title: string;
+                                };
+                                timePeriod: {
+                                    type: string;
+                                    title: string;
+                                };
+                                speaker: {
+                                    type: string;
+                                    title: string;
+                                };
+                                sponsor: {
+                                    type: string;
+                                    title: string;
+                                };
+                                substages: {
+                                    type: string;
+                                    title: string;
+                                    items: {
+                                        type: string;
+                                        properties: {
+                                            name: {
+                                                type: string;
+                                                title: string;
+                                            };
+                                            timePeriod: {
+                                                type: string;
+                                                title: string;
+                                            };
+                                            description: {
+                                                type: string;
+                                                title: string;
+                                            };
+                                            sponsor: {
+                                                type: string;
+                                                title: string;
+                                            };
                                         };
-                                        timePeriod: {
-                                            type: string;
-                                            title: string;
-                                        };
-                                        description: {
-                                            type: string;
-                                            title: string;
-                                        };
-                                        sponsor: {
-                                            type: string;
-                                            title: string;
-                                        };
+                                        required: string[];
                                     };
-                                    required: string[];
                                 };
                             };
                         };
-                        required: string[];
                     };
                 };
                 required: string[];

@@ -26,8 +26,8 @@ export default function Home(params: { params: { user_uuid: string } }) {
     return (
         <main className={'p-2 lg:p-12'}>
             <div className={'flex justify-between'}>
-                <p className={'uppercase font-inter font-extralight text-2xl lg:text-3xl'}>Мероприятия, на которые <br/><span
-                    className={'font-extrabold'}>вы зарегистрировались</span></p>
+                <p className={'uppercase font-inter font-extralight text-2xl lg:text-3xl'}>Мероприятия <br/><span
+                    className={'font-extrabold'}>и списки участников</span></p>
             </div>
 
             {events && events.length > 0 ? <div className={'flex mt-16 border-t-[1px] border-green flex-col'}>
@@ -52,7 +52,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                     return(
                         // <PublicationTab user_uuid={uuid} {...participation} key={participation.title}></PublicationTab>
                         <div key={counter} className={'grid  border-b-[1px] border-green  lg:grid-cols-12'}>
-                            <div className={'lg:col-span-1 flex items-center justify-start lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-green'}>
+                            <div className={'lg:col-span-1 text-xs flex items-center justify-start lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-green'}>
                                 {event.date}
                             </div>
                             <div className={'lg:col-span-1 lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-green'}>
@@ -65,10 +65,10 @@ export default function Home(params: { params: { user_uuid: string } }) {
                                 {event.participants}
                             </div>
                             <div className={'lg:col-span-3 flex items-center gap-2 lg:border-r-0 border-r-[1px] border-l-[1px] border-r-[1px] p-3 border-green'}>
-                                <div  className={'p-4 bg-green flex rounded-lg cursor-pointer items-center justify-center font-bold text-white'}>
+                                <Link href={`/admin/events/participants/${event.id}`}  className={'p-4 bg-green text-sm flex rounded-lg cursor-pointer items-center justify-center font-bold text-white'} >
                                     Участники
-                                </div>
-                                <Link href={`/admin/events/${event.id}`} className={'p-4 bg-green flex rounded-lg cursor-pointer items-center justify-center font-bold text-white'}>
+                                </Link>
+                                <Link href={`/admin/events/${event.id}`} className={'p-4 text-sm bg-green flex rounded-lg cursor-pointer items-center justify-center font-bold text-white'}>
                                     Редактировать
                                 </Link>
                             </div>

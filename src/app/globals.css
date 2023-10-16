@@ -152,14 +152,24 @@ html{
 .rjsf label {
     @apply block text-xs text-gray-700
 }
-.rjsf input, .rjsf textarea {
-    @apply w-full bg-[#E3F1EF] rounded-sm
-}
+
 .rjsf .form-group{
     @apply my-1
 }
+.rjsf .form-group input, .rjsf .form-group textarea {
+    @apply w-full bg-[#E3F1EF] rounded-sm p-1 text-sm
+}
+.rjsf .form-group .form-group .form-group input, .rjsf .form-group .form-group .form-group textarea {
+    @apply  bg-[#e6e3f1]
+}
+.rjsf .form-group .form-group .form-group .form-group .form-group input, .rjsf .form-group .form-group .form-group .form-group .form-group textarea {
+    @apply  bg-[#e3f1e3]
+}
+.rjsf .form-group .form-group .form-group .form-group .form-group .form-group .form-group input, .rjsf .form-group .form-group .form-group .form-group .form-group .form-group .form-group textarea {
+    @apply  bg-[#f1e3e6]
+}
 .rjsf .form-group .form-group fieldset {
-    @apply ml-1 pl-1 border border-gray-200 rounded-md ;
+    @apply pl-1 ml-1 border-l border-gray-200 rounded-md ;
 }
 .rjsf {
     @apply w-full
@@ -182,19 +192,22 @@ html{
 }
 
 .rjsf .glyphicon-arrow-up::before {
+    @apply text-gray-300 hover:text-black;
     content: "↑";
 }
 
 .rjsf .glyphicon-arrow-down::before {
+    @apply text-gray-300 hover:text-black;
     content: "↓";
 }
 
 .rjsf .glyphicon-remove::before {
+    @apply text-red hover:text-black;
     content: "×";
 }
 
 .rjsf .btn-group {
-    @apply border-y;
+    @apply border-b rounded-md shadow-md;
 }
 
 /* 
