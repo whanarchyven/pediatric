@@ -28,8 +28,9 @@ const NewPublicationPop = ({closeFunc,user_uuid,email}:newPublicationPopInterfac
         }).then((res)=>{
             console.log(res)
             closeFunc()
+            window.location.reload();
         })
-        window.location.reload();
+
     }
 
 

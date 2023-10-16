@@ -30,8 +30,9 @@ const NewCareerPop = ({closeFunc,afterPostCallback,user_uuid,email,career}:newCa
         }).then((res)=>{
             console.log(res)
             closeFunc()
+            window.location.reload();
         })
-        window.location.reload();
+
     }
 
 
