@@ -252,6 +252,7 @@ export declare const app: Elysia<"", {
             body: unknown;
             params: {
                 event_id: string;
+                user_uuid: string;
             };
             query: unknown;
             headers: unknown;
@@ -863,51 +864,53 @@ export declare const app: Elysia<"", {
                                     program: {
                                         type: string;
                                         title: string;
-                                        properties: {
-                                            name: {
-                                                type: string;
-                                                title: string;
-                                            };
-                                            timePeriod: {
-                                                type: string;
-                                                title: string;
-                                            };
-                                            speaker: {
-                                                type: string;
-                                                title: string;
-                                            };
-                                            sponsor: {
-                                                type: string;
-                                                title: string;
-                                            };
-                                            substages: {
-                                                type: string;
-                                                title: string;
-                                                items: {
+                                        items: {
+                                            type: string;
+                                            properties: {
+                                                name: {
                                                     type: string;
-                                                    properties: {
-                                                        name: {
-                                                            type: string;
-                                                            title: string;
+                                                    title: string;
+                                                };
+                                                timePeriod: {
+                                                    type: string;
+                                                    title: string;
+                                                };
+                                                speaker: {
+                                                    type: string;
+                                                    title: string;
+                                                };
+                                                sponsor: {
+                                                    type: string;
+                                                    title: string;
+                                                };
+                                                substages: {
+                                                    type: string;
+                                                    title: string;
+                                                    items: {
+                                                        type: string;
+                                                        properties: {
+                                                            name: {
+                                                                type: string;
+                                                                title: string;
+                                                            };
+                                                            timePeriod: {
+                                                                type: string;
+                                                                title: string;
+                                                            };
+                                                            description: {
+                                                                type: string;
+                                                                title: string;
+                                                            };
+                                                            sponsor: {
+                                                                type: string;
+                                                                title: string;
+                                                            };
                                                         };
-                                                        timePeriod: {
-                                                            type: string;
-                                                            title: string;
-                                                        };
-                                                        description: {
-                                                            type: string;
-                                                            title: string;
-                                                        };
-                                                        sponsor: {
-                                                            type: string;
-                                                            title: string;
-                                                        };
+                                                        required: string[];
                                                     };
-                                                    required: string[];
                                                 };
                                             };
                                         };
-                                        required: string[];
                                     };
                                 };
                                 required: string[];
