@@ -173,7 +173,7 @@ export declare const PdermEventType: import("@sinclair/typebox").TObject<{
     id: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     type: import("@sinclair/typebox").TString;
     date: import("@sinclair/typebox").TString;
-    dateStart: import("@sinclair/typebox").TDate;
+    dateStart: import("@sinclair/typebox").TString;
     dateEnd: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TDate>;
     timePeriod: import("@sinclair/typebox").TString;
     name: import("@sinclair/typebox").TString;
@@ -193,7 +193,7 @@ export declare const PdermEventType: import("@sinclair/typebox").TObject<{
     }>>;
     halls: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
         name: import("@sinclair/typebox").TString;
-        program: import("@sinclair/typebox").TObject<{
+        program: import("@sinclair/typebox").TArray<import("@sinclair/typebox").TObject<{
             name: import("@sinclair/typebox").TString;
             timePeriod: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
             speaker: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
@@ -204,7 +204,7 @@ export declare const PdermEventType: import("@sinclair/typebox").TObject<{
                 description: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
                 sponsor: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
             }>>>;
-        }>;
+        }>>;
     }>>;
     onlinePrice: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TNumber>;
     offlinePrice: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TNumber>;
