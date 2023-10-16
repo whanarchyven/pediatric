@@ -69,7 +69,7 @@ export default function Home(params: { params: { id: string } }) {
           <div>Всего: {data.length}</div>
           <div>Завершившие регистрацию: {data.filter(p=>p.status==="finished").length}</div>
           <div>Завершившие регистрацию(онлайн): {data.filter(p=>(p.sum>0&&p.status==="finished"&&p?.info?.participationType==="онлайн")).length}</div>
-          <div>Завершившие регистрацию(онлайн): {data.filter(p=>(p.sum>0&&p.status==="finished"&&p?.info?.participationType==="оффлайн")).length}</div>
+          <div>Завершившие регистрацию(оффлайн): {data.filter(p=>(p.sum>0&&p.status==="finished"&&p?.info?.participationType==="оффлайн")).length}</div>
           <div>Количество платных: {data.filter(p=>(p.sum>0&&p.status==="finished")).length}</div>
           
           <div className="mt-10">
