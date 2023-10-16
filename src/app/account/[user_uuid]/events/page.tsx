@@ -49,10 +49,14 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const eventsTempData=useEden(()=>eden.event.list.get())
     const events=eventsTempData?.data?.events
 
+    const certLink = (event_id:string)=>
+    `/api2/user/my/participations/byEventId/${event_id}/getCert`
+  
 
-    console.log(participations)
 
-    console.log(events)
+    // console.log(participations)
+
+    // console.log(events)
 
     const [isQrCodeOpen,setIsQrCodeOpen]=useState(false)
 
@@ -107,6 +111,13 @@ export default function Home(params: { params: { user_uuid: string } }) {
                                 }} className={'p-4 bg-green flex rounded-lg cursor-pointer items-center justify-center font-bold text-white'}>
                                     Скачать билет
                                 </div>
+                                {participation.cert&&<a 
+                                href={certLink(participation.info.event_id)}
+                                target={"blank"}
+                                rel="noreferer"
+                                className={'mt-2 p-4 bg-green flex rounded-lg cursor-pointer items-center justify-center font-bold text-white text-sm'}>
+                                    Скачать сертификат
+                                </a>}
                             </div>
                         </div>
                     )

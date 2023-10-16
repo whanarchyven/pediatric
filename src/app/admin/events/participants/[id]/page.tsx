@@ -69,7 +69,7 @@ export default function Home(params: { params: { id: string } }) {
           <div>Всего: {data.length}</div>
           <div>Завершившие регистрацию: {data.filter(p=>p.status==="finished").length}</div>
           <div>Завершившие регистрацию(онлайн): {data.filter(p=>(p.sum>0&&p.status==="finished"&&p?.info?.participationType==="онлайн")).length}</div>
-          <div>Завершившие регистрацию(онлайн): {data.filter(p=>(p.sum>0&&p.status==="finished"&&p?.info?.participationType==="оффлайн")).length}</div>
+          <div>Завершившие регистрацию(оффлайн): {data.filter(p=>(p.sum>0&&p.status==="finished"&&p?.info?.participationType==="оффлайн")).length}</div>
           <div>Количество платных: {data.filter(p=>(p.sum>0&&p.status==="finished")).length}</div>
           
           <div className="mt-10">
@@ -77,7 +77,7 @@ export default function Home(params: { params: { id: string } }) {
             <span className="text-xs">{d?.info?.participationType}</span> 
             <span className="col-span-2">{d?.info?.name}</span>
             <span className="col-span-2"> {d.email}</span> 
-            <div><a className="underline cursor-pointer text-xs" href={(d.info?.event_id&&d.email)&&certLink(d?.email, d.info?.event_id)} target="_blank" rel={"noreferer"}>Выпуск сертификата</a></div>
+            <div><a className="underline cursor-pointer text-xs" href={(d.info?.event_id&&d.email)&&certLink(d?.email, d.info?.event_id)} target="_blank" rel={"noreferer"}>{d.cert?"Сертификат":"Выпуск сертификата"}</a></div>
           </div>)}
           </div>
           

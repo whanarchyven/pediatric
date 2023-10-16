@@ -25,12 +25,12 @@ const Sidebar = ({user_uuid,isCloseBurger}:sideBarInterface) => {
             iconWhite:'/pages/account/sidebar/white/card.svg',
             link:'card'
         },
-        {
-            name:'Сертификаты',
-            icon:'/pages/account/sidebar/certificates.svg',
-            iconWhite:'/pages/account/sidebar/white/certificates.svg',
-            link:'certificates'
-        },
+        // {
+        //     name:'Сертификаты',
+        //     icon:'/pages/account/sidebar/certificates.svg',
+        //     iconWhite:'/pages/account/sidebar/white/certificates.svg',
+        //     link:'certificates'
+        // },
         {
             name:'Календарь событий',
             icon:'/pages/account/sidebar/calendar.svg',
