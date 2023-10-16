@@ -46,20 +46,20 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const [showError,setShowError]=useState(false)
 
     return (
-        <main className={'p-12 h-full'}>
+        <main className={'lg:p-12 p-2 h-full'}>
             <div className={'flex w-full h-full items-start justify-center'}>
                 <div className={'flex flex-col mt-20 items-start gap-6'}>
                     <p className={'uppercase font-inter font-extralight text-3xl'}>Смена пароля</p>
                     <div className={'flex gap-2 flex-col'}>
                         <p>Новый пароль</p>
                         <input value={password} onChange={(event)=>{setPassword(event.target.value)}} type={'password'} placeholder={''}
-                               className={'p-4 transition-all duration-300 placeholder:font-extralight w-96 border-black border-[1px] cursor-pointer flex items-center rounded-full gap-2'}/>
+                               className={'p-4 transition-all duration-300 placeholder:font-extralight lg:w-96 border-black border-[1px] cursor-pointer flex items-center rounded-full gap-2'}/>
                     </div>
                     <div className={'flex gap-2 flex-col'}>
                         <p>Подтвердите пароль</p>
                         {showError?<p className={'text-rose-500'}>Ошибка: пароли не совпадают</p>:null}
                         <input value={confirmPassword} onChange={(event)=>{setConfirmPassword(event.target.value)}} type={'password'} placeholder={''}
-                               className={'p-4 transition-all duration-300 placeholder:font-extralight w-96 border-black border-[1px] cursor-pointer flex items-center rounded-full gap-2'}/>
+                               className={'p-4 transition-all duration-300 placeholder:font-extralight lg:w-96 border-black border-[1px] cursor-pointer flex items-center rounded-full gap-2'}/>
                     </div>
                     <div onClick={()=>{
                         if(password==confirmPassword&&showStatus=='Изменить') {
