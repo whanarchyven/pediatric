@@ -84,11 +84,11 @@ const Navbar = ({isInteractive}:navbarInterface) => {
                         </img>
                     </Link>
                 </div>
-                <div className={'flex items-center cursor-pointer'} onClick={()=>{loggedIn?router.push('/account/my/profile'):router.push('/login')}}>
+                <div className={'flex items-center cursor-pointer'} onClick={()=>{loggedIn&&localStorage.getItem('loggedOut')!='true'?router.push('/account/my/profile'):router.push('/login')}}>
                     <div className={'w-5 mx-2 aspect-square relative'}>
                         <Image src={'/account.svg'} alt={'account'} layout={'fill'}></Image>
                     </div>
-                    <p className={'text-white lg:text-lg text-sm font-inter font-normal'}>{loggedIn?"Профиль":"Войти"}</p>
+                    <p className={'text-white lg:text-lg text-sm font-inter font-normal'}>{loggedIn&&localStorage.getItem('loggedOut')!='true'?"Профиль":"Войти"}</p>
                 </div>
             </div>
             <div className={'sm:hidden col-span-1 flex justify-end items-center col-end-7'}>
@@ -98,11 +98,11 @@ const Navbar = ({isInteractive}:navbarInterface) => {
                 {links.map((link)=>{
                     return (<a key={link.title} className={'font-inter text-sm font-normal text-white'} href={link.link}>{link.title}</a>)
                 })}
-                <div className={'flex flex-row-reverse justify-end items-center mt-10 cursor-pointer'} onClick={()=>{loggedIn?router.push('/account/my/profile'):router.push('/login')}}>
+                <div className={'flex flex-row-reverse justify-end items-center mt-10 cursor-pointer'} onClick={()=>{loggedIn&&localStorage.getItem('loggedOut')!='true'?router.push('/account/my/profile'):router.push('/login')}}>
                     <div className={'w-5 mx-2 aspect-square relative'}>
                         <Image src={'/account.svg'} alt={'account'} layout={'fill'}></Image>
                     </div>
-                    <p className={'text-white lg:text-lg text-sm font-inter font-normal'}>{loggedIn?"Профиль":"Войти"}</p>
+                    <p className={'text-white lg:text-lg text-sm font-inter font-normal'}>{loggedIn&&localStorage.getItem('loggedOut')!='true'?"Профиль":"Войти"}</p>
                 </div>
             </div>:null}
             {burgerOpen&&(pathname.includes('/account'))?<div className={'h-screen pt-10 flex flex-col col-span-6 gap-6'}>

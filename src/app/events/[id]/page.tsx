@@ -372,11 +372,11 @@ export default function Page({params}: any) {
             {/*         alt={'asset_bottom'}></img>*/}
             {/*</div>*/}
             {!event?.isOnlyOnline ?
-                <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] lg:h-[600px]'}>
+                <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div
                         className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-center'}>
-                        {registration?  <motion.p initial={{y: -40, opacity: 0}}
+                        {registration?.is_paid?  <motion.p initial={{y: -40, opacity: 0}}
                                                   whileInView={{y: 0, opacity: 1}}
                                                   viewport={{once: true}}
                                                   transition={{ease: 'easeInOut', duration: 0.7}}
@@ -390,7 +390,21 @@ export default function Page({params}: any) {
                                       className={'uppercase font-extralight text-black lg:text-left text-left text-2xl lg:text-4xl'}>Стоимость <strong
                                 className={'font-extrabold'}>Участия</strong></motion.p>}
                     </div>
-                    {!registration?  <div
+                    {registration?.is_paid?<div className={'grid grid-cols-2 mt-32 gap-32 items-start'}>
+                        <div className={'flex flex-col gap-4'}>
+                            <p className={'text-2xl uppercase font-black'}>Формат: <span className={'font-light'}>{registration?.meta?.participationType}</span></p>
+                            <p className={'text-2xl uppercase font-black'}>Дата и время: <span className={'font-light'}>{event?.date} в {event?.timePeriod}</span></p>
+                            <p className={'text-2xl uppercase font-black'}>Место: <span className={'font-light'}>{event?.place}</span></p>
+                            <p className={'text-2xl uppercase font-light'}>Мы очень ждём вас, свой билет вы можете скачать по ссылке ниже:</p>
+                            <Link href={`https://pediatric-dermatology.vercel.app/wallet-pass/${uuid}`} className={'flex text-white w-96 font-bold items-center justify-center p-3 bg-green-two rounded-lg'}>
+                                Скачать
+                            </Link>
+                        </div>
+                        <div className={'flex items-center justify-end'}>
+                            <QRCode className={'w-3/5'} value={`https://pediatric-dermatology.vercel.app/wallet-pass/${uuid}`}></QRCode>
+                        </div>
+                    </div>:null}
+                    <div
                         className={classList('grid grid-cols-1 gap-9 mt-10', event?.prices ? 'lg:grid-cols-3' : 'lg:grid-cols-2')}>
                         {event?.prices ? <div className={'flex flex-col items-center gap-8'}>
                             <div
@@ -467,20 +481,7 @@ export default function Page({params}: any) {
                                 Подтвердить участие
                             </div>
                         </div>
-                    </div> : <div className={'grid grid-cols-2 mt-32 gap-32 items-start'}>
-                        <div className={'flex flex-col gap-4'}>
-                            <p className={'text-2xl uppercase font-black'}>Формат: <span className={'font-light'}>{registration?.meta?.participationType}</span></p>
-                            <p className={'text-2xl uppercase font-black'}>Дата и время: <span className={'font-light'}>{event?.date} в {event?.timePeriod}</span></p>
-                            <p className={'text-2xl uppercase font-black'}>Место: <span className={'font-light'}>{event?.place}</span></p>
-                            <p className={'text-2xl uppercase font-light'}>Мы очень ждём вас, свой билет вы можете скачать по ссылке ниже:</p>
-                            <Link href={`https://pediatric-dermatology.vercel.app/wallet-pass/${uuid}`} className={'flex text-white w-96 font-bold items-center justify-center p-3 bg-green-two rounded-lg'}>
-                                Скачать
-                            </Link>
-                        </div>
-                        <div className={'flex items-center justify-end'}>
-                            <QRCode className={'w-3/5'} value={`https://pediatric-dermatology.vercel.app/wallet-pass/${uuid}`}></QRCode>
-                        </div>
-                    </div>}
+                    </div>
                     {isConfirmPopOpen && event?.name && event?.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
                         {
                             setIsConfirmPopOpen(false)

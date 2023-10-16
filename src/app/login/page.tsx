@@ -51,6 +51,7 @@ export default function Home() {
 
             if (data?.user_uuid){
                 const userUuid = data?.user_uuid;
+                localStorage.setItem('loggedOut','false')
                 router.push(`/account/${userUuid}/profile`)
             }
             if (data?.error) {
