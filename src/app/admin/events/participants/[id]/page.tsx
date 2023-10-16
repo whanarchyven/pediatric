@@ -68,7 +68,10 @@ export default function Home(params: { params: { id: string } }) {
         <div className={""}>
           <div>Всего: {data.length}</div>
           <div>Завершившие регистрацию: {data.filter(p=>p.status==="finished").length}</div>
+          <div>Завершившие регистрацию(онлайн): {data.filter(p=>(p.sum>0&&p.status==="finished"&&d?.info?.participationType==="онлайн")).length}</div>
+          <div>Завершившие регистрацию(онлайн): {data.filter(p=>(p.sum>0&&p.status==="finished"&&d?.info?.participationType==="оффлайн")).length}</div>
           <div>Количество платных: {data.filter(p=>(p.sum>0&&p.status==="finished")).length}</div>
+          
           <div className="mt-10">
           {data.filter(p=>p.status==="finished").map((d,i)=><div className="grid grid-cols-8 justify-center" key={i}>
             <span className="text-xs">{d?.info?.participationType}</span> 
@@ -78,7 +81,7 @@ export default function Home(params: { params: { id: string } }) {
           </div>)}
           </div>
           
-          <pre className="text-xs">{JSON.stringify(data,null,2)}</pre>
+          {/* <pre className="text-xs">{JSON.stringify(data,null,2)}</pre> */}
           {/* <pre className="text-xs">{data.map(d=>`${d.info.participationType}\n${d.info.name}\t${d.email}\n\n`)}</pre> */}
         </div>
       </div>
