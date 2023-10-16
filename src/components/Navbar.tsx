@@ -105,10 +105,10 @@ const Navbar = ({isInteractive}:navbarInterface) => {
                     <p className={'text-white lg:text-lg text-sm font-inter font-normal'}>{loggedIn&&localStorage.getItem('loggedOut')!='true'?"Профиль":"Войти"}</p>
                 </div>
             </div>:null}
-            {burgerOpen&&(pathname.includes('/account'))?<div className={'h-screen pt-10 flex flex-col col-span-6 gap-6'}>
+            {burgerOpen&&(pathname.includes('/account'))?<div className={'h-screen overflow-y-scroll pt-10 pb-20 flex flex-col col-span-6 gap-6'}>
                 <Sidebar user_uuid={data?.profile.uuid}></Sidebar>
             </div>:null}
-            {burgerOpen&&(pathname.includes('/admin'))?<div className={'h-screen pt-10 flex flex-col col-span-6 gap-6'}>
+            {burgerOpen&&(pathname.includes('/admin'))?<div className={'h-screen overflow-y-scroll pt-10 pb-20 flex flex-col col-span-6 gap-6'}>
                 <AdminSidebar user_uuid={data?.profile?.uuid}></AdminSidebar>
             </div>:null}
 
