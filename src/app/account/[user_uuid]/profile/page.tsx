@@ -33,6 +33,7 @@ import ShowCareerPop from "@/components/ShowCareerPop";
 import NewPublicationPop from "@/components/NewPublicationPop";
 import AwardsPop from "@/components/AwardsPop";
 import ShowAwardPop from "@/components/ShowAwardPop";
+import PhotoPopUp from "@/components/PhotoPopUp";
 // import required modules
 
 
@@ -52,7 +53,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
         gender,
         specialty,
         birthDate,
-        photoUrl, education, about, interests, career, position,uuid,awards
+        photoUrl, education, about, interests, career, position, uuid, awards
     } = data?.profile ?? {} as any;
 
     console.log(data);
@@ -60,7 +61,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
     // @ts-ignore
     const publicationsData = useEden(() => eden.user[user_uuid].publication.list["own-published"].get())
 
-    const {publications}=publicationsData?.data?? {} as any
+    const {publications} = publicationsData?.data ?? {} as any
     console.log(publicationsData)
 
     const [profile, setProfile] = useState({
@@ -133,8 +134,8 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
     const [isEditor, setIsEditor] = useState(false)
 
-    const updateProfile = async (photoUrl:string) => {
-        eden.user[user_uuid].profile.post({uuid: user_uuid, ...profile,photoUrl}).then((res) => {
+    const updateProfile = async (photoUrl: string) => {
+        eden.user[user_uuid].profile.post({uuid: user_uuid, ...profile, photoUrl}).then((res) => {
             console.log(res)
             setIsEditor(false)
         })
@@ -157,6 +158,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const [showAwardsPop, setShowAwardsPop] = useState(false)
     const [currentAward, setCurrentAward] = useState<typeof career[0]>()
 
+    const [newPhotoPop, setNewPhotoPop] = useState(false)
 
 
     return (
@@ -178,9 +180,17 @@ export default function Home(params: { params: { user_uuid: string } }) {
             }} afterPostCallback={() => {
             }} user_uuid={user_uuid} email={email} career={career}/> : null}
 
-            {newAwardsPop?<AwardsPop closeFunc={()=>{setNewAwardsPop(false)}} user_uuid={user_uuid} email={email} awards={awards}></AwardsPop>:null}
+            {newAwardsPop ? <AwardsPop closeFunc={() => {
+                setNewAwardsPop(false)
+            }} user_uuid={user_uuid} email={email} awards={awards}></AwardsPop> : null}
 
-            {showAwardsPop?<ShowAwardPop closeFunc={()=>{setShowAwardsPop(false)}} award={currentAward}/>:null}
+            {showAwardsPop ? <ShowAwardPop closeFunc={() => {
+                setShowAwardsPop(false)
+            }} award={currentAward}/> : null}
+
+            {newPhotoPop ? <PhotoPopUp closeFunc={() => {
+                setNewPhotoPop(false)
+            }} user_uuid={user_uuid} email={email}/> : null}
 
             <div className={'flex lg:flex-row flex-col gap-2 lg:justify-between'}>
                 <p className={'uppercase font-inter font-extralight text-2xl lg:text-3xl'}>Основные данные</p>
@@ -193,12 +203,11 @@ export default function Home(params: { params: { user_uuid: string } }) {
                     </div>
                     :
                     <div onClick={async () => {
-                        if(tempPhotoUrl){
-                            await uploadFile(tempPhotoUrl).then((res)=>{
+                        if (tempPhotoUrl) {
+                            await uploadFile(tempPhotoUrl).then((res) => {
                                 updateProfile(res);
                             })
-                        }
-                        else{
+                        } else {
                             updateProfile(photoUrl);
                         }
                     }} className={'p-2 bg-green cursor-pointer flex items-center rounded-lg gap-2'}>
@@ -211,38 +220,20 @@ export default function Home(params: { params: { user_uuid: string } }) {
                 <div className={'flex w-full flex-col lg:pr-8 gap-16 border-r-[1px] border-green'}>
                     <div className={'flex lg:flex-row flex-col gap-8 items-start'}>
                         {isEditor ? <div className={'lg:w-1/4 w-1/2 relative'}>{photoUrl ?
-                            <div><img className={'rounded-full aspect-square object-cover w-full'}
+                            <div className={'overflow-hidden rounded-full'}><img className={'rounded-full aspect-square object-cover w-full'}
                                       src={photoUrl}/>
-                                <div
-                                    className={'absolute z-[30] bg-white w-full h-full top-0 left-0 bg-opacity-50 backdrop-blur-sm flex flex-col gap-5 items-center justify-center rounded-full'}>
-                                    <DragNDrop setFile={setTempPhotoUrl}/>
-                                    {/*<div*/}
-                                    {/*    className={classList('flex justify-center items-center rounded-lg p-2 cursor-pointer font-bold border-2 border-green', avatarUpdated ? 'bg-green text-white' : 'bg-white text-green')}*/}
-                                    {/*    onClick={async () => {*/}
-                                    {/*        if (tempPhotoUrl) {*/}
-                                    {/*            const photo = await uploadFile(tempPhotoUrl)*/}
-                                    {/*            mutateProfile('photoUrl', photo)*/}
-                                    {/*            setAvatarUpdated(true)*/}
-                                    {/*        }*/}
-                                    {/*    }}>{avatarUpdated ? 'Обновлено!' : 'Обновить'}*/}
-                                    {/*</div>*/}
+                                <div onClick={()=>{setNewPhotoPop(true)}}
+                                    className={'p-2 top-0 left-0 justify-center absolute rounded-full w-full h-full bg-opacity-50 bg-green cursor-pointer flex items-center gap-2'}>
+                                    <img className={'w-4 aspect-square'} src={`${images}/edit.svg`}/>
+                                    <p className={'text-white font-inter lg:text-xs text-xs font-normal'}>Изменить</p>
                                 </div>
                             </div> :
-                            <div><img className={'rounded-full aspect-square object-cover w-full'}
+                            <div className={'overflow-hidden rounded-full'}><img className={'rounded-full aspect-square object-cover w-full'}
                                       src={`/john_doe.svg`}/>
-                                <div
-                                    className={'absolute z-[30] bg-white w-full h-full top-0 left-0 bg-opacity-50 backdrop-blur-sm flex flex-col gap-5 items-center justify-center rounded-full'}>
-                                    <DragNDrop setFile={setTempPhotoUrl}/>
-                                    {/*<div*/}
-                                    {/*    className={classList('flex justify-center items-center rounded-lg p-2 cursor-pointer font-bold border-2 border-green', avatarUpdated ? 'bg-green text-white' : 'bg-white text-green')}*/}
-                                    {/*    onClick={async () => {*/}
-                                    {/*        if (tempPhotoUrl) {*/}
-                                    {/*            const photo = await uploadFile(tempPhotoUrl)*/}
-                                    {/*            mutateProfile('photoUrl', photo)*/}
-                                    {/*            setAvatarUpdated(true)*/}
-                                    {/*        }*/}
-                                    {/*    }}>{avatarUpdated ? 'Обновлено!' : 'Обновить'}*/}
-                                    {/*</div>*/}
+                                <div onClick={()=>{setNewPhotoPop(true)}}
+                                    className={'p-2 top-0 left-0 justify-center absolute rounded-full w-full h-full bg-opacity-50 bg-green cursor-pointer flex items-center gap-2'}>
+                                    <img className={'w-4 aspect-square'} src={`${images}/edit.svg`}/>
+                                    <p className={'text-white font-inter lg:text-xs text-xs font-normal'}>Изменить</p>
                                 </div>
                             </div>}
                         </div> : <div className={'lg:w-1/4 w-1/2'}>
@@ -339,7 +330,8 @@ export default function Home(params: { params: { user_uuid: string } }) {
                             <p className={'uppercase font-inter font-extralight text-2xl lg:text-3xl'}>Образование</p>
                             {isEditor ? <div onClick={() => {
                                 setEducationPop(true)
-                            }} className={'bg-green text-white cursor-pointer font-normal p-2 lg:text-base text-sm lg text-sm lg:text-base p-2:lg:p-3 rounded-lg'}>Добавить
+                            }}
+                                             className={'bg-green text-white cursor-pointer font-normal p-2 lg:text-base text-sm lg text-sm lg:text-base p-2:lg:p-3 rounded-lg'}>Добавить
                                 +</div> : null}
                         </div>
                         <div className={'w-4/5 flex flex-col gap-2'}>
@@ -349,21 +341,23 @@ export default function Home(params: { params: { user_uuid: string } }) {
                                         <p className={'font-bold text-sm lg:text-base'}>{counter + 1} образование</p>
                                         <div className={'flex items-start gap-3'}>
                                             <p className={'lg:text-base text-xs'}>{item.faculty} факультет {item.university}</p>
-                                            {!isEditor?<img onClick={() => {
-                                                setCurrentEducationShow(item)
-                                                setCurrentEducationShowCounter(counter + 1)
-                                                setEducationShowOpen(true)
-                                            }} className={'w-5 cursor-pointer aspect-square'} src={'/info.svg'}/>:<img onClick={async () => {
-                                                let temp=[...education]
-                                                let index=temp.findIndex(ed=>ed==item)
-                                                temp.splice(index,1)
-                                                eden.user[user_uuid].profile.post({
-                                                    uuid: user_uuid, education: [...temp],email:email
-                                                }).then((res)=>{
-                                                    console.log(res)
-                                                    window.location.reload();
-                                                })
-                                            }} className={'w-5 -mt-1 cursor-pointer aspect-square'} src={'/close_black.svg'}/>}
+                                            {!isEditor ? <img onClick={() => {
+                                                    setCurrentEducationShow(item)
+                                                    setCurrentEducationShowCounter(counter + 1)
+                                                    setEducationShowOpen(true)
+                                                }} className={'w-5 cursor-pointer aspect-square'} src={'/info.svg'}/> :
+                                                <img onClick={async () => {
+                                                    let temp = [...education]
+                                                    let index = temp.findIndex(ed => ed == item)
+                                                    temp.splice(index, 1)
+                                                    eden.user[user_uuid].profile.post({
+                                                        uuid: user_uuid, education: [...temp], email: email
+                                                    }).then((res) => {
+                                                        console.log(res)
+                                                        window.location.reload();
+                                                    })
+                                                }} className={'w-5 -mt-1 cursor-pointer aspect-square'}
+                                                     src={'/close_black.svg'}/>}
                                         </div>
                                     </div>
                                 )
@@ -379,7 +373,8 @@ export default function Home(params: { params: { user_uuid: string } }) {
                             <p className={'uppercase font-inter font-extralight text-2xl lg:text-3xl'}>Карьера</p>
                             {isEditor ? <div onClick={() => {
                                 setNewCareerPop(true)
-                            }} className={'bg-green text-white cursor-pointer font-normal text-sm lg:text-base p-2 lg:p-3 rounded-lg'}>Добавить
+                            }}
+                                             className={'bg-green text-white cursor-pointer font-normal text-sm lg:text-base p-2 lg:p-3 rounded-lg'}>Добавить
                                 +</div> : null}
                         </div>
                         <div className={'grid gap-4 mb-6 w-4/5 grid-cols-2'}>
@@ -413,20 +408,22 @@ export default function Home(params: { params: { user_uuid: string } }) {
                                                 работы: {item.placeName}</p>
                                             <p className={'font-normal text-black lg:text-base text-sm lg:leading-[80%] pb-8'}>Должность: {item.post}</p>
                                         </div>
-                                        {!isEditor?<img onClick={() => {
-                                            setCurrentCareer(item)
-                                            setShowCareerPop(true)
-                                        }} className={'w-5 -mt-1 cursor-pointer aspect-square'} src={'/info.svg'}/>:<img onClick={async () => {
-                                            let temp=[...career]
-                                            let index=temp.findIndex(car=>car==item)
-                                            temp.splice(index,1)
-                                            eden.user[user_uuid].profile.post({
-                                                uuid: user_uuid, career: [...temp],email:email
-                                            }).then((res)=>{
-                                                console.log(res)
-                                                window.location.reload();
-                                            })
-                                        }} className={'w-5 -mt-1 cursor-pointer aspect-square'} src={'/close_black.svg'}/>}
+                                        {!isEditor ? <img onClick={() => {
+                                                setCurrentCareer(item)
+                                                setShowCareerPop(true)
+                                            }} className={'w-5 -mt-1 cursor-pointer aspect-square'} src={'/info.svg'}/> :
+                                            <img onClick={async () => {
+                                                let temp = [...career]
+                                                let index = temp.findIndex(car => car == item)
+                                                temp.splice(index, 1)
+                                                eden.user[user_uuid].profile.post({
+                                                    uuid: user_uuid, career: [...temp], email: email
+                                                }).then((res) => {
+                                                    console.log(res)
+                                                    window.location.reload();
+                                                })
+                                            }} className={'w-5 -mt-1 cursor-pointer aspect-square'}
+                                                 src={'/close_black.svg'}/>}
                                     </div>
                                 )
                             })}
@@ -458,22 +455,27 @@ export default function Home(params: { params: { user_uuid: string } }) {
                 <div className={'flex lg:px-8 max-w-screen lg:mt-0 mt-6 flex-col gap-10'}>
                     <div className={'flex justify-between items-center'}>
                         <p className={'font-bold text-xl text-black'}>Награды</p>
-                        {isEditor?<div onClick={() => {
+                        {isEditor ? <div onClick={() => {
                             setNewAwardsPop(true)
-                        }} className={'bg-green text-white cursor-pointer font-normal p-2 lg:text-base text-sm lg text-sm lg:text-base p-2:lg:p-3 rounded-lg'}>Добавить
-                            +</div>:null}
+                        }}
+                                         className={'bg-green text-white cursor-pointer font-normal p-2 lg:text-base text-sm lg text-sm lg:text-base p-2:lg:p-3 rounded-lg'}>Добавить
+                            +</div> : null}
                     </div>
-                    {awards&&awards.length>0?<div className={'grid grid-cols-5 mt-4 gap-8'}>
-                        {awards.map((award:typeof awards[0],counter:number)=>{
-                            return(
-                                <div key={counter} onClick={()=>{setCurrentAward(award);setShowAwardsPop(true)}} className={'flex flex-col gap-3 items-center'}>
+                    {awards && awards.length > 0 ? <div className={'grid grid-cols-5 mt-4 gap-8'}>
+                        {awards.map((award: typeof awards[0], counter: number) => {
+                            return (
+                                <div key={counter} onClick={() => {
+                                    setCurrentAward(award);
+                                    setShowAwardsPop(true)
+                                }} className={'flex flex-col gap-3 items-center'}>
                                     <img src={'/awards.svg'}
                                          className={'rounded-full w-full cursor-pointer aspect-square object-cover'}/>
                                     <p className={'font-normal text-black text-center text-xs'}>{award.title}</p>
                                 </div>
                             )
                         })}
-                    </div>:<div className={'flex h-52 lg:border-[1px] border-green rounded-lg items-center justify-center'}>
+                    </div> : <div
+                        className={'flex h-52 lg:border-[1px] border-green rounded-lg items-center justify-center'}>
                         <p className={'opacity-50'}>Награды не найдены</p>
                     </div>}
 
@@ -484,9 +486,10 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
                         </div>
                         {publications && publications.length > 0 ? <div className={'flex gap-12 flex-col'}>
-                            {publications.map((publication:typeof publications[0])=>{
-                                return(
-                                    <PublicationTab user_uuid={uuid} {...publication} key={publication.title}></PublicationTab>
+                            {publications.map((publication: typeof publications[0]) => {
+                                return (
+                                    <PublicationTab user_uuid={uuid} {...publication}
+                                                    key={publication.title}></PublicationTab>
                                 )
                             })}
                         </div> : <div

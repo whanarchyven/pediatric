@@ -94,7 +94,7 @@ export default function Home() {
     return (
         <main className={'overflow-x-hidden'}>
             {/*ПЕРВЫЙ БЛОК*/}
-            <motion.div className="min-h-screen overflow-hidden bg-cover relative bg-[url('/pages/main/main_bg.png')]">
+            <motion.div className="min-h-screen overflow-hidden bg-cover relative bg-[url('/pages/main/results_bg.png')]">
                 <motion.div
                     className={'w-full min-h-screen h-auto px-[20px] sm:px-[120px] items-center grid grid-cols-1 sm:grid-cols-7'}>
                     <motion.div
