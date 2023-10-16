@@ -112,10 +112,10 @@ export default function Home(params: { params: { user_uuid: string } }) {
                                     Скачать билет
                                 </div>
                                 {participation.cert&&<a 
-                                href={certLink(participation.email)}
+                                href={certLink(participation.info.event_id)}
                                 target={"blank"}
                                 rel="noreferer"
-                                className={'mt-2 p-4 bg-green flex rounded-lg cursor-pointer items-center justify-center font-bold text-white'}>
+                                className={'mt-2 p-4 bg-green flex rounded-lg cursor-pointer items-center justify-center font-bold text-white text-sm'}>
                                     Скачать сертификат
                                 </a>}
                             </div>
