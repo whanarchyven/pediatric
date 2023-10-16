@@ -4,7 +4,7 @@ import Slider from "@/components/Slider";
 import VideoPlayer from "@/components/VideoPlayer";
 import Reviews from "@/components/Reviews";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
+import {redirect, useRouter} from "next/navigation";
 import ReviewPop from "@/components/ReviewPop";
 import HelpPop from "@/components/HelpPop";
 
@@ -40,6 +40,8 @@ export default function Home() {
   const [personal, setPersonal] = useState(false);
 
   const [sended, setSended] = useState(false);
+
+  const router=useRouter()
 
   const fieldset = [
     {
@@ -122,6 +124,9 @@ export default function Home() {
     eden.auth.signUp.post(fields).then((d) => {
      if (d.data?.error){
         setError(d.data.error)
+     }
+     else{
+       router.push('/login')
      }
     });
   };
