@@ -248,6 +248,7 @@ export declare const app: Elysia<"", {
                         event_name?: string | undefined;
                         event_id?: string | undefined;
                     } | undefined;
+                    cert: string | undefined;
                 }[]>;
             };
         };

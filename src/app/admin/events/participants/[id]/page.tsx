@@ -77,7 +77,7 @@ export default function Home(params: { params: { id: string } }) {
             <span className="text-xs">{d?.info?.participationType}</span> 
             <span className="col-span-2">{d?.info?.name}</span>
             <span className="col-span-2"> {d.email}</span> 
-            <div><a className="underline cursor-pointer text-xs" href={(d.info?.event_id&&d.email)&&certLink(d?.email, d.info?.event_id)} target="_blank" rel={"noreferer"}>Выпуск сертификата</a></div>
+            <div><a className="underline cursor-pointer text-xs" href={(d.info?.event_id&&d.email)&&certLink(d?.email, d.info?.event_id)} target="_blank" rel={"noreferer"}>{d.cert?"Сертификат":"Выпуск сертификата"}</a></div>
           </div>)}
           </div>
           
