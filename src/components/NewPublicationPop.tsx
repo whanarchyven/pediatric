@@ -5,6 +5,7 @@ import {eden} from "@/helpers/sdk";
 import FormData from "form-data";
 import axios from "axios";
 import {uploadFile} from "@/helpers/uploadFile";
+import Loading from "@/components/Loading";
 
 
 interface newPublicationPopInterface {
@@ -20,7 +21,7 @@ const NewPublicationPop = ({closeFunc,user_uuid,email}:newPublicationPopInterfac
     const[file,setFile]=useState<FileList>()
     const [authors,setAuthors]=useState<string[]>([])
     const [tempAuthor,setTempAuthor]=useState('')
-
+    const [loading,setLoading]=useState(false);
     const newPublication=async (fileUrl:string)=>{
         eden.user[user_uuid].publication.post({
              category, title, fileUrl, authors,
@@ -28,6 +29,7 @@ const NewPublicationPop = ({closeFunc,user_uuid,email}:newPublicationPopInterfac
         }).then((res)=>{
             console.log(res)
             closeFunc()
+            setLoading(false);
             window.location.reload();
         })
 
@@ -94,13 +96,14 @@ const NewPublicationPop = ({closeFunc,user_uuid,email}:newPublicationPopInterfac
                         </div>
                     </div>
                     <div onClick={()=>{
+                        setLoading(true)
                         if(file){
                             uploadFile(file).then((res)=>{
                                 newPublication(res)
                             })
                         }
                     }} className={'bg-green lg:w-full p-4 flex text-white cursor-pointer justify-center items-center rounded-lg mt-5 text-xl'}>
-                        Опубликовать
+                        {loading?<Loading></Loading>:'Опубликовать'}
                     </div>
                 </div>
             </div>

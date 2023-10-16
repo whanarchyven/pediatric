@@ -10,6 +10,7 @@ import Cropper, { ReactCropperElement } from "react-cropper";
 import "cropperjs/dist/cropper.css";
 import {blobToFile} from "@/helpers/blobToFile";
 import {uploadFileBlob} from "@/helpers/uploadFileBlob";
+import Loading from "@/components/Loading";
 
 interface educationPopInterface {
     closeFunc:()=>any
@@ -22,7 +23,7 @@ const EducationPop = ({closeFunc,user_uuid,email,imageOld}:educationPopInterface
     const [image, setImage] = useState(imageOld);
     const [cropData, setCropData] = useState("#");
     const cropperRef = createRef<ReactCropperElement>();
-
+    const [loading,setLoading]=useState(false);
     const updateProfile = async (photoUrl: string) => {
         eden.user[user_uuid].profile.post({
             uuid: user_uuid, photoUrl,
@@ -30,6 +31,7 @@ const EducationPop = ({closeFunc,user_uuid,email,imageOld}:educationPopInterface
         }).then((res) => {
             console.log(res)
             closeFunc();
+            setLoading(false)
             window.location.reload();
         })
     
@@ -71,8 +73,8 @@ const EducationPop = ({closeFunc,user_uuid,email,imageOld}:educationPopInterface
                         <p className={'text-3xl font-bold'}>Обновить фотографию</p>
                         <img onClick={()=>{closeFunc()}} className={'cursor-pointer'} src={'/close_black.svg'}/>
                     </div>
-                    <div className={'mt-6'}>
-                        <input type="file" onChange={onChange} />
+                    <div className={'mt-6 '}>
+                        <input className={'w-3/4'} type="file" onChange={onChange} />
                         <Cropper
                             ref={cropperRef}
                             style={{ height: 400, width: "100%" }}
@@ -91,9 +93,12 @@ const EducationPop = ({closeFunc,user_uuid,email,imageOld}:educationPopInterface
                             guides={true}
                         />
                     </div>
-                    <button className={'bg-green mt-6 rounded-lg text-white font-bold w-96 h-12'} onClick={getCropData}>
-                        Обновить
-                    </button>
+                    <div className={'bg-green mt-6 rounded-lg text-white font-bold w-full flex items-center justify-center lg:w-96 h-12'} onClick={()=>{
+                        setLoading(true)
+                        getCropData()
+                    }}>
+                        {loading?<Loading></Loading>:'Обновить'}
+                    </div>
                 </div>
             </div>
         </div>

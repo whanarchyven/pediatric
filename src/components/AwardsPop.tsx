@@ -6,6 +6,7 @@ import FormData from "form-data";
 import axios from "axios";
 import {uploadFile} from "@/helpers/uploadFile";
 import {isArray} from "util";
+import Loading from "@/components/Loading";
 
 
 interface educationPopInterface {
@@ -18,13 +19,16 @@ interface educationPopInterface {
 const EducationPop = ({closeFunc,user_uuid,email,awards}:educationPopInterface) => {
     const [title,setName]=useState('')
     const [imageTemp,setImageTemp]=useState<FileList>()
+    const [loading,setLoading]=useState(false);
     const updateAwards=async (imageUrl:string)=>{
         if(isArray(awards)){
             eden.user[user_uuid].profile.post({
                 uuid: user_uuid, awards: [...awards,{title:title, imageUrl:imageUrl}],email:email
             }).then((res)=>{
                 console.log(res)
-                closeFunc()
+                closeFunc();
+                setLoading(false);
+                window.location.reload();
             })
         }
         else{
@@ -32,7 +36,8 @@ const EducationPop = ({closeFunc,user_uuid,email,awards}:educationPopInterface) 
                 uuid: user_uuid, awards: [{title:title, imageUrl:imageUrl}],email:email
             }).then((res)=>{
                 console.log(res)
-                closeFunc()
+                closeFunc();
+                setLoading(false);
                 window.location.reload();
             })
 
@@ -59,6 +64,7 @@ const EducationPop = ({closeFunc,user_uuid,email,awards}:educationPopInterface) 
                 </div>
                 <DragNDrop setFile={setImageTemp}></DragNDrop>
                 <div onClick={()=>{
+                    setLoading(true)
                     if(imageTemp){
                         uploadFile(imageTemp).then((res)=>{
                             console.log(res)
@@ -66,7 +72,7 @@ const EducationPop = ({closeFunc,user_uuid,email,awards}:educationPopInterface) 
                         })
                     }
                 }} className={'bg-green p-4 flex text-white cursor-pointer justify-center items-center rounded-lg mt-5 text-2xl'}>
-                    Добавить
+                    {loading?<Loading></Loading>:'Добавить'}
                 </div>
             </div>
         </div>

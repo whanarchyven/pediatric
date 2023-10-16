@@ -6,6 +6,7 @@ import FormData from "form-data";
 import axios from "axios";
 import {uploadFile} from "@/helpers/uploadFile";
 import {isArray} from "util";
+import Loading from "@/components/Loading";
 
 
 interface educationPopInterface {
@@ -24,15 +25,15 @@ const EducationPop = ({closeFunc, afterPostCallback, user_uuid, email, education
     const [degree, setDegree] = useState('')
     const [diploma, setDiploma] = useState('')
     const [diplomaTemp, setDiplomaTemp] = useState(null)
-
-
+    const [loading,setLoading]=useState(false);
     const updateEducation = async (diplomaURL: string) => {
         if (isArray(education)) {
             eden.user[user_uuid].profile.post({
                 uuid: user_uuid, education: [...education, {yearStart, yearEnd, university, faculty, degree, diploma: diplomaURL}], email: email
             }).then((res) => {
                 console.log(res)
-                closeFunc()
+                closeFunc();
+                setLoading(false)
                  window.location.reload();
             })
         } else {
@@ -40,7 +41,8 @@ const EducationPop = ({closeFunc, afterPostCallback, user_uuid, email, education
                 uuid: user_uuid, education: [{yearStart, yearEnd, university, faculty, degree, diploma: diplomaURL}], email: email
             }).then((res) => {
                 console.log(res)
-                closeFunc()
+                closeFunc();
+                setLoading(false)
                  window.location.reload();
             })
 
@@ -103,6 +105,7 @@ const EducationPop = ({closeFunc, afterPostCallback, user_uuid, email, education
                 </div>
                 <DragNDrop setFile={setDiplomaTemp}></DragNDrop>
                 <div onClick={() => {
+                    setLoading(true)
                     if (diplomaTemp) {
                         uploadFile(diplomaTemp).then((res) => {
                             console.log(res)
@@ -113,7 +116,7 @@ const EducationPop = ({closeFunc, afterPostCallback, user_uuid, email, education
                     }
                 }}
                      className={'bg-green p-4 flex text-white cursor-pointer justify-center items-center rounded-lg mt-5 text-2xl'}>
-                    Добавить
+                    {loading?<Loading></Loading>:'Добавить'}
                 </div>
             </div>
         </div>

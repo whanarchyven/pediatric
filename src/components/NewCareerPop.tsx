@@ -5,6 +5,7 @@ import {eden} from "@/helpers/sdk";
 import FormData from "form-data";
 import axios from "axios";
 import {uploadFile} from "@/helpers/uploadFile";
+import Loading from "@/components/Loading";
 
 
 interface newCareerPopInterface {
@@ -21,7 +22,7 @@ const NewCareerPop = ({closeFunc,afterPostCallback,user_uuid,email,career}:newCa
     const [placeName,setPlaceName]=useState('')
     const [post,setPost]=useState('')
     const[description,setDescription]=useState('')
-
+    const [loading,setLoading]=useState(false);
 
 
     const updateNewCareer=async ()=>{
@@ -29,7 +30,8 @@ const NewCareerPop = ({closeFunc,afterPostCallback,user_uuid,email,career}:newCa
             uuid: user_uuid, career: [...career,{start, end, placeName, post, description}],email:email
         }).then((res)=>{
             console.log(res)
-            closeFunc()
+            closeFunc();
+            setLoading(false)
             window.location.reload();
         })
 
@@ -86,9 +88,10 @@ const NewCareerPop = ({closeFunc,afterPostCallback,user_uuid,email,career}:newCa
                            className={'text-green-black p-2 border-green border-2 text-lg rounded-lg font-normal'}></textarea>
                 </div>
                 <div onClick={()=>{
+                    setLoading(true)
                     updateNewCareer();
                 }} className={'bg-green p-4 flex text-white cursor-pointer justify-center items-center rounded-lg mt-5 text-2xl'}>
-                    Добавить
+                    {loading?<Loading></Loading>:'Добавить'}
                 </div>
             </div>
         </div>
