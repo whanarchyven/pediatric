@@ -1,6 +1,6 @@
 "use client"
 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {headers} from "next/headers";
 import {redirect, useRouter} from "next/navigation";
@@ -26,21 +26,23 @@ const ConfirmForm = ({closeFunc, price, event_id, event_name, participationType,
 
     const [isPayed, setIsPayed] = useState(false);
 
-
-    const data = eden.user.my.profile.get().then((res) => {
-        // console.log(res.data.profile)
-        if (res?.data?.profile) {
-            setName(`${res.data.profile.lastName} ${res.data.profile.firstName} ${res.data.profile.middleName}`)
-            setEmail(res.data.profile.email)
-            setPhone(res.data.profile.phoneNumber)
-        }
-        if (res?.data?.isAdmin) {
-            setIsPayed(true)
-            console.log('true');
-        } else {
-            console.log('not logged in')
-        }
-    })
+      useEffect(()=>{
+        const data = eden.user.my.profile.get().then((res) => {
+          // console.log(res.data.profile)
+          if (res?.data?.profile) {
+              setName(`${res.data.profile.lastName} ${res.data.profile.firstName} ${res.data.profile.middleName}`)
+              setEmail(res.data.profile.email)
+              setPhone(res.data.profile.phoneNumber)
+          }
+          if (res?.data?.isAdmin) {
+              setIsPayed(true)
+              console.log('true');
+          } else {
+              console.log('not logged in')
+          }
+      })
+      },[])
+   
 
 
     // email,name,event_id,price
