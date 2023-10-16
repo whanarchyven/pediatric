@@ -32,7 +32,7 @@ const EducationPop = ({closeFunc,user_uuid,email,imageOld}:educationPopInterface
             console.log(res)
             closeFunc();
             setLoading(false)
-            window.location.reload();
+            // window.location.reload();
         })
     
     }
