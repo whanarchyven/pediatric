@@ -97,7 +97,7 @@ const EducationPop = ({closeFunc,user_uuid,email,imageOld}:educationPopInterface
                             autoCropArea={1}
                         />
                     </div>
-                    <div className={'bg-green mt-6 rounded-lg text-white font-bold w-full flex items-center justify-center lg:w-96 h-12'} onClick={()=>{
+                    <div className={'bg-green mt-6 cursor-pointer rounded-lg text-white font-bold w-full flex items-center justify-center lg:w-96 h-12'} onClick={()=>{
                         setLoading(true)
                         getCropData()
                     }}>
