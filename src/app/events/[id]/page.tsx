@@ -124,18 +124,18 @@ export default function Page({params}: any) {
 
     const query = useSearchParams().toString();
 
-    const [currentProgram, setCurrentProgram] = useState<Array<{
-        timePeriod?: string | undefined;
-        sponsor?: string | undefined;
-        speaker?: string | undefined;
-        substages?: {
-            description?: string | undefined;
+    const [currentProgram, setCurrentProgram] = useState<{name:string,program:Array<{
+            timePeriod?: string | undefined;
             sponsor?: string | undefined;
+            speaker?: string | undefined;
+            substages?: {
+                description?: string | undefined;
+                sponsor?: string | undefined;
+                name: string;
+                timePeriod: string;
+            }[] | undefined;
             name: string;
-            timePeriod: string;
-        }[] | undefined;
-        name: string;
-    }>>();
+        }>}>();
 
 
     const [needPrice, setNeedPrice] = useState<any>({})
@@ -178,8 +178,8 @@ export default function Page({params}: any) {
     const [qrCodeUrl,setQrCodeUrl]=useState()
 
     useEffect(() => {
-
-    }, []);
+        setCurrentProgram(event?.halls[0])
+    }, [event]);
 
     return (
         <main className={'overflow-x-hidden'}>
@@ -259,16 +259,14 @@ export default function Page({params}: any) {
                     </p> : null}
                 </div>
             </div>
-            {/*<div*/}
-            {/*    className={'relative green-gradient overflow-hidden px-[20px] pt-12 sm:h-[700px] flex flex-col items-start sm:pl-[70px] sm:px-[140px]'}>*/}
+            {/*{event?.speakers?<div*/}
+            {/*    className={'relative green-gradient overflow-hidden px-[20px] pt-12 sm:h-[900px] flex flex-col items-start sm:pl-[70px] sm:px-[140px]'}>*/}
             {/*    <img className={'absolute asset w-full z-50 left-0 top-[-0.5px] sm:top-0'} src={'/about_us_offset_top.png'}/>*/}
             {/*    <p className={'text-xl sm:text-5xl sm:px-0 px-[20px] sm:absolute sm:top-[140px] sm:left-[195px] uppercase font-extralight text-white'}>Спикеры <span*/}
             {/*        className={'font-extrabold'}>Конференции</span></p>*/}
-            {/*    <SpeakersSlider speakers={event?.speakers}>*/}
-
-            {/*    </SpeakersSlider>*/}
+            {/*    <SpeakersSlider speakers={event?.speakers}></SpeakersSlider>*/}
             {/*    <img className={'absolute w-full asset left-0 z-50 bottom-[-0.5px]'} src={'/about_us_offset_bot.png'}/>*/}
-            {/*</div>*/}
+            {/*</div>:null}*/}
 
             {currentProgram ? <div className={'bg-white py-12 px-[20px] lg:px-[140px]'}>
                 <p className={'uppercase font-extralight text-2xl lg:text-5xl text-black'}>Программа
@@ -278,9 +276,9 @@ export default function Page({params}: any) {
                     {event?.halls.map((hall, counter) => {
                         return (
                             <div key={counter} onClick={() => {
-                                setCurrentProgram([...hall.program])
+                                setCurrentProgram(hall)
                             }}
-                                 className={classList('flex cursor-pointer items-center text-2xl font-bold justify-center', currentProgram[0].name == hall.name ? 'border-b-2 border-green-two text-green-two' : 'text-black')}>
+                                 className={classList('flex cursor-pointer items-center text-2xl font-bold justify-center', currentProgram.name == hall.name ? 'border-b-2 border-green-two text-green-two' : 'text-black')}>
                                 {hall.name}
                             </div>
                         )
@@ -288,7 +286,7 @@ export default function Page({params}: any) {
                     }
                 </div>
                 <div className={'flex mt-20 flex-col gap-14'}>
-                    {currentProgram.map((item, counter) => {
+                    {currentProgram.program.map((item, counter) => {
                         return (
                             <div key={counter} className={'flex gap-8 flex-col'}>
                                 <div
@@ -643,9 +641,18 @@ export default function Page({params}: any) {
                     </PopUp> : null}
                 </div> : null}
 
-            {event?.date == '11.11.2023' ?
-                <a className={'text-dark-green font-bold px-[20px] lg:px-[140px]'} target={'_blank'}
-                   href={'/kpfile.pdf'}>Коммерческое предложение</a> : null}
+            <div className={'my-12 flex flex-col'}>
+                {event?.date == '2023-11-11' ?
+                    <Link className={' text-dark-green font-bold px-[20px] lg:px-[140px]'} target={'_blank'}
+                          href={'/kpfile.pdf'}>Коммерческое предложение</Link> : null}
+                {event?.date == '2023-11-11' ?
+                    <p className={'whitespace-pre-wrap mt-2 px-[20px] lg:px-[140px] text-black'}>
+                        1) Для участия в мероприятии (онлайн-трансляция) необходимо зарегистрироваться на сайте <a className={'font-bold text-green-two'} href={'https://pediatric-dermatology.ru'}>https://pediatric-dermatology.ru</a> (https://pediatric-dermatology.ru/), указав следующие данные: <br/>1. ФИО, <br/>2.Электронный адрес <br/>3. Место работы, <br/>4. Должность, <br/>5. Специальность, <br/>6. Номер телефона. <br/>Учет участников осуществляется с помощью индивидуальной регистрации на интернет-сессию и контроля подключения по IP адресу. Контроль присутствия будет обеспечивать интерактивные опросы через разные временные интервалы. Вход на трансляцию осуществляется не ранее, чем за 2 часа до её начала. При завершении трансляции, сеанс у всех присутствующих прекращается. Инструментами обратной связи являются `&quot;`Чат трансляции`&quot;`. Участниками мероприятия будут признаны слушатели, присутствующие 11 ноября 2023 года (1 день) - не менее 265 минут для программы НМО на трансляции и подтвердившие 5 контролей присутствия из шести. Участникам выполнившим все требования в мероприятии, выдаются индивидуальные коды.
+                        <br/><br/>
+                        2) Для участия в мероприятии (очное присутствие) необходимо обязательно предварительно зарегистрироваться на сайте <a className={'font-bold text-green-two'} href={'https://pediatric-dermatology.ru'}>https://pediatric-dermatology.ru</a>, (https://pediatric-dermatology.ru/) указав следующие данные: <br/>1. ФИО, <br/>2.Электронный адрес <br/>3. Место работы, <br/>4. Должность, <br/>5. Специальность, <br/>6. Номер телефона. <br/>Перед началом мероприятия, все заранее зарегистрированные лица получат бейджи с последующим контролем присутствия до окончания мероприятия. Участниками мероприятия будут признаны слушатели, присутствующие 11 ноября 2023 года (1 день) по адресу город Москва, кластер `&quot;`Ломоносов`&quot;` (ИНТЦ МГУ Воробьёвы горы, Раменский бульвар, 1) с 10:00 - 18:30. Участникам выполнившим все требования в мероприятии, выдаются индивидуальные коды
+                    </p> : null}
+
+            </div>
 
             <div className={'bg-white lg:py-0 py-12 lg:h-[600px]'}>
                 <div className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-between'}>

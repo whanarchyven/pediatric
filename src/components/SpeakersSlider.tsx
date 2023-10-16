@@ -31,8 +31,20 @@ const SpeakersSlider = ({speakers}:speakersSliderInterface) => {
         sliderRef.current.swiper.slideNext();
     }, []);
 
+    const [employersPop,setEmployersPop]=useState(false)
+    const [activeName,setActiveName]=useState('');
+    const [activeDecription,setActiveDescription]=useState('')
+
     return (
         <div className={'w-full flex items-center'}>
+            {employersPop?<div className={'w-full h-full absolute left-0 top-0 z-[20] bg-black bg-opacity-70 flex items-center justify-center'}>
+                <div className={'w-full sm:w-2/3 p-9 gap-4 rounded-lg flex flex-col bg-white relative'}>
+                    <img onClick={()=>{setEmployersPop(false)}} className={'w-8 aspect-square absolute top-4 right-4 cursor-pointer'} src={'/close_black.svg'}/>
+                    <p className={'font-bold text-lg sm:text-4xl'}>{activeName}</p>
+                    <p className={'text-xs sm:text-lg'}>{activeDecription}</p>
+                </div>
+            </div>:null}
+
             <div className={'hidden sm:flex flex-col justify-center gap-8 items-center'}>
                 <div
                     className={'cursor-pointer hidden sm:flex items-center p-3  justify-center w-10 aspect-square rounded-full bg-white bg-opacity-20 hover:bg-[#BCDBD5] transition-all duration-300'}
@@ -54,7 +66,6 @@ const SpeakersSlider = ({speakers}:speakersSliderInterface) => {
             <Swiper
                 ref={sliderRef}
                 speed={1000}
-                autoplay={{delay:4000}}
                 effect={'fade'}
                 fadeEffect={{crossFade: true}}
                 direction={"horizontal"}
@@ -83,7 +94,7 @@ const SpeakersSlider = ({speakers}:speakersSliderInterface) => {
                 // //                             }
                 //                         }}
                 modules={[Mousewheel, EffectFade, Pagination, Autoplay]}
-                className={'myswiper h-[600px] sm:h-[700px] w-full'}
+                className={'myswiper h-[600px] sm:h-[900px] w-full'}
             >
                 {speakers.map((speaker, counter) => {
                     return (
@@ -104,7 +115,11 @@ const SpeakersSlider = ({speakers}:speakersSliderInterface) => {
                                         </div>
                                     </div>
                                     <p className={'text-white text-sm font-normal'}>{concatStr(speaker.description, 20)}</p>
-                                    <p className={'text-white text-sm sm:text-xl font-bold'}>Подробнее...</p>
+                                    <p onClick={()=>{
+                                        setActiveName(speaker.name);
+                                        setActiveDescription(speaker.description);
+                                        setEmployersPop(true);
+                                    }} className={'text-white cursor-pointer text-sm sm:text-xl font-bold'}>Подробнее...</p>
                                 </div>
                                 <div className={'flex items-center relative h-full justify-center'}>
                                     <img src={`pages/main/employers/avatar_layout.svg`}/>

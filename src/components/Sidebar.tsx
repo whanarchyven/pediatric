@@ -5,7 +5,12 @@ import {usePathname} from "next/navigation";
 import Link from "next/link";
 import { eden, useEden } from '@/helpers/sdk';
 
-const Sidebar = ({user_uuid}:{user_uuid:string}) => {
+interface sideBarInterface {
+    user_uuid:any,
+    isCloseBurger?:()=>any
+}
+
+const Sidebar = ({user_uuid,isCloseBurger}:sideBarInterface) => {
 
     const links=[
         {
@@ -82,13 +87,13 @@ const Sidebar = ({user_uuid}:{user_uuid:string}) => {
     return (
         <div className={'flex flex-col lg:sticky w-full lg:top-40 pt-12 items-start gap-4'}>
             {/* {JSON.stringify(data)} */}
-            {pathname.split('/')[3]=='card'&&pathname.split('/')[2]!='my'?<Link href={'/account/my/profile'} className={'flex mb-12 gap-4'}>
+            {pathname.split('/')[3]=='card'&&pathname.split('/')[2]!='my'?<Link onClick={()=>{isCloseBurger?isCloseBurger(): null}} href={'/account/my/profile'} className={'flex mb-12 gap-4'}>
                 <img className={'rounded-full w-12 aspect-square object-cover'} src={'/john_doe.svg'}/>
                 <div className={'flex flex-col h-12 justify-between'}>
                     <p className={'font-bold font-inter text-white lg:text-dark-green'}>Войти</p>
                     <p className={'font-light text-sm font-inter text-white lg:text-dark-green'}>В свой профиль</p>
                 </div>
-            </Link>:<Link href={'/account/my/profile'} className={'flex mb-12 gap-4'}>
+            </Link>:<Link onClick={()=>{isCloseBurger?isCloseBurger(): null}} href={'/account/my/profile'} className={'flex mb-12 gap-4'}>
                 <img className={'rounded-full w-12 aspect-square object-cover'} src={photoUrl?photoUrl:'/john_doe.svg'}/>
                 <div className={'flex flex-col h-12 justify-between'}>
                     <p className={'font-bold font-inter text-white lg:text-dark-green'}>{lastName} {firstName}</p>
@@ -100,7 +105,7 @@ const Sidebar = ({user_uuid}:{user_uuid:string}) => {
                     return null
                 }
                 else{
-                    return( <Link href={`/account/my/${link.link}`} className={classList('flex cursor-pointer items-center gap-3',pathname.split('/')[3]==link.link?'opacity-100':'opacity-30',counter==links.length-2?'mt-12':'')} key={link.link}>
+                    return( <Link onClick={()=>{isCloseBurger?isCloseBurger(): null}} href={`/account/my/${link.link}`} className={classList('flex cursor-pointer items-center gap-3',pathname.split('/')[3]==link.link?'opacity-100':'opacity-30',counter==links.length-2?'mt-12':'')} key={link.link}>
                         <img className={'w-5 lg:flex hidden aspect-square'} src={link.icon}/>
                         <img className={'w-5 flex lg:hidden aspect-square'} src={link.iconWhite}/>
                         <p className={'font-inter text-white lg:text-dark-green font-normal'}>{link.name}</p>
