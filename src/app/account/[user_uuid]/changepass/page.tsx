@@ -27,6 +27,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const {data} = useEden(() => eden.user[user_uuid].profile.get())
 
     const images = '/pages/account'
+    const router=useRouter();
 
     const [password,setPassword]=useState('')
     const [confirmPassword,setConfirmPassword]=useState('')
@@ -40,7 +41,8 @@ export default function Home(params: { params: { user_uuid: string } }) {
             uuid: user_uuid, password,
             email: email
         }).then((res) => {
-            setShowStatus('Пароль успешно изменен')
+            setShowStatus('Пароль успешно изменен');
+
         })
     }
     const [showError,setShowError]=useState(false)
@@ -65,6 +67,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                         if(password==confirmPassword&&showStatus=='Изменить') {
                             setShowError(false);
                             updateProfile();
+                            router.push('/account/my/profile')
                         }
                         else {
                             setShowError(true)
