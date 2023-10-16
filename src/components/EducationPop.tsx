@@ -33,6 +33,7 @@ const EducationPop = ({closeFunc, afterPostCallback, user_uuid, email, education
             }).then((res) => {
                 console.log(res)
                 closeFunc()
+                 window.location.reload();
             })
         } else {
             eden.user[user_uuid].profile.post({
@@ -40,10 +41,11 @@ const EducationPop = ({closeFunc, afterPostCallback, user_uuid, email, education
             }).then((res) => {
                 console.log(res)
                 closeFunc()
+                 window.location.reload();
             })
 
         }
-        window.location.reload();
+
     }
 
 

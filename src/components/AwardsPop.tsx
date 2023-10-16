@@ -33,10 +33,11 @@ const EducationPop = ({closeFunc,user_uuid,email,awards}:educationPopInterface) 
             }).then((res)=>{
                 console.log(res)
                 closeFunc()
+                window.location.reload();
             })
 
         }
-        window.location.reload();
+
     }
 
 
