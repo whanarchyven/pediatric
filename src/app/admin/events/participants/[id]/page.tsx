@@ -9,6 +9,7 @@ import { eden, useEden } from "@/helpers/sdk";
 
 import validator from "@rjsf/validator-ajv8";
 import Form from "@rjsf/core";
+import Link from "next/link";
 
 // import required modules
 
@@ -65,6 +66,9 @@ export default function Home(params: { params: { id: string } }) {
           <div>Всего: {data.length}</div>
           <div>Завершившие регистрацию: {data.filter(p=>p.status==="finished").length}</div>
           <div>Количество платных: {data.filter(p=>(p.sum>0&&p.status==="finished")).length}</div>
+          {data.filter(p=>p.status==="finished").map((d,i)=><div key={i}>
+            <p>{d?.info?.participationType} {d?.info?.name} {d.email}<Link href="">Выпуск сертификата</Link></p>
+          </div>)}
           <pre className="text-xs">{JSON.stringify(data,null,2)}</pre>
           {/* <pre className="text-xs">{data.map(d=>`${d.info.participationType}\n${d.info.name}\t${d.email}\n\n`)}</pre> */}
         </div>
