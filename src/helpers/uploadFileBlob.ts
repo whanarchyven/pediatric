@@ -14,8 +14,6 @@ export const uploadFileBlob=async (file:File)=>{
         let resizedImage = await readAndCompressImage(file, config);
         const formData=new FormData();
         formData.append('file',resizedImage,file?.name)
-
-        console.log('AAAAAAAAABBBBBBBBBBBBBBBBBBBBS')
         const diplom=await axios.post('/api2/upload',formData);
         console.log('URLLLLL',diplom.data.url)
         return diplom.data.url
