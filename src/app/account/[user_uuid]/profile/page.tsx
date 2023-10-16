@@ -138,8 +138,9 @@ export default function Home(params: { params: { user_uuid: string } }) {
         eden.user[user_uuid].profile.post({uuid: user_uuid, ...profile, photoUrl}).then((res) => {
             console.log(res)
             setIsEditor(false)
+            window.location.reload();
         })
-        window.location.reload();
+        
     }
 
     const [currentEducationShow, setCurrentEducationShow] = useState<typeof education[0]>()
