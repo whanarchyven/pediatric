@@ -168,8 +168,8 @@ export default function Page({params}: any) {
     useEffect(() => {
         eden.user.my.profile.get().then((res) => {
             console.log(res?.data?.profile?.uuid)
-            setUuid(res?.data?.profile?.uuid)
-            if (event?.id) {
+            res?.data?.profile?.uuid&&setUuid(res?.data?.profile?.uuid)
+            if (res?.data?.profile?.uuid&&event?.id) {
                 eden.user.my.participation[event.id].get().then((res) => {
                     console.log(res.data)
                     setRegistration(res?.data)
