@@ -258,6 +258,7 @@ export declare const app: Elysia<"", {
             body: unknown;
             params: {
                 event_id: string;
+                user_uuid: string;
             };
             query: unknown;
             headers: unknown;
@@ -267,11 +268,11 @@ export declare const app: Elysia<"", {
                     qrCodeUrl: string | undefined;
                     sum: number;
                     info: {
-                        name?: string | undefined;
+                        name: string;
                         participationType?: string | undefined;
                         event_name?: string | undefined;
                         event_id?: string | undefined;
-                    } | undefined;
+                    };
                     cert: string | undefined;
                 }>;
             };
@@ -995,77 +996,6 @@ export declare const app: Elysia<"", {
                     };
                     required: string[];
                 };
-            };
-        };
-    };
-    "/eventwithId:event_id": {
-        get: {
-            body: unknown;
-            params: {
-                event_id: string;
-            };
-            query: unknown;
-            headers: unknown;
-            response: {
-                200: Promise<{
-                    events: (mongoose.Document<unknown, {}, {
-                        createdAt: NativeDate;
-                        updatedAt: NativeDate;
-                    } & {
-                        type: string;
-                        id: string;
-                        date: string;
-                        format: string;
-                        name: string;
-                        dateStart: Date;
-                        timePeriod: string;
-                        place: string;
-                        participants: number;
-                        layoutBg: string;
-                        avatar: string;
-                        announcement: string;
-                        speakers: any[];
-                        halls: any[];
-                        prices: any[];
-                        description?: string | undefined;
-                        link?: string | undefined;
-                        dateEnd?: Date | undefined;
-                        onlinePrice?: number | undefined;
-                        offlinePrice?: number | undefined;
-                        isOnlyOnline?: boolean | undefined;
-                        isPassed?: boolean | undefined;
-                        isStream?: boolean | undefined;
-                    }> & {
-                        createdAt: NativeDate;
-                        updatedAt: NativeDate;
-                    } & {
-                        type: string;
-                        id: string;
-                        date: string;
-                        format: string;
-                        name: string;
-                        dateStart: Date;
-                        timePeriod: string;
-                        place: string;
-                        participants: number;
-                        layoutBg: string;
-                        avatar: string;
-                        announcement: string;
-                        speakers: any[];
-                        halls: any[];
-                        prices: any[];
-                        description?: string | undefined;
-                        link?: string | undefined;
-                        dateEnd?: Date | undefined;
-                        onlinePrice?: number | undefined;
-                        offlinePrice?: number | undefined;
-                        isOnlyOnline?: boolean | undefined;
-                        isPassed?: boolean | undefined;
-                        isStream?: boolean | undefined;
-                    } & {
-                        _id: mongoose.Types.ObjectId;
-                    }) | null;
-                }>;
             };
         };
     };

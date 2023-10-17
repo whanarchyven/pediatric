@@ -53,7 +53,7 @@ export default function Page({params}: any) {
     //temp data
 
 
-    const id = params.id
+    const id = params?.id
     const [event, setEvent] = useState<{
         id?: string | undefined;
         description?: string | undefined;
@@ -105,7 +105,7 @@ export default function Page({params}: any) {
     }>()
 
     const fetchEvent = async () => {
-        const event: any = await eden.event.byId[id].get().then((res: any) => {
+        await eden.event.byId[id].get().then((res: any) => {
             console.log('aaaaaa', {...res.data.events})
             setEvent({...res.data.events})
         })
@@ -169,21 +169,18 @@ export default function Page({params}: any) {
         eden.user.my.profile.get().then((res) => {
             console.log(res?.data?.profile?.uuid)
             setUuid(res?.data?.profile?.uuid)
-        })
-    }, []);
-
-    useEffect(() => {
-        if (event?.id) {
-            eden.user.my.participation[event.id].get().then((res) => {
-                console.log(res.data)
-                setRegistration(res?.data)
-            }).catch(console.log)
-            eden.user.my.participation[event.id].getTicketLink.get().then((res) => {
-                if(res.data){
-                    setTicketLink(res.data.ticketLink)
-                }
-            }).catch(console.log)
-        }
+            if (event?.id) {
+                eden.user.my.participation[event.id].get().then((res) => {
+                    console.log(res.data)
+                    setRegistration(res?.data)
+                }).catch(console.log)
+                eden.user.my.participation[event.id].getTicketLink.get().then((res) => {
+                    if(res.data){
+                        setTicketLink(res.data.ticketLink)
+                    }
+                }).catch(console.log)
+            }
+        }).catch(e=>console.log(e))
     }, [event]);
 
 
