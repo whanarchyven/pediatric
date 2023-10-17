@@ -105,12 +105,12 @@ export default function Home(params: { params: { user_uuid: string } }) {
                                 {participation.info.participationType}
                             </div>
                             <div className={'lg:col-span-2 border-r-[1px] text-sm  border-l-[1px] border-r-[1px] p-3 border-green'}>
-                                <div onClick={()=>{
+                                {participation.status==="finished"&&<div onClick={()=>{
                                     setActiveQr(participation.qrCodeUrl)
                                     setIsQrCodeOpen(true)
                                 }} className={'p-4 bg-green flex rounded-lg cursor-pointer items-center justify-center font-bold text-white'}>
                                     Скачать билет
-                                </div>
+                                </div>}
                                 {participation.cert&&<a 
                                 href={certLink(participation.info.event_id)}
                                 target={"blank"}

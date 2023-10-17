@@ -253,6 +253,43 @@ export declare const app: Elysia<"", {
             };
         };
     };
+    "/user/:user_uuid/participation/:event_id": {
+        get: {
+            body: unknown;
+            params: {
+                event_id: string;
+            };
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<{
+                    status: string | undefined;
+                    qrCodeUrl: string | undefined;
+                    sum: number;
+                    info: {
+                        name?: string | undefined;
+                        participationType?: string | undefined;
+                        event_name?: string | undefined;
+                        event_id?: string | undefined;
+                    } | undefined;
+                    cert: string | undefined;
+                }>;
+            };
+        };
+    };
+    "/user/:user_uuid/participation/:event_id/getTicketLink": {
+        get: {
+            body: unknown;
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<{
+                    ticketLink: string;
+                }>;
+            };
+        };
+    };
     "/user/:user_uuid/admin/participations/byEventId/:event_id": {
         get: {
             body: unknown;
@@ -273,6 +310,7 @@ export declare const app: Elysia<"", {
                         event_id?: string | undefined;
                     } | undefined;
                     email: string | undefined;
+                    cert: string | undefined;
                 }[]>;
             };
         };
