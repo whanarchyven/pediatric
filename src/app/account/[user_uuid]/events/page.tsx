@@ -130,10 +130,9 @@ export default function Home(params: { params: { user_uuid: string } }) {
                                         router.push(`/events/${participation?.info.event_id}`)
                                     }
                                 }} className={classList('p-4 flex rounded-lg cursor-pointer items-center justify-center font-bold text-white',isTranslationAvailable?'text-sm bg-green':'bg-zinc-700 text-xs')}>{isTranslationAvailable?'Перейти к трансляции':'Трансляция будет доступна в день мероприятия'}</div>:<div onClick={()=>{
-                                    setActiveQr(participation?.qrCodeUrl)
-                                    setIsQrCodeOpen(true)
+                                    router.push(`/account/my/events/${participation?.info.event_id}`)
                                 }} className={'p-4 bg-green flex rounded-lg cursor-pointer items-center justify-center font-bold text-white'}>
-                                    Скачать билет
+                                    Билет
                                 </div>}
                                 {participation?.cert&&<a
                                 href={certLink(participation?.info.event_id)}
