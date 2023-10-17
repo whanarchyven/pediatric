@@ -124,7 +124,8 @@ export default function Page({params}: any) {
 
     const query = useSearchParams().toString();
 
-    const [currentProgram, setCurrentProgram] = useState<{name:string,program:Array<{
+    const [currentProgram, setCurrentProgram] = useState<{
+        name: string, program: Array<{
             timePeriod?: string | undefined;
             sponsor?: string | undefined;
             speaker?: string | undefined;
@@ -135,7 +136,8 @@ export default function Page({params}: any) {
                 timePeriod: string;
             }[] | undefined;
             name: string;
-        }>}>();
+        }>
+    }>();
 
 
     const [needPrice, setNeedPrice] = useState<any>({})
@@ -158,24 +160,34 @@ export default function Page({params}: any) {
 
     const [registration, setRegistration] = useState<any>()
 
-    const [uuid,setUuid]=useState('')
+    const [ticketLink, setTicketLink] = useState('/')
 
-    eden.user.my.profile.get().then((res) => {
-        console.log(res?.data?.profile?.uuid)
-        setUuid(res?.data?.profile?.uuid)
-    })
+
+    const [uuid, setUuid] = useState('')
+
+    useEffect(() => {
+        eden.user.my.profile.get().then((res) => {
+            console.log(res?.data?.profile?.uuid)
+            setUuid(res?.data?.profile?.uuid)
+        })
+    }, []);
 
     useEffect(() => {
         if (event?.id) {
-            eden.user.my.participations.byEventId[event.id].get().then((res) => {
-                console.log(res?.data?.registration)
-                setRegistration(res?.data?.registration)
+            eden.user.my.participation[event.id].get().then((res) => {
+                console.log(res.data)
+                setRegistration(res?.data)
+            })
+            eden.user.my.participation[event.id].getTicketLink.get().then((res) => {
+                if(res.data){
+                    setTicketLink(res.data.ticketLink)
+                }
             })
         }
     }, [event]);
 
 
-    const [qrCodeUrl,setQrCodeUrl]=useState()
+    const [qrCodeUrl, setQrCodeUrl] = useState()
 
     useEffect(() => {
         setCurrentProgram(event?.halls[0])
@@ -374,11 +386,11 @@ export default function Page({params}: any) {
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div
                         className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-center'}>
-                        {registration?.is_paid?  <motion.p initial={{y: -40, opacity: 0}}
-                                                  whileInView={{y: 0, opacity: 1}}
-                                                  viewport={{once: true}}
-                                                  transition={{ease: 'easeInOut', duration: 0.7}}
-                                                  className={'uppercase font-extralight text-black lg:text-left text-left text-2xl lg:text-4xl'}>Ваш
+                        {registration ? <motion.p initial={{y: -40, opacity: 0}}
+                                                           whileInView={{y: 0, opacity: 1}}
+                                                           viewport={{once: true}}
+                                                           transition={{ease: 'easeInOut', duration: 0.7}}
+                                                           className={'uppercase font-extralight text-black lg:text-left text-center lg:text-2xl lg:text-4xl'}>Ваш
                                 приобретённый <strong
                                     className={'font-extrabold'}>Пакет Участия</strong></motion.p> :
                             <motion.p initial={{y: -40, opacity: 0}}
@@ -388,20 +400,26 @@ export default function Page({params}: any) {
                                       className={'uppercase font-extralight text-black lg:text-left text-left text-2xl lg:text-4xl'}>Стоимость <strong
                                 className={'font-extrabold'}>Участия</strong></motion.p>}
                     </div>
-                    {registration?.is_paid?<div className={'grid grid-cols-2 mt-32 gap-32 items-start'}>
-                        <div className={'flex flex-col gap-4'}>
-                            <p className={'text-2xl uppercase font-black'}>Формат: <span className={'font-light'}>{registration?.meta?.participationType}</span></p>
-                            <p className={'text-2xl uppercase font-black'}>Дата и время: <span className={'font-light'}>{event?.date} в {event?.timePeriod}</span></p>
-                            <p className={'text-2xl uppercase font-black'}>Место: <span className={'font-light'}>{event?.place}</span></p>
-                            <p className={'text-2xl uppercase font-light'}>Мы очень ждём вас, свой билет вы можете скачать по ссылке ниже:</p>
-                            <Link href={`https://pediatric-dermatology.vercel.app/wallet-pass/${uuid}`} className={'flex text-white w-96 font-bold items-center justify-center p-3 bg-green-two rounded-lg'}>
-                                Скачать
-                            </Link>
-                        </div>
-                        <div className={'flex items-center justify-end'}>
-                            <QRCode className={'w-3/5'} value={`https://pediatric-dermatology.vercel.app/wallet-pass/${uuid}`}></QRCode>
-                        </div>
-                    </div>:null}
+                    {registration?
+                        <div className={'grid grid-cols-1 lg:grid-cols-2 mt-10 lg:my-32 gap-10 lg:gap-32 items-start'}>
+                            <div className={'flex flex-col gap-4'}>
+                                <p className={'lg:text-2xl uppercase font-black'}>Формат: <span
+                                    className={'font-light'}>{registration?.info?.participationType}</span></p>
+                                <p className={'lg:text-2xl uppercase font-black'}>Дата и время: <span
+                                    className={'font-light'}>{event?.date} в {event?.timePeriod}</span></p>
+                                <p className={'lg:text-2xl uppercase font-black'}>Место: <span
+                                    className={'font-light'}>{event?.place}</span></p>
+                                <p className={'lg:text-2xl uppercase font-light'}>Свой билет вы можете скачать по ссылке
+                                    ниже:</p>
+                                <Link href={ticketLink}
+                                      className={'flex text-white lg:w-96 font-bold items-center justify-center p-3 bg-green-two rounded-lg'}>
+                                    Скачать билет на телефон
+                                </Link>
+                            </div>
+                            <div className={'flex items-start lg:items-center justify-end'}>
+                                <img className={'w-full lg:w-2/5'} src={registration?.qrCodeUrl}/>
+                            </div>
+                        </div> : null}
                     <div
                         className={classList('grid grid-cols-1 gap-9 mt-10', event?.prices ? 'lg:grid-cols-3' : 'lg:grid-cols-2')}>
                         {event?.prices ? <div className={'flex flex-col items-center gap-8'}>
@@ -620,7 +638,7 @@ export default function Page({params}: any) {
                                     <div key={counter}
                                          className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-2'}>
                                         <div className={'text-[#0F5F5A] font-light flex items-center '}>
-                                           до {item.date}
+                                            до {item.date}
                                         </div>
                                         <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
                                             <p className={'text-[#0F5F5A] font-light'}>{item.offline} рублей</p>
@@ -643,17 +661,40 @@ export default function Page({params}: any) {
 
             <div className={'my-12 flex flex-col'}>
                 {event?.date == '2023-11-11' ?
-                    <Link className={' text-dark-green underline mb-12 text-xl font-bold px-[20px] lg:px-[140px]'} target={'_blank'}
+                    <Link className={' text-dark-green underline mb-12 text-xl font-bold px-[20px] lg:px-[140px]'}
+                          target={'_blank'}
                           href={'/kpfile.pdf'}>Коммерческое предложение</Link> : null}
                 {event?.date == '2023-11-11' ?
                     <div className={'flex flex-col gap-2'}>
-                        <p className={'whitespace-pre-wrap mt-2 px-[20px] text-dark-green  lg:px-[140px] font-bold'}>Участие в мероприятии</p>
+                        <p className={'whitespace-pre-wrap mt-2 px-[20px] text-dark-green  lg:px-[140px] font-bold'}>Участие
+                            в мероприятии</p>
                         <p className={'whitespace-pre-wrap mt-2 px-[20px] lg:px-[140px] text-black'}>
-                            1) Для участия в мероприятии (онлайн-трансляция) необходимо зарегистрироваться на сайте <a className={'font-bold text-green-two'} href={'https://pediatric-dermatology.ru'}>https://pediatric-dermatology.ru</a> (https://pediatric-dermatology.ru/), указав следующие данные: <br/>1. ФИО, <br/>2.Электронный адрес <br/>3. Место работы, <br/>4. Должность, <br/>5. Специальность, <br/>6. Номер телефона. <br/>Учет участников осуществляется с помощью индивидуальной регистрации на интернет-сессию и контроля подключения по IP адресу. Контроль присутствия будет обеспечивать интерактивные опросы через разные временные интервалы. Вход на трансляцию осуществляется не ранее, чем за 2 часа до её начала. При завершении трансляции, сеанс у всех присутствующих прекращается. Инструментами обратной связи являются `&quot;`Чат трансляции`&quot;`. Участниками мероприятия будут признаны слушатели, присутствующие 11 ноября 2023 года (1 день) - не менее 265 минут для программы НМО на трансляции и подтвердившие 5 контролей присутствия из шести. Участникам выполнившим все требования в мероприятии, выдаются индивидуальные коды.
+                            1) Для участия в мероприятии (онлайн-трансляция) необходимо зарегистрироваться на сайте <a
+                            className={'font-bold text-green-two'}
+                            href={'https://pediatric-dermatology.ru'}>https://pediatric-dermatology.ru</a> (https://pediatric-dermatology.ru/),
+                            указав следующие данные: <br/>1. ФИО, <br/>2.Электронный адрес <br/>3. Место работы, <br/>4.
+                            Должность, <br/>5. Специальность, <br/>6. Номер телефона. <br/>Учет участников
+                            осуществляется с помощью индивидуальной регистрации на интернет-сессию и контроля
+                            подключения по IP адресу. Контроль присутствия будет обеспечивать интерактивные опросы через
+                            разные временные интервалы. Вход на трансляцию осуществляется не ранее, чем за 2 часа до её
+                            начала. При завершении трансляции, сеанс у всех присутствующих прекращается. Инструментами
+                            обратной связи являются `&quot;`Чат трансляции`&quot;`. Участниками мероприятия будут
+                            признаны слушатели, присутствующие 11 ноября 2023 года (1 день) - не менее 265 минут для
+                            программы НМО на трансляции и подтвердившие 5 контролей присутствия из шести. Участникам
+                            выполнившим все требования в мероприятии, выдаются индивидуальные коды.
                             <br/><br/>
-                            2) Для участия в мероприятии (очное присутствие) необходимо обязательно предварительно зарегистрироваться на сайте <a className={'font-bold text-green-two'} href={'https://pediatric-dermatology.ru'}>https://pediatric-dermatology.ru</a>, (https://pediatric-dermatology.ru/) указав следующие данные: <br/>1. ФИО, <br/>2.Электронный адрес <br/>3. Место работы, <br/>4. Должность, <br/>5. Специальность, <br/>6. Номер телефона. <br/>Перед началом мероприятия, все заранее зарегистрированные лица получат бейджи с последующим контролем присутствия до окончания мероприятия. Участниками мероприятия будут признаны слушатели, присутствующие 11 ноября 2023 года (1 день) по адресу город Москва, кластер `&quot;`Ломоносов`&quot;` (ИНТЦ МГУ Воробьёвы горы, Раменский бульвар, 1) с 10:00 - 18:30. Участникам выполнившим все требования в мероприятии, выдаются индивидуальные коды
+                            2) Для участия в мероприятии (очное присутствие) необходимо обязательно предварительно
+                            зарегистрироваться на сайте <a className={'font-bold text-green-two'}
+                                                           href={'https://pediatric-dermatology.ru'}>https://pediatric-dermatology.ru</a>,
+                            (https://pediatric-dermatology.ru/) указав следующие данные: <br/>1. ФИО, <br/>2.Электронный
+                            адрес <br/>3. Место работы, <br/>4. Должность, <br/>5. Специальность, <br/>6. Номер
+                            телефона. <br/>Перед началом мероприятия, все заранее зарегистрированные лица получат бейджи
+                            с последующим контролем присутствия до окончания мероприятия. Участниками мероприятия будут
+                            признаны слушатели, присутствующие 11 ноября 2023 года (1 день) по адресу город Москва,
+                            кластер `&quot;`Ломоносов`&quot;` (ИНТЦ МГУ Воробьёвы горы, Раменский бульвар, 1) с 10:00 -
+                            18:30. Участникам выполнившим все требования в мероприятии, выдаются индивидуальные коды
                         </p>
-                    </div>: null}
+                    </div> : null}
 
             </div>
 

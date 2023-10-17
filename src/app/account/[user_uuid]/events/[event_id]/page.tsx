@@ -86,7 +86,7 @@ export default function Home(params: { params: { user_uuid: string,event_id:stri
                         <p className={'text-xl font-light'}>Предъявите данный QR-код на входе в место проведения мероприятия</p>
                         <p className={'text-xl font-light'}>Также вы можете <span className={'font-bold'}>скачать</span> свой билет в Google Wallet или Apple Wallet</p>
                         <Link href={ticketLink} className={'w-full lg:w-96 bg-green p-3 flex items-center justify-center rounded-lg font-bold text-white'}>
-                            Скачать билет
+                            Скачать билет на телефон
                         </Link>
                     </div>
                 </div>
