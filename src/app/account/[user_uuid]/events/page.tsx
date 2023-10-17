@@ -91,7 +91,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                         Билет
                     </div>
                 </div>
-                {participations.map((participation:typeof participations[0],counter:number)=>{
+                {participations?.map((participation:typeof participations[0],counter:number)=>{
                     let nowDate = new Date();
                     nowDate.setHours(0, 0, 0, 0)
                     let lexems = events?.find(item=>item.id==participation.info.event_id)?.date.split('.')
