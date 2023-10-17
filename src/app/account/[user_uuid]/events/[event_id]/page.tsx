@@ -63,29 +63,29 @@ export default function Home(params: { params: { user_uuid: string,event_id:stri
                 <p className={'uppercase font-inter font-extralight text-2xl lg:text-3xl'}>Ваш Билет <br/><span
                     className={'font-extrabold'}>на мероприятие</span></p>
             </div>
-            <p className={'my-12 text-2xl font-bold'}>{event?.name} <br/> <span className={'text-green'}>{event?.date}</span></p>
-            <div className={'grid mt-10 grid-cols-2 gap-12'}>
+            <p className={'my-12 text-xl lg:text-2xl font-bold'}>{event?.name} <br/> <span className={'text-green'}>{event?.date}</span></p>
+            <div className={'grid mt-10 grid-cols-1 lg:grid-cols-2 gap-12'}>
                 <div className={'aspect-video flex items-center relative'}>
                     <img className={'w-full h-full object-cover rounded-lg'} src={event?.layoutBg}/>
                     <img className={'w-1/2 aspect-square absolute left-5'} src={data?.qrCodeUrl}/>
                 </div>
                 <div className={'flex flex-col gap-2'}>
                     <div className={'grid grid-cols-3'}>
-                        <p className={'font-bold text-xl'}>ФИО:</p>
-                        <p className={'font-bold col-span-2 text-green text-xl'}>{data?.info?.name}</p>
+                        <p className={'font-bold text-sm lg:text-xl'}>ФИО:</p>
+                        <p className={'font-bold col-span-2 text-green text-sm lg:text-xl'}>{data?.info?.name}</p>
                     </div>
                     <div className={'grid grid-cols-3'}>
-                        <p className={'font-bold text-xl'}>Тип участия:</p>
-                        <p className={'font-bold col-span-2 text-green text-xl'}>{data?.info?.participationType}</p>
+                        <p className={'font-bold text-sm lg:text-xl'}>Тип участия:</p>
+                        <p className={'font-bold col-span-2 text-green text-sm lg:text-xl'}>{data?.info?.participationType}</p>
                     </div>
                     <div className={'grid grid-cols-3'}>
-                        <p className={'font-bold text-xl'}>Оплачено: </p>
-                        <p className={'font-bold col-span-2 text-green text-xl'}>{data?.sum} ₽</p>
+                        <p className={'font-bold text-sm lg:text-xl'}>Оплачено: </p>
+                        <p className={'font-bold col-span-2 text-green text-sm lg:text-xl'}>{data?.sum} ₽</p>
                     </div>
                     <div className={'flex flex-col gap-5 mt-6'}>
                         <p className={'text-xl font-light'}>Предъявите данный QR-код на входе в место проведения мероприятия</p>
                         <p className={'text-xl font-light'}>Также вы можете <span className={'font-bold'}>скачать</span> свой билет в Google Wallet или Apple Wallet</p>
-                        <Link href={ticketLink} className={'w-96 bg-green p-3 flex items-center justify-center rounded-lg font-bold text-white'}>
+                        <Link href={ticketLink} className={'w-full lg:w-96 bg-green p-3 flex items-center justify-center rounded-lg font-bold text-white'}>
                             Скачать билет
                         </Link>
                     </div>
