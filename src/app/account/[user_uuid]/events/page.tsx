@@ -20,6 +20,7 @@ import {eden, useEden} from "@/helpers/sdk";
 import Link from "next/link";
 import NewPublicationPop from "@/components/NewPublicationPop";
 import QrPop from "@/components/QrPop";
+import {classList} from "@/helpers/classList";
 
 
 // import required modules
@@ -62,6 +63,8 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
     const [activeQr,setActiveQr]=useState('')
 
+    const router=useRouter();
+
     return (
         <main className={'p-2 lg:p-12'}>
             <div className={'flex justify-between'}>
@@ -89,6 +92,21 @@ export default function Home(params: { params: { user_uuid: string } }) {
                     </div>
                 </div>
                 {participations.map((participation:typeof participations[0],counter:number)=>{
+                    let nowDate = new Date();
+                    nowDate.setHours(0, 0, 0, 0)
+                    let lexems = events?.find(item=>item.id==participation.info.event_id)?.date.split('.')
+                    let isTranslationAvailable=false
+                    console.log(lexems);
+                    if(lexems[0].length>2){
+                        let sublexems=lexems[0].split('-')
+                        if (events&&new Date(`${lexems[1]}/${sublexems[0]}/${lexems[2]}`) <= nowDate) {
+                            isTranslationAvailable=true
+                        }
+                    }else{
+                        if (events&&new Date(`${lexems[1]}/${lexems[0]}/${lexems[2]}`) <= nowDate) {
+                            isTranslationAvailable=true
+                        }
+                    }
                     return(
                         // <PublicationTab user_uuid={uuid} {...participation} key={participation.title}></PublicationTab>
                         <div key={counter} className={'grid  border-b-[1px] border-green  lg:grid-cols-12'}>
@@ -105,7 +123,11 @@ export default function Home(params: { params: { user_uuid: string } }) {
                                 {participation.info.participationType}
                             </div>
                             <div className={'lg:col-span-2 border-r-[1px] text-sm  border-l-[1px] border-r-[1px] p-3 border-green'}>
-                                {participation.status==="finished"&&<div onClick={()=>{
+                                {participation.info.participationType=='онлайн'&&participation.status==="finished"?<div onClick={()=>{
+                                    if(isTranslationAvailable) {
+                                        router.push(`/events/${participation.info.event_id}`)
+                                    }
+                                }} className={classList('p-4 flex rounded-lg cursor-pointer items-center justify-center font-bold text-white',isTranslationAvailable?'text-sm bg-green':'bg-zinc-700 text-xs')}>{isTranslationAvailable?'Перейти к трансляции':'Трансляция будет доступна в день мероприятия'}</div>:<div onClick={()=>{
                                     setActiveQr(participation.qrCodeUrl)
                                     setIsQrCodeOpen(true)
                                 }} className={'p-4 bg-green flex rounded-lg cursor-pointer items-center justify-center font-bold text-white'}>
