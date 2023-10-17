@@ -97,14 +97,16 @@ export default function Home(params: { params: { user_uuid: string } }) {
                     let lexems = events?.find(item=>item.id==participation.info.event_id)?.date.split('.')
                     let isTranslationAvailable=false
                     console.log(lexems);
-                    if(lexems[0].length>2){
-                        let sublexems=lexems[0].split('-')
-                        if (events&&new Date(`${lexems[1]}/${sublexems[0]}/${lexems[2]}`) <= nowDate) {
-                            isTranslationAvailable=true
-                        }
-                    }else{
-                        if (events&&new Date(`${lexems[1]}/${lexems[0]}/${lexems[2]}`) <= nowDate) {
-                            isTranslationAvailable=true
+                    if(lexems[0]){
+                        if(lexems[0].length>2){
+                            let sublexems=lexems[0].split('-')
+                            if (events&&new Date(`${lexems[1]}/${sublexems[0]}/${lexems[2]}`) <= nowDate) {
+                                isTranslationAvailable=true
+                            }
+                        }else{
+                            if (events&&new Date(`${lexems[1]}/${lexems[0]}/${lexems[2]}`) <= nowDate) {
+                                isTranslationAvailable=true
+                            }
                         }
                     }
                     return(
