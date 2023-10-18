@@ -101,8 +101,12 @@ export declare const app: Elysia<"", {
             response: {
                 200: Promise<{
                     error: string;
-                    success?: undefined;
                     uuid?: undefined;
+                    success?: undefined;
+                } | {
+                    error: string;
+                    uuid: string;
+                    success?: undefined;
                 } | {
                     success: string;
                     uuid: string;
