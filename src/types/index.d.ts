@@ -144,6 +144,17 @@ export declare const app: Elysia<"", {
             };
         };
     };
+    "/auth/logout": {
+        get: {
+            body: unknown;
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: string;
+            };
+        };
+    };
     "/auth/login/request-otp": {
         post: {
             body: {
