@@ -172,7 +172,7 @@ export default function Page({params}: any) {
             if (res?.data?.profile?.uuid&&event?.id) {
                 eden.user.my.participation[event.id].get().then((res) => {
                     console.log(res.data)
-                    if (res.data) setRegistration(res?.data)
+                    if (res.data?.info) setRegistration(res?.data)
                     event?.id&&eden.user.my.participation[event.id].getTicketLink.get().then((res) => {
                         if(res.data){
                             setTicketLink(res.data.ticketLink)
