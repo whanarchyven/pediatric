@@ -108,14 +108,14 @@ export declare const PdermUserRegTDto: import("@sinclair/typebox").TObject<{
     firstName: import("@sinclair/typebox").TString;
     middleName: import("@sinclair/typebox").TString;
     phoneNumber: import("@sinclair/typebox").TString;
-    specialty: import("@sinclair/typebox").TString;
+    specialty: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
     email: import("@sinclair/typebox").TString;
-    city: import("@sinclair/typebox").TString;
-    workplace: import("@sinclair/typebox").TString;
-    position: import("@sinclair/typebox").TString;
-    password: import("@sinclair/typebox").TString;
-    confirmPassword: import("@sinclair/typebox").TString;
-    joinCommunity: import("@sinclair/typebox").TBoolean;
+    city: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    workplace: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    position: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    password: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    confirmPassword: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    joinCommunity: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TBoolean>;
 }>;
 export declare const PdermUserSaveTDto: import("@sinclair/typebox").TObject<{
     title: import("@sinclair/typebox").TString;

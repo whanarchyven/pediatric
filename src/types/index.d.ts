@@ -82,18 +82,18 @@ export declare const app: Elysia<"", {
     "/auth/signUp": {
         post: {
             body: {
+                specialty?: string | undefined;
+                city?: string | undefined;
+                workplace?: string | undefined;
+                position?: string | undefined;
+                password?: string | undefined;
+                confirmPassword?: string | undefined;
+                joinCommunity?: boolean | undefined;
                 lastName: string;
                 firstName: string;
                 middleName: string;
                 phoneNumber: string;
-                specialty: string;
                 email: string;
-                city: string;
-                workplace: string;
-                position: string;
-                password: string;
-                confirmPassword: string;
-                joinCommunity: boolean;
             };
             params: unknown;
             query: unknown;
