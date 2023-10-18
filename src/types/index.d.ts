@@ -302,17 +302,37 @@ export declare const app: Elysia<"", {
             headers: unknown;
             response: {
                 200: Promise<{
+                    _id: mongoose.Types.ObjectId;
                     status: string | undefined;
                     sum: number;
-                    info: {
+                    info: mongoose.FlattenMaps<{
                         name?: string | undefined;
                         participationType?: string | undefined;
                         event_name?: string | undefined;
                         event_id?: string | undefined;
-                    } | undefined;
+                    }> | undefined;
                     email: string | undefined;
                     cert: string | undefined;
                 }[]>;
+            };
+        };
+    };
+    "/user/:user_uuid/admin/participations/update/byParticipation_id/:_id": {
+        post: {
+            body: {
+                participationType?: "online" | "offline" | undefined;
+                deleted?: boolean | undefined;
+            };
+            params: {
+                _id: string;
+                user_uuid: string;
+            };
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<{
+                    success: string;
+                }>;
             };
         };
     };
@@ -372,6 +392,7 @@ export declare const app: Elysia<"", {
                         user_email?: string | undefined;
                         register_timestamp?: Date | undefined;
                         after_pay_email_text?: string | undefined;
+                        deleted?: boolean | undefined;
                         cert?: string | undefined;
                     }> & {
                         email: string;
@@ -410,6 +431,7 @@ export declare const app: Elysia<"", {
                         user_email?: string | undefined;
                         register_timestamp?: Date | undefined;
                         after_pay_email_text?: string | undefined;
+                        deleted?: boolean | undefined;
                         cert?: string | undefined;
                     } & Required<{
                         _id: mongoose.Types.ObjectId;

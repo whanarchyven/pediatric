@@ -36,6 +36,7 @@ export declare const PdermRequestModel: mongoose.Model<{
     user_email?: string | undefined;
     register_timestamp?: Date | undefined;
     after_pay_email_text?: string | undefined;
+    deleted?: boolean | undefined;
     cert?: string | undefined;
 }, {}, {}, {}, mongoose.Document<unknown, {}, {
     email: string;
@@ -74,6 +75,7 @@ export declare const PdermRequestModel: mongoose.Model<{
     user_email?: string | undefined;
     register_timestamp?: Date | undefined;
     after_pay_email_text?: string | undefined;
+    deleted?: boolean | undefined;
     cert?: string | undefined;
 }> & {
     email: string;
@@ -112,6 +114,7 @@ export declare const PdermRequestModel: mongoose.Model<{
     user_email?: string | undefined;
     register_timestamp?: Date | undefined;
     after_pay_email_text?: string | undefined;
+    deleted?: boolean | undefined;
     cert?: string | undefined;
 } & Required<{
     _id: mongoose.Types.ObjectId;
@@ -152,6 +155,7 @@ export declare const PdermRequestModel: mongoose.Model<{
     user_email?: string | undefined;
     register_timestamp?: Date | undefined;
     after_pay_email_text?: string | undefined;
+    deleted?: boolean | undefined;
     cert?: string | undefined;
 }, mongoose.Document<unknown, {}, mongoose.FlatRecord<{
     email: string;
@@ -190,6 +194,7 @@ export declare const PdermRequestModel: mongoose.Model<{
     user_email?: string | undefined;
     register_timestamp?: Date | undefined;
     after_pay_email_text?: string | undefined;
+    deleted?: boolean | undefined;
     cert?: string | undefined;
 }>> & mongoose.FlatRecord<{
     email: string;
@@ -228,6 +233,7 @@ export declare const PdermRequestModel: mongoose.Model<{
     user_email?: string | undefined;
     register_timestamp?: Date | undefined;
     after_pay_email_text?: string | undefined;
+    deleted?: boolean | undefined;
     cert?: string | undefined;
 }> & Required<{
     _id: mongoose.Types.ObjectId;
