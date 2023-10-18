@@ -173,12 +173,13 @@ export default function Page({params}: any) {
                 eden.user.my.participation[event.id].get().then((res) => {
                     console.log(res.data)
                     setRegistration(res?.data)
+                    event?.id&&eden.user.my.participation[event.id].getTicketLink.get().then((res) => {
+                        if(res.data){
+                            setTicketLink(res.data.ticketLink)
+                        }
+                    }).catch(console.log);
                 }).catch(console.log)
-                eden.user.my.participation[event.id].getTicketLink.get().then((res) => {
-                    if(res.data){
-                        setTicketLink(res.data.ticketLink)
-                    }
-                }).catch(console.log)
+               
             }
         }).catch(e=>console.log(e))
     }, [event]);
