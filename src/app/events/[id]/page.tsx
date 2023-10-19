@@ -228,7 +228,7 @@ export default function Page({params}: any) {
                             </div>
                             <div className={'flex items-center gap-2'}>
                                 <img className={'w-6 aspect-square'} src={`${images}/placemark.svg`}/>
-                                <p className={'text-white text-lg'}><strong>Формат: </strong> {event?.format.replace('офлайн','очное присутствие')}</p>
+                                <p className={'text-white text-lg'}><strong>Формат: </strong> {event?.format.replace('офлайн','очное участие')}</p>
                             </div>
                             <div className={'flex items-center gap-2'}>
                                 <img className={'w-6 aspect-square'} src={`${images}/placemark.svg`}/>
@@ -401,7 +401,7 @@ export default function Page({params}: any) {
                         <div className={'grid grid-cols-1 lg:grid-cols-2 mt-10 lg:my-32 gap-10 lg:gap-32 items-start'}>
                             <div className={'flex flex-col gap-4'}>
                                 <p className={'lg:text-2xl uppercase font-black'}>Формат: <span
-                                    className={'font-light'}>{registration?.info?.participationType.replace('оффлайн','очное присутствие')}</span></p>
+                                    className={'font-light'}>{registration?.info?.participationType.replace('оффлайн','очное участие')}</span></p>
                                 <p className={'lg:text-2xl uppercase font-black'}>Дата и время: <span
                                     className={'font-light'}>{event?.date} в {event?.timePeriod}</span></p>
                                 <p className={'lg:text-2xl uppercase font-black'}>Место: <span
@@ -468,7 +468,7 @@ export default function Page({params}: any) {
                                 className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>
                                 <div className={'flex items-center gap-3'}>
                                     <img className={'w-7 aspect-square'} src={'/offline.svg'}/>
-                                    <p className={'font-extralight text-3xl text-green-two'}>Очное присутствие</p>
+                                    <p className={'font-extralight text-3xl text-green-two'}>Очное участие</p>
                                 </div>
 
                                 <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{event?.offlinePrice ? needPrice?.offline + ' руб.' : 'БЕСПЛАТНО'}</p>
@@ -680,7 +680,7 @@ export default function Page({params}: any) {
                             программы НМО на трансляции и подтвердившие 5 контролей присутствия из шести. Участникам
                             выполнившим все требования в мероприятии, выдаются индивидуальные коды.
                             <br/><br/>
-                            2) Для участия в мероприятии (очное присутствие) необходимо обязательно предварительно
+                            2) Для участия в мероприятии (очное участие) необходимо обязательно предварительно
                             зарегистрироваться на сайте <a className={'font-bold text-green-two'}
                                                            href={'https://pediatric-dermatology.ru'}>https://pediatric-dermatology.ru</a>,
                             (https://pediatric-dermatology.ru/) указав следующие данные: <br/>1. ФИО, <br/>2.Электронный

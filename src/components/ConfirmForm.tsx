@@ -657,7 +657,7 @@ a[x-apple-data-detectors] {
  </body>
 </html>`),
                             after_pay_email_placeholders: {
-                                participationType: participationType == 'offline' ? 'оффлайн' : 'онлайн',
+                                participationType: participationType == 'offline' ? 'очное участие' : 'онлайн',
                                 event_name: String(event_name),
                                 name: String(`${lastName} ${firstName} ${middleName}`),
                                 event_id: String(event_id),
