@@ -71,6 +71,19 @@ export declare const app: Elysia<"", {
             };
         };
     };
+    "/redirect-to-ticket/:user_uuid/:event_id": {
+        get: {
+            body: unknown;
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: Promise<{
+                    ticketLink: string;
+                }>;
+            };
+        };
+    };
     "/admin/stats": {
         get: {
             body: unknown;
@@ -490,8 +503,8 @@ export declare const app: Elysia<"", {
             };
             query: {
                 search?: string | undefined;
-                limit?: number | undefined;
-                skip?: number | undefined;
+                limit?: string | undefined;
+                skip?: string | undefined;
             };
             headers: unknown;
             response: {
