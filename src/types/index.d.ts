@@ -57,6 +57,20 @@ export declare const app: Elysia<"", {
             };
         };
     };
+    "/vars/ticket-link/:user_uuid/:event_id": {
+        get: {
+            body: unknown;
+            params: unknown;
+            query: unknown;
+            headers: unknown;
+            response: {
+                200: {
+                    ticketLink: string;
+                    qrCode: string;
+                };
+            };
+        };
+    };
     "/admin/stats": {
         get: {
             body: unknown;
