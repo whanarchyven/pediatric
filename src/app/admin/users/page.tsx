@@ -45,20 +45,12 @@ export default function Home(params: { params: { user_uuid: string } }) {
     })
 
     const [users,setUsers]=useState<Array<any>>([])
-    const currentPage=useSearchParams().get('page')
+    const currentPage=useSearchParams().get('page')??1
 
     const [count,setCount]=useState(0)
 
 
-    useEffect(() => {
-        eden.user.my["user-list"].get({$query:{limit:'20',skip:String(Number(currentPage)*20)}}).then((res)=>{
-            console.log(res)
-            if(res?.data?.users){
-                setUsers(res.data.users)
-                setCount(Math.floor(res.data.count/20))
-            }
-        })
-    }, [profile]);
+
 
 
 
@@ -78,7 +70,17 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
     const [activeQr,setActiveQr]=useState('')
 
-    // const [search,setSearch]=useState<string>(useSearchParams().get('search')!=null?useSearchParams().get('search'):'')
+    const [search,setSearch]=useState<string>(useSearchParams().get('search')??'')
+
+    useEffect(() => {
+        eden.user.my["user-list"].get({$query:{limit:'20',skip:String(Number(currentPage)*20),search:search}}).then((res)=>{
+            console.log(res)
+            if(res?.data?.users){
+                setUsers(res.data.users)
+                setCount(Math.floor(res.data.count/20))
+            }
+        })
+    }, [profile]);
 
     return (
         <main className={'p-2 lg:p-12'}>
@@ -88,23 +90,40 @@ export default function Home(params: { params: { user_uuid: string } }) {
             </div>
             {isQrCodeOpen?<QrPop closeFunc={()=>{setIsQrCodeOpen(false)}} activeQrLink={activeQr}></QrPop>:null}
 
-            <div className={'flex items-center mt-4 gap-2'}>
-                {/*<input value={search} onChange={(event)=>{setSearch(event.target.value)}} className={'w-96 border-green border-2 rounded-lg p-2 placeholder:text-zinc-500'} placeholder={'Поиск по email'}/>*/}
-                <div className={'bg-green p-2 flex items-center justify-center h-full rounded-lg px-12 border-2 border-green cursor-pointer text-white'}>
-                    Поиск
-                </div>
-            </div>
+            {/*<div className={'flex items-center mt-4 gap-2'}>*/}
+            {/*    <input value={search} onChange={(event)=>{setSearch(event.target.value)}} className={'w-96 border-green border-2 rounded-lg p-2 placeholder:text-zinc-500'} placeholder={'Поиск по email'}/>*/}
+            {/*    <a href={`/admin/users?page=1&search=${search}`} className={'bg-green p-2 flex items-center justify-center h-full rounded-lg px-12 border-2 border-green cursor-pointer text-white'}>*/}
+            {/*        Поиск*/}
+            {/*    </a>*/}
+            {/*</div>*/}
 
 
             <div className={'flex mt-16 border-t-[1px] border-green flex-col'}>
+                <div className={'grid bg-green border-b-[1px] border-green lg:grid-cols-12'}>
+                    <div className={'lg:col-span-3 font-bold text-white flex items-center justify-start lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-white border-l-green'}>
+                        <p>ФИО</p>
+                    </div>
+                    <div className={'lg:col-span-3 font-bold text-white lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-white'}>
+                        E-mail
+                    </div>
+                    <div className={'lg:col-span-2 font-bold text-white lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-white'}>
+                        Номер телефона
+                    </div>
+                    <div className={'lg:col-span-2 font-bold text-white lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-white'}>
+                        Специализация
+                    </div>
+                    <div className={'lg:col-span-2 font-bold text-white lg:border-r-[1px] border-r-[1px] border-l-[1px] border-r-[1px] p-3 border-white border-r-green'}>
+
+                    </div>
+                </div>
                 {users.map((user:typeof users[0],counter:number)=>{
                     return(
                         // <PublicationTab user_uuid={uuid} {...participation} key={participation.title}></PublicationTab>
-                        <div key={counter} className={'grid  border-b-[1px] border-green  lg:grid-cols-12'}>
-                            <div className={'lg:col-span-4 flex items-center justify-start lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-green'}>
+                        <div key={counter} className={'grid border-b-[1px] border-green lg:grid-cols-12'}>
+                            <div className={'lg:col-span-3 flex items-center justify-start lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-green'}>
                                 <p>{user.lastName} {user.firstName} {user.middleName}</p>
                             </div>
-                            <div className={'lg:col-span-2 lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-green'}>
+                            <div className={'lg:col-span-3 lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-green'}>
                                 {user.email}
                             </div>
                             <div className={'lg:col-span-2 lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-green'}>
@@ -124,17 +143,17 @@ export default function Home(params: { params: { user_uuid: string } }) {
             </div>
             <div className={'flex items-center mt-4 justify-center w-full gap-4'}>
                 <a href={`/admin/users?page=${Number(currentPage)-1}`}><img src={'/arrow_left.svg'}/></a>
-                {Number(currentPage)>4?<a href={`/admin/users?page=1`}>{1}</a>:null}
+                {Number(currentPage)>4?<a href={`/admin/users?page=1&search=${search}`}>{1}</a>:null}
                 {Number(currentPage)>4?<p>...</p>:null}
-                {Number(currentPage)-3>0?<a href={`/admin/users?page=${Number(currentPage)-3}`}>{Number(currentPage)-3}</a>:null}
-                {Number(currentPage)-2>0?<a href={`/admin/users?page=${Number(currentPage)-2}`}>{Number(currentPage)-2}</a>:null}
-                {Number(currentPage)-1>0?<a href={`/admin/users?page=${Number(currentPage)-1}`}>{Number(currentPage)-1}</a>:null}
+                {Number(currentPage)-3>0?<a href={`/admin/users?page=${Number(currentPage)-3}&search=${search}`}>{Number(currentPage)-3}</a>:null}
+                {Number(currentPage)-2>0?<a href={`/admin/users?page=${Number(currentPage)-2}&search=${search}`}>{Number(currentPage)-2}</a>:null}
+                {Number(currentPage)-1>0?<a href={`/admin/users?page=${Number(currentPage)-1}&search=${search}`}>{Number(currentPage)-1}</a>:null}
                 <p className={'text-green font-bold'}>{currentPage}</p>
-                {Number(currentPage)+1<count?<a href={`/admin/users?page=${Number(currentPage)+1}`}>{Number(currentPage)+1}</a>:null}
-                {Number(currentPage)+2<count?<a href={`/admin/users?page=${Number(currentPage)+2}`}>{Number(currentPage)+2}</a>:null}
-                {Number(currentPage)+3<=count?<a href={`/admin/users?page=${Number(currentPage)+3}`}>{Number(currentPage)+3}</a>:null}
+                {Number(currentPage)+1<count?<a href={`/admin/users?page=${Number(currentPage)+1}&search=${search}`}>{Number(currentPage)+1}</a>:null}
+                {Number(currentPage)+2<count?<a href={`/admin/users?page=${Number(currentPage)+2}&search=${search}`}>{Number(currentPage)+2}</a>:null}
+                {Number(currentPage)+3<=count?<a href={`/admin/users?page=${Number(currentPage)+3}&search=${search}`}>{Number(currentPage)+3}</a>:null}
                 {Number(currentPage)+3<=count?<p>...</p>:null}
-                {Number(currentPage)+3<=count?<a href={`/admin/users?page=${count}`}>{count}</a>:null}
+                {Number(currentPage)+3<=count?<a href={`/admin/users?page=${count}&search=${search}`}>{count}</a>:null}
                 <a href={`/admin/users?page=${Number(currentPage)+1}`}><img src={'/arrow_right.svg'}/></a>
             </div>
 
