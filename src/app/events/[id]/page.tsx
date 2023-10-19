@@ -657,11 +657,11 @@ export default function Page({params}: any) {
                 </div> : null}
 
             <div className={'my-12 flex flex-col'}>
-                {event?.date == '2023-11-11' ?
+                {event?.date == '11.11.2023' ?
                     <Link className={' text-dark-green underline mb-12 text-xl font-bold px-[20px] lg:px-[140px]'}
                           target={'_blank'}
                           href={'/kpfile.pdf'}>Коммерческое предложение</Link> : null}
-                {event?.date == '2023-11-11' ?
+                {event?.date == '11.11.2023' ?
                     <div className={'flex flex-col gap-2'}>
                         <p className={'whitespace-pre-wrap mt-2 px-[20px] text-dark-green  lg:px-[140px] font-bold'}>Участие
                             в мероприятии</p>
