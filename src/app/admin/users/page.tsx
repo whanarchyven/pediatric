@@ -78,6 +78,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
     const [activeQr,setActiveQr]=useState('')
 
+    // const [search,setSearch]=useState<string>(useSearchParams().get('search')!=null?useSearchParams().get('search'):'')
 
     return (
         <main className={'p-2 lg:p-12'}>
@@ -87,7 +88,12 @@ export default function Home(params: { params: { user_uuid: string } }) {
             </div>
             {isQrCodeOpen?<QrPop closeFunc={()=>{setIsQrCodeOpen(false)}} activeQrLink={activeQr}></QrPop>:null}
 
-            whanarchyvven, [16.10.2023 1:22]
+            <div className={'flex items-center mt-4 gap-2'}>
+                {/*<input value={search} onChange={(event)=>{setSearch(event.target.value)}} className={'w-96 border-green border-2 rounded-lg p-2 placeholder:text-zinc-500'} placeholder={'Поиск по email'}/>*/}
+                <div className={'bg-green p-2 flex items-center justify-center h-full rounded-lg px-12 border-2 border-green cursor-pointer text-white'}>
+                    Поиск
+                </div>
+            </div>
 
 
             <div className={'flex mt-16 border-t-[1px] border-green flex-col'}>
