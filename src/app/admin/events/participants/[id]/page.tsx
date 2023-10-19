@@ -10,6 +10,7 @@ import { eden, useEden } from "@/helpers/sdk";
 import validator from "@rjsf/validator-ajv8";
 import Form from "@rjsf/core";
 import Link from "next/link";
+import Loading from "@/components/Loading";
 
 // import required modules
 
@@ -41,9 +42,34 @@ export default function Home(params: { params: { id: string } }) {
 
   
   const { data } = useEden(() => eden.user.my.admin.participations.byEventId[event_id].get())
+
+  console.log(data)
   const certLink = (email:string, event_id:string)=>
     `/api2/user/my/admin/participations/byEventId/${event_id}/getCertByEmail/${email}`
-  
+
+
+
+  const [loading,setLoading]=useState(false);
+
+  const changeParticipationType=async (participationType:'online'|'offline',id:string)=>{
+    // console.log('aaaa',participationType)
+    setLoading(true);
+    eden.user.my.admin.participations.update.byParticipation_id[id].post({participationType:participationType}).then((res)=>{
+      setLoading(false)
+      // console.log(res);
+      window.location.reload();
+    })
+  }
+
+  const deleteParticipation=async (id:string)=>{
+    // console.log('aaaa',participationType)
+    setLoading(true);
+    eden.user.my.admin.participations.update.byParticipation_id[id].post({deleted:true}).then((res)=>{
+      setLoading(false)
+      // console.log(res);
+      window.location.reload();
+    })
+  }
 
   // const {event}=eventsData?.data?.events?? {} as any
 
@@ -73,11 +99,21 @@ export default function Home(params: { params: { id: string } }) {
           <div>Количество платных: {data.filter(p=>(p.sum>0&&p.status==="finished")).length}</div>
           
           <div className="mt-10">
-          {data.filter(p=>p.status==="finished").map((d,i)=><div className="grid grid-cols-8 justify-center" key={i}>
+          {data.filter(p=>p.status==="finished").map((d,i)=><div className="grid grid-cols-12 gap-4 items-center my-5 justify-center" key={i}>
             <span className="text-xs">{d?.info?.participationType}</span> 
-            <span className="col-span-2">{d?.info?.name}</span>
-            <span className="col-span-2"> {d.email}</span> 
-            <div><a className="underline cursor-pointer text-xs" href={(d.info?.event_id&&d.email)&&certLink(d?.email, d.info?.event_id)} target="_blank" rel={"noreferer"}>{d.cert?"Сертификат":"Выпуск сертификата"}</a></div>
+            <span className="col-span-3">{d?.info?.name}</span>
+            <span className="col-span-3"> {d.email}</span>
+            <div className={'col-span-2'}><a className="underline cursor-pointer text-xs" href={(d.info?.event_id&&d.email)&&certLink(d?.email, d.info?.event_id)} target="_blank" rel={"noreferer"}>{d.cert?"Сертификат":"Выпуск сертификата"}</a></div>
+            <div className={'bg-green col-span-2 rounded-lg p-2 text-xs text-white cursor-pointer flex items-center justify-center'} onClick={async ()=>{
+              await changeParticipationType(d?.info?.participationType=='онлайн'?'offline':'online',d?._id)
+            }}>
+              {loading?<Loading></Loading>:'Сменить тариф'}
+            </div>
+            <div className={'bg-green rounded-lg p-2 text-xs text-white cursor-pointer flex items-center justify-center'} onClick={async ()=>{
+              await deleteParticipation(d?._id)
+            }}>
+              {loading?<Loading></Loading>:'Удалить'}
+            </div>
           </div>)}
           </div>
           
