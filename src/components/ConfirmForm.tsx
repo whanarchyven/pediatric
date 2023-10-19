@@ -68,7 +68,11 @@ const ConfirmForm = ({closeFunc, price, event_id, event_name, participationType,
             console.log(suka)
             console.log(layotBg);
             if(response.data.uuid){
-                await axios.get(`/api2/user/${response.data.uuid}/participation/${event_id}/getTicketLink`).then(async (res)=>{
+                console.log('UUUID',response.data.uuid)
+                await axios.get(`/api2/vars/ticket-link/${response.data.uuid}/${event_id}`).then(async (res)=>{
+                    console.log('RES',res)
+                    console.log('TICKET',res.data.ticketLink)
+                    console.log('QRCODE',res.data.qrCode)
                     await axios.post('/api/lead/', {
                             email: String(email),
                             customer: String(`${lastName} ${firstName} ${middleName}`),
@@ -658,7 +662,7 @@ a[x-apple-data-detectors] {
                                 name: String(`${lastName} ${firstName} ${middleName}`),
                                 event_id: String(event_id),
                                 linkUrl:res.data.ticketLink,
-                                qrCodeUrl:`https://api.qrserver.com/v1/create-qr-code/?size=800x800&data=https://pediatric-dermatology.ru/account/${response.data.uuid}/events/${event_id}`
+                                qrCodeUrl:res.data.qrCode
                             }
                         },
                     ).then((response) => {
