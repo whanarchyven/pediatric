@@ -4,7 +4,7 @@ import Slider from "@/components/Slider";
 import VideoPlayer from "@/components/VideoPlayer";
 import Reviews from "@/components/Reviews";
 import {motion} from "framer-motion";
-import {useRouter} from "next/navigation";
+import {useRouter, useSearchParams} from "next/navigation";
 import ReviewPop from "@/components/ReviewPop";
 import HelpPop from "@/components/HelpPop";
 
@@ -33,6 +33,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const publicationsData = useEden(() => eden.publication.list.get())
 
     const {publications}=publicationsData?.data?? {} as any
+    
 
 
     const [profile,setProfile]=useState()
@@ -44,12 +45,17 @@ export default function Home(params: { params: { user_uuid: string } }) {
     })
 
     const [users,setUsers]=useState<Array<any>>([])
+    const currentPage=useSearchParams().get('page')
+
+    const [count,setCount]=useState(0)
+
 
     useEffect(() => {
-        eden.user.my["user-list"].get({$query:{}}).then((res)=>{
+        eden.user.my["user-list"].get({$query:{limit:'20',skip:String(Number(currentPage)*20)}}).then((res)=>{
             console.log(res)
             if(res?.data?.users){
                 setUsers(res.data.users)
+                setCount(Math.floor(res.data.count/20))
             }
         })
     }, [profile]);
@@ -71,6 +77,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const [isQrCodeOpen,setIsQrCodeOpen]=useState(false)
 
     const [activeQr,setActiveQr]=useState('')
+
 
     return (
         <main className={'p-2 lg:p-12'}>
@@ -109,7 +116,21 @@ export default function Home(params: { params: { user_uuid: string } }) {
                     )
                 })}
             </div>
-
+            <div className={'flex items-center mt-4 justify-center w-full gap-4'}>
+                <a href={`/admin/users?page=${Number(currentPage)-1}`}><img src={'/arrow_left.svg'}/></a>
+                {Number(currentPage)>4?<a href={`/admin/users?page=1`}>{1}</a>:null}
+                {Number(currentPage)>4?<p>...</p>:null}
+                {Number(currentPage)-3>0?<a href={`/admin/users?page=${Number(currentPage)-3}`}>{Number(currentPage)-3}</a>:null}
+                {Number(currentPage)-2>0?<a href={`/admin/users?page=${Number(currentPage)-2}`}>{Number(currentPage)-2}</a>:null}
+                {Number(currentPage)-1>0?<a href={`/admin/users?page=${Number(currentPage)-1}`}>{Number(currentPage)-1}</a>:null}
+                <p className={'text-green font-bold'}>{currentPage}</p>
+                {Number(currentPage)+1<count?<a href={`/admin/users?page=${Number(currentPage)+1}`}>{Number(currentPage)+1}</a>:null}
+                {Number(currentPage)+2<count?<a href={`/admin/users?page=${Number(currentPage)+2}`}>{Number(currentPage)+2}</a>:null}
+                {Number(currentPage)+3<=count?<a href={`/admin/users?page=${Number(currentPage)+3}`}>{Number(currentPage)+3}</a>:null}
+                {Number(currentPage)+3<=count?<p>...</p>:null}
+                {Number(currentPage)+3<=count?<a href={`/admin/users?page=${count}`}>{count}</a>:null}
+                <a href={`/admin/users?page=${Number(currentPage)+1}`}><img src={'/arrow_right.svg'}/></a>
+            </div>
 
         </main>
     )
