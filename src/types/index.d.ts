@@ -337,7 +337,7 @@ export declare const app: Elysia<"", {
     "/user/:user_uuid/admin/participations/update/byParticipation_id/:_id": {
         post: {
             body: {
-                participationType?: "online" | "offline" | undefined;
+                participationType?: "online" | "offline" | "online-free" | undefined;
                 deleted?: boolean | undefined;
             };
             params: {
