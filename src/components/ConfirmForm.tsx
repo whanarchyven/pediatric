@@ -598,7 +598,6 @@ a[x-apple-data-detectors] {
                      </tr>
                      <tr>
                      <td style="aspect-ratio: 16 / 9;display:flex;align-items: center;position:relative;">
-                 
                     <img style="width:50%;aspect-ratio: 1 / 1;position:absolute;left:10px;" className={'w-1/2 aspect-square absolute left-5'} src={qrCodeUrl}/>
                 <td>
 </tr>
@@ -659,6 +658,7 @@ a[x-apple-data-detectors] {
                                 name: String(`${lastName} ${firstName} ${middleName}`),
                                 event_id: String(event_id),
                                 linkUrl:res.data.ticketLink,
+                                qrCodeUrl:`https://api.qrserver.com/v1/create-qr-code/?size=800x800&data=https://pediatric-dermatology.ru/account/${response.data.uuid}/events/${event_id}`
                             }
                         },
                     ).then((response) => {
