@@ -455,7 +455,7 @@ export default function Page({params}: any) {
                             <div onClick={() => {
                                 setIsConfirmPopOpen(true);
                                 if (event?.onlinePrice) {
-                                    setCurrentPrice(event?.onlinePrice);
+                                    setCurrentPrice(needPrice?.online);
                                 }
                                 setParticipationType('online')
                             }}
@@ -486,7 +486,7 @@ export default function Page({params}: any) {
                             <div onClick={() => {
                                 setIsConfirmPopOpen(true);
                                 if (event?.offlinePrice) {
-                                    setCurrentPrice(event?.offlinePrice);
+                                    setCurrentPrice(needPrice?.offline);
                                 }
                                 setParticipationType('offline')
                             }}
@@ -500,7 +500,7 @@ export default function Page({params}: any) {
                             setIsConfirmPopOpen(false)
                         }
                     }}>
-                        <ConfirmForm query={query} participationType={participationType} closeFunc={() => {
+                        <ConfirmForm layotBg={event.layoutBg} query={query} participationType={participationType} closeFunc={() => {
                             setIsConfirmPopOpen(false)
                         }} price={currentPrice} event_id={event?.id} event_name={event?.name}></ConfirmForm>
                     </PopUp> : null}
@@ -609,7 +609,7 @@ export default function Page({params}: any) {
                             setIsConfirmPopOpen(false)
                         }
                     }}>
-                        <ConfirmForm query={query} participationType={participationType} closeFunc={() => {
+                        <ConfirmForm layotBg={event.layoutBg} query={query} participationType={participationType} closeFunc={() => {
                             setIsConfirmPopOpen(false)
                         }} price={currentPrice} event_id={event?.id} event_name={event?.name}></ConfirmForm>
                     </PopUp> : null}

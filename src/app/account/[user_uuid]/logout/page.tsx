@@ -34,6 +34,7 @@ import post from "@/components/Post";
 import Link from "next/link";
 import concatStr from "@/helpers/concatStr";
 import {Cookie} from "elysia";
+import axios from "axios";
 
 
 export default function Home() {
@@ -75,7 +76,9 @@ export default function Home() {
 
     useEffect(() => {
         localStorage.setItem('loggedOut','true')
-        redirect('/')
+        axios.get('/api2/auth/logout').then(()=>{
+            router.push('/')
+        })
     }, []);
 
     return (
