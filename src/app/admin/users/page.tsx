@@ -73,7 +73,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const [search,setSearch]=useState<string>(useSearchParams().get('search')??'')
 
     useEffect(() => {
-        eden.user.my["user-list"].get({$query:{limit:'20',skip:String(Number(currentPage)*20),search:search}}).then((res)=>{
+        eden.user.my["user-list"].get({$query:{limit:'20',skip:String((Number(currentPage)-1)*20),search:search}}).then((res)=>{
             console.log(res)
             if(res?.data?.users){
                 setUsers(res.data.users)
