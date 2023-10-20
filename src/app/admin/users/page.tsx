@@ -90,12 +90,12 @@ export default function Home(params: { params: { user_uuid: string } }) {
             </div>
             {isQrCodeOpen?<QrPop closeFunc={()=>{setIsQrCodeOpen(false)}} activeQrLink={activeQr}></QrPop>:null}
 
-            {/*<div className={'flex items-center mt-4 gap-2'}>*/}
-            {/*    <input value={search} onChange={(event)=>{setSearch(event.target.value)}} className={'w-96 border-green border-2 rounded-lg p-2 placeholder:text-zinc-500'} placeholder={'Поиск по email'}/>*/}
-            {/*    <a href={`/admin/users?page=1&search=${search}`} className={'bg-green p-2 flex items-center justify-center h-full rounded-lg px-12 border-2 border-green cursor-pointer text-white'}>*/}
-            {/*        Поиск*/}
-            {/*    </a>*/}
-            {/*</div>*/}
+            <div className={'flex items-center mt-4 gap-2'}>
+                <input value={search} onChange={(event)=>{setSearch(event.target.value)}} className={'w-96 border-green border-2 rounded-lg p-2 placeholder:text-zinc-500'} placeholder={'Поиск по email'}/>
+                <a href={`/admin/users?page=1&search=${search}`} className={'bg-green p-2 flex items-center justify-center h-full rounded-lg px-12 border-2 border-green cursor-pointer text-white'}>
+                    Поиск
+                </a>
+            </div>
 
 
             <div className={'flex mt-16 border-t-[1px] border-green flex-col'}>

@@ -51,9 +51,10 @@ export default function Home(params: { params: { id: string } }) {
 
   const [loading,setLoading]=useState(false);
 
-  const changeParticipationType=async (participationType:'online'|'offline',id:string)=>{
+  const changeParticipationType=async (participationType: string, id: string,)=>{
     // console.log('aaaa',participationType)
     setLoading(true);
+    // @ts-ignore
     eden.user.my.admin.participations.update.byParticipation_id[id].post({participationType:participationType}).then((res)=>{
       setLoading(false)
       // console.log(res);
@@ -104,10 +105,14 @@ export default function Home(params: { params: { id: string } }) {
             <span className="col-span-3">{d?.info?.name}</span>
             <span className="col-span-3"> {d.email}</span>
             <div className={'col-span-2'}><a className="underline cursor-pointer text-xs" href={(d.info?.event_id&&d.email)&&certLink(d?.email, d.info?.event_id)} target="_blank" rel={"noreferer"}>{d.cert?"Сертификат":"Выпуск сертификата"}</a></div>
-            <div className={'bg-green col-span-2 rounded-lg p-2 text-xs text-white cursor-pointer flex items-center justify-center'} onClick={async ()=>{
-              await changeParticipationType(d?.info?.participationType=='онлайн'?'offline':'online',d?._id)
-            }}>
-              {loading?<Loading></Loading>:'Сменить тариф'}
+            <div className={'col-span-2'}>
+              <select placeholder={'Сменить тариф'} className={'border-2 border-green w-full rounded-lg p-2 text-xs text-green cursor-pointer flex items-center justify-center'} onChange={async (event)=>{
+                await changeParticipationType(event.target.value,d?._id)
+              }}>
+                <option value={'offline'} selected={d?.info?.participationType=='оффлайн'||d?.info?.participationType=='очное участие'}>очное участие</option>
+                <option value={'online'} selected={d?.info?.participationType=='онлайн'}>онлайн</option>
+                <option value={'online-free'} selected={d?.info?.participationType=='онлайн(свободное)'}>онлайн(свободное)</option>
+              </select>
             </div>
             <div className={'bg-green rounded-lg p-2 text-xs text-white cursor-pointer flex items-center justify-center'} onClick={async ()=>{
               await deleteParticipation(d?._id)
