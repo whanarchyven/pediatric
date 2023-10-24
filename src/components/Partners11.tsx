@@ -31,23 +31,23 @@ const Partners11 = () => {
     const news = [
         {
             image: '/partners/g14.png',
-            link:'https://www.ispedderm.com/'
+            link:''
         },
         {
             image: '/partners/glenmark logo without tagline.jpg',
-            link:'https://www.espd.info/'
+            link:''
         },
         {
             image: '/partners/IMG_0439.PNG',
-            link:'https://deti-bela.ru/'
+            link:''
         },
         {
             image: '/partners/invar_logo_1.png',
-            link:'https://www.rodv.ru/'
+            link:''
         },
         {
             image: '/partners/jgl_only_logo.jpg',
-            link:'https://www.pediatr-russia.ru/'
+            link:''
         },
         {
             image: '/partners/jsn_logo_jj_horz_color_rgb.jpg',
@@ -59,19 +59,23 @@ const Partners11 = () => {
         },
         {
             image: '/partners/LEO_Logo_Black_RGB.jpg',
-            link:'https://www.ispedderm.com/'
+            link:''
         },
         {
             image: '/partners/logo black.png',
-            link:'https://www.espd.info/'
+            link:''
         },
         {
             image: '/partners/MERZ THERAPEUTICS-Logo VC horizontal.png',
-            link:'https://deti-bela.ru/'
+            link:''
         },
         {
             image: '/partners/OUS_Viatris_Logo_Horiz_RGB.png',
-            link:'https://www.rodv.ru/'
+            link:''
+        },
+        {
+            image: '/partners/logo-NAOS-REGULAR-CMYK.jpg',
+            link:''
         },
 
     ]
