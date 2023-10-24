@@ -57,14 +57,14 @@ const SpeakersSlider = ({speakers}: speakersSliderInterface) => {
                 <div
                     className={classList('flex w-14 duration-300 transition-all overflow-hidden bg-white aspect-square items-center justify-center rounded-full', 'cursor-pointer')}
                     onClick={() => {
-                        sliderRef.current.swiper.slideTo(currentSpeakerId-2>0?currentSpeakerId-2:speakers.length-2)
+                        sliderRef.current.swiper.slideTo(currentSpeakerId-1>0?currentSpeakerId-1:speakers.length-1)
                     }}>
                     <img className={'w-full object-cover h-full'} src={currentSpeakerId-2>0?speakers[currentSpeakerId-2].photo:speakers[speakers.length-2].photo}/>
                 </div>
                 <div
                     className={classList('flex w-14 duration-300 transition-all overflow-hidden bg-white aspect-square items-center justify-center rounded-full', 'cursor-pointer')}
                     onClick={() => {
-                        sliderRef.current.swiper.slideTo(currentSpeakerId-1>0?currentSpeakerId-1:speakers.length-1)
+                        sliderRef.current.swiper.slideTo(currentSpeakerId-0>0?currentSpeakerId-0:speakers.length-0)
                     }}>
                     <img className={'w-full object-cover h-full'} src={currentSpeakerId-1>0?speakers[currentSpeakerId-1].photo:speakers[speakers.length-1].photo}/>
                 </div>
@@ -78,14 +78,14 @@ const SpeakersSlider = ({speakers}: speakersSliderInterface) => {
                 <div
                     className={classList('flex w-14 duration-300 transition-all overflow-hidden bg-white aspect-square items-center justify-center rounded-full', 'cursor-pointer')}
                     onClick={() => {
-                        sliderRef.current.swiper.slideTo(currentSpeakerId+1>0?currentSpeakerId+1:speakers.length+1)
+                        sliderRef.current.swiper.slideTo(currentSpeakerId+2>0?currentSpeakerId+2:speakers.length+2)
                     }}>
                     <img className={'w-full object-cover h-full'} src={currentSpeakerId+1<speakers.length-1?speakers[currentSpeakerId+1].photo:speakers[0].photo}/>
                 </div>
                 <div
                     className={classList('flex w-14 duration-300 transition-all overflow-hidden bg-white aspect-square items-center justify-center rounded-full', 'cursor-pointer')}
                     onClick={() => {
-                        sliderRef.current.swiper.slideTo(currentSpeakerId+2>0?currentSpeakerId+2:speakers.length+2)
+                        sliderRef.current.swiper.slideTo(currentSpeakerId+3>0?currentSpeakerId+3:speakers.length+3)
                     }}>
                     <img className={'w-full object-cover h-full'} src={currentSpeakerId+2<speakers.length-2?speakers[currentSpeakerId+2].photo:speakers[1].photo}/>
                 </div>
