@@ -15,9 +15,9 @@ interface speakersSliderInterface {
     }[]
 }
 
-const SpeakersSlider = ({speakers}:speakersSliderInterface) => {
+const SpeakersSlider = ({speakers}: speakersSliderInterface) => {
 
-    const [currentSpeakerId,setCurrentSpeakerId]=useState(0)
+    const [currentSpeakerId, setCurrentSpeakerId] = useState(0)
 
     const sliderRef = useRef(null);
 
@@ -31,19 +31,22 @@ const SpeakersSlider = ({speakers}:speakersSliderInterface) => {
         sliderRef.current.swiper.slideNext();
     }, []);
 
-    const [employersPop,setEmployersPop]=useState(false)
-    const [activeName,setActiveName]=useState('');
-    const [activeDecription,setActiveDescription]=useState('')
+    const [employersPop, setEmployersPop] = useState(false)
+    const [activeName, setActiveName] = useState('');
+    const [activeDecription, setActiveDescription] = useState('')
 
     return (
         <div className={'w-full flex items-center'}>
-            {employersPop?<div className={'w-full h-full absolute left-0 top-0 z-[20] bg-black bg-opacity-70 flex items-center justify-center'}>
+            {employersPop ? <div
+                className={'w-full h-full absolute left-0 top-0 z-[20] bg-black bg-opacity-70 flex items-center justify-center'}>
                 <div className={'w-full sm:w-2/3 p-9 gap-4 rounded-lg flex flex-col bg-white relative'}>
-                    <img onClick={()=>{setEmployersPop(false)}} className={'w-8 aspect-square absolute top-4 right-4 cursor-pointer'} src={'/close_black.svg'}/>
+                    <img onClick={() => {
+                        setEmployersPop(false)
+                    }} className={'w-8 aspect-square absolute top-4 right-4 cursor-pointer'} src={'/close_black.svg'}/>
                     <p className={'font-bold text-lg sm:text-4xl'}>{activeName}</p>
                     <p className={'text-xs sm:text-lg'}>{activeDecription}</p>
                 </div>
-            </div>:null}
+            </div> : null}
 
             <div className={'hidden sm:flex flex-col justify-center gap-8 items-center'}>
                 <div
@@ -51,12 +54,41 @@ const SpeakersSlider = ({speakers}:speakersSliderInterface) => {
                     onClick={handlePrev}>
                     <img className={'w-full rotate-90 aspect-square'} src={'/arrow_prev.svg'}/>
                 </div>
-                {speakers.map((speaker, counter) => {
-                    return <div key={counter}
-                        className={classList('flex w-14 duration-300 transition-all overflow-hidden bg-white aspect-square items-center justify-center rounded-full', counter == currentSpeakerId ? 'scale-150  border-4 border-[#43817D] ' : 'cursor-pointer')} onClick={()=>{sliderRef.current.swiper.slideTo(counter)}}>
-                        <img className={'w-full h-full'} src={speaker.photo}/>
-                    </div>
-                })}
+                <div
+                    className={classList('flex w-14 duration-300 transition-all overflow-hidden bg-white aspect-square items-center justify-center rounded-full', 'cursor-pointer')}
+                    onClick={() => {
+                        sliderRef.current.swiper.slideTo(currentSpeakerId-2>0?currentSpeakerId-2:speakers.length-2)
+                    }}>
+                    <img className={'w-full object-cover h-full'} src={currentSpeakerId-2>0?speakers[currentSpeakerId-2].photo:speakers[speakers.length-2].photo}/>
+                </div>
+                <div
+                    className={classList('flex w-14 duration-300 transition-all overflow-hidden bg-white aspect-square items-center justify-center rounded-full', 'cursor-pointer')}
+                    onClick={() => {
+                        sliderRef.current.swiper.slideTo(currentSpeakerId-1>0?currentSpeakerId-1:speakers.length-1)
+                    }}>
+                    <img className={'w-full object-cover h-full'} src={currentSpeakerId-1>0?speakers[currentSpeakerId-1].photo:speakers[speakers.length-1].photo}/>
+                </div>
+                <div
+                    className={classList('flex w-14 duration-300 transition-all overflow-hidden bg-white aspect-square items-center justify-center rounded-full', 'scale-150  border-4 border-[#43817D] ')}
+                    onClick={() => {
+                        sliderRef.current.swiper.slideTo(currentSpeakerId)
+                    }}>
+                    <img className={'w-full object-cover h-full'} src={speakers[currentSpeakerId].photo}/>
+                </div>
+                <div
+                    className={classList('flex w-14 duration-300 transition-all overflow-hidden bg-white aspect-square items-center justify-center rounded-full', 'cursor-pointer')}
+                    onClick={() => {
+                        sliderRef.current.swiper.slideTo(currentSpeakerId+1>0?currentSpeakerId+1:speakers.length+1)
+                    }}>
+                    <img className={'w-full object-cover h-full'} src={currentSpeakerId+1<speakers.length-1?speakers[currentSpeakerId+1].photo:speakers[0].photo}/>
+                </div>
+                <div
+                    className={classList('flex w-14 duration-300 transition-all overflow-hidden bg-white aspect-square items-center justify-center rounded-full', 'cursor-pointer')}
+                    onClick={() => {
+                        sliderRef.current.swiper.slideTo(currentSpeakerId+2>0?currentSpeakerId+2:speakers.length+2)
+                    }}>
+                    <img className={'w-full object-cover h-full'} src={currentSpeakerId+2<speakers.length-2?speakers[currentSpeakerId+2].photo:speakers[1].photo}/>
+                </div>
                 <div
                     className={'cursor-pointer hidden sm:flex items-center p-3  justify-center w-10 aspect-square rounded-full bg-white bg-opacity-20 hover:bg-[#BCDBD5] transition-all duration-300'}
                     onClick={handleNext}>
@@ -115,15 +147,16 @@ const SpeakersSlider = ({speakers}:speakersSliderInterface) => {
                                         </div>
                                     </div>
                                     <p className={'text-white text-sm font-normal'}>{concatStr(speaker.description, 20)}</p>
-                                    <p onClick={()=>{
+                                    <p onClick={() => {
                                         setActiveName(speaker.name);
                                         setActiveDescription(speaker.description);
                                         setEmployersPop(true);
-                                    }} className={'text-white cursor-pointer text-sm sm:text-xl font-bold'}>Подробнее...</p>
+                                    }}
+                                       className={'text-white cursor-pointer text-sm sm:text-xl font-bold'}>Подробнее...</p>
                                 </div>
-                                <div className={'flex items-center relative h-full justify-center'}>
-                                    <img src={`pages/main/employers/avatar_layout.svg`}/>
-                                    <img className={'absolute sm:bottom-0 w-full'} src={speaker.photo}/>
+                                <div className={'flex items-end relative h-full justify-center'}>
+                                    <img src={`/pages/main/employers/avatar_layout.svg`}/>
+                                    <img className={'absolute object-cover sm:-bottom-4 w-auto max-h-full'} src={speaker.photo}/>
                                 </div>
                             </div>
                         </SwiperSlide>

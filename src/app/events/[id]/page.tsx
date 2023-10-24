@@ -269,14 +269,14 @@ export default function Page({params}: any) {
                     </p> : null}
                 </div>
             </div>
-            {/*{event?.speakers?<div*/}
-            {/*    className={'relative green-gradient overflow-hidden px-[20px] pt-12 sm:h-[900px] flex flex-col items-start sm:pl-[70px] sm:px-[140px]'}>*/}
-            {/*    <img className={'absolute asset w-full z-50 left-0 top-[-0.5px] sm:top-0'} src={'/about_us_offset_top.png'}/>*/}
-            {/*    <p className={'text-xl sm:text-5xl sm:px-0 px-[20px] sm:absolute sm:top-[140px] sm:left-[195px] uppercase font-extralight text-white'}>Спикеры <span*/}
-            {/*        className={'font-extrabold'}>Конференции</span></p>*/}
-            {/*    <SpeakersSlider speakers={event?.speakers}></SpeakersSlider>*/}
-            {/*    <img className={'absolute w-full asset left-0 z-50 bottom-[-0.5px]'} src={'/about_us_offset_bot.png'}/>*/}
-            {/*</div>:null}*/}
+            {event?.speakers?<div
+            className={'relative green-gradient overflow-hidden px-[20px] pt-12 sm:h-[900px] flex flex-col items-start sm:pl-[70px] sm:px-[140px]'}>
+            <img className={'absolute asset w-full z-50 left-0 top-[-0.5px] sm:top-0'} src={'/about_us_offset_top.png'}/>
+            <p className={'text-xl sm:text-5xl sm:px-0 px-[20px] sm:absolute sm:top-[140px] sm:left-[195px] uppercase font-extralight text-white'}>Спикеры <span
+                className={'font-extrabold'}>Конференции</span></p>
+            <SpeakersSlider speakers={event?.speakers}></SpeakersSlider>
+            <img className={'absolute w-full asset left-0 z-50 bottom-[-0.5px]'} src={'/about_us_offset_bot.png'}/>
+        </div>:null}
 
             {currentProgram ? <div className={'bg-white py-12 px-[20px] lg:px-[140px]'}>
                 <p className={'uppercase font-extralight text-2xl lg:text-5xl text-black'}>Программа

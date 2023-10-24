@@ -93,11 +93,11 @@ export default function Home(params: { params: { id: string } }) {
       </div>
       <div className={""}>
         <div className={""}>
-          <div>Всего: {data.length}</div>
-          <div>Завершившие регистрацию: {data.filter(p=>p.status==="finished").length}</div>
-          <div>Завершившие регистрацию(онлайн): {data.filter(p=>(p.sum>0&&p.status==="finished"&&p?.info?.participationType==="онлайн")).length}</div>
-          <div>Завершившие регистрацию(оффлайн): {data.filter(p=>(p.sum>0&&p.status==="finished"&&p?.info?.participationType==="оффлайн")).length}</div>
-          <div>Количество платных: {data.filter(p=>(p.sum>0&&p.status==="finished")).length}</div>
+          <div>Всего: {data?.length}</div>
+          <div>Завершившие регистрацию: {data?.filter(p=>p.status==="finished").length}</div>
+          <div>Завершившие регистрацию(онлайн): {data?.filter(p=>(p.sum>0&&p.status==="finished"&&p?.info?.participationType==="онлайн")).length}</div>
+          <div>Завершившие регистрацию(оффлайн): {data?.filter(p=>(p.sum>0&&p.status==="finished"&&p?.info?.participationType==="оффлайн")).length}</div>
+          <div>Количество платных: {data?.filter(p=>(p.sum>0&&p.status==="finished")).length}</div>
           
           <div className="mt-10">
           {data.filter(p=>p.status==="finished").map((d,i)=><div className="grid grid-cols-12 gap-4 items-center my-5 justify-center" key={i}>
