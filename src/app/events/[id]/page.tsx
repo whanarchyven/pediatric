@@ -282,13 +282,13 @@ export default function Page({params}: any) {
                 <p className={'uppercase font-extralight text-2xl lg:text-5xl text-black'}>Программа
                     <br/><span className={'font-extrabold'}>Конференции</span></p>
 
-                <div className={'flex mt-20 items-center gap-16'}>
+                <div className={'flex mt-20 items-center sm:overflow-x-hidden overflow-x-scroll max-w-full gap-16'}>
                     {event?.halls.map((hall, counter) => {
                         return (
                             <div key={counter} onClick={() => {
                                 setCurrentProgram(hall)
                             }}
-                                 className={classList('flex cursor-pointer items-center text-2xl font-bold justify-center', currentProgram.name == hall.name ? 'border-b-2 border-green-two text-green-two' : 'text-black')}>
+                                 className={classList('flex cursor-pointer items-center whitespace-nowrap xl:text-2xl font-bold justify-center', currentProgram.name == hall.name ? 'border-b-2 border-green-two text-green-two' : 'text-black')}>
                                 {hall.name}
                             </div>
                         )
