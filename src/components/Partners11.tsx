@@ -77,6 +77,14 @@ const Partners11 = () => {
             image: '/partners/logo-NAOS-REGULAR-CMYK.jpg',
             link:''
         },
+        {
+            image: '/partners/IMG_0445.PNG',
+            link:''
+        },
+        {
+            image: '/partners/RENO_AVENE_LOGO_210721_01_LOGO_B.png',
+            link:''
+        },
 
     ]
 
