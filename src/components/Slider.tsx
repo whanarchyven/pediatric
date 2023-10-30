@@ -81,7 +81,7 @@ export default function Slider() {
                 {posts.map((item, counter) => {
                     return (
                         <SwiperSlide className={'relative h-full'} key={counter + item.title}>
-                            {saved.find(suka => suka.title == item.title)?<PostTab isSaved={true} user_uuid={uuid} {...item}></PostTab>:<PostTab isSaved={false} user_uuid={uuid} {...item}></PostTab>}
+                            {saved?.find(suka => suka.title == item.title)?<PostTab isSaved={true} user_uuid={uuid} {...item}></PostTab>:<PostTab isSaved={false} user_uuid={uuid} {...item}></PostTab>}
                         </SwiperSlide>
                     )
                 })}
