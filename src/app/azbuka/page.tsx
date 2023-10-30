@@ -7,6 +7,7 @@ import {motion} from "framer-motion";
 import {useRouter} from "next/navigation";
 import ReviewPop from "@/components/ReviewPop";
 import HelpPop from "@/components/HelpPop";
+import {eden} from "@/helpers/sdk";
 
 export default function Home() {
 
@@ -130,6 +131,8 @@ export default function Home() {
     const [showReviewPop, setShowReviewPop] = useState(false)
 
     const [showHelpPop,setShowHelpPop]=useState(false)
+
+
 
 
     return (

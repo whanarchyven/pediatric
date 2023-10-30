@@ -20,6 +20,7 @@ import {eden, useEden} from "@/helpers/sdk";
 import axios from "axios";
 import {Pagination} from "swiper";
 import NewPublicationPop from "@/components/NewPublicationPop";
+import Link from "next/link";
 
 
 // import required modules
@@ -43,7 +44,6 @@ export default function Home(params: { params: { user_uuid: string } }) {
     } = data?.profile ?? {} as any;
 
     console.log(uuid)
-
 
     const fetchData=async ()=>{
         if(uuid){
@@ -118,6 +118,17 @@ export default function Home(params: { params: { user_uuid: string } }) {
                 <p className={'uppercase font-inter font-extralight text-3xl'}>Сохраненные <br/><span
                     className={'font-extrabold'}>материалы</span></p>
 
+            </div>
+            <div className={'flex my-4 items-center gap-6 lg:gap-12'}>
+                <Link className={'font-light text-green border-b-2 border-green uppercase'} href={'/account/my/favorites/publications/'}>
+                    Публикации
+                </Link>
+                <Link className={'font-light uppercase'} href={'/account/my/favorites/posts/'}>
+                    Статьи
+                </Link>
+                <Link className={'font-light uppercase'} href={'/account/my/favorites/lessons/'}>
+                    Уроки
+                </Link>
             </div>
             <div className={'flex flex-wrap items-center my-8 gap-4'}>
                 <input value={name} onChange={(event)=>{setName(event.target.value)}} placeholder={'Поиск по названию'}

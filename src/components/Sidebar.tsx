@@ -46,7 +46,7 @@ const Sidebar = ({user_uuid,isCloseBurger}:sideBarInterface) => {
         {
             name:'Избранное',
             icon:'/pages/account/sidebar/favorites.svg',
-            link:'favorites'
+            link:'favorites/publications'
         },
         {
             name:'Статьи и публикации',
