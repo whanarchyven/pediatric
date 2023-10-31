@@ -38,7 +38,7 @@ const Partners11 = () => {
             link:''
         },
         {
-            image: '/partners/IMG_0439.PNG',
+            image: '/partners/GALDERMA_LOGO_BLACK_RGB 1.png',
             link:''
         },
         {
