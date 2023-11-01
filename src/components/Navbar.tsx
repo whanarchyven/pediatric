@@ -31,10 +31,10 @@ const Navbar = ({isInteractive}:navbarInterface) => {
             title:'Мероприятия',
             link:'/events',
         },
-        {
-            title:'Новости',
-            link:'/news',
-        },
+        // {
+        //     title:'Новости',
+        //     link:'/news',
+        // },
         {
             title:'Контакты',
             link:'/contacts',

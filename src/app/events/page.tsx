@@ -34,7 +34,8 @@ import Link from "next/link";
 import concatStr from "@/helpers/concatStr";
 import CountUp from "react-countup";
 import {classList} from "@/helpers/classList";
-import {eden} from "@/helpers/sdk";
+import {eden, useEden} from "@/helpers/sdk";
+import EventTab from "@/components/EventTab";
 
 
 export default function Home() {
@@ -44,6 +45,14 @@ export default function Home() {
 
     const params = useSearchParams();
 
+    const {data} = useEden(() => eden.user.my.profile.get())
+
+    const {
+        uuid,
+        saved
+    } = data?.profile ?? {} as any;
+
+    console.log(saved)
 
     const [news,setNews]=useState<Array<{
         id?: string | undefined;
@@ -108,10 +117,8 @@ export default function Home() {
 
 
     const categories = [
-        'Вебинар',
         'Конференция',
         'Марафон',
-        'Подкаст',
     ]
 
 
@@ -268,55 +275,29 @@ export default function Home() {
                     {news?.map((item, counter) => {
                         if(params.get('category')){
                             if(item.type==params.get('category')){
-                                return (
-                                    <Link key={counter} href={`/events/${item.id}`}>
-                                        <div className={'gap-4 flex cursor-pointer flex-col'}>
-                                            <div className={'rounded-lg overflow-hidden'}>
-                                                <img
-                                                    className={'transition-all duration-300 h-60 object-cover w-full group-hover:scale-125'}
-                                                    src={item.layoutBg}/>
-                                            </div>
-                                            <div className={'w-full flex items-center justify-between'}>
-                                                <div
-                                                    className={'flex rounded-lg text-white p-2 items-center justify-center border-2 border-green-two bg-green-two'}>
-                                                    {item.type}
-                                                </div>
-                                                <div
-                                                    className={'flex rounded-lg text-green-two p-2 whitespace-nowrap items-center justify-center border-2 border-green-two'}>
-                                                    {item.date}
-                                                </div>
-                                            </div>
-                                            <p className={'text-center font-normal text-black'}>{item.name}</p>
-                                        </div>
-                                    </Link>
-
-                                )
+                                if(saved?.find(saved=>saved.title==item.type.concat(' - ',item.name))){
+                                    return (
+                                        <EventTab isSaved={true} user_uuid={uuid} {...item}></EventTab>
+                                    )
+                                }
+                                else{
+                                    return (
+                                        <EventTab isSaved={false} user_uuid={uuid} {...item}></EventTab>
+                                    )
+                                }
                             }
                         }
                         else {
-                            return (
-                                <Link key={counter} href={`/events/${item.id}`}>
-                                    <div className={'gap-4 flex cursor-pointer flex-col'}>
-                                        <div className={'rounded-lg overflow-hidden'}>
-                                            <img
-                                                className={'transition-all duration-300 h-60 object-cover w-full group-hover:scale-125'}
-                                                src={item.layoutBg}/>
-                                        </div>
-                                        <div className={'w-full flex items-center justify-between'}>
-                                            <div
-                                                className={'flex rounded-lg text-white p-2 items-center justify-center border-2 border-green-two bg-green-two'}>
-                                                {item.type}
-                                            </div>
-                                            <div
-                                                className={'flex rounded-lg text-green-two p-2 items-center justify-center border-2 border-green-two'}>
-                                                {item.date}
-                                            </div>
-                                        </div>
-                                        <p className={'text-center font-normal text-black'}>{item.name}</p>
-                                    </div>
-                                </Link>
-
-                            )
+                            if(saved?.find(saved=>saved.title==item.type.concat(' - ',item.name))){
+                                return (
+                                    <EventTab isSaved={true} user_uuid={uuid} {...item}></EventTab>
+                                )
+                            }
+                            else{
+                                return (
+                                    <EventTab isSaved={false} user_uuid={uuid} {...item}></EventTab>
+                                )
+                            }
 
                         }
                     })}

@@ -57,10 +57,10 @@ export default function Home(params: { params: { user_uuid: string } }) {
                 <Link className={'font-light uppercase'} href={'/account/my/favorites/publications/'}>
                     Публикации
                 </Link>
-                <Link className={'font-light uppercase'} href={'/account/my/favorites/events/'}>
+                <Link className={'font-light text-green border-b-2 border-green uppercase'} href={'/account/my/favorites/events/'}>
                     Мероприятия
                 </Link>
-                <Link className={'font-light text-green border-b-2 border-green uppercase'} href={'/account/my/favorites/posts/'}>
+                <Link className={'font-light  uppercase'} href={'/account/my/favorites/posts/'}>
                     Статьи
                 </Link>
                 <Link className={'font-light uppercase'} href={'/account/my/favorites/lessons/'}>
@@ -69,13 +69,13 @@ export default function Home(params: { params: { user_uuid: string } }) {
             </div>
 
             {saved && saved.length > 0 ? <div className={'grid gap-12 mt-16 grid-cols-1 lg:grid-cols-3'}>
-                {saved.map((post:typeof saved[0])=>{
-                    if (post.category=='post'){
+                {saved. map((post:typeof saved[0])=>{
+                    if (post.category=='event'){
                         return(
                             <div key={post.title} className={'flex cursor-pointer flex-col gap-6'}>
                                 <img className={'w-full aspect-video rounded-lg object-cover'} src={post.imageUrl}/>
                                 <p className={'font-bold'}>{post.title}</p>
-                                <Link className={'flex items-center justify-center text-red font-bold rounded-lg border-2 border-red p-2'} href={post.href}>Читать</Link>
+                                <Link className={'flex items-center justify-center text-green font-bold rounded-lg border-2 border-green p-2'} href={post.href}>Страница мероприятия</Link>
                             </div>
                         )
                     }

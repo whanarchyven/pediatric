@@ -57,6 +57,9 @@ export default function Home(params: { params: { user_uuid: string } }) {
                 <Link className={'font-light uppercase'} href={'/account/my/favorites/publications/'}>
                     Публикации
                 </Link>
+                <Link className={'font-light uppercase'} href={'/account/my/favorites/events/'}>
+                    Мероприятия
+                </Link>
                 <Link className={'font-light uppercase'} href={'/account/my/favorites/posts/'}>
                     Статьи
                 </Link>

@@ -4,12 +4,6 @@ import EditPostPop from "@/components/EditPostPop";
 import {eden} from "@/helpers/sdk";
 
 interface postTabInterface {
-    saved?: {
-        title: string,
-        imageUrl: string,
-        href: string,
-        category: string
-    }[]
     isAdmin?: string
     user_uuid?: string
     uuid: string,
