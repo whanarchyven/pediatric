@@ -277,12 +277,12 @@ export default function Home() {
                             if(item.type==params.get('category')){
                                 if(saved?.find(saved=>saved.title==item.type.concat(' - ',item.name))){
                                     return (
-                                        <EventTab isSaved={true} user_uuid={uuid} {...item}></EventTab>
+                                        <EventTab key={counter} isSaved={true} user_uuid={uuid} {...item}></EventTab>
                                     )
                                 }
                                 else{
                                     return (
-                                        <EventTab isSaved={false} user_uuid={uuid} {...item}></EventTab>
+                                        <EventTab key={counter} isSaved={false} user_uuid={uuid} {...item}></EventTab>
                                     )
                                 }
                             }
@@ -290,12 +290,12 @@ export default function Home() {
                         else {
                             if(saved?.find(saved=>saved.title==item.type.concat(' - ',item.name))){
                                 return (
-                                    <EventTab isSaved={true} user_uuid={uuid} {...item}></EventTab>
+                                    <EventTab key={counter} isSaved={true} user_uuid={uuid} {...item}></EventTab>
                                 )
                             }
                             else{
                                 return (
-                                    <EventTab isSaved={false} user_uuid={uuid} {...item}></EventTab>
+                                    <EventTab key={counter} isSaved={false} user_uuid={uuid} {...item}></EventTab>
                                 )
                             }
 
