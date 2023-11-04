@@ -497,16 +497,16 @@ export default function Page({params}: any) {
                                     <p className={'font-extralight text-xl text-center text-green-two'}>Очное посещение
                                         мероприятия, активное участие</p>}
                             </div>
-                            <div onClick={() => {
+                            {event?.date=='11.11.2023'?<div className={'w-full lg:w-auto p-4 bg-zinc-400  text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>Запись закрыта</div>:<div onClick={() => {
                                 setIsConfirmPopOpen(true);
                                 if (event?.offlinePrice) {
                                     setCurrentPrice(needPrice?.offline);
                                 }
                                 setParticipationType('offline')
                             }}
-                                 className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                                        className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                                 Подтвердить участие
-                            </div>
+                            </div>}
                         </div>
                     </div>
                     {isConfirmPopOpen && event?.name && event?.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
