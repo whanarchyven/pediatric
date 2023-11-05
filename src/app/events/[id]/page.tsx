@@ -166,10 +166,13 @@ export default function Page({params}: any) {
 
     const [uuid, setUuid] = useState('')
 
+    const [isAdmin,setIsAdmin]=useState(false)
+
     useEffect(() => {
         eden.user.my.profile.get().then((res) => {
-            console.log(res?.data?.profile?.uuid)
+            console.log('SUKKAAA',res?.data)
             res?.data?.profile?.uuid&&setUuid(res?.data?.profile?.uuid)
+            setIsAdmin(res?.data?.isAdmin??false)
             if (res?.data?.profile?.uuid&&event?.id) {
                 eden.user.my.participation[event.id].get().then((res) => {
                     console.log(res.data)
@@ -497,7 +500,7 @@ export default function Page({params}: any) {
                                     <p className={'font-extralight text-xl text-center text-green-two'}>Очное посещение
                                         мероприятия, активное участие</p>}
                             </div>
-                            {event?.date=='11.11.2023'?<div className={'w-full lg:w-auto p-4 bg-zinc-400  text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>Запись закрыта</div>:<div onClick={() => {
+                            {event?.date=='11.11.2023'&&!isAdmin?<div className={'w-full lg:w-auto p-4 bg-zinc-400  text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>Запись закрыта</div>:<div onClick={() => {
                                 setIsConfirmPopOpen(true);
                                 if (event?.offlinePrice) {
                                     setCurrentPrice(needPrice?.offline);
