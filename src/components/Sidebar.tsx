@@ -61,6 +61,12 @@ const Sidebar = ({user_uuid,isCloseBurger}:sideBarInterface) => {
             link:'chat'
         },
         {
+            name:'Игра',
+            icon:'/games.svg',
+            iconWhite:'/games_white.svg',
+            link:'game'
+        },
+        {
             name:'Сменить пароль',
             icon:'/pages/account/sidebar/change_password.svg',
             iconWhite:'/pages/account/sidebar/white/change_password.svg',

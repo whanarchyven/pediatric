@@ -171,7 +171,11 @@ export default function Page({params}: any) {
     useEffect(() => {
         eden.user.my.profile.get().then((res) => {
             console.log('SUKKAAA',res?.data)
-            res?.data?.profile?.uuid&&setUuid(res?.data?.profile?.uuid)
+            if(res?.data?.profile?.uuid)
+            {
+                console.log('aasdasdasd',res?.data?.profile?.uuid)
+                setUuid(res.data.profile.uuid)
+            }
             setIsAdmin(res?.data?.isAdmin??false)
             if (res?.data?.profile?.uuid&&event?.id) {
                 eden.user.my.participation[event.id].get().then((res) => {
@@ -182,7 +186,7 @@ export default function Page({params}: any) {
                             setTicketLink(res.data.ticketLink)
                         }
                     }).catch(console.log);
-                }).catch(console.log)  
+                }).catch(console.log)
             }
         }).catch(e=>console.log(e))
     }, [event]);
@@ -193,6 +197,13 @@ export default function Page({params}: any) {
     useEffect(() => {
         setCurrentProgram(event?.halls[0])
     }, [event]);
+
+    const [currentStream,setCurrentStream]=useState('')
+
+    useEffect(() => {
+        setCurrentStream(event?.halls[0]?.streamLink)
+    }, [event]);
+
 
     return (
         <main className={'overflow-x-hidden'}>
@@ -565,7 +576,7 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-            {event?.isStream && event?.date == '07.10.2023' ?
+            {event?.date == '11.11.2023'&&uuid ?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div
@@ -577,10 +588,24 @@ export default function Page({params}: any) {
                                   className={'uppercase font-extralight text-black lg:text-left text-center text-left text-2xl lg:text-4xl'}>Онлайн-трансляция <strong
                             className={'font-extrabold'}>мероприятия</strong></motion.p>
                     </div>
-
+                    <div className={'flex mt-20 items-center sm:justify-center sm:overflow-x-hidden overflow-x-scroll max-w-full gap-7 sm:gap-16'}>
+                        {event?.halls.map((hall, counter) => {
+                            return (
+                                <div key={counter} onClick={() => {
+                                    setCurrentStream(hall?.streamLink)
+                                }}
+                                     className={classList('flex cursor-pointer items-center whitespace-nowrap xl:text-2xl font-bold justify-center', currentStream== hall?.streamLink ? 'border-b-2 border-green-two text-green-two' : 'text-black')}>
+                                    {hall.name}
+                                </div>
+                            )
+                        })
+                        }
+                    </div>
+                    {/*?sr=6227&type_id=&width=1280&height=720&iframe_width=1280&iframe_height=720&lang=ru*/}
+                    {/*?sr=6227&type_id=&width=320&height=240&iframe_width=320&iframe_height=240&lang=ru*/}
                     <div className={'lg:flex items-center hidden my-12 justify-center'}>
                         <iframe width="1280" height="720"
-                                src="https://www.youtube.com/embed/n6v4RRVKa6I?si=Da8QRwG5Gr2Y8FnL&controls=0"
+                                src={currentStream+'?sr=6227&type_id=&width=1280&height=720&iframe_width=1280&iframe_height=720&lang=ru'}
                                 title="II НПК «Путь детской дерматологии: от истоков к перспективам"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -588,38 +613,14 @@ export default function Page({params}: any) {
                     </div>
 
                     <div className={'lg:hidden items-center flex my-12 justify-center'}>
-                        <iframe width="100%" height="400"
-                                src="https://www.youtube.com/embed/n6v4RRVKa6I?si=Da8QRwG5Gr2Y8FnL&controls=0"
+                        <iframe width="320" height="240"
+                                src={currentStream+'?sr=6227&type_id=&width=320&height=240&iframe_width=320&iframe_height=240&lang=ru'}
                                 title="II НПК «Путь детской дерматологии: от истоков к перспективам"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowFullScreen></iframe>
                     </div>
 
-                    <div
-                        className={classList('grid grid-cols-1 gap-9 mt-10', event?.prices ? 'lg:flex lg:justify-center' : 'lg:grid-cols-2')}>
-                        {event?.prices ? <div className={'flex flex-col items-center gap-8'}>
-                            <div
-                                className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
-                                <div className={'flex items-center gap-3'}>
-                                    <img className={'w-7 aspect-square'} src={'/online.svg'}/>
-                                    <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
-                                </div>
-                                <p className={'text-3xl lg:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
-                                <p className={'font-extralight text-xl text-center text-white'}>Доступ к
-                                    онлайн-трансляции в
-                                    день мероприятия</p>
-                            </div>
-                            <div onClick={() => {
-                                setIsConfirmPopOpen(true);
-                                setCurrentPrice(0);
-                                setParticipationType('online-free')
-                            }}
-                                 className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
-                                Подтвердить участие
-                            </div>
-                        </div> : null}
-                    </div>
 
                     {isConfirmPopOpen && event.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
                         {
