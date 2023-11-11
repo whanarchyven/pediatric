@@ -577,7 +577,7 @@ export default function Page({params}: any) {
 
 
             {event?.date == '11.11.2023' ?
-                <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] '}>
+                <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[90px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div
                         className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-center'}>
@@ -603,7 +603,7 @@ export default function Page({params}: any) {
                     </div>
                     {/*?sr=6227&type_id=&width=1280&height=720&iframe_width=1280&iframe_height=720&lang=ru*/}
                     {/*?sr=6227&type_id=&width=320&height=240&iframe_width=320&iframe_height=240&lang=ru*/}
-                    <div className={'lg:flex items-center hidden my-12 justify-center'}>
+                    <div className={'lg:flex items-center min-w-[1280px] hidden my-12 justify-center'}>
                         <iframe width="1280" height="720"
                                 src={currentStream+'?sr=6227&type_id=&width=1280&height=720&iframe_width=1280&iframe_height=720&lang=ru'}
                                 title="II НПК «Путь детской дерматологии: от истоков к перспективам"
@@ -612,7 +612,7 @@ export default function Page({params}: any) {
                                 allowFullScreen></iframe>
                     </div>
 
-                    <div className={'lg:hidden items-center flex my-12 justify-center'}>
+                    <div className={'lg:hidden items-center  flex my-12 justify-center'}>
                         <iframe width="320" height="240"
                                 src={currentStream+'?sr=6227&type_id=&width=320&height=240&iframe_width=320&iframe_height=240&lang=ru'}
                                 title="II НПК «Путь детской дерматологии: от истоков к перспективам"
