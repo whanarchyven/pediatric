@@ -576,103 +576,103 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-            {event?.date == '11.11.2023' ?
-                <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[90px] '}>
-                    <div id={'form'} className={'absolute -top-40'}></div>
-                    <div
-                        className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-center'}>
-                        <motion.p initial={{y: -40, opacity: 0}}
-                                  whileInView={{y: 0, opacity: 1}}
-                                  viewport={{once: true}}
-                                  transition={{ease: 'easeInOut', duration: 0.7}}
-                                  className={'uppercase font-extralight text-black lg:text-left text-center text-left text-2xl lg:text-4xl'}>Онлайн-трансляция <strong
-                            className={'font-extrabold'}>мероприятия</strong></motion.p>
-                    </div>
-                    <div className={'flex mt-20 items-center sm:justify-center sm:overflow-x-hidden overflow-x-scroll max-w-full gap-7 sm:gap-16'}>
-                        {event?.halls.map((hall, counter) => {
-                            return (
-                                <div key={counter} onClick={() => {
-                                    setCurrentStream(hall?.streamLink)
-                                }}
-                                     className={classList('flex cursor-pointer items-center whitespace-nowrap xl:text-2xl font-bold justify-center', currentStream== hall?.streamLink ? 'border-b-2 border-green-two text-green-two' : 'text-black')}>
-                                    {hall.name}
-                                </div>
-                            )
-                        })
-                        }
-                    </div>
-                    {/*?sr=6227&type_id=&width=1280&height=720&iframe_width=1280&iframe_height=720&lang=ru*/}
-                    {/*?sr=6227&type_id=&width=320&height=240&iframe_width=320&iframe_height=240&lang=ru*/}
-                    <div className={'lg:flex items-center min-w-[1280px] hidden my-12 justify-center'}>
-                        <iframe width="1280" height="720"
-                                src={currentStream+'?sr=6227&type_id=&width=1280&height=720&iframe_width=1280&iframe_height=720&lang=ru'}
-                                title="II НПК «Путь детской дерматологии: от истоков к перспективам"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen></iframe>
-                    </div>
+            {/*{event?.date == '11.11.2023' ?*/}
+            {/*    <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[90px] '}>*/}
+            {/*        <div id={'form'} className={'absolute -top-40'}></div>*/}
+            {/*        <div*/}
+            {/*            className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-center'}>*/}
+            {/*            <motion.p initial={{y: -40, opacity: 0}}*/}
+            {/*                      whileInView={{y: 0, opacity: 1}}*/}
+            {/*                      viewport={{once: true}}*/}
+            {/*                      transition={{ease: 'easeInOut', duration: 0.7}}*/}
+            {/*                      className={'uppercase font-extralight text-black lg:text-left text-center text-left text-2xl lg:text-4xl'}>Онлайн-трансляция <strong*/}
+            {/*                className={'font-extrabold'}>мероприятия</strong></motion.p>*/}
+            {/*        </div>*/}
+            {/*        <div className={'flex mt-20 items-center sm:justify-center sm:overflow-x-hidden overflow-x-scroll max-w-full gap-7 sm:gap-16'}>*/}
+            {/*            {event?.halls.map((hall, counter) => {*/}
+            {/*                return (*/}
+            {/*                    <div key={counter} onClick={() => {*/}
+            {/*                        setCurrentStream(hall?.streamLink)*/}
+            {/*                    }}*/}
+            {/*                         className={classList('flex cursor-pointer items-center whitespace-nowrap xl:text-2xl font-bold justify-center', currentStream== hall?.streamLink ? 'border-b-2 border-green-two text-green-two' : 'text-black')}>*/}
+            {/*                        {hall.name}*/}
+            {/*                    </div>*/}
+            {/*                )*/}
+            {/*            })*/}
+            {/*            }*/}
+            {/*        </div>*/}
+            {/*        /!*?sr=6227&type_id=&width=1280&height=720&iframe_width=1280&iframe_height=720&lang=ru*!/*/}
+            {/*        /!*?sr=6227&type_id=&width=320&height=240&iframe_width=320&iframe_height=240&lang=ru*!/*/}
+            {/*        <div className={'lg:flex items-center min-w-[1280px] hidden my-12 justify-center'}>*/}
+            {/*            <iframe width="1280" height="720"*/}
+            {/*                    src={currentStream+'?sr=6227&type_id=&width=1280&height=720&iframe_width=1280&iframe_height=720&lang=ru'}*/}
+            {/*                    title="II НПК «Путь детской дерматологии: от истоков к перспективам"*/}
+            {/*                    frameBorder="0"*/}
+            {/*                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"*/}
+            {/*                    allowFullScreen></iframe>*/}
+            {/*        </div>*/}
 
-                    <div className={'lg:hidden items-center  flex my-12 justify-center'}>
-                        <iframe width="320" height="240"
-                                src={currentStream+'?sr=6227&type_id=&width=320&height=240&iframe_width=320&iframe_height=240&lang=ru'}
-                                title="II НПК «Путь детской дерматологии: от истоков к перспективам"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen></iframe>
-                    </div>
+            {/*        <div className={'lg:hidden items-center  flex my-12 justify-center'}>*/}
+            {/*            <iframe width="320" height="240"*/}
+            {/*                    src={currentStream+'?sr=6227&type_id=&width=320&height=240&iframe_width=320&iframe_height=240&lang=ru'}*/}
+            {/*                    title="II НПК «Путь детской дерматологии: от истоков к перспективам"*/}
+            {/*                    frameBorder="0"*/}
+            {/*                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"*/}
+            {/*                    allowFullScreen></iframe>*/}
+            {/*        </div>*/}
 
 
-                    {isConfirmPopOpen && event.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
-                        {
-                            setIsConfirmPopOpen(false)
-                        }
-                    }}>
-                        <ConfirmForm layotBg={event.layoutBg} query={query} participationType={participationType} closeFunc={() => {
-                            setIsConfirmPopOpen(false)
-                        }} price={currentPrice} event_id={event?.id} event_name={event?.name}></ConfirmForm>
-                    </PopUp> : null}
+            {/*        {isConfirmPopOpen && event.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {*/}
+            {/*            {*/}
+            {/*                setIsConfirmPopOpen(false)*/}
+            {/*            }*/}
+            {/*        }}>*/}
+            {/*            <ConfirmForm layotBg={event.layoutBg} query={query} participationType={participationType} closeFunc={() => {*/}
+            {/*                setIsConfirmPopOpen(false)*/}
+            {/*            }} price={currentPrice} event_id={event?.id} event_name={event?.name}></ConfirmForm>*/}
+            {/*        </PopUp> : null}*/}
 
-                    {isPopPriceOpen ? <PopUp icon={'/price.svg'} closeFunc={() => {
-                        {
-                            setIsPopPriceOpen(false)
-                        }
-                    }}>
-                        <div className={'flex gap-4 h-full flex-col'}>
-                            <p className={'text-[#0F5F5A] text-2xl lg:text-4xl font-light'}>ГРАФИК <br/> <span
-                                className={'font-extrabold'}>СТОИМОСТИ</span></p>
-                            <div className={'grid p-2 w-full grid-cols-2'}>
-                                <div className={'text-[#0F5F5A] font-light flex items-center '}>
-                                    Дата
-                                </div>
-                                <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
-                                    <p className={'text-[#0F5F5A] font-light'}>Стоимость</p>
-                                </div>
-                            </div>
-                            {event?.prices?.map((item: any, counter: any) => {
-                                return (
-                                    <div key={counter}
-                                         className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-2'}>
-                                        <div className={'text-[#0F5F5A] font-light flex items-center '}>
-                                            до {item.date}
-                                        </div>
-                                        <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
-                                            <p className={'text-[#0F5F5A] font-light'}>{item.offline} рублей</p>
-                                        </div>
-                                    </div>
-                                )
-                            })}
+            {/*        {isPopPriceOpen ? <PopUp icon={'/price.svg'} closeFunc={() => {*/}
+            {/*            {*/}
+            {/*                setIsPopPriceOpen(false)*/}
+            {/*            }*/}
+            {/*        }}>*/}
+            {/*            <div className={'flex gap-4 h-full flex-col'}>*/}
+            {/*                <p className={'text-[#0F5F5A] text-2xl lg:text-4xl font-light'}>ГРАФИК <br/> <span*/}
+            {/*                    className={'font-extrabold'}>СТОИМОСТИ</span></p>*/}
+            {/*                <div className={'grid p-2 w-full grid-cols-2'}>*/}
+            {/*                    <div className={'text-[#0F5F5A] font-light flex items-center '}>*/}
+            {/*                        Дата*/}
+            {/*                    </div>*/}
+            {/*                    <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>*/}
+            {/*                        <p className={'text-[#0F5F5A] font-light'}>Стоимость</p>*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*                {event?.prices?.map((item: any, counter: any) => {*/}
+            {/*                    return (*/}
+            {/*                        <div key={counter}*/}
+            {/*                             className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-2'}>*/}
+            {/*                            <div className={'text-[#0F5F5A] font-light flex items-center '}>*/}
+            {/*                                до {item.date}*/}
+            {/*                            </div>*/}
+            {/*                            <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>*/}
+            {/*                                <p className={'text-[#0F5F5A] font-light'}>{item.offline} рублей</p>*/}
+            {/*                            </div>*/}
+            {/*                        </div>*/}
+            {/*                    )*/}
+            {/*                })}*/}
 
-                            <div className={'w-full grid grid-cols-2 gap-3'}>
-                                <div onClick={() => {
-                                    setIsPopPriceOpen(false)
-                                }}
-                                     className={'p-4 cursor-pointer bg-green-two text-white text-sm font-light rounded-xl flex items-center justify-center'}>Вернуться
-                                    к мероприятию
-                                </div>
-                            </div>
-                        </div>
-                    </PopUp> : null}
-                </div> : null}
+            {/*                <div className={'w-full grid grid-cols-2 gap-3'}>*/}
+            {/*                    <div onClick={() => {*/}
+            {/*                        setIsPopPriceOpen(false)*/}
+            {/*                    }}*/}
+            {/*                         className={'p-4 cursor-pointer bg-green-two text-white text-sm font-light rounded-xl flex items-center justify-center'}>Вернуться*/}
+            {/*                        к мероприятию*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*            </div>*/}
+            {/*        </PopUp> : null}*/}
+            {/*    </div> : null}*/}
 
             <div className={'my-12 flex flex-col'}>
                 {event?.date == '11.11.2023'||event?.date == '2023-11-11' ?
