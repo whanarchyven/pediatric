@@ -113,7 +113,6 @@ export default function Home(params: { params: { id: string } }) {
               }}>
                 <option value={'offline'} selected={d?.info?.participationType=='оффлайн'||d?.info?.participationType=='очное участие'}>очное участие</option>
                 <option value={'online'} selected={d?.info?.participationType=='онлайн'}>онлайн</option>
-                <option value={'online-free'} selected={d?.info?.participationType=='онлайн(свободное)'}>онлайн(свободное)</option>
               </select>
             </div>
             <div className={'bg-green rounded-lg p-2 text-xs text-white cursor-pointer flex items-center justify-center'} onClick={async ()=>{
