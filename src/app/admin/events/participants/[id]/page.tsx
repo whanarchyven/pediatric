@@ -11,6 +11,7 @@ import validator from "@rjsf/validator-ajv8";
 import Form from "@rjsf/core";
 import Link from "next/link";
 import Loading from "@/components/Loading";
+import {classList} from "@/helpers/classList";
 
 // import required modules
 
@@ -101,8 +102,9 @@ export default function Home(params: { params: { id: string } }) {
           
           <div className="mt-10">
           {data.filter(p=>p.status==="finished").map((d,i)=><div className="grid grid-cols-12 gap-4 items-center my-5 justify-center" key={i}>
-            <span className="text-xs">{d?.info?.participationType}</span> 
-            <span className="col-span-3">{d?.info?.name}</span>
+            <span className={classList("text-xs",d?.sum!=0?'font-bold':'')}>{d?.sum==0?'онлайн (свободное)':''}{d?.info.participationType=='онлайн'&&d?.sum!=0?`онлайн (платное)`:''}{d?.info.participationType=='очное участие'?'очное участие':''}</span>
+            <span className={classList("col-span-1",d?.sum!=0?'font-bold':'')}>{d?.sum}</span>
+            <span className="col-span-2">{d?.info?.name}</span>
             <span className="col-span-3"> {d.email}</span>
             <div className={'col-span-2'}><a className="underline cursor-pointer text-xs" href={(d.info?.event_id&&d.email)&&certLink(d?.email, d.info?.event_id)} target="_blank" rel={"noreferer"}>{d.cert?"Сертификат":"Выпуск сертификата"}</a></div>
             <div className={'col-span-2'}>
