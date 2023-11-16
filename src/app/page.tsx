@@ -37,6 +37,7 @@ import News from "@/components/News";
 import CountUp from "react-countup";
 import {classList} from "@/helpers/classList";
 import Partners from "@/components/Partners";
+import BuyBookForm from "@/components/BuyBookForm";
 
 
 export default function Home() {
@@ -82,6 +83,8 @@ export default function Home() {
             image: '/pages/main/events/shar.png',
         }
     ]
+    
+    const [isBuyBookFormOpen,setBuyBookFormOpen]=useState(false)
 
     const faq = [
         {
@@ -588,6 +591,69 @@ export default function Home() {
 
 
             {/*FEATURES*/}
+
+            {isBuyBookFormOpen?<div className={'w-screen h-screen bg-black bg-opacity-30 fixed top-0 left-0 z-[9999] backdrop-blur-sm flex justify-center items-center'}>
+                <div className={'flex flex-col w-full xl:w-2/3 bg-white rounded-lg p-8 max-h-screen relative'}>
+                    <img onClick={()=>{setBuyBookFormOpen(false)}} className={'absolute right-5 top-5 cursor-pointer w-8   aspect-square'} src={'/close_black.svg'}/>
+                    <BuyBookForm closeFunc={()=>{}} price={3950} event_id={'book'} event_name={'Покупка книги'} participationType={'offline'}/>
+                </div>
+            </div>:null}
+
+            <div className={'lg:px-[140px] px-[20px] bg-white py-12 lg:py-14'}>
+                <div className={'grid grid-cols-1 sm:grid-cols-12 gap-10'}>
+                    <div className={'sm:col-span-6 flex flex-col items-start sm:items-start gap-10'}>
+                        <motion.p initial={{y: -40, opacity: 0}}
+                                  whileInView={{y: 0, opacity: 1}}
+                                  viewport={{once: true}}
+                                  transition={{ease: 'easeInOut', duration: 0.7}}
+                                  className={'text-4xl font-extralight text-left text-black'}>ПСОРИАЗ<br/><span
+                            className={'font-extrabold'}>У ДЕТЕЙ</span></motion.p>
+                        <motion.div initial={{x: -40, opacity: 0}}
+                                    whileInView={{x: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}}
+                                    className={'flex items-start gap-6'}>
+                            <p className={'text-sm lg:text-lg leading-[100%]'}>В книге отражены
+                                современные представления об эпидемиологии и классификации псориаза,
+                                приведены
+                                подробные сведения об этиологии, иммунопатогенезе и клинической картине
+                                заболевания, учитывая особенности детского возраста. Подробно описаны
+                                коморбидные состояния и возможные сопутствующие аутоиммунные заболевания,
+                                влияющие на течение болезни и выбор терапевтической тактики у детей. <br/><br/> Отдельное
+                                внимание уделено пустулезной форме псориаза и CARD14-ассоциированным
+                                папуло-сквамозным поражениям кожи. С учетом последних данных мировой
+                                литературы, а также собственного опыта и наблюдений изложена информация о
+                                наружной и системной терапии псориаза в детском возрасте с детальным разбором
+                                возможности применения каждого из средств в зависимости от определенной
+                                клинической ситуации, в том числе в случае парадоксального псориаза.
+                                <br/><br/>Дополнительно рассмотрены возможности физиотерапии и диетотерапии у детей,
+                                страдающих псориазом, а также роль психолого-педагогическое сопровождения при
+                                ведении пациентов.
+                                Издание
+                                предназначено врачам-дерматовенерологам, педиатрам, ревматологам и врачам
+                                общей
+                                практики.
+                            </p>
+                        </motion.div>
+
+                        <motion.div onClick={()=>{setBuyBookFormOpen(true)}} initial={{y: -40, opacity: 0}}
+                                    whileInView={{y: 0, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}}
+                                    className={'bg-[#58BBB4] w-full font-normal cursor-pointer rounded-lg text-xl text-white flex items-center justify-center sm:w-72 w-full  py-5'}>Купить книгу</motion.div>
+                    </div>
+                    <div className={'sm:col-span-4 flex justify-center relative sm:col-end-13'}>
+                        <motion.img initial={{scale: 0.8, opacity: 0}}
+                                    whileInView={{scale: 1, opacity: 1}}
+                                    viewport={{once: true}}
+                                    transition={{ease: 'easeInOut', duration: 0.7}} className={'rounded-lg lg:h-full object-contain h-96'}
+                                    src={`/book.png`}/>
+                        <div className={'absolute xl:w-72 w-32 h-12 xl:h-20 xl:text-3xl bg-green bottom-6 xl:bottom-32 xl:right-20 self-center rounded-full p-3 flex items-center justify-center font-bold uppercase text-white'}>
+                            3950 ₽
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div className={'lg:px-[140px] px-[20px] bg-white py-12 lg:py-14'}>
                 <div className={'grid grid-cols-1 sm:grid-cols-12 gap-10'}>

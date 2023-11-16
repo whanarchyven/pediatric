@@ -817,7 +817,7 @@ a[x-apple-data-detectors] {
                   <td align="left" style="padding:0;Margin:0;width:270px">
                    <table width="100%" cellspacing="0" cellpadding="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                      <tr>
-                      <td align="right" style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:33px;color:#333333;font-size:22px"><strong><span style="color:#58bbb4">+ 7 985 018 67 84</span><br>техническая поддержка</strong></p></td>
+                      <td align="right" style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:33px;color:#333333;font-size:22px"><strong><span style="color:#58bbb4">+ 7(926) 249-86-58</span><br>техническая поддержка</strong></p></td>
                      </tr>
                    </table></td>
                  </tr>
