@@ -24,7 +24,6 @@ import {eden, useEden} from "@/helpers/sdk";
 export default function Home() {
 
 
-
     const images = '/pages/account'
 
     const {data} = useEden(() => eden.user.my.profile.get())
@@ -39,11 +38,11 @@ export default function Home() {
         gender,
         specialty,
         birthDate,
-        photoUrl, education, about, interests, career, position, uuid, awards,joinAlice
+        photoUrl, education, about, interests, career, position, uuid, awards, joinAlice
     } = data?.profile ?? {} as any;
 
     const updateProfile = async () => {
-        eden.user[uuid].profile.post({uuid: uuid, email, joinAlice:true}).then((res) => {
+        eden.user[uuid].profile.post({uuid: uuid, email, joinAlice: true}).then((res) => {
             console.log(res)
             window.location.reload();
         })
@@ -51,6 +50,8 @@ export default function Home() {
     }
 
     console.log(data);
+
+    const router = useRouter()
 
     return (
         <main className={'p-2 lg:p-12 h-full'}>
@@ -69,6 +70,13 @@ export default function Home() {
                             className={'p-4 lg:px-12 cursor-pointer transition-all duration-300 bg-green border-green border-2 lg:w-60 flex justify-center items-center rounded-lg gap-2'}>
                             <p className={'text-white font-inter font-normal'}>Оставить заявку</p>
                         </div>}
+                        {email?.includes('mgogolev1991@gmail.com') ? <div onClick={async () => {
+                            eden.auth.login['alice-link'].get().then((res) => {
+                                router.push(res.data)
+                            })
+                        }}
+                                                   className={'p-4 lg:px-12 cursor-pointer transition-all duration-300 bg-green border-green border-2 lg:w-60 text-white flex justify-center items-center rounded-lg gap-2'}>Перейти
+                            в игру</div> : null}
                     </div>
                 </div>
             </div>
