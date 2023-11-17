@@ -168,6 +168,8 @@ export default function Page({params}: any) {
 
     const [isAdmin, setIsAdmin] = useState(false)
 
+    const [haveAccessToStream,setHaveAccessToStream]=useState(false)
+
     useEffect(() => {
         eden.user.my.profile.get().then((res) => {
             console.log('SUKKAAA', res?.data)
@@ -176,10 +178,15 @@ export default function Page({params}: any) {
                 setUuid(res.data.profile.uuid)
             }
             setIsAdmin(res?.data?.isAdmin ?? false)
+            console.log('PIDORPIDORPIDOR')
             if (res?.data?.profile?.uuid && event?.id) {
-                eden.user.my.participation[event.id].get().then((res) => {
-                    console.log(res.data)
-                    if (res.data?.info) setRegistration(res?.data)
+                eden.user.my.participations[event.id].get().then((res) => {
+                    console.log(res.data,'AUEEEEEEEEEEEEE')
+                    if (res.data[0]?.info) setRegistration(res?.data[0])
+                    if(res?.data?.find(item=>item.meta.participationType=='online')){
+                        console.log('bbbbbbbbbbbbbbbbbbb')
+                        setHaveAccessToStream(true)
+                    }
                     event?.id && eden.user.my.participation[event.id].getTicketLink.get().then((res) => {
                         if (res.data) {
                             setTicketLink(res.data.ticketLink)
@@ -431,7 +438,7 @@ export default function Page({params}: any) {
                         <div className={'grid grid-cols-1 lg:grid-cols-2 mt-10 lg:my-32 gap-10 lg:gap-32 items-start'}>
                             <div className={'flex flex-col gap-4'}>
                                 <p className={'lg:text-2xl uppercase font-black'}>Формат: <span
-                                    className={'font-light'}>{registration?.info?.participationType.replace('оффлайн', 'очное участие')}</span>
+                                    className={'font-light'}>{registration?.info?.participationType.replace('оффлайн', 'очное участие')} {haveAccessToStream?'+ запись трансляции':''}</span>
                                 </p>
                                 <p className={'lg:text-2xl uppercase font-black'}>Дата и время: <span
                                     className={'font-light'}>{event?.date} в {event?.timePeriod}</span></p>
@@ -450,27 +457,27 @@ export default function Page({params}: any) {
                         </div> : null}
                     <div
                         className={classList('grid grid-cols-1 gap-9 mt-10', event?.prices ? 'lg:grid-cols-3' : 'lg:grid-cols-2')}>
-                        {event?.prices ? <div className={'flex flex-col items-center gap-8'}>
-                            <div
-                                className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
-                                <div className={'flex items-center gap-3'}>
-                                    <img className={'w-7 aspect-square'} src={'/online.svg'}/>
-                                    <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
-                                </div>
-                                <p className={'text-3xl lg:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
-                                <p className={'font-extralight text-xl text-center text-white'}>Доступ к
-                                    онлайн-трансляции в день мероприятия</p>
-                            </div>
-                            <div onClick={() => {
-                                setIsConfirmPopOpen(true);
-                                setCurrentPrice(0);
-                                setParticipationType('online-free')
-                            }}
-                                 className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
-                                Подтвердить участие
-                            </div>
-                        </div> : null}
-                        <div className={'flex flex-col items-center gap-8'}>
+                        {/*{event?.prices ? <div className={'flex flex-col items-center gap-8'}>*/}
+                        {/*    <div*/}
+                        {/*        className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>*/}
+                        {/*        <div className={'flex items-center gap-3'}>*/}
+                        {/*            <img className={'w-7 aspect-square'} src={'/online.svg'}/>*/}
+                        {/*            <p className={'font-extralight text-3xl text-white'}>Онлайн</p>*/}
+                        {/*        </div>*/}
+                        {/*        <p className={'text-3xl lg:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>*/}
+                        {/*        <p className={'font-extralight text-xl text-center text-white'}>Доступ к*/}
+                        {/*            онлайн-трансляции в день мероприятия</p>*/}
+                        {/*    </div>*/}
+                        {/*    <div onClick={() => {*/}
+                        {/*        setIsConfirmPopOpen(true);*/}
+                        {/*        setCurrentPrice(0);*/}
+                        {/*        setParticipationType('online-free')*/}
+                        {/*    }}*/}
+                        {/*         className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>*/}
+                        {/*        Подтвердить участие*/}
+                        {/*    </div>*/}
+                        {/*</div> : null}*/}
+                        <div className={'flex flex-col col-start-2 items-center gap-8'}>
                             <div
                                 className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
                                 <div className={'flex items-center gap-3'}>
@@ -494,39 +501,39 @@ export default function Page({params}: any) {
                                 Подтвердить участие
                             </div>
                         </div>
-                        <div className={'flex flex-col items-center gap-8'}>
-                            <div
-                                className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>
-                                <div className={'flex items-center gap-3'}>
-                                    <img className={'w-7 aspect-square'} src={'/offline.svg'}/>
-                                    <p className={'font-extralight text-3xl text-green-two'}>Очное участие</p>
-                                </div>
+                        {/*<div className={'flex flex-col items-center gap-8'}>*/}
+                        {/*    <div*/}
+                        {/*        className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>*/}
+                        {/*        <div className={'flex items-center gap-3'}>*/}
+                        {/*            <img className={'w-7 aspect-square'} src={'/offline.svg'}/>*/}
+                        {/*            <p className={'font-extralight text-3xl text-green-two'}>Очное участие</p>*/}
+                        {/*        </div>*/}
 
-                                <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{event?.offlinePrice ? needPrice?.offline + ' руб.' : 'БЕСПЛАТНО'}</p>
-                                {event?.prices ?
-                                    <p className={'font-extralight text-xl text-center text-green-two'}>Цена действует
-                                        до <br/>
-                                        {needPrice?.date}</p> : null}
-                                {event?.prices ? <p onClick={() => {
-                                        setIsPopPriceOpen(true)
-                                    }} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график
-                                        цен</p> :
-                                    <p className={'font-extralight text-xl text-center text-green-two'}>Очное посещение
-                                        мероприятия, активное участие</p>}
-                            </div>
-                            {event?.date == '11.11.2023' && !isAdmin ? <div
-                                className={'w-full lg:w-auto p-4 bg-zinc-400  text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>Запись
-                                закрыта</div> : <div onClick={() => {
-                                setIsConfirmPopOpen(true);
-                                if (event?.offlinePrice) {
-                                    setCurrentPrice(needPrice?.offline);
-                                }
-                                setParticipationType('offline')
-                            }}
-                                                     className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
-                                Подтвердить участие
-                            </div>}
-                        </div>
+                        {/*        <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{event?.offlinePrice ? needPrice?.offline + ' руб.' : 'БЕСПЛАТНО'}</p>*/}
+                        {/*        {event?.prices ?*/}
+                        {/*            <p className={'font-extralight text-xl text-center text-green-two'}>Цена действует*/}
+                        {/*                до <br/>*/}
+                        {/*                {needPrice?.date}</p> : null}*/}
+                        {/*        {event?.prices ? <p onClick={() => {*/}
+                        {/*                setIsPopPriceOpen(true)*/}
+                        {/*            }} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график*/}
+                        {/*                цен</p> :*/}
+                        {/*            <p className={'font-extralight text-xl text-center text-green-two'}>Очное посещение*/}
+                        {/*                мероприятия, активное участие</p>}*/}
+                        {/*    </div>*/}
+                        {/*    {event?.date == '11.11.2023' && !isAdmin ? <div*/}
+                        {/*        className={'w-full lg:w-auto p-4 bg-zinc-400  text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>Запись*/}
+                        {/*        закрыта</div> : <div onClick={() => {*/}
+                        {/*        setIsConfirmPopOpen(true);*/}
+                        {/*        if (event?.offlinePrice) {*/}
+                        {/*            setCurrentPrice(needPrice?.offline);*/}
+                        {/*        }*/}
+                        {/*        setParticipationType('offline')*/}
+                        {/*    }}*/}
+                        {/*                             className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>*/}
+                        {/*        Подтвердить участие*/}
+                        {/*    </div>}*/}
+                        {/*</div>*/}
                     </div>
                     {isConfirmPopOpen && event?.name && event?.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
                         {
@@ -583,7 +590,7 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-            {event?.date == '11.11.2023' && registration?.sum > 0&&registration?.info?.participationType=='онлайн'  ?
+            {event?.date == '11.11.2023' && haveAccessToStream  ?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[90px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div
