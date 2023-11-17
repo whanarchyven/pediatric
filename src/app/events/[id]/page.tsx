@@ -166,29 +166,28 @@ export default function Page({params}: any) {
 
     const [uuid, setUuid] = useState('')
 
-    const [isAdmin,setIsAdmin]=useState(false)
+    const [isAdmin, setIsAdmin] = useState(false)
 
     useEffect(() => {
         eden.user.my.profile.get().then((res) => {
-            console.log('SUKKAAA',res?.data)
-            if(res?.data?.profile?.uuid)
-            {
-                console.log('aasdasdasd',res?.data?.profile?.uuid)
+            console.log('SUKKAAA', res?.data)
+            if (res?.data?.profile?.uuid) {
+                console.log('aasdasdasd', res?.data?.profile?.uuid)
                 setUuid(res.data.profile.uuid)
             }
-            setIsAdmin(res?.data?.isAdmin??false)
-            if (res?.data?.profile?.uuid&&event?.id) {
+            setIsAdmin(res?.data?.isAdmin ?? false)
+            if (res?.data?.profile?.uuid && event?.id) {
                 eden.user.my.participation[event.id].get().then((res) => {
                     console.log(res.data)
                     if (res.data?.info) setRegistration(res?.data)
-                    event?.id&&eden.user.my.participation[event.id].getTicketLink.get().then((res) => {
-                        if(res.data){
+                    event?.id && eden.user.my.participation[event.id].getTicketLink.get().then((res) => {
+                        if (res.data) {
                             setTicketLink(res.data.ticketLink)
                         }
                     }).catch(console.log);
                 }).catch(console.log)
             }
-        }).catch(e=>console.log(e))
+        }).catch(e => console.log(e))
     }, [event]);
 
 
@@ -198,12 +197,13 @@ export default function Page({params}: any) {
         setCurrentProgram(event?.halls[0])
     }, [event]);
 
-    const [currentStream,setCurrentStream]=useState('')
+    const [currentStream, setCurrentStream] = useState('')
 
     useEffect(() => {
         setCurrentStream(event?.halls[0]?.streamLink)
     }, [event]);
 
+    console.log(registration,'ASFSAFFASFAFSSA')
 
     return (
         <main className={'overflow-x-hidden'}>
@@ -243,7 +243,8 @@ export default function Page({params}: any) {
                             </div>
                             <div className={'flex items-center gap-2'}>
                                 <img className={'w-6 aspect-square'} src={`${images}/placemark.svg`}/>
-                                <p className={'text-white text-lg'}><strong>Формат: </strong> {event?.format.replace('офлайн','очное участие')}</p>
+                                <p className={'text-white text-lg'}>
+                                    <strong>Формат: </strong> {event?.format.replace('офлайн', 'очное участие')}</p>
                             </div>
                             <div className={'flex items-center gap-2'}>
                                 <img className={'w-6 aspect-square'} src={`${images}/placemark.svg`}/>
@@ -283,14 +284,15 @@ export default function Page({params}: any) {
                     </p> : null}
                 </div>
             </div>
-            {event?.speakers?<div
-            className={'relative green-gradient overflow-hidden px-[20px] pt-12 sm:h-[900px] flex flex-col items-start sm:pl-[70px] sm:px-[140px]'}>
-            <img className={'absolute asset w-full z-50 left-0 top-[-0.5px] sm:top-0'} src={'/about_us_offset_top.png'}/>
-            <p className={'text-xl sm:text-5xl sm:px-0 px-[20px] sm:absolute sm:top-[140px] sm:left-[195px] uppercase font-extralight text-white'}>Спикеры <span
-                className={'font-extrabold'}>Конференции</span></p>
-            <SpeakersSlider speakers={event?.speakers}></SpeakersSlider>
-            <img className={'absolute w-full asset left-0 z-50 bottom-[-0.5px]'} src={'/about_us_offset_bot.png'}/>
-        </div>:null}
+            {event?.speakers ? <div
+                className={'relative green-gradient overflow-hidden px-[20px] pt-12 sm:h-[900px] flex flex-col items-start sm:pl-[70px] sm:px-[140px]'}>
+                <img className={'absolute asset w-full z-50 left-0 top-[-0.5px] sm:top-0'}
+                     src={'/about_us_offset_top.png'}/>
+                <p className={'text-xl sm:text-5xl sm:px-0 px-[20px] sm:absolute sm:top-[140px] sm:left-[195px] uppercase font-extralight text-white'}>Спикеры <span
+                    className={'font-extrabold'}>Конференции</span></p>
+                <SpeakersSlider speakers={event?.speakers}></SpeakersSlider>
+                <img className={'absolute w-full asset left-0 z-50 bottom-[-0.5px]'} src={'/about_us_offset_bot.png'}/>
+            </div> : null}
 
             {currentProgram ? <div className={'bg-white py-12 px-[20px] lg:px-[140px]'}>
                 <p className={'uppercase font-extralight text-2xl lg:text-5xl text-black'}>Программа
@@ -374,14 +376,14 @@ export default function Page({params}: any) {
             </div> : null}
 
 
-            {event?.date == '11.11.2023'||event?.date == '2023-11-11' ?
+            {event?.date == '11.11.2023' || event?.date == '2023-11-11' ?
                 <div className={'my-40 flex px-[20px] lg:px-[140px] items-center flex-col gap-12'}>
                     <motion.p initial={{y: -40, opacity: 0}}
                               whileInView={{y: 0, opacity: 1}}
                               viewport={{once: true}}
                               transition={{ease: 'easeInOut', duration: 0.7}}
                               className={'uppercase font-extralight text-black lg:text-left text-center lg:text-2xl lg:text-4xl'}>Партнёры <strong
-                            className={'font-extrabold'}>Конференции</strong></motion.p>
+                        className={'font-extrabold'}>Конференции</strong></motion.p>
                     <Partners11></Partners11>
                 </div> : null}
 
@@ -412,10 +414,10 @@ export default function Page({params}: any) {
                     <div
                         className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-center'}>
                         {registration ? <motion.p initial={{y: -40, opacity: 0}}
-                                                           whileInView={{y: 0, opacity: 1}}
-                                                           viewport={{once: true}}
-                                                           transition={{ease: 'easeInOut', duration: 0.7}}
-                                                           className={'uppercase font-extralight text-black lg:text-left text-center lg:text-2xl lg:text-4xl'}>Ваш
+                                                  whileInView={{y: 0, opacity: 1}}
+                                                  viewport={{once: true}}
+                                                  transition={{ease: 'easeInOut', duration: 0.7}}
+                                                  className={'uppercase font-extralight text-black lg:text-left text-center lg:text-2xl lg:text-4xl'}>Ваш
                                 приобретённый <strong
                                     className={'font-extrabold'}>Пакет Участия</strong></motion.p> :
                             <motion.p initial={{y: -40, opacity: 0}}
@@ -425,11 +427,12 @@ export default function Page({params}: any) {
                                       className={'uppercase font-extralight text-black lg:text-left text-left text-2xl lg:text-4xl'}>Стоимость <strong
                                 className={'font-extrabold'}>Участия</strong></motion.p>}
                     </div>
-                    {registration?
+                    {registration ?
                         <div className={'grid grid-cols-1 lg:grid-cols-2 mt-10 lg:my-32 gap-10 lg:gap-32 items-start'}>
                             <div className={'flex flex-col gap-4'}>
                                 <p className={'lg:text-2xl uppercase font-black'}>Формат: <span
-                                    className={'font-light'}>{registration?.info?.participationType.replace('оффлайн','очное участие')}</span></p>
+                                    className={'font-light'}>{registration?.info?.participationType.replace('оффлайн', 'очное участие')}</span>
+                                </p>
                                 <p className={'lg:text-2xl uppercase font-black'}>Дата и время: <span
                                     className={'font-light'}>{event?.date} в {event?.timePeriod}</span></p>
                                 <p className={'lg:text-2xl uppercase font-black'}>Место: <span
@@ -511,14 +514,16 @@ export default function Page({params}: any) {
                                     <p className={'font-extralight text-xl text-center text-green-two'}>Очное посещение
                                         мероприятия, активное участие</p>}
                             </div>
-                            {event?.date=='11.11.2023'&&!isAdmin?<div className={'w-full lg:w-auto p-4 bg-zinc-400  text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>Запись закрыта</div>:<div onClick={() => {
+                            {event?.date == '11.11.2023' && !isAdmin ? <div
+                                className={'w-full lg:w-auto p-4 bg-zinc-400  text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>Запись
+                                закрыта</div> : <div onClick={() => {
                                 setIsConfirmPopOpen(true);
                                 if (event?.offlinePrice) {
                                     setCurrentPrice(needPrice?.offline);
                                 }
                                 setParticipationType('offline')
                             }}
-                                        className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                                                     className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                                 Подтвердить участие
                             </div>}
                         </div>
@@ -528,9 +533,11 @@ export default function Page({params}: any) {
                             setIsConfirmPopOpen(false)
                         }
                     }}>
-                        <ConfirmForm layotBg={event.layoutBg} query={query} participationType={participationType} closeFunc={() => {
-                            setIsConfirmPopOpen(false)
-                        }} price={currentPrice} event_id={event?.id} event_name={event?.name}></ConfirmForm>
+                        <ConfirmForm layotBg={event.layoutBg} query={query} participationType={participationType}
+                                     closeFunc={() => {
+                                         setIsConfirmPopOpen(false)
+                                     }} price={currentPrice} event_id={event?.id}
+                                     event_name={event?.name}></ConfirmForm>
                     </PopUp> : null}
 
                     {isPopPriceOpen ? <PopUp icon={'/price.svg'} closeFunc={() => {
@@ -576,110 +583,118 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-            {/*{event?.date == '11.11.2023' ?*/}
-            {/*    <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[90px] '}>*/}
-            {/*        <div id={'form'} className={'absolute -top-40'}></div>*/}
-            {/*        <div*/}
-            {/*            className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-center'}>*/}
-            {/*            <motion.p initial={{y: -40, opacity: 0}}*/}
-            {/*                      whileInView={{y: 0, opacity: 1}}*/}
-            {/*                      viewport={{once: true}}*/}
-            {/*                      transition={{ease: 'easeInOut', duration: 0.7}}*/}
-            {/*                      className={'uppercase font-extralight text-black lg:text-left text-center text-left text-2xl lg:text-4xl'}>Онлайн-трансляция <strong*/}
-            {/*                className={'font-extrabold'}>мероприятия</strong></motion.p>*/}
-            {/*        </div>*/}
-            {/*        <div className={'flex mt-20 items-center sm:justify-center sm:overflow-x-hidden overflow-x-scroll max-w-full gap-7 sm:gap-16'}>*/}
-            {/*            {event?.halls.map((hall, counter) => {*/}
-            {/*                return (*/}
-            {/*                    <div key={counter} onClick={() => {*/}
-            {/*                        setCurrentStream(hall?.streamLink)*/}
-            {/*                    }}*/}
-            {/*                         className={classList('flex cursor-pointer items-center whitespace-nowrap xl:text-2xl font-bold justify-center', currentStream== hall?.streamLink ? 'border-b-2 border-green-two text-green-two' : 'text-black')}>*/}
-            {/*                        {hall.name}*/}
-            {/*                    </div>*/}
-            {/*                )*/}
-            {/*            })*/}
-            {/*            }*/}
-            {/*        </div>*/}
-            {/*        /!*?sr=6227&type_id=&width=1280&height=720&iframe_width=1280&iframe_height=720&lang=ru*!/*/}
-            {/*        /!*?sr=6227&type_id=&width=320&height=240&iframe_width=320&iframe_height=240&lang=ru*!/*/}
-            {/*        <div className={'lg:flex items-center min-w-[1280px] hidden my-12 justify-center'}>*/}
-            {/*            <iframe width="1280" height="720"*/}
-            {/*                    src={currentStream+'?sr=6227&type_id=&width=1280&height=720&iframe_width=1280&iframe_height=720&lang=ru'}*/}
-            {/*                    title="II НПК «Путь детской дерматологии: от истоков к перспективам"*/}
-            {/*                    frameBorder="0"*/}
-            {/*                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"*/}
-            {/*                    allowFullScreen></iframe>*/}
-            {/*        </div>*/}
+            {event?.date == '11.11.2023' && registration?.sum > 0&&registration?.info?.participationType=='онлайн'  ?
+                <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[90px] '}>
+                    <div id={'form'} className={'absolute -top-40'}></div>
+                    <div
+                        className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-center'}>
+                        <motion.p initial={{y: -40, opacity: 0}}
+                                  whileInView={{y: 0, opacity: 1}}
+                                  viewport={{once: true}}
+                                  transition={{ease: 'easeInOut', duration: 0.7}}
+                                  className={'uppercase font-extralight text-black lg:text-left text-center text-left text-2xl lg:text-4xl'}>Онлайн-трансляция <strong
+                            className={'font-extrabold'}>мероприятия</strong></motion.p>
+                    </div>
+                    <div
+                        className={'flex mt-20 items-center sm:justify-center sm:overflow-x-hidden overflow-x-scroll max-w-full gap-7 sm:gap-16'}>
+                        {event?.halls.map((hall, counter) => {
+                            return (
+                                <div key={counter} onClick={() => {
+                                    setCurrentStream(hall?.streamLink)
+                                }}
+                                     className={classList('flex cursor-pointer items-center whitespace-nowrap xl:text-2xl font-bold justify-center', currentStream == hall?.streamLink ? 'border-b-2 border-green-two text-green-two' : 'text-black')}>
+                                    {hall.name}
+                                </div>
+                            )
+                        })
+                        }
+                    </div>
+                    {/*?sr=6227&type_id=&width=1280&height=720&iframe_width=1280&iframe_height=720&lang=ru*/}
+                    {/*?sr=6227&type_id=&width=320&height=240&iframe_width=320&iframe_height=240&lang=ru*/}
+                    <div className={'lg:flex items-center min-w-[1280px] hidden my-12 justify-center'}>
+                        <iframe width="1280" height="720"
+                                src={currentStream + '?sr=6227&type_id=&width=1280&height=720&iframe_width=1280&iframe_height=720&lang=ru'}
+                                title="II НПК «Путь детской дерматологии: от истоков к перспективам"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen></iframe>
+                        {/*<iframe width="560" height="315"*/}
+                        {/*        src="https://www.youtube.com/embed/jICoaRhx9ns?si=B-UctiHhoned-TnJ"*/}
+                        {/*        title="YouTube video player" frameBorder="0"*/}
+                        {/*        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"*/}
+                        {/*        allowFullScreen></iframe>*/}
+                    </div>
 
-            {/*        <div className={'lg:hidden items-center  flex my-12 justify-center'}>*/}
-            {/*            <iframe width="320" height="240"*/}
-            {/*                    src={currentStream+'?sr=6227&type_id=&width=320&height=240&iframe_width=320&iframe_height=240&lang=ru'}*/}
-            {/*                    title="II НПК «Путь детской дерматологии: от истоков к перспективам"*/}
-            {/*                    frameBorder="0"*/}
-            {/*                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"*/}
-            {/*                    allowFullScreen></iframe>*/}
-            {/*        </div>*/}
+                    <div className={'lg:hidden items-center  flex my-12 justify-center'}>
+                        <iframe width="320" height="240"
+                                src={currentStream + '?sr=6227&type_id=&width=320&height=240&iframe_width=320&iframe_height=240&lang=ru'}
+                                title="II НПК «Путь детской дерматологии: от истоков к перспективам"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen></iframe>
+                    </div>
 
 
-            {/*        {isConfirmPopOpen && event.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {*/}
-            {/*            {*/}
-            {/*                setIsConfirmPopOpen(false)*/}
-            {/*            }*/}
-            {/*        }}>*/}
-            {/*            <ConfirmForm layotBg={event.layoutBg} query={query} participationType={participationType} closeFunc={() => {*/}
-            {/*                setIsConfirmPopOpen(false)*/}
-            {/*            }} price={currentPrice} event_id={event?.id} event_name={event?.name}></ConfirmForm>*/}
-            {/*        </PopUp> : null}*/}
+                    {isConfirmPopOpen && event.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
+                        {
+                            setIsConfirmPopOpen(false)
+                        }
+                    }}>
+                        <ConfirmForm layotBg={event.layoutBg} query={query} participationType={participationType}
+                                     closeFunc={() => {
+                                         setIsConfirmPopOpen(false)
+                                     }} price={currentPrice} event_id={event?.id}
+                                     event_name={event?.name}></ConfirmForm>
+                    </PopUp> : null}
 
-            {/*        {isPopPriceOpen ? <PopUp icon={'/price.svg'} closeFunc={() => {*/}
-            {/*            {*/}
-            {/*                setIsPopPriceOpen(false)*/}
-            {/*            }*/}
-            {/*        }}>*/}
-            {/*            <div className={'flex gap-4 h-full flex-col'}>*/}
-            {/*                <p className={'text-[#0F5F5A] text-2xl lg:text-4xl font-light'}>ГРАФИК <br/> <span*/}
-            {/*                    className={'font-extrabold'}>СТОИМОСТИ</span></p>*/}
-            {/*                <div className={'grid p-2 w-full grid-cols-2'}>*/}
-            {/*                    <div className={'text-[#0F5F5A] font-light flex items-center '}>*/}
-            {/*                        Дата*/}
-            {/*                    </div>*/}
-            {/*                    <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>*/}
-            {/*                        <p className={'text-[#0F5F5A] font-light'}>Стоимость</p>*/}
-            {/*                    </div>*/}
-            {/*                </div>*/}
-            {/*                {event?.prices?.map((item: any, counter: any) => {*/}
-            {/*                    return (*/}
-            {/*                        <div key={counter}*/}
-            {/*                             className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-2'}>*/}
-            {/*                            <div className={'text-[#0F5F5A] font-light flex items-center '}>*/}
-            {/*                                до {item.date}*/}
-            {/*                            </div>*/}
-            {/*                            <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>*/}
-            {/*                                <p className={'text-[#0F5F5A] font-light'}>{item.offline} рублей</p>*/}
-            {/*                            </div>*/}
-            {/*                        </div>*/}
-            {/*                    )*/}
-            {/*                })}*/}
+                    {isPopPriceOpen ? <PopUp icon={'/price.svg'} closeFunc={() => {
+                        {
+                            setIsPopPriceOpen(false)
+                        }
+                    }}>
+                        <div className={'flex gap-4 h-full flex-col'}>
+                            <p className={'text-[#0F5F5A] text-2xl lg:text-4xl font-light'}>ГРАФИК <br/> <span
+                                className={'font-extrabold'}>СТОИМОСТИ</span></p>
+                            <div className={'grid p-2 w-full grid-cols-2'}>
+                                <div className={'text-[#0F5F5A] font-light flex items-center '}>
+                                    Дата
+                                </div>
+                                <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
+                                    <p className={'text-[#0F5F5A] font-light'}>Стоимость</p>
+                                </div>
+                            </div>
+                            {event?.prices?.map((item: any, counter: any) => {
+                                return (
+                                    <div key={counter}
+                                         className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-2'}>
+                                        <div className={'text-[#0F5F5A] font-light flex items-center '}>
+                                            до {item.date}
+                                        </div>
+                                        <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
+                                            <p className={'text-[#0F5F5A] font-light'}>{item.offline} рублей</p>
+                                        </div>
+                                    </div>
+                                )
+                            })}
 
-            {/*                <div className={'w-full grid grid-cols-2 gap-3'}>*/}
-            {/*                    <div onClick={() => {*/}
-            {/*                        setIsPopPriceOpen(false)*/}
-            {/*                    }}*/}
-            {/*                         className={'p-4 cursor-pointer bg-green-two text-white text-sm font-light rounded-xl flex items-center justify-center'}>Вернуться*/}
-            {/*                        к мероприятию*/}
-            {/*                    </div>*/}
-            {/*                </div>*/}
-            {/*            </div>*/}
-            {/*        </PopUp> : null}*/}
-            {/*    </div> : null}*/}
+                            <div className={'w-full grid grid-cols-2 gap-3'}>
+                                <div onClick={() => {
+                                    setIsPopPriceOpen(false)
+                                }}
+                                     className={'p-4 cursor-pointer bg-green-two text-white text-sm font-light rounded-xl flex items-center justify-center'}>Вернуться
+                                    к мероприятию
+                                </div>
+                            </div>
+                        </div>
+                    </PopUp> : null}
+                </div> : null}
 
             <div className={'my-12 flex flex-col'}>
-                {event?.date == '11.11.2023'||event?.date == '2023-11-11' ?
+                {event?.date == '11.11.2023' || event?.date == '2023-11-11' ?
                     <Link className={' text-dark-green underline mb-12 text-xl font-bold px-[20px] lg:px-[140px]'}
                           target={'_blank'}
                           href={'/kpfile.pdf'}>Коммерческое предложение</Link> : null}
-                {event?.date == '11.11.2023'||event?.date == '2023-11-11' ?
+                {event?.date == '11.11.2023' || event?.date == '2023-11-11' ?
                     <div className={'flex flex-col gap-2'}>
                         <p className={'whitespace-pre-wrap mt-2 px-[20px] text-dark-green  lg:px-[140px] font-bold'}>Участие
                             в мероприятии</p>
