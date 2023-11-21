@@ -78,6 +78,7 @@ const ConfirmForm = ({closeFunc, price, event_id, event_name, participationType}
                     street:street,
                     house:house,
                     flat:flat,
+                    delivery:delivery,
                 },
                 is_paid: false,
                 after_reg_email_subject: "Благодарим за покупку",

@@ -101,7 +101,8 @@ export default function Home(params: { params: { id: string } }) {
           {data.filter(p=>p.status==="finished").map((d,i)=><div className="grid grid-cols-12 gap-4 items-center my-5 justify-center" key={i}>
             <span className={classList("col-span-1",d?.sum!=0?'font-bold':'')}>{d?.sum}</span>
             <span className="col-span-2">{d?.info?.name}</span>
-            <span className="col-span-3"> {d.email}</span>
+            <span className="col-span-2"> {d.email}</span>
+            <span className="col-span-1"> {d.meta.delivery=='sdek'?'СДЭК':'Почта'}</span>
             <span className="col-span-2"> {d?.meta.phone}</span>
             <span className="col-span-3"> {d?.meta.index}, {d?.meta.city}, {d?.meta.street}, {d?.meta.house} {d?.meta.flat}</span>
             <div className={'bg-green rounded-lg p-2 text-xs text-white cursor-pointer flex items-center justify-center'} onClick={async ()=>{
