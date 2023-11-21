@@ -70,7 +70,7 @@ export default function Home() {
                             className={'p-4 lg:px-12 cursor-pointer transition-all duration-300 bg-green border-green border-2 lg:w-60 flex justify-center items-center rounded-lg gap-2'}>
                             <p className={'text-white font-inter font-normal'}>Оставить заявку</p>
                         </div>}
-                        {email?.includes('mgogolev1991@gmail.com') ? <div onClick={async () => {
+                        {email?.includes('mgogolev1991@gmail.com')||email?.includes('savelova.derma@gmail.com')||email?.includes('isxiks@gmail.com') ? <div onClick={async () => {
                             eden.auth.login['alice-link'].get().then((res) => {
                                 router.push(res.data)
                             })
