@@ -30,6 +30,12 @@ const AdminSidebar = ({isCloseBurger}:sideBarInterface) => {
             iconWhite:'/admin/posts.svg',
             link:'posts'
         },
+        {
+            name:'Продажи',
+            icon:'/sales.svg',
+            iconWhite:'/sales_white.svg',
+            link:'sales'
+        },
 
         {
             name:'Сменить пароль',
