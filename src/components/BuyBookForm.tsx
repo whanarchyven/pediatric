@@ -72,7 +72,7 @@ const ConfirmForm = ({closeFunc, price, event_id, event_name, participationType}
                 meta: {
                     participationType: participationType,
                     phone: phone,
-                    is_paid: false,
+                    is_paid: true,
                     index:index,
                     city:city,
                     street:street,
@@ -80,7 +80,7 @@ const ConfirmForm = ({closeFunc, price, event_id, event_name, participationType}
                     flat:flat,
                     delivery:delivery,
                 },
-                is_paid: false,
+                is_paid: true,
                 after_reg_email_subject: "Благодарим за покупку",
                 after_reg_email_body: '',
                 after_reg_email_placeholders: {
@@ -275,6 +275,7 @@ a[x-apple-data-detectors] {
                 }
             },
         ).then((response) => {
+            console.log(response)
             router.push(response.data)
         })
 
@@ -282,7 +283,7 @@ a[x-apple-data-detectors] {
 
 
     return (
-        <div className={'flex gap-4 h-full overflow-y-scroll flex-col'}>
+        <div className={'flex gap-4 h-full py-7 overflow-y-scroll flex-col'}>
             <p className={'text-[#0F5F5A] text-2xl sm:text-4xl font-light'}>ЗАПОЛНИТЕ<br/> <span
                 className={'font-extrabold'}>АНКЕТУ</span></p>
 
@@ -380,22 +381,19 @@ a[x-apple-data-detectors] {
             </div>
 
 
-            <div className={'w-full grid grid-cols-2 gap-3'}>
+            <div className={'w-full grid grid-cols-1 gap-3'}>
                 <div onClick={() => {
-                    if (email != '' && lastName != '' && firstName != '' && middleName != '') {
+                    if (email != '' && lastName != '' && firstName != '' && middleName != ''&&index!=''&&street!=''&&house!=''&&flat!='') {
                         setLoading(true);
                         handleSubmit();
+                    }
+                    else {
+                        alert('Заполните все поля!')
                     }
                 }}
                      className={'p-4 cursor-pointer h-12 bg-green text-white text-sm font-light rounded-xl flex items-center justify-center'}>
                     {loading ? <img className={'animate-spin h-8 aspect-square'}
-                                    src={'/loading.svg'}/> : 'Подтвердить участие'}
-                </div>
-                <div onClick={() => {
-                    closeFunc()
-                }}
-                     className={'p-4 cursor-pointer h-12 border-green border-2 text-green text-sm font-light rounded-xl flex items-center justify-center'}>Вернуться
-                    к мероприятию
+                                    src={'/loading.svg'}/> : 'Купить книгу'}
                 </div>
             </div>
         </div>
