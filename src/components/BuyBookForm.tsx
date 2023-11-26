@@ -283,7 +283,7 @@ a[x-apple-data-detectors] {
 
 
     return (
-        <div className={'flex gap-4 h-full py-7 overflow-y-scroll flex-col'}>
+        <div className={'flex gap-4 h-full xl:py-7 py-14 overflow-y-scroll flex-col'}>
             <p className={'text-[#0F5F5A] text-2xl sm:text-4xl font-light'}>ЗАПОЛНИТЕ<br/> <span
                 className={'font-extrabold'}>АНКЕТУ</span></p>
 
