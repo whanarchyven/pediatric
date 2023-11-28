@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React, {useEffect} from "react";
 import Slider from "@/components/Slider";
 import VideoPlayer from "@/components/VideoPlayer";
 import Reviews from "@/components/Reviews";
@@ -49,9 +49,17 @@ export default function Home() {
 
     }
 
-    console.log(data);
+
 
     const router = useRouter()
+
+    console.log(data)
+
+    useEffect(() => {
+        if(data?.error){
+            router.push('/login')
+        }
+    }, [data]);
 
     return (
         <main className={'p-2 lg:p-12 h-full'}>
