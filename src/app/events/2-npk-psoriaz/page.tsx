@@ -43,6 +43,7 @@ import BackButton from "@/components/BackButton";
 import {eden} from "@/helpers/sdk";
 import QRCode from "react-qr-code";
 import Partners11 from "@/components/Partners11";
+import {undefined} from "zod";
 
 export const dynamic = "force-dynamic"
 
@@ -102,19 +103,110 @@ export default function Page({params}: any) {
                 }[] | undefined;
                 name: string;
             }>;
+            streamLink: string
         }[];
-    }>()
+    }>({
+        announcement: "В ходе конференции будут разобраны наиболее значимые патологии в дерматологии детского возраста, а именно атопический дерматит, формы заболевания и этапы диагностики, а также инновационные технологии терапии. Вас ожидают клинические разборы и детальное рассмотрение тактики ведения пациентов.", avatar: "/pages/new.png", date: "02.01.2023", dateEnd: new Date('02.01.2023'), dateStart: new Date('02.01.2023'), description: 'В фокусе научной программы конференции обсуждение наиболее актуальной проблемы в ведении и лечении псориаза в детском возрасте, а также инновационные возможности в диагностике и профилактике заболеваний кожи у детей.', format: "online", halls: [
+            {
+                name: 'Трансляция',
+                program: [
+                    {
+                        name: 'Открытие конференции.',
+                        timePeriod: '10:00-10:05',
+                        speaker: 'Президент «Общества детских\n' +
+                            'дерматологов» д.м. н. , профессор Мурашкин Н.Н.'
+                    },
+                    {
+                        name: 'Современные представления об этиологии и патогенезе псориаза\n' +
+                            'в детском возрасте',
+                        timePeriod: '10:05-10:30',
+                        speaker: 'к.м. н. Иванов Р.А.'
+                    },
+                    {
+                        name: 'Коморбидности псориаза детского возраста: особенности\n' +
+                            'диагностики и терапевтической тактики',
+                        timePeriod: '10:30 - 10:55',
+                        speaker: 'к.м. н. Материкин А.И'
+                    },
+                    {
+                        name: 'ПЕРЕРЫВ',
+                        timePeriod: '10:55 -11:00',
+                    },
+                    {
+                        name: 'Пустулезный псориаз у детей',
+                        timePeriod: '11:00-11:25',
+                        speaker: 'к.м.н. Епишев Р.В.'
+                    },
+                    {
+                        name: 'Современные подходы к терапии псориаза у детей на примере\n' +
+                            'клинических случаев . д.м. н. ,',
+                        timePeriod: '11:25 - 11:55',
+                        speaker: 'д.м. н. , профессор Мурашкин Н.Н.',
+                        sponsor:'Novartis'
+                    },
+                    {
+                        name: 'ПЕРЕРЫВ',
+                        timePeriod: '11:55 - 12:00',
+                    },
+                    {
+                        name: 'Вульгарный псориаз и красный волосяной лишай Девержи:\n' +
+                            'клинико-диагностические параллели',
+                        timePeriod: '12:00 - 12:15',
+                        speaker: 'к.м.н. Опрятин Л.А.',
+                    },
+                    {
+                        name: 'Перспективные направления использования ингибиторов IL-23\n' +
+                            'в лечении псориаза в детском возрасте',
+                        timePeriod: '12:10 - 12:30',
+                        speaker: 'к.м.н. Епишев Р.В.',
+                        sponsor:'Janssen'
+                    },
+                    {
+                        name: 'Закрытие конференции. Ответы на вопросы.',
+                        timePeriod: '12:30 - 12:40',
+                        speaker: 'Президент «Общества детских дерматологов» д.м. н., профессор Мурашкин Н. Н.',
+                    }
+                ],
+                streamLink: 'https://www.youtube.com/embed/InCUbLX1IcI?si=xP4tZYm9jj-tBt2P&amp;controls=0'
+            }
+        ], id: '213', isOnlyOnline: true, isPassed: false, isStream: true, layoutBg: "/pages/new.png", link: '/', offlinePrice: 0, onlinePrice: 0, participants: 356, place: "Онлайн-трансляция", prices: [], speakers: [{
+            name: "Мурашкин Николай Николаевич",
+            post: "ПРЕЗИДЕНТ",
+            contact: "/",
+            description: "Руководитель НИИ детской дерматологии, Заведующий отделением дерматологии с группой лазерной хирургии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России, заведующий лабораторией патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России",
+            photo: "/pages/events/murashkin.png"
+        },
+            {
+                name: "Епишев Роман Владимирович",
+                post: "Кандидат медицинских наук",
+                contact: "-",
+                description: "Врач-дерматовенеролог отделения дерматологии и аллергологии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России, научный сотрудник лаборатории патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России. Член Европейского общества детских дерматологов (European Society for Pediatric Dermatology).",
+                photo: "/pages/main/employers/epichev.png"
+            },
+            {
+                name: "Иванов Роман Александрович",
+                post: "Кандидат медицинских наук",
+                contact: "-",
+                description: "Врач-дерматовенеролог отделения дерматологии и аллергологии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России, научный сотрудник лаборатории патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России. Член Европейского общества детских дерматологов (European Society for Pediatric Dermatology).",
+                photo: "/pages/main/employers/ivanov.png"
+            },
+            {
+                name: "Материкин Александр Игоревич",
+                post: "Кандидат медицинских наук",
+                contact: "-",
+                description: "Врач-дерматовенеролог отделения дерматологии и аллергологии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России, научный сотрудник лаборатории патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России. Член Европейского общества детских дерматологов (European Society for Pediatric Dermatology).",
+                photo: "/pages/main/employers/materikin.png"
+            },
+            {
+                name: "Опрятин Леонид Андреевич",
+                post: "Кандидат медицинских наук",
+                contact: "-",
+                description: "Врач-дерматовенеролог отделения дерматологии и аллергологии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России, научный сотрудник лаборатории патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России. Член Европейского общества детских дерматологов (European Society for Pediatric Dermatology).",
+                photo: "/pages/main/employers/opryatin.png"
+            },], timePeriod: "10:00-12:40", type: "Конференция",
+        name: 'III НАУЧНО-ПРАКТИЧЕСКАЯ КОНФЕРЕНЦИЯ "Псориаз в детском возрасте: современные решения старых проблем"'
 
-    const fetchEvent = async () => {
-        await eden.event.byId[id].get().then((res: any) => {
-            setEvent({...res.data.events})
-        })
-
-    }
-    useEffect(() => {
-        fetchEvent()
-    }, [])
-
+    })
 
     const [isPopPriceOpen, setIsPopPriceOpen] = useState(false);
     const [isConfirmPopOpen, setIsConfirmPopOpen] = useState(false)
@@ -125,7 +217,8 @@ export default function Page({params}: any) {
     const query = useSearchParams().toString();
 
     const [currentProgram, setCurrentProgram] = useState<{
-        name: string, program: Array<{
+        name: string,
+        program: Array<{
             timePeriod?: string | undefined;
             sponsor?: string | undefined;
             speaker?: string | undefined;
@@ -167,13 +260,12 @@ export default function Page({params}: any) {
 
     const [isAdmin, setIsAdmin] = useState(false)
 
-    const [haveAccessToStream,setHaveAccessToStream]=useState(false)
+    const [haveAccessToStream, setHaveAccessToStream] = useState(true)
 
     useEffect(() => {
         eden.user.my.profile.get().then((res) => {
 
             if (res?.data?.profile?.uuid) {
-
                 setUuid(res.data.profile.uuid)
             }
             setIsAdmin(res?.data?.isAdmin ?? false)
@@ -182,10 +274,6 @@ export default function Page({params}: any) {
                 eden.user.my.participations[event.id].get().then((res) => {
 
                     if (res.data[0]?.info) setRegistration(res?.data[0])
-                    if(res?.data?.find(item=>item.meta.participationType=='online')){
-
-                        setHaveAccessToStream(true)
-                    }
                     event?.id && eden.user.my.participation[event.id].getTicketLink.get().then((res) => {
                         if (res.data) {
                             setTicketLink(res.data.ticketLink)
@@ -208,6 +296,7 @@ export default function Page({params}: any) {
     useEffect(() => {
         setCurrentStream(event?.halls[0]?.streamLink)
     }, [event]);
+
 
 
     return (
@@ -436,7 +525,7 @@ export default function Page({params}: any) {
                         <div className={'grid grid-cols-1 lg:grid-cols-2 mt-10 lg:my-32 gap-10 lg:gap-32 items-start'}>
                             <div className={'flex flex-col gap-4'}>
                                 <p className={'lg:text-2xl uppercase font-black'}>Формат: <span
-                                    className={'font-light'}>{registration?.info?.participationType.replace('оффлайн', 'очное участие')} {haveAccessToStream?'+ запись трансляции':''}</span>
+                                    className={'font-light'}>{registration?.info?.participationType.replace('оффлайн', 'очное участие')} {haveAccessToStream ? '+ запись трансляции' : ''}</span>
                                 </p>
                                 <p className={'lg:text-2xl uppercase font-black'}>Дата и время: <span
                                     className={'font-light'}>{event?.date} в {event?.timePeriod}</span></p>
@@ -588,7 +677,7 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-            {event?.date == '11.11.2023' && haveAccessToStream  ?
+            {event?.date == '11.11.2023'||'02.12.2023' && haveAccessToStream ?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[90px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div
