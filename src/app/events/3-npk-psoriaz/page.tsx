@@ -169,7 +169,7 @@ export default function Page({params}: any) {
                 ],
                 streamLink: 'https://www.youtube.com/embed/InCUbLX1IcI?si=xP4tZYm9jj-tBt2P&amp;controls=0'
             }
-        ], id: '213', isOnlyOnline: true, isPassed: false, isStream: true, layoutBg: "/pages/new.png", link: '/', offlinePrice: 0, onlinePrice: 0, participants: 356, place: "Онлайн-трансляция", prices: [], speakers: [{
+        ], id: '3-npk-psoriaz', isOnlyOnline: true, isPassed: false, isStream: true, layoutBg: "/pages/new.png", link: '/', offlinePrice: 0, onlinePrice: 0, participants: 356, place: "Онлайн-трансляция", prices: [], speakers: [{
             name: "Мурашкин Николай Николаевич",
             post: "ПРЕЗИДЕНТ",
             contact: "/",
