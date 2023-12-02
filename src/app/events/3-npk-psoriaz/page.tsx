@@ -346,12 +346,12 @@ export default function Page({params}: any) {
                                     <strong>Зарегистрировались</strong> {event?.participants} участников</p>
                             </div>
                         </div>
-                        <Link href={event?.link ? event?.link : '#form'}>
-                            <div
-                                className={'bg-white text-lg flex items-center justify-center p-3 px-5 rounded-md cursor-pointer hover:opacity-100 transition-all duration-300 opacity-50 text-black'}>
-                                Подтвердить участие
-                            </div>
-                        </Link>
+                        {/*<Link href={event?.link ? event?.link : '#form'}>*/}
+                        {/*    <div*/}
+                        {/*        className={'bg-white text-lg flex items-center justify-center p-3 px-5 rounded-md cursor-pointer hover:opacity-100 transition-all duration-300 opacity-50 text-black'}>*/}
+                        {/*        Подтвердить участие*/}
+                        {/*    </div>*/}
+                        {/*</Link>*/}
                     </motion.div>
                 </motion.div>
                 <div className={'absolute bottom-[-0.5px] sm:bottom-[-4px] asset w-full'}>
