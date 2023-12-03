@@ -333,13 +333,13 @@ a[x-apple-data-detectors] {
                             className={classList('w-7 aspect-square border-2 border-green rounded-full', delivery == 'sdek' ? 'bg-green' : '')}></div>
                         <p>СДЭК</p>
                     </div>
-                    <div onClick={() => {
-                        setDelivery('mail')
-                    }} className={'flex cursor-pointer items-center gap-2'}>
-                        <div
-                            className={classList('w-7 aspect-square border-2 border-green rounded-full', delivery == 'mail' ? 'bg-green' : '')}></div>
-                        <p>Почта России</p>
-                    </div>
+                    {/*<div onClick={() => {*/}
+                    {/*    setDelivery('mail')*/}
+                    {/*}} className={'flex cursor-pointer items-center gap-2'}>*/}
+                    {/*    <div*/}
+                    {/*        className={classList('w-7 aspect-square border-2 border-green rounded-full', delivery == 'mail' ? 'bg-green' : '')}></div>*/}
+                    {/*    <p>Почта России</p>*/}
+                    {/*</div>*/}
                 </div>
 
             </div>
