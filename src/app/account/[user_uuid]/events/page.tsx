@@ -43,7 +43,8 @@ export default function Home(params: { params: { user_uuid: string } }) {
     } = data?.profile ?? {} as any;
 
 
-    const participationsTemp=useEden(()=>eden.user[user_uuidTemp].participations.get())
+    const participationsTemp=useEden(()=>eden.user.my.participations.get())
+    console.log(participationsTemp,'asdasdasd123333333')
     const participations=participationsTemp?.data?? {} as any
 
 
@@ -52,10 +53,9 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
     const certLink = (event_id:string)=>
     `/api2/user/my/participations/byEventId/${event_id}/getCert`
-  
 
 
-    // console.log(participations)
+    console.log(participations,'asdasdasd')
 
     // console.log(events)
 
@@ -138,7 +138,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                                 href={certLink(participation?.info.event_id)}
                                 target={"blank"}
                                 rel="noreferer"
-                                className={'mt-2 p-4 bg-green flex rounded-lg cursor-pointer items-center justify-center font-bold text-white text-sm'}>
+                                className={'mt-2 p-4 bg-white flex border-2 border-green rounded-lg cursor-pointer items-center justify-center font-bold text-green text-sm'}>
                                     Скачать сертификат
                                 </a>}
                             </div>
