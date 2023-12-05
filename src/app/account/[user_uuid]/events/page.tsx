@@ -139,7 +139,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                                 {/*target={"blank"}*/}
                                 {/*rel="noreferer"*/}
                                 {/*className={'mt-2 p-4 bg-white flex border-2 border-green rounded-lg cursor-pointer items-center justify-center font-bold text-green text-sm'}>*/}
-                                {/*    Скачать сертификат*/}
+                                {/*    Скачать сертификат {participation?.cert}*/}
                                 {/*</a>}*/}
                             </div>
                         </div>
