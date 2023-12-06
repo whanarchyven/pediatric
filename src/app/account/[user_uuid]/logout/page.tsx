@@ -43,42 +43,13 @@ export default function Home() {
 
     const images = '/pages/main'
 
-    const [checkboxRadio, setCheckboxRadio] = useState('yes')
-    const [personal, setPersonal] = useState(false)
-    const [showWarning,setShowWarning]=useState("")
-    const [email,setEmail] = useState("")
-    const [password,setPassword]=useState("")
-    const doLogin = ()=>{
-        eden.auth.login["request-otp"].post({email}).then((res)=>{
-
-            console.log(res)
-
-            // if (data?.user_uuid){
-            //     const userUuid = data?.user_uuid;
-            //     router.push(`/account/${userUuid}/profile`)
-            // }
-            // if (data?.error) {
-            //
-            //     return setShowWarning(data?.error??"Неправильные логин или пароль")
-            // }
-
-
-        }).catch(e=>{
-            setShowWarning("")
-        })
-    }
-
-
-
-    const [stages,setStages]=useState<'email'|'code'>('email')
-    const [code,setCode]=useState('')
 
 
     useEffect(() => {
-        localStorage.setItem('loggedOut','true')
+        sessionStorage.setItem('loggedOut','true')
         axios.get('/api2/auth/logout').then(()=>{
-            router.push('/')
         })
+        router.push('/login')
     }, []);
 
     return (
