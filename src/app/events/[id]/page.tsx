@@ -289,7 +289,7 @@ export default function Page({params}: any) {
                     </p> : null}
                 </div>
             </div>
-            {event?.speakers ? <div
+            {event?.speakers&&event?.speakers.length>0 ? <div
                 className={'relative green-gradient overflow-hidden px-[20px] pt-12 sm:h-[900px] flex flex-col items-start sm:pl-[70px] sm:px-[140px]'}>
                 <img className={'absolute asset w-full z-50 left-0 top-[-0.5px] sm:top-0'}
                      src={'/about_us_offset_top.png'}/>
