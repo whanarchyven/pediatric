@@ -134,13 +134,13 @@ export default function Home(params: { params: { user_uuid: string } }) {
                                 }} className={'p-4 bg-green flex rounded-lg cursor-pointer items-center justify-center font-bold text-white'}>
                                     Билет
                                 </div>}
-                                {/*{participation?.cert&&<a*/}
-                                {/*href={certLink(participation?.info.event_id)}*/}
-                                {/*target={"blank"}*/}
-                                {/*rel="noreferer"*/}
-                                {/*className={'mt-2 p-4 bg-white flex border-2 border-green rounded-lg cursor-pointer items-center justify-center font-bold text-green text-sm'}>*/}
-                                {/*    Скачать сертификат {participation?.cert}*/}
-                                {/*</a>}*/}
+                                {participation?.cert&&<a
+                                href={certLink(participation?.info.event_id)}
+                                target={"blank"}
+                                rel="noreferer"
+                                className={'mt-2 p-4 bg-white flex border-2 border-green rounded-lg cursor-pointer items-center justify-center font-bold text-green text-sm'}>
+                                    Скачать сертификат
+                                </a>}
                             </div>
                         </div>
                     )
