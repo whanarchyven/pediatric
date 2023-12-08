@@ -43,7 +43,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
     } = data?.profile ?? {} as any;
 
 
-    const participationsTemp=useEden(()=>eden.user.my.participations.get())
+    const participationsTemp=useEden(()=>eden.user[user_uuidTemp].participations.get())
     console.log(participationsTemp,'asdasdasd123333333')
     const participations=participationsTemp?.data?? {} as any
 
@@ -52,7 +52,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const events=eventsTempData?.data?.events
 
     const certLink = (event_id:string)=>
-    `/api2/user/my/participations/byEventId/${event_id}/getCert`
+    `/api2/user/${user_uuidTemp}/participations/byEventId/${event_id}/getCert`
 
 
     console.log(participations,'asdasdasd')

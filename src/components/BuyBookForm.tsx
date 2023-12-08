@@ -72,7 +72,7 @@ const ConfirmForm = ({closeFunc, price, event_id, event_name, participationType}
                 meta: {
                     participationType: participationType,
                     phone: phone,
-                    is_paid: true,
+                    is_paid: isPayed,
                     index:index,
                     city:city,
                     street:street,
@@ -80,7 +80,7 @@ const ConfirmForm = ({closeFunc, price, event_id, event_name, participationType}
                     flat:flat,
                     delivery:delivery,
                 },
-                is_paid: true,
+                is_paid: isPayed,
                 after_reg_email_subject: "Благодарим за покупку",
                 after_reg_email_body: '',
                 after_reg_email_placeholders: {
