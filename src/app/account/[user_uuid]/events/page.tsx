@@ -36,14 +36,14 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const {publications}=publicationsData?.data?? {} as any
 
 
-    const {data} = useEden(() => eden.user[user_uuidTemp].profile.get())
+    const {data} = useEden(() => eden.user.my.profile.get())
 
     const {
         uuid,
     } = data?.profile ?? {} as any;
 
 
-    const participationsTemp=useEden(()=>eden.user[user_uuidTemp].participations.get())
+    const participationsTemp=useEden(()=>eden.user.my.participations.get())
     console.log(participationsTemp,'asdasdasd123333333')
     const participations=participationsTemp?.data?? {} as any
 
