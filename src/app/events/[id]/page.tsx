@@ -618,7 +618,7 @@ export default function Page({params}: any) {
                     {/*?sr=6227&type_id=&width=320&height=240&iframe_width=320&iframe_height=240&lang=ru*/}
                     <div className={'lg:flex items-center min-w-[1280px] hidden my-12 justify-center'}>
                         <iframe width="1280" height="720"
-                                src={currentStream + '?sr=6227&type_id=&width=1280&height=720&iframe_width=1280&iframe_height=720&lang=ru'}
+                                src={currentStream}
                                 title="II НПК «Путь детской дерматологии: от истоков к перспективам"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -632,7 +632,7 @@ export default function Page({params}: any) {
 
                     <div className={'lg:hidden items-center  flex my-12 justify-center'}>
                         <iframe width="320" height="240"
-                                src={currentStream + '?sr=6227&type_id=&width=320&height=240&iframe_width=320&iframe_height=240&lang=ru'}
+                                src={currentStream}
                                 title="II НПК «Путь детской дерматологии: от истоков к перспективам"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
