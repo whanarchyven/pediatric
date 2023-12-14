@@ -75,15 +75,15 @@ export default function Home() {
                         <p className={'uppercase  font-inter font-extralight text-3xl'}>Оставьте заявку <br/><span
                             className={'font-extrabold'}>для доступа к игре</span></p>
                         <p>Регистрируйтесь, что бы первыми получить доступ к нашей игре</p>
-                        {joinAlice?<div
-                            className={'p-4 lg:px-12 cursor-pointer transition-all duration-300 border-green border-2 w-auto flex justify-center items-center rounded-lg gap-2'}>
-                            <p className={'text-green font-inter font-normal'}>Вы уже оставили заявку, мы сообщим как игра будет готова</p>
-                        </div>:<div onClick={async ()=>{
-                            updateProfile();
-                        }}
-                                    className={'p-4 lg:px-12 cursor-pointer transition-all duration-300 bg-green border-green border-2 lg:w-60 flex justify-center items-center rounded-lg gap-2'}>
-                            <p className={'text-white font-inter font-normal'}>Оставить заявку</p>
-                        </div>}
+                        {/*{joinAlice?<div*/}
+                        {/*    className={'p-4 lg:px-12 cursor-pointer transition-all duration-300 border-green border-2 w-auto flex justify-center items-center rounded-lg gap-2'}>*/}
+                        {/*    <p className={'text-green font-inter font-normal'}>Вы уже оставили заявку, мы сообщим как игра будет готова</p>*/}
+                        {/*</div>:<div onClick={async ()=>{*/}
+                        {/*    updateProfile();*/}
+                        {/*}}*/}
+                        {/*            className={'p-4 lg:px-12 cursor-pointer transition-all duration-300 bg-green border-green border-2 lg:w-60 flex justify-center items-center rounded-lg gap-2'}>*/}
+                        {/*    <p className={'text-white font-inter font-normal'}>Оставить заявку</p>*/}
+                        {/*</div>}*/}
                         {/*{email?.includes('mgogolev1991@gmail.com')||email?.includes('savelova.derma@gmail.com')||email?.includes('isxiks@gmail.com')|email?.includes('test@mail.ru') ? <div onClick={async () => {*/}
                         {/*    eden.auth.login['alice-link'].get().then((res) => {*/}
                         {/*        router.push(res.data)*/}
