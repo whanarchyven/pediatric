@@ -11,10 +11,11 @@ interface postTabInterface {
     title: string,
     description: string,
     contentMd: string
-    isSaved?: boolean
+    isSaved?: boolean,
+    callback?:()=>any,
 }
 
-const PostTab = ({uuid, contentMd, imageUrl, description, title, isSaved, user_uuid, isAdmin}: postTabInterface) => {
+const PostTab = ({uuid, contentMd, imageUrl, description, title, isSaved, user_uuid, isAdmin, callback}: postTabInterface) => {
     const [isPopVisible, setIsPopVisible] = useState(false)
     const [isEditPop, setIsEditPop] = useState(false)
 
@@ -59,7 +60,12 @@ const PostTab = ({uuid, contentMd, imageUrl, description, title, isSaved, user_u
                 {description}
             </p>
             <div onClick={() => {
-                setIsPopVisible(true)
+                if(callback) {
+                    callback();
+                }
+                else {
+                    setIsPopVisible(true)
+                }
             }}
                  className={'hover:bg-red justify-self-end hover:text-white duration-300 transition-all cursor-pointer mt-2 w-full sm:w-3/4 border-red border-2 sm:p-4 p-1 sm:text-xs text-sm text-red flex items-center rounded-lg font-bold justify-center'}>
                 Читать статью
