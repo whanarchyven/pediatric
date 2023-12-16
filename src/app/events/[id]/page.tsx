@@ -257,7 +257,7 @@ export default function Page({params}: any) {
                                     <strong>Зарегистрировались</strong> {event?.participants} участников</p>
                             </div>
                         </div>
-                        <Link href={event?.link ? event?.link : '#form'}>
+                        <Link href={event?.name=='Новогодний марафон: Сказки о главном' ? 'https://t.me/+98oUoQXA70Y1MzUy' : '#form'}>
                             <div
                                 className={'bg-white text-lg flex items-center justify-center p-3 px-5 rounded-md cursor-pointer hover:opacity-100 transition-all duration-300 opacity-50 text-black'}>
                                 Подтвердить участие
@@ -413,9 +413,10 @@ export default function Page({params}: any) {
             {/*    <img className={'absolute left-0 bottom-0'} src={`/pages/main/about_us_offset_bottom.png`}*/}
             {/*         alt={'asset_bottom'}></img>*/}
             {/*</div>*/}
-            {!event?.isOnlyOnline ?
+            {!event?.isOnlyOnline&&event?.type!='Марафон' ?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
+
                     <div
                         className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-center'}>
                         {registration ? <motion.p initial={{y: -40, opacity: 0}}
