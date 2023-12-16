@@ -28,6 +28,9 @@ export default function Home(params: { params: { user_uuid: string } }) {
             <div className={'flex justify-between'}>
                 <p className={'uppercase font-inter font-extralight text-2xl lg:text-3xl'}>Мероприятия <br/><span
                     className={'font-extrabold'}>и списки участников</span></p>
+                <Link href={`/admin/events/create`} className={'p-4 text-sm bg-green flex rounded-lg cursor-pointer items-center justify-center font-bold text-white'}>
+                    Создать мероприятие
+                </Link>
             </div>
 
             {events && events.length > 0 ? <div className={'flex mt-16 border-t-[1px] border-green flex-col'}>
