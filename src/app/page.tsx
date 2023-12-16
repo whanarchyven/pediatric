@@ -48,11 +48,11 @@ export default function Home() {
 
     const posts = [
         {
-            date: '11 ноября 2023',
-            title: `<p class="font-extralight">IX Всероссийская научно-практическая конференция</p><span class="font-extrabold uppercase">«Дерматологические чтения в педиатрии»</span>`,
-            description: '11 ноября пройдет IX Ежегодная всероссийская научно-практическая конференция с международным участием',
-            link: '/events/0',
-            image: '/pages/main/main_bg.png',
+            date: '18 - 24 декабря 2023',
+            title: `<p class="font-extralight">Новогодний марафон</p><span class="font-extrabold uppercase">«Сказки о главном»</span>`,
+            description: 'Данная обучающая программа направлена на повышение квалификации врачей- специалистов с целью улучшения оказания специализированной помощи детям, страдающих кожными заболеваниями.',
+            link: '/events/97d584ac-d9ff-47ef-958e-5b84c1562c1c/',
+            image: '/pages/main/sliderBackgrounds/new_year.JPG',
         },
         // {
         //     date: '11-17 сентября 2023',
@@ -76,11 +76,11 @@ export default function Home() {
             image: '/pages/main/events/login.png',
         },
         {
-            date: '11.09-11.11',
-            title: `<p class="font-extralight">Воздушный</p><span class="font-extrabold uppercase">рейс</span>`,
-            description: 'Присоединяйтесь к нам в этом по-настоящему масштабном путешествии!',
-            link: '/events/4',
-            image: '/pages/main/events/shar.png',
+            date: '02.01.2023',
+            title: `<p class="font-extralight">III НАУЧНО-ПРАКТИЧЕСКАЯ КОНФЕРЕНЦИЯ</p><span class="font-extrabold uppercase">«Псориаз в детском возрасте: современные решения старых проблем»</span>`,
+            description: 'В ходе конференции будут разобраны наиболее значимые патологии в дерматологии детского возраста, а именно атопический дерматит, формы заболевания и этапы диагностики, а также инновационные технологии терапии.',
+            link: '/events/3-npk-psoriaz/',
+            image: '/pages/new.png',
         }
     ]
     
