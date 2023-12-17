@@ -75,13 +75,13 @@ export default function Home() {
             link: '/registration',
             image: '/pages/main/events/login.png',
         },
-        {
-            date: '02.12.2023',
-            title: `<p class="font-extralight">III НАУЧНО-ПРАКТИЧЕСКАЯ КОНФЕРЕНЦИЯ</p><span class="font-extrabold uppercase">«Псориаз в детском возрасте: современные решения старых проблем»</span>`,
-            description: 'В ходе конференции будут разобраны наиболее значимые патологии в дерматологии детского возраста, а именно атопический дерматит, формы заболевания и этапы диагностики, а также инновационные технологии терапии.',
-            link: '/events/3-npk-psoriaz/',
-            image: '/pages/new.png',
-        }
+        // {
+        //     date: '02.12.2023',
+        //     title: `<p class="font-extralight">III НАУЧНО-ПРАКТИЧЕСКАЯ КОНФЕРЕНЦИЯ</p><span class="font-extrabold uppercase">«Псориаз в детском возрасте: современные решения старых проблем»</span>`,
+        //     description: 'В ходе конференции будут разобраны наиболее значимые патологии в дерматологии детского возраста, а именно атопический дерматит, формы заболевания и этапы диагностики, а также инновационные технологии терапии.',
+        //     link: '/events/3-npk-psoriaz/',
+        //     image: '/pages/new.png',
+        // }
     ]
     
     const [isBuyBookFormOpen,setBuyBookFormOpen]=useState(false)
