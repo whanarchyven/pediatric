@@ -98,7 +98,7 @@ const Navbar = ({isInteractive}:navbarInterface) => {
                 {links.map((link)=>{
                     return (<a onClick={()=>{setBurgerOpen(false)}} key={link.title} className={'font-inter text-sm font-normal text-white'} href={link.link}>{link.title}</a>)
                 })}
-                <div className={'flex flex-row-reverse justify-end items-center cursor-pointer'} onClick={()=>{setBurgerOpen(false);loggedIn&&sessionStorage.getItem('loggedOut')!='true'?router.push('/account/my/profile'):router.push('/login')}}>
+                <div className={'flex flex-row-reverse justify-end items-center cursor-pointer'} onClick={()=>{setBurgerOpen(false);loggedIn?router.push('/account/my/profile'):router.push('/login')}}>
                     <div className={'w-5 mx-2 aspect-square relative'}>
                         <Image src={'/account.svg'} alt={'account'} layout={'fill'}></Image>
                     </div>

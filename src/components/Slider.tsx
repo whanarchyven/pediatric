@@ -35,15 +35,84 @@ export default function Slider() {
         saved
     } = data?.profile ?? {} as any;
 
-    const [posts, setPosts] = useState<Array<any>>([]);
-
-    useEffect(() => {
-        eden.post.list.get({$query: {search: ''}}).then((res) => {
-            if (res?.data?.posts) {
-                setPosts(res.data.posts)
-            }
-        })
-    }, []);
+    const [posts,setPosts]=useState<Array<{
+        uuid: string,
+        imageUrl: string,
+        title: string,
+        description: string,
+        contentMd: string
+        callback?:()=>any,
+        }>>([{
+            uuid:'article1',
+            imageUrl:'/articles/1.jpeg',
+            title:'Психологическая готовность родителей',
+            description:'детей раннего возраста с атопическим дерматитом к выполнению рекомендаций врачей',
+            contentMd:'/articles/1.pdf'
+        },
+        {
+            uuid:'article2',
+            imageUrl:'/articles/2.jpg',
+            title:'Профили экспрессии генов факторов',
+            description:'врожденного иммунитета у пациентов с атопическим дерматитом',
+            contentMd:'/articles/2.pdf'
+        },
+        {
+            uuid:'article3',
+            imageUrl:'/articles/3.jpg',
+            title:'Инновации в терапевтической коррекции',
+            description:'микробиома кожи при атопическом дерматите в детском возрасте',
+            contentMd:'/articles/3.pdf'
+        },
+        {
+            uuid:'article4',
+            imageUrl:'/articles/4.jpg',
+            title:'Влияние элиминационной диеты ',
+            description:'на качество жизни и пищевое поведение детей с тяжелой формой атопического дерматита и пищевой аллергией',
+            contentMd:'/articles/4.pdf'
+        },
+        {
+            uuid:'article5',
+            imageUrl:'/articles/5.jpg',
+            title:'Дефект филаггрина при атопическом дерматите:',
+            description:'современные методы коррекции',
+            contentMd:'/articles/5.pdf'
+        },
+        {
+            uuid:'article6',
+            imageUrl:'/articles/6.jpg',
+            title:'Вопросы терапии и профилактики',
+            description:'инфекционных осложнений атопического дерматита у детей',
+            contentMd:'/articles/6.pdf'
+        },
+        {
+            uuid:'article7',
+            imageUrl:'/articles/7.jpg',
+            title:'Эффективность и безопасность дупилумаба',
+            description:'при тяжелом атопическом дерматите у детей в возрасте до 6 лет: два клинических случая',
+            contentMd:'/articles/7.pdf'
+        },
+        {
+            uuid:'article8',
+            imageUrl:'/articles/8.jpg',
+            title:'Observational study of pimecrolimus 1% cream',
+            description:'for prevention of transcutaneous sensitization in children with atopic dermatitis during their first year of life',
+            contentMd:'/articles/8.pdf'
+        },
+        {
+            uuid:'article9',
+            imageUrl:'/articles/9.jpg',
+            title:'Научно-практические инновации в технологии восстановления',
+            description:'барьерных свойств кожи при атопическом дерматите у детей',
+            contentMd:'/articles/9.pdf'
+        },
+        {
+            uuid:'article10',
+            imageUrl:'/articles/10.jpg',
+            title:'Полногеномный профиль метилирования ДНК',
+            description:'и экспрессия генов TLR2, TLR9, IL4, IL13 при атопическом дерматите у детей и подростков',
+            contentMd:'/articles/10.pdf'
+        },
+        ]);
 
     const [isPopVisible,setIsPopVisible]=useState(false);
     const [currentItem,setCurrentItem]=useState(posts[0])
@@ -84,7 +153,7 @@ export default function Slider() {
                 {posts.map((item, counter) => {
                     return (
                         <SwiperSlide className={'relative h-full pb-12'} key={counter + item.title}>
-                            {saved?.find(suka => suka.title == item.title)?<PostTab callback={()=>{setCurrentItem(item);setIsPopVisible(true)}} isSaved={true} user_uuid={uuid} {...item}></PostTab>:<PostTab callback={()=>{setCurrentItem(item);setIsPopVisible(true)}} isSaved={false} user_uuid={uuid} {...item}></PostTab>}
+                            {saved?.find(suka => suka.title == item.title)?<PostTab isSaved={true} user_uuid={uuid} {...item}></PostTab>:<PostTab isSaved={false} user_uuid={uuid} {...item}></PostTab>}
                         </SwiperSlide>
                     )
                 })}

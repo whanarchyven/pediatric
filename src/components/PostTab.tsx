@@ -64,7 +64,7 @@ const PostTab = ({uuid, contentMd, imageUrl, description, title, isSaved, user_u
                     callback();
                 }
                 else {
-                    setIsPopVisible(true)
+                    window.open(contentMd,'_blank')
                 }
             }}
                  className={'hover:bg-red justify-self-end hover:text-white duration-300 transition-all cursor-pointer mt-2 w-full sm:w-3/4 border-red border-2 sm:p-4 p-1 sm:text-xs text-sm text-red flex items-center rounded-lg font-bold justify-center'}>
