@@ -103,7 +103,7 @@ export default function Page({params}: any) {
                 }[] | undefined;
                 name: string;
             }>;
-            streamLink: string
+            streamLink?: string
         }[];
     }>({
         id: "new-year-maraphone",
@@ -124,34 +124,352 @@ export default function Page({params}: any) {
                 "name": "Мурашкин Николай Николаевич",
                 "post": "ПРЕЗИДЕНТ",
                 "contact": "-",
-                "description": "Руководитель НИИ детской дерматологии,Заведующий отделением дерматологии с группой лазерной хирургии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России,заведующий лабораторией патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России",
+                description: "Руководитель НИИ детской дерматологии,Заведующий отделением дерматологии с группой лазерной хирургии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России,заведующий лабораторией патологии кожи у детей отдела научных исследований в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России",
                 "photo": "/pages/events/murashkin.png"
             },
             {
                 "name": "Аравийская Елена Александровна",
                 "post": "Профессор",
                 "contact": "-",
-                "description": "Профессор кафедры дерматовенерологии с клиникой Первого Санкт-Петербургского ГМУ, руководитель Последипломного цикла обучения  по косметологии для врачей. Член Совета директоров Европейской академии дерматологии и венерологии, член Правления Санкт-Петербургского  общества дерматовенерологов, почетный член Общества дерматологов Франции и Сербии.",
+                description: "Профессор кафедры дерматовенерологии с клиникой Первого Санкт-Петербургского ГМУ, руководитель Последипломного цикла обучения  по косметологии для врачей. Член Совета директоров Европейской академии дерматологии и венерологии, член Правления Санкт-Петербургского  общества дерматовенерологов, почетный член Общества дерматологов Франции и Сербии.",
                 "photo": "/pages/main/employers/araviyskaya.png"
             },
             {
                 "name": "Феденко Елена Сергеевна",
                 "post": "Доктор медицинских наук",
                 "contact": "-",
-                "description": "Заведующая отделением аллергии и иммунопатологии кожи ФГБУ «ГНЦ Институт иммунологии» ФМБА России.",
+                description: "Заведующая отделением аллергии и иммунопатологии кожи ФГБУ «ГНЦ Институт иммунологии» ФМБА России.",
                 "photo": "/pages/main/employers/fedenko.png"
             },
             {
                 "name": "Иванов Роман Александрович",
                 "post": "Кандидат медицинских наук",
                 "contact": "-",
-                "description": "Врач-дерматовенеролог отделения дерматологии и аллергологии  ФГАУ «Национальный медицинский  исследовательский центр здоровья детей» Минздрава России, научный сотрудник лаборатории патологии кожи у детей отдела научных исследований  в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России. Член Европейского общества детских  дерматологов (European Society for Pediatric Dermatology).",
+                description: "Врач-дерматовенеролог отделения дерматологии и аллергологии  ФГАУ «Национальный медицинский  исследовательский центр здоровья детей» Минздрава России, научный сотрудник лаборатории патологии кожи у детей отдела научных исследований  в педиатрии ФГАУ «Национальный медицинский исследовательский центр здоровья детей» Минздрава России. Член Европейского общества детских  дерматологов (European Society for Pediatric Dermatology).",
                 "photo": "/pages/main/employers/ivanov.png"
             }
         ],
-        halls: [],
+        halls: [
+            {
+                program: [
+                    {
+                        substages: [
+                            {
+                                name: "Лекция 1 ",
+                                timePeriod: "09:00 ",
+                                description: "Тонкости и нюансы назначения ингибиторов JAK при атопическом дерматите у детей: о чем нужно помнить всегда» (д.м.н., профессор Мурашкин Н.Н.) ",
+                                sponsor: "ООО \"ЭббВи\""
+                            },
+                            {
+                                name: "Интересный факт ",
+                                timePeriod: "12:00 "
+                            },
+                            {
+                                name: "Интерактивная клиническая задача №1 ",
+                                timePeriod: "15:00 "
+                            },
+                            {
+                                name: "Образовательная брошюра. ",
+                                timePeriod: "16:00",
+                                sponsor: "ООО \"ЭббВи\"",
+                                description: "                 "
+                            },
+                            {
+                                name: "Лекция 2",
+                                timePeriod: "17:00",
+                                description: "Перед лекцией заставка из мультика  Т2-ассоциированные заболевания: от традиций к перспективам применения ингибиторов JAK (Мурашкин Н.Н. + Феденко Е.С.)",
+                                sponsor: "ООО \"ЭббВи\""
+                            },
+                            {
+                                name: "Главная игра марафона",
+                                timePeriod: "18:00"
+                            },
+                            {
+                                name: "Образовательный ролик",
+                                timePeriod: "18:30"
+                            },
+                            {
+                                name: "Игра в ассоциации - новый формат",
+                                timePeriod: "19:00"
+                            },
+                            {
+                                name: "Заполнение новогоднего журнала",
+                                timePeriod: "20:00"
+                            }
+                        ],
+                        "name": "День 1. ",
+                        "timePeriod": "18.12 "
+                    },
+                    {
+                        substages: [
+                            {
+                                name: "Лекция 1",
+                                timePeriod: "09:00",
+                                description: "Проблема экземы кистей рук у пациентов детского возраста, страдающих атопическим дерматитом: современные пути решения (д.м.н., профессор Мурашкин Н.Н.) ",
+                                sponsor: "ООО \"ЭббВи\""
+                            },
+                            {
+                                name: "Образовательный ролик.",
+                                timePeriod: "10:00",
+                                description: "                        ",
+                                sponsor: "ООО \"ЭббВи\""
+                            },
+                            {
+                                name: "Интересный факт ",
+                                timePeriod: "11:00"
+                            },
+                            {
+                                name: "Ответ на клиническую на задачу №1",
+                                timePeriod: "12:00"
+                            },
+                            {
+                                name: "Клиническая задача №2  ",
+                                timePeriod: "13:00 "
+                            },
+                            {
+                                name: "Образовательная брошюра.",
+                                timePeriod: "15:00",
+                                description: "       ",
+                                sponsor: "ООО \"ЭббВи\""
+                            },
+                            {
+                                name: "Лекция 2 ",
+                                timePeriod: "16:00 ",
+                                description: "Возможности системной терапии атопического дерматита: как определиться с выбором? (к.м.н. Иванов Р.А.)",
+                                sponsor: "ООО \"ЭббВи\""
+                            },
+                            {
+                                name: "Образовательная брошюра 2",
+                                timePeriod: "16:30 "
+                            },
+                            {
+                                name: "Главная игра марафона. ",
+                                timePeriod: "17:00 "
+                            },
+                            {
+                                name: "Образовательный ролик ",
+                                timePeriod: "18:00 "
+                            },
+                            {
+                                name: "Игра в ассоциации ",
+                                timePeriod: "19:00 "
+                            },
+                            {
+                                name: "Заполнение новогоднего журнала ",
+                                timePeriod: "20:00 "
+                            }
+                        ],
+                        "name": "День 2.",
+                        "timePeriod": "19.12"
+                    },
+                    {
+                        substages: [
+                            {
+                                name: "Лекция 1   ",
+                                timePeriod: "09:00 ",
+                                description: "Бремя зуда при атопическом дерматите у детей: в поисках эффективного лечения (Мурашкин Н.Н. + Феденко Е.С.)",
+                                sponsor: "Olainfarm"
+                            },
+                            {
+                                name: "Интересный факт про сказку ",
+                                timePeriod: "11:00"
+                            },
+                            {
+                                name: "Ответ на клиническую задачу №2 ",
+                                timePeriod: "12:00 "
+                            },
+                            {
+                                name: "Образовательный ролик",
+                                timePeriod: "12:30 ",
+                                description: "           ",
+                                sponsor: "ООО \"ЭббВи\""
+                            },
+                            {
+                                timePeriod: "13:00",
+                                name: "Клиническая задача №3 ",
+                                sponsor: "Olainfarm",
+                                description: "             "
+                            },
+                            {
+                                name: "Образовательная брошюра.",
+                                timePeriod: "15:00 ",
+                                sponsor: "ООО \"ЭббВи\"",
+                                description: "             "
+                            },
+                            {
+                                name: "Лекция 2",
+                                timePeriod: "17:00",
+                                description: "«Переключение» таргетной терапии: когда, как и почему? (к.м.н. Иванов Р.А.)",
+                                sponsor: "ООО \"ЭббВи\""
+                            },
+                            {
+                                name: "Главная игра марафона.",
+                                timePeriod: "18:00"
+                            },
+                            {
+                                name: "Образовательная брошюра ",
+                                timePeriod: "18:30 "
+                            },
+                            {
+                                name: "Игра в ассоциации ",
+                                timePeriod: "19:00 "
+                            },
+                            {
+                                name: "Заполнение новогоднего журнала",
+                                timePeriod: "20:00 "
+                            }
+                        ],
+                        "name": "День 3",
+                        "timePeriod": "20.12 "
+                    },
+                    {
+                        substages: [
+                            {
+                                name: "Лекция 1",
+                                timePeriod: "09:00",
+                                description: "Жизнь с акне: состояние кожи в детстве как корень психических расстройств и социальной дезадаптации (д.м.н., профессор Мурашкин Н.Н.)"
+                            },
+                            {
+                                name: "Ответ на клиническую  задачу №3 ",
+                                timePeriod: "11:00"
+                            },
+                            {
+                                name: "Клиническая задача №4 по акне «Множество обликов акне»",
+                                timePeriod: "12:00"
+                            },
+                            {
+                                name: "Лекция 2 ",
+                                timePeriod: "15:00 ",
+                                description: "Акне: update. Часть 1. (д.м.н., профессор Аравийская Е.А.) "
+                            },
+                            {
+                                name: "Главная игра марафона",
+                                timePeriod: "17:00 "
+                            },
+                            {
+                                name: "Игра в ассоциации",
+                                timePeriod: "19:00 "
+                            },
+                            {
+                                name: "Заполнение новогоднего журнала",
+                                timePeriod: "20:00 "
+                            }
+                        ],
+                        "name": "День 4",
+                        "timePeriod": "21.12 "
+                    },
+                    {
+                        substages: [
+                            {
+                                name: "Лекция 1 ",
+                                timePeriod: "09: 00 ",
+                                description: "Многообразие клинических форм акне: особенности течения и тактика лечения (д.м.н., профессор Мурашкин Н.Н.)"
+                            },
+                            {
+                                name: "Ответ на клиническую задачу №1 по акне",
+                                timePeriod: "11:00",
+                                description: "«Множество обликов акне»"
+                            },
+                            {
+                                name: "Клиническая задача №2  по акне",
+                                timePeriod: "12: 00",
+                                description: "«Множество обликов акне 2.0»"
+                            },
+                            {
+                                name: "Образовательная брошюра",
+                                timePeriod: "13:00"
+                            },
+                            {
+                                name: "Образовательный ролик",
+                                timePeriod: "14:00"
+                            },
+                            {
+                                name: "Лекция 2",
+                                timePeriod: "16:00 ",
+                                description: "Акне: update. Часть 2. (д.м.н., профессор Аравийская Е.А.) "
+                            },
+                            {
+                                name: "Главная игра марафона.",
+                                timePeriod: "17:00 "
+                            },
+                            {
+                                name: "Игра в ассоциации",
+                                timePeriod: "19:00"
+                            },
+                            {
+                                name: "Заполнение новогоднего журнала",
+                                timePeriod: "20:00"
+                            }
+                        ],
+                        "name": "День 5 ",
+                        "timePeriod": "22.12 "
+                    },
+                    {
+                        substages: [
+                            {
+                                name: "Лекция 1",
+                                timePeriod: "09:00",
+                                description: "Что кроется за термином «постакне»: профилактика и методы коррекции (д.м.н., профессор Мурашкин Н.Н.)"
+                            },
+                            {
+                                name: "Ответ на клиническую задачу №2 по акне",
+                                timePeriod: "11:00",
+                                description: "«Множество обликов акне 2.0»"
+                            },
+                            {
+                                name: "Клиническая Задача №3 по акне ",
+                                description: "«Дерматоскопия в диагностике акне»",
+                                timePeriod: "12:00 "
+                            },
+                            {
+                                name: "Лекция 2",
+                                timePeriod: "16:00",
+                                description: "Межцарственное взаимодействие: роль бактерий и дрожжевых грибов при атопическом дерматите (д.м.н., профессор Мурашкин Н.Н.)"
+                            },
+                            {
+                                name: "Главная игра марафона.",
+                                timePeriod: "17:00"
+                            },
+                            {
+                                name: "Игра в ассоциации",
+                                timePeriod: "19:00"
+                            },
+                            {
+                                name: "Заполнение новогоднего журнала",
+                                timePeriod: "20:00"
+                            }
+                        ],
+                        name: "День 6",
+                        timePeriod: "23.12"
+                    },
+                    {
+                        substages: [
+                            {
+                                name: "Ответ на клиническую задачу №3 по акне",
+                                timePeriod: "09:00",
+                                description: "«Дерматоскопия в диагностике акне»"
+                            },
+                            {
+                                name: "Лекция по главной игре марафона ",
+                                timePeriod: "11:00"
+                            },
+                            {
+                                name: "Прямой эфир ",
+                                timePeriod: "16:00"
+                            },
+                            {
+                                name: "Завершение марафона",
+                                timePeriod: "18:00 "
+                            }
+                        ],
+                        name: "День 7",
+                        timePeriod: "24.12"
+                    }
+                ],
+                name: "Программа марафона"
+            }
+        ],
         prices: [],
-        __v: 0
     })
 
     const [isPopPriceOpen, setIsPopPriceOpen] = useState(false);
@@ -240,6 +558,7 @@ export default function Page({params}: any) {
     const [currentStream, setCurrentStream] = useState('')
 
     useEffect(() => {
+        if(event?.halls[0]?.streamLink)
         setCurrentStream(event?.halls[0]?.streamLink)
     }, [event]);
 
@@ -247,11 +566,13 @@ export default function Page({params}: any) {
     const timeLine = [
         {
             day: '1',
+            sponsor:'ЭббВи',
             materials: [
                 {
                     videoName: 'Лекция 1. Тонкости и нюансы назначения ингибиторов JAK при атопическом дерматите у детей: о чем нужно помнить всегда» (д.м.н., профессор Мурашкин Н.Н.)',
                     videoLink: 'https://www.youtube.com/embed/_FF2Gq5wJEk?si=kVY9mURIYHols-FG',
-                    docs: [{name: 'Клиническая задача 1', link: '/maraphone/Клиническая_задача_День_1.pdf'}, {name: 'Клиническая брошюра 1.', link: '/maraphone/Клинический_случай_1_Макарова_Г_У_.pdf'}]
+                    docs: [{name: 'Клиническая задача 1', link: '/maraphone/new/Клиническая_задча_День_1.pdf'}, {name: 'Клиническая брошюра 1.', link: '/maraphone/Клинический_случай_1_Макарова_Г_У_.pdf'},
+                        {name: 'Применение упадацитиниба', link: '/maraphone/new/1.Применение упадацитиниба.pdf'}]
                 },
                 {
                     videoName: 'Лекция 2. Т2-ассоциированные заболевания: от традиций к перспективам применения ингибиторов JAK (Мурашкин Н.Н. + Феденко Е.С.)\n',
@@ -261,11 +582,12 @@ export default function Page({params}: any) {
         },
         {
             day: '2',
+            sponsor:'ЭббВи',
             materials: [
                 {
                     videoName: 'Лекция 1. Проблема экземы кистей рук у пациентов детского возраста, страдающих атопическим дерматитом: современные пути решения (д.м.н., профессор Мурашкин Н.Н.)',
                     videoLink: 'https://www.youtube.com/embed/A7Vakf8Q2Gw?si=ImRMLCylOZ1S_-gM',
-                    docs: [{name: 'Ответ на клиническую задачу 1', link: '/maraphone/Ответ на клиническую задачу 1.pdf'}, {name: 'Клиническая задача 2.', link: '/maraphone/Клиническая задача 2 .pdf'}, {name: 'Клиническая брошюра 2', link: '/maraphone/Клинический_случай_2_Камаев_А_В_.pdf'}, {name: 'Образовательная брошюра', link: '/maraphone/Брошюра_по_безопасности_РАНВЭК_Скрининг_и_мониторинг_2023_FINAL.pdf'}]
+                    docs: [{name: 'Ответ на клиническую задачу 1', link: '/maraphone/new/Ответ на клиническую задачу 1.pdf'}, {name: 'Клиническая задача 2.', link: '/maraphone/new/Клиническая задача 2.pdf'}, {name: 'Клиническая брошюра 2', link: '/maraphone/Клинический_случай_2_Камаев_А_В_.pdf'}, {name: 'Образовательная брошюра', link: '/maraphone/Брошюра_по_безопасности_РАНВЭК_Скрининг_и_мониторинг_2023_FINAL.pdf'}]
                 },
                 {
                     videoName: 'Лекция 2. Возможности системной терапии атопического дерматита: как определиться с выбором? (к.м.н. Иванов Р.А.)\n',
@@ -279,21 +601,22 @@ export default function Page({params}: any) {
         },
         {
             day: '3',
+            sponsor:'ЭббВи',
             materials: [
                 {
                     videoName: 'Лекция 1. Бремя зуда при атопическом дерматите у детей: в поисках эффективного лечения (Мурашкин Н.Н. + Феденко Е.С.)',
                     videoLink: 'https://www.youtube.com/embed/h-W9AsSGCdo?si=gCP6G51ktDP6gqz7',
-                    docs: [{name: 'Ответ на клиническую задачу 2', link: '/maraphone/Ответ на клиническую задачу 2.pdf'}]
+                    docs: [{name: 'Ответ на клиническую задачу 2', link: '/maraphone/new/Ответ на клиническую задачу 2 .pdf'}]
                 },
                 {
                     videoName: 'Образовательный ролик',
                     videoLink: 'https://www.youtube.com/embed/d2WsbTlLhq8?si=J47R5kIKYQmzqz38',
-                    docs: [{name: 'Клиническая задача 3', link: '/maraphone/Клиническая задача 3.pdf'}, {name: 'Образовательная брошюра', link: '/maraphone/АтД_Брошюра по индексам_2023_FINAL.pdf'}]
+                    docs: [{name: 'Клиническая задача 3', link: '/maraphone/Клиническая задача 3.pdf'}, {name: 'Образовательная брошюра', link: '/maraphone/new/Клиническая задача 3 (2).pdf'}]
                 },
                 {
                     videoName: 'Лекция 2. Переключение» таргетной терапии: когда, как и почему? (к.м.н. Иванов Р.А.)',
                     videoLink: 'https://www.youtube.com/embed/nWall8_Js08?si=6tfWUp-MeKKqznle',
-                    docs: [{name: 'Клинический разбор', link: '/maraphone/Клинический разбор №2.pdf'}]
+                    docs: [{name: 'Клиническая брошюра', link: '/maraphone/new/Клинический_случай_3_Шилова_Т_В_.pdf'}]
                 },
             ],
         },
@@ -303,7 +626,7 @@ export default function Page({params}: any) {
                 {
                     videoName: 'Лекция 1. Жизнь с акне: состояние кожи в детстве как корень психических расстройств и социальной дезадаптации (д.м.н., профессор Мурашкин Н.Н.',
                     videoLink: 'https://www.youtube.com/embed/V_B81S1iFSk?si=sd8BAjdF5nsi3hp6',
-                    docs: [{name: 'Ответ на клиническую задачу 3', link: '/maraphone/Ответ на клиническую задачу 3 .pdf'}, {name: 'Клиническая задача 4', link: '/maraphone/Клиническая_задача_Множество_обликов_акне.pdf'}]
+                    docs: [{name: 'Ответ на клиническую задачу 3', link: '/maraphone/new/Ответ на клиническую задачу 3  (2).pdf'}, {name: 'Клиническая задача 4', link: '/maraphone/Клиническая_задача_Множество_обликов_акне.pdf'}]
                 },
                 {
                     videoName: 'Лекция 2. Акне: update. Часть 1. (д.м.н., профессор Аравийская Е.А.)',
@@ -446,7 +769,7 @@ export default function Page({params}: any) {
 
             <div className={'bg-white py-12 px-[20px] lg:px-[140px]'}>
                 <p className={'uppercase font-extralight text-2xl lg:text-5xl text-black'}>Новогодний марафон
-                    <br/><span className={'font-extrabold'}>День {currentDay.day}</span></p>
+                    <br/><span className={'font-extrabold'}>День {currentDay.day} {currentDay.sponsor?'При поддержке компании "'+currentDay.sponsor+'"':''}</span></p>
 
                 <div className={'flex mt-5 items-center lg:overflow-x-hidden overflow-x-scroll justify-between relative w-full gap-4'}>
                     {timeLine.map((item) => {
@@ -492,6 +815,88 @@ export default function Page({params}: any) {
                 </div>
 
             </div>
+
+            {currentProgram ? <div className={'bg-white py-12 px-[20px] lg:px-[140px]'}>
+                <p className={'uppercase font-extralight text-2xl lg:text-5xl text-black'}>Программа
+                    <br/><span className={'font-extrabold'}>Конференции</span></p>
+
+                <div className={'flex mt-20 items-center sm:overflow-x-hidden overflow-x-scroll max-w-full gap-16'}>
+                    {event?.halls.map((hall, counter) => {
+                        return (
+                            <div key={counter} onClick={() => {
+                                setCurrentProgram(hall)
+                            }}
+                                 className={classList('flex cursor-pointer items-center whitespace-nowrap xl:text-2xl font-bold justify-center', currentProgram.name == hall.name ? 'border-b-2 border-green-two text-green-two' : 'text-black')}>
+                                {hall.name}
+                            </div>
+                        )
+                    })
+                    }
+                </div>
+                <div className={'flex mt-20 flex-col gap-14'}>
+                    {currentProgram.program.map((item, counter) => {
+                        return (
+                            <div key={counter} className={'flex gap-8 flex-col'}>
+                                <div
+                                    className={'flex lg:grid lg:grid-cols-12 gap-2 lg:gap-6 flex-col lg:flex-row items-start'}>
+                                    {item.timePeriod ? <div className={'col-span-2 mr-4 flex items-center gap-2'}>
+                                        <img className={'w-4 lg:w-6 aspect-square'} src={`${images}/time.svg`}/>
+                                        <div
+                                            className={'text-lg lg:text-2xl text-green-two whitespace-nowrap contents font-bold'}>{item.timePeriod}</div>
+                                    </div> : null}
+                                    <div
+                                        className={'text-lg col-span-10 lg:text-2xl whitespace-pre-wrap lg:text-justify font-bold'}>{item.name}</div>
+                                </div>
+                                {item.speaker ? <div
+                                    className={'bg-[#DBEAE8] text-lg p-3 lg:px-14 lg:p-6 lg:text-xl rounded-lg flex items-center justify-start'}>
+                                    {item?.sponsor ?
+                                        <p>{item.speaker}<span
+                                            className={'font-bold'}><br/>При поддержке компании {item.sponsor}</span>
+                                        </p> : item.speaker}
+                                </div> : null}
+                                {item.substages ?
+                                    <div className={'p-3 lg:p-8'}>
+                                        {item.substages.map((substage, subCounter) => {
+                                            if (item.substages) {
+                                                return (
+                                                    <div key={subCounter} className={'grid grid-cols-12 items-start'}>
+                                                        <div
+                                                            className={'col-span-1 flex relative items-center h-full flex-col justify-center'}>
+                                                            <div
+                                                                className={'lg:w-6 w-4 lg:h-6 h-4 absolute top-0 aspect-square rounded-full bg-green-two'}>
+
+                                                            </div>
+                                                            <div className={'h-full w-[2px] bg-green-two'}>
+
+                                                            </div>
+                                                        </div>
+                                                        <div
+                                                            className={classList('col-span-11 flex lg:gap-0 gap-3 h-fit flex-col', subCounter < item?.substages?.length - 1 ? 'pb-6 lg:pb-14' : '')}>
+                                                            <p className={'lg:text-2xl text-lg w-full text-green-two contents font-bold'}>{substage?.timePeriod}</p>
+                                                            <p className={'lg:text-2xl text-lg w-full text-black font-medium'}>{substage?.name}</p>
+                                                            {substage?.description ? <div
+                                                                className={'bg-[#DBEAE8] p-3 text-lg lg:px-14 lg:p-6 lg:text-xl rounded-lg flex items-center justify-start'}>
+                                                                {substage?.sponsor ?
+                                                                    <p>{substage.description}<span
+                                                                        className={'font-bold'}><br/>При поддержке компании {substage.sponsor}</span>
+                                                                    </p> : substage.description}
+                                                            </div> : null}
+                                                        </div>
+                                                    </div>
+                                                )
+
+                                            }
+                                        })
+                                        }
+                                    </div>
+
+                                    : null}
+                            </div>
+                        )
+                    })}
+                </div>
+            </div> : null}
+
 
 
             {event?.date == '11.11.2023' || event?.date == '2023-11-11' ?
