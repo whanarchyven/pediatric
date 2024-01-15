@@ -51,7 +51,7 @@ export default function Home() {
             date: '18 - 24 декабря 2023',
             title: `<p class="font-extralight">Новогодний марафон</p><span class="font-extrabold uppercase">«Сказки о главном»</span>`,
             description: 'Данная обучающая программа направлена на повышение квалификации врачей- специалистов с целью улучшения оказания специализированной помощи детям, страдающих кожными заболеваниями.',
-            link: '/events/97d584ac-d9ff-47ef-958e-5b84c1562c1c/',
+            link: '/events/new-year-maraphone/',
             image: '/pages/main/sliderBackgrounds/new_year.JPG',
         },
         // {

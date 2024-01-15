@@ -13,9 +13,10 @@ interface postTabInterface {
     contentMd: string
     isSaved?: boolean,
     callback?:()=>any,
+    link?:string,
 }
 
-const PostTab = ({uuid, contentMd, imageUrl, description, title, isSaved, user_uuid, isAdmin, callback}: postTabInterface) => {
+const PostTab = ({uuid, contentMd, imageUrl, description, title, isSaved, user_uuid, isAdmin, callback,link}: postTabInterface) => {
     const [isPopVisible, setIsPopVisible] = useState(false)
     const [isEditPop, setIsEditPop] = useState(false)
 
@@ -53,10 +54,10 @@ const PostTab = ({uuid, contentMd, imageUrl, description, title, isSaved, user_u
             </div>}
             </div> : null}
             <img className={'cursor-pointer w-full h-96 object-cover rounded-lg'} src={imageUrl}/>
-            <p className={'text-black w-full truncate text-sm sm:text-xl text-center font-bold'}>
+            <p className={'text-black w-full text-sm sm:text-lg text-center font-bold'}>
                 {title}
             </p>
-            <p className={'text-black truncate w-full sm:text-lg text-xs text-center'}>
+            <p className={'text-black truncate w-full sm:text-base text-xs text-center'}>
                 {description}
             </p>
             <div onClick={() => {
@@ -64,7 +65,7 @@ const PostTab = ({uuid, contentMd, imageUrl, description, title, isSaved, user_u
                     callback();
                 }
                 else {
-                    window.open(contentMd,'_blank')
+                    setIsPopVisible(true)
                 }
             }}
                  className={'hover:bg-red justify-self-end hover:text-white duration-300 transition-all cursor-pointer mt-2 w-full sm:w-3/4 border-red border-2 sm:p-4 p-1 sm:text-xs text-sm text-red flex items-center rounded-lg font-bold justify-center'}>
@@ -90,14 +91,23 @@ const PostTab = ({uuid, contentMd, imageUrl, description, title, isSaved, user_u
                     className={'p-5 flex flex-col h-full lg:h-[600px] overflow-y-scroll gap-4 bg-white rounded-xl w-full lg:w-1/2'}>
                     <img className={'object-cover aspect-video w-full'} src={imageUrl}/>
                     <p className={'font-bold text-2xl'}>{title}</p>
-                    <p className={'text-sm'}>{description}</p>
+                    <p className={'text-sm font-bold'}>{description}</p>
                     <text className={'postText flex flex-col gap-5'} dangerouslySetInnerHTML={{__html: contentMd}}>
 
                     </text>
-                    <div onClick={() => {
-                        setIsPopVisible(false)
-                    }} className={'cursor-pointer flex items-center gap-3 text-2xl text-red font-bold'}><img
-                        src={'/arrow_back.svg'}/> Назад
+                    <div className={'flex justify-between items-center'}>
+
+                        <div onClick={() => {
+                            setIsPopVisible(false)
+                        }} className={'cursor-pointer flex items-center gap-3 text-2xl text-red font-bold'}><img
+                            src={'/arrow_back.svg'}/> Назад
+                        </div>
+                        <div onClick={() => {
+                            window.open(link)
+                        }}
+                             className={'hover:bg-red justify-self-end hover:text-white duration-300 transition-all cursor-pointer mt-2 w-full sm:w-3/4 border-red border-2 sm:p-4 p-1 sm:text-xs text-sm text-red flex items-center rounded-lg font-bold justify-center'}>
+                            Читать статью полностью
+                        </div>
                     </div>
                 </div>
             </div> : null}

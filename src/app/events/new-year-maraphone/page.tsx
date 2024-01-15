@@ -106,7 +106,7 @@ export default function Page({params}: any) {
             streamLink: string
         }[];
     }>({
-        id: "657daa40eb2560c42525551b",
+        id: "new-year-maraphone",
         type: "Марафон",
         date: "18.12.2023",
         dateStart: new Date("2023-12-18T05:30:00.000Z"),
@@ -244,6 +244,116 @@ export default function Page({params}: any) {
     }, [event]);
 
 
+    const timeLine = [
+        {
+            day: '1',
+            materials: [
+                {
+                    videoName: 'Лекция 1. Тонкости и нюансы назначения ингибиторов JAK при атопическом дерматите у детей: о чем нужно помнить всегда» (д.м.н., профессор Мурашкин Н.Н.)',
+                    videoLink: 'https://www.youtube.com/embed/_FF2Gq5wJEk?si=kVY9mURIYHols-FG',
+                    docs: [{name: 'Клиническая задача 1', link: '/maraphone/Клиническая_задача_День_1.pdf'}, {name: 'Клиническая брошюра 1.', link: '/maraphone/Клинический_случай_1_Макарова_Г_У_.pdf'}]
+                },
+                {
+                    videoName: 'Лекция 2. Т2-ассоциированные заболевания: от традиций к перспективам применения ингибиторов JAK (Мурашкин Н.Н. + Феденко Е.С.)\n',
+                    videoLink: 'https://www.youtube.com/embed/mnnNSCIHxRU?si=BbGw2KzGVC7tdivu',
+                },
+            ],
+        },
+        {
+            day: '2',
+            materials: [
+                {
+                    videoName: 'Лекция 1. Проблема экземы кистей рук у пациентов детского возраста, страдающих атопическим дерматитом: современные пути решения (д.м.н., профессор Мурашкин Н.Н.)',
+                    videoLink: 'https://www.youtube.com/embed/A7Vakf8Q2Gw?si=ImRMLCylOZ1S_-gM',
+                    docs: [{name: 'Ответ на клиническую задачу 1', link: '/maraphone/Ответ на клиническую задачу 1.pdf'}, {name: 'Клиническая задача 2.', link: '/maraphone/Клиническая задача 2 .pdf'}, {name: 'Клиническая брошюра 2', link: '/maraphone/Клинический_случай_2_Камаев_А_В_.pdf'}, {name: 'Образовательная брошюра', link: '/maraphone/Брошюра_по_безопасности_РАНВЭК_Скрининг_и_мониторинг_2023_FINAL.pdf'}]
+                },
+                {
+                    videoName: 'Лекция 2. Возможности системной терапии атопического дерматита: как определиться с выбором? (к.м.н. Иванов Р.А.)\n',
+                    videoLink: 'https://www.youtube.com/embed/sYTkHEDZR3E?si=9Itn8kgTggFi9I31',
+                },
+                {
+                    videoName: 'Образовательный ролик',
+                    videoLink: 'https://www.youtube.com/embed/UIw1HhqMY0k?si=_t9iWpj2psgy_5bU',
+                },
+            ],
+        },
+        {
+            day: '3',
+            materials: [
+                {
+                    videoName: 'Лекция 1. Бремя зуда при атопическом дерматите у детей: в поисках эффективного лечения (Мурашкин Н.Н. + Феденко Е.С.)',
+                    videoLink: 'https://www.youtube.com/embed/h-W9AsSGCdo?si=gCP6G51ktDP6gqz7',
+                    docs: [{name: 'Ответ на клиническую задачу 2', link: '/maraphone/Ответ на клиническую задачу 2.pdf'}]
+                },
+                {
+                    videoName: 'Образовательный ролик',
+                    videoLink: 'https://www.youtube.com/embed/d2WsbTlLhq8?si=J47R5kIKYQmzqz38',
+                    docs: [{name: 'Клиническая задача 3', link: '/maraphone/Клиническая задача 3.pdf'}, {name: 'Образовательная брошюра', link: '/maraphone/АтД_Брошюра по индексам_2023_FINAL.pdf'}]
+                },
+                {
+                    videoName: 'Лекция 2. Переключение» таргетной терапии: когда, как и почему? (к.м.н. Иванов Р.А.)',
+                    videoLink: 'https://www.youtube.com/embed/nWall8_Js08?si=6tfWUp-MeKKqznle',
+                    docs: [{name: 'Клинический разбор', link: '/maraphone/Клинический разбор №2.pdf'}]
+                },
+            ],
+        },
+        {
+            day: '4',
+            materials: [
+                {
+                    videoName: 'Лекция 1. Жизнь с акне: состояние кожи в детстве как корень психических расстройств и социальной дезадаптации (д.м.н., профессор Мурашкин Н.Н.',
+                    videoLink: 'https://www.youtube.com/embed/V_B81S1iFSk?si=sd8BAjdF5nsi3hp6',
+                    docs: [{name: 'Ответ на клиническую задачу 3', link: '/maraphone/Ответ на клиническую задачу 3 .pdf'}, {name: 'Клиническая задача 4', link: '/maraphone/Клиническая_задача_Множество_обликов_акне.pdf'}]
+                },
+                {
+                    videoName: 'Лекция 2. Акне: update. Часть 1. (д.м.н., профессор Аравийская Е.А.)',
+                    videoLink: 'https://www.youtube.com/embed/Tjgj8WUxCU0?si=Hr4PG7nUbPnv4C5x',
+                },
+            ],
+        },
+        {
+            day: '5',
+            materials: [
+                {
+                    videoName: 'Лекция 1. Многообразие клинических форм акне: особенности течения и тактика лечения (д.м.н., профессор Мурашкин Н.Н.)',
+                    videoLink: 'https://www.youtube.com/embed/LGgm3eDIMIY?si=0hNhe-dprpUObiMa',
+                    docs: [{name: 'Ответ на клиническую задачу 4', link: '/maraphone/Ответ_на_клиническую_задачу_Множество_обликов_акне.pdf'}, {name: 'Клиническая задача 5', link: '/maraphone/Клиническая_задача_Множество_обликов_акне_2_0.pdf'}]
+                },
+                {
+                    videoName: 'Лекция 2. Акне: update. Часть 2. (д.м.н., профессор Аравийская Е.А.)',
+                    videoLink: 'https://www.youtube.com/embed/29i1t7dPGiQ?si=dyhQmBkengjrgpBt',
+                    docs: [{name: 'Образовательная брошюра', link: '/maraphone/Lipikar.pdf'},]
+                },
+            ],
+        },
+        {
+            day: '6',
+            materials: [
+                {
+                    videoName: 'Лекция 1. Что кроется за термином «постакне»: профилактика и методы коррекции (д.м.н., профессор Мурашкин Н.Н.)',
+                    videoLink: 'https://www.youtube.com/embed/gKU2tT3A8qk?si=mYF994-RCWEakEx5',
+                    docs: [{name: 'Ответ на клиническую задачу 5', link: '/maraphone/Ответ_на_клиническую_задачу_Множество_обликов_акне_2_0.pdf'}, {name: 'Клиническая задача 6', link: '/maraphone/Клиническая задача №3 .pdf'}]
+                },
+                {
+                    videoName: 'Лекция 2. Межцарственное взаимодействие: роль бактерий и дрожжевых грибов при атопическом дерматите (д.м.н., профессор Мурашкин Н.Н.)',
+                    videoLink: 'https://www.youtube.com/embed/4UGtYOIjvQg?si=14G3o9SlaK8Xb8t1',
+                },
+            ],
+        },
+        {
+            day: '7',
+            materials: [
+                {
+                    docs: [{name: 'Ответ на клиническую задачу 6', link: '/maraphone/Ответ на клиническую задачу №3.pdf'}, {name: 'Главная игра марафона', link: '/maraphone/Ответ на главную игру Марафона.pdf'}]
+                },
+            ],
+        }
+
+    ]
+
+    const [currentDay, setCurrentDay] = useState(timeLine[0])
+
+
     return (
         <main className={'overflow-x-hidden'}>
             {/*ПЕРВЫЙ БЛОК*/}
@@ -333,86 +443,55 @@ export default function Page({params}: any) {
                 <img className={'absolute w-full asset left-0 z-50 bottom-[-0.5px]'} src={'/about_us_offset_bot.png'}/>
             </div> : null}
 
-            {currentProgram ? <div className={'bg-white py-12 px-[20px] lg:px-[140px]'}>
-                <p className={'uppercase font-extralight text-2xl lg:text-5xl text-black'}>Программа
-                    <br/><span className={'font-extrabold'}>Конференции</span></p>
 
-                <div className={'flex mt-20 items-center sm:overflow-x-hidden overflow-x-scroll max-w-full gap-16'}>
-                    {event?.halls.map((hall, counter) => {
+            <div className={'bg-white py-12 px-[20px] lg:px-[140px]'}>
+                <p className={'uppercase font-extralight text-2xl lg:text-5xl text-black'}>Новогодний марафон
+                    <br/><span className={'font-extrabold'}>День {currentDay.day}</span></p>
+
+                <div className={'flex mt-5 items-center lg:overflow-x-hidden overflow-x-scroll justify-between relative w-full gap-4'}>
+                    {timeLine.map((item) => {
                         return (
-                            <div key={counter} onClick={() => {
-                                setCurrentProgram(hall)
+                            <div key={item.day} onClick={() => {
+                                setCurrentDay(item)
                             }}
-                                 className={classList('flex cursor-pointer items-center whitespace-nowrap xl:text-2xl font-bold justify-center', currentProgram.name == hall.name ? 'border-b-2 border-green-two text-green-two' : 'text-black')}>
-                                {hall.name}
+                                 className={classList('p-3 z-[20] relative whitespace-nowrap rounded-full flex items-center justify-center font-bold cursor-pointer aspect-square', currentDay.day == item.day ? 'bg-green text-white' : 'border-2 border-green bg-white text-black')}>
+                                День {item.day}
                             </div>
                         )
-                    })
-                    }
+                    })}
+                    <div className={'h-0.5 w-full bg-green z-[0] absolute left-0'}>
+
+                    </div>
                 </div>
-                <div className={'flex mt-20 flex-col gap-14'}>
-                    {currentProgram.program.map((item, counter) => {
+
+                <div className={'mt-12'}>
+                    {currentDay.materials.map((item,counter) => {
                         return (
-                            <div key={counter} className={'flex gap-8 flex-col'}>
-                                <div
-                                    className={'flex lg:grid lg:grid-cols-12 gap-2 lg:gap-6 flex-col lg:flex-row items-start'}>
-                                    {item.timePeriod ? <div className={'col-span-2 mr-4 flex items-center gap-2'}>
-                                        <img className={'w-4 lg:w-6 aspect-square'} src={`${images}/time.svg`}/>
-                                        <div
-                                            className={'text-lg lg:text-2xl text-green-two whitespace-nowrap contents font-bold'}>{item.timePeriod}</div>
-                                    </div> : null}
-                                    <div
-                                        className={'text-lg col-span-10 lg:text-2xl whitespace-pre-wrap lg:text-justify font-bold'}>{item.name}</div>
-                                </div>
-                                {item.speaker ? <div
-                                    className={'bg-[#DBEAE8] text-lg p-3 lg:px-14 lg:p-6 lg:text-xl rounded-lg flex items-center justify-start'}>
-                                    {item?.sponsor ?
-                                        <p>{item.speaker}<span
-                                            className={'font-bold'}><br/>При поддержке компании {item.sponsor}</span>
-                                        </p> : item.speaker}
-                                </div> : null}
-                                {item.substages ?
-                                    <div className={'p-3 lg:p-8'}>
-                                        {item.substages.map((substage, subCounter) => {
-                                            if (item.substages) {
-                                                return (
-                                                    <div key={subCounter} className={'grid grid-cols-12 items-start'}>
-                                                        <div
-                                                            className={'col-span-1 flex relative items-center h-full flex-col justify-center'}>
-                                                            <div
-                                                                className={'lg:w-6 w-4 lg:h-6 h-4 absolute top-0 aspect-square rounded-full bg-green-two'}>
-
-                                                            </div>
-                                                            <div className={'h-full w-[2px] bg-green-two'}>
-
-                                                            </div>
-                                                        </div>
-                                                        <div
-                                                            className={classList('col-span-11 flex lg:gap-0 gap-3 h-fit flex-col', subCounter < item?.substages?.length - 1 ? 'pb-6 lg:pb-14' : '')}>
-                                                            <p className={'lg:text-2xl text-lg w-full text-green-two contents font-bold'}>{substage?.timePeriod}</p>
-                                                            <p className={'lg:text-2xl text-lg w-full text-black font-medium'}>{substage?.name}</p>
-                                                            {substage?.description ? <div
-                                                                className={'bg-[#DBEAE8] p-3 text-lg lg:px-14 lg:p-6 lg:text-xl rounded-lg flex items-center justify-start'}>
-                                                                {substage?.sponsor ?
-                                                                    <p>{substage.description}<span
-                                                                        className={'font-bold'}><br/>При поддержке компании {substage.sponsor}</span>
-                                                                    </p> : substage.description}
-                                                            </div> : null}
-                                                        </div>
-                                                    </div>
-                                                )
-
-                                            }
-                                        })
-                                        }
-                                    </div>
-
-                                    : null}
+                            <div key={counter} className={'w-full my-12'}>
+                                {item.videoName?<div className={'flex flex-col gap-3'}>
+                                    <p className={'sm:text-2xl font-bold'}>{item.videoName}</p>
+                                    <iframe width="100%" height="700"
+                                            src={item.videoLink}
+                                            title="YouTube video player" frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowFullScreen></iframe>
+                                </div>:null}
+                                {item.docs?
+                                    <div className={'grid mt-12 grid-cols-1 sm:grid-cols-2 gap-12'}>
+                                        {item.docs.map((doc)=>{
+                                            return(
+                                                <div key={doc.name} onClick={()=>{window.open(doc.link)}} className={'flex cursor-pointer items-center justify-center rounded-lg bg-green font-bold text-white p-4'}>
+                                                    {doc.name}
+                                                </div>
+                                            )
+                                        })}
+                                    </div>:null}
                             </div>
                         )
                     })}
                 </div>
-            </div> : null}
+
+            </div>
 
 
             {event?.date == '11.11.2023' || event?.date == '2023-11-11' ?
