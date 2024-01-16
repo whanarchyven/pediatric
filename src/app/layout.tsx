@@ -2,8 +2,9 @@ import './globals.css'
 import {Inter} from 'next/font/google'
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
-import React from "react";
+import React, {Suspense} from "react";
 import Link from "next/link";
+import {Metrika} from "@/components/Metrika";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -88,6 +89,9 @@ export default function RootLayout({
             {/*    Программы ухода за кожей*/}
             {/*</div>*/}
         </div>
+        <Suspense>
+            <Metrika/>
+        </Suspense>
         </body>
         </html>
     )

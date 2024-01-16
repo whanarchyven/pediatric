@@ -112,7 +112,7 @@ export default function Page({params}: any) {
         dateStart: new Date("2023-12-18T05:30:00.000Z"),
         timePeriod: "18.12.2023 - 24.12.2023",
         name: "Новогодний марафон: Сказки о главном",
-        place: "Закрытый чат в TELEGRAM-канале",
+        place: "Официальный сайт Общества детских дерматологов, закрытый чат в TELEGRAM-канале",
         format: "онлайн",
         participants: 1243,
         layoutBg: "/pages/main/sliderBackgrounds/new_year.JPG",
@@ -710,7 +710,7 @@ export default function Page({params}: any) {
                         <div className={'flex flex-col gap-4'}>
                             <div className={'flex items-center gap-2'}>
                                 <img className={'w-6 aspect-square'} src={`${images}/placemark.svg`}/>
-                                <p className={'text-white text-lg'}><strong>Место проведения:</strong> {event?.place}
+                                <p className={'text-white text-lg'}><strong>Место проведения:</strong> Официальный сайт общества детских дерматологов, <br/> закрытый чат в Telegram- канале
                                 </p>
                             </div>
                             <div className={'flex items-center gap-2'}>
