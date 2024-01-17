@@ -606,7 +606,7 @@ export default function Page({params}: any) {
                 {
                     videoName: 'Лекция 1. Бремя зуда при атопическом дерматите у детей: в поисках эффективного лечения (Мурашкин Н.Н. + Феденко Е.С.)',
                     videoLink: 'https://www.youtube.com/embed/h-W9AsSGCdo?si=gCP6G51ktDP6gqz7',
-                    docs: [{name: 'Ответ на клиническую задачу 2', link: '/maraphone/new/Ответ на клиническую задачу 2 .pdf'}]
+                    docs: [{name: 'Ответ на клиническую задачу 2', link: '/maraphone/new/Ответ на клиническую задачу 2 .pdf'},{name: 'Клиническая брошюра степени тяжести АтД', link: '/maraphone/new/АтД_Брошюра по индексам_2023_FINAL.pdf'}]
                 },
                 {
                     videoName: 'Образовательный ролик',
