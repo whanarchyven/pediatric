@@ -166,7 +166,15 @@ export default function Page({params}: any) {
                             },
                             {
                                 name: "Интерактивная клиническая задача №1 ",
-                                timePeriod: "15:00 "
+                                timePeriod: "15:00 ",
+                                sponsor: "ООО \"ЭббВи\"",
+                                description: "                  "
+                            },
+                            {
+                                name: "Образовательная брошюра",
+                                timePeriod: "15:30 ",
+                                sponsor: "ООО \"ЭббВи\"",
+                                description: "                  "
                             },
                             {
                                 name: "Образовательная брошюра. ",
@@ -220,11 +228,21 @@ export default function Page({params}: any) {
                             },
                             {
                                 name: "Ответ на клиническую на задачу №1",
-                                timePeriod: "12:00"
+                                timePeriod: "12:00",
+                                description: "       ",
+                                sponsor: "ООО \"ЭббВи\""
                             },
                             {
                                 name: "Клиническая задача №2  ",
-                                timePeriod: "13:00 "
+                                timePeriod: "13:00 ",
+                                description: "       ",
+                                sponsor: "ООО \"ЭббВи\""
+                            },
+                            {
+                                name: "Клиническая брошюра 2",
+                                timePeriod: "13:30 ",
+                                description: "       ",
+                                sponsor: "ООО \"ЭббВи\""
                             },
                             {
                                 name: "Образовательная брошюра.",
@@ -268,7 +286,7 @@ export default function Page({params}: any) {
                                 name: "Лекция 1   ",
                                 timePeriod: "09:00 ",
                                 description: "Бремя зуда при атопическом дерматите у детей: в поисках эффективного лечения (Мурашкин Н.Н. + Феденко Е.С.)",
-                                sponsor: "Olainfarm"
+                                sponsor: "ООО \"ЭббВи\""
                             },
                             {
                                 name: "Интересный факт про сказку ",
@@ -276,7 +294,9 @@ export default function Page({params}: any) {
                             },
                             {
                                 name: "Ответ на клиническую задачу №2 ",
-                                timePeriod: "12:00 "
+                                timePeriod: "12:00 ",
+                                description: "       ",
+                                sponsor: "ООО \"ЭббВи\""
                             },
                             {
                                 name: "Образовательный ролик",
@@ -287,8 +307,8 @@ export default function Page({params}: any) {
                             {
                                 timePeriod: "13:00",
                                 name: "Клиническая задача №3 ",
-                                sponsor: "Olainfarm",
-                                description: "             "
+                                description: "       ",
+                                sponsor: "ООО \"ЭббВи\""
                             },
                             {
                                 name: "Образовательная брошюра.",
@@ -308,7 +328,9 @@ export default function Page({params}: any) {
                             },
                             {
                                 name: "Образовательная брошюра ",
-                                timePeriod: "18:30 "
+                                timePeriod: "18:30 ",
+                                description: "       ",
+                                sponsor: "ООО \"ЭббВи\""
                             },
                             {
                                 name: "Игра в ассоциации ",
@@ -611,7 +633,7 @@ export default function Page({params}: any) {
                 {
                     videoName: 'Образовательный ролик',
                     videoLink: 'https://www.youtube.com/embed/d2WsbTlLhq8?si=J47R5kIKYQmzqz38',
-                    docs: [{name: 'Клиническая задача 3', link: '/maraphone/Клиническая задача 3.pdf'}, {name: 'Образовательная брошюра', link: '/maraphone/new/Клиническая задача 3 (2).pdf'}]
+                    docs: [{name: 'Клиническая задача 3', link: '/maraphone/new/Клиническая задача 3 (2).pdf'},{name: 'Научно-образовательный материал по упадацитинибу', link: '/maraphone/Научно_образовательный_материал_по_упадацитинибу.pdf'}]
                 },
                 {
                     videoName: 'Лекция 2. Переключение» таргетной терапии: когда, как и почему? (к.м.н. Иванов Р.А.)',
@@ -710,7 +732,7 @@ export default function Page({params}: any) {
                         <div className={'flex flex-col gap-4'}>
                             <div className={'flex items-center gap-2'}>
                                 <img className={'w-6 aspect-square'} src={`${images}/placemark.svg`}/>
-                                <p className={'text-white text-lg'}><strong>Место проведения:</strong> Официальный сайт общества детских дерматологов, <br/> закрытый чат в Telegram- канале
+                                <p className={'text-white text-lg'}><strong>Место проведения:</strong> Официальный сайт общества детских дерматологов, <a href={'https://www.pediatric-dermatology.ru'} className={'underline font-bold'}>https://www.pediatric-dermatology.ru</a><br/> закрытый чат в Telegram- канале
                                 </p>
                             </div>
                             <div className={'flex items-center gap-2'}>
@@ -769,7 +791,7 @@ export default function Page({params}: any) {
 
             <div className={'bg-white py-12 px-[20px] lg:px-[140px]'}>
                 <p className={'uppercase font-extralight text-2xl lg:text-5xl text-black'}>Новогодний марафон
-                    <br/><span className={'font-extrabold'}>День {currentDay.day} {currentDay.sponsor?'При поддержке компании "'+currentDay.sponsor+'"':''}</span></p>
+                    <br/><span className={'font-extrabold'}>День {currentDay.day} {currentDay.sponsor?'При поддержке компании '+currentDay.sponsor+'':''}</span></p>
 
                 <div className={'flex mt-5 items-center lg:overflow-x-hidden overflow-x-scroll justify-between relative w-full gap-4'}>
                     {timeLine.map((item) => {
