@@ -52,7 +52,8 @@ export default function RootLayout({
             <div className={'sm:col-span-3 gap-8 flex flex-col sm:text-left text-center text-white font-extralight flex items-start'}>
                 <div className={'flex flex-col text-white gap-3'}>
                     <p className={'font-bold text-xl'}>Контакты:</p>
-                    <p className={'font-extralight'}>+7 (952) 256 34 20</p>
+                    <p className={'font-extralight'}>+7 (926) 249 86 58</p>
+                    <p className={'font-extralight'}>(звонки/ сообщения только в What’s App)</p>
                     <p className={'font-extralight'}>pediatric-dermatology@mail.ru</p>
                     <p className={'font-extralight'}>Ломоносовский проспект, 2, строение 1Москва, 119034</p>
                 </div>
@@ -60,6 +61,7 @@ export default function RootLayout({
                     <p className={'font-bold text-xl'}>По вопросам рекламы
                         и сотрудничества:</p>
                     <p className={'font-extralight'}>+7 (926) 249 86 58</p>
+                    <p className={'font-extralight'}>(звонки/ сообщения только в What’s App)</p>
                     <p className={'font-extralight'}>savelova.derma@gmail.com</p>
                 </div>
             </div>

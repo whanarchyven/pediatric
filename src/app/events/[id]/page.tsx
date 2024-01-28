@@ -168,7 +168,7 @@ export default function Page({params}: any) {
 
     const [isAdmin, setIsAdmin] = useState(false)
 
-    const [haveAccessToStream,setHaveAccessToStream]=useState(false)
+    const [haveAccessToStream, setHaveAccessToStream] = useState(false)
 
     useEffect(() => {
         eden.user.my.profile.get().then((res) => {
@@ -183,7 +183,7 @@ export default function Page({params}: any) {
                 eden.user.my.participations[event.id].get().then((res) => {
 
                     if (res.data[0]?.info) setRegistration(res?.data[0])
-                    if(res?.data?.find(item=>item.meta.participationType=='online')){
+                    if (res?.data?.find(item => item.meta.participationType == 'online')) {
 
                         setHaveAccessToStream(true)
                     }
@@ -258,7 +258,8 @@ export default function Page({params}: any) {
                                     <strong>Зарегистрировались</strong> {event?.participants} участников</p>
                             </div>
                         </div>
-                        <Link href={event?.name=='Новогодний марафон: Сказки о главном' ? 'https://t.me/+98oUoQXA70Y1MzUy' : '#form'}>
+                        <Link
+                            href={event?.name == 'Новогодний марафон: Сказки о главном' ? 'https://t.me/+98oUoQXA70Y1MzUy' : '#form'}>
                             <div
                                 className={'bg-white text-lg flex items-center justify-center p-3 px-5 rounded-md cursor-pointer hover:opacity-100 transition-all duration-300 opacity-50 text-black'}>
                                 Подтвердить участие
@@ -290,7 +291,7 @@ export default function Page({params}: any) {
                     </p> : null}
                 </div>
             </div>
-            {event?.speakers&&event?.speakers.length>0 ? <div
+            {event?.speakers && event?.speakers.length > 0 ? <div
                 className={'relative green-gradient overflow-hidden px-[20px] pt-12 sm:h-[900px] flex flex-col items-start sm:pl-[70px] sm:px-[140px]'}>
                 <img className={'absolute asset w-full z-50 left-0 top-[-0.5px] sm:top-0'}
                      src={'/about_us_offset_top.png'}/>
@@ -405,7 +406,6 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-
             {/*<div className={'bg-[#F2F9F8] relative py-12 lg:py-40 flex items-center px-[20px]'}>*/}
             {/*    <img className={'absolute left-0 -top-1'} src={`/pages/main/about_us_offset.png`}*/}
             {/*         alt={'asset_bottom'}></img>*/}
@@ -426,7 +426,7 @@ export default function Page({params}: any) {
             {/*    <img className={'absolute left-0 bottom-0'} src={`/pages/main/about_us_offset_bottom.png`}*/}
             {/*         alt={'asset_bottom'}></img>*/}
             {/*</div>*/}
-            {!event?.isOnlyOnline&&event?.type!='Марафон' ?
+            {!event?.isOnlyOnline && event?.type != 'Марафон' ?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
 
@@ -443,14 +443,14 @@ export default function Page({params}: any) {
                                       whileInView={{y: 0, opacity: 1}}
                                       viewport={{once: true}}
                                       transition={{ease: 'easeInOut', duration: 0.7}}
-                                      className={'uppercase font-extralight text-black lg:text-left text-left text-2xl lg:text-4xl'}>Стоимость <strong
-                                className={'font-extrabold'}>Участия</strong></motion.p>}
+                                      className={'uppercase font-extralight text-black lg:text-left text-left text-2xl lg:text-4xl'}>{event?.date != '11.11.2023' && (<>Стоимость <strong
+                                className={'font-extrabold'}>Участия</strong></>)}</motion.p>}
                     </div>
                     {registration ?
                         <div className={'grid grid-cols-1 lg:grid-cols-2 mt-10 lg:my-32 gap-10 lg:gap-32 items-start'}>
                             <div className={'flex flex-col gap-4'}>
                                 <p className={'lg:text-2xl uppercase font-black'}>Формат: <span
-                                    className={'font-light'}>{registration?.info?.participationType.replace('оффлайн', 'очное участие')} {haveAccessToStream?'+ запись трансляции':''}</span>
+                                    className={'font-light'}>{registration?.info?.participationType.replace('оффлайн', 'очное участие')} {haveAccessToStream ? '+ запись трансляции' : ''}</span>
                                 </p>
                                 <p className={'lg:text-2xl uppercase font-black'}>Дата и время: <span
                                     className={'font-light'}>{event?.date} в {event?.timePeriod}</span></p>
@@ -467,7 +467,7 @@ export default function Page({params}: any) {
                                 <img className={'w-full lg:w-2/5'} src={registration?.qrCodeUrl}/>
                             </div>
                         </div> : null}
-                    <div
+                    {event?.date != '11.11.2023' && (<div
                         className={classList('grid grid-cols-1 gap-9 mt-10', event?.prices ? 'lg:grid-cols-3' : 'lg:grid-cols-2')}>
                         {/*{event?.prices ? <div className={'flex flex-col items-center gap-8'}>*/}
                         {/*    <div*/}
@@ -546,7 +546,7 @@ export default function Page({params}: any) {
                         {/*        Подтвердить участие*/}
                         {/*    </div>}*/}
                         {/*</div>*/}
-                    </div>
+                    </div>)}
                     {isConfirmPopOpen && event?.name && event?.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
                         {
                             setIsConfirmPopOpen(false)
@@ -602,7 +602,7 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-            {event?.date == '11.11.2023' && haveAccessToStream  ?
+            {event?.date == '11.11.2023' && haveAccessToStream ?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[90px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div

@@ -52,13 +52,15 @@ export default function Home() {
                         <p className={'text-white uppercase text-xl lg:text-4xl font-extralight'}>Контакты</p>
                         <div className={'border-l-2 flex flex-col gap-8 border-white pl-4'}>
                             <div className={'flex flex-col gap-2'}>
-                                <p className={'font-extrabold text-white text-lg lg:text-2xl'}>+7 (952) 256 34 20</p>
+                                <p className={'font-extrabold text-white text-lg lg:text-2xl'}>+7 (926) 249 86 58</p>
                                 <p className={'font-extralight text-white lg:text-lg text-sm '}>Единый информационный номер</p>
+                                <p className={'font-extralight text-white lg:text-lg text-sm '}>(звонки/ сообщения только в What’s App)</p>
                             </div>
 
                             <div className={'flex flex-col gap-2'}>
                                 <p className={'font-extrabold text-white text-lg lg:text-2xl'}>+7 (926) 249 86 58</p>
                                 <p className={'font-extralight text-white lg:text-lg text-sm '}>По вопросам рекламы и сотрудничества</p>
+                                <p className={'font-extralight text-white lg:text-lg text-sm '}>(звонки/ сообщения только в What’s App)</p>
                             </div>
 
                             <div className={'flex flex-col gap-2'}>
