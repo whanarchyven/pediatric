@@ -201,7 +201,7 @@ export default function Home() {
                 <p className={'font-extralight text-black text-4xl text-center uppercase'}>Статьи и <br/> <span className={'font-extrabold'}>полезное</span> </p>
 
 
-                {posts&&saved?<div className={'mt-6 gap-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'}>
+                {posts?<div className={'mt-6 gap-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'}>
                     {posts.map((post, counter) => {
                         if(saved?.find(item=>item.title==post.title)){
                             return(

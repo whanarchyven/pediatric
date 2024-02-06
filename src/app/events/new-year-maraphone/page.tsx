@@ -44,6 +44,7 @@ import {eden} from "@/helpers/sdk";
 import QRCode from "react-qr-code";
 import Partners11 from "@/components/Partners11";
 import {undefined} from "zod";
+import Image from "next/image";
 
 export const dynamic = "force-dynamic"
 
@@ -918,6 +919,12 @@ export default function Page({params}: any) {
                     })}
                 </div>
             </div> : null}
+
+            <div className={'flex items-center my-10 justify-center'}>
+                <div className={'w-1/3  relative'}>
+                    <img className={'w-full'} src={'/partners/GALDERMA_LOGO_BLACK_RGB 1.png'} alt={''}/>
+                </div>
+            </div>
 
 
 
