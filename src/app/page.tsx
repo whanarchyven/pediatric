@@ -52,7 +52,7 @@ export default function Home() {
             title: `<p class="font-extralight">Новогодний марафон</p><span class="font-extrabold uppercase">«Сказки о главном»</span>`,
             description: 'Данная обучающая программа направлена на повышение квалификации врачей- специалистов с целью улучшения оказания специализированной помощи детям, страдающих кожными заболеваниями.',
             link: '/events/new-year-maraphone/',
-            image: '/pages/main/sliderBackgrounds/new_year.JPG',
+            image: '/pages/main/sliderBackgrounds/new_year.png',
         },
         // {
         //     date: '11-17 сентября 2023',
