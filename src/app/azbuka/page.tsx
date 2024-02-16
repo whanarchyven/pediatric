@@ -452,7 +452,7 @@ export default function Home() {
                     }}>
                     Оставить отзыв
                 </div>
-                <img className={'absolute w-full left-0 asset bottom-0'} src={'/reviews_offset_bottom.png'}/>
+                {/*<img className={'absolute w-full left-0 asset bottom-0'} src={'/reviews_offset_bottom.png'}/>*/}
                 {showReviewPop ? <ReviewPop callback={() => {
                     setShowReviewPop(false)
                 }}></ReviewPop> : null}
@@ -475,98 +475,98 @@ export default function Home() {
             {/*    </motion.div>*/}
             {/*</div>*/}
 
-            <div className={'bg-white flex flex-col sm:py-20 px-[20px] sm:px-[80px] pb-32 lg:px-[140px] items-start justify-center'}>
-                <p className={'font-bold text-lg sm:text-4xl text-black uppercase'}>ПОДБЕРИ СВОЮ ПРОГРАММУ УХОДА <br
-                    className={'sm:block hidden'}/>
-                    <span className={'text-green font-bold'}>ЗА АТОПИЧНОЙ КОЖЕЙ</span></p>
-                <div className={'w-full mt-20 relative grid grid-cols-1 sm:grid-cols-1'}>
-                    <div className={'sm:flex items-center justify-center relative'}>
-                        <div className={'flex flex-col items-center justify-center'}>
-                            <motion.img className={''} src={'/products/red/offset.svg'}
-                                        initial={{scale: 0.7, opacity: 0}}
-                                        whileInView={{scale: 1, opacity: 1}}
-                                        viewport={{once: true}}
-                                        transition={{ease: 'easeInOut', duration: 0.7}}/>
-                            <motion.img className={'absolute w-48 sm:w-96 z-10'} src={'/products3.png'}
-                                        initial={{scale: 0.7, opacity: 0}}
-                                        whileInView={{scale: 1, opacity: 1}}
-                                        viewport={{once: true}}
-                                        transition={{ease: 'easeInOut', duration: 0.7, delay: 0.6}}/>
-                        </div>
+            {/*<div className={'bg-white flex flex-col sm:py-20 px-[20px] sm:px-[80px] pb-32 lg:px-[140px] items-start justify-center'}>*/}
+            {/*    <p className={'font-bold text-lg sm:text-4xl text-black uppercase'}>ПОДБЕРИ СВОЮ ПРОГРАММУ УХОДА <br*/}
+            {/*        className={'sm:block hidden'}/>*/}
+            {/*        <span className={'text-green font-bold'}>ЗА АТОПИЧНОЙ КОЖЕЙ</span></p>*/}
+            {/*    <div className={'w-full mt-20 relative grid grid-cols-1 sm:grid-cols-1'}>*/}
+            {/*        <div className={'sm:flex items-center justify-center relative'}>*/}
+            {/*            <div className={'flex flex-col items-center justify-center'}>*/}
+            {/*                <motion.img className={''} src={'/products/red/offset.svg'}*/}
+            {/*                            initial={{scale: 0.7, opacity: 0}}*/}
+            {/*                            whileInView={{scale: 1, opacity: 1}}*/}
+            {/*                            viewport={{once: true}}*/}
+            {/*                            transition={{ease: 'easeInOut', duration: 0.7}}/>*/}
+            {/*                <motion.img className={'absolute w-48 sm:w-96 z-10'} src={'/products3.png'}*/}
+            {/*                            initial={{scale: 0.7, opacity: 0}}*/}
+            {/*                            whileInView={{scale: 1, opacity: 1}}*/}
+            {/*                            viewport={{once: true}}*/}
+            {/*                            transition={{ease: 'easeInOut', duration: 0.7, delay: 0.6}}/>*/}
+            {/*            </div>*/}
 
-                        <motion.div
-                            animate={{x: posX, y: posY}}
-                            transition={{
-                                type: 'spring',
-                                delay: 0,
-                                duration: 0.3,
-                                stiffness: 10,
-                                ease: 'linear',
-                                damping: 10,
-                                restDelta: 0.001
-                            }}
-                            className={'shadow-lg rounded-xl bg-white z-20 sm:absolute -left-12 bottom-72 flex items-center justify-start my-5 sm:my-0 p-3'}>
-                            <div className={'w-14 h-14 relative flex items-center justify-center bg-red rounded-full'}>
-                                <img className={''} src={'/stetoscope.svg'}/>
-                            </div>
-                            <p className={'font-bold ml-3 leading-[110%]'}>Профессиональный <br/>
-                                уход за кожей</p>
-                        </motion.div>
-                        <motion.div
-                            animate={{x: posX, y: posY}}
-                            transition={{
-                                type: 'spring',
-                                delay: 0,
-                                duration: 0.3,
-                                stiffness: 10,
-                                ease: 'linear',
-                                damping: 10,
-                                restDelta: 0.001
-                            }}
-                            className={'shadow-lg rounded-xl bg-white z-20 sm:absolute -left-12 top-5 flex items-center justify-start my-5 sm:my-0 p-3'}>
-                            <div className={'w-14 h-14 relative flex items-center justify-center rounded-full'}>
-                                <img className={''} src={'/products/red/tablets.svg'}/>
-                            </div>
-                            <p className={'font-bold ml-3 leading-[110%]'}>Проверенные <br/>
-                                безопасные формулы</p>
-                        </motion.div>
-                        <motion.div
-                            animate={{x: posX, y: posY}}
-                            transition={{
-                                type: 'spring',
-                                delay: 0,
-                                duration: 0.3,
-                                stiffness: 10,
-                                ease: 'linear',
-                                damping: 10,
-                                restDelta: 0.001
-                            }}
-                            className={'shadow-lg rounded-xl bg-white z-20 sm:absolute -left-12 bottom-32 flex items-center justify-start p-3'}>
-                            <div className={'w-14 h-14 relative flex items-center justify-center bg-white rounded-full'}>
-                                <img className={''} src={'/heart.svg'}/>
-                            </div>
-                            <p className={'font-bold ml-3 leading-[110%]'}>Доказанная <br/> эффективность</p>
-                        </motion.div>
-                        <div
-                           className={'cursor-pointer font-bold w-full sm:w-32 mt-5 rounded-xl sm:absolute relative z-[29] flex items-center justify-center text-white font-normal sm:aspect-square text-xl absolute right-0'}>
-                            <div className={'px-10 p-3 w-full h-12 sm:h-full rounded-full bg-red sm:animate-ping absolute top-0 left-0'}>
+            {/*            <motion.div*/}
+            {/*                animate={{x: posX, y: posY}}*/}
+            {/*                transition={{*/}
+            {/*                    type: 'spring',*/}
+            {/*                    delay: 0,*/}
+            {/*                    duration: 0.3,*/}
+            {/*                    stiffness: 10,*/}
+            {/*                    ease: 'linear',*/}
+            {/*                    damping: 10,*/}
+            {/*                    restDelta: 0.001*/}
+            {/*                }}*/}
+            {/*                className={'shadow-lg rounded-xl bg-white z-20 sm:absolute -left-12 bottom-72 flex items-center justify-start my-5 sm:my-0 p-3'}>*/}
+            {/*                <div className={'w-14 h-14 relative flex items-center justify-center bg-red rounded-full'}>*/}
+            {/*                    <img className={''} src={'/stetoscope.svg'}/>*/}
+            {/*                </div>*/}
+            {/*                <p className={'font-bold ml-3 leading-[110%]'}>Профессиональный <br/>*/}
+            {/*                    уход за кожей</p>*/}
+            {/*            </motion.div>*/}
+            {/*            <motion.div*/}
+            {/*                animate={{x: posX, y: posY}}*/}
+            {/*                transition={{*/}
+            {/*                    type: 'spring',*/}
+            {/*                    delay: 0,*/}
+            {/*                    duration: 0.3,*/}
+            {/*                    stiffness: 10,*/}
+            {/*                    ease: 'linear',*/}
+            {/*                    damping: 10,*/}
+            {/*                    restDelta: 0.001*/}
+            {/*                }}*/}
+            {/*                className={'shadow-lg rounded-xl bg-white z-20 sm:absolute -left-12 top-5 flex items-center justify-start my-5 sm:my-0 p-3'}>*/}
+            {/*                <div className={'w-14 h-14 relative flex items-center justify-center rounded-full'}>*/}
+            {/*                    <img className={''} src={'/products/red/tablets.svg'}/>*/}
+            {/*                </div>*/}
+            {/*                <p className={'font-bold ml-3 leading-[110%]'}>Проверенные <br/>*/}
+            {/*                    безопасные формулы</p>*/}
+            {/*            </motion.div>*/}
+            {/*            <motion.div*/}
+            {/*                animate={{x: posX, y: posY}}*/}
+            {/*                transition={{*/}
+            {/*                    type: 'spring',*/}
+            {/*                    delay: 0,*/}
+            {/*                    duration: 0.3,*/}
+            {/*                    stiffness: 10,*/}
+            {/*                    ease: 'linear',*/}
+            {/*                    damping: 10,*/}
+            {/*                    restDelta: 0.001*/}
+            {/*                }}*/}
+            {/*                className={'shadow-lg rounded-xl bg-white z-20 sm:absolute -left-12 bottom-32 flex items-center justify-start p-3'}>*/}
+            {/*                <div className={'w-14 h-14 relative flex items-center justify-center bg-white rounded-full'}>*/}
+            {/*                    <img className={''} src={'/heart.svg'}/>*/}
+            {/*                </div>*/}
+            {/*                <p className={'font-bold ml-3 leading-[110%]'}>Доказанная <br/> эффективность</p>*/}
+            {/*            </motion.div>*/}
+            {/*            <div*/}
+            {/*               className={'cursor-pointer font-bold w-full sm:w-32 mt-5 rounded-xl sm:absolute relative z-[29] flex items-center justify-center text-white font-normal sm:aspect-square text-xl absolute right-0'}>*/}
+            {/*                <div className={'px-10 p-3 w-full h-12 sm:h-full rounded-full bg-red sm:animate-ping absolute top-0 left-0'}>*/}
 
-                            </div>
-                            <a href={'/catalog'} className={'px-10 p-3 w-full h-12 sm:h-full rounded-full bg-red absolute top-0 left-0 flex items-center justify-center'}>
-                                <strong>Выбрать</strong>
-                            </a>
-                        </div>
-                    </div>
+            {/*                </div>*/}
+            {/*                <a href={'/catalog'} className={'px-10 p-3 w-full h-12 sm:h-full rounded-full bg-red absolute top-0 left-0 flex items-center justify-center'}>*/}
+            {/*                    <strong>Выбрать</strong>*/}
+            {/*                </a>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
 
-                </div>
-            </div>
+            {/*    </div>*/}
+            {/*</div>*/}
 
             {/*ДЕВЯТЫЙ БЛОК*/}
 
             <div
                 className={'w-full relative px-[20px] lg:px-[140px] resources-bg sm:grid items-center gap-10 sm:grid-cols-5 pt-20 sm:py-20 overflow-visible'}>
                 <a id={'resources'} className={'-top-32 absolute'}></a>
-                <img className={'absolute w-full asset left-0 top-0'} src={'/resources_offset.png'}/>
+                {/*<img className={'absolute w-full asset left-0 top-0'} src={'/resources_offset.png'}/>*/}
                 <div className={'col-span-3 flex flex-col items-center sm:items-start justify-center'}>
                     <motion.div className={'flex p-2 sm:p-4 mt-6 cursor-pointer items-center bg-white rounded-full'}
                                 initial={{x: -40, opacity: 0}}
