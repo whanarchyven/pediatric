@@ -100,7 +100,9 @@ export default function Home(params: { params: { id: string } }) {
               onChange={(e) => console.log(e)}
               onSubmit={(e) => {
                 console.log(e);
-                const {_id,__v,createdAt,updatedAt,...fd} =  e.formData;
+                let temp=e.formData
+                temp.dateEnd=new Date(temp.dateEnd)
+                const {_id,__v,createdAt,updatedAt,...fd} =  temp;
                  eden.event.create.post(fd);
               }}
               onError={(e) => console.log(e)}

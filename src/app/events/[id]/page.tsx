@@ -467,7 +467,7 @@ export default function Page({params}: any) {
                                 <img className={'w-full lg:w-2/5'} src={registration?.qrCodeUrl}/>
                             </div>
                         </div> : null}
-                    {event?.date != '11.11.2023'||isAdmin && (<div
+                    {event?.date != '11.11.2023'||isAdmin? (<div
                         className={classList('grid grid-cols-1 gap-9 mt-10', event?.prices ? 'lg:grid-cols-3' : 'lg:grid-cols-2')}>
                         {/*{event?.prices ? <div className={'flex flex-col items-center gap-8'}>*/}
                         {/*    <div*/}
@@ -546,7 +546,7 @@ export default function Page({params}: any) {
                         {/*        Подтвердить участие*/}
                         {/*    </div>}*/}
                         {/*</div>*/}
-                    </div>)}
+                    </div>):null}
                     {isConfirmPopOpen && event?.name && event?.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
                         {
                             setIsConfirmPopOpen(false)
