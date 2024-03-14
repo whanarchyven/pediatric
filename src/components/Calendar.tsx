@@ -110,12 +110,12 @@ const Calendar = () => {
         }
     }
 
-    const [currentMonth, setCurrentMonth] = useState(months[9])
+    const [currentMonth, setCurrentMonth] = useState(months[2])
 
-    const [days, setDays] = useState(getDaysArray(2023, currentMonth.id))
+    const [days, setDays] = useState(getDaysArray(2024, currentMonth.id))
 
     useEffect(() => {
-        setDays(getDaysArray(2023, currentMonth.id))
+        setDays(getDaysArray(2024, currentMonth.id))
     }, [currentMonth])
 
     const [currentEvent, setCurrentEvent] = useState()
@@ -123,55 +123,63 @@ const Calendar = () => {
     const [events, setEvents] = useState({
         jan: [{}],
         feb: [{}],
-        mar: [{}],
-        apr: [{}],
-        may: [{}],
-        jun: [{}],
-        jul: [{}],
-        aug: [],
-        sep: [{
-            day: 23,
+        mar: [{
+            day: 16,
             type: 'Конференция',
-            title: 'I НАУЧНО-ПРАКТИЧЕСКАЯ КОНФЕРЕНЦИЯ «ПУТЬ ДЕТСКОЙ ДЕРМАТОЛОГИИ: ОТ ИСТОКОВ К ПЕРСПЕКТИВАМ. АТОПИЧЕСКИЙ ДЕРМАТИТ»',
-            subtitle: 'в Москве',
-            timePeriod: '10:00-16:35',
-            image: `/pages/new.png`,
-            link: '/events/11'
+            title: 'II-я научно-практическая конференции «Путь детской дерматологии: от истоков к перспективам. Атопический дерматит',
+            subtitle: 'онлайн',
+            timePeriod: '10:00-15:10',
+            image: `/pages/events/ekb_bg.jpeg`,
+            link: '/events/a4fca4a0-fe5a-4de6-8480-246100de912c/'
         }],
-        oct: [{
-            day: 17,
+        apr: [{
+            day: 13,
             type: 'Конференция',
-            title: 'I научно-практическая конференция «Дерматологические чтения в педиатрии»',
-            subtitle: 'в г. Екатеринбург им. Н. П. Тороповой',
+            title: 'III научно-практическая конференция «Псориаз в детском возрасте: современные решения старых проблем»',
+            subtitle: 'онлайн',
             timePeriod: '10:00',
             image: `/pages/events/ekb_bg.jpeg`,
-            link: '/events/2'
-        },
-            {
-                day: 7,
-                type: 'Конференция',
-                title: 'II научно-практическая конференция «Путь детской дерматологии: от истоков к перспективам»',
-                subtitle: 'онлайн конференция',
-                timePeriod: '10:00-15:30',
-                image: `/pages/new2.png`,
-                link: '/events/12'
-            },],
-        nov: [{
-            day: 11,
+            link: '/events/bbbed477-fb1c-4ab0-9dff-9709b547416f/'
+        }, {
+            day: 27,
             type: 'Конференция',
-            title: 'IX Всероссийская научно-практическая конференция с международным участием',
-            subtitle: '«Дерматологические чтения в педиатрии»',
+            title: 'Всероссийская научно-практической конференции «Актуальные вопросы дерматологии детского возраста»',
+            subtitle: 'онлайн',
             timePeriod: '10:00',
-            image: '/pages/main/main_bg.png',
-            link: '/events/0'
+            image: `/pages/events/ekb_bg.jpeg`,
+            link: '/events/807cc46e-ac6e-4cd1-9bad-a47fd2081ba6/'
         }],
+        may: [{
+            day: 30,
+            type: 'Конференция',
+            title: 'II-й научно-практическая конференция «Дерматологические чтения в педиатрии» ',
+            subtitle: 'в г. Новосибирск',
+            timePeriod: '10:00',
+            image: '/pages/events/ekb_bg.jpeg',
+            link: '/events/59b59a7c-733a-494a-a944-ef06841cbc2c/'
+        }],
+        jun: [{
+            day: 8,
+            type: 'Конференция',
+            title: 'II-я ежегодная всероссийская научно-практическая конференция с международным участием',
+            subtitle: '«Академия детской дерматологии»',
+            timePeriod: '10:00',
+            image: '/pages/events/ekb_bg.jpeg',
+            link: '/events/20daf2b7-2af4-4c9b-96f3-b104163f211c/'
+        }],
+        jul: [{}],
+        aug: [{}],
+        sep: [{}],
+        oct: [{}],
+        nov: [{}],
         dec: [{}],
     })
 
     return (
         <div className={'w-full gap-2 sm:flex-col flex-row flex'}>
-            <div className={'sm:w-full w-12 p-2 bg-green-two flex flex-col sm:grid sm:grid-cols-12 sm:gap-10 gap-3 rounded-full'}>
-                {months.map((month,counter) => {
+            <div
+                className={'sm:w-full w-12 p-2 bg-green-two flex flex-col sm:grid sm:grid-cols-12 sm:gap-10 gap-3 rounded-full'}>
+                {months.map((month, counter) => {
                     return (
                         <div key={counter} className={'flex items-center justify-center'}>
                             <div
@@ -213,7 +221,8 @@ const Calendar = () => {
                     <div className={'grid grid-cols-7'}>
                         {getVoidCalendarBlocks(days[0].weekDay).map((item, counter) => {
                             return (
-                                <div key={counter} className={classList('border-r-[1px] border-b-[1px] box-border aspect-square')}>
+                                <div key={counter}
+                                     className={classList('border-r-[1px] border-b-[1px] box-border aspect-square')}>
 
                                 </div>
                             )
@@ -222,12 +231,12 @@ const Calendar = () => {
                             const evnt = events[currentMonth.eng].find(evnt => evnt.day == day.day)
                             return (
                                 <div key={counter}
-                                    className={classList('transition-all duration-300 border-r-[1px] p-1 flex flex-col justify-between border-b-[1px] box-border aspect-square', evnt ? 'text-white cursor-pointer bg-green-two' : 'text-green-two', (!evnt || evnt == currentEvent) ? 'opacity-100' : 'opacity-50')}
-                                    onClick={() => {
-                                        if (evnt) {
-                                            setCurrentEvent(evnt)
-                                        }
-                                    }}>
+                                     className={classList('transition-all duration-300 border-r-[1px] p-1 flex flex-col justify-between border-b-[1px] box-border aspect-square', evnt ? 'text-white cursor-pointer bg-green-two' : 'text-green-two', (!evnt || evnt == currentEvent) ? 'opacity-100' : 'opacity-50')}
+                                     onClick={() => {
+                                         if (evnt) {
+                                             setCurrentEvent(evnt)
+                                         }
+                                     }}>
                                     <p className={'text-right w-full font-extralight sm:text-2xl'}>{day.day}</p>
                                     {evnt ? <p className={'sm:text-xs truncate text-[7px]'}>{evnt.type}</p> : null}
                                 </div>
@@ -235,7 +244,8 @@ const Calendar = () => {
                         })}
                         {getVoidCalendarBlocks(days[days.length - 1].weekDay, true).map((item, counter) => {
                             return (
-                                <div key={counter} className={classList('border-r-[1px] border-b-[1px] box-border aspect-square')}>
+                                <div key={counter}
+                                     className={classList('border-r-[1px] border-b-[1px] box-border aspect-square')}>
 
                                 </div>
                             )
@@ -256,7 +266,9 @@ const Calendar = () => {
                                         className={'w-[48%] p-1 lg:p-4 text-green-two text-xl border-green-two lg:text-lg text-xs border-2 rounded-lg flex items-center justify-center'}>
                                         {currentEvent.timePeriod}
                                     </div>
-                                    <Link className={'w-[48%] p-1 lg:p-4 text-white text-xl bg-green-two lg:text-lg text-xs border-green-two border-2 rounded-lg flex items-center justify-center'} href={currentEvent.link}>
+                                    <Link
+                                        className={'w-[48%] p-1 lg:p-4 text-white text-xl bg-green-two lg:text-lg text-xs border-green-two border-2 rounded-lg flex items-center justify-center'}
+                                        href={currentEvent.link}>
                                         Подробнее
                                     </Link>
                                 </div>

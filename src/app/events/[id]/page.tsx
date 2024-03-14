@@ -144,11 +144,12 @@ export default function Page({params}: any) {
     const [needPrice, setNeedPrice] = useState<any>({})
 
     useEffect(() => {
+        console.log(event?.prices)
         let nowDate = new Date();
         nowDate.setHours(0, 0, 0, 0)
         let tempPrice = event?.prices ? event?.prices[0] : null
         event?.prices?.map((price, counter) => {
-            let lexems = price.date.split('.')
+            let lexems = price.date.split('-')
             if (new Date(`${lexems[1]}/${lexems[0]}/${lexems[2]}`) < nowDate && event?.prices && counter + 1 < event?.prices?.length) {
                 tempPrice = event?.prices[counter + 1]
             }
@@ -469,84 +470,85 @@ export default function Page({params}: any) {
                         </div> : null}
                     {event?.date != '11.11.2023'||isAdmin? (<div
                         className={classList('grid grid-cols-1 gap-9 mt-10', event?.prices ? 'lg:grid-cols-3' : 'lg:grid-cols-2')}>
-                        {/*{event?.prices ? <div className={'flex flex-col items-center gap-8'}>*/}
-                        {/*    <div*/}
-                        {/*        className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>*/}
-                        {/*        <div className={'flex items-center gap-3'}>*/}
-                        {/*            <img className={'w-7 aspect-square'} src={'/online.svg'}/>*/}
-                        {/*            <p className={'font-extralight text-3xl text-white'}>Онлайн</p>*/}
-                        {/*        </div>*/}
-                        {/*        <p className={'text-3xl lg:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>*/}
-                        {/*        <p className={'font-extralight text-xl text-center text-white'}>Доступ к*/}
-                        {/*            онлайн-трансляции в день мероприятия</p>*/}
-                        {/*    </div>*/}
-                        {/*    <div onClick={() => {*/}
-                        {/*        setIsConfirmPopOpen(true);*/}
-                        {/*        setCurrentPrice(0);*/}
-                        {/*        setParticipationType('online-free')*/}
-                        {/*    }}*/}
-                        {/*         className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>*/}
-                        {/*        Подтвердить участие*/}
-                        {/*    </div>*/}
-                        {/*</div> : null}*/}
-                        <div className={'flex flex-col col-start-2 items-center gap-8'}>
+                        {event?.prices ? <div className={'flex flex-col items-center gap-8'}>
                             <div
                                 className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
                                 <div className={'flex items-center gap-3'}>
                                     <img className={'w-7 aspect-square'} src={'/online.svg'}/>
                                     <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
                                 </div>
-                                <p className={'text-3xl lg:text-5xl text-white font-bold'}>{event?.onlinePrice ? needPrice?.online + ' руб.' : 'БЕСПЛАТНО'}</p>
+                                <p className={'text-3xl lg:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
+                                <p className={'font-extralight text-xl text-center text-white'}>Доступ к
+                                    онлайн-трансляции в день мероприятия</p>
+                            </div>
+                            <div onClick={() => {
+                                setIsConfirmPopOpen(true);
+                                setCurrentPrice(0);
+                                setParticipationType('online-free')
+                            }}
+                                 className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                                Подтвердить участие
+                            </div>
+                        </div> : null}
+                        {needPrice?.online ? <div className={'flex flex-col col-start-2 items-center gap-8'}>
+                            <div
+                                className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
+                                <div className={'flex items-center gap-3'}>
+                                    <img className={'w-7 aspect-square'} src={'/online.svg'}/>
+                                    <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
+                                </div>
+                                <p className={'text-3xl lg:text-5xl text-white font-bold'}>{needPrice?.online > 0 ? needPrice?.online + ' руб.' : 'БЕСПЛАТНО'}</p>
                                 <p className={'font-extralight text-xl text-center text-white'}>Доступ к
                                     онлайн-трансляции мероприятия <span
-                                        className={'font-extrabold'}>{event?.onlinePrice ? '+ запись трансляции' : ''}</span>
+                                        className={'font-extrabold'}>{needPrice?.online ? '+ запись трансляции' : ''}</span>
                                 </p>
                             </div>
                             <div onClick={() => {
                                 setIsConfirmPopOpen(true);
-                                if (event?.onlinePrice) {
-                                    setCurrentPrice(needPrice?.online);
+                                if (needPrice?.online) {
+                                    setCurrentPrice(needPrice.online);
                                 }
                                 setParticipationType('online')
                             }}
                                  className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                                 Подтвердить участие
                             </div>
-                        </div>
-                        {/*<div className={'flex flex-col items-center gap-8'}>*/}
-                        {/*    <div*/}
-                        {/*        className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>*/}
-                        {/*        <div className={'flex items-center gap-3'}>*/}
-                        {/*            <img className={'w-7 aspect-square'} src={'/offline.svg'}/>*/}
-                        {/*            <p className={'font-extralight text-3xl text-green-two'}>Очное участие</p>*/}
-                        {/*        </div>*/}
+                        </div>:null}
+                        {needPrice?.offline ? <div className={'flex flex-col items-center gap-8'}>
+                            <div
+                                className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>
+                                <div className={'flex items-center gap-3'}>
+                                    <img className={'w-7 aspect-square'} src={'/offline.svg'}/>
+                                    <p className={'font-extralight text-3xl text-green-two'}>Очное участие</p>
+                                </div>
 
-                        {/*        <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{event?.offlinePrice ? needPrice?.offline + ' руб.' : 'БЕСПЛАТНО'}</p>*/}
-                        {/*        {event?.prices ?*/}
-                        {/*            <p className={'font-extralight text-xl text-center text-green-two'}>Цена действует*/}
-                        {/*                до <br/>*/}
-                        {/*                {needPrice?.date}</p> : null}*/}
-                        {/*        {event?.prices ? <p onClick={() => {*/}
-                        {/*                setIsPopPriceOpen(true)*/}
-                        {/*            }} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график*/}
-                        {/*                цен</p> :*/}
-                        {/*            <p className={'font-extralight text-xl text-center text-green-two'}>Очное посещение*/}
-                        {/*                мероприятия, активное участие</p>}*/}
-                        {/*    </div>*/}
-                        {/*    {event?.date == '11.11.2023' && !isAdmin ? <div*/}
-                        {/*        className={'w-full lg:w-auto p-4 bg-zinc-400  text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>Запись*/}
-                        {/*        закрыта</div> : <div onClick={() => {*/}
-                        {/*        setIsConfirmPopOpen(true);*/}
-                        {/*        if (event?.offlinePrice) {*/}
-                        {/*            setCurrentPrice(needPrice?.offline);*/}
-                        {/*        }*/}
-                        {/*        setParticipationType('offline')*/}
-                        {/*    }}*/}
-                        {/*                             className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>*/}
-                        {/*        Подтвердить участие*/}
-                        {/*    </div>}*/}
-                        {/*</div>*/}
-                    </div>):null}
+                                <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{needPrice?.offline > 0 ? needPrice?.offline + ' руб.' : 'БЕСПЛАТНО'}</p>
+                                {event?.prices ?
+                                    <p className={'font-extralight text-xl text-center text-green-two'}>Цена действует
+                                        до <br/>
+                                        {needPrice?.date}</p> : null}
+                                {event?.prices ? <p onClick={() => {
+                                        setIsPopPriceOpen(true)
+                                    }} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график
+                                        цен</p> :
+                                    <p className={'font-extralight text-xl text-center text-green-two'}>Очное посещение
+                                        мероприятия, активное участие</p>}
+                            </div>
+                            {event?.date == '11.11.2023' && !isAdmin ? <div
+                                className={'w-full lg:w-auto p-4 bg-zinc-400  text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>Запись
+                                закрыта</div> : <div onClick={() => {
+                                setIsConfirmPopOpen(true);
+                                if (needPrice?.offline) {
+                                    setCurrentPrice(needPrice.offline);
+                                    console.log(currentPrice)
+                                }
+                                setParticipationType('offline')
+                            }}
+                                                     className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                                Подтвердить участие
+                            </div>}
+                        </div>:null}
+                    </div>) : null}
                     {isConfirmPopOpen && event?.name && event?.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
                         {
                             setIsConfirmPopOpen(false)
@@ -555,6 +557,7 @@ export default function Page({params}: any) {
                         <ConfirmForm layotBg={event.layoutBg} query={query} participationType={participationType}
                                      closeFunc={() => {
                                          setIsConfirmPopOpen(false)
+                                         console.log(currentPrice)
                                      }} price={currentPrice} event_id={event?.id}
                                      event_name={event?.name}></ConfirmForm>
                     </PopUp> : null}
