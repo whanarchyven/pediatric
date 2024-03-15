@@ -453,7 +453,7 @@ export default function Page({params}: any) {
                         <div className={'grid grid-cols-1 lg:grid-cols-2 mt-10 lg:my-32 gap-10 lg:gap-32 items-start'}>
                             <div className={'flex flex-col gap-4'}>
                                 <p className={'lg:text-2xl uppercase font-black'}>Формат: <span
-                                    className={'font-light'}>{registration?.info?.participationType.replace('оффлайн', 'очное участие')} {haveAccessToStream ? '+ запись трансляции' : ''}</span>
+                                    className={'font-light'}>{registration?.info?.participationType.replace('оффлайн', 'очное участие')} {haveAccessToStream ? '+ запись трансляции на 60 дней' : ''}</span>
                                 </p>
                                 <p className={'lg:text-2xl uppercase font-black'}>Дата и время: <span
                                     className={'font-light'}>{event?.date} в {event?.timePeriod}</span></p>
