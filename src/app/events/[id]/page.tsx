@@ -44,6 +44,7 @@ import {eden} from "@/helpers/sdk";
 import QRCode from "react-qr-code";
 import Partners11 from "@/components/Partners11";
 import Partners18 from "@/components/Partners18";
+import {format} from "date-fns";
 
 export const dynamic = "force-dynamic"
 
@@ -211,6 +212,7 @@ export default function Page({params}: any) {
         setCurrentStream(event?.halls[0]?.streamLink)
     }, [event]);
 
+    const [isNewPack, setIsNewPack] = useState(false)
 
     return (
         <main className={'overflow-x-hidden'}>
@@ -468,7 +470,7 @@ export default function Page({params}: any) {
                                 <img className={'w-full lg:w-2/5'} src={registration?.qrCodeUrl}/>
                             </div>
                         </div> : null}
-                    {event?.date != '11.11.2023'||isAdmin? (<div
+                    {event?.date != '11.11.2023' || isAdmin ? (<div
                         className={classList('grid grid-cols-1 gap-9 mt-10', event?.prices ? 'lg:grid-cols-3' : 'lg:grid-cols-2')}>
                         {event?.prices ? <div className={'flex flex-col items-center gap-8'}>
                             <div
@@ -490,7 +492,7 @@ export default function Page({params}: any) {
                                 Подтвердить участие
                             </div>
                         </div> : null}
-                        {needPrice?.online ? <div className={'flex flex-col col-start-2 items-center gap-8'}>
+                        {needPrice?.online ? <div className={'flex flex-col items-center gap-8'}>
                             <div
                                 className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
                                 <div className={'flex items-center gap-3'}>
@@ -513,7 +515,7 @@ export default function Page({params}: any) {
                                  className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                                 Подтвердить участие
                             </div>
-                        </div>:null}
+                        </div> : null}
                         {needPrice?.offline ? <div className={'flex flex-col items-center gap-8'}>
                             <div
                                 className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>
@@ -547,11 +549,46 @@ export default function Page({params}: any) {
                                                      className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                                 Подтвердить участие
                             </div>}
-                        </div>:null}
+                        </div> : null}
+                        <div className={'flex flex-col items-center lg:col-start-2 gap-8'}>
+                            <div
+                                className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>
+                                <div className={'flex items-center gap-3'}>
+                                    <img className={'w-7 aspect-square'} src={'/offline.svg'}/>
+                                    <p className={'font-extralight text-3xl text-green-two'}>Очное участие</p>
+                                </div>
+
+                                <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{3500} руб.</p>
+                                {event?.prices ?
+                                    <p className={'text-xl text-center  font-bold text-green-two'}>+ запись трансляции
+                                        на 60 дней</p> : null}
+                                {event?.prices ? <p onClick={() => {
+                                        setIsPopPriceOpen(true)
+                                        setIsNewPack(true)
+                                    }} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график
+                                        цен</p> :
+                                    <p className={'font-extralight text-xl text-center text-green-two'}>Очное посещение
+                                        мероприятия, активное участие</p>}
+                            </div>
+                            {event?.date == '11.11.2023' && !isAdmin ? <div
+                                className={'w-full lg:w-auto p-4 bg-zinc-400  text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>Запись
+                                закрыта</div> : <div onClick={() => {
+                                setIsConfirmPopOpen(true);
+                                if (needPrice?.offline) {
+                                    setCurrentPrice(needPrice.offline);
+                                    console.log(currentPrice)
+                                }
+                                setParticipationType('offline')
+                            }}
+                                                     className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                                Подтвердить участие
+                            </div>}
+                        </div>
                     </div>) : null}
                     {isConfirmPopOpen && event?.name && event?.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
                         {
                             setIsConfirmPopOpen(false)
+
                         }
                     }}>
                         <ConfirmForm layotBg={event.layoutBg} query={query} participationType={participationType}
@@ -565,6 +602,7 @@ export default function Page({params}: any) {
                     {isPopPriceOpen ? <PopUp icon={'/price.svg'} closeFunc={() => {
                         {
                             setIsPopPriceOpen(false)
+                            setIsNewPack(false)
                         }
                     }}>
                         <div className={'flex gap-4 h-full flex-col'}>
@@ -583,10 +621,10 @@ export default function Page({params}: any) {
                                     <div key={counter}
                                          className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-2'}>
                                         <div className={'text-[#0F5F5A] font-light flex items-center '}>
-                                            до {item.date}
+                                            до {format(item.date, 'dd.MM.yyyy')}
                                         </div>
                                         <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
-                                            <p className={'text-[#0F5F5A] font-light'}>{item.offline} рублей</p>
+                                            <p className={'text-[#0F5F5A] font-light'}>{isNewPack?item.offline+(counter==2?1000:500):item.offline} рублей</p>
                                         </div>
                                     </div>
                                 )

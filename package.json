@@ -22,6 +22,7 @@
     "autoprefixer": "10.4.14",
     "axios": "^1.5.0",
     "browser-image-resizer": "^2.4.1",
+    "date-fns": "^3.5.0",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
     "framer-motion": "^10.12.17",
