@@ -185,6 +185,7 @@ export default function Page({params}: any) {
                 eden.user.my.participations[event.id].get().then((res) => {
 
                     if (res.data[0]?.info) setRegistration(res?.data[0])
+                    console.log('AAAAAAAAUEEEEEEEEEEEEEEEE',res.data[0])
                     if (res?.data?.find(item => item.meta.participationType == 'online')) {
 
                         setHaveAccessToStream(true)
@@ -435,7 +436,7 @@ export default function Page({params}: any) {
 
                     <div
                         className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-center'}>
-                        {registration ? <motion.p initial={{y: -40, opacity: 0}}
+                        {registration?.meta?.participationType=='offline'||registration?.meta?.participationType=='online' ? <motion.p initial={{y: -40, opacity: 0}}
                                                   whileInView={{y: 0, opacity: 1}}
                                                   viewport={{once: true}}
                                                   transition={{ease: 'easeInOut', duration: 0.7}}
@@ -449,7 +450,7 @@ export default function Page({params}: any) {
                                       className={'uppercase font-extralight text-black lg:text-left text-left text-2xl lg:text-4xl'}>{event?.date != '11.11.2023' && (<>Стоимость <strong
                                 className={'font-extrabold'}>Участия</strong></>)}</motion.p>}
                     </div>
-                    {registration ?
+                    {registration?.meta?.participationType=='offline'||registration?.meta?.participationType=='online' ?
                         <div className={'grid grid-cols-1 lg:grid-cols-2 mt-10 lg:my-32 gap-10 lg:gap-32 items-start'}>
                             <div className={'flex flex-col gap-4'}>
                                 <p className={'lg:text-2xl uppercase font-black'}>Формат: <span
@@ -459,12 +460,10 @@ export default function Page({params}: any) {
                                     className={'font-light'}>{event?.date} в {event?.timePeriod}</span></p>
                                 <p className={'lg:text-2xl uppercase font-black'}>Место: <span
                                     className={'font-light'}>{event?.place}</span></p>
-                                <p className={'lg:text-2xl uppercase font-light'}>Свой билет вы можете скачать по ссылке
-                                    ниже:</p>
-                                <Link href={ticketLink}
-                                      className={'flex text-white lg:w-96 font-bold items-center justify-center p-3 bg-green-two rounded-lg'}>
+                                {ticketLink?<Link href={ticketLink}
+                                                  className={'flex text-white lg:w-96 font-bold items-center justify-center p-3 bg-green-two rounded-lg'}>
                                     Скачать билет на телефон
-                                </Link>
+                                </Link>:null}
                             </div>
                             <div className={'flex items-start lg:items-center justify-end'}>
                                 <img className={'w-full lg:w-2/5'} src={registration?.qrCodeUrl}/>
@@ -550,40 +549,41 @@ export default function Page({params}: any) {
                                 Подтвердить участие
                             </div>}
                         </div> : null}
-                        <div className={'flex flex-col items-center lg:col-start-2 gap-8'}>
-                            <div
-                                className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>
-                                <div className={'flex items-center gap-3'}>
-                                    <img className={'w-7 aspect-square'} src={'/offline.svg'}/>
-                                    <p className={'font-extralight text-3xl text-green-two'}>Очное участие</p>
-                                </div>
+                        {event?.date == '08.06.2024' ?
+                            <div className={'flex flex-col items-center lg:col-start-2 gap-8'}>
+                                <div
+                                    className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>
+                                    <div className={'flex items-center gap-3'}>
+                                        <img className={'w-7 aspect-square'} src={'/offline.svg'}/>
+                                        <p className={'font-extralight text-3xl text-green-two'}>Очное участие</p>
+                                    </div>
 
-                                <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{3500} руб.</p>
-                                {event?.prices ?
-                                    <p className={'text-xl text-center  font-bold text-green-two'}>+ запись трансляции
-                                        на 60 дней</p> : null}
-                                {event?.prices ? <p onClick={() => {
-                                        setIsPopPriceOpen(true)
-                                        setIsNewPack(true)
-                                    }} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график
-                                        цен</p> :
-                                    <p className={'font-extralight text-xl text-center text-green-two'}>Очное посещение
-                                        мероприятия, активное участие</p>}
-                            </div>
-                            {event?.date == '11.11.2023' && !isAdmin ? <div
-                                className={'w-full lg:w-auto p-4 bg-zinc-400  text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>Запись
-                                закрыта</div> : <div onClick={() => {
-                                setIsConfirmPopOpen(true);
-                                if (needPrice?.offline) {
-                                    setCurrentPrice(needPrice.offline);
-                                    console.log(currentPrice)
-                                }
-                                setParticipationType('offline')
-                            }}
-                                                     className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
-                                Подтвердить участие
-                            </div>}
-                        </div>
+                                    <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{3500} руб.</p>
+                                    {event?.prices ?
+                                        <p className={'text-xl text-center  font-bold text-green-two'}>+ запись
+                                            трансляции
+                                            на 60 дней</p> : null}
+                                    {event?.prices ? <p onClick={() => {
+                                            setIsPopPriceOpen(true)
+                                            setIsNewPack(true)
+                                        }} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график
+                                            цен</p> :
+                                        <p className={'font-extralight text-xl text-center text-green-two'}>Очное
+                                            посещение
+                                            мероприятия, активное участие</p>}
+                                </div>
+                                <div onClick={() => {
+                                    setIsConfirmPopOpen(true);
+                                    if (needPrice?.offline) {
+                                        setCurrentPrice(needPrice.offline);
+                                        console.log(currentPrice)
+                                    }
+                                    setParticipationType('offline')
+                                }}
+                                     className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                                    Подтвердить участие
+                                </div>
+                            </div>:null}
                     </div>) : null}
                     {isConfirmPopOpen && event?.name && event?.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
                         {
@@ -624,7 +624,7 @@ export default function Page({params}: any) {
                                             до {format(item.date, 'dd.MM.yyyy')}
                                         </div>
                                         <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
-                                            <p className={'text-[#0F5F5A] font-light'}>{isNewPack?item.offline+(counter==2?1000:500):item.offline} рублей</p>
+                                        <p className={'text-[#0F5F5A] font-light'}>{isNewPack?item.offline+(counter==2?1000:500):item.offline} рублей</p>
                                         </div>
                                     </div>
                                 )
@@ -643,7 +643,7 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-            {event?.date == '11.11.2023' && haveAccessToStream ?
+            {haveAccessToStream||event?.date=='16.03.2024' ?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[90px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div
