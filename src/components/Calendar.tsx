@@ -164,7 +164,7 @@ const Calendar = () => {
             title: 'II-я ежегодная всероссийская научно-практическая конференция с международным участием',
             subtitle: '«Академия детской дерматологии»',
             timePeriod: '10:00',
-            image: '/pages/events/ekb_bg.jpeg',
+            image: '/pages/main/08_06.JPG',
             link: '/events/20daf2b7-2af4-4c9b-96f3-b104163f211c/'
         }],
         jul: [{}],
