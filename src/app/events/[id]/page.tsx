@@ -430,7 +430,7 @@ export default function Page({params}: any) {
             {/*    <img className={'absolute left-0 bottom-0'} src={`/pages/main/about_us_offset_bottom.png`}*/}
             {/*         alt={'asset_bottom'}></img>*/}
             {/*</div>*/}
-            {!event?.isOnlyOnline && event?.type != 'Марафон' ?
+            {!event?.isOnlyOnline && event?.type != 'Марафон'&&registration?.meta?.participationType!="online-free" ?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
 
@@ -469,7 +469,7 @@ export default function Page({params}: any) {
                                 <img className={'w-full lg:w-2/5'} src={registration?.qrCodeUrl}/>
                             </div>
                         </div> : null}
-                    {event?.date != '11.11.2023' || isAdmin ? (<div
+                    {(event?.date != '11.11.2023' || isAdmin) ? (<div
                         className={classList('grid grid-cols-1 gap-9 mt-10', event?.prices ? 'lg:grid-cols-3' : 'lg:grid-cols-2')}>
                         {event?.prices ? <div className={'flex flex-col items-center gap-8'}>
                             <div
