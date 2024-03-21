@@ -80,6 +80,9 @@ export default function Home(params: { params: { id: string } }) {
     console.log(text);
   };
   if (!data) return null;
+
+  console.log(data)
+
   return (
     <main className={"p-2 lg:p-12"}>
       <div className={"flex justify-between"}>
@@ -97,12 +100,12 @@ export default function Home(params: { params: { id: string } }) {
           <div>Всего: {data?.length}</div>
           <div>Завершившие регистрацию: {data?.filter(p=>p.status==="finished").length}</div>
           <div>Завершившие регистрацию(онлайн): {data?.filter(p=>(p.sum>0&&p.status==="finished"&&p?.info?.participationType==="онлайн")).length}</div>
-          <div>Завершившие регистрацию(оффлайн): {data?.filter(p=>(p.sum>0&&p.status==="finished"&&p?.info?.participationType==="оффлайн")).length}</div>
+          <div>Завершившие регистрацию(оффлайн): {data?.filter(p=>(p.sum>0&&p.status==="finished"&&p?.info?.participationType==="очное участие")).length}</div>
           <div>Количество платных: {data?.filter(p=>(p.sum>0&&p.status==="finished")).length}</div>
           
           <div className="mt-10">
           {data.filter(p=>p.status==="finished").map((d,i)=><div className="grid grid-cols-12 gap-4 items-center my-5 justify-center" key={i}>
-            <span className={classList("text-xs",d?.sum!=0?'font-bold':'')}>{d?.info.participationType=='онлайн (свободное)'?'онлайн (свободное)':''}{d?.info.participationType=='онлайн'?`онлайн (платное)`:''}{d?.info.participationType=='очное участие'||d?.info.participationType=='оффлайн'?'очное участие':''}</span>
+            <span className={classList("text-xs",d?.sum!=0?'font-bold':'')}>{d?.meta?.participationType=='online-free'?'онлайн (свободное)':''}{d?.meta?.participationType=='online'?`онлайн (платное)`:''}{d?.info.participationType=='очное участие'||d?.info.participationType=='оффлайн'?'очное участие':''}</span>
             <span className={classList("col-span-1",d?.sum!=0?'font-bold':'')}>{d?.sum}</span>
             <span className="col-span-2">{d?.info?.name}</span>
             <span className="col-span-3"> {d.email}</span>

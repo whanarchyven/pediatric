@@ -254,7 +254,7 @@ export default function Page({params}: any) {
                             <div className={'flex items-center gap-2'}>
                                 <img className={'w-6 aspect-square'} src={`${images}/placemark.svg`}/>
                                 <p className={'text-white text-lg'}>
-                                    <strong>Формат: </strong> {event?.format.replace('офлайн', 'очное участие')}</p>
+                                    <strong>Формат: </strong> {event?.format?.replace('офлайн', 'очное участие').replace('онлайн + оффлайн','Очное участие + видеотрансляция (онлайн)')}</p>
                             </div>
                             <div className={'flex items-center gap-2'}>
                                 <img className={'w-6 aspect-square'} src={`${images}/placemark.svg`}/>
@@ -469,7 +469,7 @@ export default function Page({params}: any) {
                                 <img className={'w-full lg:w-2/5'} src={registration?.qrCodeUrl}/>
                             </div>
                         </div> : null}
-                    {(event?.date != '11.11.2023' || isAdmin) ? (<div
+                    {((event?.date != '11.11.2023'&&!registration) || isAdmin) ? (<div
                         className={classList('grid grid-cols-1 gap-9 mt-10', event?.prices ? 'lg:grid-cols-3' : 'lg:grid-cols-2')}>
                         {event?.prices ? <div className={'flex flex-col items-center gap-8'}>
                             <div
@@ -802,7 +802,7 @@ export default function Page({params}: any) {
                             whileInView={{y: 0, opacity: 1}}
                             viewport={{once: true}}
                             transition={{ease: 'easeInOut', duration: 0.7}}>
-                    <News></News>
+                    <News currentId={event?.id}></News>
                 </motion.div>
             </div>
         </main>
