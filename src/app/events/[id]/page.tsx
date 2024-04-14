@@ -574,9 +574,9 @@ export default function Page({params}: any) {
                                 </div>
                                 <div onClick={() => {
                                     setIsConfirmPopOpen(true);
-                                    if (needPrice?.offline) {
-                                        setCurrentPrice(needPrice.offline);
-                                        console.log(currentPrice)
+                                    if (3500) {
+                                        setCurrentPrice(3500);
+
                                     }
                                     setParticipationType('offline')
                                 }}
