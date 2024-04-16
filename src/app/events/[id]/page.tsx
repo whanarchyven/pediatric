@@ -53,6 +53,7 @@ export default function Page({params}: any) {
     const router = useRouter()
     const images = '/pages/events'
 
+
     //temp data
 
 
@@ -116,6 +117,12 @@ export default function Page({params}: any) {
     useEffect(() => {
         fetchEvent()
     }, [])
+
+    useEffect(() => {
+        if(event?.id=='97d584ac-d9ff-47ef-958e-5b84c1562c1c'){
+            router.push('/events/new-year-maraphone')
+        }
+    }, [event]);
 
 
     const [isPopPriceOpen, setIsPopPriceOpen] = useState(false);
