@@ -761,6 +761,10 @@ export default function Page({params}: any) {
                     <Link className={' text-dark-green underline mb-12 text-xl font-bold px-[20px] lg:px-[140px]'}
                           target={'_blank'}
                           href={'/kpfile.pdf'}>Коммерческое предложение</Link> : null}
+                {event?.date == '08.06.2024' ?
+                    <Link className={' text-dark-green underline mb-12 text-xl font-bold px-[20px] lg:px-[140px]'}
+                          target={'_blank'}
+                          href={'/kpfile08_06.pdf'}>Коммерческое предложение</Link> : null}
                 {event?.date == '11.11.2023' || event?.date == '2023-11-11' ?
                     <div className={'flex flex-col gap-2'}>
                         <p className={'whitespace-pre-wrap mt-2 px-[20px] text-dark-green  lg:px-[140px] font-bold'}>Участие
