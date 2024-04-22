@@ -45,6 +45,7 @@ import QRCode from "react-qr-code";
 import Partners11 from "@/components/Partners11";
 import Partners18 from "@/components/Partners18";
 import {format} from "date-fns";
+import Partners13 from "@/components/Partners13";
 
 export const dynamic = "force-dynamic"
 
@@ -415,6 +416,18 @@ export default function Page({params}: any) {
                         className={'font-extrabold'}>Конференции</strong></motion.p>
                     <Partners18></Partners18>
                 </div> : null}
+
+            {event?.date == '13.04.2024' ?
+                <div className={'my-40 flex px-[20px] lg:px-[140px] items-center flex-col gap-12'}>
+                    <motion.p initial={{y: -40, opacity: 0}}
+                              whileInView={{y: 0, opacity: 1}}
+                              viewport={{once: true}}
+                              transition={{ease: 'easeInOut', duration: 0.7}}
+                              className={'uppercase font-extralight text-black lg:text-left text-center lg:text-2xl lg:text-4xl'}>Партнёры <strong
+                        className={'font-extrabold'}>Конференции</strong></motion.p>
+                    <Partners13></Partners13>
+                </div> : null}
+
 
 
             {/*<div className={'bg-[#F2F9F8] relative py-12 lg:py-40 flex items-center px-[20px]'}>*/}
