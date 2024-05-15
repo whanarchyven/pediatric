@@ -121,7 +121,7 @@ export default function Page({params}: any) {
     }, [])
 
     useEffect(() => {
-        if(event?.id=='97d584ac-d9ff-47ef-958e-5b84c1562c1c'){
+        if (event?.id == '97d584ac-d9ff-47ef-958e-5b84c1562c1c') {
             router.push('/events/new-year-maraphone')
         }
     }, [event]);
@@ -194,7 +194,7 @@ export default function Page({params}: any) {
                 eden.user.my.participations[event.id].get().then((res) => {
 
                     if (res.data[0]?.info) setRegistration(res?.data[0])
-                    console.log('AAAAAAAAUEEEEEEEEEEEEEEEE',res.data[0])
+                    console.log('AAAAAAAAUEEEEEEEEEEEEEEEE', res.data[0])
                     if (res?.data?.find(item => item.meta.participationType == 'online')) {
 
                         setHaveAccessToStream(true)
@@ -263,7 +263,8 @@ export default function Page({params}: any) {
                             <div className={'flex items-center gap-2'}>
                                 <img className={'w-6 aspect-square'} src={`${images}/placemark.svg`}/>
                                 <p className={'text-white text-lg'}>
-                                    <strong>Формат: </strong> {event?.format?.replace('офлайн', 'очное участие').replace('онлайн + оффлайн','Очное участие + видеотрансляция (онлайн)')}</p>
+                                    <strong>Формат: </strong> {event?.format?.replace('офлайн', 'очное участие').replace('онлайн + оффлайн', 'Очное участие + видеотрансляция (онлайн)')}
+                                </p>
                             </div>
                             <div className={'flex items-center gap-2'}>
                                 <img className={'w-6 aspect-square'} src={`${images}/placemark.svg`}/>
@@ -441,7 +442,6 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-
             {/*<div className={'bg-[#F2F9F8] relative py-12 lg:py-40 flex items-center px-[20px]'}>*/}
             {/*    <img className={'absolute left-0 -top-1'} src={`/pages/main/about_us_offset.png`}*/}
             {/*         alt={'asset_bottom'}></img>*/}
@@ -462,17 +462,18 @@ export default function Page({params}: any) {
             {/*    <img className={'absolute left-0 bottom-0'} src={`/pages/main/about_us_offset_bottom.png`}*/}
             {/*         alt={'asset_bottom'}></img>*/}
             {/*</div>*/}
-            {!event?.isOnlyOnline && event?.type != 'Марафон'&&registration?.meta?.participationType!="online-free" ?
+            {!event?.isOnlyOnline && event?.type != 'Марафон' && registration?.meta?.participationType != "online-free" ?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
 
                     <div
                         className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-center'}>
-                        {registration?.meta?.participationType=='offline'||registration?.meta?.participationType=='online' ? <motion.p initial={{y: -40, opacity: 0}}
-                                                  whileInView={{y: 0, opacity: 1}}
-                                                  viewport={{once: true}}
-                                                  transition={{ease: 'easeInOut', duration: 0.7}}
-                                                  className={'uppercase font-extralight text-black lg:text-left text-center lg:text-2xl lg:text-4xl'}>Ваш
+                        {registration?.meta?.participationType == 'offline' || registration?.meta?.participationType == 'online' ?
+                            <motion.p initial={{y: -40, opacity: 0}}
+                                      whileInView={{y: 0, opacity: 1}}
+                                      viewport={{once: true}}
+                                      transition={{ease: 'easeInOut', duration: 0.7}}
+                                      className={'uppercase font-extralight text-black lg:text-left text-center lg:text-2xl lg:text-4xl'}>Ваш
                                 приобретённый <strong
                                     className={'font-extrabold'}>Пакет Участия</strong></motion.p> :
                             <motion.p initial={{y: -40, opacity: 0}}
@@ -482,7 +483,7 @@ export default function Page({params}: any) {
                                       className={'uppercase font-extralight text-black lg:text-left text-left text-2xl lg:text-4xl'}>{event?.date != '11.11.2023' && (<>Стоимость <strong
                                 className={'font-extrabold'}>Участия</strong></>)}</motion.p>}
                     </div>
-                    {registration?.meta?.participationType=='offline'||registration?.meta?.participationType=='online' ?
+                    {registration?.meta?.participationType == 'offline' || registration?.meta?.participationType == 'online' ?
                         <div className={'grid grid-cols-1 lg:grid-cols-2 mt-10 lg:my-32 gap-10 lg:gap-32 items-start'}>
                             <div className={'flex flex-col gap-4'}>
                                 <p className={'lg:text-2xl uppercase font-black'}>Формат: <span
@@ -492,16 +493,16 @@ export default function Page({params}: any) {
                                     className={'font-light'}>{event?.date} в {event?.timePeriod}</span></p>
                                 <p className={'lg:text-2xl uppercase font-black'}>Место: <span
                                     className={'font-light'}>{event?.place}</span></p>
-                                {ticketLink?<Link href={ticketLink}
-                                                  className={'flex text-white lg:w-96 font-bold items-center justify-center p-3 bg-green-two rounded-lg'}>
+                                {ticketLink ? <Link href={ticketLink}
+                                                    className={'flex text-white lg:w-96 font-bold items-center justify-center p-3 bg-green-two rounded-lg'}>
                                     Скачать билет на телефон
-                                </Link>:null}
+                                </Link> : null}
                             </div>
                             <div className={'flex items-start lg:items-center justify-end'}>
                                 <img className={'w-full lg:w-2/5'} src={registration?.qrCodeUrl}/>
                             </div>
                         </div> : null}
-                    {((event?.date != '11.11.2023'&&!registration) || isAdmin) ? (<div
+                    {((event?.date != '11.11.2023' && !registration) || isAdmin) ? (<div
                         className={classList('grid grid-cols-1 gap-9 mt-10', event?.prices ? 'lg:grid-cols-3' : 'lg:grid-cols-2')}>
                         {event?.prices ? <div className={'flex flex-col items-center gap-8'}>
                             <div
@@ -615,7 +616,7 @@ export default function Page({params}: any) {
                                      className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
                                     Подтвердить участие
                                 </div>
-                            </div>:null}
+                            </div> : null}
                     </div>) : null}
                     {isConfirmPopOpen && event?.name && event?.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
                         {
@@ -656,7 +657,7 @@ export default function Page({params}: any) {
                                             до {format(item.date, 'dd.MM.yyyy')}
                                         </div>
                                         <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
-                                        <p className={'text-[#0F5F5A] font-light'}>{isNewPack?item.offline+(counter==2?1000:500):item.offline} рублей</p>
+                                            <p className={'text-[#0F5F5A] font-light'}>{isNewPack ? item.offline + (counter == 2 ? 1000 : 500) : item.offline} рублей</p>
                                         </div>
                                     </div>
                                 )
@@ -675,7 +676,7 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-            {haveAccessToStream||event?.date=='27.04.2024' ?
+            {haveAccessToStream || event?.date == '27.04.2024' ?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[90px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div
@@ -790,7 +791,7 @@ export default function Page({params}: any) {
                 {/*    <Link className={' text-dark-green underline mb-12 text-xl font-bold px-[20px] lg:px-[140px]'}*/}
                 {/*          target={'_blank'}*/}
                 {/*          href={'/kpfile08_06.pdf'}>Коммерческое предложение</Link> : null}*/}
-                {event?.date == '11.11.2023' || event?.date == '2023-11-11'||event?.date=='08.06.2024' ?
+                {event?.date == '11.11.2023' || event?.date == '2023-11-11' ?
                     <div className={'flex flex-col gap-2'}>
                         <p className={'whitespace-pre-wrap mt-2 px-[20px] text-dark-green  lg:px-[140px] font-bold'}>Участие
                             в мероприятии</p>
@@ -819,6 +820,33 @@ export default function Page({params}: any) {
                             признаны слушатели, присутствующие 11 ноября 2023 года (1 день) по адресу город Москва,
                             кластер `&quot;`Ломоносов`&quot;` (ИНТЦ МГУ Воробьёвы горы, Раменский бульвар, 1) с 10:00 -
                             18:30. Участникам выполнившим все требования в мероприятии, выдаются индивидуальные коды
+                        </p>
+                    </div> : null}
+                {event?.date == '08.06.2024' ?
+                    <div className={'flex flex-col gap-2'}>
+                        <p className={'whitespace-pre-wrap mt-2 px-[20px] text-dark-green  lg:px-[140px] font-bold'}>Участие
+                            в мероприятии</p>
+                        <p className={'whitespace-pre-wrap mt-2 px-[20px] lg:px-[140px] text-black'}>
+                            1) Для участия в мероприятии (онлайн-трансляция) необходимо зарегистрироваться на сайте
+                            https://pediatric-dermatology.ru, указав следующие данные: 1. ФИО, 2.Электронный адрес 3.
+                            Место работы, 4. Должность, 5. Специальность, 6. Номер телефона. Учет участников
+                            осуществляется с помощью индивидуальной регистрации на интернет-сессию и контроля
+                            подключения по IP адресу. Контроль присутствия будет обеспечивать интерактивные опросы через
+                            разные временные интервалы. Вход на трансляцию осуществляется не ранее, чем за 2 часа до её
+                            начала. При завершении трансляции, сеанс у всех присутствующих прекращается. Инструментами
+                            обратной связи являются `&quot;`Чат трансляции`&quot;`. Участниками мероприятия будут признаны слушатели,
+                            присутствующие 8 июня 2024 года (1 день) - не менее 265 минут для программы НМО на
+                            трансляции и подтвердившие 5 контролей присутствия из шести. Участникам, выполнившим все
+                            требования в мероприятии, выдаются индивидуальные коды.
+
+                            2) Для участия в мероприятии (очное присутствие) необходимо обязательно предварительно
+                            зарегистрироваться на сайте https://pediatric-dermatology.ru, указав следующие данные: 1.
+                            ФИО, 2.Электронный адрес 3. Место работы, 4. Должность, 5. Специальность, 6. Номер телефона.
+                            Перед началом мероприятия, все заранее зарегистрированные люди получат бейджи с последующим
+                            контролем присутствия до окончания мероприятия. Участниками мероприятия будут признаны
+                            слушатели, присутствующие 8 июня 2024 года (1 день) по адресу г. Москва, Сколково, ул. Блеза
+                            Паскаля д. 2 с 10:00 - 17:40. Участникам, выполнившим все требования в мероприятии, выдаются
+                            индивидуальные коды.
                         </p>
                     </div> : null}
 

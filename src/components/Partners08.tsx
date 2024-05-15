@@ -53,7 +53,7 @@ const Partners11 = () => {
             link:''
         },
         {
-            image: '/partners/logo black.png',
+            image: '/partners/TeleraPharma_Logo.png',
             link:''
         },
         {
