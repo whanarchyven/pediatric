@@ -555,7 +555,7 @@ export default function Page({params}: any) {
                                 Подтвердить участие
                             </div>
                         </div> : null}
-                        {needPrice?.offline ? <div className={'flex flex-col items-center gap-8'}>
+                        {needPrice?.offline&&event?.date!='08.06.2024' ? <div className={'flex flex-col items-center gap-8'}>
                             <div
                                 className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>
                                 <div className={'flex items-center gap-3'}>
@@ -589,41 +589,41 @@ export default function Page({params}: any) {
                                 Подтвердить участие
                             </div>}
                         </div> : null}
-                        {event?.date == '08.06.2024' ?
-                            <div className={'flex flex-col items-center lg:col-start-2 gap-8'}>
-                                <div
-                                    className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>
-                                    <div className={'flex items-center gap-3'}>
-                                        <img className={'w-7 aspect-square'} src={'/offline.svg'}/>
-                                        <p className={'font-extralight text-3xl text-green-two'}>Очное участие</p>
-                                    </div>
+                        {/*{event?.date == '08.06.2024' ?*/}
+                        {/*    <div className={'flex flex-col items-center lg:col-start-2 gap-8'}>*/}
+                        {/*        <div*/}
+                        {/*            className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>*/}
+                        {/*            <div className={'flex items-center gap-3'}>*/}
+                        {/*                <img className={'w-7 aspect-square'} src={'/offline.svg'}/>*/}
+                        {/*                <p className={'font-extralight text-3xl text-green-two'}>Очное участие</p>*/}
+                        {/*            </div>*/}
 
-                                    <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{5500} руб.</p>
-                                    {event?.prices ?
-                                        <p className={'text-xl text-center  font-bold text-green-two'}>+ запись
-                                            трансляции
-                                            на 60 дней</p> : null}
-                                    {event?.prices ? <p onClick={() => {
-                                            setIsPopPriceOpen(true)
-                                            setIsNewPack(true)
-                                        }} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график
-                                            цен</p> :
-                                        <p className={'font-extralight text-xl text-center text-green-two'}>Очное
-                                            посещение
-                                            мероприятия, активное участие</p>}
-                                </div>
-                                <div onClick={() => {
-                                    setIsConfirmPopOpen(true);
-                                    if (3500) {
-                                        setCurrentPrice(3500);
+                        {/*            <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{5500} руб.</p>*/}
+                        {/*            {event?.prices ?*/}
+                        {/*                <p className={'text-xl text-center  font-bold text-green-two'}>+ запись*/}
+                        {/*                    трансляции*/}
+                        {/*                    на 60 дней</p> : null}*/}
+                        {/*            {event?.prices ? <p onClick={() => {*/}
+                        {/*                    setIsPopPriceOpen(true)*/}
+                        {/*                    setIsNewPack(true)*/}
+                        {/*                }} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график*/}
+                        {/*                    цен</p> :*/}
+                        {/*                <p className={'font-extralight text-xl text-center text-green-two'}>Очное*/}
+                        {/*                    посещение*/}
+                        {/*                    мероприятия, активное участие</p>}*/}
+                        {/*        </div>*/}
+                        {/*        <div onClick={() => {*/}
+                        {/*            setIsConfirmPopOpen(true);*/}
+                        {/*            if (3500) {*/}
+                        {/*                setCurrentPrice(3500);*/}
 
-                                    }
-                                    setParticipationType('offline')
-                                }}
-                                     className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
-                                    Подтвердить участие
-                                </div>
-                            </div> : null}
+                        {/*            }*/}
+                        {/*            setParticipationType('offline')*/}
+                        {/*        }}*/}
+                        {/*             className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>*/}
+                        {/*            Подтвердить участие*/}
+                        {/*        </div>*/}
+                        {/*    </div> : null}*/}
                     </div>) : null}
                     {isConfirmPopOpen && event?.name && event?.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
                         {
