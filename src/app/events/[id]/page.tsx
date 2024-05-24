@@ -152,6 +152,7 @@ export default function Page({params}: any) {
 
 
     const [needPrice, setNeedPrice] = useState<any>({})
+    const [needPriceNext,setNeedPriceNext] = useState('')
 
     useEffect(() => {
         const today = new Date();
@@ -162,6 +163,7 @@ export default function Page({params}: any) {
 
             if (currentDate <= today && (!nextDate || nextDate > today)) {
                 setNeedPrice(events[i])
+                setNeedPriceNext(events[i<2?i+1:2].date)
 
             }
         }
@@ -181,6 +183,8 @@ export default function Page({params}: any) {
     const [isAdmin, setIsAdmin] = useState(false)
 
     const [haveAccessToStream, setHaveAccessToStream] = useState(false)
+
+
 
     useEffect(() => {
         eden.user.my.profile.get().then((res) => {
@@ -212,6 +216,8 @@ export default function Page({params}: any) {
 
 
     const [qrCodeUrl, setQrCodeUrl] = useState()
+
+
 
     useEffect(() => {
         setCurrentProgram(event?.halls[0])
@@ -560,8 +566,8 @@ export default function Page({params}: any) {
                                 <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{needPrice?.offline > 0 ? needPrice?.offline + ' руб.' : 'БЕСПЛАТНО'}</p>
                                 {event?.prices ?
                                     <p className={'font-extralight text-xl text-center text-green-two'}>Цена действует
-                                        до <br/>
-                                        {needPrice?.date}</p> : null}
+                                        <br/>
+                                        {format(new Date(needPriceNext),'dd.MM.yyyy')}</p> : null}
                                 {event?.prices ? <p onClick={() => {
                                         setIsPopPriceOpen(true)
                                     }} className={'font-bold cursor-pointer text-xl text-green-two'}>Смотреть график
@@ -655,7 +661,7 @@ export default function Page({params}: any) {
                                     <div key={counter}
                                          className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-2'}>
                                         <div className={'text-[#0F5F5A] font-light flex items-center '}>
-                                            до {format(item.date, 'dd.MM.yyyy')}
+                                            {format(item.date, 'dd.MM.yyyy')}
                                         </div>
                                         <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
                                             <p className={'text-[#0F5F5A] font-light'}>{isNewPack ? item.offline + (counter == 2 ? 1000 : 500) : item.offline} рублей</p>
@@ -762,7 +768,7 @@ export default function Page({params}: any) {
                                     <div key={counter}
                                          className={'grid p-2 bg-[#7AB8AD] bg-opacity-10 rounded-lg w-full grid-cols-2'}>
                                         <div className={'text-[#0F5F5A] font-light flex items-center '}>
-                                            до {item.date}
+                                            {item.date}
                                         </div>
                                         <div className={'text-[#0F5F5A] gap-2 font-light flex items-center '}>
                                             <p className={'text-[#0F5F5A] font-light'}>{item.offline} рублей</p>
