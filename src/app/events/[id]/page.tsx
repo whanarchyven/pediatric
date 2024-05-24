@@ -154,18 +154,19 @@ export default function Page({params}: any) {
     const [needPrice, setNeedPrice] = useState<any>({})
 
     useEffect(() => {
-        console.log(event?.prices)
-        let nowDate = new Date();
-        nowDate.setHours(0, 0, 0, 0)
-        let tempPrice = event?.prices ? event?.prices[0] : null
-        event?.prices?.map((price, counter) => {
-            let lexems = price.date.split('-')
-            if (new Date(`${lexems[1]}/${lexems[0]}/${lexems[2]}`) < nowDate && event?.prices && counter + 1 < event?.prices?.length) {
-                tempPrice = event?.prices[counter + 1]
-            }
-        })
+        const today = new Date();
+        let events=event?.prices??[]
+        for (let i = 0; i < events.length; i++) {
+            const currentDate = new Date(events[i].date);
+            const nextDate = i + 1 < events.length ? new Date(events[i + 1].date) : null;
 
-        setNeedPrice(tempPrice)
+            if (currentDate <= today && (!nextDate || nextDate > today)) {
+                setNeedPrice(events[i])
+
+            }
+        }
+
+
 
     }, [event]);
 
@@ -591,7 +592,7 @@ export default function Page({params}: any) {
                                         <p className={'font-extralight text-3xl text-green-two'}>Очное участие</p>
                                     </div>
 
-                                    <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{3500} руб.</p>
+                                    <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{5500} руб.</p>
                                     {event?.prices ?
                                         <p className={'text-xl text-center  font-bold text-green-two'}>+ запись
                                             трансляции
