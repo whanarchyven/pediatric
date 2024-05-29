@@ -161,7 +161,12 @@ export default function Page({params}: any) {
             const currentDate = new Date(events[i].date);
             const nextDate = i + 1 < events.length ? new Date(events[i + 1].date) : null;
 
+            setNeedPrice(events[0])
+            setNeedPriceNext(events[1].date)
+
+
             if (currentDate <= today && (!nextDate || nextDate > today)) {
+
                 setNeedPrice(events[i])
                 setNeedPriceNext(events[i<2?i+1:2].date)
 
@@ -222,6 +227,10 @@ export default function Page({params}: any) {
     useEffect(() => {
         setCurrentProgram(event?.halls[0])
     }, [event]);
+
+    useEffect(() => {
+        console.log(needPrice)
+    }, [needPrice]);
 
     const [currentStream, setCurrentStream] = useState('')
 
@@ -589,7 +598,7 @@ export default function Page({params}: any) {
                                 Подтвердить участие
                             </div>}
                         </div> : null}
-                        {event?.date == '08.06.2024'&&isAdmin ?
+                        {event?.date == '08.06.2024'&&(isAdmin)||event?.date=='09.11.2024' ?
                             <div className={'flex flex-col items-center lg:col-start-2 gap-8'}>
                                 <div
                                     className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>
@@ -598,7 +607,7 @@ export default function Page({params}: any) {
                                         <p className={'font-extralight text-3xl text-green-two'}>Очное участие</p>
                                     </div>
 
-                                    <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{5500} руб.</p>
+                                    <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{event?.date=='09.11.2024'?3500:5500} руб.</p>
                                     {event?.prices ?
                                         <p className={'text-xl text-center  font-bold text-green-two'}>+ запись
                                             трансляции
@@ -614,10 +623,7 @@ export default function Page({params}: any) {
                                 </div>
                                 <div onClick={() => {
                                     setIsConfirmPopOpen(true);
-                                    if (3500) {
-                                        setCurrentPrice(3500);
-
-                                    }
+                                    setCurrentPrice(event?.date=='09.11.2024'?3500:5500)
                                     setParticipationType('offline')
                                 }}
                                      className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
