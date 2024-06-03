@@ -162,13 +162,13 @@ export default function Page({params}: any) {
             const nextDate = i + 1 < events.length ? new Date(events[i + 1].date) : null;
 
             setNeedPrice(events[0])
-            setNeedPriceNext(events[1].date)
+            setNeedPriceNext(events[1]?.date)
 
 
             if (currentDate <= today && (!nextDate || nextDate > today)) {
 
                 setNeedPrice(events[i])
-                setNeedPriceNext(events[i<2?i+1:2].date)
+                setNeedPriceNext(events[i<2?i+1:2]?.date)
 
             }
         }
