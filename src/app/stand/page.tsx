@@ -227,18 +227,21 @@ const Page = () => {
     const [isVideoPlaying, setIsVideoPlaying] = useState(false)
 
 
-    const handleTimeUpdate = (endTime) => {
-        if (videoRef.current && videoRef.current.currentTime >= endTime) {
-            videoRef.current.currentTime = endTime;
-            videoRef.current.pause();
-        }
-    };
+    const [isGifLoaded, setIsGifLoaded] = useState(false);
+
+    useEffect(() => {
+        const img = new Image();
+        img.src = '/asset_ai.gif';
+        img.onload = () => {
+            setIsGifLoaded(true);
+        };
+    }, []);
 
     const router = useRouter()
 
 //https://dermatologicalbeauty.loreal.com.ru/
     return (
-        <div
+        <>{isGifLoaded && <div
             className={'xl:h-screen p-5 pt-20 pb-0 xl:p-20 flex flex-col items-center bg-cover bg-[url("/stand_bg.png")]'}>
             <div className={'h-full w-full items-center grid grid-cols-1 xl:grid-cols-2  gap-4'}>
                 <div className={'flex w-full xl:w-2/3 flex-col gap-3 xl:gap-8'}>
@@ -308,7 +311,7 @@ const Page = () => {
                                 className={'w-72 2xl:w-[300px]  xl:absolute right-0 bottom-0'}
                                 src={'/default_asset.gif'}/>
                 </AnimatePresence>}
-        </div>
+        </div>}</>
     );
 };
 
