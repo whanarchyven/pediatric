@@ -43,7 +43,7 @@ const StandLoadingBar = () => {
                     repeat: Infinity, // Бесконечная повторяемость
                     repeatType: 'reverse', // Реверс анимации
                     ease: 'easeInOut', // Плавность анимации
-                }} className={'absolute w-1/2 drop-shadow-[0_0px_35px_rgba(255,255,255,1)]'} src={'/stand_inner_circle.svg'}/>
+                }} className={'absolute w-1/2 drop-shadow-[0_0px_35px_rgba(255,255,255,1)]'} src={'/stand_inner_circle.png'}/>
             </div>
         </div>
     );
