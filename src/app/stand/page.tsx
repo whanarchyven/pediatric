@@ -263,10 +263,10 @@ const Page = () => {
                     </div>
                     <div className={'w-full flex items-center justify-center'}>
                         <div
-                            className={'relative w-[340px] md:w-[800px] xl:w-[600px] aspect-square flex items-center justify-center'}>
+                            className={'relative w-[340px] md:w-[800px] xl:w-[600px] 2xl:w-[900px] aspect-square flex items-center justify-center'}>
                             <img src={'/wardrobe.png'} className={'w-full absolute'}/>
                             <div
-                                className={'w-[70%] -ml-8 xl:-ml-[0px] top-[19px] md:top-[40px] xl:top-[30px] absolute'}>
+                                className={'w-[70%] -ml-8 xl:-ml-[0px] top-[19px] md:top-[40px] xl:top-[30px] 2xl:top-[45px] absolute'}>
                                 <div className={'flex  gap-5 justify-start items-end'}>
                                     {row1.map((drug, counter) => {
                                         return (
@@ -279,7 +279,7 @@ const Page = () => {
                                     })}
                                 </div>
                             </div>
-                            <div className={'w-[70%] -mt-[25px] md:-mt-[65px] xl:-mt-[45px] absolute'}>
+                            <div className={'w-[70%] -mt-[25px] md:-mt-[65px] xl:-mt-[45px] 2xl:-mt-[70px] absolute'}>
                                 <div className={'flex  gap-5 justify-start items-end'}>
                                     {row2.map((drug, counter) => {
                                         return (
@@ -292,7 +292,7 @@ const Page = () => {
                                     })}
                                 </div>
                             </div>
-                            <div className={'w-[70%] bottom-[50px] md:bottom-[130px] xl:bottom-[95px] absolute'}>
+                            <div className={'w-[70%] bottom-[50px] md:bottom-[130px] xl:bottom-[95px] 2xl:bottom-[140px] absolute'}>
                                 <div className={'flex  gap-5 justify-start items-end'}>
                                     {row3.map((drug, counter) => {
                                         return (
