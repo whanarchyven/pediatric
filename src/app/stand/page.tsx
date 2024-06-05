@@ -46,7 +46,7 @@ const Page = () => {
     const row1 = [
         {
             name: 'LIPIKAR GEL LAVANT ДЛЯ ДУША 0+',
-            duration: 16,
+            duration: 15.3,
             description: 'Успокаивающий гель для душа с защитными свойствами для чувствительной кожи младенцев, детей и взрослых',
             video: 'LIPIKAR GEL LAVANT.webm',
             audio: play1,
@@ -311,7 +311,11 @@ const Page = () => {
                                     className={'w-72  2xl:w-[300px] mt-10 xl:mt-0 relative xl:absolute right-0 bottom-0'}
                                     src={'/asset_ai.gif'}/>
                     </AnimatePresence> :
-                    <AnimatePresence>
+                    !isGifLoaded?<AnimatePresence>
+                        <motion.img initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}
+                                    className={'w-72 2xl:w-[300px] mt-10 xl:mt-0 relative  xl:absolute right-0 bottom-0'}
+                                    src={'/asset_ai.gif'}/>
+                    </AnimatePresence>:<AnimatePresence>
                         <motion.img initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}
                                     className={'w-72 2xl:w-[300px] mt-10 xl:mt-0 relative  xl:absolute right-0 bottom-0'}
                                     src={'/default_asset.gif'}/>
