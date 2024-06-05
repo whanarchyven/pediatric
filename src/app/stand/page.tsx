@@ -4,6 +4,7 @@ import {AnimatePresence, motion} from "framer-motion";
 import {classList} from "@/helpers/classList";
 import {useRouter} from "next/navigation";
 import useSound from "use-sound";
+import StandLoadingBar from "@/components/StandLoadingBar";
 
 const Page = () => {
 
@@ -240,79 +241,87 @@ const Page = () => {
     const router = useRouter()
 
 //https://dermatologicalbeauty.loreal.com.ru/
-    return (
-        <>{isGifLoaded && <div
-            className={'xl:h-screen p-5 pt-20 pb-0 xl:p-20 flex flex-col items-center bg-cover bg-[url("/stand_bg.png")]'}>
-            <div className={'h-full w-full items-center grid grid-cols-1 xl:grid-cols-2  gap-4'}>
-                <div className={'flex w-full xl:w-2/3 flex-col gap-3 xl:gap-8'}>
-                    <p className={'xl:text-3xl text-xl font-inter font-extrabold text-white'}>{currentDrug.name}</p>
-                    <p className={'xl:text-xl font-inter font-normal text-white'}>{currentDrug.description}</p>
-                    <div onClick={() => {
-                        if (!pageLoaded) {
-                            setPageLoaded(true);
-                            setIsVideoPlaying(true)
-                            play16()
-                        } else {
-                            window.open('https://dermatologicalbeauty.loreal.com.ru/', '_blank')
-                        }
-                    }}
-                         className={'bg-white cursor-pointer font-bold rounded-xl flex items-center justify-center p-4 xl:text-xl text-black'}>{currentDrug.image == '-' ? 'Начать !' : 'Купить'}</div>
+
+    if(isGifLoaded){
+        return (
+            <div
+                className={'xl:h-screen p-5 pt-20 pb-0 xl:p-20 flex flex-col items-center bg-cover bg-[url("/stand_bg.png")]'}>
+                <div className={'h-full w-full items-center grid grid-cols-1 xl:grid-cols-2  gap-4'}>
+                    <div className={'flex w-full xl:w-2/3 flex-col gap-3 xl:gap-8'}>
+                        <p className={'xl:text-3xl text-xl font-inter font-extrabold text-white'}>{currentDrug.name}</p>
+                        <p className={'xl:text-xl font-inter font-normal text-white'}>{currentDrug.description}</p>
+                        <div onClick={() => {
+                            if (!pageLoaded) {
+                                setPageLoaded(true);
+                                setIsVideoPlaying(true)
+                                play16()
+                            } else {
+                                window.open('https://dermatologicalbeauty.loreal.com.ru/', '_blank')
+                            }
+                        }}
+                             className={'bg-white cursor-pointer font-bold rounded-xl flex items-center justify-center p-4 xl:text-xl text-black'}>{currentDrug.image == '-' ? 'Начать !' : 'Купить'}</div>
+                    </div>
+                    <div className={'relative w-full aspect-square flex items-center justify-center'}>
+                        <img src={'/wardrobe.png'} className={'w-full absolute'}/>
+                        <div className={'w-[70%] -ml-8 xl:-ml-0 top-4 xl:top-8 2xl:top-12 absolute'}>
+                            <div className={'flex  gap-5 justify-start items-end'}>
+                                {row1.map((drug, counter) => {
+                                    return (
+                                        <img key={counter} onClick={() => {
+                                            handler(drug)
+                                        }} style={{width: `${100 / row1.length / 1.3}%`}}
+                                             className={classList('cursor-pointer', currentDrug.name == drug.name ? 'drop-shadow-[0_0px_35px_rgba(255,212,39,1)]' : '')}
+                                             src={`/drugs/${drug.image}.png`}/>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                        <div className={'w-[70%] -mt-6 xl:-mt-12 2xl:-mt-16 absolute'}>
+                            <div className={'flex  gap-5 justify-start items-end'}>
+                                {row2.map((drug, counter) => {
+                                    return (
+                                        <img key={counter} onClick={() => {
+                                            handler(drug)
+                                        }} style={{width: `${100 / row1.length / 1.4}%`}}
+                                             className={classList('cursor-pointer', currentDrug.name == drug.name ? 'drop-shadow-[0_0px_35px_rgba(255,212,39,1)]' : '')}
+                                             src={`/drugs/${drug.image}.png`}/>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                        <div className={'w-[70%] bottom-12 xl:bottom-24 2xl:bottom-36 absolute'}>
+                            <div className={'flex  gap-5 justify-start items-end'}>
+                                {row3.map((drug, counter) => {
+                                    return (
+                                        <img key={counter} onClick={() => {
+                                            handler(drug)
+                                        }} style={{width: `${100 / row1.length / 1.6}%`}}
+                                             className={classList('cursor-pointer', currentDrug.name == drug.name ? 'drop-shadow-[0_0px_35px_rgba(255,212,39,1)]' : '')}
+                                             src={`/drugs/${drug.image}.png`}/>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className={'relative w-full aspect-square flex items-center justify-center'}>
-                    <img src={'/wardrobe.png'} className={'w-full absolute'}/>
-                    <div className={'w-[70%] -ml-8 xl:-ml-0 top-4 xl:top-8 2xl:top-12 absolute'}>
-                        <div className={'flex  gap-5 justify-start items-end'}>
-                            {row1.map((drug, counter) => {
-                                return (
-                                    <img key={counter} onClick={() => {
-                                        handler(drug)
-                                    }} style={{width: `${100 / row1.length / 1.3}%`}}
-                                         className={classList('cursor-pointer', currentDrug.name == drug.name ? 'drop-shadow-[0_0px_35px_rgba(255,212,39,1)]' : '')}
-                                         src={`/drugs/${drug.image}.png`}/>
-                                )
-                            })}
-                        </div>
-                    </div>
-                    <div className={'w-[70%] -mt-6 xl:-mt-12 2xl:-mt-16 absolute'}>
-                        <div className={'flex  gap-5 justify-start items-end'}>
-                            {row2.map((drug, counter) => {
-                                return (
-                                    <img key={counter} onClick={() => {
-                                        handler(drug)
-                                    }} style={{width: `${100 / row1.length / 1.4}%`}}
-                                         className={classList('cursor-pointer', currentDrug.name == drug.name ? 'drop-shadow-[0_0px_35px_rgba(255,212,39,1)]' : '')}
-                                         src={`/drugs/${drug.image}.png`}/>
-                                )
-                            })}
-                        </div>
-                    </div>
-                    <div className={'w-[70%] bottom-12 xl:bottom-24 2xl:bottom-36 absolute'}>
-                        <div className={'flex  gap-5 justify-start items-end'}>
-                            {row3.map((drug, counter) => {
-                                return (
-                                    <img key={counter} onClick={() => {
-                                        handler(drug)
-                                    }} style={{width: `${100 / row1.length / 1.6}%`}}
-                                         className={classList('cursor-pointer', currentDrug.name == drug.name ? 'drop-shadow-[0_0px_35px_rgba(255,212,39,1)]' : '')}
-                                         src={`/drugs/${drug.image}.png`}/>
-                                )
-                            })}
-                        </div>
-                    </div>
-                </div>
+                {isVideoPlaying ? <AnimatePresence>
+                        <motion.img initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}
+                                    className={'w-72  2xl:w-[300px] xl:absolute right-0 bottom-0'}
+                                    src={'/asset_ai.gif'}/>
+                    </AnimatePresence> :
+                    <AnimatePresence>
+                        <motion.img initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}
+                                    className={'w-72 2xl:w-[300px]  xl:absolute right-0 bottom-0'}
+                                    src={'/default_asset.gif'}/>
+                    </AnimatePresence>}
             </div>
-            {isVideoPlaying ? <AnimatePresence>
-                    <motion.img initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}
-                                className={'w-72  2xl:w-[300px] xl:absolute right-0 bottom-0'}
-                                src={'/asset_ai.gif'}/>
-                </AnimatePresence> :
-                <AnimatePresence>
-                    <motion.img initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}
-                                className={'w-72 2xl:w-[300px]  xl:absolute right-0 bottom-0'}
-                                src={'/default_asset.gif'}/>
-                </AnimatePresence>}
-        </div>}</>
-    );
+        );
+    }
+    else{
+        return (
+            <StandLoadingBar/>
+        )
+    }
 };
 
 export default Page;

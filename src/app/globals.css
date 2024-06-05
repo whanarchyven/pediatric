@@ -218,6 +218,6 @@ html{
 .rjsf i.glyphicon {
     @apply w-5 h-5 inline-block text-white;
 } */
-.newSwiper{
-
+.stand-bg {
+    background: radial-gradient(circle, #5ECCB8 0%, #005D52 74%, #012D37 100%);
 }
