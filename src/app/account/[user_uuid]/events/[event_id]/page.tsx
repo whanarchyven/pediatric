@@ -94,12 +94,12 @@ export default function Home(params: { params: { user_uuid: string, event_id: st
                     <div className={'flex flex-col gap-5 mt-6'}>
                         <p className={'text-xl font-light'}>Предъявите данный QR-код на входе в место проведения
                             мероприятия</p>
-                        <p className={'text-xl font-light'}>Также вы можете <span
-                            className={'font-bold'}>скачать</span> свой билет в Google Wallet или Apple Wallet</p>
-                        <Link href={ticketLink}
-                              className={'w-full lg:w-96 bg-green p-3 flex items-center justify-center rounded-lg font-bold text-white'}>
+                        {new Date(event?.date)>new Date()?<p className={'text-xl font-light'}>Также вы можете <span
+                            className={'font-bold'}>скачать</span> свой билет в Google Wallet или Apple Wallet</p>:null}
+                        {new Date(event?.date)>new Date()?<Link href={ticketLink}
+                                                                className={'w-full lg:w-96 bg-green p-3 flex items-center justify-center rounded-lg font-bold text-white'}>
                             Скачать билет на телефон
-                        </Link>
+                        </Link>:null}
                         {user?.data?.isAdmin ? <div>
                             {participation?.data?.visitedEvent?<div
                                 className={'p-4 lg:px-12 cursor-pointer transition-all duration-300 border-green border-2 w-auto lg:w-60 flex justify-center items-center rounded-lg gap-2'}>
