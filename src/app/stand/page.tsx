@@ -19,8 +19,8 @@ const Page = () => {
     const [play9, {stop: stop9}] = useSound(`/audio/ANTHELIOS UVMUNE400 DERMO-PEDIATRICS.mp3`);
     const [play10, {stop: stop10}] = useSound(`/audio/ANTHELIOS UVMUNE400 DERMO-PEDIATRICS СОЛНЦЕЗАЩИТ.mp3`);
     const [play11, {stop: stop11}] = useSound(`/audio/CICAPLAST LIPS.mp3`);
-    const [play12, {stop: stop12}] = useSound(`/audio/CICAPLAST B5+.mp3`);
-    const [play13, {stop: stop13}] = useSound(`/audio/CICAPLAST B5 СПРЕЙ.mp3`);
+    const [play12, {stop: stop12}] = useSound(`/audio/CICAPLAST B5.mp3`);
+    const [play13, {stop: stop13}] = useSound(`/audio/CICAPLAST_B5_SPRAY.mp3`);
     const [play14, {stop: stop14}] = useSound(`/audio/EFFACLAR.mp3`);
     const [play15, {stop: stop15}] = useSound(`/audio/EFFACLAR DUOM.mp3`);
     const [play16, {stop: stop16}] = useSound(`/audio/hello.mp3`);
@@ -176,7 +176,7 @@ const Page = () => {
     const [currentDrug, setCurrentDrug] = useState({
             name: 'Особенности дерматологических проблем у детей: диагностика и лечение',
             duration: 22,
-            description: 'В данной статье рассматриваются основные аспекты дерматологических проблем, с которыми сталкиваются дети. Обсуждаются методы диагностики и лечения таких распространенных заболеваний кожи, как...',
+            description: 'Интерактивный стенд по изучению наружной терапии для пациентов страдающих кожными заболеваниями в детской дерматологии',
             video: 'hello.webm',
             audio: play16,
             image: '-'
@@ -251,7 +251,7 @@ const Page = () => {
                         <p className={'xl:text-3xl text-xl font-inter font-extrabold text-white'}>{currentDrug.name}</p>
                         <p className={'xl:text-xl font-inter font-normal text-white'}>{currentDrug.description}</p>
                         <div onClick={() => {
-                            if (!pageLoaded) {
+                            if (!pageLoaded&&currentDrug.video!='hello.webm') {
                                 setPageLoaded(true);
                                 setIsVideoPlaying(true)
                                 play16()
