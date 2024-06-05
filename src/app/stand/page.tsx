@@ -242,7 +242,7 @@ const Page = () => {
 
 //https://dermatologicalbeauty.loreal.com.ru/
 
-    if(isGifLoaded){
+    if (isGifLoaded) {
         return (
             <div
                 className={'xl:h-screen p-5 pt-32 pb-0 xl:p-20 flex flex-col items-center bg-cover bg-[url("/stand_bg.png")]'}>
@@ -262,9 +262,11 @@ const Page = () => {
                              className={'bg-white cursor-pointer font-bold rounded-xl flex items-center justify-center p-4 xl:text-xl text-black'}>{currentDrug.image == '-' ? 'Начать !' : 'Купить'}</div>
                     </div>
                     <div className={'w-full flex items-center justify-center'}>
-                        <div className={'relative w-[340px] md:w-[800px] xl:w-[600px] aspect-square flex items-center justify-center'}>
+                        <div
+                            className={'relative w-[340px] md:w-[800px] xl:w-[600px] aspect-square flex items-center justify-center'}>
                             <img src={'/wardrobe.png'} className={'w-full absolute'}/>
-                            <div className={'w-[70%] -ml-8 xl:-ml-[0px] top-[19px] md:top-[40px] xl:top-[30px] absolute'}>
+                            <div
+                                className={'w-[70%] -ml-8 xl:-ml-[0px] top-[19px] md:top-[40px] xl:top-[30px] absolute'}>
                                 <div className={'flex  gap-5 justify-start items-end'}>
                                     {row1.map((drug, counter) => {
                                         return (
@@ -306,24 +308,15 @@ const Page = () => {
                         </div>
                     </div>
                 </div>
-                {isVideoPlaying ? <AnimatePresence>
-                        <motion.img initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}
-                                    className={'w-72  2xl:w-[300px] mt-10 xl:mt-0 relative xl:absolute right-0 bottom-0'}
-                                    src={'/asset_ai.gif'}/>
-                    </AnimatePresence> :
-                    !isGifLoaded?<AnimatePresence>
-                        <motion.img initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}
-                                    className={'w-72 2xl:w-[300px] mt-10 xl:mt-0 relative  xl:absolute right-0 bottom-0'}
-                                    src={'/asset_ai.gif'}/>
-                    </AnimatePresence>:<AnimatePresence>
-                        <motion.img initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}
-                                    className={'w-72 2xl:w-[300px] mt-10 xl:mt-0 relative  xl:absolute right-0 bottom-0'}
-                                    src={'/default_asset.gif'}/>
-                    </AnimatePresence>}
+                {isVideoPlaying ? <img
+                        className={'w-72  2xl:w-[300px] mt-10 xl:mt-0 relative xl:absolute right-0 bottom-0'}
+                        src={'/asset_ai.gif'}/> :
+                    <img
+                        className={'w-72 2xl:w-[300px] mt-10 xl:mt-0 relative  xl:absolute right-0 bottom-0'}
+                        src={'/default_asset.gif'}/>}
             </div>
         );
-    }
-    else{
+    } else {
         return (
             <StandLoadingBar/>
         )
