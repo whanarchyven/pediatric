@@ -98,7 +98,7 @@ const Page = () => {
         {
             name: 'ANTHELIOS DERMO-PEDIATRICS ',
             duration: 18,
-            description: 'СОЛНЦЕЗАЩИТНОЕ МОЛОЧКО ДЛЯ МЛАДЕНЦЕВ И ДЕТЕЙ SPF 50+/PPD 39 6м+',
+            description: 'Солнцезащитное молочко для младенцев и детей SPF 50+/PPD 39 6м+',
             video: 'ANTHELIOS DERMO-PEDIATRICS.webm',
             audio: play7,
             image: '7'
@@ -106,7 +106,7 @@ const Page = () => {
         {
             name: 'ANTHELIOS DERMO-PEDIATRICS',
             duration: 26,
-            description: 'ДЕТСКИЙ СОЛНЦЕЗАЩИТНЫЙ ГЕЛЬ С ТЕХНОЛОГИЕЙ НАНЕСЕНИЯ НА ВЛАЖНУЮ КОЖУ ДЛЯ ЛИЦА И ТЕЛА SPF 50+ 3+',
+            description: 'Детский солнцезащитный гель с технологией нанесения на влажную кожу для лица и тела SPF 50+ 3+',
             video: 'NTHELIOS_DERMO_PEDIATRICS.webm',
             audio: play8,
             image: '8'
@@ -114,7 +114,7 @@ const Page = () => {
         {
             name: 'ANTHELIOS UVMUNE400 DERMO-PEDIATRICS',
             duration: 26,
-            description: 'СОЛНЦЕЗАЩИТНОЕ ДЕТСКОЕ УВЛАЖНЯЮЩЕЕ МОЛОЧКО ДЛЯ ЛИЦА И ТЕЛА SPF 50+ / PPD 26 3+',
+            description: 'Солнцезащитное детское увлажняющее молочко для лица и тела SPF 50+ / PPD 26 3+',
             video: 'ANTHELIOS UVMUNE400 DERMO-PEDIATRICS.webm',
             audio: play9,
             image: '9'
@@ -122,7 +122,7 @@ const Page = () => {
         {
             name: 'ANTHELIOS UVMUNE400 DERMO-PEDIATRICS',
             duration: 27,
-            description: 'СОЛНЦЕЗАЩИТНЫЙ ДЕТСКИЙ СПРЕЙ ДЛЯ ЛИЦА И ТЕЛА SPF 50+ / PPD 27 3+',
+            description: 'Солнцезащитный детский спрей для лица и тела SPF 50+ / PPD 27 3+',
             video: 'ANTHELIOS UVMUNE400 DERMO-PEDIATRICS СОЛНЦЕЗАЩИТ.webm',
             audio: play10,
             image: '10'
@@ -142,7 +142,7 @@ const Page = () => {
         {
             name: 'CICAPLAST B5+',
             duration: 18,
-            description: 'ВОССТАНАВЛИВАЮЩИЙ БАЛЬЗАМ 0+',
+            description: 'Восстанавливающий бальзам 0+',
             video: 'CICAPLAST B5+.webm',
             audio: play12,
             image: '12'
@@ -158,7 +158,7 @@ const Page = () => {
         {
             name: 'EFFACLAR',
             duration: 13,
-            description: 'ОЧИЩАЮЩИЙ ПЕНЯЩИЙСЯ ГЕЛЬ 14+',
+            description: 'Очищающий пенящийся гель 14+',
             video: 'EFFACLAR.webm',
             audio: play14,
             image: '14'
@@ -174,7 +174,7 @@ const Page = () => {
     ]
 
     const [currentDrug, setCurrentDrug] = useState({
-            name: 'Особенности дерматологических проблем у детей: диагностика и лечение',
+            name: '',
             duration: 19,
             description: 'Интерактивный стенд по изучению наружной терапии для пациентов страдающих кожными заболеваниями в детской дерматологии',
             video: 'hello.webm',
@@ -232,7 +232,7 @@ const Page = () => {
 
     useEffect(() => {
         const img = new Image();
-        img.src = '/asset_ai.gif';
+        img.src = '/asset_ai-min.gif';
         img.onload = () => {
             setIsGifLoaded(true);
         };
@@ -249,7 +249,7 @@ const Page = () => {
                 <div className={'h-full w-full items-center grid grid-cols-1 xl:grid-cols-2  gap-4'}>
                     <div className={'flex w-full xl:w-2/3 flex-col gap-3 xl:gap-8'}>
                         <p className={'xl:text-3xl text-xl font-inter font-extrabold text-white'}>{currentDrug.name}</p>
-                        <p className={'xl:text-xl font-inter font-normal text-white'}>{currentDrug.description}</p>
+                        <p className={'xl:text-xl font-inter font-normal  text-white'}>{currentDrug.description}</p>
                         <div onClick={() => {
                             if (!pageLoaded&&currentDrug.video=='hello.webm') {
                                 setPageLoaded(true);
@@ -310,7 +310,7 @@ const Page = () => {
                 </div>
                 {isVideoPlaying ? <img
                         className={'w-72  2xl:w-[300px] mt-10 xl:mt-0 relative xl:absolute right-0 bottom-0'}
-                        src={'/asset_ai.gif'}/> :
+                        src={'/asset_ai-min.gif'}/> :
                     <img
                         className={'w-72 2xl:w-[300px] mt-10 xl:mt-0 relative  xl:absolute right-0 bottom-0'}
                         src={'/default_asset.gif'}/>}

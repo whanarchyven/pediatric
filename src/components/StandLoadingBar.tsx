@@ -4,9 +4,7 @@ import {motion} from "framer-motion";
 const StandLoadingBar = () => {
 
     const phrases=[
-        'Общаемся с Искуственным интеллектом',
-        'Сверяем цены препапратов',
-        'Консультируемся с дерматолагами'
+        'Ожидайте, совсем скоро откроется для вас интерактивная выставка',
     ]
 
     const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
