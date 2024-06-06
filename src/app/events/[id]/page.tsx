@@ -47,6 +47,7 @@ import Partners18 from "@/components/Partners18";
 import {format} from "date-fns";
 import Partners13 from "@/components/Partners13";
 import Partners08 from "@/components/Partners08";
+import StandLoadingBar from "@/components/StandLoadingBar";
 
 export const dynamic = "force-dynamic"
 
@@ -330,6 +331,8 @@ export default function Page({params}: any) {
                 <SpeakersSlider speakers={event?.speakers}></SpeakersSlider>
                 <img className={'absolute w-full asset left-0 z-50 bottom-[-0.5px]'} src={'/about_us_offset_bot.png'}/>
             </div> : null}
+
+            {event?.date=='08.06.2024'&&<div><StandLoadingBar title={'Интерактивная выставка'} clickable={true}/></div>}
 
             {currentProgram ? <div className={'bg-white py-12 px-[20px] lg:px-[140px]'}>
                 <p className={'uppercase font-extralight text-2xl lg:text-5xl text-black'}>Программа
