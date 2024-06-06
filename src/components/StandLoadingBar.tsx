@@ -28,7 +28,7 @@ const StandLoadingBar = () => {
 
     return (
         <div className={'fixed stand-bg p-4 flex flex-col gap-12 items-center justify-center z-[999999999] top-0 w-full h-full bg-black'}>
-            <p className={'font-inter font-bold xl:text-2xl text-white'}>{phrases[currentPhraseIndex]}{dots}</p>
+            <p className={'font-inter font-bold xl:text-2xl text-center text-white'}>{phrases[currentPhraseIndex]}{dots}</p>
             <div className={'w-full xl:w-1/3 flex items-center justify-center aspect-square relative'}>
                 <motion.img initial={{rotate:0}} animate={{rotate:360}} transition={{
                     duration: 7, // Длительность анимации
