@@ -8,22 +8,22 @@ import StandLoadingBar from "@/components/StandLoadingBar";
 
 const Page = () => {
 
-    const [play1, {stop: stop1}] = useSound(`/audio/LIPIKAR GEL LAVANT.mp3`);
-    const [play2, {stop: stop2}] = useSound(`/audio/LIPIKAR LAIT.mp3`);
-    const [play3, {stop: stop3}] = useSound(`/audio/LIPIKAR SYNDET APplus.mp3`);
-    const [play4, {stop: stop4}] = useSound(`/audio/LIPIKAR OIL APplus.mp3`);
-    const [play5, {stop: stop5}] = useSound(`/audio/LIPIKAR BAUME APM.mp3`);
-    const [play6, {stop: stop6}] = useSound(`/audio/LIPIKAR LAIT UREA.mp3`);
-    const [play7, {stop: stop7}] = useSound(`/audio/ANTHELIOS DERMO-PEDIATRICS.mp3`);
-    const [play8, {stop: stop8}] = useSound(`/audio/NTHELIOS_DERMO_PEDIATRICS.mp3`);
-    const [play9, {stop: stop9}] = useSound(`/audio/ANTHELIOS UVMUNE400 DERMO-PEDIATRICS.mp3`);
-    const [play10, {stop: stop10}] = useSound(`/audio/ANTHELIOS UVMUNE400 DERMO-PEDIATRICS СОЛНЦЕЗАЩИТ.mp3`);
-    const [play11, {stop: stop11}] = useSound(`/audio/CICAPLAST LIPS.mp3`);
-    const [play12, {stop: stop12}] = useSound(`/audio/CICAPLAST B5.mp3`);
-    const [play13, {stop: stop13}] = useSound(`/audio/CICAPLAST_B5_SPRAY.mp3`);
-    const [play14, {stop: stop14}] = useSound(`/audio/EFFACLAR.mp3`);
-    const [play15, {stop: stop15}] = useSound(`/audio/EFFACLAR DUOM.mp3`);
-    const [play16, {stop: stop16}] = useSound(`/audio/hello.mp3`);
+    const [play1, {stop: stop1}] = useSound(`/audio/croped/LIPIKAR GEL LAVANT.mp3`);
+    const [play2, {stop: stop2}] = useSound(`/audio/croped/LIPIKAR LAIT.mp3`);
+    const [play3, {stop: stop3}] = useSound(`/audio/croped/LIPIKAR SYNDET APplus.mp3`);
+    const [play4, {stop: stop4}] = useSound(`/audio/croped/LIPIKAR OIL APplus.mp3`);
+    const [play5, {stop: stop5}] = useSound(`/audio/croped/LIPIKAR BAUME APM.mp3`);
+    const [play6, {stop: stop6}] = useSound(`/audio/croped/LIPIKAR LAIT UREA.mp3`);
+    const [play7, {stop: stop7}] = useSound(`/audio/croped/ANTHELIOS DERMO-PEDIATRICS.mp3`);
+    const [play8, {stop: stop8}] = useSound(`/audio/croped/NTHELIOS_DERMO_PEDIATRICS.mp3`);
+    const [play9, {stop: stop9}] = useSound(`/audio/croped/ANTHELIOS UVMUNE400 DERMO-PEDIATRICS.mp3`);
+    const [play10, {stop: stop10}] = useSound(`/audio/croped/ANTHELIOS UVMUNE400 DERMO-PEDIATRICS СОЛНЦЕЗАЩИТ.mp3`);
+    const [play11, {stop: stop11}] = useSound(`/audio/croped/CICAPLAST LIPS.mp3`);
+    const [play12, {stop: stop12}] = useSound(`/audio/croped/CICAPLAST B5.mp3`);
+    const [play13, {stop: stop13}] = useSound(`/audio/croped/CICAPLAST_B5_SPRAY.mp3`);
+    const [play14, {stop: stop14}] = useSound(`/audio/croped/EFFACLAR.mp3`);
+    const [play15, {stop: stop15}] = useSound(`/audio/croped/EFFACLAR DUOM.mp3`);
+    const [play16, {stop: stop16}] = useSound(`/audio/croped/hello.mp3`);
 
 
     // LIPIKAR GEL LAVANT.webm
@@ -46,7 +46,7 @@ const Page = () => {
     const row1 = [
         {
             name: 'LIPIKAR GEL LAVANT ДЛЯ ДУША 0+',
-            duration: 15.3,
+            duration: 25,
             description: 'Успокаивающий гель для душа с защитными свойствами для чувствительной кожи младенцев, детей и взрослых',
             video: 'LIPIKAR GEL LAVANT.webm',
             audio: play1,
@@ -54,7 +54,7 @@ const Page = () => {
         },
         {
             name: 'LIPIKAR LAIT',
-            duration: 13,
+            duration: 19,
             description: 'Молочко для сухой и очень сухой кожи младенцев, детей и взрослых 0+',
             video: 'LIPIKAR LAIT.webm',
             audio: play2,
@@ -62,7 +62,7 @@ const Page = () => {
         },
         {
             name: 'LIPIKAR SYNDET AP+',
-            duration: 13,
+            duration: 21,
             description: 'Липидовосстанавливающий очищающий крем-гель для лица и тела младенцев, детей и взрослых 0+ ',
             video: 'LIPIKAR SYNDET APplus.webm',
             audio: play3,
@@ -70,7 +70,7 @@ const Page = () => {
         },
         {
             name: 'LIPIKAR OIL AP+',
-            duration: 17,
+            duration: 24,
             description: 'Липидовосполняющее смягчающее масло для ванны и душа для детей и взрослых 0+',
             video: 'LIPIKAR OIL APplus.webm',
             audio: play4,
@@ -78,7 +78,7 @@ const Page = () => {
         },
         {
             name: 'LIPIKAR BAUME AP+M ',
-            duration: 16,
+            duration: 30,
             description: 'Липидовосполняющий бальзам тройного действия для лица и тела младенцев, детей и взрослых 0+',
             video: 'LIPIKAR BAUME AP+M.webm',
             audio: play5,
@@ -86,7 +86,7 @@ const Page = () => {
         },
         {
             name: 'LIPIKAR LAIT UREA 10% ',
-            duration: 16,
+            duration: 24,
             description: 'Увлажняющее молочко для тела тройного действия  для сухой и очень сухой кожи детей, взрослых и пожилых людей 3+',
             video: 'LIPIKAR LAIT UREA.webm',
             audio: play6,
@@ -105,7 +105,7 @@ const Page = () => {
         },
         {
             name: 'ANTHELIOS DERMO-PEDIATRICS',
-            duration: 17,
+            duration: 26,
             description: 'ДЕТСКИЙ СОЛНЦЕЗАЩИТНЫЙ ГЕЛЬ С ТЕХНОЛОГИЕЙ НАНЕСЕНИЯ НА ВЛАЖНУЮ КОЖУ ДЛЯ ЛИЦА И ТЕЛА SPF 50+ 3+',
             video: 'NTHELIOS_DERMO_PEDIATRICS.webm',
             audio: play8,
@@ -113,7 +113,7 @@ const Page = () => {
         },
         {
             name: 'ANTHELIOS UVMUNE400 DERMO-PEDIATRICS',
-            duration: 17,
+            duration: 26,
             description: 'СОЛНЦЕЗАЩИТНОЕ ДЕТСКОЕ УВЛАЖНЯЮЩЕЕ МОЛОЧКО ДЛЯ ЛИЦА И ТЕЛА SPF 50+ / PPD 26 3+',
             video: 'ANTHELIOS UVMUNE400 DERMO-PEDIATRICS.webm',
             audio: play9,
@@ -121,7 +121,7 @@ const Page = () => {
         },
         {
             name: 'ANTHELIOS UVMUNE400 DERMO-PEDIATRICS',
-            duration: 21,
+            duration: 27,
             description: 'СОЛНЦЕЗАЩИТНЫЙ ДЕТСКИЙ СПРЕЙ ДЛЯ ЛИЦА И ТЕЛА SPF 50+ / PPD 27 3+',
             video: 'ANTHELIOS UVMUNE400 DERMO-PEDIATRICS СОЛНЦЕЗАЩИТ.webm',
             audio: play10,
@@ -133,7 +133,7 @@ const Page = () => {
     const row3 = [
         {
             name: 'CICAPLAST LIPS',
-            duration: 14,
+            duration: 19,
             description: 'Восстанавливающий бальзам-барьер для губ для детей и взрослых 3+',
             video: 'CICAPLAST LIPS.webm',
             audio: play11,
@@ -141,7 +141,7 @@ const Page = () => {
         },
         {
             name: 'CICAPLAST B5+',
-            duration: 17,
+            duration: 18,
             description: 'ВОССТАНАВЛИВАЮЩИЙ БАЛЬЗАМ 0+',
             video: 'CICAPLAST B5+.webm',
             audio: play12,
@@ -149,7 +149,7 @@ const Page = () => {
         },
         {
             name: 'CICAPLAST B5 СПРЕЙ',
-            duration: 14,
+            duration: 18,
             description: 'Мультивосстанавливающий спрей для младенцев, детей и взрослых 0+',
             video: 'CICAPLAST B5 СПРЕЙ.webm',
             audio: play13,
@@ -165,7 +165,7 @@ const Page = () => {
         },
         {
             name: 'EFFACLAR DUO+M',
-            duration: 22,
+            duration: 27,
             description: 'Тройной корректирующий крем-гель для проблемной кожи 10+',
             video: 'EFFACLAR DUO+M.webm',
             audio: play15,
@@ -175,7 +175,7 @@ const Page = () => {
 
     const [currentDrug, setCurrentDrug] = useState({
             name: 'Особенности дерматологических проблем у детей: диагностика и лечение',
-            duration: 22,
+            duration: 19,
             description: 'Интерактивный стенд по изучению наружной терапии для пациентов страдающих кожными заболеваниями в детской дерматологии',
             video: 'hello.webm',
             audio: play16,
@@ -251,11 +251,11 @@ const Page = () => {
                         <p className={'xl:text-3xl text-xl font-inter font-extrabold text-white'}>{currentDrug.name}</p>
                         <p className={'xl:text-xl font-inter font-normal text-white'}>{currentDrug.description}</p>
                         <div onClick={() => {
-                            if (!pageLoaded&&currentDrug.video!='hello.webm') {
+                            if (!pageLoaded&&currentDrug.video=='hello.webm') {
                                 setPageLoaded(true);
                                 setIsVideoPlaying(true)
                                 play16()
-                            } else {
+                            } else if(currentDrug.video!='hello.webm') {
                                 window.open('https://dermatologicalbeauty.loreal.com.ru/', '_blank')
                             }
                         }}
