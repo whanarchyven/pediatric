@@ -692,7 +692,7 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-            {haveAccessToStream || event?.date == '27.04.2024' ?
+            {haveAccessToStream || event?.date == '08.06.2024' ?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[90px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div
@@ -722,8 +722,8 @@ export default function Page({params}: any) {
                     {/*?sr=6227&type_id=&width=320&height=240&iframe_width=320&iframe_height=240&lang=ru*/}
                     <div className={'lg:flex items-center min-w-[1280px] hidden my-12 justify-center'}>
                         <iframe width="1280" height="720"
-                                src={currentStream}
-                                title="II НПК «Путь детской дерматологии: от истоков к перспективам"
+                                src={currentStream+'&width=1280&height=720'}
+                                title="II-я ежегодная всероссийская научно-практическая конференция с международным участием «Летняя академия детской дерматологии»"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowFullScreen></iframe>
@@ -736,8 +736,8 @@ export default function Page({params}: any) {
 
                     <div className={'lg:hidden items-center  flex my-12 justify-center'}>
                         <iframe width="320" height="240"
-                                src={currentStream}
-                                title="II НПК «Путь детской дерматологии: от истоков к перспективам"
+                                src={currentStream+'&width=320&height=240'}
+                                title="II-я ежегодная всероссийская научно-практическая конференция с международным участием «Летняя академия детской дерматологии»"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowFullScreen></iframe>
