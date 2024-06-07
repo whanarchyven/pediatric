@@ -266,39 +266,42 @@ const Page = () => {
                             className={'relative w-[340px] md:w-[800px] xl:w-[600px] 2xl:w-[900px] aspect-square flex items-center justify-center'}>
                             <img src={'/wardrobe.png'} className={'w-full absolute'}/>
                             <div
-                                className={'w-[70%] -ml-8 xl:-ml-[0px] top-[19px] md:top-[40px] xl:top-[30px] 2xl:top-[45px] absolute'}>
+                                className={'w-[70%] -ml-8 xl:-ml-[0px] top-[24px] md:top-[55px] xl:top-[40px] 2xl:top-[60px] absolute'}>
                                 <div className={'flex  gap-5 justify-start items-end'}>
                                     {row1.map((drug, counter) => {
                                         return (
                                             <img key={counter} onClick={() => {
                                                 handler(drug)
-                                            }} style={{width: `${100 / row1.length / 1.3}%`}}
+                                            }}
+                                                 style={{width: `${100 / row1.length / 1.5}%`}}
                                                  className={classList('cursor-pointer', currentDrug.name == drug.name ? 'drop-shadow-[0_0px_35px_rgba(255,212,39,1)]' : '')}
                                                  src={`/drugs/${drug.image}.png`}/>
                                         )
                                     })}
                                 </div>
                             </div>
-                            <div className={'w-[70%] -mt-[25px] md:-mt-[65px] xl:-mt-[45px] 2xl:-mt-[70px] absolute'}>
+                            <div className={'w-[70%] -mt-[12px] md:-mt-[35px] xl:-mt-[25px] 2xl:-mt-[35px] absolute'}>
                                 <div className={'flex  gap-5 justify-start items-end'}>
                                     {row2.map((drug, counter) => {
                                         return (
                                             <img key={counter} onClick={() => {
                                                 handler(drug)
-                                            }} style={{width: `${100 / row1.length / 1.4}%`}}
+                                            }}
+                                                 style={{width: `${100 / row1.length / 1.4}%`}}
                                                  className={classList('cursor-pointer', currentDrug.name == drug.name ? 'drop-shadow-[0_0px_35px_rgba(255,212,39,1)]' : '')}
                                                  src={`/drugs/${drug.image}.png`}/>
                                         )
                                     })}
                                 </div>
                             </div>
-                            <div className={'w-[70%] bottom-[50px] md:bottom-[130px] xl:bottom-[95px] 2xl:bottom-[140px] absolute'}>
+                            <div className={'w-[70%] bottom-[55px] md:bottom-[130px] xl:bottom-[95px] 2xl:bottom-[140px] absolute'}>
                                 <div className={'flex  gap-5 justify-start items-end'}>
                                     {row3.map((drug, counter) => {
                                         return (
                                             <img key={counter} onClick={() => {
                                                 handler(drug)
-                                            }} style={{width: `${100 / row1.length / 1.6}%`}}
+                                            }}
+                                                 style={{width: `${100 / row1.length / 1.6}%`}}
                                                  className={classList('cursor-pointer', currentDrug.name == drug.name ? 'drop-shadow-[0_0px_35px_rgba(255,212,39,1)]' : '')}
                                                  src={`/drugs/${drug.image}.png`}/>
                                         )
