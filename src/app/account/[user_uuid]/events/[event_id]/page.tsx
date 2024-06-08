@@ -65,6 +65,14 @@ export default function Home(params: { params: { user_uuid: string, event_id: st
 
     const router = useRouter();
 
+    const [isVisited,setIsVisited]=useState(false)
+
+    useEffect(() => {
+        if(participation?.data?.visitedEvent){
+            setIsVisited(true)
+        }
+    }, [participation]);
+
     return (
         <main className={'p-2 lg:p-12'}>
             <div className={'flex justify-between'}>
@@ -101,12 +109,12 @@ export default function Home(params: { params: { user_uuid: string, event_id: st
                             Скачать билет на телефон
                         </Link>:null}
                         {user?.data?.isAdmin ? <div>
-                            {participation?.data?.visitedEvent?<div
+                            {isVisited?<div
                                 className={'p-4 lg:px-12 cursor-pointer transition-all duration-300 border-green border-2 w-auto lg:w-60 flex justify-center items-center rounded-lg gap-2'}>
                                 <p className={'text-green font-inter font-normal'}>Билет уже проверен</p>
                             </div>:<div onClick={async ()=>{
                                 eden.user[user_uuidTemp].participation[event_id]['visit-event'].post({visitedEvent:true}).then((res)=>{
-                                    console.log(res);
+                                    setIsVisited(true)
                                 })
                             }}
                                         className={'p-4 lg:px-12 cursor-pointer transition-all duration-300 bg-green border-green border-2 lg:w-60 flex justify-center items-center rounded-lg gap-2'}>
