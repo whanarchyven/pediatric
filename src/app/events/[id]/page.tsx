@@ -206,7 +206,7 @@ export default function Page({params}: any) {
 
                     if (res.data[0]?.info) setRegistration(res?.data[0])
                     console.log('AAAAAAAAUEEEEEEEEEEEEEEEE', res.data[0])
-                    if (res?.data?.find(item => item.meta.participationType == 'online')) {
+                    if (res?.data?.find(item => item.meta.participationType == 'online'||item.sum==5500||isAdmin)) {
 
                         setHaveAccessToStream(true)
                     }
@@ -692,7 +692,7 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-            {haveAccessToStream || event?.date == '08.06.2024' ?
+            {haveAccessToStream ?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[90px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div
