@@ -12,6 +12,8 @@ import Form from "@rjsf/core";
 import Link from "next/link";
 import Loading from "@/components/Loading";
 import {classList} from "@/helpers/classList";
+import axios from "axios";
+import {codes} from "@/app/admin/events/participants/[id]/getCodes";
 
 // import required modules
 
@@ -81,7 +83,63 @@ export default function Home(params: { params: { id: string } }) {
   };
   if (!data) return null;
 
-  console.log(data)
+  console.log(data.filter(p=>p.email=='ivanlom227@gmail.com'))
+  const uniqueEmails = {};
+  const uniqueData = data.filter(item => {
+    if (uniqueEmails[item.email]) {
+      return false;
+    } else {
+      uniqueEmails[item.email] = true;
+      return true;
+    }
+  });
+
+  // Функция для чтения кодов из файла
+  const readCodesFromFile = (filePath) => {
+    return new Promise((resolve, reject) => {
+      fetch(filePath)
+          .then(response => response.text())
+          .then(data => {
+            const codes = data.split('\n').map(code => code.trim()).filter(code => code);
+            resolve(codes);
+          })
+          .catch(error => reject(error));
+    });
+  };
+
+  const makeCert = async (code, participationId) => {
+    try {
+      const response = await axios.post(`/api2/user/my/admin/participations/update/byParticipation_id/${participationId}`, { cert: code });
+      return response.data;
+    } catch (error) {
+      throw new Error(`Error assigning certificate ${code} to ${participationId}: ${error}`);
+    }
+  };
+
+  const assignCertificates = async (uniqueData, codes) => {
+    for (let i = 0; i < uniqueData.length; i++) {
+      const item = uniqueData[i];
+      const code = codes[i];
+      const participationId = item._id;
+
+      try {
+        const result = await makeCert(code, participationId);
+        console.log(`Certificate ${code} assigned to ${participationId}:`, result);
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
+  };
+
+  const handleClick = () => {
+    console.log(uniqueData)
+    assignCertificates(uniqueData, codes);
+  };
+
+  // const temp=uniqueData.filter(item=>item.email=='ivanlom227@gmail.com')
+  // console.log(temp)
+  // const res=makeCert('X60D-VIVB013C',temp[0]._id)
+  // console.log(res);
 
   return (
     <main className={"p-2 lg:p-12"}>
@@ -97,6 +155,9 @@ export default function Home(params: { params: { id: string } }) {
       </div>
       <div className={""}>
         <div className={""}>
+          <div onClick={handleClick} className={' p-2 my-12 bg-green flex items-center justify-center'}>
+            Выпустить сертификаты
+          </div>
           <div>Всего: {data?.length}</div>
           <div>Завершившие регистрацию: {data?.filter(p=>p.status==="finished").length}</div>
           <div>Завершившие регистрацию(онлайн): {data?.filter(p=>(p.sum>0&&p.status==="finished"&&p?.info?.participationType==="онлайн")).length}</div>
@@ -109,7 +170,7 @@ export default function Home(params: { params: { id: string } }) {
             <span className={classList("col-span-1",d?.sum!=0?'font-bold':'')}>{d?.sum}</span>
             <span className="col-span-2">{d?.info?.name}</span>
             <span className="col-span-3"> {d.email}</span>
-            <div className={'col-span-2'}><a className="underline cursor-pointer text-xs" href={(d.info?.event_id&&d.email)&&certLink(d?.email, d.info?.event_id)} target="_blank" rel={"noreferer"}>{d.cert?"Сертификат":"Выпуск сертификата"}</a></div>
+            <div className={'col-span-2'}><a className="underline cursor-pointer text-xs" href={(d.info?.event_id&&d.email)&&certLink(d?.email, d.info?.event_id)} target="_blank" rel={"noreferer"}>{d.cert?"Посмотреть Сертификат":"Выпуск сертификата"}</a></div>
             <div className={'col-span-2'}>
               <select placeholder={'Сменить тариф'} className={'border-2 border-green w-full rounded-lg p-2 text-xs text-green cursor-pointer flex items-center justify-center'} onChange={async (event)=>{
                 await changeParticipationType(event.target.value,d?._id)

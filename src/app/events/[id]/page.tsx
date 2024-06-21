@@ -48,6 +48,7 @@ import {format} from "date-fns";
 import Partners13 from "@/components/Partners13";
 import Partners08 from "@/components/Partners08";
 import StandLoadingBar from "@/components/StandLoadingBar";
+import Partners31 from "@/components/Partners31";
 
 export const dynamic = "force-dynamic"
 
@@ -459,6 +460,18 @@ export default function Page({params}: any) {
                         className={'font-extrabold'}>Конференции</strong></motion.p>
                     <Partners08></Partners08>
                 </div> : null}
+
+            {event?.date == '31.05.2024' ?
+                <div className={'my-40 flex px-[20px] lg:px-[140px] items-center flex-col gap-12'}>
+                    <motion.p initial={{y: -40, opacity: 0}}
+                              whileInView={{y: 0, opacity: 1}}
+                              viewport={{once: true}}
+                              transition={{ease: 'easeInOut', duration: 0.7}}
+                              className={'uppercase font-extralight text-black lg:text-left text-center lg:text-2xl lg:text-4xl'}>Партнёры <strong
+                        className={'font-extrabold'}>Конференции</strong></motion.p>
+                    <Partners31></Partners31>
+                </div> : null}
+
 
 
             {/*<div className={'bg-[#F2F9F8] relative py-12 lg:py-40 flex items-center px-[20px]'}>*/}
