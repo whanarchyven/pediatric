@@ -168,7 +168,6 @@ export default function Page({params}: any) {
 
 
             if (currentDate <= today && (!nextDate || nextDate > today)) {
-
                 setNeedPrice(events[i])
                 setNeedPriceNext(events[i<2?i+1:2]?.date)
 
@@ -207,7 +206,7 @@ export default function Page({params}: any) {
 
                     if (res.data[0]?.info) setRegistration(res?.data[0])
                     console.log('AAAAAAAAUEEEEEEEEEEEEEEEE', res.data[0])
-                    if (res?.data?.find(item => item.meta.participationType == 'online')) {
+                    if (res?.data?.find(item => item.meta.participationType == 'online'||item.sum==5500||isAdmin)) {
 
                         setHaveAccessToStream(true)
                     }
@@ -231,7 +230,7 @@ export default function Page({params}: any) {
     }, [event]);
 
     useEffect(() => {
-        console.log(needPrice)
+        console.log(new Date(needPrice.date),"DATE",new Date(),"TODAY",new Date(needPrice.date)<new Date(),'Compare')
     }, [needPrice]);
 
     const [currentStream, setCurrentStream] = useState('')
@@ -494,7 +493,7 @@ export default function Page({params}: any) {
             {/*    <img className={'absolute left-0 bottom-0'} src={`/pages/main/about_us_offset_bottom.png`}*/}
             {/*         alt={'asset_bottom'}></img>*/}
             {/*</div>*/}
-            {!event?.isOnlyOnline && event?.type != 'Марафон' && registration?.meta?.participationType != "online-free" ?
+            {!event?.isOnlyOnline && event?.type != 'Марафон' && registration?.meta?.participationType != "online-free"&& new Date(needPrice.date)>new Date()?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
 
@@ -705,7 +704,7 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-            {haveAccessToStream || event?.date == '08.06.2024' ?
+            {haveAccessToStream ?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[90px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div
