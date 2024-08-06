@@ -7,7 +7,7 @@ import {motion} from "framer-motion";
 import {useRouter, useSearchParams} from "next/navigation";
 import ReviewPop from "@/components/ReviewPop";
 import HelpPop from "@/components/HelpPop";
-
+import * as XLSX from 'xlsx';
 
 import {Swiper, SwiperSlide, useSwiperSlide} from "swiper/react";
 
@@ -72,6 +72,8 @@ export default function Home(params: { params: { user_uuid: string } }) {
 
     const [search,setSearch]=useState<string>(useSearchParams().get('search')??'')
 
+
+
     useEffect(() => {
         eden.user.my["user-list"].get({$query:{limit:'20',skip:String((Number(currentPage)-1)*20),search:search}}).then((res)=>{
             console.log(res)
@@ -80,6 +82,17 @@ export default function Home(params: { params: { user_uuid: string } }) {
                 setCount(Math.floor(res.data.count/20))
             }
         })
+        // eden.user.my["user-list"].get({$query:{search:search}}).then((res)=>{
+        //     const users=res.data.users.filter(item=>item.joinCommunity==true)
+        //     const worksheet = XLSX.utils.json_to_sheet(users);
+        //
+        //     // Создаем новую книгу и добавляем в нее лист
+        //     const workbook = XLSX.utils.book_new();
+        //     XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+        //
+        //     // Сохраняем книгу в файл
+        //     XLSX.writeFile(workbook, "data.xlsx");
+        // })
     }, [profile]);
 
     return (
