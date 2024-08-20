@@ -493,7 +493,7 @@ export default function Page({params}: any) {
             {/*    <img className={'absolute left-0 bottom-0'} src={`/pages/main/about_us_offset_bottom.png`}*/}
             {/*         alt={'asset_bottom'}></img>*/}
             {/*</div>*/}
-            {!event?.isOnlyOnline && event?.type != 'Марафон' && registration?.meta?.participationType != "online-free"&& new Date(needPrice.date)>new Date()?
+            {!event?.isOnlyOnline && event?.type != 'Марафон' && (registration?.meta?.participationType != "online-free"||isAdmin)&& new Date(needPrice.date)>new Date()?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
 
