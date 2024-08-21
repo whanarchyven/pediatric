@@ -108,7 +108,8 @@ export default function Home() {
       type: "password",
       title: "Укажите пароль повторно",
       key: "confirmPassword",
-      placeholder: "••••••••", // Пример заполнения
+      placeholder: "••••••••",
+      required:true,// Пример заполнения
     },
     // {
     //     type: "checkbox",
@@ -121,14 +122,31 @@ export default function Home() {
   const [error, setError] = useState("");
 
   const doReg = () => {
-    eden.auth.signUp.post(fields).then((d) => {
-     if (d.data?.error){
-        setError(d.data.error)
-     }
-     else{
-       router.push('/login')
-     }
-    });
+    if(personal){
+      if(Object.entries(fields).length==12){
+        if(fields.confirmPassword==fields.password){
+          // console.log(Object.entries(fields))
+          // alert('registered')
+          eden.auth.signUp.post(fields).then((d) => {
+            if (d.data?.error){
+              setError(d.data.error)
+            }
+            else{
+              router.push('/login')
+            }
+          })
+        }
+        else{
+          alert('Пароли не совпадают')
+        }
+      }
+      else{
+        alert('Заполните все необходимые поля')
+      }
+    }
+    else{
+      alert('Необходимо принять соглашение о персональных данных')
+    }
   };
 
   return (
@@ -296,7 +314,7 @@ export default function Home() {
                     ) : null}
                   </div>
                   <p className={"font-light"}>
-                    Даю согласие на обработку персональных данных
+                    Даю согласие на <a target={'_blank'} href={'/Соглашение_о_персональных_данных.pdf'} className={'underline'}>обработку персональных данных</a>
                   </p>
                 </div>
               </div>

@@ -68,6 +68,7 @@ export default function RootLayout({
             <div className={'sm:col-span-3 gap-5 flex flex-col text-white font-extralight flex flex-col h-full justify-start'}>
                 <Link href={'/'} className={'font-extralight sm:text-left text-center'}>Об обществе</Link>
                 <Link href={'/azbuka'} className={'font-extralight sm:text-left text-center'}>Азбука атопии</Link>
+                <Link target={'_blank'} href={'/Соглашение_о_персональных_данных.pdf'} className={'font-extralight underline sm:text-left text-center'}>Соглашение об обработке персональных данных</Link>
                 {/*<a className={'font-extralight sm:text-left text-center'}>Публикации</a>*/}
                 {/*<a className={'font-extralight sm:text-left text-center'}>Новости</a>*/}
                 {/*<a className={'font-extralight sm:text-left text-center'}>Мероприятия</a>*/}
