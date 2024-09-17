@@ -159,16 +159,19 @@ export default function Page({params}: any) {
     useEffect(() => {
         const today = new Date();
         let events=event?.prices??[]
+
+        // setNeedPrice(events[0])
+        // setNeedPriceNext(events[1]?.date)
         for (let i = 0; i < events.length; i++) {
             const currentDate = new Date(events[i].date);
             const nextDate = i + 1 < events.length ? new Date(events[i + 1].date) : null;
 
-            setNeedPrice(events[0])
-            setNeedPriceNext(events[1]?.date)
+            console.log(currentDate,"CURRENT",nextDate,'NEXT')
 
 
             if (currentDate <= today && (!nextDate || nextDate > today)) {
-                setNeedPrice(events[i])
+                console.log(today,"TODAY")
+                setNeedPrice(events[i<2?i+1:2])
                 setNeedPriceNext(events[i<2?i+1:2]?.date)
 
             }
@@ -493,6 +496,7 @@ export default function Page({params}: any) {
             {/*    <img className={'absolute left-0 bottom-0'} src={`/pages/main/about_us_offset_bottom.png`}*/}
             {/*         alt={'asset_bottom'}></img>*/}
             {/*</div>*/}
+            {/*{needPrice.date}*/}
             {!event?.isOnlyOnline && event?.type != 'Марафон' && (registration?.meta?.participationType != "online-free"||isAdmin)&& new Date(needPrice.date)>new Date()?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
