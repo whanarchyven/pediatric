@@ -497,6 +497,45 @@ export default function Page({params}: any) {
             {/*         alt={'asset_bottom'}></img>*/}
             {/*</div>*/}
             {/*{needPrice.date}*/}
+
+            {event?.date=='28.09.2024'?<div className={'flex justify-center'}>
+                <div className={'flex flex-col items-center w-1/3 gap-8'}>
+                    <div
+                        className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
+                        <div className={'flex items-center gap-3'}>
+                            <img className={'w-7 aspect-square'} src={'/online.svg'}/>
+                            <p className={'font-extralight text-3xl text-white'}>Онлайн</p>
+                        </div>
+                        <p className={'text-3xl lg:text-5xl text-white font-bold'}>БЕСПЛАТНО</p>
+                        <p className={'font-extralight text-xl text-center text-white'}>Доступ к
+                            онлайн-трансляции в день мероприятия</p>
+                    </div>
+                    <div onClick={() => {
+                        setIsConfirmPopOpen(true);
+                        setCurrentPrice(0);
+                        setParticipationType('online-free')
+                    }}
+                         className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
+                        Подтвердить участие
+                    </div>
+                </div>
+                {isConfirmPopOpen && event?.name && event?.id ? <PopUp icon={'/confirm.svg'} closeFunc={() => {
+                    {
+                        setIsConfirmPopOpen(false)
+
+                    }
+                }}>
+                    <ConfirmForm layotBg={event.layoutBg} query={query} participationType={participationType}
+                                 closeFunc={() => {
+                                     setIsConfirmPopOpen(false)
+                                     console.log(currentPrice)
+                                 }} price={currentPrice} event_id={event?.id}
+                                 event_name={event?.name}></ConfirmForm>
+                </PopUp> : null}
+
+            </div>:null}
+
+
             {!event?.isOnlyOnline && event?.type != 'Марафон' && (registration?.meta?.participationType != "online-free"||isAdmin)&& new Date(needPrice.date)>new Date()?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
@@ -537,6 +576,8 @@ export default function Page({params}: any) {
                                 <img className={'w-full lg:w-2/5'} src={registration?.qrCodeUrl}/>
                             </div>
                         </div> : null}
+
+
                     {((event?.date != '11.11.2023' && !registration) || isAdmin) ? (<div
                         className={classList('grid grid-cols-1 gap-9 mt-10', event?.prices ? 'lg:grid-cols-3' : 'lg:grid-cols-2')}>
                         {event?.prices ? <div className={'flex flex-col items-center gap-8'}>
