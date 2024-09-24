@@ -499,7 +499,7 @@ export default function Page({params}: any) {
             {/*{needPrice.date}*/}
 
             {event?.date=='28.09.2024'?<div className={'flex justify-center'}>
-                <div className={'flex flex-col items-center w-1/3 gap-8'}>
+                <div className={'flex flex-col items-center w-full md:w-1/3 gap-8'}>
                     <div
                         className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 bg-green-two'}>
                         <div className={'flex items-center gap-3'}>
