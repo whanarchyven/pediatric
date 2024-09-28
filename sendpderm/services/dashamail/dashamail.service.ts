@@ -14,7 +14,7 @@ export class PreConfiguredService<T> {
 }
 
 export class DashamailService extends PreConfiguredService<any> {
-  async dashamailSendMail({ email, subject, text, html }: Record<string, any>) {
+  async dashamailSendMail({ email, subject, text, html,file }: Record<string, any>) {
     const { api_key, from_email } = this.config;
     // console.log(`dashamailSendMail ${text} to ${email} from ${from_email}`);
     try {
@@ -27,6 +27,7 @@ export class DashamailService extends PreConfiguredService<any> {
           subject,
           message: html,
           plain_text: text,
+            attachments:file
         })
         .then((d) => {
           // console.log(`send ok`, d.data);
