@@ -34,6 +34,7 @@ import NewPublicationPop from "@/components/NewPublicationPop";
 import AwardsPop from "@/components/AwardsPop";
 import ShowAwardPop from "@/components/ShowAwardPop";
 import PhotoPopUp from "@/components/PhotoPopUp";
+import Link from "next/link";
 // import required modules
 
 
@@ -53,7 +54,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
         gender,
         specialty,
         birthDate,
-        photoUrl, education, about, interests, career, position, uuid, awards
+        photoUrl, education, about, interests, career, position, uuid, awards, joinCommunity
     } = data?.profile ?? {} as any;
 
     console.log(data);
@@ -498,6 +499,17 @@ export default function Home(params: { params: { user_uuid: string } }) {
                             <p className={'opacity-50'}>Публикации не найдены</p>
                         </div>}
                     </div>
+
+
+                    {joinCommunity?<div className={'flex flex-col gap-10 mt-8'}>
+                        <div className={' flex justify-between'}>
+                            <p className={'font-bold text-xl text-black'}>Сертификат члена сообщества</p>
+
+                        </div>
+                         <Link href={`/account/${uuid}/certificate`} className={'p-4 rounded-xl font-bold text-lg flex items-center justify-center bg-green text-white'}>
+                             Скачать сертификат
+                         </Link>
+                    </div>:null}
                 </div>
             </div>
         </main>
