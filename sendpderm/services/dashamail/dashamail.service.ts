@@ -14,20 +14,22 @@ export class PreConfiguredService<T> {
 }
 
 export class DashamailService extends PreConfiguredService<any> {
-  async dashamailSendMail({ email, subject, text, html,file }: Record<string, any>) {
-    const { api_key, from_email } = this.config;
+  async dashamailSendMail({ email, subject, text, html }: Record<string, any>) {
+    // const { api_key, from_email } = {
+    //     api_key: "e6dc58b755dd80f6e3682cd6536f5f42",
+    //     from_email: "news@pediatric-dermatology.ru",
+    // };
     // console.log(`dashamailSendMail ${text} to ${email} from ${from_email}`);
     try {
       const res = axios
         .post("http://api.dashamail.com", {
           method: "transactional.send",
-          api_key,
-          from_email,
+          api_key:'e6dc58b755dd80f6e3682cd6536f5f42',
+          from_email:'news@pediatric-dermatology.ru',
           to: email,
           subject,
           message: html,
           plain_text: text,
-            attachments:file
         })
         .then((d) => {
           // console.log(`send ok`, d.data);
