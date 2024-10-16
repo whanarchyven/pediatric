@@ -871,6 +871,14 @@ export default function Page({params}: any) {
                     <Link className={' text-dark-green underline mb-12 text-xl font-bold px-[20px] lg:px-[140px]'}
                           target={'_blank'}
                           href={'/kpfile.pdf'}>Коммерческое предложение</Link> : null}
+
+
+                {event?.date == '09.11.2024' || event?.date == '2023-11-11' ?
+                    <Link className={' text-dark-green underline mb-12 text-xl font-bold px-[20px] lg:px-[140px]'}
+                          target={'_blank'}
+                          href={'/kpfile09_11.pdf'}>Коммерческое предложение</Link> : null}
+
+
                 {/*{event?.date == '08.06.2024' ?*/}
                 {/*    <Link className={' text-dark-green underline mb-12 text-xl font-bold px-[20px] lg:px-[140px]'}*/}
                 {/*          target={'_blank'}*/}
