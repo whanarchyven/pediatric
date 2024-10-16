@@ -678,7 +678,7 @@ export default function Page({params}: any) {
                                         <p className={'font-extralight text-3xl text-green-two'}>Очное участие</p>
                                     </div>
 
-                                    <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{event?.date=='09.11.2024'?3500:5500} руб.</p>
+                                    <p className={'text-3xl lg:text-5xl text-green-two font-bold'}>{event?.date=='09.11.2024'?4000:5500} руб.</p>
                                     {event?.prices ?
                                         <p className={'text-xl text-center  font-bold text-green-two'}>+ запись
                                             трансляции
@@ -694,7 +694,7 @@ export default function Page({params}: any) {
                                 </div>
                                 <div onClick={() => {
                                     setIsConfirmPopOpen(true);
-                                    setCurrentPrice(event?.date=='09.11.2024'?3500:5500)
+                                    setCurrentPrice(event?.date=='09.11.2024'?4000:5500)
                                     setParticipationType('offline')
                                 }}
                                      className={'w-full lg:w-auto p-4 bg-green-two text-white cursor-pointer text-lg font-light rounded-xl flex items-center justify-center'}>
