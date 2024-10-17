@@ -903,7 +903,7 @@ a[x-apple-data-detectors] {
                 <div onClick={() => {
                     if (email != '' && lastName != ''&& firstName != ''&& middleName != '') {
                         setLoading(true);
-                        //handleSubmit();
+                        handleSubmit();
                     }
                 }}
                      className={'p-4 cursor-pointer h-12 bg-green-two text-white text-sm font-light rounded-xl flex items-center justify-center'}>
