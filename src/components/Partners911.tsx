@@ -30,11 +30,28 @@ const Partners911 = () => {
 
     const news = [
         {
-            image: '/partners/LEO_Logo_Black_RGB.jpg',
+            image: '/partners/RENO_AVENE_LOGO_210721_01_LOGO_B.png',
             link:''
         },
         {
-            image: '/partners/glenmark logo without tagline.jpg',
+            image: '/partners/logo-NAOS-REGULAR-CMYK.jpg',
+            link:''
+        },
+        {
+            image: '/partners/FM_Biomedica_Logo.png',
+            link:''
+        },
+        {
+            image: '/partners/Candela-Corporate-Logo_preview-1.png',
+            link:''
+        },
+
+        {
+            image: '/partners/Logo-CATALYSIS (1).jpg',
+            link:''
+        },
+        {
+            image: '/partners/reddys.PNG',
             link:''
         },
         {
@@ -42,16 +59,27 @@ const Partners911 = () => {
             link:''
         },
         {
+            image: '/partners/generium.PNG',
+            link:''
+        },
+        {
+            image: '/partners/glenmark logo without tagline.jpg',
+            link:''
+        },
+        {
             image: '/partners/invar_logo_1.png',
             link:''
         },
-
         {
-            image: '/partners/JJ_Logo_SingleLine_Red_RGB.png',
+            image: '/partners/g14.png',
             link:''
         },
         {
-            image: '/partners/RENO_AVENE_LOGO_210721_01_LOGO_B.png',
+            image: '/partners/together.JPG',
+            link:''
+        },
+        {
+            image: '/partners/LEO_Logo_Black_RGB.jpg',
             link:''
         },
         {
@@ -59,19 +87,27 @@ const Partners911 = () => {
             link:''
         },
         {
-            image: '/partners/childs.png',
-            link:''
-        },
-        {
-            image: '/partners/IMG_0445.PNG',
-            link:''
-        },
-        {
             image: '/partners/OUS_Viatris_Logo_Horiz_RGB.png',
             link:''
         },
         {
-            image: '/partners/g14.png',
+            image: '/partners/atopic.png',
+            link:''
+        },
+        {
+            image: '/partners/Logo_Claim_A4_RGB.png',
+            link:''
+        },
+        {
+            image: '/partners/JJ_Logo_SingleLine_Red_RGB.png',
+            link:''
+        },
+        {
+            image: '/partners/odd.PNG',
+            link:''
+        },
+        {
+            image: '/partners/jgl_only_logo.jpg',
             link:''
         },
 
