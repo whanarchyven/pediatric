@@ -180,7 +180,7 @@ const SpeakersSlider = ({speakers}: speakersSliderInterface) => {
                                 </div>
                                 <div className={'flex items-end relative h-full justify-center'}>
                                     <img src={`/pages/main/employers/avatar_layout.svg`}/>
-                                    <img className={'absolute object-cover sm:-bottom-4 w-auto max-h-full'} src={speaker.photo}/>
+                                    <img className={'absolute object-cover sm:bottom-10 w-auto max-h-full'} src={speaker.photo}/>
                                 </div>
                             </div>
                         </SwiperSlide>
