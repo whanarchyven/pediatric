@@ -1,0 +1,1478 @@
+[
+  {
+    "email": "badmaevatb@mail.ru",
+    "customer": "Бадмаева Тамара Борисовна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "dragon-fly09@mail.ru",
+    "customer": "Ермолова Ольга Николаевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "Katyaklimenok409@gmail.com",
+    "customer": "Корнеева  Ева  Валерьевна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "starusevaav@mail.ru",
+    "customer": "Старусева Александра Васильевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "realjam@mail.ru",
+    "customer": "Топычканова Елизавета Павловна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "Farinay@mail.ru",
+    "customer": "Фарина Юлия Анатольевна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "irazenkova@list.ru",
+    "customer": "Разенкова Ирина Алексеевна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "alenka16.91@mail.ru",
+    "customer": "Горшкова Алена Валерьевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "natali5885@mail.ru",
+    "customer": "Агулова Наталья Александровна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "Julhoney@mail.ru",
+    "customer": "Закурдаева Юлия  Игоревна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "alinaabdullina@mail.ru",
+    "customer": "Султанова Алина Динаровна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "malfia862@gmail.com",
+    "customer": "Мингалимова Альфия Ильмасовна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "kgelfenshtein@gmail.com",
+    "customer": "Гельфенштейн  Екатерина  Владимировна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "bagandalievaa@mail.ru",
+    "customer": "Багандалиева Айша Магомедалиевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "borisenko.simf@yandex.ru",
+    "customer": "Борисенко Анна Валериевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "Maria.savgacheva@yandex.ru",
+    "customer": "Савгачева Мария Юрьевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "katerinakarpushina@gmail.com",
+    "customer": "Карпушина Екатерина Александровна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "tanyal-2005@yandex.ru",
+    "customer": "Лебедева Татьяна Юрьевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "yurevak@gmail.com",
+    "customer": "Кривченко  Ксения  Леонидовна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "Vikulka84@rambler.ru",
+    "customer": "Горбачева Виктория Сергеевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "Luckyvicky@yandex.ru",
+    "customer": "Корж  Виктория  Владимировна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "galina-o@yandex.ru",
+    "customer": "Меньщикова Галина Владимировна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "Madamkashaeva@gmail.com",
+    "customer": "Кашаева  Альбина  Ильдаровна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "nado_ws@mail.ru",
+    "customer": "Оруджов Аяз Валех оглы",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "guseva.edm@gmail.com",
+    "customer": "Гусева Евгения Дмитриевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "dr.makovetskaia@mail.ru",
+    "customer": "Маковецкая  Оксана  Сергеевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "ekaterina_lysova98@mail.ru",
+    "customer": "Гудз Екатерина Юрьевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "lesya-gl@mail.ru",
+    "customer": "Давлетбаева Ляйсан Халиловна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "doctor_kor@mail.ru",
+    "customer": "Корплякова Наталья Ивановна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "ni_anastasia@mail.ru",
+    "customer": "Воронова Анастасия Сергеевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "yulya3103@yandex.ru",
+    "customer": "Данилейко Юлия  Владимировна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "anastasiya.chirich@mail.ru",
+    "customer": "Аташева Анастасия Александровна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "danielyan-dani@yandex.ru",
+    "customer": "Даниелян Даниэл Романович",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "ekat44@yandex.ru",
+    "customer": "Новикова  Екатерина  Андреевна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "aleksandra.kirillova95@mail.ru",
+    "customer": "Кириллова Александра Григорьевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "anisomovatory@gmail.com",
+    "customer": "Уварова Виктория Васильевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "mckomissarov@mail.ru",
+    "customer": "Комиссарова Надежда Алексеевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "elina.zangieva@bk.ru",
+    "customer": "Зангиева Элина  Руслановна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "madina.ispieva@mail.ru",
+    "customer": "Испиева Мадина Хасановна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "kseniyair17@gmail.com",
+    "customer": "Суркова  Ксения Алексеевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "njaka09@mail.ru",
+    "customer": "Гилимханова Елена Юнировна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "Rijayapantera@mail.ru",
+    "customer": "Авдеева  Оксана  Сергеевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "laseevd@mail.ru",
+    "customer": "Ласеев Денис Иванович",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "amirova_aigul@mail.ru",
+    "customer": "Амирова Айгуль Тагировна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "andrewka.smith@gmail.com",
+    "customer": "Кузнецов Андрей  Сергеевич",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "Leysan85-85@mail.ru",
+    "customer": "Насирова Лейсан Рифовна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "majarita@yandex.ru",
+    "customer": "Харитонова Мария Владимировна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "majarita@yandex.ru",
+    "customer": "Харитонова Мария Владимировна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "otvarchik89@mail.ru",
+    "customer": "Мещерякова Ирина Ивановна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "Ele0487@yandex.ru",
+    "customer": "Самохвалова  Елена Викторовна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "tutaeva371@gmail.com",
+    "customer": "Тутаева Малика Руслановна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "georg.med@list.ru",
+    "customer": "Плотницкий Георгий  Русланович",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "darya.ochkurenko@mail.ru",
+    "customer": "Очкуренко Дарья Сергеевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "maharita@yandex.ru",
+    "customer": "Харитонова Мария  Владимировна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "kalimanova1982@mail.ru",
+    "customer": "Калиманова  Екатерина  Геннадиевна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "Marine_life95@mail.ru",
+    "customer": "Цыганкова Марина Евгеньевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "Alenaartemina@yandex.ru",
+    "customer": "Артемина Елена Михайловна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "mado.madinova@mail.ru",
+    "customer": "Булгучева Мадина Сосламбековна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "dr.samoylova@mail.ru",
+    "customer": "Самойлова Татьяна Юрьевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "goga05022001@yandex.ru",
+    "customer": "Багдасарян Гоарик Артуровна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "grechenevskaya_a@mail.ru",
+    "customer": "Греченевская Анна Андреевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3000
+      }
+    }
+  },
+  {
+    "email": "kelasova.olga@mail.ru",
+    "customer": "Келасова  Ольга Владимировна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "D.alina83@mail.ru",
+    "customer": "Дубатолова Алина Павловна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "will585@yandex.ru",
+    "customer": "Карнышева Юлия Николаевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "atamanyanzinaida@yandex.ru",
+    "customer": "Атаманян Зинаида Кеворковна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "popovichrus@yandex.ru",
+    "customer": "Попович Руслан  Викторович ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "kat-rin-ps@yandex.ru",
+    "customer": "Главный Администратор Портала",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "viola-davtyan@mail.ru",
+    "customer": "Давтян  Виолетта  Амаяковна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "aaandreeva1998@rambler.ru",
+    "customer": "Андреева  Алина  Андреевна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "innapris@yandex.ru",
+    "customer": "Гамова  Инна  Валерьевна  ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "nob.allergolog@mail.ru",
+    "customer": "Батаева  Светлана  Геннадьевна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "potalla@yandex.ru",
+    "customer": "Потоцкая  Алла  Юрьевна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "kat-rin-ps@yandex.ru",
+    "customer": "Главный Администратор Портала",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "miti1968@mail.ru",
+    "customer": "Хмелева Татьяна Анатольевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "l.n.grankina7@mail.ru",
+    "customer": "Марченко Любовь Николаевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "anastasiyamd@bk.ru",
+    "customer": "Епишева Анастасия Владимировна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "vasichkina.olya@bk.ru",
+    "customer": "Васичкина Ольга Николаевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "helen-dok@mail.ru",
+    "customer": "Смычкова Елена Викторовна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "bvs.julia@gmail.com",
+    "customer": "Карицкая Юлия Владимировна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "lena.gorbenko.88@mail.ru",
+    "customer": "Горбенко Елена Александровна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "romanovarina18@gmail.com",
+    "customer": "Откалюк Арина Олеговна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "piwowarowa.olia2016@yandex.ru",
+    "customer": "Пивоварова Ольга Юрьевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "elmira-doctor@yandex.ru",
+    "customer": "Ханяфиева Эльмира Алиевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "yulyasha-07@yandex.ru",
+    "customer": "Недолуга Юлия Владимировна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "shavkat-umarov@yandex.ru",
+    "customer": "Умаров Шавкат Кудратович",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "averyanovayuli2206@mail.ru",
+    "customer": "Аверьянова Юлия Владиславовна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "valerijsherov@yandex.ru",
+    "customer": "Шеров Валерий Владиславович",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "katarina2508@icloud.com",
+    "customer": "Четверикова Екатерина Алексеевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "evlenteva-darya@mail.ru",
+    "customer": "Аникина Дарья Дмитриевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "doc.ilyina@gmail.com",
+    "customer": "Ильина Ольга Сергеевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "kira.kruchkova@mail.ru",
+    "customer": "Крючкова Кира Юрьевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "89035864713@mail.ru",
+    "customer": "Тону Ангелина Георгиевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "averyanovayuli2206@mail.ru",
+    "customer": "Аверьянова Юлия Владимировна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "armina97@mail.ru",
+    "customer": "Аветисян Армине Степановна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "angelinarovenskaya@mail.ru",
+    "customer": "Ровенская Ангелина Геннадьевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "eremeeva.sofia@yandex.ru",
+    "customer": "Еремеева София Владимировна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "anastasia-93@mail.ru",
+    "customer": "Борисова Анастасия Сергеевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "iamastemir@gmail.com",
+    "customer": "Боташев Астемир Алексеевич",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "aag-alina@yandex.ru",
+    "customer": "Гусева Алина Андреевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "avkonovalova@inbox.ru",
+    "customer": "Долбич Анна Вадимовна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "finogenova555@mail.ru",
+    "customer": "Хегай Ольга Сергеевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "uliafilina78@gmail.com",
+    "customer": "Филина Юлия Анатольевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "yulya.belyakina@list.ru",
+    "customer": "Белякина Юлия Евгеньевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "julia.muraschova2013@yandex.ru",
+    "customer": "Мурашова Юлия Александровна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "ms.iraza80@mail.ru",
+    "customer": "Заярнова Ирина Александровна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "max-a72@ya.ru",
+    "customer": "Максимова Инна Николаевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "ms.iraza80@mail.ru",
+    "customer": "Мегелевцева Олеся Юрьевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "olesymog@yandex.ru",
+    "customer": "Мегелевцева Олеся Юрьевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "janne88@bk.ru",
+    "customer": "Янкина Жанна Генннадьевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "a.iwanova87@gmail.com",
+    "customer": "Андреева Анна Анатольевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "074Oibragimova@mail.ru",
+    "customer": "Ибрагимова Каминат Магомедовна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "romanishko.vlada@mail.ru",
+    "customer": "Романишко Влада Владимировна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "km240230@yandex.ru",
+    "customer": "Валиуллина Карина Минировна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "lana.salova@mail.ru",
+    "customer": "Салова Светлана Юрьевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "y.konchakova87@mail.ru",
+    "customer": "Кончакова Юлия Васильевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "filmarin@gmail.com",
+    "customer": "Филиппова Марина Андреевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "lavrova-y@yandex.ru",
+    "customer": "Лаврова Юлия Евгеньевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "krasavina.ek@fncg.ru",
+    "customer": "Красавина Евгения Констаниновна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "jbterechova@mail.ru",
+    "customer": "Терехова Юлия Борисовна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "doktor-dasha@rambler.ru",
+    "customer": "Чавчанидзе Дарья Иосифовна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "angel2494@mail.ru",
+    "customer": "Гусаим Алла Сергеевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "jenya8005@mail.ru",
+    "customer": "Бакуменко Евгения Анатольевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "iraafo@mail.ru",
+    "customer": "Афонина Ирина Юрьевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "rayganatd@bk.ru",
+    "customer": "Давыдова Райганат Эльдаровна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "valerijsherov@yandex.ru",
+    "customer": "Шеров Валерий Владимирович",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "s.ledov2010@yandex.ru",
+    "customer": "Юлина Светлана Николаевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "ekate.ermolenko@yandex.ru",
+    "customer": "Ермоленко Екатерина Юрьевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "dimandrusha@yandex.ru",
+    "customer": "Бачкова Надежда Александровна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "ulkvd9@mail.ru",
+    "customer": "Ермолаева Ирина Юьевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "natalya.pryahina90@mail.ru",
+    "customer": "Мерзликина Наталья Александровна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "ekindeeva@bk.ru",
+    "customer": "Киндеева Елена Танёвна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "varvara.vslv@mail.ru",
+    "customer": "Рогозина Варвара Андреевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "mari.habibullina96@mail.ru",
+    "customer": "Хабибуллина Мария Романовна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "elmirashander@mail.ru",
+    "customer": "Шандер Эльмира Зиятдиновна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "polin.fed@mail.ru",
+    "customer": "Федорова Полина Дмитриевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "anya_bobkova98@mail.ru",
+    "customer": "Бобкова Анна Евгеньевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "davidyuk65@bk.ru",
+    "customer": "Давидюк Анна Васильевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "kiseleva.anna.v@yandex.ru",
+    "customer": "Киселева Анна Владимировна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "marikoderm@yandex.ru",
+    "customer": "Конте Мария Гавриловна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "platonova70_e@mail.ru",
+    "customer": "Платонова Елена Всеволодовна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "wrach2007@yandex.ru",
+    "customer": "Харькевич Олеся Михайловна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "dayana_g@list.ru",
+    "customer": "Габеева Даяна Дамдиновна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "i.taras83@mail.ru",
+    "customer": "Тарасова Ирина Владимировна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "ekaterina-mir89@mail.ru",
+    "customer": "Бородина Екатерина Сергеевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "o_lo@inbox.ru",
+    "customer": "Ломако Ольга Леонидовна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "tatyana.dermatolog@yandex.ru",
+    "customer": "Крючкова Татьяна Николаевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "anastasia.seregina91@mail.ru",
+    "customer": "Серёгина Анастасия Александровна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "ygtarasenko@mail.ru",
+    "customer": "Тарасенко Юлия Григорьевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "vasha_dasha@bk.ru",
+    "customer": "Чикатуева Дарья Андреевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "IgoninaLil@yandex.ru",
+    "customer": "Хузина Лилия Ивановна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "gulnara.vagazova@icloud.com",
+    "customer": "Вагазова Гульнара Рифкатовна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "nataly.bakunova@gmail.com",
+    "customer": "Бакунова Наталья Анатольевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "dr_djamilia_s@mail.ru",
+    "customer": "Махмудова Джамиля Шахваладовна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "helen.malahova96@yandex.ru",
+    "customer": "Малахова Алёна Владимировна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "dasha.buligina@yandex.ru",
+    "customer": "Булыгина Дарья Вадимовна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "sweta.bloxina2015@yandex.ru",
+    "customer": "Блохина Светлана Игоревна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "shilov_daniil19@bk.ru",
+    "customer": "Шилов Даниил Дмитриевич",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "h.sofjya94@icloud.com",
+    "customer": "Храмова Софья  Николаевна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "h.sofjya94@icloud.com",
+    "customer": "Храмова Софья Николаевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "kylili@mail.ru",
+    "customer": "Кудряшова Лилия Юрьевна ",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "agaevaraisa96@gmail.com",
+    "customer": "Джабраилов Магомедрасул Эминович",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "gyunka234@gmail.com",
+    "customer": "Гумметова Гюнель Эльгамовна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "dariasilaewa@yandex.ru",
+    "customer": "Силаева Дарья Андреевна",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  },
+  {
+    "email": "malykh_d@mail.ru",
+    "customer": "Малых Дмитрий Андреевич",
+    "transactions": {
+      "initial": {
+        "amountRub": 3500
+      }
+    }
+  }
+]
