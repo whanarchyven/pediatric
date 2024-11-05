@@ -635,7 +635,7 @@ export default function Page({params}: any) {
                                 Подтвердить участие
                             </div>
                         </div> : null}
-                        {needPrice?.offline&&(event?.date=='09.11.2024'||isAdmin) ? <div className={'flex flex-col items-center gap-8'}>
+                        {needPrice?.offline&&(isAdmin) ? <div className={'flex flex-col items-center gap-8'}>
                             <div
                                 className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>
                                 <div className={'flex items-center gap-3'}>
@@ -669,7 +669,7 @@ export default function Page({params}: any) {
                                 Подтвердить участие
                             </div>}
                         </div> : null}
-                        {event?.date=='09.11.2024' ?
+                        {event?.date=='09.11.2024'&&isAdmin ?
                             <div className={'flex flex-col items-center lg:col-start-2 gap-8'}>
                                 <div
                                     className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>
