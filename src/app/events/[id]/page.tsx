@@ -168,14 +168,9 @@ export default function Page({params}: any) {
             const currentDate = new Date(events[i].date);
             const nextDate = i + 1 < events.length ? new Date(events[i + 1].date) : null;
 
-            console.log(currentDate,"CURRENT",nextDate,'NEXT')
-
-
             if (currentDate <= today && (!nextDate || nextDate > today)) {
-                console.log(today,"TODAY")
                 setNeedPrice(events[i<2?i+1:2])
                 setNeedPriceNext(events[i<2?i+1:2]?.date)
-
             }
         }
 
@@ -234,10 +229,6 @@ export default function Page({params}: any) {
         setCurrentProgram(event?.halls[0])
     }, [event]);
 
-    useEffect(() => {
-        console.log(new Date(needPrice.date),"DATE",new Date(),"TODAY",new Date(needPrice.date)<new Date(),'Compare')
-    }, [needPrice]);
-
     const [currentStream, setCurrentStream] = useState('')
 
     useEffect(() => {
@@ -245,6 +236,10 @@ export default function Page({params}: any) {
     }, [event]);
 
     const [isNewPack, setIsNewPack] = useState(false)
+
+    useEffect(()=>{
+        console.log(haveAccessToStream,'STREAM')
+    },[haveAccessToStream])
 
     return (
         <main className={'overflow-x-hidden'}>
