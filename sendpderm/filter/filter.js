@@ -21,19 +21,6 @@ function categorizeRegistration(data) {
             }
         };
 
-        if (finishDate < cutoffDate) { // До 15 октября
-            if (amount === 3000) {
-                offlineLow.push(filteredRegistration);
-            } else if (amount === 3500) {
-                offlineHigh.push(filteredRegistration);
-            }
-        } else { // После 15 октября
-            if (amount === 3500) {
-                offlineLow.push(filteredRegistration);
-            } else if (amount === 4000) {
-                offlineHigh.push(filteredRegistration);
-            }
-        }
     });
 
     return { offlineLow, offlineHigh };

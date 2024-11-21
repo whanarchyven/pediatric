@@ -19,7 +19,7 @@ const send = async () => {
 
     const data = require(path.join(__dirname, '9_11.json'));
 
-    const users=data.filter(item=>item.meta.is_paid==true&&item.meta.participationType=='offline')
+    const users=data.filter(item=>item.meta.participationType=='online')
     // console.log(users,users.length)
     return users
 
@@ -35,9 +35,9 @@ const send = async () => {
 
   const users = await getUsers();
   // const sendUsers=users.filter(item=>item.email=='iwan.zaburdaev@yandex.ru')
-  console.log(users)
+  console.log(users,users.length)
 
-
+return null
 
   for (let user of users) {
     const { uuid, fio_io } = user;
@@ -169,7 +169,7 @@ const send = async () => {
                                                     <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                                                         <tr>
                                                             <td style="padding:0;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">Уважаемый участник конференции!
-                                                                <br/><br/>Мы рады сообщить, что X Юбилейная всероссийская научно-практическая конференция с международным участием «Дерматологические чтения в педиатрии» состоится уже 9 ноября. Ваш электронный билет можно скачать и сохранить на телефоне в электронный кошелек.<br/><br/>Приглашаем вас посетить выставочную зону, которая начнет свою работу в 08:15. Официальное открытие конференции состоится в 09:45.<br/><br/>Ссылка на билет: <a href="${user.info.linkUrl}">${user.info.linkUrl}</a><br/><br/></p></td>
+                                                                <br/><br/>Рады приветствовать вас на X Юбилейной всероссийской научно-практической конференции с международным участием «Дерматологические чтения в педиатрии»!<br/><br/>Трансляция мероприятия доступна по ссылке: <a href="https://www.pediatric-dermatology.ru/events/8e6b761e-0ff4-4068-8feb-f7da3f6c79fa/">https://www.pediatric-dermatology.ru/events/8e6b761e-0ff4-4068-8feb-f7da3f6c79fa/</a><br/><br/>Также вы можете найти трансляцию на сайте <a href="https://www.pediatric-dermatology.ru">pediatric-dermatology.ru</a> в разделе Мероприятия на странице конференции. Обратите внимание: чтобы получить доступ к трансляции, необходимо опуститься в самый низ страницы мероприятия.<br/><br/>Желаем вам продуктивного и интересного участия!<br/><br/></p></td>
                                                         </tr>
                                                         <tr>
                                                             <td style="aspect-ratio: 16 / 9;display:flex;align-items: center;position:relative;">
@@ -232,7 +232,7 @@ const send = async () => {
 
     const status = await service.dashamailSendMail({
       email: user.email, //"nickerlan0@gmail.com", //mgogolev1991@gmail.com
-      subject: "Билет на конференцию 9 ноября",
+      subject: "Трансляция конференции 9 ноября",
       html: htmlTemp,
 
     });
