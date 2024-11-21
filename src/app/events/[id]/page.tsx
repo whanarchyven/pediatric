@@ -558,7 +558,7 @@ export default function Page({params}: any) {
             </div>:null}
 
 
-            {!event?.isOnlyOnline && event?.type != 'Марафон' && (registration?.meta?.participationType != "online-free"||isAdmin)&& (new Date(needPrice.date)>new Date()||event?.date=='09.11.2024')?
+            {!event?.isOnlyOnline && event?.type != 'Марафон' && (registration?.meta?.participationType != "online-free"||isAdmin)&& (new Date(needPrice.date)>new Date())?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
 
