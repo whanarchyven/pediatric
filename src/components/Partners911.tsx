@@ -84,7 +84,7 @@ const Partners911 = () => {
         },
         {
             image: '/partners/Swixx.png',
-            link:''
+            link:'https://www.swixxbiopharma.com/'
         },
         {
             image: '/partners/OUS_Viatris_Logo_Horiz_RGB.png',
@@ -100,7 +100,7 @@ const Partners911 = () => {
         },
         {
             image: '/partners/JJ_Logo_SingleLine_Red_RGB.png',
-            link:''
+            link:'https://www.janssen.com/russia/products/immunologiya'
         },
         {
             image: '/partners/odd.PNG',
