@@ -120,52 +120,51 @@ const Calendar = () => {
 
     const [currentEvent, setCurrentEvent] = useState()
 
-    const [events, setEvents] = useState({
+    const events = {
         jan: [{}],
-        feb: [{}],
-        mar: [{
-            day: 16,
+        feb: [{
+            day: 22,
             type: 'Конференция',
-            title: 'II-я научно-практическая конференции «Путь детской дерматологии: от истоков к перспективам. Атопический дерматит',
+            title: 'V научно-практическая конференция «Путь детской дерматологии: от истоков к перспективам».',
             subtitle: 'онлайн',
-            timePeriod: '10:00-15:10',
-            image: `/pages/events/ekb_bg.jpeg`,
-            link: '/events/a4fca4a0-fe5a-4de6-8480-246100de912c/'
+            timePeriod: '10:00 - 14:00',
+            image: '/pages/new2.png',
+            link: '/events/f62c13c7-ce52-42fd-9f41-9dc67e50958c/',
+        }],
+        mar: [{
+            day: 15,
+            type: 'Конференция',
+            title: 'IV всероссийская научно-практическая конференция «Псориаз в детском возрасте: современные решения старых проблем».',
+            subtitle: 'онлайн',
+            timePeriod: '10:00 - 14:00',
+            image: '/pages/new2.png',
+            link: '/events/047f2595-9890-42e0-9e6f-84657428daec/',
         }],
         apr: [{
-            day: 13,
+            day: 12,
             type: 'Конференция',
-            title: 'III научно-практическая конференция «Псориаз в детском возрасте: современные решения старых проблем»',
+            title: 'I всероссийская научно-практическая конференция «Актуальные аспекты детской дерматологии: современные решения старых проблем».',
             subtitle: 'онлайн',
-            timePeriod: '10:00',
-            image: `/pages/events/ekb_bg.jpeg`,
-            link: '/events/bbbed477-fb1c-4ab0-9dff-9709b547416f/'
+            timePeriod: '10:00 - 14:00',
+            image: '/pages/new2.png',
+            link: '/events/b74a6e0e-0789-472b-bfa4-304eaeec8203/',
         }, {
-            day: 27,
+            day: 26,
             type: 'Конференция',
-            title: 'Всероссийская научно-практической конференции «Актуальные вопросы дерматологии детского возраста»',
+            title: 'Всероссийская научно-практическая конференция с международным участием «Дерматология детского возраста: инновационные стратегии и перспективы будущего».',
             subtitle: 'онлайн',
-            timePeriod: '10:00',
-            image: `/pages/events/ekb_bg.jpeg`,
-            link: '/events/807cc46e-ac6e-4cd1-9bad-a47fd2081ba6/'
-        }],
-        may: [{
-            day: 30,
-            type: 'Конференция',
-            title: 'II-й научно-практическая конференция «Дерматологические чтения в педиатрии» ',
-            subtitle: 'в г. Новосибирск',
-            timePeriod: '10:00',
-            image: '/pages/events/ekb_bg.jpeg',
-            link: '/events/59b59a7c-733a-494a-a944-ef06841cbc2c/'
+            timePeriod: '10:00 - 14:00',
+            image: '/pages/new2.png',
+            link: '/events/1d76bfbb-7faf-40d1-ac87-325bd7ae8a32/',
         }],
         jun: [{
-            day: 8,
+            day: 7,
             type: 'Конференция',
-            title: 'II-я ежегодная всероссийская научно-практическая конференция с международным участием',
-            subtitle: '«Академия детской дерматологии»',
-            timePeriod: '10:00',
-            image: '/pages/main/08_06.JPG',
-            link: '/events/20daf2b7-2af4-4c9b-96f3-b104163f211c/'
+            title: 'III научно-практическая конференция с международным участием «Летняя академия детской дерматологии».',
+            subtitle: 'уточняется',
+            timePeriod: '10:00 - 18:00',
+            image: '/pages/new2.png',
+            link: '/events/d5449b0e-7814-4378-b11e-f71f570aab23/',
         }],
         jul: [{}],
         aug: [{}],
@@ -173,8 +172,7 @@ const Calendar = () => {
         oct: [{}],
         nov: [{}],
         dec: [{}],
-    })
-
+    };
     return (
         <div className={'w-full gap-2 sm:flex-col flex-row flex'}>
             <div

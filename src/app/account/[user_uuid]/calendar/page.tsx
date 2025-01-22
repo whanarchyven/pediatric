@@ -50,7 +50,7 @@ export default function Home() {
         <main className={'p-2 lg:p-12'}>
             <div className={'flex justify-between'}>
                 <p className={'uppercase font-inter font-extralight text-3xl'}>Календарь <br/><span
-                    className={'font-extrabold'}>Событий 2023</span></p>
+                    className={'font-extrabold'}>Событий 2025</span></p>
             </div>
             <div className={'mt-8'}>
                 <Calendar></Calendar>

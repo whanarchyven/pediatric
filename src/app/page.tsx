@@ -452,7 +452,7 @@ export default function Home() {
                               viewport={{once: true}}
                               transition={{ease: 'easeInOut', duration: 0.7}}
                               className={'uppercase font-extralight text-center sm:text-left text-black text-2xl sm:text-4xl'}>Календарь <br/><strong
-                        className={'font-extrabold'}>СОБЫТИЙ 2023</strong></motion.p>
+                        className={'font-extrabold'}>СОБЫТИЙ 2025</strong></motion.p>
                 </div>
                 <motion.div initial={{y: -40, opacity: 0}}
                             whileInView={{y: 0, opacity: 1}}
