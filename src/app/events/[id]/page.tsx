@@ -778,7 +778,7 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-            {haveAccessToStream ?
+            {haveAccessToStream||event?.date=='22.02.2025' ?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[90px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div
