@@ -807,12 +807,16 @@ export default function Page({params}: any) {
                     {/*?sr=6227&type_id=&width=1280&height=720&iframe_width=1280&iframe_height=720&lang=ru*/}
                     {/*?sr=6227&type_id=&width=320&height=240&iframe_width=320&iframe_height=240&lang=ru*/}
                     <div className={'lg:flex items-center min-w-[1280px] hidden my-12 justify-center'}>
-                        <iframe width="1280" height="720"
-                                src={currentStream+'&width=1280&height=720'}
-                                title="IV-я научно-практическая конференция «Путь детской дерматологии: от истоков к перспективам»"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen></iframe>
+                        <iframe
+        width="1280"
+        height="720"
+        src="https://rutube.ru/play/embed/04329bb219f8030ec1cda0cb620f69a1"
+        frameBorder="0"
+        allow="clipboard-write; autoplay"
+        webkitAllowFullScreen
+        mozallowfullscreen
+        allowFullScreen
+      ></iframe>
                         {/*<iframe width="560" height="315"*/}
                         {/*        src="https://www.youtube.com/embed/jICoaRhx9ns?si=B-UctiHhoned-TnJ"*/}
                         {/*        title="YouTube video player" frameBorder="0"*/}
@@ -821,12 +825,16 @@ export default function Page({params}: any) {
                     </div>
 
                     <div className={'lg:hidden items-center  flex my-12 justify-center'}>
-                        <iframe width="320" height="240"
-                                src={currentStream+'&width=320&height=240'}
-                                title="IV-я научно-практическая конференция «Путь детской дерматологии: от истоков к перспективам»"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen></iframe>
+                        <iframe
+        width="320"
+        height="240"
+        src="https://rutube.ru/play/embed/04329bb219f8030ec1cda0cb620f69a1"
+        frameBorder="0"
+        allow="clipboard-write; autoplay"
+        webkitAllowFullScreen
+        mozallowfullscreen
+        allowFullScreen
+      ></iframe>
                     </div>
 
 
