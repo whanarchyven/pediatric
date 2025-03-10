@@ -653,7 +653,7 @@ export default function Page({params}: any) {
                                 Подтвердить участие
                             </div>
                         </div> : null}
-                        {needPrice?.offline&&(isAdmin) ? <div className={'flex flex-col items-center gap-8'}>
+                        {needPrice?.offline||(isAdmin) ? <div className={'flex flex-col items-center gap-8'}>
                             <div
                                 className={'rounded-xl w-full h-96 flex flex-col gap-4 justify-around items-center p-4 border-green-two border-4'}>
                                 <div className={'flex items-center gap-3'}>
