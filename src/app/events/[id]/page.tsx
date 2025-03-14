@@ -789,7 +789,7 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-            {haveAccessToStream||event?.date=='22.02.2025' ?
+            {haveAccessToStream||event?.date=='15.03.2025' ?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[90px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div
@@ -821,7 +821,7 @@ export default function Page({params}: any) {
                         <iframe
         width="1280"
         height="720"
-        src="https://rutube.ru/play/embed/04329bb219f8030ec1cda0cb620f69a1"
+        src="https://rutube.ru/play/embed/19e0407dced5c2d605950e4e99cf98ab/"
         frameBorder="0"
         allow="clipboard-write; autoplay"
         webkitAllowFullScreen
@@ -839,7 +839,7 @@ export default function Page({params}: any) {
                         <iframe
         width="320"
         height="240"
-        src="https://rutube.ru/play/embed/04329bb219f8030ec1cda0cb620f69a1"
+        src="https://rutube.ru/play/embed/19e0407dced5c2d605950e4e99cf98ab/"
         frameBorder="0"
         allow="clipboard-write; autoplay"
         webkitAllowFullScreen
