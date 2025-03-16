@@ -1009,6 +1009,7 @@ export default function Page({params}: any) {
 
             </div>
 
+
             <div className={'bg-white lg:py-0 py-12 lg:h-[600px]'}>
                 <div className={'flex lg:mt-7 items-center px-[20px] lg:px-[140px] justify-center lg:justify-between'}>
                     <motion.p initial={{x: -40, opacity: 0}}
