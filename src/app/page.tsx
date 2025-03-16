@@ -50,7 +50,7 @@ export default function Home() {
         {
             date: '7 июня 2025',
             title: `<p class="font-extralight">III научно-практическая конференция с международным участием</p><span class="font-extrabold uppercase">«Летняя академия детской дерматологии»</span>`,
-            description: '07 июня 2025 г. на инновационной площадке - пространство событий для мероприятий цифровой направленности, посвященных прорывным инновациям и новым трендам в мире здравоохранения, состоится ежегодная летняя академия детской дерматологии.' +
+            description: '' +
                 '\n',
             link: '/events/d5449b0e-7814-4378-b11e-f71f570aab23/',
             image: '/pages/07_06_25.PNG',
@@ -183,7 +183,7 @@ export default function Home() {
                                                 <div className={'grid w-full grid-cols-12'}>
                                                     <div className={'flex col-span-6 justify-center flex-col gap-5'}>
                                                         <div
-                                                            className={'flex items-center rounded-full p-2 px-4 uppercase text-white font-light opacity-50 border-white w-fit border-2 justify-center'}>
+                                                            className={'flex items-center rounded-full p-2 px-4 uppercase text-white font-light opacity-90 border-white w-fit border-2 justify-center'}>
                                                             {item.date}
                                                         </div>
                                                         <div className={'text-left text-3xl lg:text-5xl text-white '}
