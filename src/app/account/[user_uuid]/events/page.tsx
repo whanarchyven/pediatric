@@ -94,7 +94,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
                 {participations?.map((participation:typeof participations[0],counter:number)=>{
                     let nowDate = new Date();
                     nowDate.setHours(0, 0, 0, 0)
-                    let lexems = events?.find(item=>item.id==participation.info.event_id)?.date.split('.')
+                    let lexems = events?.find(item=>item?.id==participation?.info?.event_id)?.date.split('.')
                     let isTranslationAvailable=false
                     console.log(lexems);
                     if(lexems!=undefined){
@@ -113,29 +113,29 @@ export default function Home(params: { params: { user_uuid: string } }) {
                         // <PublicationTab user_uuid={uuid} {...participation} key={participation.title}></PublicationTab>
                         <div key={counter} className={'grid  border-b-[1px] border-green  lg:grid-cols-12'}>
                             <div className={'lg:col-span-1 flex items-center text-sm justify-start lg:border-r-0 border-r-[1px] border-l-[1px] p-3 border-green'}>
-                                {events?.find(item=>item.id==participation?.info.event_id)?.date}
+                                {events?.find(item=>item.id==participation?.info?.event_id)?.date}
                             </div>
                             <div className={'lg:col-span-6 lg:border-r-0 text-sm border-r-[1px] border-l-[1px] p-3 border-green'}>
-                                {participation?.info.event_name}
+                                {participation?.info?.event_name}
                             </div>
                             <div className={'lg:col-span-1 lg:border-r-0 text-sm border-r-[1px] border-l-[1px] p-3 border-green'}>
                                 {participation?.sum}
                             </div>
                             <div className={'lg:col-span-2 lg:border-r-0 text-sm border-r-[1px] border-l-[1px] p-3 border-green'}>
-                                {participation?.info.participationType}
+                                {participation?.info?.participationType}
                             </div>
                             <div className={'lg:col-span-2 border-r-[1px] text-sm  border-l-[1px] border-r-[1px] p-3 border-green'}>
-                                {participation?.info.participationType=='онлайн'&&participation?.status==="finished"?<div onClick={()=>{
+                                {participation?.info?.participationType=='онлайн'&&participation?.status==="finished"?<div onClick={()=>{
                                     if(isTranslationAvailable) {
-                                        router.push(`/events/${participation?.info.event_id}`)
+                                        router.push(`/events/${participation?.info?.event_id}`)
                                     }
                                 }} className={classList('p-4 flex rounded-lg cursor-pointer items-center justify-center font-bold text-white',isTranslationAvailable?'text-sm bg-green':'bg-zinc-700 text-xs')}>{isTranslationAvailable?'Перейти к трансляции':'Трансляция будет доступна в день мероприятия'}</div>:<div onClick={()=>{
-                                    router.push(`/account/my/events/${participation?.info.event_id}`)
+                                    router.push(`/account/my/events/${participation?.info?.event_id}`)
                                 }} className={'p-4 bg-green flex rounded-lg cursor-pointer items-center justify-center font-bold text-white'}>
                                     Билет
                                 </div>}
                                 {participation?.cert&&<a
-                                href={certLink(participation?.info.event_id)}
+                                href={certLink(participation?.info?.event_id)}
                                 target={"blank"}
                                 rel="noreferer"
                                 className={'mt-2 p-4 bg-white flex border-2 border-green rounded-lg cursor-pointer items-center justify-center font-bold text-green text-sm'}>
