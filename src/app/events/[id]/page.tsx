@@ -821,7 +821,7 @@ export default function Page({params}: any) {
                         <iframe
         width="1280"
         height="720"
-        src="https://rutube.ru/play/embed/19e0407dced5c2d605950e4e99cf98ab/"
+        src={currentStream}
         frameBorder="0"
         allow="clipboard-write; autoplay"
         webkitAllowFullScreen
@@ -839,7 +839,7 @@ export default function Page({params}: any) {
                         <iframe
         width="320"
         height="240"
-        src="https://rutube.ru/play/embed/19e0407dced5c2d605950e4e99cf98ab/"
+        src={currentStream}
         frameBorder="0"
         allow="clipboard-write; autoplay"
         webkitAllowFullScreen
