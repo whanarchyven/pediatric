@@ -601,7 +601,7 @@ export default function Page({params}: any) {
                         <div className={'grid grid-cols-1 lg:grid-cols-2 mt-10 lg:my-32 gap-10 lg:gap-32 items-start'}>
                             <div className={'flex flex-col gap-4'}>
                                 <p className={'lg:text-2xl uppercase font-black'}>Формат: <span
-                                    className={'font-light'}>{registration?.info?.participationType.replace('оффлайн', 'очное участие')} {haveAccessToStream ? '+ запись трансляции на 60 дней' : ''}</span>
+                                    className={'font-light'}>{registration?.info?.participationType?.replace('оффлайн', 'очное участие')} {haveAccessToStream ? '+ запись трансляции на 60 дней' : ''}</span>
                                 </p>
                                 <p className={'lg:text-2xl uppercase font-black'}>Дата и время: <span
                                     className={'font-light'}>{event?.date} в {event?.timePeriod}</span></p>
@@ -799,7 +799,7 @@ export default function Page({params}: any) {
                                   viewport={{once: true}}
                                   transition={{ease: 'easeInOut', duration: 0.7}}
                                   className={'uppercase font-extralight text-black lg:text-left text-center text-left text-2xl lg:text-4xl'}>Онлайн-трансляция <strong
-                            className={'font-extrabold'}>мероприятия</strong></motion.p>
+                            className={'font-extrabold'}>мероприятия </strong></motion.p>
                     </div>
                     <div
                         className={'flex mt-20 items-center sm:justify-center sm:overflow-x-hidden overflow-x-scroll max-w-full gap-7 sm:gap-16'}>
@@ -821,7 +821,7 @@ export default function Page({params}: any) {
                         <iframe
         width="1280"
         height="720"
-        src="https://rutube.ru/play/embed/19e0407dced5c2d605950e4e99cf98ab/"
+        src={currentStream}
         frameBorder="0"
         allow="clipboard-write; autoplay"
         webkitAllowFullScreen
@@ -839,7 +839,7 @@ export default function Page({params}: any) {
                         <iframe
         width="320"
         height="240"
-        src="https://rutube.ru/play/embed/19e0407dced5c2d605950e4e99cf98ab/"
+        src={currentStream}
         frameBorder="0"
         allow="clipboard-write; autoplay"
         webkitAllowFullScreen
