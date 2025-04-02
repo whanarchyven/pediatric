@@ -55,6 +55,14 @@ export default function Home() {
             link: '/events/d5449b0e-7814-4378-b11e-f71f570aab23/',
             image: '/pages/07_06_25.PNG',
         },
+        {
+            date: '4 октября 2025',
+            title: `<p class="font-extralight">XI Всероссийская научно-практическая конференция с международным участием</p><span class="font-extrabold uppercase">«Дерматологические чтения в педиатрии»</span>`,
+            description: '' +
+                '\n',
+            link: '/events/fcb80412-f618-4899-8bae-96b793c0fe22/',
+            image: '/pages/events/04_10_25.png',
+        },
         // {
         //     date: '11-17 сентября 2023',
         //     title: `<p class="uppercase font-extralight">Поэзия</p><span class="font-extrabold uppercase">детской дерматологии</span>`,
