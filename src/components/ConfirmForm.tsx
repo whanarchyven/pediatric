@@ -852,7 +852,7 @@ a[x-apple-data-detectors] {
 
 
     return (
-        <div className={'flex gap-4 h-full flex-col'}>
+        <div className={'flex gap-4 h-full overflow-y-scroll flex-col'}>
             <p className={'text-[#0F5F5A] text-2xl sm:text-4xl font-light'}>ВЫ ПОДТВЕРЖДАЕТЕ <br/> <span
                 className={'font-extrabold'}>СВОЕ УЧАСТИЕ?</span></p>
             {participationType == 'online-free' ?
