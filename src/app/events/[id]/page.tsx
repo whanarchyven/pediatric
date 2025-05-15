@@ -163,6 +163,8 @@ export default function Page({params}: any) {
         const today = new Date();
         let events=event?.prices??[]
 
+
+
         // setNeedPrice(events[0])
         // setNeedPriceNext(events[1]?.date)
         for (let i = 0; i < events.length; i++) {
@@ -174,6 +176,8 @@ export default function Page({params}: any) {
                 setNeedPriceNext(events[i<2?i+1:2]?.date)
             }
         }
+
+        console.log(needPrice,'NEED PRICE')
 
 
 
@@ -576,7 +580,7 @@ export default function Page({params}: any) {
             </div>:null}
 
 
-            {!event?.isOnlyOnline && event?.type != 'Марафон' && (registration?.meta?.participationType != "online-free"||isAdmin)&& (new Date(needPrice.date)>new Date())?
+            {!event?.isOnlyOnline && event?.type != 'Марафон' && (registration?.meta?.participationType != "online-free"||isAdmin)&& (new Date(needPrice.date).setHours(0,0,0,0) >= new Date().setHours(0,0,0,0))?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[140px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
 
