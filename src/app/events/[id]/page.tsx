@@ -919,6 +919,11 @@ export default function Page({params}: any) {
                           target={'_blank'}
                           href={'/kpfile09_11.pdf'}>Коммерческое предложение</Link> : null}
 
+                {event?.date == '07.06.2025'?
+                    <Link className={' text-dark-green underline mb-12 text-xl font-bold px-[20px] lg:px-[140px]'}
+                          target={'_blank'}
+                          href={'/kpfile_07_06.pdf'}>Коммерческое предложение</Link> : null}
+
 
                 {/*{event?.date == '08.06.2024' ?*/}
                 {/*    <Link className={' text-dark-green underline mb-12 text-xl font-bold px-[20px] lg:px-[140px]'}*/}
