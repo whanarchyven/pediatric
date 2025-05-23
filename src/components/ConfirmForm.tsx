@@ -74,9 +74,11 @@ const ConfirmForm = ({closeFunc, price, event_id, event_name, participationType,
                     console.log('TICKET',res.data.ticketLink)
                     console.log('QRCODE',res.data.qrCode)
                     await axios.post('/api/lead/', {
-                            email: String(email),
+                            user_email: String(email),
+                            out_sum:price,
                             customer: String(`${lastName} ${firstName} ${middleName}`),
                             event: String(event_id),
+                            description: String(`Оплата за участие в мероприятии ${event_name}`),
                             transactions: {
                                 initial: {
                                     amountRub: price,
@@ -842,7 +844,12 @@ a[x-apple-data-detectors] {
                             }
                         },
                     ).then((response) => {
-                        router.push(response.data)
+                      console.log('response',response)
+                      if(response.data.status == 'registered'){
+                        router.push(`/events/${event_id}/OK`)
+                        return
+                      }
+                        router.push(response.data.payment_link)
                     })
 
                 })
