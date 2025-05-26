@@ -46,7 +46,7 @@ const ConfirmForm = ({closeFunc, price, event_id, event_name, participationType,
                 setPhone(res.data.profile.phoneNumber)
                 setIsLoggedIn(true)
             }
-            if (res?.data?.isAdmin) {
+            if (res?.data?.isAdmin||price==0) {
                 setIsPayed(true)
                 console.log('true');
             } else {
