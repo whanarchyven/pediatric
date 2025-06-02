@@ -73,6 +73,13 @@ export default function Home(params: { params: { user_uuid: string, event_id: st
         }
     }, [participation]);
 
+    if(ticketLink=='/'){
+        return <div className={'flex flex-col items-center justify-center gap-3 h-screen'}>
+            <p className={'text-2xl font-bold'}>Билет не найден или вы не авторизованы!</p>
+            <Link href={'/login'} className={'bg-green text-white px-4 py-2 rounded-lg font-bold'}>Войти в аккаунт</Link>
+        </div>
+    }
+
     return (
         <main className={'p-2 lg:p-12'}>
             <div className={'flex justify-between'}>
@@ -102,9 +109,9 @@ export default function Home(params: { params: { user_uuid: string, event_id: st
                     <div className={'flex flex-col gap-5 mt-6'}>
                         <p className={'text-xl font-light'}>Предъявите данный QR-код на входе в место проведения
                             мероприятия</p>
-                        {event?.date=='09.11.2024'?<p className={'text-xl font-light'}>Также вы можете <span
+                        {event?.date=='07.06.2025'?<p className={'text-xl font-light'}>Также вы можете <span
                             className={'font-bold'}>скачать</span> свой билет в Google Wallet или Apple Wallet</p>:null}
-                        {event?.date=='09.11.2024'?<Link href={ticketLink}
+                        {event?.date=='07.06.2025'?<Link href={ticketLink}
                                                                 className={'w-full lg:w-96 bg-green p-3 flex items-center justify-center rounded-lg font-bold text-white'}>
                             Скачать билет на телефон
                         </Link>:null}
