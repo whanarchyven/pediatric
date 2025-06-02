@@ -74,8 +74,8 @@ export default function Home(params: { params: { user_uuid: string, event_id: st
     }, [participation]);
 
     if(ticketLink=='/'){
-        return <div className={'flex flex-col items-center justify-center gap-3 h-screen'}>
-            <p className={'text-2xl font-bold'}>Билет не найден или вы не авторизованы!</p>
+        return <div className={'flex flex-col px-5 items-center justify-center gap-3 h-screen'}>
+            <p className={'text-2xl font-bold text-center'}>Билет не найден или вы не авторизованы!</p>
             <Link href={'/login'} className={'bg-green text-white px-4 py-2 rounded-lg font-bold'}>Войти в аккаунт</Link>
         </div>
     }
