@@ -793,7 +793,7 @@ export default function Page({params}: any) {
                 </div> : null}
 
 
-            {haveAccessToStream||event?.date=='26.04.2025' ?
+            {haveAccessToStream||event?.date=='07.06.2025' ?
                 <div className={'bg-white relative lg:py-0 py-12 px-[20px] lg:px-[90px] '}>
                     <div id={'form'} className={'absolute -top-40'}></div>
                     <div
@@ -825,7 +825,7 @@ export default function Page({params}: any) {
                         <iframe
         width="1280"
         height="720"
-        src={currentStream}
+        src={`${currentStream}?sr=6227&type_id=&width=1280&height=720&iframe_width=1280&iframe_height=720&lang=ru`}
         frameBorder="0"
         allow="clipboard-write; autoplay"
         webkitAllowFullScreen
@@ -843,7 +843,7 @@ export default function Page({params}: any) {
                         <iframe
         width="320"
         height="240"
-        src={currentStream}
+        src={`${currentStream}?sr=6227&type_id=&width=320&height=240&iframe_width=320&iframe_height=240&lang=ru`}
         frameBorder="0"
         allow="clipboard-write; autoplay"
         webkitAllowFullScreen

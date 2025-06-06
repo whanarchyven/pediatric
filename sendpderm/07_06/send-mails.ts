@@ -19,7 +19,7 @@ const send = async () => {
 
     const data = require(path.join(__dirname, '07_06_filtered.json'));
 
-    const users=data.filter(item=>item.meta.participationType=='offline'&&(item.email=='ivanlom227@gmail.com'||item.email=="savelova.derma@gmail.com"))
+    const users=data.filter(item=>item.meta.participationType=='offline')
     // console.log(users,users.length)
     return users
 
