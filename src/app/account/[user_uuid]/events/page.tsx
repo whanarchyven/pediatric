@@ -52,7 +52,7 @@ export default function Home(params: { params: { user_uuid: string } }) {
     const events=eventsTempData?.data?.events
 
     const certLink = (event_id:string)=>
-    `/api2/user/${user_uuidTemp}/participations/byEventId/${event_id}/getCert`
+    `https://www.pediatric-dermatology.ru/api2/user/${user_uuidTemp}/participations/byEventId/${event_id}/getCert`
 
 
     console.log(participations,'asdasdasd')
