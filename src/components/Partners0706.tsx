@@ -31,11 +31,11 @@ const Partners0706 = () => {
     const news = [
         {
             image: '/partners/JJ_Logo_SingleLine_Red_RGB.png',
-            link:''
+            link:'https://www.janssen.com/russia/products/immunologiya'
         },
         {
             image: '/partners/OUS_Viatris_Logo_Horiz_RGB.png',
-            link:''
+            link:'https://www.viatris.ru/?ysclid=mcd9xw0vyg131256867'
         },
 
 

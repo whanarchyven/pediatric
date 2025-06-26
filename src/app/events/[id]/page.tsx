@@ -527,8 +527,8 @@ export default function Page({params}: any) {
                               whileInView={{y: 0, opacity: 1}}
                               viewport={{once: true}}
                               transition={{ease: 'easeInOut', duration: 0.7}}
-                              className={'uppercase font-extralight text-black lg:text-left text-center lg:text-2xl lg:text-4xl'}>Партнёры <strong
-                        className={'font-extrabold'}>Конференции</strong></motion.p>
+                              className={'uppercase font-extralight text-black lg:text-left text-center lg:text-2xl lg:text-4xl'}>Серебряные <strong
+                        className={'font-extrabold'}>Спонсоры</strong></motion.p>
                     <Partners0706></Partners0706>
                 </div> : null}
 
