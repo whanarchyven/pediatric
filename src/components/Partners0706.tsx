@@ -37,6 +37,10 @@ const Partners0706 = () => {
             image: '/partners/OUS_Viatris_Logo_Horiz_RGB.png',
             link:'https://www.viatris.ru/?ysclid=mcd9xw0vyg131256867'
         },
+        {
+            image: '/partners/jgl_only_logo',
+            link: 'https://www.jadran.ru/'
+        }
 
 
 
