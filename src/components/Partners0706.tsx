@@ -38,7 +38,7 @@ const Partners0706 = () => {
             link:'https://www.viatris.ru/?ysclid=mcd9xw0vyg131256867'
         },
         {
-            image: '/partners/jgl_only_logo',
+            image: '/partners/jgl_only_logo.jpg',
             link: 'https://www.jadran.ru/'
         }
 
